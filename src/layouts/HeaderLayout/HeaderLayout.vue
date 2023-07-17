@@ -1,5 +1,5 @@
 <template>
-  <header class="bg-sky-500">
+  <header class="bg-[#87cefa87]">
     <v-container class="flex z-50 items-center justify-between">
       <HeaderLogo />
 
