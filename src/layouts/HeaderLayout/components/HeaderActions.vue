@@ -1,5 +1,5 @@
 <template>
-  <div class="actions gap-[10px] items-center mt-[25px] hidden lg:flex">
+  <div class="actions gap-[10px] items-center mt-[25px] ">
     <div class="language relative inline-block">
       <select
         name=""
