@@ -5,7 +5,8 @@
 
 			<div class="actions flex h-[50px] items-center gap-[10px] ">
 
-				<HeaderActions @openMenu="toggleMenu" />
+				<HeaderActions  />
+				<HeaderMenuAction @openMenu="toggleMenu"/>
 				<HeaderSwitcherTheme class="mt-[21px] hidden lg:flex"/>
 				<HeaderContact class="mt-[21px] hidden lg:flex"/>
 				<HeaderLogout class="mt-[21px] hidden lg:flex"/>
@@ -23,6 +24,8 @@ import HeaderSwitcherTheme from "./components/HeaderSwitcherTheme.vue";
 import HeaderContact from "./components/HeaderContact.vue";
 import HeaderLogout from "./components/HeaderLogout.vue";
 import HiddenMenu from "./components/HiddenMenu.vue"
+
+import HeaderMenuAction from "./components/HeaderMenuAction.vue";
 export default {
 	data(){
 		return {
@@ -40,8 +43,9 @@ export default {
     HeaderSwitcherTheme,
     HeaderContact,
     HeaderLogout,
-		HiddenMenu
-  },
+    HiddenMenu,
+    HeaderMenuAction
+},
 };
 </script>
 <style>
