@@ -1,4 +1,4 @@
-<template>
+<template >
   <div
     class="hidden-menu fixed right-0 top-0 w-1/2 h-full p-5 flex flex-col"
     :class="{ 'bg-[#526d82]': isDarkMode, 'bg-[#F8FCFF]': !isDarkMode }"
@@ -27,7 +27,8 @@
       </div>
     </div>
   </div>
-</template>
+	
+</template >
 
 <script>
 import HeaderLogo from "./HeaderLogo.vue";
