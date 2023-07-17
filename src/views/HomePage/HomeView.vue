@@ -4,12 +4,12 @@
     <section>
       <v-container>
         <div
-          class="search relative w-[1000px] bg-[#e1e5ea] h-[230px] mt-[200px] mx-auto flex"
+          class="search relative w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
             <div class="nav-tabs flex flex-col">
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[18.7px] px-[20px] hover:bg-[#beb5b5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-1')"
                 :class="{ active: isActive('tab-1') }"
               >
@@ -21,7 +21,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[18.7px] px-[20px] hover:bg-[#beb5b5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-2')"
                 :class="{ active: isActive('tab-2') }"
               >
@@ -33,7 +33,8 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[18.7px] px-[20px] hover:bg-[#beb5b5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
+								
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
               >
@@ -45,7 +46,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[18.7px] px-[20px] hover:bg-[#beb5b5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
               >
@@ -61,32 +62,32 @@
 
           <div class="filter-btns mr-10 h-[50px]">
             <button
-              class="filter-btn bg-[#d3d3d3] py-[16px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
             >
               New
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[16px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
             >
               Used
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[16px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
             >
               Rentel
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[16px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
             >
               Carash car
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[16px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
             >
               Steeriy
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[16px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
             >
               Classic cars
             </button>
@@ -216,5 +217,7 @@ select:focus {
 .active svg path {
   fill: #e04b00;
 }
-
+.active{
+	background: #f5f5f5;
+}
 </style>

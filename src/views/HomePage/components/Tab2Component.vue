@@ -1,12 +1,12 @@
 <template>
   <div class="for-example">
     <div class="top flex items-center gap-[20px]">
-      <div class="mark">
+			<div class="mark">
         <div>
           <div class="relative">
             <h2>Make</h2>
             <select
-              class="mark-select w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
+              class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
             >
               <option>Beliebig</option>
 
@@ -24,7 +24,7 @@
       <div class="relative">
         <h2>Model</h2>
         <select
-          class="marke_select w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           placeholder="Beliebig"
         >
           <option value="">Beliebig</option>
@@ -40,13 +40,13 @@
         <div class="mark-select relative">
           <input
             placeholder="Beliebig"
-            class="no-spinner mark_input outline-none bg-white w-[170px] h-[35px] rounded-[10px] py-[6px] px-[5px] font-normal"
+            class="no-spinner mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
             type="number"
             pattern="\d*"
             v-model="selectedYear"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px]"
+            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute lg:right-[28px] xl:right-[0px]"
             v-model="selectedYear"
             @change="updateSelect"
           >
@@ -58,7 +58,7 @@
             <option value="300">300 € mtl</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-4"
+            class="arrow w-[7px] h-[7px] absolute lg:right-[35px] xl:right-[7px] lg:bottom-[15px] xl:bottom-4"
           ></span>
         </div>
       </div>
@@ -68,13 +68,13 @@
           <input
             placeholder="Beliebig"
             id="inputYear"
-            class="mark_input w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            class="mark_input mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px]"
+            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute lg:right-[55px] xl:right-[0px]"
             v-model="killometres"
             @change="updateSelect"
           >
@@ -95,7 +95,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute right-[7px] top-[38px]"
+            class="arrow w-[7px] h-[7px] absolute lg:right-[61px] xl:right-[7px] top-[38px]"
           ></span>
         </div>
       </div>
@@ -105,7 +105,7 @@
         <h2 class="mt-2">Category</h2>
 
         <select
-          class="mark-select w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
+          class="mark-select mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
         >
           <option>Beliebig</option>
 
@@ -124,14 +124,14 @@
             <div class="marke_select_div">
               <input
                 placeholder="Beliebig"
-                class="mark_input w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                class="mark_input mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
                 type="number"
                 pattern="\d*"
                 v-model="price"
                 @change="updateSelect"
               />
               <select
-                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] right-[380px] outline-none py-[7px] absolute"
+                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
                 v-model="price"
               >
 							<option value="50">50 € mtl</option>
@@ -142,20 +142,20 @@
             <option value="300">300 € mtl</option>
               </select>
               <span
-                class="arrow w-[7px] h-[7px] absolute right-[386px] top-[105px]"
+                class="arrow w-[7px] h-[7px] absolute lg:right-[325px] xl:right-[386px] top-[105px]"
               ></span>
             </div>
           </div>
           <div>
             <h2 class="mt-2">City or ZIP code</h2>
             <input
-              class="mark_input_zip w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+              class="mark_input_zip mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
               placeholder="Beliebig"
             />
           </div>
           <div
-            class="resultast_div flex items-center gap-[8px] w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
+            class="resultast_div flex items-center gap-[8px] w-[100px] lg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
           >
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
               <path
@@ -179,7 +179,6 @@ export default {
       selectedYear: "",
       killometres: "",
       price: "",
-      activeTab: "tab-1",
     };
   },
 
@@ -191,26 +190,8 @@ export default {
     updateSelect() {
       this.selectedMake = this.selectedYear;
       this.selectedMake = this.killometres;
-
-      if (this.selectedMake === "tab-1") {
-        this.activeTab = "tab-1";
-      } else if (this.selectedMake === "tab-2") {
-        this.activeTab = "tab-2";
-      }
-    },
-    showTab1() {
-      this.activeTab = "tab-1";
-    },
-    showTab2() {
-      this.activeTab = "tab-2";
-    },
   },
-  computed: {
-    isTabActive() {
-      return this.activeTab === "tab-1";
-    },
-  },
-};
+}}
 </script>
 <style>
 .mark-input2 {

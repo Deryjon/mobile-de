@@ -1,12 +1,11 @@
 <template>
-  <div class="actions flex gap-[10px] items-center mt-[25px]">
+  <div class="actions gap-[10px] items-center mt-[25px] hidden lg:flex">
     <div class="language relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] py-[6px] px-[10px] text-lg font-normal pr-[30px]"
+        class="outline-none rounded-[10px] py-[6px] px-[10px] text-base font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
         v-model="selectedLanguage"
-      
       >
         <option v-for="lang in supportedLanguages" :value="lang" :key="lang">
           {{ $t(lang) }}
@@ -25,7 +24,7 @@
     <div class="web-side relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] py-[6px] px-[10px] text-lg font-normal pr-[30px]"
+        class="outline-none rounded-[10px] py-[6px] px-[10px] text-base font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
       >
         <option value="bel">Belgium</option>
@@ -48,7 +47,7 @@
     <div class="write-pads relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] py-[6px] px-[10px] text-lg font-normal pr-[30px]"
+        class="outline-none rounded-[10px] py-[6px] px-[10px] text-base font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
       >
         <option value="ar">Arabic</option>
@@ -67,13 +66,13 @@
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
     <button
-  class="btn outline-none rounded-[10px] py-[6px] px-[5px] text-lg font-normal"
-  :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
->
-  {{ $t("sell") }}
-</button>
-
+      class="btn outline-none rounded-[10px] py-[6px] px-[5px] text-base font-normal"
+      :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
+    >
+      {{ $t("sell") }}
+    </button>
   </div>
+	
 </template>
 <script>
 import { useDarkModeStore } from "@/store/index.js";
@@ -91,7 +90,15 @@ export default defineComponent({
 
     const selectedLanguage = ref(locale.value); // Используйте значение по умолчанию, равное текущей локали
 
-    const supportedLanguages = ["English", "France", "Germany", "Spanish", "Swedish", "Russa", "Polish"];
+    const supportedLanguages = [
+      "English",
+      "France",
+      "Germany",
+      "Spanish",
+      "Swedish",
+      "Russa",
+      "Polish",
+    ];
 
     watch(selectedLanguage, (newVal) => {
       i18n.global.locale.value = newVal; // Измените глобальную локаль
@@ -109,7 +116,6 @@ export default defineComponent({
   },
 });
 </script>
-
 
 <style scoped>
 select {

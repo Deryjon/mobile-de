@@ -3,7 +3,7 @@
     <div class="logo lg:ml-0 w-[70px] lg:w-[70px] h-[45px] lg:h-[54px ]">
       <img src="../../../assets/images/logo.png" alt="header-logo" />
     </div>
-    <p class="text-[26px] font-extrabold pt-6" :class="{ 'dark': isDarkMode, 'text-white': isDarkMode }">SellCenter</p>
+    <p class="text-[26px] font-extrabold pt-6 title" :class="{ 'dark': isDarkMode, 'text-white': isDarkMode }">SellCenter</p>
   </div>
 </template>
 
@@ -52,5 +52,8 @@ export default defineComponent({
 /* Other styles */
 .font-extrabold {
   font-weight: 800;
+}
+.title{
+	font-family: "Roman";
 }
 </style>

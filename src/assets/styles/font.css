@@ -19,3 +19,8 @@
 	src: url('../fonts/Ubuntu/Ubuntu-Bold.ttf');
 	font-weight: 700;
 }
+@font-face {
+	font-family: 'Roman';
+	src: url('../fonts/Roman/times-new-roman.ttf');
+	font-weight: 700;
+}
