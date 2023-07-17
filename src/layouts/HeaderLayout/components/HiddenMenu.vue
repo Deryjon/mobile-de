@@ -1,6 +1,6 @@
 <template>
   <div
-    class="hidden-menu fixed left-0 top-0 w-full h-full p-5 flex flex-col"
+    class="hidden-menu fixed right-0 top-0 w-1/2 h-full p-5 flex flex-col"
     :class="{ 'bg-[#526d82]': isDarkMode, 'bg-[#F8FCFF]': !isDarkMode }"
   >
     <div class="wrapper">
