@@ -81,11 +81,16 @@
             >
               Carash car
             </button>
-            <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+            <select
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
             >
-              Steeriy
-            </button>
+              <option value="">Steeriy</option>
+              <option value="">Left hand drive</option>
+              <option value="">Left hand drive</option>
+            </select>
+						<span
+              class="arrow w-[7px] h-[7px] absolute right-[420px] top-[25px]"
+            ></span>
             <button
               class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
@@ -180,6 +185,9 @@ export const focusDirective = {
 .filter-btn {
   border: 1px solid #605e5e;
 }
+.filter-btn:hover{
+	box-shadow: 0 0 2px 1px #6a6acc;
+}
 select {
   border: 1px solid #7b7c80;
 }
@@ -219,5 +227,12 @@ select:focus {
 }
 .active{
 	background: #f5f5f5;
+}
+.arrow {
+  transform: translateY(-50%);
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(135deg);
+  pointer-events: none;
 }
 </style>

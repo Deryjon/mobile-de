@@ -88,7 +88,9 @@ export default defineComponent({
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
 
-    const selectedLanguage = ref(locale.value); // Используйте значение по умолчанию, равное текущей локали
+
+
+    const selectedLanguage = ref("English"); // Используйте значение по умолчанию, равное текущей локали
 
     const supportedLanguages = [
       "English",
@@ -114,6 +116,11 @@ export default defineComponent({
       $t: t,
     };
   },
+	data(){
+		return{
+			def: "English"
+		}
+	}
 });
 </script>
 
