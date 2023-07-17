@@ -12,6 +12,8 @@ import './assets/styles/main.css'
 const app = createApp(App);
 const pinia = createPinia();
 
+app.config.globalProperties.$i18n = i18n
+
 app.use(pinia)
 app.use(router);
 app.use(vuetify)

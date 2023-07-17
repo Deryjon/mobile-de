@@ -6,10 +6,10 @@
         class="outline-none rounded-[10px] py-[6px] px-[10px] text-lg font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
         v-model="selectedLanguage"
-        @change="changeLanguage"
+      
       >
         <option v-for="lang in supportedLanguages" :value="lang" :key="lang">
-          {{ lang }}
+          {{ $t(lang) }}
         </option>
         <!-- <option value="en">English</option>
         <option value="fr">France</option>
@@ -67,59 +67,50 @@
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
     <button
-      class="btn outline-none rounded-[10px] py-[6px] px-[5px] text-lg font-normal"
-      :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
-    >
-      {{ $t("sell") }}
-    </button>
+  class="btn outline-none rounded-[10px] py-[6px] px-[5px] text-lg font-normal"
+  :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
+>
+  {{ $t("sell") }}
+</button>
+
   </div>
 </template>
 <script>
 import { useDarkModeStore } from "@/store/index.js";
-import { defineComponent, computed } from "vue";
+import { ref, defineComponent, computed, watch } from "vue";
 import i18n from "../../../libs/i18n";
 import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
+    const { locale, t } = useI18n();
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
 
-    const { locale, t } = useI18n();
+    const selectedLanguage = ref(locale.value); // Используйте значение по умолчанию, равное текущей локали
 
-    const supportedLanguages = [
-      "English",
-      "France",
-      "Germany",
-      "Spanish",
-      "Swedish",
-      "Russia",
-      "Polish",
-    ];
+    const supportedLanguages = ["English", "France", "Germany", "Spanish", "Swedish", "Russa", "Polish"];
 
-    let selectedLanguage = locale.value;
+    watch(selectedLanguage, (newVal) => {
+      i18n.global.locale.value = newVal; // Измените глобальную локаль
 
-		if(locale.value = "fr"){
-			console.log(123);
-		}
-
-    const changeLanguage = () => {
-      locale.value = selectedLanguage;
-    };
+      // Другие действия, которые нужно выполнить при изменении языка
+    });
 
     return {
       isDarkMode,
       toggleDarkMode,
       selectedLanguage,
       supportedLanguages,
-      changeLanguage,
       $t: t,
     };
   },
 });
 </script>
+
+
 <style scoped>
 select {
   border: 1px solid #7b7c80;
