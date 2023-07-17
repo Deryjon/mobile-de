@@ -60,34 +60,34 @@
             </div>
           </div>
 
-          <div class="filter-btns mr-10 h-[50px]">
+          <div class="filter-btns mr-10 h-[30px] lg:h-[50px]">
             <button
-              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               New
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Used
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Rentel
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Carash car
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Steeriy
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[17.5px] px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Classic cars
             </button>

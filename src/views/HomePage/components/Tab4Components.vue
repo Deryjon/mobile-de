@@ -11,7 +11,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/truckess.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Trucks over 7.5 t</h3>
         </div>
@@ -24,7 +24,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/busess.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Buses and Coaches</h3>
         </div>
@@ -39,7 +39,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/rucks-over-mini.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Trucks over 7.5 t</h3>
         </div>
@@ -52,7 +52,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/buses.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Buses and Coaches</h3>
         </div>
@@ -67,7 +67,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/vans.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Trucks over 7.5 t</h3>
         </div>
@@ -80,7 +80,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/machines.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Buses and Coaches</h3>
         </div>
@@ -95,7 +95,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/coaches.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Trucks over 7.5 t</h3>
         </div>
@@ -108,7 +108,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/trucks-noim.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Buses and Coaches</h3>
         </div>
@@ -123,7 +123,7 @@
             data-nimg="1"
             style="color: transparent"
             src="../../../assets/images/trucks-over.svg"
-						class="mx-auto lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
+						class="mx-auto sm:w-[40px] lg:w-[50px] xl:w-[70px]  xl:h-[70x]"
           />
           <h3 class="cars_taxt text-center">Trucks over 7.5 t</h3>
         </div>
@@ -186,5 +186,30 @@ export default {};
     height: 70px;
     text-align: center;
     padding: 10px;
+}
+@media screen and (min-width: 640px)  {
+	
+}
+.cars_cars_car2 {
+    border-right: 1px solid #35373d;
+    border-bottom: 1px solid #35373d;
+    width: 90px;
+    outline: hidden;
+    height: 70px;
+    text-align: center;
+}
+.cars_car2 {
+    border-bottom: 1px solid #35373d;
+    width: 90px;
+    outline: hidden;
+    height: 70px;
+    text-align: center;
+}
+.cars_cars_car {
+    border-right: 1px solid #35373d;
+    width: 90px;
+    height: 70px;
+    text-align: center;
+    padding: 5px;
 }
 </style>
