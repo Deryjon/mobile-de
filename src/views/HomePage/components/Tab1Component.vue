@@ -3,7 +3,7 @@
     <div class="top flex items-center gap-[20px]">
       <div class="mark">
         <div class="relative">
-          <h2>Mark</h2>
+          <h2 class="text-sm lg:text-[16px]">Mark</h2>
           <select
             class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
           >
@@ -81,7 +81,7 @@
         </div>
       </div>
       <div class="relative">
-        <h2>Model</h2>
+        <h2 class="text-sm lg:text-[16px]">Model</h2>
         <select
           class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           placeholder="Beliebig"
@@ -122,7 +122,7 @@
         </div>
       </div>
       <div class="">
-        <h2>Kilometer bis</h2>
+        <h2 class="text-sm lg:text-[16px]">Kilometer bis</h2>
         <div class="marke_select_div flex">
           <input
             placeholder="Beliebig"
@@ -159,27 +159,30 @@
         </div>
       </div>
     </div>
-    <div class="bottom-all flex gap-[20px]">
-      <div class="relative">
-        <h2 class="mt-2">Category</h2>
-
-        <select
-          class="mark-select mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
-        >
-          <option>Beliebig</option>
-
-          <option value="1900">Audi</option>
-          <option value="3500">BMW</option>
-          <option value="17200">Mercedes-Benz</option>
-          <option value="25200">Volkswagen</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+    <div class="bottom-all flex gap-[10px] lg:gap-[20px]">
+      <div>
+        <h2 class="mt-2 text-sm lg:text-[16px]">Type of ad</h2>
+        <div class="Kaufen_div">
+          <button
+            class="Kaufen p-[4px] w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab1"
+            :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
+          >
+            Sell
+          </button>
+          <button
+            class="Kaufen p-[4px] w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab2"
+            :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
+          >
+            Buy
+          </button>
+        </div>
       </div>
-
       <div class="tab-content">
         <div class="bottom tab-panel flex items-center gap-[20px]">
           <div class="mt-2">
-            <h2 class="bis">Price up to</h2>
+            <h2 class="text-sm lg:text-[16px]">Price up to</h2>
             <div class="marke_select_div">
               <input
                 placeholder="Beliebig"
@@ -206,7 +209,7 @@
             </div>
           </div>
           <div>
-            <h2 class="mt-2">City or ZIP code</h2>
+            <h2 class="mt-2 text-sm lg:text-[16px]">City or ZIP code</h2>
             <input
               class="mark_input_zip mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
@@ -243,6 +246,7 @@ export default {
       selectedYear: "",
       killometres: "",
       price: "",
+			activeTab: "tab-1",
     };
   },
 
@@ -254,6 +258,19 @@ export default {
     updateSelect() {
       this.selectedMake = this.selectedYear;
       this.selectedMake = this.killometres;
+			
+      if (this.selectedMake === "tab-1") {
+        this.activeTab = "tab-1";
+      } else if (this.selectedMake === "tab-2") {
+        this.activeTab = "tab-2";
+      }
+			
+    },
+		showTab1() {
+      this.activeTab = "tab-1";
+    },
+    showTab2() {
+      this.activeTab = "tab-2";
     },
   },
 };

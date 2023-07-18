@@ -1,11 +1,11 @@
 <template >
   <div
     class="hidden-menu fixed right-0 top-0 w-1/2 h-full p-5 flex flex-col "
-
+	
     :class="{ 'bg-[#526d82]': isDarkMode, 'bg-[#F8FCFF]': !isDarkMode }"
   >
     <div class="wrapper"
-		@click="$emit('closeMenu')"
+
 		>
       <div class="head flex items-center justify-between pt-3">
         <HeaderLinks />
@@ -29,7 +29,7 @@
 				@click="$emit('closeMenu')"
 				/>
 				<HeaderLogout class="flex justify-center mx-auto mt-[10px]"
-				@click="$emit('closeMenu')"
+				
 				/>
       </div>
     </div>

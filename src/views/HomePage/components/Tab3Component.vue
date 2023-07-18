@@ -3,7 +3,7 @@
     <div class="top flex items-center gap-[20px]">
       <div class="mark">
 				<div class="relative">
-					<h2>Mark</h2>
+					<h2 class="text-sm lg:text-[16px]">Mark</h2>
             <select
               class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
             >
@@ -13,6 +13,12 @@
                 <option value="14800">Land Rover</option>
                 <option value="14845">Landwind</option>
                 
+                <option value="25100">Volvo</option>
+                <option value="25300">Wartburg</option>
+                <option value="113">Westfield</option>
+                <option value="31956">WEY</option>
+                <option value="25650">Wiesmann</option>
+                <option value="1400">Andere</option>
               </optgroup>
             </select>
             <span
@@ -22,7 +28,7 @@
         </div>
       </div>
       <div class="relative">
-        <h2>Model</h2>
+        <h2 class="text-sm lg:text-[16px]">Model</h2>
         <select
           class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           placeholder="Beliebig"
@@ -63,7 +69,7 @@
         </div>
       </div>
       <div class="">
-        <h2>Kilometer bis</h2>
+        <h2 class="text-sm lg:text-[16px]">Kilometer bis</h2>
         <div class="marke_select_div flex">
           <input
             placeholder="Beliebig"
@@ -102,7 +108,7 @@
     </div>
     <div class="bottom-all flex gap-[20px]">
       <div class="relative">
-        <h2 class="mt-2">Category</h2>
+        <h2 class="mt-2 text-sm lg:text-[16px]">Category</h2>
 
         <select
           class="mark-select mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
@@ -120,7 +126,7 @@
       <div class="tab-content">
         <div class="bottom tab-panel flex items-center gap-[20px]">
           <div class="mt-2">
-            <h2 class="bis">Price up to</h2>
+            <h2 class="bis text-sm lg:text-[16px]">Price up to</h2>
             <div class="marke_select_div">
               <input
                 placeholder="Beliebig"
@@ -147,7 +153,7 @@
             </div>
           </div>
           <div>
-            <h2 class="mt-2">City or ZIP code</h2>
+            <h2 class="mt-2 text-sm lg:text-[16px]">City or ZIP code</h2>
             <input
               class="mark_input_zip mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
