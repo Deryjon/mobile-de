@@ -1,36 +1,89 @@
 <template>
   <div class="for-example">
-    <div class="top flex items-center gap-[20px]">
+    <div class="top lg:flex flex-wrap w-[250px] sm:w-full items-center gap-[20px]">
       <div class="mark">
-				<div class="relative">
-					<h2 class="text-sm lg:text-[16px]">Mark</h2>
-            <select
-              class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
-            >
-						<optgroup>
-          <option value="14600">Lamborghini</option>
-                <option value="14700">Lancia</option>
-                <option value="14800">Land Rover</option>
-                <option value="14845">Landwind</option>
-                
-                <option value="25100">Volvo</option>
-                <option value="25300">Wartburg</option>
-                <option value="113">Westfield</option>
-                <option value="31956">WEY</option>
-                <option value="25650">Wiesmann</option>
-                <option value="1400">Andere</option>
-              </optgroup>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-            ></span>
-        
+        <div class="relative">
+          <h2 class="text-sm lg:text-[16px]">Mark</h2>
+          <select
+            class="mark-select w-full  xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
+          >
+            <optgroup>
+              <option value="14600">Lamborghini</option>
+              <option value="14700">Lancia</option>
+              <option value="14800">Land Rover</option>
+              <option value="14845">Landwind</option>
+              <option value="31933">LEVC</option>
+              <option value="15200">Lexus</option>
+              <option value="15400">Ligier</option>
+              <option value="15500">Lincoln</option>
+              <option value="15900">Lotus</option>
+              <option value="31934">Lynk &amp;Co</option>
+              <option value="16200">Mahindra</option>
+              <option value="16500">MAN</option>
+              <option value="16600">Maserati</option>
+              <option value="31896">Maxus</option>
+              <option value="16700">Maybach</option>
+              <option value="16800">Mazda</option>
+              <option value="137">McLaren</option>
+              <option value="17200">Mercedes-Benz</option>
+              <option value="17300">MG</option>
+              <option value="30011">Microcar</option>
+              <option value="17500">MINI</option>
+              <option value="17700">Mitsubishi</option>
+              <option value="17900">Morgan</option>
+              <option value="31954">NIO</option>
+              <option value="18700">Nissan</option>
+              <option value="18875">NSU</option>
+              <option value="18975">Oldsmobile</option>
+              <option value="19000">Opel</option>
+              <option value="31955">ORA</option>
+              <option value="149">Pagani</option>
+              <option value="19300">Peugeot</option>
+              <option value="19600">Piaggio</option>
+              <option value="19800">Plymouth</option>
+              <option value="4">Polestar</option>
+              <option value="20000">Pontiac</option>
+              <option value="20100">Porsche</option>
+              <option value="20200">Proton</option>
+              <option value="20700">Renault</option>
+              <option value="21600">Rolls-Royce</option>
+              <option value="21700">Rover</option>
+              <option value="125">Ruf</option>
+              <option value="21800">Saab</option>
+              <option value="22000">Santana</option>
+              <option value="22500">Seat</option>
+              <option value="22900">Skoda</option>
+              <option value="23000">Smart</option>
+              <option value="188">speedART</option>
+              <option value="100">Spyker</option>
+              <option value="23100">Ssangyong</option>
+              <option value="23500">Subaru</option>
+              <option value="23600">Suzuki</option>
+              <option value="247">SWM</option>
+              <option value="23800">Talbot</option>
+              <option value="23825">Tata</option>
+              <option value="189">TECHART</option>
+              <option value="135">Tesla</option>
+              <option value="24100">Toyota</option>
+              <option value="24200">Trabant</option>
+              <option value="24400">Triumph</option>
+              <option value="24500">TVR</option>
+              <option value="25200">Volkswagen</option>
+              <option value="25100">Volvo</option>
+              <option value="25300">Wartburg</option>
+              <option value="113">Westfield</option>
+              <option value="31956">WEY</option>
+              <option value="25650">Wiesmann</option>
+              <option value="1400">Andere</option>
+            </optgroup>
+          </select>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
       </div>
       <div class="relative">
         <h2 class="text-sm lg:text-[16px]">Model</h2>
         <select
-          class="mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark-select w-full   xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           placeholder="Beliebig"
         >
           <option value="">Beliebig</option>
@@ -46,13 +99,13 @@
         <div class="mark-select relative">
           <input
             placeholder="Beliebig"
-            class="no-spinner mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
+            class="no-spinner mark-select w-full   xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
             type="number"
             pattern="\d*"
             v-model="selectedYear"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute sm:right-[13px] lg:right-[28px] xl:right-[0px]"
+            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] lg:right-[28px] xl:right-[0px]"
             v-model="selectedYear"
             @change="updateSelect"
           >
@@ -64,7 +117,7 @@
             <option value="300">300 € mtl</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute sm:right-[20px] lg:right-[35px] xl:right-[7px] sm:bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[35px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
           ></span>
         </div>
       </div>
@@ -74,13 +127,13 @@
           <input
             placeholder="Beliebig"
             id="inputYear"
-            class="mark_input mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            class="mark_input mark-select w-full   xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute sm:right-[0px] lg:right-[55px] xl:right-[0px]"
+            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[50px] lg:right-[55px] xl:right-[0px]"
             v-model="killometres"
             @change="updateSelect"
           >
@@ -101,72 +154,77 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute sm:top-[34px] sm:right-[6px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
+            class="arrow w-[7px] h-[7px] absolute top-[198px] right-[57px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
           ></span>
         </div>
       </div>
     </div>
-    <div class="bottom-all flex gap-[20px]">
-      <div class="relative">
-        <h2 class="mt-2 text-sm lg:text-[16px]">Category</h2>
-
-        <select
-          class="mark-select mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
-        >
-          <option>Beliebig</option>
-
-          <option value="1900">Audi</option>
-          <option value="3500">BMW</option>
-          <option value="17200">Mercedes-Benz</option>
-          <option value="25200">Volkswagen</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+    <div class="bottom-all flex flex-wrap gap-[10px] lg:gap-[20px]">
+      <div>
+        <h2 class="mt-2 text-sm lg:text-[16px]">Type of ad</h2>
+        <div class="Kaufen_div">
+          <button
+            class="Kaufen p-[4px] w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab1"
+            :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
+          >
+            Sell
+          </button>
+          <button
+            class="Kaufen p-[4px] w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab2"
+            :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
+          >
+            Buy
+          </button>
+        </div>
       </div>
-
       <div class="tab-content">
-        <div class="bottom tab-panel flex items-center gap-[20px]">
+        <div class="bottom tab-panel lg:flex items-center gap-[20px]">
           <div class="mt-2">
-            <h2 class="bis text-sm lg:text-[16px]">Price up to</h2>
+            <h2 class="text-sm lg:text-[16px]">Price up to</h2>
             <div class="marke_select_div">
               <input
                 placeholder="Beliebig"
-                class="mark_input mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                class="mark_input mark-select  w-full sxl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
                 type="number"
                 pattern="\d*"
                 v-model="price"
                 @change="updateSelect"
               />
               <select
-                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] sm:right-[250px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
+                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] right-[50px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
                 v-model="price"
               >
-							<option value="50">50 € mtl</option>
-            <option value="100">100 € mtl</option>
-            <option value="150">150 € mtl</option>
-            <option value="200">200 € mtl</option>
-            <option value="250">250 € mtl</option>
-            <option value="300">300 € mtl</option>
+                <option value="50">50 € mtl</option>
+                <option value="100">100 € mtl</option>
+                <option value="150">150 € mtl</option>
+                <option value="200">200 € mtl</option>
+                <option value="250">250 € mtl</option>
+                <option value="300">300 € mtl</option>
               </select>
               <span
-                class="arrow w-[7px] h-[7px] absolute sm:top-[98px] sm:right-[256px] lg:right-[325px] xl:right-[386px] lg:top-[105px]"
+                class="arrow w-[7px] h-[7px] absolute top-[332px] right-[57px] lg:right-[325px] xl:right-[386px] lg:top-[105px]"
               ></span>
             </div>
           </div>
           <div>
             <h2 class="mt-2 text-sm lg:text-[16px]">City or ZIP code</h2>
             <input
-              class="mark_input_zip mark-select w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+              class="mark_input_zip mark-select  w-full sxl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
               placeholder="Beliebig"
             />
           </div>
           <div
-            class="resultast_div flex items-center sm:gap-[2px] lg:gap-[8px] w-[100px] lg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
+            class="resultast_div flex items-center gap-[8px]  w-full slg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
           >
             <svg
               class="icon lg:w-[16px] lg:h-[16px]"
               viewBox="0 0 24 24"
               fill="none"
+							width="16"
+							height="16"
             >
               <path
                 d="M16.215 18.336a9 9 0 112.121-2.121L23.121 21 21 23.121l-4.785-4.785zM11 17.25a6.25 6.25 0 100-12.5 6.25 6.25 0 000 12.5z"
@@ -190,6 +248,7 @@ export default {
       selectedYear: "",
       killometres: "",
       price: "",
+			activeTab: "tab-1",
     };
   },
 
@@ -201,8 +260,22 @@ export default {
     updateSelect() {
       this.selectedMake = this.selectedYear;
       this.selectedMake = this.killometres;
+			
+      if (this.selectedMake === "tab-1") {
+        this.activeTab = "tab-1";
+      } else if (this.selectedMake === "tab-2") {
+        this.activeTab = "tab-2";
+      }
+			
+    },
+		showTab1() {
+      this.activeTab = "tab-1";
+    },
+    showTab2() {
+      this.activeTab = "tab-2";
+    },
   },
-}}
+};
 </script>
 <style>
 .mark-input2 {

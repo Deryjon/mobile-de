@@ -5,12 +5,12 @@
 		>
       <v-container>
         <div
-          class="search relative w-[350px] sm:w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[350px] sm:h-[240px] mt-[200px] mx-auto flex"
+          class="search relative w-[350px] sm:w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[560px] sm:h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
-            <div class="nav-tabs flex flex-col">
+            <div class="nav-tabs flex sm:flex-col">
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[23.8px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-1')"
                 :class="{ active: isActive('tab-1') }"
               >
@@ -22,7 +22,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[23.8px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-2')"
                 :class="{ active: isActive('tab-2') }"
               >
@@ -34,7 +34,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[23.8px] hover:bg-[#f5f5f5]"
 								
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
@@ -47,7 +47,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[20px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] px-[23.8px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
               >
@@ -61,7 +61,7 @@
             </div>
           </div>
 
-          <div class="filter-btns mr-10 h-[30px] lg:h-[50px]">
+          <!-- <div class="filter-btns mr-10 h-[30px] lg:h-[50px]">
             <button
               class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
@@ -85,9 +85,9 @@
             <select
               class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
             >
-              <option value="">Steeriy</option>
+              <option value="">Driving Side</option>
               <option value="">Left hand drive</option>
-              <option value="">Left hand drive</option>
+              <option value="">Right hand drive</option>
             </select>
 						<span
               class="arrow w-[7px] h-[7px] absolute sm:right-[160px] lg:right-[230px] xl:right-[420px] top-[25px]"
@@ -97,8 +97,8 @@
             >
               Classic cars
             </button>
-          </div>
-          <div class="tab-content mt-16 absolute left-[90px] sm:left-[120px]">
+          </div> -->
+          <div class="tab-content mt-16 absolute left-[50px] sm:left-[120px]">
             <div class="tab-panel" v-show="isActive('tab-1')">
               <Tab1Component />
             </div>

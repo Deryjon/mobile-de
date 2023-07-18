@@ -1,6 +1,6 @@
 <template >
   <div
-    class="hidden-menu fixed right-0 top-0 w-1/2 h-full p-5 flex flex-col "
+    class="hidden-menu fixed right-0 top-0 w-1.5/2 h-full p-5 flex flex-col "
 	
     :class="{ 'bg-[#526d82]': isDarkMode, 'bg-[#F8FCFF]': !isDarkMode }"
   >
@@ -10,13 +10,13 @@
       <div class="head flex items-center justify-between pt-3">
         <HeaderLinks />
 
-        <HeaderLogo @click="$emit('closeMenu')" class="order-2" />
         <button
           class="close-btn w-7 h-7 flex justify-center items-center order-3"
           @click="$emit('closeMenu')"
         >
           <img src="../../../assets/images/times.svg" alt="times-icon" />
         </button>
+        <HeaderLogo @click="$emit('closeMenu')" class="order-2" />
       </div>
 
       <div class="body ">

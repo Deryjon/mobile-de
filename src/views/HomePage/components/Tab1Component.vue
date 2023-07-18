@@ -1,11 +1,11 @@
 <template>
   <div class="for-example">
-    <div class="top flex flex-wrap w-[250px] sm:w-full items-center gap-[20px]">
+    <div class="top lg:flex flex-wrap w-[250px] sm:w-full items-center gap-[20px]">
       <div class="mark">
         <div class="relative">
           <h2 class="text-sm lg:text-[16px]">Mark</h2>
           <select
-            class="mark-select w-[80px] sm:w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
+            class="mark-select w-full  xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
           >
             <optgroup>
               <option value="14600">Lamborghini</option>
@@ -83,7 +83,7 @@
       <div class="relative">
         <h2 class="text-sm lg:text-[16px]">Model</h2>
         <select
-          class="mark-select w-[80px]  sm:w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark-select w-full   xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           placeholder="Beliebig"
         >
           <option value="">Beliebig</option>
@@ -99,13 +99,13 @@
         <div class="mark-select relative">
           <input
             placeholder="Beliebig"
-            class="no-spinner mark-select w-[80px]  sm:w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
+            class="no-spinner mark-select w-full   xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
             type="number"
             pattern="\d*"
             v-model="selectedYear"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute sm:right-[13px] lg:right-[28px] xl:right-[0px]"
+            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] lg:right-[28px] xl:right-[0px]"
             v-model="selectedYear"
             @change="updateSelect"
           >
@@ -117,7 +117,7 @@
             <option value="300">300 € mtl</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute sm:right-[20px] lg:right-[35px] xl:right-[7px] sm:bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[35px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
           ></span>
         </div>
       </div>
@@ -127,13 +127,13 @@
           <input
             placeholder="Beliebig"
             id="inputYear"
-            class="mark_input mark-select w-[80px]  sm:w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            class="mark_input mark-select w-full   xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute sm:right-[0px] lg:right-[55px] xl:right-[0px]"
+            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[50px] lg:right-[55px] xl:right-[0px]"
             v-model="killometres"
             @change="updateSelect"
           >
@@ -154,7 +154,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute sm:top-[34px] sm:right-[6px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
+            class="arrow w-[7px] h-[7px] absolute top-[198px] right-[57px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
           ></span>
         </div>
       </div>
@@ -180,20 +180,20 @@
         </div>
       </div>
       <div class="tab-content">
-        <div class="bottom tab-panel flex items-center gap-[20px]">
+        <div class="bottom tab-panel lg:flex items-center gap-[20px]">
           <div class="mt-2">
             <h2 class="text-sm lg:text-[16px]">Price up to</h2>
             <div class="marke_select_div">
               <input
                 placeholder="Beliebig"
-                class="mark_input mark-select  w-[80px] sm:w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                class="mark_input mark-select  w-full sxl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
                 type="number"
                 pattern="\d*"
                 v-model="price"
                 @change="updateSelect"
               />
               <select
-                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] sm:right-[240px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
+                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] right-[50px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
                 v-model="price"
               >
                 <option value="50">50 € mtl</option>
@@ -204,25 +204,27 @@
                 <option value="300">300 € mtl</option>
               </select>
               <span
-                class="arrow w-[7px] h-[7px] absolute sm:top-[98px] sm:right-[246px] lg:right-[325px] xl:right-[386px] lg:top-[105px]"
+                class="arrow w-[7px] h-[7px] absolute top-[332px] right-[57px] lg:right-[325px] xl:right-[386px] lg:top-[105px]"
               ></span>
             </div>
           </div>
           <div>
             <h2 class="mt-2 text-sm lg:text-[16px]">City or ZIP code</h2>
             <input
-              class="mark_input_zip mark-select  w-[80px] sm:w-[100px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+              class="mark_input_zip mark-select  w-full sxl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
               placeholder="Beliebig"
             />
           </div>
           <div
-            class="resultast_div flex items-center sm:gap-[2px] lg:gap-[8px]  w-[80px] sm:w-[100px] lg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
+            class="resultast_div flex items-center gap-[8px]  w-full slg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
           >
             <svg
               class="icon lg:w-[16px] lg:h-[16px]"
               viewBox="0 0 24 24"
               fill="none"
+							width="16"
+							height="16"
             >
               <path
                 d="M16.215 18.336a9 9 0 112.121-2.121L23.121 21 21 23.121l-4.785-4.785zM11 17.25a6.25 6.25 0 100-12.5 6.25 6.25 0 000 12.5z"
