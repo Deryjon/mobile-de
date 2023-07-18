@@ -101,7 +101,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute sm:right-[6px] lg:right-[61px] xl:right-[7px] top-[38px]"
+            class="arrow w-[7px] h-[7px] absolute sm:top-[34px] sm:right-[6px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
           ></span>
         </div>
       </div>
@@ -148,7 +148,7 @@
             <option value="300">300 € mtl</option>
               </select>
               <span
-                class="arrow w-[7px] h-[7px] absolute sm:right-[255px] lg:right-[325px] xl:right-[386px] top-[105px]"
+                class="arrow w-[7px] h-[7px] absolute sm:top-[98px] sm:right-[256px] lg:right-[325px] xl:right-[386px] lg:top-[105px]"
               ></span>
             </div>
           </div>

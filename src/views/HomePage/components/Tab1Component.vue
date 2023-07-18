@@ -154,7 +154,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute sm:right-[6px] lg:right-[61px] xl:right-[7px] top-[38px]"
+            class="arrow w-[7px] h-[7px] absolute sm:top-[34px] sm:right-[6px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
           ></span>
         </div>
       </div>
@@ -193,7 +193,7 @@
                 @change="updateSelect"
               />
               <select
-                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] sm:right-[250px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
+                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] sm:right-[240px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
                 v-model="price"
               >
                 <option value="50">50 € mtl</option>
@@ -204,7 +204,7 @@
                 <option value="300">300 € mtl</option>
               </select>
               <span
-                class="arrow w-[7px] h-[7px] absolute sm:right-[255px] lg:right-[325px] xl:right-[386px] top-[105px]"
+                class="arrow w-[7px] h-[7px] absolute sm:top-[98px] sm:right-[246px] lg:right-[325px] xl:right-[386px] lg:top-[105px]"
               ></span>
             </div>
           </div>
