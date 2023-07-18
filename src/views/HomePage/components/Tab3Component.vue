@@ -12,7 +12,69 @@
               <option value="14700">Lancia</option>
               <option value="14800">Land Rover</option>
               <option value="14845">Landwind</option>
-            
+              <option value="31933">LEVC</option>
+              <option value="15200">Lexus</option>
+              <option value="15400">Ligier</option>
+              <option value="15500">Lincoln</option>
+              <option value="15900">Lotus</option>
+              <option value="31934">Lynk &amp;Co</option>
+              <option value="16200">Mahindra</option>
+              <option value="16500">MAN</option>
+              <option value="16600">Maserati</option>
+              <option value="31896">Maxus</option>
+              <option value="16700">Maybach</option>
+              <option value="16800">Mazda</option>
+              <option value="137">McLaren</option>
+              <option value="17200">Mercedes-Benz</option>
+              <option value="17300">MG</option>
+              <option value="30011">Microcar</option>
+              <option value="17500">MINI</option>
+              <option value="17700">Mitsubishi</option>
+              <option value="17900">Morgan</option>
+              <option value="31954">NIO</option>
+              <option value="18700">Nissan</option>
+              <option value="18875">NSU</option>
+              <option value="18975">Oldsmobile</option>
+              <option value="19000">Opel</option>
+              <option value="31955">ORA</option>
+              <option value="149">Pagani</option>
+              <option value="19300">Peugeot</option>
+              <option value="19600">Piaggio</option>
+              <option value="19800">Plymouth</option>
+              <option value="4">Polestar</option>
+              <option value="20000">Pontiac</option>
+              <option value="20100">Porsche</option>
+              <option value="20200">Proton</option>
+              <option value="20700">Renault</option>
+              <option value="21600">Rolls-Royce</option>
+              <option value="21700">Rover</option>
+              <option value="125">Ruf</option>
+              <option value="21800">Saab</option>
+              <option value="22000">Santana</option>
+              <option value="22500">Seat</option>
+              <option value="22900">Skoda</option>
+              <option value="23000">Smart</option>
+              <option value="188">speedART</option>
+              <option value="100">Spyker</option>
+              <option value="23100">Ssangyong</option>
+              <option value="23500">Subaru</option>
+              <option value="23600">Suzuki</option>
+              <option value="247">SWM</option>
+              <option value="23800">Talbot</option>
+              <option value="23825">Tata</option>
+              <option value="189">TECHART</option>
+              <option value="135">Tesla</option>
+              <option value="24100">Toyota</option>
+              <option value="24200">Trabant</option>
+              <option value="24400">Triumph</option>
+              <option value="24500">TVR</option>
+              <option value="25200">Volkswagen</option>
+              <option value="25100">Volvo</option>
+              <option value="25300">Wartburg</option>
+              <option value="113">Westfield</option>
+              <option value="31956">WEY</option>
+              <option value="25650">Wiesmann</option>
+              <option value="1400">Andere</option>
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -43,7 +105,7 @@
             v-model="selectedYear"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] lg:right-[28px] xl:right-[0px]"
+            class="mark-input2 bg-[#f5f5f5] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] lg:right-[28px] xl:right-[0px]"
             v-model="selectedYear"
             @change="updateSelect"
           >
@@ -71,7 +133,7 @@
             v-model="killometres"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[50px] lg:right-[55px] xl:right-[0px]"
+            class="mark-input2 bg-[#f5f5f5] w-[20px] h-[35px] outline-none py-[7px] absolute right-[50px] lg:right-[55px] xl:right-[0px]"
             v-model="killometres"
             @change="updateSelect"
           >
@@ -131,7 +193,7 @@
                 @change="updateSelect"
               />
               <select
-                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] right-[50px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
+                class="marke_input2 mark-input2 bg-[#f5f5f5] w-[20px] h-[35px] right-[46px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
                 v-model="price"
               >
                 <option value="50">50 € mtl</option>
@@ -155,10 +217,10 @@
             />
           </div>
           <div
-            class="resultast_div flex items-center gap-[8px]  w-full slg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[50px]"
+            class="resultast_div flex items-center gap-[8px]  w-full slg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
           >
             <svg
-              class="icon lg:w-[16px] lg:h-[16px] "
+              class="icon lg:w-[16px] lg:h-[16px] ml-[45px]"
               viewBox="0 0 24 24"
               fill="none"
 							width="16"

@@ -105,7 +105,7 @@
             v-model="selectedYear"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] lg:right-[28px] xl:right-[0px]"
+            class="mark-input2 bg-[#f5f5f5] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] lg:right-[28px] xl:right-[0px]"
             v-model="selectedYear"
             @change="updateSelect"
           >
@@ -133,7 +133,7 @@
             v-model="killometres"
           />
           <select
-            class="mark-input2 bg-[#807e7e] w-[20px] h-[35px] outline-none py-[7px] absolute right-[50px] lg:right-[55px] xl:right-[0px]"
+            class="mark-input2 bg-[#f5f5f5] w-[20px] h-[35px] outline-none py-[7px] absolute right-[50px] lg:right-[55px] xl:right-[0px]"
             v-model="killometres"
             @change="updateSelect"
           >
@@ -193,7 +193,7 @@
                 @change="updateSelect"
               />
               <select
-                class="marke_input2 mark-input2 bg-[#807e7e] w-[20px] h-[35px] right-[50px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
+                class="marke_input2 mark-input2 bg-[#f5f5f5] w-[20px] h-[35px] right-[46px] lg:right-[320px] xl:right-[380px] outline-none py-[7px] absolute"
                 v-model="price"
               >
                 <option value="50">50 € mtl</option>
@@ -220,7 +220,7 @@
             class="resultast_div flex items-center gap-[8px]  w-full slg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
           >
             <svg
-              class="icon lg:w-[16px] lg:h-[16px]"
+              class="icon lg:w-[16px] lg:h-[16px] ml-[45px]"
               viewBox="0 0 24 24"
               fill="none"
 							width="16"
