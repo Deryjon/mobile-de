@@ -212,4 +212,32 @@ export default {};
     text-align: center;
     padding: 5px;
 }
+@media screen and (min-width: 350px)  {
+	
+}
+.cars_cars_car2 {
+    border-right: 1px solid #35373d;
+    border-bottom: 1px solid #35373d;
+    width: 50px;
+    outline: hidden;
+    height: 55px;
+    text-align: center;
+		font-size: 10px;
+}
+.cars_car2 {
+    border-bottom: 1px solid #35373d;
+    width: 50px;
+    outline: hidden;
+    height: 55px;
+    text-align: center;
+		font-size: 10px;
+}
+.cars_cars_car {
+    border-right: 1px solid #35373d;
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    padding: 5px;
+		font-size: 10px;
+}
 </style>
