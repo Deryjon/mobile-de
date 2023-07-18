@@ -20,11 +20,11 @@
       </div>
 
       <div class="body ">
-        <HeaderActions class="flex flex-col" />
         <HeaderSwitcherTheme
           class="flex justify-center mt-[10px]"
           @click="$emit('closeMenu')"
         />
+        <HeaderActions class="flex flex-col w-full" />
         <HeaderContact class="flex justify-center mx-auto mt-[10px]" 
 				@click="$emit('closeMenu')"
 				/>

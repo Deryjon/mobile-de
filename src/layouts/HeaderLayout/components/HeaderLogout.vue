@@ -1,6 +1,6 @@
 <template>
   <button
-    class="btn outline-none rounded-[10px] py-[6px] px-[5px] text-lg font-normal"
+    class="btn outline-none rounded-[10px] w-[130px] px-[10px] py-[6px] lg:py-[6px] lg:px-[5px] text-base font-normal	"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >

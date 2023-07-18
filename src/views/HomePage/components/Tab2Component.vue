@@ -13,7 +13,6 @@
               <option value="14800">Land Rover</option>
               <option value="14845">Landwind</option>
               <option value="31933">LEVC</option>
-              
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -93,7 +92,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute top-[198px] right-[7px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
+            class="arrow w-[7px] h-[7px] absolute top-[230px] right-[7px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
           ></span>
         </div>
       </div>
@@ -143,7 +142,7 @@
                 <option value="300">300 € mtl</option>
               </select>
               <span
-                class="arrow w-[7px] h-[7px] absolute top-[322px] right-[7px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
+                class="arrow w-[7px] h-[7px] absolute top-[355px] right-[7px] lg:right-[61px] xl:right-[7px] lg:top-[38px]"
               ></span>
             </div>
           </div>
