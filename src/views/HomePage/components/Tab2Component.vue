@@ -161,16 +161,21 @@
             />
           </div>
           <div
-            class="resultast_div flex items-center gap-[8px] w-[100px] lg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
+            class="resultast_div flex items-center sm:gap-[2px] lg:gap-[8px] w-[100px] lg:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px] px-[20px]"
           >
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+            <svg
+              class="icon lg:w-[16px] lg:h-[16px]"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
               <path
                 d="M16.215 18.336a9 9 0 112.121-2.121L23.121 21 21 23.121l-4.785-4.785zM11 17.25a6.25 6.25 0 100-12.5 6.25 6.25 0 000 12.5z"
                 fill="#fff"
               ></path>
             </svg>
-            <p class="text-white">1000</p>
-            <h1 class="text-white">results</h1>
+
+            <p class="text-white sm:text-[12px] lg:text-[16px]">1000</p>
+            <h1 class="text-white sm:text-[12px] lg:text-[16px]">results</h1>
           </div>
         </div>
       </div>

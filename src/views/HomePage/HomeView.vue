@@ -63,34 +63,34 @@
 
           <div class="filter-btns mr-10 h-[30px] lg:h-[50px]">
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               New
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Used
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Rentel
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Carash car
             </button>
             <select
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
             >
               <option value="">Steeriy</option>
               <option value="">Left hand drive</option>
               <option value="">Left hand drive</option>
             </select>
 						<span
-              class="arrow w-[7px] h-[7px] absolute right-[420px] top-[25px]"
+              class="arrow w-[7px] h-[7px] absolute sm:right-[160px] lg:right-[230px] xl:right-[420px] top-[25px]"
             ></span>
             <button
               class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
