@@ -5,7 +5,7 @@
 		>
       <v-container>
         <div
-          class="search relative w-[350px] sm:w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[560px] lg:h-[240px] mt-[200px] mx-auto flex"
+          class="search relative w-[350px] sm:w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[580px] lg:h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
             <div class="nav-tabs flex lg:flex-col">
@@ -109,23 +109,23 @@
               Classic cars
             </button>
           </div> -->
-          <div class="tab-content mt-16 absolute left-[50px] sm:left-[120px]">
+          <div class="tab-content mt-[64px]  lg:mt-[0px] absolute left-[50px] sm:left-[120px]">
             <div class="tab-panel" v-show="isActive('tab-1')">
-              <Tab1Component />
+              <Tab1Component  class=" "/>
             </div>
             <div class="tab-panel " v-show="isActive('tab-2')">
               <div class="for-example">
-                <Tab2Component/>
+                <Tab2Component class=""/>
               </div>
             </div>
             <div class="tab-panel" v-show="isActive('tab-3')">
               <div class="for-example">
-             <Tab3Component/>
+             <Tab3Component class=" "/>
               </div>
             </div>
             <div class="tab-panel " v-show="isActive('tab-4')">
               <div class="for-example">
-               <Tab4Components/>
+               <Tab4Components class=""/>
               </div>
             </div>
           </div>
