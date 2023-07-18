@@ -5,12 +5,12 @@
 		>
       <v-container>
         <div
-          class="search relative w-[350px] sm:w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[580px] lg:h-[240px] mt-[200px] mx-auto flex"
+          class="search relative w-[300px] sm:w-[550px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
             <div class="nav-tabs flex lg:flex-col">
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-[150px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-1')"
                 :class="{ active: isActive('tab-1') }"
               >
@@ -24,7 +24,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-[150px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-2')"
                 :class="{ active: isActive('tab-2') }"
               >
@@ -40,7 +40,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-[150px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
 								
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
@@ -55,7 +55,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-[150px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
                 @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
               >
@@ -70,31 +70,68 @@
                 </svg>
               </div>
             </div>
-          </div>
-
-          <!-- <div class="filter-btns mr-10 h-[30px] lg:h-[50px]">
+						<div class="filter-btns  lg:hidden mr-10 h-[30px] lg:h-[60px] ">
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[12px]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               New
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[12px]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Used
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[12px]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Rentel
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[12px]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
               Carash car
             </button>
             <select
-              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+              class="filter-btn bg-[#d3d3d3] py-[12px]  sm:py-[17.1px] lg:py-[17.5px] w-[154px] sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+            >
+              <option value="">Driving Side</option>
+              <option value="">Left hand drive</option>
+              <option value="">Right hand drive</option>
+            </select>
+						<span
+              class="arrow w-[7px] h-[7px] absolute right-[155px] sm:right-[155px] lg:right-[230px] xl:right-[420px] top-[130px] sm:top-[85px]"
+            ></span>
+            <button
+              class="filter-btn bg-[#d3d3d3] py-[12px]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              Classic cars
+            </button>
+          </div>
+          </div>
+
+          <div class="filter-btns hidden lg:flex mr-10 h-[30px] lg:h-[60px] ">
+            <button
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              New
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              Used
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              Rentel
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              Carash car
+            </button>
+            <select
+              class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px]  sm:px-[6.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
             >
               <option value="">Driving Side</option>
               <option value="">Left hand drive</option>
@@ -108,8 +145,8 @@
             >
               Classic cars
             </button>
-          </div> -->
-          <div class="tab-content mt-[64px]  lg:mt-[0px] absolute left-[50px] sm:left-[120px]">
+          </div>
+          <div class="tab-content mt-[160px] sm:mt-[120px]  lg:mt-[70px] absolute left-[30px] sm:left-[100px]">
             <div class="tab-panel" v-show="isActive('tab-1')">
               <Tab1Component  class=" "/>
             </div>

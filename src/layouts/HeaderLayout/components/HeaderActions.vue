@@ -24,7 +24,7 @@
     <div class="web-side relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
+        class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
       >
         <option value="bel">Belgium</option>
