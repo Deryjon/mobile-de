@@ -3,7 +3,7 @@
     <div class="logo lg:ml-0 w-[80px] lg:w-[80px] h-[45px] lg:h-[54px] mb-3">
       <img src="../../../assets/images/logo.png" alt="header-logo" />
     </div>
-    <p class="text-[26px] font-extrabold pt-6 title" :class="{ 'dark': isDarkMode, 'text-white': isDarkMode }">SellCenter</p>
+    <p class="text-[26px] font-extrabold pt-6 title" :class="{ 'dark': isDarkMode }">SellCenter</p>
   </div>
 </template>
 

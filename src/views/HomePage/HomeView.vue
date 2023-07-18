@@ -1,7 +1,8 @@
 <template>
   <main>
 		<HeaderLayoutVue/>
-    <section>
+    <section
+		>
       <v-container>
         <div
           class="search relative w-[600px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[240px] mt-[200px] mx-auto flex"

@@ -1,6 +1,8 @@
 <template>
   <header class="bg-[#e8f4f8]">
-    <v-container class="flex z-50 items-center justify-between">
+    <v-container class="flex z-50 items-center justify-between "
+		
+		>
       <HeaderLogo />
 
       <div class="actions flex h-[50px] items-center gap-[10px]">
