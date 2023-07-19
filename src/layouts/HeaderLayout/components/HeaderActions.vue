@@ -1,22 +1,20 @@
 <template>
-  <div class="actions gap-[10px] items-center mt-[25px] ">
+  <div class="actions gap-[10px] items-center mt-[25px]">
     <div class="language relative inline-block">
       <select
         name=""
         class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
-        v-model="selectedLanguage"
+        v-model="language"
+        @change="changeLanguage"
       >
-        <option v-for="lang in supportedLanguages" :value="lang" :key="lang">
-          {{ $t(lang) }}
-        </option>
-        <!-- <option value="en">English</option>
+        <option value="en">English</option>
         <option value="fr">France</option>
         <option value="gr">Germany</option>
         <option value="sp">Spanish</option>
         <option value="sw">Swedish</option>
         <option value="ru">Russa</option>
-        <option value="pl">Polish</option> -->
+        <option value="pol">Polish</option>
       </select>
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
@@ -49,6 +47,7 @@
         name=""
         class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
+        @change="changeLanguage"
       >
         <option value="ar">Arabic</option>
         <option value="bel">Belgium</option>
@@ -69,58 +68,44 @@
       class="btn outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[5px] text-base font-normal"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
-      {{ $t("sell") }}
+      {{ $t("message.sell") }}
     </button>
   </div>
-	
 </template>
 <script>
 import { useDarkModeStore } from "@/store/index.js";
 import { ref, defineComponent, computed, watch } from "vue";
-import i18n from "../../../libs/i18n";
-import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
-    const { locale, t } = useI18n();
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
 
-
-
-    const selectedLanguage = ref("English"); // Используйте значение по умолчанию, равное текущей локали
-
-    const supportedLanguages = [
-      "English",
-      "France",
-      "Germany",
-      "Spanish",
-      "Swedish",
-      "Russa",
-      "Polish",
-    ];
-
-    watch(selectedLanguage, (newVal) => {
-      i18n.global.locale.value = newVal; // Измените глобальную локаль
-
-      // Другие действия, которые нужно выполнить при изменении языка
-    });
-
     return {
       isDarkMode,
       toggleDarkMode,
-      selectedLanguage,
-      supportedLanguages,
-      $t: t,
     };
   },
-	data(){
-		return{
-			def: "English"
+  data() {
+    return {
+      language: null,
+    };
+  },
+  methods: {
+    changeLanguage() {
+      localStorage.setItem("lang", this.language);
+      window.location.reload();
+    },
+  },
+  created() {
+		if(localStorage.getItem("lang")== null){
+
+			localStorage.setItem("lang", "en");
 		}
-	}
+		this.language = localStorage.getItem("lang")
+  },
 });
 </script>
 
