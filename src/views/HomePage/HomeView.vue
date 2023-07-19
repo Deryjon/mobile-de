@@ -5,12 +5,12 @@
 		>
       <v-container>
         <div
-          class="search relative w-[300px] sm:w-[550px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
+          class="search relative w-[380px] sm:w-[550px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
             <div class="nav-tabs flex lg:flex-col">
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
                 @click="setActive('tab-1')"
                 :class="{ active: isActive('tab-1') }"
               >
@@ -24,7 +24,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
                 @click="setActive('tab-2')"
                 :class="{ active: isActive('tab-2') }"
               >
@@ -40,7 +40,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
 								
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
@@ -55,7 +55,7 @@
                 </svg>
               </div>
               <div
-                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[75px] sm:w-[137.5px] hover:bg-[#f5f5f5]"
+                class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
                 @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
               >

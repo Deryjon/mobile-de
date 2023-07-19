@@ -3,7 +3,7 @@
     <div class="language relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
+        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
         v-model="language"
         @change="changeLanguage"
@@ -22,7 +22,7 @@
     <div class="web-side relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
+        class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
       >
         <option value="bel">Belgium</option>
@@ -45,7 +45,7 @@
     <div class="write-pads relative inline-block">
       <select
         name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base font-normal pr-[30px]"
+        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
         @change="changeLanguage"
       >
@@ -65,7 +65,7 @@
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
     <button
-      class="btn outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[5px] text-base font-normal"
+      class="btn outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[4zzpx] lg:px-[5px] text-base lg:text-[14px] font-normal"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.sell") }}
