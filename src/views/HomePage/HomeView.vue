@@ -138,7 +138,7 @@
               <option value="">Right hand drive</option>
             </select>
 						<span
-              class="arrow w-[7px] h-[7px] absolute sm:right-[160px] lg:right-[230px] xl:right-[420px] top-[25px]"
+              class="arrow w-[7px] h-[7px] absolute sm:right-[160px] lg:right-[210px] xl:right-[420px] top-[25px]"
             ></span>
             <button
               class="filter-btn bg-[#d3d3d3]  sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
