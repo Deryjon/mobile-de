@@ -74,7 +74,7 @@
 </template>
 <script>
 import { useDarkModeStore } from "@/store/index.js";
-import { ref, defineComponent, computed, watch } from "vue";
+import {  defineComponent, computed } from "vue";
 
 export default defineComponent({
   setup() {

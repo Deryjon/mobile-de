@@ -5,7 +5,7 @@
 		>
       <v-container>
         <div
-          class="search relative w-[380px] sm:w-[550px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[730px] sm:h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
+          class="search relative w-[380px] sm:w-[550px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
             <div class="nav-tabs flex lg:flex-col">

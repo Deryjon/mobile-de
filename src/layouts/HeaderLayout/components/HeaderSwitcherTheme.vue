@@ -1,10 +1,11 @@
 <template>
   <div class="flex items-center">
     <label for="toggle" class="flex items-center cursor-pointer">
-      <div class="svg relative">
+      <div class="svg relative flex items-center">
         <input type="checkbox" id="toggle" class="sr-only" :checked="isDarkMode" @change="toggleDarkMode" />
         <svg class="cursor-pointer moon block" :class="{ 'dark': isDarkMode }" width="50px" height="50px" viewBox="-2.16 -2.16 28.32 28.32" fill="none" :stroke="svgStrokeColor" :fill="svgFillColor"><path d="M10.41 13.28C7.332 10.205 6.716 5.693 8.357 2c-1.23.41-2.256 1.23-3.281 2.256a10.399 10.399 0 0 0 0 14.768c4.102 4.102 10.46 3.897 14.562-.205 1.026-1.026 1.846-2.051 2.256-3.282-3.896 1.436-8.409.82-11.486-2.256Z" :fill="svgFillColor" :stroke="svgStrokeColor"></path></svg>
-      </div>
+      <p class="lg:hidden"> {{ isDarkMode ? 'Dark' : 'Light' }}</p>
+			</div>
     </label>
   </div>
 </template>
