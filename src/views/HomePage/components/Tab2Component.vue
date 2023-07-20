@@ -100,16 +100,16 @@
     <div class="bottom-all lg:flex  w-[250px] lg:w-full sm:w-[350px] items-center gap-[20px]">
       <div >
         <h2 class="mt-2 text-sm lg:text-[16px]">Type of ad</h2>
-        <div class="Kaufen_div">
+        <div class="Kaufen_div ">
           <button
-            class="Kaufen p-[4px]  w-[75px] xl:w-[85px]  bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            class="Kaufen p-[4px] w-[150px]  lg:w-[75px] xl:w-[85px]  bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab1"
             :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
           >
             Sell
           </button>
           <button
-            class="Kaufen p-[4px] w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab2"
             :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
           >
@@ -157,8 +157,8 @@
               ></path>
             </svg>
 
-            <p class="text-white text-[14px] lg:text-[16px]">1000</p>
-            <h1 class="text-white text-[14px] lg:text-[16px]">results</h1>
+            <p class="text-white text-[18px] lg:text-[16px]">1000</p>
+            <h1 class="text-white text-[18px] lg:text-[16px]">results</h1>
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
     <button
-      class="btn outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[4zzpx] lg:px-[5px] text-base lg:text-[14px] font-normal"
+      class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal	"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.sell") }}

@@ -1,9 +1,9 @@
 <template>
   <button
-    class="btn outline-none rounded-[10px] w-[130px] lg:w-[90px] px-[10px] py-[6px] lg:py-[6px] lg:px-[15px] text-base font-normal lg:mt-[25px]"
+    class="btn rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[15px] xl:px-[28px] text-base lg:text-[14px] font-normal  lg:mt-[25px] text-center"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
   >
-    Contact
+    {{ $t("message.contact") }}
   </button>
 </template>
 <script>

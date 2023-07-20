@@ -3,7 +3,7 @@
     <div class="cars lg:flex">
       <div class="cars_cars flex lg:block gap-[15px] sm:gap-[100px]">
         <div
-          class="cars_cars_car2 lg:px-[8px] xl:px-[20px] lg:text-[14px] w-full hover:bg-gray-200"
+          class="cars_cars_car2 lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] w-full hover:bg-gray-200"
         >
           <img
             alt="Agricultural"
@@ -14,7 +14,7 @@
           <h3 class="cars_taxt text-center w-full">Trucks over 7.5 t</h3>
         </div>
         <div
-          class="cars_cars_car lg:px-[8px] xl:px-[20px] lg:text-[14px] w-full  hover:bg-gray-200"
+          class="cars_cars_car lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] w-full  hover:bg-gray-200"
         >
           <img
             alt="buses"
@@ -28,7 +28,7 @@
       </div>
       <div class="cars_cars_car flex lg:block gap-[20px] sm:gap-[100px]">
         <div
-          class="cars_car2 mt-[ lg:px-[8px] xl:px-[20px] lg:text-[14px] 10px] lg:mt-[0px] hover:bg-gray-200"
+          class="cars_car2 mt-[ lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] 10px] lg:mt-[0px] hover:bg-gray-200"
         >
           <img
             alt="Agricultural"
@@ -40,7 +40,7 @@
           <h3 class="cars_taxt text-center lg:text-[14px]">Trucks over 7.5 t</h3>
         </div>
         <div
-          class="mt-[15px] lg:mt-[0px] lg:px-[8px] xl:px-[20px] lg:text-[14px] hover:bg-gray-200"
+          class="mt-[15px] lg:mt-[0px] lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] hover:bg-gray-200"
         >
           <img
             alt="buses"
@@ -53,7 +53,7 @@
         </div>
       </div>
       <div class="cars_cars_car flex lg:block gap-[20px] sm:gap-[100px]">
-        <div class="cars_car2 hover:bg-gray-200">
+        <div class="cars_car2 hover:bg-gray-200 cursor-pointer	">
           <img
             alt="Agricultural"
             data-nimg="1"
@@ -63,7 +63,7 @@
           />
           <h3 class="cars_taxt text-center lg:text-[14px]">Trucks over 7.5 t</h3>
         </div>
-        <div class="cars_cars px-[10px] hover:bg-gray-200">
+        <div class="cars_cars px-[10px] hover:bg-gray-200 cursor-pointer">
           <img
             alt="buses"
             data-nimg="1"
@@ -75,7 +75,7 @@
         </div>
       </div>
       <div class="cars_cars flex lg:block gap-[20px] sm:gap-[100px]">
-        <div class="cars_cars_car2 lg:px-[8px] xl:px-[20px] lg:text-[14px] hover:bg-gray-200">
+        <div class="cars_cars_car2 lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] hover:bg-gray-200">
           <img
             alt="Agricultural"
             data-nimg="1"
@@ -86,7 +86,7 @@
           <h3 class="cars_taxt text-center">Trucks over 7.5 t</h3>
         </div>
         <div
-          class="cars_cars_car lg:px-[8px] xl:px-[20px] lg:text-[14px] flex_car hover:bg-slate-300"
+          class="cars_cars_car lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] flex_car hover:bg-slate-300"
         >
           <img
             alt="buses"
@@ -99,7 +99,7 @@
         </div>
       </div>
       <div class="cars_cars flex lg:block">
-        <div class="cars_car2 lg:px-[8px] xl:px-[20px] lg:text-[14px] hover:bg-gray-200">
+        <div class="cars_car2 lg:px-[8px] xl:px-[20px] cursor-pointer lg:text-[14px] hover:bg-gray-200">
           <img
             alt="Agricultural"
             data-nimg="1"
