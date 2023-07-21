@@ -3,7 +3,7 @@
     <div class="top lg:flex  w-[250px] sm:w-[350px] items-center gap-[20px]">
       <div class="mark">
         <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[16px] ">Mark</h2>
+          <h2 class="text-sm lg:text-[16px] ">{{ $t("message.mark") }}</h2>
           <select
             class="mark-select w-full  lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
           >
@@ -82,7 +82,7 @@
         </div>
       </div>
       <div class="relative">
-        <h2 class="text-sm lg:text-[16px] mt-2">Model</h2>
+        <h2 class="text-sm lg:text-[16px] mt-2">{{ $t("message.model") }}</h2>
         <select
           class="mark-select w-full   lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           placeholder="Beliebig"
@@ -123,7 +123,10 @@
         </div>
       </div>
       <div class="">
-        <h2 class="text-sm lg:text-[16px] mt-2">Kilometer bis</h2>
+        <h2 class="text-sm lg:text-[16px] mt-2">
+					{{ $t("message.kilometr") }}
+				</h2>
+				<!-- KIllometer bis -->
         <div class="marke_select_div flex">
           <input
             placeholder="Beliebig"
@@ -162,7 +165,7 @@
     </div>
     <div class="bottom-all lg:flex  w-[250px] lg:w-full sm:w-[350px] items-center gap-[20px]">
       <div >
-        <h2 class="mt-2 text-sm lg:text-[16px]">Type of ad</h2>
+        <h2 class="mt-2 text-sm lg:text-[16px]">{{ $t("message.ad") }}</h2>
         <div class="Kaufen_div ">
           <button
             class="Kaufen p-[4px] w-[150px]  lg:w-[75px] xl:w-[85px]  bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
