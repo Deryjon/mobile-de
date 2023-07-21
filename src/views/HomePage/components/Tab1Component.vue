@@ -7,6 +7,7 @@
           <select
             class="mark-select w-full  lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
           >
+					<option value="14600">Beliebig</option>
             <optgroup>
               <option value="14600">Lamborghini</option>
               <option value="14700">Lancia</option>
@@ -203,65 +204,49 @@
               placeholder="Beliebig"
             />
           </div>
-          <div
-            class="resultast_div flex items-center gap-[20px] lg:gap-[5px] w-full  lg:w-[150px] xl:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px]"
-          >
-            <svg
-              class="icon  ml-[45px] sm:ml-[90px] lg:ml-[20px]"
-              viewBox="0 0 24 24"
-              fill="none"
-							width="16"
-							height="16"
-            >
-              <path
-                d="M16.215 18.336a9 9 0 112.121-2.121L23.121 21 21 23.121l-4.785-4.785zM11 17.25a6.25 6.25 0 100-12.5 6.25 6.25 0 000 12.5z"
-                fill="#fff"
-              ></path>
-            </svg>
-
-            <p class="text-white text-[18px] lg:text-[16px]">1000</p>
-            <h1 class="text-white text-[18px] lg:text-[16px]">results</h1>
-          </div>
+          <FilterBtn/>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-export default {
-  data() {
-    return {
-      selectedMake: "",
-      selectedYear: "",
-      killometres: "",
-      price: "",
-			activeTab: "tab-1",
-    };
-  },
 
-  methods: {
-    updateInput() {
-      this.selectedYear = this.selectedMake;
-      this.killometres = this.selectedMake;
+
+import FilterBtn from '../../../components/FilterBtn.vue';
+export default {
+    data() {
+        return {
+            selectedMake: "",
+            selectedYear: "",
+            killometres: "",
+            price: "",
+            activeTab: "tab-1",
+        };
     },
-    updateSelect() {
-      this.selectedMake = this.selectedYear;
-      this.selectedMake = this.killometres;
-			
-      if (this.selectedMake === "tab-1") {
-        this.activeTab = "tab-1";
-      } else if (this.selectedMake === "tab-2") {
-        this.activeTab = "tab-2";
-      }
-			
+    methods: {
+        updateInput() {
+            this.selectedYear = this.selectedMake;
+            this.killometres = this.selectedMake;
+        },
+        updateSelect() {
+            this.selectedMake = this.selectedYear;
+            this.selectedMake = this.killometres;
+            if (this.selectedMake === "tab-1") {
+                this.activeTab = "tab-1";
+            }
+            else if (this.selectedMake === "tab-2") {
+                this.activeTab = "tab-2";
+            }
+        },
+        showTab1() {
+            this.activeTab = "tab-1";
+        },
+        showTab2() {
+            this.activeTab = "tab-2";
+        },
     },
-		showTab1() {
-      this.activeTab = "tab-1";
-    },
-    showTab2() {
-      this.activeTab = "tab-2";
-    },
-  },
+    components: { FilterBtn }
 };
 </script>
 <style>
