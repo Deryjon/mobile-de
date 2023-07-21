@@ -20,6 +20,18 @@ export default {
 		btn:{
 			sell: 'Sälja',
 			buy: 'Köpa '
+		},
+		filter: {
+      new: "Ny",
+			used: "Använd",
+			rent: "Hyra",
+			crash: "Krocka bil",
+			classic: "Klassiska bilar"
+    },
+		side:{
+			title: "Förarsidan",
+			left: "Vänsterstyrd",
+			right: "Högerstyrd"
 		}
   },
 };

@@ -11,6 +11,8 @@ export default {
       kilometr: "Kilometerstand",
       ad: "Art der Anzeige",
       registration: "Anmeldeformular			",
+			zip: "Stadt oder Postleitzahl",
+      price: "Preis bis",
     },
     results: {
       result: "ergebnisse",
@@ -18,6 +20,18 @@ export default {
 		btn:{
 			sell: 'Verkaufen',
 			buy: 'Besorgen'
+		},
+		filter: {
+      new: "Neu",
+			used: "Gebraucht",
+			rent: "Miete",
+			crash: "Unfallauto",
+			classic: " Oldtimer"
+    },
+		side:{
+			title: "Fahrerseite",
+			left: "Linkslenker",
+			right: "Rechtslenker"
 		}
   },
 };

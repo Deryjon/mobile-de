@@ -13,14 +13,25 @@ export default {
       registration: "Registartion form",
       zip: "City or ZIP code",
       price: "Price up to",
-
     },
-		results:{
-			result: "results"
-		},
-		btn:{
-			sell: 'Sell',
-			buy: 'Buy'
+    results: {
+      result: "results",
+    },
+    btn: {
+      sell: "Sell",
+      buy: "Buy",
+    },
+    filter: {
+      new: "New",
+			used: "Used",
+			rent: "Rent",
+			crash: "Crash car",
+			classic: " Classic cars"
+    },
+		side:{
+			title: "Driving Side",
+			left: "Left hand drive",
+			right: "Right hand drive"
 		}
   },
 };

@@ -20,6 +20,18 @@ export default {
 		btn:{
 			sell: 'Sprzedać',
 			buy: 'Kupić '
+		},
+		filter: {
+      new: "Nowy",
+			used: "Używany",
+			rent: "Wynajem",
+			crash: "Wypadek samochodowy",
+			classic: "Klasyczne samochody"
+    },
+		side:{
+			title: "Strona kierowcy",
+			left: "Kierownica po lewej stronie",
+			right: "Kierownica po prawej stronie"
 		}
   },
 };

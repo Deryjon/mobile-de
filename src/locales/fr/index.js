@@ -11,7 +11,7 @@ export default {
       kilometr: "Kilométrage",
       ad: "Type d'annonce",
 			registration: "Formulaire d'inscription			",
-			zip: "Ville ou code postal			",
+			zip: "Ville ou code postal",
       price: "Prix ​​jusqu'à",
     },
 		results:{
@@ -20,6 +20,18 @@ export default {
 		btn:{
 			sell: 'Vendre',
 			buy: 'Acheter'
+		},
+		filter: {
+      new: "Nouveau",
+			used: "Utilisé",
+			rent: "Louer",
+			crash: "Accident de voiture",
+			classic: "Voitures classiques"
+    },
+		side:{
+			title: "Côté conduite			",
+			left: "Conduite à gauche			",
+			right: "Conduite à droite"
 		}
   },
 };

@@ -20,6 +20,18 @@ export default {
 		btn:{
 			sell: 'Venta',
 			buy: 'Compra '
+		},
+		filter: {
+      new: "Nuevo",
+			used: "Usado",
+			rent: "Alquiler",
+			crash: "Coche de choque",
+			classic: "Autos clásicoss"
+    },
+		side:{
+			title: "Lado de conducción",
+			left: "Volante a la izquierda",
+			right: "Volante a la derecha"
 		}
   },
 };
