@@ -4,7 +4,7 @@
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >
-  {{ $t('message.login') }}
+  {{ $t('message.header.login') }}
   </button>
 </template>
 <script>

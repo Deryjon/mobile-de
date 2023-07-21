@@ -68,7 +68,7 @@
       class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal	"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
-      {{ $t("message.sell") }}
+      {{ $t("message.header.sell") }}
     </button>
   </div>
 </template>
@@ -102,7 +102,7 @@ export default defineComponent({
   created() {
 		if(localStorage.getItem("lang")== null){
 
-			localStorage.setItem("lang", "en");
+			localStorage.setItem("lang", "sw");
 		}
 		this.language = localStorage.getItem("lang")
   },
