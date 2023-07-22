@@ -2,7 +2,7 @@ export default {
   message: {
     header: {
       sell: "Auto verkaufen",
-      login: "Anmelden oder Registrieren		",
+      login: "Anmelden oder Registrieren",
       contact: "Kontakt",
     },
     selects: {
@@ -10,7 +10,7 @@ export default {
       model: "Modell",
       kilometr: "Kilometerstand",
       ad: "Art der Anzeige",
-      registration: "Anmeldeformular			",
+      registration: "Anmeldeformular",
 			zip: "Stadt oder Postleitzahl",
       price: "Preis bis",
     },
@@ -26,7 +26,7 @@ export default {
 			used: "Gebraucht",
 			rent: "Miete",
 			crash: "Unfallauto",
-			classic: " Oldtimer"
+			classic: "Oldtimer"
     },
 		side:{
 			title: "Fahrerseite",

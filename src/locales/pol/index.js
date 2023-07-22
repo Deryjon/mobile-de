@@ -10,16 +10,16 @@ export default {
       model: "Modèle",
       kilometr: "Kilométrage",
       ad: "Type d'annonce		",
-      registration: "Formularz rejestracyjny		",
-      zip: "Miasto lub kod pocztowy			",
-      price: "Cena do			",
+      registration: "Rejestracyjny",
+      zip: "Miasto lub kod pocztowy",
+      price: "Cena do",
     },
 		results:{
 			result: "wyniki"
 		},
 		btn:{
 			sell: 'Sprzedać',
-			buy: 'Kupić '
+			buy: 'Kupić'
 		},
 		filter: {
       new: "Nowy",

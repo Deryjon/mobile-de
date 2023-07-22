@@ -4,7 +4,7 @@
     <section>
       <v-container>
         <div
-          class="search relative w-[380px] sm:w-[550px] lg:w-[800px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
+          class="search relative w-[380px] sm:w-[550px] lg:w-[900px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
         >
           <div class="tabs">
             <div class="nav-tabs flex lg:flex-col">
@@ -88,19 +88,19 @@
                 {{ $t("message.filter.new") }}
               </button>
               <button
-                class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+                class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
               >
                 {{ $t("message.filter.used") }}
               </button>
               <button
                 class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
-               {{ $t("message.filter.rent") }}
+                {{ $t("message.filter.rent") }}
               </button>
               <button
                 class="filter-btn bg-[#d3d3d3] py-[12px] w-[72.5px] sm:w-[94.5px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
-               {{ $t("message.filter.crash") }}
+                {{ $t("message.filter.crash") }}
               </button>
               <select
                 class="filter-btn bg-[#d3d3d3] py-[12px] px-[2px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[110px] sm:w-[133.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
@@ -115,7 +115,7 @@
               <button
                 class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
-							{{ $t("message.filter.classic") }}
+                {{ $t("message.filter.classic") }}
               </button>
             </div>
           </div>
@@ -124,37 +124,39 @@
             <button
               class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
-						{{ $t("message.filter.new") }}
+              {{ $t("message.filter.new") }}
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[14px] sm:px-[11.3px] lg:px-[3px] lg:w-[85px] hover:bg-[#beb5b5]"
+            >
+              {{ $t("message.filter.used") }}
             </button>
             <button
               class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
-						{{ $t("message.filter.used") }}
+              {{ $t("message.filter.rent") }}
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
             >
-						{{ $t("message.filter.rent") }}
+              {{ $t("message.filter.crash") }}
             </button>
+            <div class="relative">
+              <select
+                class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+              >
+                <option value="">{{ $t("message.side.title") }}</option>
+                <option value="">{{ $t("message.side.left") }}</option>
+                <option value="">{{ $t("message.side.right") }}</option>
+              </select>
+              <span
+                class="arrow w-[7px] h-[7px] absolute lg:right-[10px] xl:right-[10px] top-[25px]"
+              ></span>
+            </div>
             <button
-              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
             >
-						{{ $t("message.filter.crash") }}
-            </button>
-            <select
-              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
-            >
-              <option value="">{{ $t("message.side.title") }}</option>
-              <option value="">{{ $t("message.side.left") }}</option>
-              <option value="">{{ $t("message.side.right") }}</option>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute lg:right-[210px] xl:right-[410px] top-[25px]"
-            ></span>
-            <button
-              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
-            >
-						{{ $t("message.filter.classic") }}
+              {{ $t("message.filter.classic") }}
             </button>
           </div>
           <div

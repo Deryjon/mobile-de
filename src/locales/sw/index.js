@@ -2,7 +2,7 @@ export default {
   message: {
     header: {
       sell: "Sälja bil",
-      login: "Logga in eller registrera dig	",
+      login: "Logga in eller registrera dig",
       contact: "Kontakt",
     },
     selects: {

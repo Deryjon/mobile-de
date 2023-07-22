@@ -71,7 +71,7 @@
           {{ $t("message.selects.kilometr") }}
         </h2>
         <!-- KIllometer bis -->
-        <div class="marke_select_div flex">
+        <div class="marke_select_div flex relative">
           <input
             placeholder="Beliebig"
             id="inputYear"
@@ -102,7 +102,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute top-[230px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[40px]"
+            class="arrow w-[7px] h-[7px] absolute top-[230px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[13px]"
           ></span>
         </div>
       </div>

@@ -11,7 +11,7 @@ export default {
       kilometr: "Kilometraje",
       ad: "Tipo de anuncio",
 			registration: "Formulario de inscripción",
-			zip: "Ciudad o código postal			",
+			zip: "Ciudad o código postal",
       price: "Precio hasta",
     },
 		results:{

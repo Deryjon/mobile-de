@@ -2,7 +2,7 @@ export default {
   message: {
     header: {
       sell: "Vendre",
-      login: "Connexion ou Inscription		",
+      login: "Connexion ou Inscription",
       contact: "Contact",
     },
     selects: {
@@ -10,12 +10,12 @@ export default {
       model: "Modèle",
       kilometr: "Kilométrage",
       ad: "Type d'annonce",
-			registration: "Formulaire d'inscription			",
+			registration: "Formulaire d'inscription",
 			zip: "Ville ou code postal",
       price: "Prix ​​jusqu'à",
     },
 		results:{
-			result: "résultats				"
+			result: "résultats"
 		},
 		btn:{
 			sell: 'Vendre',
@@ -29,8 +29,8 @@ export default {
 			classic: "Voitures classiques"
     },
 		side:{
-			title: "Côté conduite			",
-			left: "Conduite à gauche			",
+			title: "Côté conduite",
+			left: "Conduite à gauche",
 			right: "Conduite à droite"
 		}
   },

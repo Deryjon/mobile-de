@@ -15,7 +15,6 @@
               <option value="14700">Lancia</option>
               <option value="14800">Land Rover</option>
               <option value="14845">Landwind</option>
-              <option value="31933">LEVC</option>
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -71,7 +70,7 @@
           {{ $t("message.selects.kilometr") }}
         </h2>
         <!-- KIllometer bis -->
-        <div class="marke_select_div flex">
+        <div class="marke_select_div flex relative">
           <input
             placeholder="Beliebig"
             id="inputYear"
@@ -102,7 +101,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute top-[230px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[40px]"
+            class="arrow w-[7px] h-[7px] absolute top-[230px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[13px]"
           ></span>
         </div>
       </div>
@@ -123,7 +122,6 @@
             {{ $t("message.btn.sell") }}
           </button>
           <button
-					id="sui"
             class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab2"
             :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
@@ -197,11 +195,11 @@ export default {
     },
     async showTab2() {
       this.activeTab = "tab-2";
-      fetchCars();
-				const response = await http.get(
-				  "/v1/cars?makes="
-				);
-				console.log(response.data);
+      const response = await http.get(
+        "/v1/cars?makes=WOQeyLyhTOSP5oMxpfhOvA==UprDP0VUVciHxFbP" 
+      );
+			
+      console.log(response.data);
     },
   },
   components: { FilterBtn },
