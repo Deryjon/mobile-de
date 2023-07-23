@@ -26,7 +26,7 @@ export default {
 			used: "Used",
 			rent: "Rent",
 			crash: "Crash car",
-			classic: " Classic cars"
+			classic: "Classic"
     },
 		side:{
 			title: "Driving Side",

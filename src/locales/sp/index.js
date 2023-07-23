@@ -25,8 +25,8 @@ export default {
       new: "Nuevo",
 			used: "Usado",
 			rent: "Alquiler",
-			crash: "Coche de choque",
-			classic: "Autos clásicoss"
+			crash: "De choque",
+			classic: "Clásicoss"
     },
 		side:{
 			title: "Lado de conducción",

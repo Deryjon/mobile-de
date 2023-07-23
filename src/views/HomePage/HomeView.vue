@@ -81,29 +81,29 @@
                 </svg>
               </div>
             </div>
-            <div class="filter-btns lg:hidden h-[30px] lg:h-[60px]">
+            <div class="filter-btns lg:hidden h-[44px] sm:h-[57px] lg:h-[60px]">
               <button
-                class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+                class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
                 {{ $t("message.filter.new") }}
               </button>
               <button
-                class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
+                class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
               >
                 {{ $t("message.filter.used") }}
               </button>
               <button
-                class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+                class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
                 {{ $t("message.filter.rent") }}
               </button>
               <button
-                class="filter-btn bg-[#d3d3d3] py-[12px] w-[72.5px] sm:w-[94.5px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+                class="filter-btn bg-[#d3d3d3] py-[12px] h-full w-[75.5px] sm:w-[94.5px] text-[12px] sm:text-[10px]  sm:py-[21.5px] lg:py-[15.5px] sm:px-[0.3px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
                 {{ $t("message.filter.crash") }}
               </button>
               <select
-                class="filter-btn bg-[#d3d3d3] py-[12px] px-[2px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[110px] sm:w-[133.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+                class="filter-btn bg-[#d3d3d3] py-[12px] h-full px-[2px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[110px] sm:w-[133.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
               >
                 <option value="">{{ $t("message.side.title") }}</option>
                 <option value="">{{ $t("message.side.left") }}</option>
@@ -113,7 +113,7 @@
                 class="arrow w-[7px] h-[7px] absolute right-[68px] sm:right-[102px] top-[77px] sm:top-[83px]"
               ></span>
               <button
-                class="filter-btn bg-[#d3d3d3] py-[12px] text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+                class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
               >
                 {{ $t("message.filter.classic") }}
               </button>

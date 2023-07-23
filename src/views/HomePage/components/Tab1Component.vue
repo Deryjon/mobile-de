@@ -258,11 +258,9 @@ export default {
     },
     async showTab2() {
       this.activeTab = "tab-2";
-      const response = await http.get(
-        "/v1/cars?makes=WOQeyLyhTOSP5oMxpfhOvA==UprDP0VUVciHxFbP" 
-      );
-			
-      console.log(response.data);
+      const res = http.get("https://api.auto-data.net/image-database");
+
+      console.log(res.data);
     },
   },
   components: { FilterBtn },

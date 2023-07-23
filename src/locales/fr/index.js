@@ -25,8 +25,8 @@ export default {
       new: "Nouveau",
 			used: "Utilisé",
 			rent: "Louer",
-			crash: "Accident de voiture",
-			classic: "Voitures classiques"
+			crash: "Accident de",
+			classic: "Classiques"
     },
 		side:{
 			title: "Côté conduite",

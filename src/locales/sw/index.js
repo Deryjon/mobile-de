@@ -25,8 +25,8 @@ export default {
       new: "Ny",
 			used: "Använd",
 			rent: "Hyra",
-			crash: "Krocka bil",
-			classic: "Klassiska bilar"
+			crash: "Krocka",
+			classic: "Klassiska"
     },
 		side:{
 			title: "Förarsidan",
