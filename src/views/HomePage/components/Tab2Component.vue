@@ -225,4 +225,21 @@ export default {
   border: 1px solid #eaccb4;
   color: #000;
 }
+select:hover {
+  box-shadow: 0 0 2px 1px #6a6acc;
+}
+input:hover {
+  box-shadow: 0 0 2px 1px #6a6acc;
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 2px 1px #6a6acc;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
 </style>
