@@ -1,35 +1,22 @@
 <template>
   <main>
     <HeaderLayoutVue />
-    <section>
-      <v-container> 
-				<SearchComponent/>
-				
-			</v-container>
-    </section>
+    <SearchSection />
   </main>
 </template>
 
 <script>
-import { defineComponent } from "vue";
-import SearchComponent from "./components/SearchComponent.vue";
-
+import SearchSection from "./sections/SearchSection.vue";
 import HeaderLayoutVue from "../..//layouts/HeaderLayout/HeaderLayout.vue";
-export default defineComponent({
+export default {
   created() {
-    this.$getLocation()
-      .then((coordinates) => {
-        console.log(coordinates);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  
   },
   components: {
     HeaderLayoutVue,
-    SearchComponent
-},
-});
+    SearchSection,
+  },
+};
 
 // Директива v-focus
 export const focusDirective = {

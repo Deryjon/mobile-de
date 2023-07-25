@@ -210,7 +210,7 @@
               />
             </div>
           </div>
-          <div>
+          <div class="relative">
             <h2 class="mt-2 text-sm lg:text-[16px]">
               {{ $t("message.selects.zip") }}
             </h2>
@@ -219,6 +219,9 @@
               type="text"
               placeholder="Beliebig"
             />
+						<div class="icon absolute top-[30px] sm:left-[330px] lg:top-[38px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer" @click="getLocation()">
+							<img src="../../../assets/images/icon-location.svg" alt="">
+						</div>
           </div>
           <FilterBtn />
         </div>
@@ -262,6 +265,15 @@ export default {
 
       console.log(res.data);
     },
+		getLocation(){
+			this.$getLocation()
+      .then((coordinates) => {
+        console.log(coordinates);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+		}
   },
   components: { FilterBtn },
 };
