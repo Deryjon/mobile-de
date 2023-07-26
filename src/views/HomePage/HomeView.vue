@@ -2,12 +2,14 @@
   <main>
     <HeaderLayoutVue />
     <SearchSection />
+		<RentSection/>
   </main>
 </template>
 
 <script>
 import SearchSection from "./sections/SearchSection.vue";
 import HeaderLayoutVue from "../..//layouts/HeaderLayout/HeaderLayout.vue";
+import RentSection from "./sections/RentSection.vue";
 export default {
   created() {
   
@@ -15,7 +17,8 @@ export default {
   components: {
     HeaderLayoutVue,
     SearchSection,
-  },
+    RentSection
+},
 };
 
 // Директива v-focus
