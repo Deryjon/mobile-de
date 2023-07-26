@@ -26,7 +26,8 @@ export default {
 			used: "Usado",
 			rent: "Alquiler",
 			crash: "De choque",
-			classic: "Clásicoss"
+			classic: "Clásicoss",
+			btn: "Filtrar"
     },
 		side:{
 			title: "Lado de conducción",

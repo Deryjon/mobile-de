@@ -26,12 +26,14 @@ export default {
 			used: "Used",
 			rent: "Rent",
 			crash: "Crash car",
-			classic: "Classic"
+			classic: "Classic",
+			btn: "Filter"
     },
 		side:{
 			title: "Driving Side",
 			left: "Left hand drive",
 			right: "Right hand drive"
-		}
-  },
+		},
+		
+  }
 };

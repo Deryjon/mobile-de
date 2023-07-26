@@ -26,7 +26,8 @@ export default {
 			used: "Använd",
 			rent: "Hyra",
 			crash: "Krocka",
-			classic: "Klassiska"
+			classic: "Klassiska",
+			btn: "Filtrera"
     },
 		side:{
 			title: "Förarsidan",

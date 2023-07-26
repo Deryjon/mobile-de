@@ -26,7 +26,8 @@ export default {
 			used: "Używany",
 			rent: "Wynajem",
 			crash: "Wypadek",
-			classic: "Klasyczne"
+			classic: "Klasyczne",
+			btn: "Filtr",
     },
 		side:{
 			title: "Strona kierowcy",

@@ -26,7 +26,8 @@ export default {
 			used: "Б/у",
 			rent: "Аренда",
 			crash: "Аварийный",
-			classic: "Классика"
+			classic: "Классика",
+			btn: "Фильтр"
     },
 		side:{
 			title: "Сторон руль",

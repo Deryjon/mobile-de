@@ -26,7 +26,8 @@ export default {
 			used: "Gebraucht",
 			rent: "Miete",
 			crash: "Unfallauto",
-			classic: "Oldtimer"
+			classic: "Oldtimer",
+			btn: "Filter"
     },
 		side:{
 			title: "Fahrerseite",
