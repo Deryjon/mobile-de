@@ -218,6 +218,7 @@
               class="mark_input_zip mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
               placeholder="Beliebig"
+							v-model="cityName"
             />
 						<div class="icon absolute top-[30px] sm:left-[330px] lg:top-[38px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer" @click="getLocation()">
 							<img src="../../../assets/images/icon-location.svg" alt="">
@@ -231,6 +232,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
 export default {
   data() {
@@ -240,6 +242,7 @@ export default {
       killometres: "",
       price: "",
       activeTab: "tab-1",
+			cityName: "",
     };
   },
   methods: {
@@ -265,15 +268,27 @@ export default {
 
       console.log(res.data);
     },
-		getLocation(){
-			this.$getLocation()
-      .then((coordinates) => {
-        console.log(coordinates);
-      })
-      .catch((error) => {
+		async getLocation() {
+      try {
+        const coordinates = await this.$getLocation();
+        console.log("Latitude:", coordinates.lat);
+        console.log("Longitude:", coordinates.lng);
+        
+        // Выполняем обратное геокодирование
+        const url = `https://nominatim.openstreetmap.org/reverse?lat=${coordinates.lat}&lon=${coordinates.lng}&format=json`;
+        const response = await axios.get(url);
+
+        if (response.status === 200) {
+          const data = response.data;
+          const city = data.address.city || data.address.village || data.address.town || data.address.hamlet || data.address.suburb || "Unknown";
+          this.cityName = city; // Сохраняем результат в свойство данных cityName
+        } else {
+          console.log("Failed to retrieve city name");
+        }
+      } catch (error) {
         console.log(error);
-      });
-		}
+      }
+    },
   },
   components: { FilterBtn },
 };
