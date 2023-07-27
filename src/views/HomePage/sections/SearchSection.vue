@@ -86,7 +86,7 @@
               {{ $t("message.filter.new") }}
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px]  lg:px-[15px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] lg:px-[15px] hover:bg-[#beb5b5]"
             >
               {{ $t("message.filter.used") }}
             </button>
@@ -121,21 +121,29 @@
         <div class="filter-btns hidden lg:flex h-[30px] lg:h-[60px]">
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            @click="setActiveFilter('tab-1')"
+            :class="{ active: isActiveFilter('tab-1') }"
           >
             {{ $t("message.filter.new") }}
           </button>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[14px] sm:px-[11.3px] lg:px-[3px] lg:w-[85px] hover:bg-[#beb5b5]"
+						@click="setActiveFilter('tab-2')"
+            :class="{ active: isActiveFilter('tab-2') }"
           >
             {{ $t("message.filter.used") }}
           </button>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+						@click="setActiveFilter('tab-3')"
+            :class="{ active: isActiveFilter('tab-3') }"
           >
             {{ $t("message.filter.rent") }}
           </button>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
+						@click="setActiveFilter('tab-4')"
+            :class="{ active: isActiveFilter('tab-4') }"
           >
             {{ $t("message.filter.crash") }}
           </button>
@@ -153,6 +161,8 @@
           </div>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+						@click="setActiveFilter('tab-5')"
+            :class="{ active: isActiveFilter('tab-5') }"
           >
             {{ $t("message.filter.classic") }}
           </button>
@@ -189,25 +199,10 @@ import Tab1Component from "../components/Tab1Component.vue";
 import Tab2Component from "../components/Tab2Component.vue";
 import Tab3Component from "../components/Tab3Component.vue";
 import Tab4Components from "../components/Tab4Components.vue";
-import { useDarkModeStore } from "@/store/index.js";
 import MoreFilterBtn from "../../../components/MoreFilterBtn.vue";
-import { computed, watch, ref } from "vue";
+import { ref } from "vue";
 export default {
   setup() {
-    const darkModeStore = useDarkModeStore();
-    const isDarkMode = computed(() => darkModeStore.isDarkMode);
-    const toggleDarkMode = () => darkModeStore.toggleDarkMode();
-    watch(
-      isDarkMode,
-      (newIsDarkMode) => {
-        if (newIsDarkMode) {
-          document.body.style.background = "#526d82";
-        } else {
-          document.body.style.background = "";
-        }
-      },
-      { immediate: true }
-    );
     const activeTab = ref("tab-1");
     const setActive = (tab) => {
       activeTab.value = tab;
@@ -215,11 +210,18 @@ export default {
     const isActive = (tab) => {
       return activeTab.value === tab;
     };
+    const activeFilterTab = ref("tab-1");
+    const setActiveFilter = (tab) => {
+      activeFilterTab.value = tab;
+    };
+    const isActiveFilter = (tab) => {
+      return activeFilterTab.value === tab;
+    };
     return {
-      isDarkMode,
-      toggleDarkMode,
       setActive,
       isActive,
+      setActiveFilter,
+      isActiveFilter,
     };
   },
   components: {
@@ -276,7 +278,7 @@ select:focus {
   fill: #e04b00;
 }
 .active {
-  background: #f5f5f5;
+  background: #beb5b5;
 }
 .arrow {
   transform: translateY(-50%);

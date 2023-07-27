@@ -253,12 +253,6 @@ export default {
     updateSelect() {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
-
-      if (this.selectedMake === "tab-1") {
-        this.activeTab = "tab-1";
-      } else if (this.selectedMake === "tab-2") {
-        this.activeTab = "tab-2";
-      }
     },
     updateInputYear() {
 		},
