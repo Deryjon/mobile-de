@@ -16,9 +16,13 @@
     </svg>
 
     <p class="text-white text-[18px] lg:text-[16px]">1000</p>
-    <h1 class="text-white text-[18px] lg:text-[16px]">{{ $t("message.results.result") }}</h1>
+    <h1 class="text-white text-[18px] lg:text-[16px]">
+      {{ $t("message.results.result") }}
+    </h1>
   </div>
 </template>
 <script>
-export default {};
+
+export default {
+}
 </script>

@@ -86,7 +86,7 @@
               {{ $t("message.filter.new") }}
             </button>
             <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[12px] sm:text-[14px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px]  lg:px-[15px] hover:bg-[#beb5b5]"
             >
               {{ $t("message.filter.used") }}
             </button>
