@@ -3,13 +3,18 @@
     <div class="logo lg:ml-0 w-[80px] lg:w-[80px] h-[45px] lg:h-[54px] mb-3">
       <img src="../../../assets/images/logo.png" alt="header-logo" />
     </div>
-    <p class="text-[26px] font-extrabold pt-6 title" :class="{ 'dark': isDarkMode }">SellCenter</p>
+    <p
+      class="text-[26px] font-extrabold pt-6 title"
+      :class="{ 'text-white' : isDarkMode, 'text-black' : !isDarkMode }"
+    >
+      SellCenter
+    </p>
   </div>
 </template>
 
 <script>
-import { useDarkModeStore } from '@/store/index.js';
-import { defineComponent, computed } from 'vue';
+import { useDarkModeStore } from "@/store/index.js";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
   setup() {
@@ -53,7 +58,19 @@ export default defineComponent({
 .font-extrabold {
   font-weight: 800;
 }
-.title{
-	font-family: "Roman";
+
+.title {
+  font-family: "Roman";
+}
+
+/* Text color based on dark/light mode */
+.text-dark {
+  /* Your dark mode text color */
+  color: #ffffff;
+}
+
+.text-light {
+  /* Your light mode text color */
+  color: #4a5568;
 }
 </style>

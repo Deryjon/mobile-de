@@ -8,7 +8,7 @@ export default {
     selects: {
       mark: "Mark",
       model: "Model",
-      kilometr: "Mileage",
+      kilometr: "Kilometers",
       ad: "Type of ad",
       registration: "Registartion form",
       zip: "City or ZIP code",

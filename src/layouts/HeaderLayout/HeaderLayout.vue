@@ -1,5 +1,7 @@
 <template>
-  <header class="bg-[#e8f4f8]">
+  <header class=""
+	:class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
+	>
     <v-container class="flex z-50 items-center justify-between "
 		
 		>
@@ -25,9 +27,20 @@ import HeaderSwitcherTheme from "./components/HeaderSwitcherTheme.vue";
 import HeaderContact from "./components/HeaderContact.vue";
 import HeaderLogout from "./components/HeaderLogout.vue";
 import HiddenMenu from "./components/HiddenMenu.vue";
-
+import { useDarkModeStore } from "@/store/index.js";
 import HeaderMenuAction from "./components/HeaderMenuAction.vue";
+import { computed } from "vue";
 export default {
+	setup() {
+    const darkModeStore = useDarkModeStore();
+    const isDarkMode = computed(() => darkModeStore.isDarkMode);
+    const toggleDarkMode = () => darkModeStore.toggleDarkMode();
+
+    return {
+      isDarkMode,
+      toggleDarkMode,
+    };
+  },
   data() {
     return {
       isOpen: false,
@@ -46,6 +59,7 @@ export default {
     HeaderLogout,
     HiddenMenu,
     HeaderMenuAction,
+		
   },
 };
 </script>

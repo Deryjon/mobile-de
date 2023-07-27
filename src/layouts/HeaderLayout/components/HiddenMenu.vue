@@ -21,14 +21,14 @@
 
       <div class="body ">
         <HeaderSwitcherTheme
-          class="flex justify-center mt-[10px]"
+          class="ml-[28px] mt-[10px]"
           @click="$emit('closeMenu')"
         />
-        <HeaderActions class="flex flex-col w-full" />
-        <HeaderContact class="flex justify-center mx-auto mt-[10px]" 
+        <HeaderActions class="flex flex-col mr-[38px]" />
+        <HeaderContact class="flex justify-center ml-[30px] mt-[10px]" 
 				@click="$emit('closeMenu')"
 				/>
-				<HeaderLogout class="flex justify-center mx-auto mt-[10px]"
+				<HeaderLogout class="flex justify-center ml-[30px] mt-[10px]"
 				
 				/>
       </div>
