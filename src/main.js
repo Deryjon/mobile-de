@@ -8,9 +8,9 @@ import i18n from './locales/index'
 import Vue3Geolocation  from "vue3-geolocation";
 
 // Импортируйте CSS-файлы стилей в начале, перед импортом компонентов или модулей
+import './assets/styles/main.css';
 import './assets/styles/tailwind.css';
 import './assets/styles/font.css';
-import './assets/styles/main.css';
 
 const app = createApp(App);
 const pinia = createPinia();
