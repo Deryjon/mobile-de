@@ -47,12 +47,12 @@
             class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
             type="number"
             pattern="\d*"
-            v-model="selectedYear"
+            v-model="years"
           />
           <select
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px]"
             v-model="selectedYear"
-            @change="updateSelect"
+            @change="updateSelectYear"
           >
             <option value="50">50 € mtl</option>
             <option value="100">100 € mtl</option>
@@ -79,10 +79,11 @@
             type="number"
             pattern="\d*"
             v-model="killometres"
+            readonly
           />
           <select
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:right-[0px]"
-            v-model="killometres"
+            v-model="selectedMake"
             @change="updateSelect"
           >
             <option value="5000">5.000 km</option>
@@ -102,7 +103,7 @@
             <option value="200000">200.000 km</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute top-[230px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[13px]"
+            class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[13px]"
           ></span>
         </div>
       </div>
@@ -148,7 +149,7 @@
               />
             </div>
           </div>
-          <div>
+          <div class="relative">
             <h2 class="mt-2 text-sm lg:text-[16px]">
               {{ $t("message.selects.zip") }}
             </h2>
@@ -156,7 +157,14 @@
               class="mark_input_zip mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
               placeholder="Beliebig"
+              v-model="cityName"
             />
+            <div
+              class="icon absolute top-[30px] sm:left-[330px] lg:top-[38px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
+              @click="getLocation()"
+            >
+              <img src="../../../assets/images/icon-location.svg" alt="" />
+            </div>
           </div>
           <FilterBtn />
         </div>
@@ -166,6 +174,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
 export default {
   data() {
@@ -175,32 +184,61 @@ export default {
       killometres: "",
       price: "",
       activeTab: "tab-1",
+      cityName: "",
     };
   },
   methods: {
-    updateInput() {
-      this.selectedYear = this.selectedMake;
-      this.killometres = this.selectedMake;
-    },
     updateSelect() {
+      this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
-      this.selectedMake = this.killometres;
+
       if (this.selectedMake === "tab-1") {
         this.activeTab = "tab-1";
       } else if (this.selectedMake === "tab-2") {
         this.activeTab = "tab-2";
       }
     },
+    updateInputYear() {
+		},
+    updateSelectYear() {
+			this.years = this.selectedYear;
+      this.selectedYear = this.selectedMake;
+    },
     showTab1() {
       this.activeTab = "tab-1";
     },
     async showTab2() {
       this.activeTab = "tab-2";
-      const response = await http.get(
-        "/v1/cars?makes=WOQeyLyhTOSP5oMxpfhOvA==UprDP0VUVciHxFbP" 
-      );
-			
-      console.log(response.data);
+      const res = http.get("https://api.auto-data.net/image-database");
+
+      console.log(res.data);
+    },
+    async getLocation() {
+      try {
+        const coordinates = await this.$getLocation();
+        console.log("Latitude:", coordinates.lat);
+        console.log("Longitude:", coordinates.lng);
+
+        // Выполняем обратное геокодирование
+        const url = `https://nominatim.openstreetmap.org/reverse?lat=${coordinates.lat}&lon=${coordinates.lng}&format=json`;
+        const response = await axios.get(url);
+
+        if (response.status === 200) {
+          const data = response.data;
+          const city =
+            data.address.city ||
+            data.address.village ||
+            data.address.town ||
+            data.address.hamlet ||
+            data.address.suburb ||
+            "Unknown";
+          this.cityName = city; // Сохраняем результат в свойство данных cityName
+        } else {
+          console.log("Failed to retrieve city name");
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
   components: { FilterBtn },
@@ -239,8 +277,8 @@ select:focus {
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 </style>
