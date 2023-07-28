@@ -7,12 +7,13 @@
             {{ $t("message.selects.mark") }}
           </h2>
           <select
-            class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
+            class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
+						@change="fetchModels"
           >
             <option value="14600">Beliebig</option>
             <optgroup>
-              <option v-for="make in makes" :key="make.id" :value="make.id">
+              <option v-for="make in makes" :key="make" :value="make">
                 {{ make }}
               </option>
             </optgroup>
@@ -25,14 +26,13 @@
           {{ $t("message.selects.model") }}
         </h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
         >
-          <option value="">Beliebig</option>
-          <option value="71">2002</option>
-          <option value="110">214 Active Tourer</option>
-          <option value="116">214 Gran Tourer</option>
-          <option value="106">216</option>
+				<option value="14600">Beliebig</option>
+         <option  v-for="model in models" :key="model" :value="model" class="">
+				{{ model }}
+				</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
@@ -186,12 +186,14 @@ export default {
       cityName: "",
       makes: [],
       selectedMark: "",
+			models: []
     };
   },
   methods: {
     updateSelect() {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
+      console.log("Выбранная марка:", this.selectedMark);
     },
     updateInputYear() {},
     updateSelectYear() {
@@ -232,31 +234,61 @@ export default {
         console.log(error);
       }
     },
+		fetchModels() {
+      if (!this.selectedMark) {
+        // Если марка не выбрана, сбросить значения моделей
+        this.models = [];
+        return;
+      }
+
+      // URL API для запроса моделей с указанием выбранной марки
+      const apiUrl = `https://api.nhtsa.gov/SafetyRatings/modelyear/2023/make/${this.selectedMark}`;
+
+      // Выполняем GET-запрос к API с помощью Axios
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          // Получаем данные из ответа
+          const data = response.data;
+
+          // Проверяем, что ответ содержит поле "Results" с массивом объектов
+          if (data && data.Results && Array.isArray(data.Results)) {
+            // Извлекаем поле "Model" из каждого объекта и сохраняем в массив "models"
+            this.models = data.Results.map((item) => item.Model);
+            console.log(this.models);
+          } else {
+            console.error("Некорректный формат ответа API.");
+          }
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error.message);
+        });
+    },
   },
   components: { FilterBtn },
   mounted() {
-    // URL API
-    const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
+		const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
 
-    // Выполняем GET-запрос к API с помощью Axios
-    axios
-      .get(apiUrl)
-      .then((response) => {
-        // Получаем данные из ответа
-        const data = response.data;
+// Выполняем GET-запрос к API с помощью Axios для получения марок
+axios
+	.get(apiUrl)
+	.then((response) => {
+		// Получаем данные из ответа
+		const data = response.data;
 
-        // Проверяем, что ответ содержит поле "Results" с массивом объектов
-        if (data && data.Results && Array.isArray(data.Results)) {
-          // Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
-          this.makes = data.Results.map((item) => item.Make);
-          console.log(this.makes);
-        } else {
-          console.error("Некорректный формат ответа API.");
-        }
-      })
-      .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error.message);
-      });
+		// Проверяем, что ответ содержит поле "Results" с массивом объектов
+		if (data && data.Results && Array.isArray(data.Results)) {
+			// Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
+			this.makes = data.Results.map((item) => item.Make);
+			console.log(this.makes);
+		} else {
+			console.error("Некорректный формат ответа API.");
+		}
+	})
+	.catch((error) => {
+		console.error("Ошибка при выполнении запроса:", error.message);
+	});
+
   },
 };
 </script>
