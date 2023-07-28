@@ -8,8 +8,12 @@
           </h2>
           <select
             class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px]"
+            v-model="selectedMark"
           >
-            <option value="14600">Beliebig</option>
+            <option v-for="mark in marks" :key="mark.id" :value="mark.id">
+              {{ mark.name }}
+            </option>
+            <!-- <option value="14600">Beliebig</option>
             <optgroup>
               <option value="14600">Lamborghini</option>
               <option value="14700">Lancia</option>
@@ -78,7 +82,7 @@
               <option value="31956">WEY</option>
               <option value="25650">Wiesmann</option>
               <option value="1400">Andere</option>
-            </optgroup>
+            </optgroup> -->
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
@@ -247,6 +251,8 @@ export default {
       price: "",
       activeTab: "tab-1",
       cityName: "",
+      marks: [],
+      selectedMark: "",
     };
   },
   methods: {
@@ -254,10 +260,9 @@ export default {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
     },
-    updateInputYear() {
-		},
+    updateInputYear() {},
     updateSelectYear() {
-			this.years = this.selectedYear;
+      this.years = this.selectedYear;
       this.selectedYear = this.selectedMake;
     },
     showTab1() {
@@ -265,9 +270,18 @@ export default {
     },
     async showTab2() {
       this.activeTab = "tab-2";
-      const res = http.get("https://api.auto-data.net/image-database");
-
-      console.log(res.data);
+			const res = await axios.get("https://api.nhtsa.gov/SafetyRatings/modelyear/2023");
+			console.log(res.data);
+        this.marks = res.data;
+    },
+    async fetchMarks() {
+      try {
+        const res = await http.get("/modelyear/2023/make");
+        this.marks = res.data;
+        console.log(this.marks);
+      } catch (error) {
+        console.error("Ошибка при получении данных:", error);
+      }
     },
     async getLocation() {
       try {
@@ -298,6 +312,9 @@ export default {
     },
   },
   components: { FilterBtn },
+  mounted() {
+    this.fetchMarks();
+  },
 };
 </script>
 <style>

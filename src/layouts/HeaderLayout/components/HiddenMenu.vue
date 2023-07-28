@@ -41,7 +41,7 @@
 import HeaderLogo from "./HeaderLogo.vue";
 import HeaderActions from "./HeaderActions.vue";
 import HeaderSwitcherTheme from "./HeaderSwitcherTheme.vue";
-import { useDarkModeStore } from "@/store/index.js";
+import { useDarkModeStore } from "@/store/dark-mode.js";
 import HeaderContact from "./HeaderContact.vue";
 import HeaderLogout from "./HeaderLogout.vue";
 import { computed } from "vue";

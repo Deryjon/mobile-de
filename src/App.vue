@@ -7,9 +7,6 @@
 <script>
 import HeaderLayoutVue from './layouts/HeaderLayout/HeaderLayout.vue'
 export default{
-	mounted(){
-		document.title = 'SellCenter'
-	},
 	components: {HeaderLayoutVue}
 }
 </script>

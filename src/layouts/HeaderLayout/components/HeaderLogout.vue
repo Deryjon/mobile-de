@@ -8,13 +8,11 @@
   </button>
 </template>
 <script>
-import { useDarkModeStore } from "@/store/index.js";
-import { useI18nStore } from "../../../store/i18n.js";
+import { useDarkModeStore } from "@/store/dark-mode.js";
 import { defineComponent, computed } from "vue";
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
-    const i18nStore = useI18nStore();
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();

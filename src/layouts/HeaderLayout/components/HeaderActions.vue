@@ -73,7 +73,7 @@
   </div>
 </template>
 <script>
-import { useDarkModeStore } from "@/store/index.js";
+import { useDarkModeStore } from "@/store/dark-mode.js";
 import {  defineComponent, computed } from "vue";
 
 export default defineComponent({

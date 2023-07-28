@@ -27,7 +27,7 @@ import HeaderSwitcherTheme from "./components/HeaderSwitcherTheme.vue";
 import HeaderContact from "./components/HeaderContact.vue";
 import HeaderLogout from "./components/HeaderLogout.vue";
 import HiddenMenu from "./components/HiddenMenu.vue";
-import { useDarkModeStore } from "@/store/index.js";
+import { useDarkModeStore } from "@/store/dark-mode.js";
 import HeaderMenuAction from "./components/HeaderMenuAction.vue";
 import { computed } from "vue";
 export default {

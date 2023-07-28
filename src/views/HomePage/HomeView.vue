@@ -8,12 +8,9 @@
 
 <script>
 import SearchSection from "./sections/SearchSection.vue";
-import HeaderLayoutVue from "../..//layouts/HeaderLayout/HeaderLayout.vue";
+import HeaderLayoutVue from "../../layouts/HeaderLayout/HeaderLayout.vue";
 import RentSection from "./sections/RentSection.vue";
 export default {
-  created() {
-  
-  },
   components: {
     HeaderLayoutVue,
     SearchSection,
