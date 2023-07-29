@@ -10,12 +10,12 @@
             class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
 						@change="fetchModels"
-          >
-            <option value="14600">Beliebig</option>
-            <optgroup>
-              <option v-for="make in makes" :key="make" :value="make">
-                {{ make }}
-              </option>
+						>
+						<option value="14600" selected >Beliebig</option>
+					<optgroup>
+						<option v-for="make in makes" :key="make" :value="make">
+							{{ make }}
+						</option>
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -43,13 +43,13 @@
         <div class="mark-select relative">
           <input
             placeholder="Beliebig"
-            class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal"
+            class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="years"
           />
           <select
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px]"
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
             v-model="selectedYear"
             @change="updateSelectYear"
           >
@@ -74,14 +74,14 @@
           <input
             placeholder="Beliebig"
             id="inputYear"
-            class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
             readonly
           />
           <select
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:right-[0px]"
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:right-[0px] text-[10px] lg:text-[12px]"
             v-model="selectedMake"
             @change="updateSelect"
           >
@@ -185,7 +185,7 @@ export default {
       activeTab: "tab-1",
       cityName: "",
       makes: [],
-      selectedMark: "",
+      selectedMark: "14600",
 			models: []
     };
   },
