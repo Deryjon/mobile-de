@@ -2,41 +2,43 @@
   <div class="for-example">
     <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px]">
       <div class="mark">
-        <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[16px]">
-            {{ $t("message.selects.mark") }}
-          </h2>
-          <select
-            class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMark"
-            @change="fetchModels"
-          >
-            <option value="14600" selected>Beliebig</option>
-            <optgroup>
-              <option v-for="make in makes" :key="make" :value="make">
-                {{ make }}
-              </option>
-            </optgroup>
-          </select>
-          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-        </div>
-      </div>
-      <div class="relative">
-        <h2 class="text-sm lg:text-[16px] mt-2">
-          {{ $t("message.selects.model") }}
-        </h2>
-        <select
-          class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig"
-        >
-          <option value="14600">Beliebig</option>
-          <option v-for="model in models" :key="model" :value="model" class="">
-            {{ model }}
-          </option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-      </div>
-      <div>
+  <div class="relative mt-2">
+    <h2 class="text-sm lg:text-[16px]">
+      {{ $t("message.selects.mark") }}
+    </h2>
+    <select
+      class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+      v-model="selectedMark"
+      @change="fetchModels"
+    >
+      <option value="14600" selected>Beliebig</option>
+      <optgroup>
+        <option v-for="make in makes" :key="make" :value="make">
+          {{ make }}
+        </option>
+      </optgroup>
+    </select>
+    <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+  </div>
+</div>
+
+<div class="relative">
+  <h2 class="text-sm lg:text-[16px] mt-2">
+    {{ $t("message.selects.model") }}
+  </h2>
+  <select
+    class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+    placeholder="Beliebig"
+    :disabled="isModelSelectDisabled"
+  >
+    <option value="14600">Beliebig</option>
+    <option v-for="model in models" :key="model" :value="model" class="">
+      {{ model }}
+    </option>
+  </select>
+  <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+</div>
+<div>
         <h2 class="text-sm lg:text-[16px] mt-2">
           {{ $t("message.selects.registration") }}
         </h2>
@@ -187,12 +189,12 @@ export default {
       makes: [],
       selectedMark: "14600",
       models: [],
-			modelYears: [],
-			years: ""
+      modelYears: [],
+      years: "",
     };
   },
   methods: {
-		updateSelect() {
+    updateSelect() {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
     },
@@ -236,35 +238,38 @@ export default {
       }
     },
     fetchModels() {
-      if (!this.selectedMark) {
-        // Если марка не выбрана, сбросить значения моделей
-        this.models = [];
-        return;
-      }
+    if (!this.selectedMark) {
+      this.models = [];
+      this.isModelSelectDisabled = true; // Disable the model select
+      return;
+    }
 
-      // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://api.nhtsa.gov/SafetyRatings/modelyear/2023/make/${this.selectedMark}`;
+    // URL API для запроса моделей с указанием выбранной марки
+    const apiUrl = `https://api.nhtsa.gov/SafetyRatings/modelyear/2023/make/${this.selectedMark}`;
 
-      // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data;
+    // Выполняем GET-запрос к API с помощью Axios
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        // Получаем данные из ответа
+        const data = response.data;
 
-          // Проверяем, что ответ содержит поле "Results" с массивом объектов
-          if (data && data.Results && Array.isArray(data.Results)) {
-            // Извлекаем поле "Model" из каждого объекта и сохраняем в массив "models"
-            this.models = data.Results.map((item) => item.Model);
-            console.log(this.models);
-          } else {
-            console.error("Некорректный формат ответа API.");
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-        });
-    },
+        // Проверяем, что ответ содержит поле "Results" с массивом объектов
+        if (data && data.Results && Array.isArray(data.Results)) {
+          // Извлекаем поле "Model" из каждого объекта и сохраняем в массив "models"
+          this.models = data.Results.map((item) => item.Model);
+          console.log(this.models);
+          this.isModelSelectDisabled = false; // Enable the model select
+        } else {
+          console.error("Некорректный формат ответа API.");
+          this.isModelSelectDisabled = true; // Disable the model select on error
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error.message);
+        this.isModelSelectDisabled = true; // Disable the model select on error
+      });
+  },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
       axios
@@ -301,8 +306,13 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-			this.fetchModelYears();
+    this.fetchModelYears();
   },
+	computed: {
+  isModelSelectDisabled() {
+    return this.selectedMark === "14600"; // "Beliebig" value
+  }
+},
 };
 </script>
 <style>
