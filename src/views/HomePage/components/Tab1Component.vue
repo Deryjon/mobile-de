@@ -9,13 +9,13 @@
           <select
             class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-						@change="fetchModels"
-						>
-						<option value="14600" selected >Beliebig</option>
-					<optgroup>
-						<option v-for="make in makes" :key="make" :value="make">
-							{{ make }}
-						</option>
+            @change="fetchModels"
+          >
+            <option value="14600" selected>Beliebig</option>
+            <optgroup>
+              <option v-for="make in makes" :key="make" :value="make">
+                {{ make }}
+              </option>
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -29,10 +29,10 @@
           class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
         >
-				<option value="14600">Beliebig</option>
-         <option  v-for="model in models" :key="model" :value="model" class="">
-				{{ model }}
-				</option>
+          <option value="14600">Beliebig</option>
+          <option v-for="model in models" :key="model" :value="model" class="">
+            {{ model }}
+          </option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
@@ -50,15 +50,16 @@
           />
           <select
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            v-model="selectedYear"
+						v-model="selectedYear"
             @change="updateSelectYear"
           >
-            <option value="50">50 € mtl</option>
+					<option  v-for="year in modelYears" :key="year" :value="year"> {{ year }}</option>
+            <!-- <option value="50">50 € mtl</option>
             <option value="100">100 € mtl</option>
             <option value="150">150 € mtl</option>
             <option value="200">200 € mtl</option>
             <option value="250">250 € mtl</option>
-            <option value="300">300 € mtl</option>
+            <option value="300">300 € mtl</option> -->
           </select>
           <span
             class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
@@ -172,7 +173,6 @@
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
 import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
 export default {
@@ -186,14 +186,15 @@ export default {
       cityName: "",
       makes: [],
       selectedMark: "14600",
-			models: []
+      models: [],
+			modelYears: [],
+			years: ""
     };
   },
   methods: {
-    updateSelect() {
+		updateSelect() {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
-      console.log("Выбранная марка:", this.selectedMark);
     },
     updateInputYear() {},
     updateSelectYear() {
@@ -234,7 +235,7 @@ export default {
         console.log(error);
       }
     },
-		fetchModels() {
+    fetchModels() {
       if (!this.selectedMark) {
         // Если марка не выбрана, сбросить значения моделей
         this.models = [];
@@ -264,31 +265,43 @@ export default {
           console.error("Ошибка при выполнении запроса:", error.message);
         });
     },
+    fetchModelYears() {
+      const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          const data = response.data;
+          this.modelYears = data.Results.map((result) => result.ModelYear);
+        })
+        .catch((error) => {
+          console.error("Error fetching model years:", error);
+        });
+    },
   },
   components: { FilterBtn },
   mounted() {
-		const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
+    const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
 
-// Выполняем GET-запрос к API с помощью Axios для получения марок
-axios
-	.get(apiUrl)
-	.then((response) => {
-		// Получаем данные из ответа
-		const data = response.data;
+    // Выполняем GET-запрос к API с помощью Axios для получения марок
+    axios
+      .get(apiUrl)
+      .then((response) => {
+        // Получаем данные из ответа
+        const data = response.data;
 
-		// Проверяем, что ответ содержит поле "Results" с массивом объектов
-		if (data && data.Results && Array.isArray(data.Results)) {
-			// Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
-			this.makes = data.Results.map((item) => item.Make);
-			console.log(this.makes);
-		} else {
-			console.error("Некорректный формат ответа API.");
-		}
-	})
-	.catch((error) => {
-		console.error("Ошибка при выполнении запроса:", error.message);
-	});
-
+        // Проверяем, что ответ содержит поле "Results" с массивом объектов
+        if (data && data.Results && Array.isArray(data.Results)) {
+          // Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
+          this.makes = data.Results.map((item) => item.Make);
+          console.log(this.makes);
+        } else {
+          console.error("Некорректный формат ответа API.");
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error.message);
+      });
+			this.fetchModelYears();
   },
 };
 </script>
