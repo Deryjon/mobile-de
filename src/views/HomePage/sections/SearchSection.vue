@@ -7,7 +7,7 @@
         <div class="tabs h-full">
           <div class="nav-tabs flex lg:flex-col mt-[-0.01px]">
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3]  py-[20.35px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
+              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20.35px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
               @click="setActive('tab-1')"
               :class="{ active: isActive('tab-1') }"
             >
@@ -79,30 +79,46 @@
               </svg>
             </div>
           </div>
-          <div class="filter-btns lg:hidden h-[44px] sm:h-[57px] lg:h-[60px] flex items-start"> <!-- Добавлено: flex items-start -->
-    <button class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]">
-        {{ $t("message.filter.new") }}
-    </button>
-    <button class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] lg:px-[15px] hover:bg-[#beb5b5]">
-        {{ $t("message.filter.used") }}
-    </button>
-    <button class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]">
-        {{ $t("message.filter.rent") }}
-    </button>
-    <button class="filter-btn bg-[#d3d3d3] py-[12px] h-full w-[55px] sm:w-[94.5px] text-[10px] sm:text-[12px] sm:py-[21.5px] lg:py-[15.5px] sm:px-[0.3px] lg:px-[20px] hover:bg-[#beb5b5]">
-        {{ $t("message.filter.crash") }}
-    </button>
-    <select class="filter-btn bg-[#d3d3d3] py-[12px] h-full px-[2px] text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[110px] sm:w-[133.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer">
-        <option value="">{{ $t("message.side.title") }}</option>
-        <option value="">{{ $t("message.side.left") }}</option>
-        <option value="">{{ $t("message.side.right") }}</option>
-    </select>
-    <span class="arrow w-[7px] h-[7px] absolute right-[68px] sm:right-[102px] top-[77px] sm:top-[83px]"></span>
-    <button class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]">
-        {{ $t("message.filter.classic") }}
-    </button>
-</div>
-
+          <div
+            class="filter-btns lg:hidden h-[44px] sm:h-[57px] lg:h-[60px] flex items-start"
+          >
+            <!-- Добавлено: flex items-start -->
+            <button
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              {{ $t("message.filter.new") }}
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] lg:px-[15px] hover:bg-[#beb5b5]"
+            >
+              {{ $t("message.filter.used") }}
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              {{ $t("message.filter.rent") }}
+            </button>
+            <button
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full w-[55px] sm:w-[94.5px] text-[10px] sm:text-[12px] sm:py-[21.5px] lg:py-[15.5px] sm:px-[0.3px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              {{ $t("message.filter.crash") }}
+            </button>
+            <select
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full px-[2px] text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[110px] sm:w-[133.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+            >
+              <option value="">{{ $t("message.side.title") }}</option>
+              <option value="">{{ $t("message.side.left") }}</option>
+              <option value="">{{ $t("message.side.right") }}</option>
+            </select>
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[68px] sm:right-[102px] top-[77px] sm:top-[83px]"
+            ></span>
+            <button
+              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
+            >
+              {{ $t("message.filter.classic") }}
+            </button>
+          </div>
         </div>
 
         <div class="filter-btns hidden lg:flex h-[30px] lg:h-[60px]">
@@ -115,21 +131,21 @@
           </button>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[14px] sm:px-[11.3px] lg:px-[3px] lg:w-[85px] hover:bg-[#beb5b5]"
-						@click="setActiveFilter('tab-2')"
+            @click="setActiveFilter('tab-2')"
             :class="{ activefilter: isActiveFilter('tab-2') }"
           >
             {{ $t("message.filter.used") }}
           </button>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-						@click="setActiveFilter('tab-3')"
+            @click="setActiveFilter('tab-3')"
             :class="{ activefilter: isActiveFilter('tab-3') }"
           >
             {{ $t("message.filter.rent") }}
           </button>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
-						@click="setActiveFilter('tab-4')"
+            @click="setActiveFilter('tab-4')"
             :class="{ activefilter: isActiveFilter('tab-4') }"
           >
             {{ $t("message.filter.crash") }}
@@ -148,7 +164,7 @@
           </div>
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
-						@click="setActiveFilter('tab-5')"
+            @click="setActiveFilter('tab-5')"
             :class="{ activefilter: isActiveFilter('tab-5') }"
           >
             {{ $t("message.filter.classic") }}
@@ -187,11 +203,11 @@ import Tab2Component from "../components/Tab2Component.vue";
 import Tab3Component from "../components/Tab3Component.vue";
 import Tab4Components from "../components/Tab4Components.vue";
 import MoreFilterBtn from "../../../components/MoreFilterBtn.vue";
-import {useDarkModeStore} from "../../../store/dark-mode"
+import { useDarkModeStore } from "../../../store/dark-mode";
 import { ref, watch, computed } from "vue";
 export default {
   setup() {
-		const darkModeStore = useDarkModeStore();
+    const darkModeStore = useDarkModeStore();
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
     watch(
@@ -224,8 +240,8 @@ export default {
       isActive,
       setActiveFilter,
       isActiveFilter,
-			toggleDarkMode,
-			isDarkMode,
+      toggleDarkMode,
+      isDarkMode,
     };
   },
   components: {
@@ -281,8 +297,8 @@ select:focus {
 .active svg path {
   fill: #e04b00;
 }
-.active{
-	background: #f5f5f5;
+.active {
+  background: #f5f5f5;
 }
 
 .activefilter {

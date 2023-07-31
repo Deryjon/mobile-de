@@ -1,128 +1,288 @@
 <template>
-  <v-sheet
-    width="600"
-    height="550"
-    class="mx-auto shadow-md mt-[100px] px-[25px] rounded-md"
-  >
-    <div class="logo">
-      <img src="../assets/images/logo.png" class="w-[100px] mx-auto" alt="" />
-    </div>
-
-    <v-form @submit.prevent="signUp">
-      <v-text-field
-        v-model="formData.name"
-        :error-messages="v$.formData.email.$errors[0]?.$message"
-        label="Email"
-        class="rounded-md"
-      ></v-text-field>
-      <v-text-field
-        v-model="formData.phone"
-        :error-messages="v$.formData.password.$errors[0]?.$message"
-        label=" Password"
-        class="rounded-md mt-3"
-      ></v-text-field>
-      <p class="text-xs text-blue-600 hover:underline cursor-pointer ml-1 mt-3">
-        Forget password?
-      </p>
+  <v-container>
+    <div class="tab-buttons mt-[30px]">
       <button
-        type="submit"
-        class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600 mt-[10px]"
+        class="login w-[240px] h-[54px]"
+        @click="setActive('tab-1')"
+        :class="{ active: isActive('tab-1') }"
       >
-        Sign In
+        Login
       </button>
-    </v-form>
-    <div class="or flex justify-between  items-center mt-[30px] w-full">
-      <div class="left-bord w-[250px]"></div>
-      Or
-      <div class="right-bord w-[250px]"></div>
+
+      <button
+        class="forget w-[240px] h-[54px]"
+        @click="setActive('tab-2')"
+        :class="{ active: isActive('tab-2') }"
+      >
+        Register
+      </button>
     </div>
-    <div class="apps flex justify-between mx-auto w-[500px]  mt-[20px]" >
-      <div class="google w-1/3 cursor-pointer">
-        <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current mx-auto" >
-          <path
-            d="M16.318 13.714v5.484h9.078c-0.37 2.354-2.745 6.901-9.078 6.901-5.458 0-9.917-4.521-9.917-10.099s4.458-10.099 9.917-10.099c3.109 0 5.193 1.318 6.38 2.464l4.339-4.182c-2.786-2.599-6.396-4.182-10.719-4.182-8.844 0-16 7.151-16 16s7.156 16 16 16c9.234 0 15.365-6.49 15.365-15.635 0-1.052-0.115-1.854-0.255-2.651z"
-          ></path>
-        </svg>
+    <div class="tab-content bg-[#fff] w-[480px]">
+      <div class="tab-panel" v-show="isActive('tab-1')">
+        <div class="for-example">
+          <v-sheet
+            width="480"
+            height="450"
+            class="mx-auto shadow-md px-[40px] rounded-md"
+          >
+            <div class="logo">
+              <img
+                src="../assets/images/logo.png"
+                class="w-[100px] mx-auto"
+                alt=""
+              />
+            </div>
+            <v-form @submit.prevent="signUp">
+              <p class="font-bold text-[24px] text-center">
+                Hello! Welcome back!
+              </p>
+              <div class="flex flex-col mt-[15px]">
+                <label for="email" class="text-[14px] font-medium"
+                  >E-Mail address</label
+                >
+
+                <input
+                  id="email"
+                  type="email"
+                  class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="flex flex-col mt-[20px]">
+                <label for="password" class="text-[14px] font-medium"
+                  >Password</label
+                >
+                <div class="relative rounded-md shadow-sm">
+                  <input
+                    id="password"
+                    :type="showPassword ? 'text' : 'password'"
+                    class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
+                    placeholder="Your Password"
+                  />
+                  <div
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  >
+                    <button
+                      @click="toggleShowPassword"
+                      class="h-5 w-5 text-gray-400 focus:outline-none"
+                    >
+                      <svg
+                        v-if="showPassword"
+                        class="pt-[3px]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 640 512"
+                      >
+                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                          d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
+                        />
+                      </svg>
+                      <svg
+                        v-else
+                        class="pt-[3px]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 576 512"
+                      >
+                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                          d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p
+                class="text-sm text-gray-600 font-ьувшгь underline cursor-pointer ml-1 mt-4"
+              >
+                Forget password?
+              </p>
+              <button
+                type="submit"
+                class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md hover:bg-gray- focus:outline-none focus:bg-gray-600 mt-[30px]"
+              >
+                Login
+              </button>
+            </v-form>
+          </v-sheet>
+        </div>
       </div>
-      <div class="github w-1/3 cursor-pointer">
-        <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current mx-auto">
-          <path
-            d="M16 0.396c-8.839 0-16 7.167-16 16 0 7.073 4.584 13.068 10.937 15.183 0.803 0.151 1.093-0.344 1.093-0.772 0-0.38-0.009-1.385-0.015-2.719-4.453 0.964-5.391-2.151-5.391-2.151-0.729-1.844-1.781-2.339-1.781-2.339-1.448-0.989 0.115-0.968 0.115-0.968 1.604 0.109 2.448 1.645 2.448 1.645 1.427 2.448 3.744 1.74 4.661 1.328 0.14-1.031 0.557-1.74 1.011-2.135-3.552-0.401-7.287-1.776-7.287-7.907 0-1.751 0.62-3.177 1.645-4.297-0.177-0.401-0.719-2.031 0.141-4.235 0 0 1.339-0.427 4.4 1.641 1.281-0.355 2.641-0.532 4-0.541 1.36 0.009 2.719 0.187 4 0.541 3.043-2.068 4.381-1.641 4.381-1.641 0.859 2.204 0.317 3.833 0.161 4.235 1.015 1.12 1.635 2.547 1.635 4.297 0 6.145-3.74 7.5-7.296 7.891 0.556 0.479 1.077 1.464 1.077 2.959 0 2.14-0.020 3.864-0.020 4.385 0 0.416 0.28 0.916 1.104 0.755 6.4-2.093 10.979-8.093 10.979-15.156 0-8.833-7.161-16-16-16z"
-          ></path>
-        </svg>
-      </div>
-      <div class="twitter w-1/3 cursor-pointer">
-        <svg viewBox="0 0 32 32" class="w-5 h-5 fill-current mx-auto">
-          <path
-            d="M31.937 6.093c-1.177 0.516-2.437 0.871-3.765 1.032 1.355-0.813 2.391-2.099 2.885-3.631-1.271 0.74-2.677 1.276-4.172 1.579-1.192-1.276-2.896-2.079-4.787-2.079-3.625 0-6.563 2.937-6.563 6.557 0 0.521 0.063 1.021 0.172 1.495-5.453-0.255-10.287-2.875-13.52-6.833-0.568 0.964-0.891 2.084-0.891 3.303 0 2.281 1.161 4.281 2.916 5.457-1.073-0.031-2.083-0.328-2.968-0.817v0.079c0 3.181 2.26 5.833 5.26 6.437-0.547 0.145-1.131 0.229-1.724 0.229-0.421 0-0.823-0.041-1.224-0.115 0.844 2.604 3.26 4.5 6.14 4.557-2.239 1.755-5.077 2.801-8.135 2.801-0.521 0-1.041-0.025-1.563-0.088 2.917 1.86 6.36 2.948 10.079 2.948 12.067 0 18.661-9.995 18.661-18.651 0-0.276 0-0.557-0.021-0.839 1.287-0.917 2.401-2.079 3.281-3.396z"
-          ></path>
-        </svg>
+      <div class="tab-panel" v-show="isActive('tab-2')">
+        <div class="for-example">
+          <v-sheet
+            width="480"
+            height="550"
+            class="mx-auto shadow-md px-[40px] rounded-md"
+          >
+            <div class="logo">
+              <img
+                src="../assets/images/logo.png"
+                class="w-[100px] mx-auto"
+                alt=""
+              />
+            </div>
+            <v-form @submit.prevent="signUp">
+              <p class="font-bold text-[24px] text-center">
+                Create your sellcenter account!
+              </p>
+              <div class="flex flex-col mt-[15px]">
+                <label for="email" class="text-[14px] font-medium"
+                  >E-Mail address</label
+                >
+
+                <input
+                  id="email"
+                  type="email"
+                  class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
+                  placeholder="you@example.com"
+                />
+              </div>
+
+              <div class="flex flex-col mt-[20px]">
+                <label for="password" class="text-[14px] font-medium"
+                  >Password</label
+                >
+                <div class="relative rounded-md shadow-sm">
+                  <input
+                    id="password"
+                    :type="showPassword ? 'text' : 'password'"
+                    class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
+                    placeholder="Your Password"
+                  />
+                  <div
+                    class="absolute inset-y-0 right-0 pr-3 flex items-center"
+                  >
+                    <button
+                      @click="toggleShowPassword"
+                      class="h-5 w-5 text-gray-400 focus:outline-none"
+                    >
+                      <svg
+                        v-if="showPassword"
+                        class="pt-[3px]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 640 512"
+                      >
+                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                          d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
+                        />
+                      </svg>
+                      <svg
+                        v-else
+                        class="pt-[3px]"
+                        xmlns="http://www.w3.org/2000/svg"
+                        height="1em"
+                        viewBox="0 0 576 512"
+                      >
+                        <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                          d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                        />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+
+              <p class="conditions text-[14px] mt-[20px]">
+                The <span>General Terms and Conditions</span> apply. Information
+                on the way all data are processed can be found in our
+                <span>Privacy Policy</span>.
+              </p>
+              <div class="checkbox flex justify-between mt-[10px]">
+                <div class="div h-[13px] w-[25px]">
+                  <input type="checkbox" class="h-full w-full" />
+                </div>
+                <label class="text-sm">
+                  I would like to receive emails from mobile.de about offers,
+                  surveys and information on products and services from
+                  mobile.de and Kleinanzeigen (can be cancelled at any time in
+                  the account settings).
+                </label>
+              </div>
+              <button
+                type="submit"
+                class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md hover:bg-gray- focus:outline-none focus:bg-gray-600 mt-[20px]"
+              >
+                Register
+              </button>
+            </v-form>
+          </v-sheet>
+        </div>
       </div>
     </div>
-		<p class="text-center mt-[30px]">Don`t have an account?</p>
-		<p class=" text-blue-600 hover:underline text-sm cursor-pointer ml-1 mt-3 text-center"
-		@click="goSign"
-		>
-        Sign Up
-      </p>
-  </v-sheet>
+  </v-container>
 </template>
 <script>
-import { useVuelidate } from "@vuelidate/core";
-import {
-  required,
-  email,
-  minLength,
-  maxLength,
-  integer,
-  sameAs,
-} from "@vuelidate/validators";
+import { ref } from "vue";
 
 export default {
   setup() {
-    return { v$: useVuelidate() };
+    const activeTab = ref("tab-1");
+    const setActive = (tab) => {
+      activeTab.value = tab;
+    };
+    const isActive = (tab) => {
+      return activeTab.value === tab;
+    };
+    return { setActive, isActive };
   },
-  data: () => ({
-    formData: {
-      name: "",
-      phone: "",
-      email: "",
-      password: "",
-      confirmPassword: "",
-    },
-  }),
-  validations() {
+  data() {
     return {
-      formData: {
-        name: { required, minLength: minLength(3), maxLength: maxLength(20) },
-        phone: { required, integer, maxLength: maxLength(13) },
-        email: { required, email },
-        password: {
-          required,
-          minLength: minLength(8),
-          maxLength: maxLength(20),
-        },
-        confirmPassword: { sameAs: sameAs(this.formData.password) },
-      },
+      showPassword: false,
+      ex4: [
+        "red",
+        "indigo",
+        "orange",
+        "primary",
+        "secondary",
+        "success",
+        "info",
+        "warning",
+        "error",
+        "red darken-3",
+        "indigo darken-3",
+        "orange darken-3",
+      ],
     };
   },
   methods: {
-    async signUp() {
-      console.log(this.v$);
-      const isValid = await this.v$.$validate();
-      if (!isValid) return;
+    toggleShowPassword() {
+      this.showPassword = !this.showPassword;
     },
-		goSign(){
-			this.$router.push({name: "sign" });
-		}
   },
 };
 </script>
-<style>
-.left-bord {
-  border-bottom: 2px solid rgb(206, 206, 206);
+<style scoped>
+.active {
+  background: #ffffff;
+  color: #e04b00;
 }
-.right-bord {
-  border-bottom: 2px solid rgb(206, 206, 206);
+#email {
+  border: 1px solid rgb(165, 164, 164);
 }
+#password {
+  border: 1px solid rgb(165, 164, 164);
+}
+.conditions span {
+  color: #e04b00;
+  text-decoration: underline;
+}
+.custom-label-color {
+  color: black;
+}
+.checkbox label {
+  color: #e04b00; /* Здесь вы можете указать желаемый цвет текста */
+}
+
+/* Изменение цвета фона для чекбокса */
+.checkbox input[type="checkbox"] {
+	border: 1px solid #f00;
+  background: #f00;
+  border-radius: 5;}
+
 </style>
