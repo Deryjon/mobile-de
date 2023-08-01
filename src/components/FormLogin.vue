@@ -193,7 +193,30 @@
                 on the way all data are processed can be found in our
                 <span>Privacy Policy</span>.
               </p>
-              <div class="checkbox flex justify-between mt-[10px]">
+              <label class="custom-checkbox">
+								
+                <input type="checkbox" v-model="isChecked"  @click="toggleShowCheckbox()"/>
+                <svg
+                  class="icon"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 448 512"
+                  width="1em"
+                >
+                  <!-- Insert your SVG arrow icon here -->
+                  <path
+                    v-if="isChecked"
+                    fill="#FFA500"
+                    d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+                  />
+                </svg>
+                I would like to receive emails from mobile.de about offers,
+                surveys and information on products and services from mobile.de
+                and Kleinanzeigen (can be cancelled at any time in the account
+                settings).
+              </label>
+
+              <!-- <div class="checkbox flex justify-between mt-[10px]">
                 <div class="div h-[13px] w-[25px]">
                   <input type="checkbox" class="h-full w-full" />
                 </div>
@@ -203,7 +226,7 @@
                   mobile.de and Kleinanzeigen (can be cancelled at any time in
                   the account settings).
                 </label>
-              </div>
+              </div> -->
               <button
                 type="submit"
                 class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md hover:bg-gray- focus:outline-none focus:bg-gray-600 mt-[20px]"
@@ -233,26 +256,16 @@ export default {
   },
   data() {
     return {
+      isChecked: true	,
       showPassword: false,
-      ex4: [
-        "red",
-        "indigo",
-        "orange",
-        "primary",
-        "secondary",
-        "success",
-        "info",
-        "warning",
-        "error",
-        "red darken-3",
-        "indigo darken-3",
-        "orange darken-3",
-      ],
     };
   },
   methods: {
     toggleShowPassword() {
       this.showPassword = !this.showPassword;
+    },
+    toggleShowCheckbox() {
+			this.isChecked = !this.isChecked;
     },
   },
 };
@@ -272,17 +285,25 @@ export default {
   color: #e04b00;
   text-decoration: underline;
 }
-.custom-label-color {
-  color: black;
-}
-.checkbox label {
-  color: #e04b00; /* Здесь вы можете указать желаемый цвет текста */
+.custom-checkbox input[type="checkbox"] {
+  display: none;
 }
 
-/* Изменение цвета фона для чекбокса */
-.checkbox input[type="checkbox"] {
-	border: 1px solid #f00;
-  background: #f00;
-  border-radius: 5;}
-
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+.custom-checkbox .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #ffa500;
+  border: 1px solid #000;
+}
+.custom-checkbox input[type="checkbox"]:checked + .icon {
+  fill: #ffa500;
+}
 </style>
