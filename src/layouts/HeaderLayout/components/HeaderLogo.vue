@@ -1,5 +1,5 @@
 <template>
-  <div class="header-logo flex items-center w-[200px] h-[70px]">
+  <div class="header-logo flex items-center w-[200px] h-[70px] cursor-pointer" @click="goHome()">
     <div class="logo lg:ml-0 w-[80px] lg:w-[80px] h-[45px] lg:h-[54px] mb-3">
       <img src="../../../assets/images/logo.png" alt="header-logo" />
     </div>
@@ -23,11 +23,16 @@ export default defineComponent({
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
 
+		
     return {
       isDarkMode,
       toggleDarkMode,
     };
   },
+	methods: {
+		goHome(){
+			this.$router.push({ name: "home" });		}
+	}
 });
 </script>
 

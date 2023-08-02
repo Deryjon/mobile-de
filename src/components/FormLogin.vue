@@ -282,7 +282,7 @@ export default {
   },
   data() {
     return {
-      isChecked: true,
+      isChecked: false,
       showPassword: false,
       email: "",
       password: "",
