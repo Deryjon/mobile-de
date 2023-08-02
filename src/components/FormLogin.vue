@@ -1,7 +1,7 @@
 <template>
   <v-container class="flex justify-between">
     <div class="left">
-      <div class="tab-buttons mt-[0px]">
+      <div class="tab-buttons mt-[0px] ">
         <button
           class="login w-[240px] h-[54px]"
           @click="setActive('tab-1')"
@@ -106,7 +106,7 @@
                 </div>
 
                 <p
-                  class="text-sm text-gray-600 font-ьувшгь underline cursor-pointer ml-1 mt-4"
+                  class="text-sm text-gray-600 font-medium underline cursor-pointer ml-1 mt-4"
                 >
                   Forget password?
                 </p>
@@ -247,23 +247,55 @@
         </div>
       </div>
     </div>
-		<div class="right w-[480px] p-[30px]">
-			<p class="title-login font-bold text-[25px] mt-[40px]">Your advantages with a mobile.de account</p>
-			<div class="services mt-[20px]">
-				<div class="service-1 flex items-center gap-[10px] ">
-					<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill='#01ad34' d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
-					<p class="text-[16px]">Parked vehicles available everywhere</p>
-				</div>
-				<div class="service-1 flex items-center gap-[10px]  mt-[10px]">
-					<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill='#01ad34' d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
-					<p class="text-[16px]">Save searches</p>
-				</div>
-				<div class="service-1 flex items-center gap-[10px] mt-[10px]">
-					<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path fill='#01ad34' d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>
-					<p class="text-[16px]">Always get the latest deals</p>
-				</div>
-			</div>
-		</div>
+    <div class="right w-[480px] p-[30px]">
+      <p class="title-login font-bold text-[25px] mt-[40px]">
+        Your advantages with a mobile.de account
+      </p>
+      <div class="services mt-[20px]">
+        <div class="service-1 flex items-center gap-[10px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+          >
+            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#01ad34"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          <p class="text-[16px]">Parked vehicles available everywhere</p>
+        </div>
+        <div class="service-1 flex items-center gap-[10px] mt-[10px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+          >
+            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#01ad34"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          <p class="text-[16px]">Save searches</p>
+        </div>
+        <div class="service-1 flex items-center gap-[10px] mt-[10px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+          >
+            <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            <path
+              fill="#01ad34"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          <p class="text-[16px]">Always get the latest deals</p>
+        </div>
+      </div>
+    </div>
   </v-container>
 </template>
 <script>
@@ -278,51 +310,81 @@ export default {
     const isActive = (tab) => {
       return activeTab.value === tab;
     };
-    return { setActive, isActive };
-  },
-  data() {
-    return {
-      isChecked: false,
-      showPassword: false,
-      email: "",
-      password: "",
-      isEmailValid: true,
-      isPasswordValid: true,
+
+    const isChecked = ref(false);
+    const showPassword = ref(false);
+    const email = ref("");
+    const password = ref("");
+    const isEmailValid = ref(true);
+    const isPasswordValid = ref(true);
+
+    const toggleShowPassword = () => {
+      showPassword.value = !showPassword.value;
     };
-  },
-  methods: {
-    toggleShowPassword() {
-      this.showPassword = !this.showPassword;
-    },
-    toggleShowCheckbox() {
-      this.isChecked = !this.isChecked;
-    },
-    validateEmail() {
+
+    const toggleShowCheckbox = () => {
+      isChecked.value = !isChecked.value;
+    };
+
+    const validateEmail = () => {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      this.isEmailValid = emailRegex.test(this.email);
-    },
+      isEmailValid.value = emailRegex.test(email.value);
+    };
 
-    validatePassword() {
-      this.isPasswordValid = this.password.length >= 8;
-    },
+    const validatePassword = () => {
+      isPasswordValid.value = password.value.length >= 8;
+    };
 
-    signUp() {
+    const signUp = () => {
       // Validate email and password before submitting
-      this.validateEmail();
-      this.validatePassword();
+      validateEmail();
+      validatePassword();
 
-      if (this.isEmailValid && this.isPasswordValid) {
+      if (isEmailValid.value && isPasswordValid.value) {
         // Submit form or do other actions here
         // ...
       }
-    },
+    };
+
+    return {
+      setActive,
+      isActive,
+      isChecked,
+      showPassword,
+      email,
+      password,
+      isEmailValid,
+      isPasswordValid,
+      toggleShowPassword,
+      toggleShowCheckbox,
+      signUp,
+    };
   },
 };
 </script>
 <style scoped>
+.login,
+.forget {
+  border-bottom: 0.5px solid rgb(216, 216, 216);
+}
+
+.login.active,
+.forget.active {
+  border: none; /* Add this line to remove the border for active buttons */
+}
+
+.login.active {
+  border-right: 0.5px solid rgb(216, 216, 216); /* Add this line to add the right border for inactive login button */
+}
+
+.forget.active {
+  border-left: 0.5px solid rgb(216, 216, 216); /* Add this line to add the left border for inactive forget button */
+}
+
 .active {
   background: #ffffff;
   color: #e04b00;
+	border: none
 }
 #email {
   border: 1px solid rgb(165, 164, 164);
