@@ -81,6 +81,7 @@
           </div>
           <div
             class="filter-btns lg:hidden h-[44px] sm:h-[57px] lg:h-[60px] flex items-start"
+						v-show="isActive('tab-1')"
           >
             <!-- Добавлено: flex items-start -->
             <button
@@ -121,7 +122,7 @@
           </div>
         </div>
 
-        <div class="filter-btns hidden lg:flex h-[30px] lg:h-[60px]">
+        <div class="filter-btns hidden lg:flex h-[30px] lg:h-[60px]"   v-show="isActive('tab-1')">
           <button
             class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
             @click="setActiveFilter('tab-1')"
