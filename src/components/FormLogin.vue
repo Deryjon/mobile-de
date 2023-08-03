@@ -1,7 +1,7 @@
 <template>
-  <v-container class="flex justify-between">
+  <v-container class="lg:flex justify-between">
     <div class="left">
-      <div class="tab-buttons mt-[0px] ">
+      <div class="tab-buttons mt-[0px]">
         <button
           class="login w-[240px] h-[54px]"
           @click="setActive('tab-1')"
@@ -23,16 +23,12 @@
           <div class="for-example">
             <v-sheet
               width="480"
-              height="480"
+              height="450"
               class="mx-auto shadow-md px-[40px] rounded-md"
             >
-              <div class="logo">
-                <img
-                  src="../assets/images/logo.png"
-                  class="w-[100px] mx-auto"
-                  alt=""
-                />
-              </div>
+  
+                <HeaderLogo class="mx-auto"/>
+
               <v-form @submit.prevent="signUp">
                 <p class="font-bold text-[24px] text-center">
                   Hello! Welcome back!
@@ -124,16 +120,10 @@
           <div class="for-example">
             <v-sheet
               width="480"
-              height="620"
+              height="600"
               class="mx-auto shadow-md px-[40px] rounded-md"
             >
-              <div class="logo">
-                <img
-                  src="../assets/images/logo.png"
-                  class="w-[100px] mx-auto"
-                  alt=""
-                />
-              </div>
+						<HeaderLogo class="mx-auto"/>
               <v-form @submit.prevent="signUp">
                 <p class="font-bold text-[24px] text-center">
                   Create your sellcenter account!
@@ -247,7 +237,7 @@
         </div>
       </div>
     </div>
-    <div class="right w-[480px] p-[30px]">
+    <div class="right hidden lg:block w-[480px] p-[30px]">
       <p class="title-login font-bold text-[25px] mt-[40px]">
         Your advantages with a mobile.de account
       </p>
@@ -300,6 +290,7 @@
 </template>
 <script>
 import { ref } from "vue";
+import HeaderLogo from "../layouts/HeaderLayout/components/HeaderLogo.vue";
 
 export default {
   setup() {
@@ -360,6 +351,7 @@ export default {
       signUp,
     };
   },
+  components: { HeaderLogo },
 };
 </script>
 <style scoped>
@@ -384,7 +376,7 @@ export default {
 .active {
   background: #ffffff;
   color: #e04b00;
-	border: none
+  border: none;
 }
 #email {
   border: 1px solid rgb(165, 164, 164);

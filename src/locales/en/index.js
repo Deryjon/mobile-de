@@ -34,6 +34,11 @@ export default {
 			left: "Left hand drive",
 			right: "Right hand drive"
 		},
+		register:{
+			title: "Create your sellcenter account!",
+			email: "E-Mail address",
+			password: "E-Mail address"
+		}
 		
   }
 };
