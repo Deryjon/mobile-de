@@ -1,8 +1,8 @@
 <template>
-  <div class="for-example">
+  <div class="for-example ">
     <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px]">
       <div class="mark">
-        <div class="relative mt-2">
+        <div class="relative ">
           <h2 class="text-sm lg:text-[16px]">
             {{ $t("message.selects.mark") }}
           </h2>
@@ -22,7 +22,7 @@
         </div>
       </div>
       <div class="relative">
-        <h2 class="text-sm lg:text-[16px] mt-2">
+        <h2 class="text-sm lg:text-[16px] ">
           {{ $t("message.selects.model") }}
         </h2>
         <select
@@ -38,7 +38,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div>
-        <h2 class="text-sm lg:text-[16px] mt-2">
+        <h2 class="text-sm lg:text-[16px] ">
           {{ $t("message.selects.registration") }}
         </h2>
         <div class="mark-select relative">
@@ -67,7 +67,7 @@
         </div>
       </div>
       <div class="">
-        <h2 class="text-sm lg:text-[16px] mt-2">
+        <h2 class="text-sm lg:text-[16px] ">
           {{ $t("message.selects.kilometr") }}
         </h2>
         <!-- KIllometer bis -->
@@ -109,10 +109,10 @@
       </div>
     </div>
     <div
-      class="bottom-all lg:flex w-[250px] lg:w-full sm:w-[350px] items-center gap-[20px]"
+      class="bottom-all lg:flex w-[250px] lg:w-full sm:w-[350px] items-center gap-[20px] mt-[20px]"
     >
       <div>
-        <h2 class="mt-2 text-sm lg:text-[16px]">
+        <h2 class=" text-sm lg:text-[16px]">
           {{ $t("message.selects.ad") }}
         </h2>
         <div class="Kaufen_div">
@@ -134,7 +134,7 @@
       </div>
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[20px]">
-          <div class="mt-2">
+          <div class="">
             <h2 class="text-sm lg:text-[16px]">
               {{ $t("message.selects.price") }}
             </h2>
@@ -150,7 +150,7 @@
             </div>
           </div>
           <div class="relative">
-            <h2 class="mt-2 text-sm lg:text-[16px]">
+            <h2 class=" text-sm lg:text-[16px]">
               {{ $t("message.selects.zip") }}
             </h2>
             <input
@@ -160,7 +160,7 @@
               v-model="cityName"
             />
             <div
-              class="icon absolute top-[30px] sm:left-[330px] lg:top-[38px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
+              class="icon absolute top-[30px] sm:left-[330px] lg:top-[30px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
               @click="getLocation()"
             >
               <img src="../../../assets/images/icon-location.svg" alt="" />

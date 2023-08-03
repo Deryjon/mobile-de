@@ -172,24 +172,24 @@
           </button>
         </div>
         <div
-          class="tab-content mt-[100px] sm:mt-[120px] lg:mt-[70px] absolute left-[60px] sm:left-[100px]"
+          class="tab-content  absolute left-[60px] sm:left-[100px]"
         >
           <div class="tab-panel" v-show="isActive('tab-1')">
-            <Tab1Component class=" " />
+            <Tab1Component class=" mt-[100px] sm:mt-[120px] lg:mt-[70px]" />
           </div>
           <div class="tab-panel" v-show="isActive('tab-2')">
             <div class="for-example">
-              <Tab2Component class="" />
+              <Tab2Component class="mt-[50px]" />
             </div>
           </div>
           <div class="tab-panel" v-show="isActive('tab-3')">
             <div class="for-example">
-              <Tab3Component class=" " />
+              <Tab3Component class="mt-[50px]" />
             </div>
           </div>
           <div class="tab-panel" v-show="isActive('tab-4')">
             <div class="for-example">
-              <Tab4Components class="" />
+              <Tab4Components class="mt-[100px] sm:mt-[120px] lg:mt-[50px]" />
             </div>
           </div>
         </div>

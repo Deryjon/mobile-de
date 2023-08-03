@@ -1,9 +1,9 @@
 <template>
   <div
-    class="resultast_div flex items-center gap-[10px] lg:gap-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] bg-[#e04b00] rounded-[8px] mt-[30px]"
+    class="resultast_div flex items-center gap-[10px] lg:gap-[5px] w-full lg:w-[160px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[20px]"
   >
     <svg
-      class="icon ml-[45px] sm:ml-[90px] lg:ml-[20px]"
+      class="icon ml-[45px] sm:ml-[90px] lg:ml-[3px] xl:ml-[15px]"
       viewBox="0 0 24 24"
       fill="none"
       width="16"
