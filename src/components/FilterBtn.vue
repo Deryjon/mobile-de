@@ -1,9 +1,8 @@
 <template>
   <div
-    class="resultast_div flex items-center gap-[10px] lg:gap-[5px] w-full lg:w-[160px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[20px]"
-  >
+    class="resultast_div flex items-center gap-[10px] lg:gap-[5px] w-full lg:w-[160px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[20px]">
     <svg
-      class="icon ml-[45px] sm:ml-[90px] lg:ml-[3px] xl:ml-[15px]"
+      class="icon ml-[45px] sm:ml-[90px] lg:ml-[3px] xl:ml-[18px]"
       viewBox="0 0 24 24"
       fill="none"
       width="16"
@@ -16,9 +15,9 @@
     </svg>
 
     <p class="text-white text-[18px] lg:text-[16px]">1000</p>
-    <h1 class="text-white text-[18px] lg:text-[16px]">
+    <h3 class="text-white text-[18px] lg:text-[16px]">
       {{ $t("message.results.result") }}
-    </h1>
+    </h3>
   </div>
 </template>
 <script>

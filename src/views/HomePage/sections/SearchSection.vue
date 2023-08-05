@@ -2,7 +2,7 @@
   <section class="search">
     <v-container>
       <div
-        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px] mt-[200px] mx-auto flex"
+        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px]  mx-auto flex"
       >
         <div class="tabs h-full">
           <div class="nav-tabs flex lg:flex-col mt-[-0.01px]">
@@ -194,7 +194,8 @@
           </div>
         </div>
       </div>
-      <MoreFilterBtn />
+      <MoreFilterBtn v-show="isActive('tab-1')" />
+			<MotorbikeFilterBtn v-show="isActive('tab-2')"/>
     </v-container>
   </section>
 </template>
@@ -204,6 +205,7 @@ import Tab2Component from "../components/Tab2Component.vue";
 import Tab3Component from "../components/Tab3Component.vue";
 import Tab4Components from "../components/Tab4Components.vue";
 import MoreFilterBtn from "../../../components/MoreFilterBtn.vue";
+import MotorbikeFilterBtn  from "../../../components/MotorbikeFilterBtn.vue";
 import { useDarkModeStore } from "../../../store/dark-mode";
 import { ref, watch, computed } from "vue";
 export default {
@@ -251,6 +253,7 @@ export default {
     Tab3Component,
     Tab4Components,
     MoreFilterBtn,
+		MotorbikeFilterBtn
   },
 };
 </script>

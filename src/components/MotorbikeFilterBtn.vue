@@ -55,7 +55,7 @@ export default {
   },
 	methods:{
 		goCarFilter(){
-			this.$router.push({ name: "car-filter" });
+			this.$router.push({ name: "motorbike-filter" });
 
 		}
 	}

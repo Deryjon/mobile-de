@@ -1,5 +1,4 @@
 <template>
-	<HeaderLayout/>
 	<section class="login ">
 
 		<v-container>

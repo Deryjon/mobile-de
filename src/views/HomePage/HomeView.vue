@@ -1,6 +1,5 @@
 <template>
-  <main>
-    <HeaderLayoutVue />
+  <main class="mt-[200px]">
     <SearchSection />
 		<RentSection/>
   </main>
