@@ -27,10 +27,10 @@
               class="mx-auto shadow-md px-[40px] rounded-md"
             >
   
-                <HeaderLogo class="mx-auto"/>
+                <HeaderLogo class="mx-auto w-[130px] h-[50px]"/>
 
               <v-form @submit.prevent="signUp">
-                <p class="font-bold text-[24px] text-center">
+                <p class="font-bold text-[24px] text-center mt-[10px]">
                   Hello! Welcome back!
                 </p>
                 <div class="flex flex-col mt-[15px]">
@@ -396,6 +396,7 @@ export default {
   position: relative;
   padding-left: 30px;
   cursor: pointer;
+	
 }
 .custom-checkbox .icon {
   position: absolute;
@@ -405,10 +406,11 @@ export default {
   height: 20px;
   fill: #ffffff;
   border: 1px solid #000;
+	border-radius: 4px;
 }
 .custom-checkbox input[type="checkbox"]:checked + .icon {
   fill: #ffffff;
-  background: #ffa500;
+  background: #e04b00;
 }
 input:focus {
   box-shadow: 0px 0px 1px 4px rgba(58, 190, 213, 0.671);

@@ -196,6 +196,7 @@
       </div>
       <MoreFilterBtn v-show="isActive('tab-1')" />
 			<MotorbikeFilterBtn v-show="isActive('tab-2')"/>
+			<VansFilterBtn v-show="isActive('tab-3')"/>
     </v-container>
   </section>
 </template>
@@ -206,6 +207,7 @@ import Tab3Component from "../components/Tab3Component.vue";
 import Tab4Components from "../components/Tab4Components.vue";
 import MoreFilterBtn from "../../../components/MoreFilterBtn.vue";
 import MotorbikeFilterBtn  from "../../../components/MotorbikeFilterBtn.vue";
+import VansFilterBtn  from "../../../components/VansFilterBtn.vue";
 import { useDarkModeStore } from "../../../store/dark-mode";
 import { ref, watch, computed } from "vue";
 export default {
@@ -253,7 +255,8 @@ export default {
     Tab3Component,
     Tab4Components,
     MoreFilterBtn,
-		MotorbikeFilterBtn
+		MotorbikeFilterBtn,
+		VansFilterBtn
   },
 };
 </script>

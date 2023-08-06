@@ -4,6 +4,7 @@ const LogView = () => import("../views/LogoutPage/LogView.vue");
 const ForgetView = () => import("../views/LogoutPage/ForgetView.vue");
 const CarFilterView = () => import("../views/CarFilterPage/CarFilterView.vue");
 const MotorbikeFilterView = () => import("../views/MotorbikeFilterPage/MotorbikeFilterView.vue");
+const VansFilterView = () => import("../views/VansFilterPage/VansFilterView.vue");
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path: '/motorbike-filter',
       name: 'motorbike-filter',
       component: MotorbikeFilterView
+    },
+		{
+      path: '/vans-filter',
+      name: 'vans-filter',
+      component: VansFilterView
     },
   ]
 })
