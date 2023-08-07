@@ -10,7 +10,7 @@
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <div
-          class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px] mt-[10px] p-[20px]"
+          class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[130px] mt-[10px] p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -68,199 +68,170 @@
             </div>
           </div>
         </div>
-        <div class="filter-cars flex flex-wrap gap-[50px] mt-[50px] p-[20px]">
-					<!-- cabrio -->
-          <label
-            class="custom-checkbox flex gap-[15px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-					<input type="checkbox" v-model="isCheckedCabrio" @click="toggleShowCheckbox(0)" />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedCabrio"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+        <CarFilterComponentBasic />
+        <SeatsComponent />
+        <div class="condition p-[20px]">
+          <h3>Type and condition</h3>
+          <div class="radios-type flex gap-[244px] mt-[10px]">
+            <label for="condition-any" @click="selectCondition('Any')">
+              <input
+                type="radio"
+                v-model="selectedCondition"
+                :class="{
+                  'bg-transparent': selectedCondition !== 'Any',
+                  'bg-orange': selectedCondition === 'Any',
+                }"
+                class="ml-10px"
               />
-            </svg>
-            <img
-              src="../../../assets/icons/cabriolet-icon.svg"
-              alt=""
-              class="w-[80px]"
-            />
-            Cabrio / Roadster
-          </label>
-          <!-- estate -->
-          <label
-            class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-4"
-          >
-					<input type="checkbox" v-model="isCheckedEstate" @click="toggleShowCheckbox(1)" class="form-checkbox h-5 w-5 text-indigo-600" />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedEstate"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              <span class="ml-[10px]">Any</span>
+            </label>
+            <label for="condition-any" @click="selectCondition('New')">
+              <input
+                type="radio"
+                id="condition-any"
+                v-model="selectedCondition"
+                :class="{
+                  'bg-transparent': selectedCondition !== 'New',
+                  'bg-orange': selectedCondition === 'New',
+                }"
               />
-            </svg>
-            <img
-              src="../../../assets/icons/estate-car-icon.svg"
-              alt=""
-              class="w-24 pt-[20px]"
-            />
-            <span class="text-lg">Estate Car</span>
-          </label>
+              <span class="ml-[10px]">New</span>
+            </label>
+            <label for="condition-any" @click="selectCondition('Used')">
+              <input
+                type="radio"
+                id="condition-any"
+                v-model="selectedCondition"
+                :class="{
+                  'bg-transparent': selectedCondition !== 'Used',
+                  'bg-orange': selectedCondition === 'Used',
+                }"
+              />
+              <span class="ml-[10px]">Used</span>
+            </label>
+          </div>
+					<div class="conditions flex gap-[140px] mt-[20px]">
 
-          <!-- saloon -->
-          <label
-            class="custom-checkbox flex gap-4 items-center h-10 w-[200px] pb-4"
-          >
-					<input type="checkbox" v-model="isCheckedSaloon" @click="toggleShowCheckbox(2)" class="form-checkbox h-5 w-5 text-indigo-600" />
+						<label
+							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" :class="{ 'text-[#ccc] ': isRadioNewSelected }"
+						>
+							<input
+								type="checkbox"
+								:disabled="isRadioNewSelected"
+									       
 
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSaloon"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            <img
-              src="../../../assets/icons/saloon-car-icon.svg"
-              alt=""
-              class="w-24 pt-[20px]"
-            />
-            <span class="text-lg">Saloon</span>
-          </label>
-          <!-- small -->
-          <label
-            class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-[20px]"
-          >
-					<input type="checkbox" v-model="isCheckedSmall" @click="toggleShowCheckbox(3)" class="form-checkbox h-5 w-5 text-indigo-600" />
+									class="form-checkbox h-5 w-5 text-indigo-600"
+									:class="{ 'bg-[#ccc] cursor-help': isRadioNewSelected }"
+								v-model="isCheckedRegister"
+								@click="toggleShowCheckbox(5)"
+							/>
+							<svg
+								class="icon"
+								xmlns="http://www.w3.org/2000/svg"
+								height="1em"
+								viewBox="0 0 448 512"
+								width="1em"
+							>
+								<!-- Insert your SVG arrow icon here -->
+								<path
+									v-if="isCheckedRegister"
+									fill="#FFFFFF"
+									d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+								/>
+							</svg>
+	
+							<span class="text-sm">Pre-Registration</span>
+						</label>
+						<label
+							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" :class="{ 'text-[#ccc] ': isRadioNewSelected }"
+						>
+							<input
+								type="checkbox"
+								v-model="isCheckedEmploy"
+								@click="toggleShowCheckbox(0)"
+								:disabled="isRadioNewSelected"
+									       
 
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSmall"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            <img
-              src="../../../assets/icons/small-car-icon.svg"
-              alt=""
-              class="w-16 pt-[10px]"
-            />
-            <span class="text-lg">Small Car</span>
-          </label>
-          <!-- sports -->
-          <label
-            class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-[20px]"
-          >
-					<input type="checkbox" v-model="isCheckedSuper" @click="toggleShowCheckbox(4)" class="form-checkbox h-5 w-5 text-indigo-600" />
+									class="form-checkbox h-5 w-5 text-indigo-600"
+							/>
+							<svg
+								class="icon"
+								xmlns="http://www.w3.org/2000/svg"
+								height="1em"
+								viewBox="0 0 448 512"
+								width="1em"
+							>
+								<!-- Insert your SVG arrow icon here -->
+								<path
+									v-if="isCheckedEmploy"
+									fill="#FFFFFF"
+									d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+								/>
+							</svg>
+	
+							<span class="text-sm">Employee's Car</span>
+						</label>
+						<label
+							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" 	:class="{ 'text-[#ccc] ': isRadioNewSelected }"
+						>
+							<input
+								type="checkbox"
+								v-model="isCheckedClassic"
+								@click="toggleShowCheckbox(1)"
+								:disabled="isRadioNewSelected"
+									       
 
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSuper"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            <img
-              src="../../../assets/icons/sports-car-icon.svg"
-              alt=""
-              class="w-20 pt-[18px]"
-            />
-            <span class="text-md">
-Sports Car / Coupe</span>
-          </label>
-          <!-- off-road -->
-          <label
-            class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-[23px]"
-          >
-					<input type="checkbox" v-model="isCheckedOff" @click="toggleShowCheckbox(5)" class="form-checkbox h-5 w-5 text-indigo-600" />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedOff"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            <img
-              src="../../../assets/icons/car-suv-icon.svg"
-              alt=""
-              class="w-20 pt-[18px]"
-            />
-            <span class="text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
-          </label>
-          <!-- off-road -->
-          <label
-            class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-[23px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedVan"
-              @click="toggleShowCheckbox()"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedVan"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            <img
-              src="../../../assets/icons/car-minibus-icon.svg"
-              alt=""
-              class="w-24 pt-[18px]"
-            />
-            <span class="text-sm">Van / Minibus</span>
-          </label>
+									class="form-checkbox h-5 w-5 text-indigo-600"
+									:class="{ 'disabled-checkbox': isRadioNewSelected }"
+							/>
+							<svg
+								class="icon"
+								xmlns="http://www.w3.org/2000/svg"
+								height="1em"
+								viewBox="0 0 448 512"
+								width="1em"
+							>
+								<!-- Insert your SVG arrow icon here -->
+								<path
+									v-if="isCheckedClassic"
+									fill="#FFFFFF"
+									d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+								/>
+							</svg>
+	
+							<span class="text-sm">Classic Vehicle</span>
+						</label>
+							<label
+								class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'text-[#ccc] ': isRadioNewSelected }"
+							>
+								<input
+									type="checkbox"
+									v-model="isCheckedDemon"
+									@click="toggleShowCheckbox(2)"
+									:disabled="isRadioNewSelected"
+									       
+
+									class="form-checkbox h-5 w-5 text-indigo-600"
+								
+								/>
+								<svg
+									class="icon"
+									xmlns="http://www.w3.org/2000/svg"
+									height="1em"
+									viewBox="0 0 448 512"
+									width="1em"
+								>
+									<!-- Insert your SVG arrow icon here -->
+									<path
+										v-if="isCheckedDemon"
+										fill="#FFFFFF"
+										d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+									/>
+								</svg>
+		
+								<span class="text-sm">Demonstration Vehicle</span>
+							</label>
+					</div>
         </div>
       </div>
     </v-container>
@@ -271,46 +242,51 @@ Sports Car / Coupe</span>
 import PathLink from "../../../ui/PathLink.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
+import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
-import { ref } from "vue";
+import {ref} from "vue";
+import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 export default {
   setup() {
-    // ... (other data and methods)
+		const isCheckedRegister = ref(false);
+    const isCheckedEmploy = ref(false);
+    const isCheckedClassic = ref(false);
+    const isCheckedDemon = ref(false);
+    
 
-    const isCheckedVan = ref(false);
-    const isCheckedOff = ref(false);
-    const isCheckedSuper = ref(false);
-    const isCheckedSmall = ref(false);
-    const isCheckedSaloon = ref(false);
-    const isCheckedEstate = ref(false);
-    const isCheckedCabrio = ref(false);
-
-		const toggleShowCheckbox = (index) => {
-    isCheckedVan[index] = !isCheckedVan[index];
-  };
+    const toggleShowCheckbox = (index) => {
+      isCheckedRegister[index] = !isCheckedRegister[index];
+    };
 
     return {
-      isCheckedOff,
-			isCheckedSuper,
-			isCheckedSmall,
-			isCheckedSaloon,
-      isCheckedVan,
-			isCheckedEstate,
-			isCheckedCabrio,
+      isCheckedRegister,
+      isCheckedEmploy,
+      isCheckedDemon,
+      isCheckedClassic,
       toggleShowCheckbox,
     };
-  },
+	},
   data() {
-  return {
-    makes: [],
-    models: [],
-    selectedMark: "14600",
-    selectedMake: "",
-    isModelSelectDisabled: false,
-    checkboxStatus: [false, false, false, false, false, false], // Add this array to store checkbox status
-  };
-},
-  components: { PathLink, FilterTitle, FilterBtn },
+    return {
+      makes: [],
+      models: [],
+      selectedMark: "14600",
+      selectedMake: "",
+      isAnySelected: false,
+      isNewSelected: false,
+      isUsedSelected: false,
+      selectedCondition: "Any",
+			isRadioNewSelected: false,
+			isModelSelectDisabled: false,
+    };
+  },
+  components: {
+    PathLink,
+    FilterTitle,
+    FilterBtn,
+    SeatsComponent,
+    CarFilterComponentBasic,
+  },
   methods: {
     fetchModels() {
       if (!this.selectedMark) {
@@ -345,6 +321,48 @@ export default {
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
     },
+    toggleAnySelection() {
+      // Обработчик клика на "Any"
+      if (this.isAnySelected) {
+        // Если уже выбрано, меняем обратно на не выбрано
+        this.isAnySelected = false;
+      } else {
+        // Если не выбрано, делаем выбранным
+        this.isAnySelected = true;
+      }
+    },
+    toggleNewSelection() {
+      // Обработчик клика на "Any"
+      if (this.isNewSelected) {
+        // Если уже выбрано, меняем обратно на не выбрано
+        this.isNewSelected = false;
+      } else {
+        // Если не выбрано, делаем выбранным
+        this.isNewSelected = true;
+      }
+    },
+    toggleUsedSelection() {
+      // Обработчик клика на "Any"
+      if (this.isUsedSelected) {
+        // Если уже выбрано, меняем обратно на не выбрано
+        this.isUsedSelected = false;
+      } else {
+        // Если не выбрано, делаем выбранным
+        this.isUsedSelected = true;
+      }
+    },
+    selectCondition(condition) {
+    this.selectedCondition = condition;
+    if (condition === 'New') {
+      this.isRadioNewSelected = true;
+			this.isCheckedRegister = false;
+      this.isCheckedEmploy = false;
+      this.isCheckedDemon = false;
+      this.isCheckedClassic = false;
+    } else {
+      this.isRadioNewSelected = false;
+    }
+  },
   },
   mounted() {
     const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
@@ -377,29 +395,38 @@ export default {
   border: 1px solid grey;
   height: 1px;
 }
-.custom-checkbox input[type="checkbox"] {
-  display: none;
-}
-
-.custom-checkbox {
-  position: relative;
-  padding-left: 30px;
-  cursor: pointer;
-}
-
-.custom-checkbox .icon {
-  position: absolute;
-  top: 0;
-  left: 0;
+input[type="radio"] {
+  /* Убираем стандартные стили радиокнопок */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Задаем размер радиокнопки */
   width: 20px;
   height: 20px;
-  fill: #ffffff;
-  border: 1px solid #000;
-  border-radius: 4px;
+  /* Создаем круглую форму */
+  border-radius: 50%;
+  border: 1px solid gray;
+  /* Позиционируем радиокнопку относительно базовой линии текста */
+  vertical-align: middle;
+  /* Убираем внутренние отступы, чтобы радиокнопка была ближе к тексту */
+  margin: 0;
+  padding: 0;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .icon {
-  fill: #ffffff;
-  background: #e04b00;
+/* Стиль радиокнопок в состоянии "выбрано" (checked) */
+input[type="radio"]:checked {
+  /* Меняем цвет рамки и фона на оранжевый, когда радиокнопка выбрана */
+  border-color: orange;
+  background: orange;
+  /* Можно добавить другие стили, чтобы сделать выбранную радиокнопку более заметной */
+}
+ input[type="checkbox"]:disabled {
+  /* Меняем цвет рамки и фона на серый, чтобы показать, что чекбокс отключен */
+  border: #ccc;
+  background: #ccc;
+  /* Убираем возможность кликать на отключенный чекбокс */
+  pointer-events: none;
+	cursor: none;
 }
 </style>
+  ``
