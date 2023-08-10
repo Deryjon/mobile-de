@@ -163,7 +163,7 @@
           </button>
           <div class="relative">
             <select
-              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
+              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[10px] hover:bg-[#beb5b5] cursor-pointer"
             >
               <option value="">{{ $t("message.side.title") }}</option>
               <option value="">{{ $t("message.side.left") }}</option>
@@ -244,7 +244,7 @@ export default {
       return activeTab.value === tab;
     };
     const activeFilterTab = ref("tab-1");
-    const setActiveFilter = (tab) => {
+    const setActiveFilter = (tab) => {	
       activeFilterTab.value = tab;
     };
     const isActiveFilter = (tab) => {
