@@ -11,6 +11,10 @@
               <option value="">3</option>
               <option value="">4</option>
               <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
             </select>
             <span
               class="arrow w-[7px] h-[7px] absolute left-[154px] bottom-4"
