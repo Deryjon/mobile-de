@@ -55,7 +55,7 @@
       <img
         src="../../../assets/icons/estate-car-icon.svg"
         alt=""
-        class="w-24 pt-[20px]"
+        class="w-20 pb-[10px]"
       />
       <span class="text-lg">Estate Car</span>
     </label>
