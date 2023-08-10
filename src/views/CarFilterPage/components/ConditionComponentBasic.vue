@@ -268,5 +268,29 @@ input[type="checkbox"]:disabled {
   /* Убираем указатель курсора */
   cursor: none;
 }
+.custom-checkbox {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+.custom-checkbox .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #ffffff;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+.custom-checkbox input[type="checkbox"]:checked + .icon {
+  fill: #ffffff;
+  background: #e04b00;
+}
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
 
 </style>
