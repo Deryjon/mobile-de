@@ -1,5 +1,5 @@
 <template>
-  <section class="basic-filter mt-[200px] ">
+  <section class="basic-filter mt-[200px]">
     <v-container class="w-[1110px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
@@ -10,7 +10,7 @@
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <div
-          class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[130px] mt-[10px] p-[20px]"
+          class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[80px] mt-[10px] p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -18,7 +18,7 @@
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
                 @change="fetchModels"
               >
@@ -40,7 +40,7 @@
               {{ $t("message.selects.model") }}
             </h2>
             <select
-              class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="Beliebig"
               :disabled="isModelSelectDisabled"
             >
@@ -62,7 +62,7 @@
             <div class="relative mt-2">
               <h2 class="text-sm lg:text-[16px]">Variant</h2>
               <input
-                class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 placeholder="e.g. GTI..."
               />
             </div>
@@ -93,19 +93,19 @@
         </div>
         <div class="tab-content mt-[30px]">
           <div class="pl-[20px]" v-show="activeTab === 'tab-1'">
-            <div class="price-tab flex items-center gap-[50px]">
+            <div class="price-tab flex items-center gap-[80px]">
               <div class="price">
                 <h2 class="mt-2 text-sm lg:text-[16px]">Price</h2>
                 <div class="marke_select_div relative mt-[10px]">
                   <input
                     placeholder="from"
-                    class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                    class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
                     type="number"
                     pattern="\d*"
                     v-model="price"
                   />
                   <select
-                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
                     v-model="selectedPrice"
                     @change="updateSelectPrice"
                   >
@@ -117,20 +117,20 @@
                     <option value="300">300 € mtl</option>
                   </select>
                   <span
-                    class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                    class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
                   ></span>
                 </div>
               </div>
               <div class="marke_select_div relative mt-[36px]">
                 <input
                   placeholder="up to"
-                  class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                  class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
                   type="number"
                   pattern="\d*"
                   v-model="price"
                 />
                 <select
-                  class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                  class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
                   v-model="selectedPrice"
                   @change="updateSelectPrice"
                 >
@@ -142,29 +142,28 @@
                   <option value="300">300 € mtl</option>
                 </select>
                 <span
-                  class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
                 ></span>
               </div>
             </div>
             <div class="line mt-[30px]"></div>
-            <div class="registration flex items-center gap-[50px]  mt-[50px]">
-              <div> 
+            <div class="registration flex items-center gap-[80px] mt-[50px]">
+              <div>
                 <h2 class="text-sm lg:text-[16px] mt-2">
                   {{ $t("message.selects.registration") }}
                 </h2>
                 <div class="relative">
                   <input
-									placeholder="from"
-                    class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+                    placeholder="from"
+                    class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
                     type="number"
                     pattern="\d*"
                     v-model="years"
                   />
                   <select
-                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
                     v-model="selectedYear"
                     @change="updateSelectYear"
-									
                   >
                     <option
                       v-for="year in modelYears"
@@ -175,37 +174,35 @@
                     </option>
                   </select>
                   <span
-                    class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:left-[156px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                    class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[6px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
                   ></span>
                 </div>
               </div>
-							<div class="relative mt-[30px]">
-                  <input
-                    placeholder="to"
-                    class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
-                    type="number"
-                    pattern="\d*"
-                    v-model="years"
-                  />
-                  <select
-                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
-                    v-model="selectedtoYear"
-                    @change="updateSelectYear"
-									
+              <div class="relative mt-[30px]">
+                <input
+                  placeholder="to"
+                  class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+                  type="number"
+                  pattern="\d*"
+                  v-model="years"
+                />
+                <select
+                  class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+                  v-model="selectedtoYear"
+                  @change="updateSelectYear"
+                >
+                  <option
+                    v-for="year in modeltoYears"
+                    :key="year"
+                    :value="year"
                   >
-                    <option
-                      v-for="year in modeltoYears"
-                      :key="year"
-                      :value="year"
-                    >
-                      {{ year }}
-                    </option>
-                  
-                  </select>
-                  <span
-                    class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:left-[156px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-                  ></span>
-                </div>
+                    {{ year }}
+                  </option>
+                </select>
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                ></span>
+              </div>
             </div>
           </div>
           <div class="" v-show="activeTab === 'tab-2'">wdqdwq</div>
@@ -384,6 +381,8 @@ export default {
 .mark-input2 {
   max-height: 35px; /* Измените значение по вашему усмотрению */
   overflow-y: hidden;
+	border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
 }
 
 /* Добавьте прокрутку при необходимости */
@@ -395,9 +394,10 @@ export default {
   background-color: #888; /* Цвет полосы прокрутки */
   border-radius: 2.5px; /* Закругление полосы прокрутки */
 }
-select:-webkit-scrollbar { /*For WebKit Browsers*/
-    width: 0;
-    height: 0;
+select:-webkit-scrollbar {
+  /*For WebKit Browsers*/
+  width: 0;
+  height: 0;
 }
 .line {
   border: 1px solid grey;
@@ -410,6 +410,9 @@ select:-webkit-scrollbar { /*For WebKit Browsers*/
   background-color: #fffaf6;
   border: 1px solid #eaccb4;
   color: #000;
+}
+.mark-select{
+	border: 1px solid #111;
 }
 </style>
 ``

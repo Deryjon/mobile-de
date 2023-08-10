@@ -58,12 +58,6 @@
             <option v-for="year in modelYears" :key="year" :value="year">
               {{ year }}
             </option>
-            <!-- <option value="50">50 € mtl</option>
-            <option value="100">100 € mtl</option>
-            <option value="150">150 € mtl</option>
-            <option value="200">200 € mtl</option>
-            <option value="250">250 € mtl</option>
-            <option value="300">300 € mtl</option> -->
           </select>
           <span
             class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
@@ -151,7 +145,7 @@
                 v-model="price"
               />
               <select
-                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] text-[10px] lg:text-[12px]"
+                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
                 v-model="selectedPrice"
                 @change="updateSelectPrice"
               >
