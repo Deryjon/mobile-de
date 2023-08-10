@@ -91,61 +91,97 @@
             </button>
           </div>
         </div>
-				<div class="mt-[30px] p-[20px] flex items-center gap-[50px]">
-					<div class="price">
-
-						<h2 class="mt-2 text-sm lg:text-[16px]">Price</h2>
-						<div class="marke_select_div relative mt-[10px]">
-								<input
-									placeholder="from"
-									class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-									type="number"
-									pattern="\d*"
-									v-model="price"
-								/>
-								<select
-									class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
-									v-model="selectedPrice"
-									@change="updateSelectPrice"
-								>
-									<option value="50">50 € mtl</option>
-									<option value="100">100 € mtl</option>
-									<option value="150">150 € mtl</option>
-									<option value="200">200 € mtl</option>
-									<option value="250">250 € mtl</option>
-									<option value="300">300 € mtl</option>
-								</select>
-								<span
-									class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-								></span>
-							</div>
-					</div>
-						<div class="marke_select_div relative mt-[36px]">
-              <input
-                placeholder="up to"
-                class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-                type="number"
-                pattern="\d*"
-                v-model="price"
-              />
-              <select
-                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
-                v-model="selectedPrice"
-                @change="updateSelectPrice"
-              >
-                <option value="50">50 € mtl</option>
-                <option value="100">100 € mtl</option>
-                <option value="150">150 € mtl</option>
-                <option value="200">200 € mtl</option>
-                <option value="250">250 € mtl</option>
-                <option value="300">300 € mtl</option>
-              </select>
-              <span
-                class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
+        <div class="tab-content mt-[30px]">
+          <div class="pl-[20px]" v-show="activeTab === 'tab-1'">
+            <div class="price-tab flex items-center gap-[50px]">
+              <div class="price">
+                <h2 class="mt-2 text-sm lg:text-[16px]">Price</h2>
+                <div class="marke_select_div relative mt-[10px]">
+                  <input
+                    placeholder="from"
+                    class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                    type="number"
+                    pattern="\d*"
+                    v-model="price"
+                  />
+                  <select
+                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                    v-model="selectedPrice"
+                    @change="updateSelectPrice"
+                  >
+                    <option value="50">50 € mtl</option>
+                    <option value="100">100 € mtl</option>
+                    <option value="150">150 € mtl</option>
+                    <option value="200">200 € mtl</option>
+                    <option value="250">250 € mtl</option>
+                    <option value="300">300 € mtl</option>
+                  </select>
+                  <span
+                    class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                  ></span>
+                </div>
+              </div>
+              <div class="marke_select_div relative mt-[36px]">
+                <input
+                  placeholder="up to"
+                  class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                  type="number"
+                  pattern="\d*"
+                  v-model="price"
+                />
+                <select
+                  class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                  v-model="selectedPrice"
+                  @change="updateSelectPrice"
+                >
+                  <option value="50">50 € mtl</option>
+                  <option value="100">100 € mtl</option>
+                  <option value="150">150 € mtl</option>
+                  <option value="200">200 € mtl</option>
+                  <option value="250">250 € mtl</option>
+                  <option value="300">300 € mtl</option>
+                </select>
+                <span
+                  class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                ></span>
+              </div>
             </div>
-						
-				</div>
+            <div class="line mt-[30px]"></div>
+            <div class="registration mt-[50px]">
+              <div>
+                <h2 class="text-sm lg:text-[16px] mt-2">
+                  {{ $t("message.selects.registration") }}
+                </h2>
+                <div class="relative">
+                  <input
+                    placeholder="Beliebig"
+                    class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+                    type="number"
+                    pattern="\d*"
+                    v-model="years"
+                  />
+                  <select
+                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                    v-model="selectedYear"
+                    @change="updateSelectYear"
+                  >
+                    <option
+                      v-for="year in modelYears"
+                      :key="year"
+                      :value="year"
+                    >
+                      {{ year }}
+                    </option>
+                  </select>
+                  <span
+                    class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:left-[156px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="" v-show="activeTab === 'tab-2'">wdqdwq</div>
+        </div>
       </div>
     </v-container>
   </section>
@@ -167,10 +203,13 @@ export default {
       models: [],
       selectedMark: "14600",
       selectedMake: "",
-			selectedPrice: "",
+      selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "tab-1",
       price: "",
+      selectedYear: "",
+      years: "",
+      modelYears: [],
     };
   },
   components: {
@@ -213,6 +252,22 @@ export default {
         .catch((error) => {
           console.error("Ошибка при выполнении запроса:", error.message);
           this.isModelSelectDisabled = true; // Disable the model select on error
+        });
+    },
+    updateSelectYear() {
+      this.years = this.selectedYear;
+      this.selectedYear = this.selectedMake;
+    },
+    fetchModelYears() {
+      const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          const data = response.data;
+          this.modelYears = data.Results.map((result) => result.ModelYear);
+        })
+        .catch((error) => {
+          console.error("Error fetching model years:", error);
         });
     },
     showTab1() {
@@ -263,7 +318,7 @@ export default {
         this.isRadioNewSelected = false;
       }
     },
-		updateSelectPrice() {
+    updateSelectPrice() {
       this.price = this.selectedPrice;
       this.selectedPrice = this.selectedMake;
     },
@@ -290,6 +345,7 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+    this.fetchModelYears();
   },
 };
 </script>

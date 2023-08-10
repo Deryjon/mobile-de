@@ -2,7 +2,7 @@
   <div class="filter-cars flex flex-wrap gap-[50px] mt-[50px] p-[20px]">
     <!-- cabrio -->
     <label
-      class="custom-checkbox flex gap-[15px] items-center h-[40px] w-[206px] pb-[20px]"
+      class="custom-checkbox flex gap-[10px] items-center h-[40px] w-[206px] pb-[20px]"
     >
       <input
         type="checkbox"
@@ -26,7 +26,7 @@
       <img
         src="../../../assets/icons/cabriolet-icon.svg"
         alt=""
-        class="w-[80px]"
+        class="w-[90px] pt-[20px]"
       />
       Cabrio / Roadster
     </label>
@@ -55,7 +55,7 @@
       <img
         src="../../../assets/icons/estate-car-icon.svg"
         alt=""
-        class="w-20 pb-[10px]"
+        class="w-24 pt-[20px]"
       />
       <span class="text-lg">Estate Car</span>
     </label>
@@ -118,13 +118,13 @@
       <img
         src="../../../assets/icons/small-car-icon.svg"
         alt=""
-        class="w-16 pt-[10px]"
+        class="w-[75px] pt-[10px]"
       />
       <span class="text-lg">Small Car</span>
     </label>
     <!-- sports -->
     <label
-      class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-[20px]"
+      class="custom-checkbox flex gap-3 items-center h-10 w-[230px] pb-[20px]"
     >
       <input
         type="checkbox"
@@ -150,7 +150,7 @@
       <img
         src="../../../assets/icons/sports-car-icon.svg"
         alt=""
-        class="w-20 pt-[18px]"
+        class="w-28 pt-[18px]"
       />
       <span class="text-md"> Sports Car / Coupe</span>
     </label>
@@ -212,7 +212,7 @@
       <img
         src="../../../assets/icons/car-minibus-icon.svg"
         alt=""
-        class="w-24 pt-[18px]"
+        class="w-[70px] pt-[8px]"
       />
       <span class="text-sm">Van / Minibus</span>
     </label>
