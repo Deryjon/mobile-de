@@ -255,7 +255,11 @@ export default {
   },
 };
 </script>
-<style>
+<style scoped>
+select{
+	scrollbar-width: none; /*For Firefox*/;
+    -ms-overflow-style: none;
+}
 .custom-checkbox input[type="checkbox"] {
   display: none;
 }

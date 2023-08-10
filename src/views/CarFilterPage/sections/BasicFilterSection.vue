@@ -1,11 +1,11 @@
 <template>
-  <section class="basic-filter mt-[200px]">
-    <v-container>
+  <section class="basic-filter mt-[200px] ">
+    <v-container class="w-[1110px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" />
       <div
-        class="relative filter lg:h-[1300px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1170px] bg-[#f5f5f5] h-[650px] mx-auto mt-[50px] rounded lg:p-[27px]"
+        class="relative filter lg:h-[1300px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto mt-[50px] rounded lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
@@ -147,14 +147,14 @@
               </div>
             </div>
             <div class="line mt-[30px]"></div>
-            <div class="registration mt-[50px]">
-              <div>
+            <div class="registration flex items-center gap-[50px]  mt-[50px]">
+              <div> 
                 <h2 class="text-sm lg:text-[16px] mt-2">
                   {{ $t("message.selects.registration") }}
                 </h2>
                 <div class="relative">
                   <input
-                    placeholder="Beliebig"
+									placeholder="from"
                     class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
                     type="number"
                     pattern="\d*"
@@ -164,6 +164,7 @@
                     class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
                     v-model="selectedYear"
                     @change="updateSelectYear"
+									
                   >
                     <option
                       v-for="year in modelYears"
@@ -178,6 +179,33 @@
                   ></span>
                 </div>
               </div>
+							<div class="relative mt-[30px]">
+                  <input
+                    placeholder="to"
+                    class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+                    type="number"
+                    pattern="\d*"
+                    v-model="years"
+                  />
+                  <select
+                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                    v-model="selectedtoYear"
+                    @change="updateSelectYear"
+									
+                  >
+                    <option
+                      v-for="year in modeltoYears"
+                      :key="year"
+                      :value="year"
+                    >
+                      {{ year }}
+                    </option>
+                  
+                  </select>
+                  <span
+                    class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:left-[156px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                  ></span>
+                </div>
             </div>
           </div>
           <div class="" v-show="activeTab === 'tab-2'">wdqdwq</div>
@@ -208,8 +236,10 @@ export default {
       activeTab: "tab-1",
       price: "",
       selectedYear: "",
+      selectedtoYear: "",
       years: "",
       modelYears: [],
+      modeltoYears: [],
     };
   },
   components: {
@@ -351,6 +381,24 @@ export default {
 </script>
 
 <style scoped>
+.mark-input2 {
+  max-height: 35px; /* Измените значение по вашему усмотрению */
+  overflow-y: hidden;
+}
+
+/* Добавьте прокрутку при необходимости */
+.mark-input2::-webkit-scrollbar {
+  width: 3px; /* Ширина полосы прокрутки */
+}
+
+.mark-input2::-webkit-scrollbar-thumb {
+  background-color: #888; /* Цвет полосы прокрутки */
+  border-radius: 2.5px; /* Закругление полосы прокрутки */
+}
+select:-webkit-scrollbar { /*For WebKit Browsers*/
+    width: 0;
+    height: 0;
+}
 .line {
   border: 1px solid grey;
   height: 1px;
