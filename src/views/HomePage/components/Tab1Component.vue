@@ -7,7 +7,7 @@
             {{ $t("message.selects.mark") }}
           </h2>
           <select
-            class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select  w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
             @change="fetchModels"
           >
@@ -42,7 +42,7 @@
         <h2 class="text-sm lg:text-[16px] mt-2">
           {{ $t("message.selects.registration") }}
         </h2>
-        <div class="mark-select relative">
+        <div class=" relative">
           <input
             placeholder="Beliebig"
             class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
@@ -119,7 +119,7 @@
         <h2 class="mt-2 text-sm lg:text-[16px]">
           {{ $t("message.selects.ad") }}
         </h2>
-        <div class="Kaufen_div">
+        <div class="Kaufen_div lg:flex">
           <button
             class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab1"
@@ -151,7 +151,7 @@
                 v-model="price"
               />
               <select
-                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[1px] text-[10px] lg:text-[12px]"
                 v-model="selectedPrice"
                 @change="updateSelectPrice"
               >
@@ -337,11 +337,11 @@ export default {
   },
 };
 </script>
-<style>
-.mark-input2 {
-  border-top-right-radius: 6px;
-  border-bottom-right-radius: 6px;
-}
+<style scoped>
+	.mark-input2 {
+		border-top-right-radius: 10px;
+		border-bottom-right-radius: 10px;
+	}
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;
@@ -373,5 +373,8 @@ input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+.mark-select{
+	border: 1px solid #111;
 }
 </style>
