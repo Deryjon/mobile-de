@@ -2,12 +2,12 @@
   <section class="search">
     <v-container>
       <div
-        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1000px] bg-[#f5f5f5] h-[650px] lg:h-[240px]  mx-auto flex"
+        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1000px] bg-[#0000001f] h-[650px] lg:h-[240px]  mx-auto flex"
       >
         <div class="tabs h-full">
           <div class="nav-tabs flex lg:flex-col mt-[-0.01px]">
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20.35px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
+              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20.35px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-1')"
               :class="{ active: isActive('tab-1') }"
             >
@@ -25,7 +25,7 @@
               </svg>
             </div>
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
+              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-2')"
               :class="{ active: isActive('tab-2') }"
             >
@@ -43,7 +43,7 @@
               </svg>
             </div>
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
+              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-3')"
               :class="{ active: isActive('tab-3') }"
             >
@@ -61,7 +61,7 @@
               </svg>
             </div>
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#f5f5f5]"
+              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-4')"
               :class="{ active: isActive('tab-4') }"
             >
@@ -315,7 +315,7 @@ select:focus {
   fill: #e04b00;
 }
 .active {
-  background: #f5f5f5;
+  background: #0000001f;
 }
 
 .activefilter {
