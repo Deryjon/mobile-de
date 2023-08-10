@@ -44,13 +44,12 @@
 					<div class="conditions flex gap-[140px] mt-[20px]">
 
 						<label
-							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" :class="{ 'text-[#ccc] ': isRadioNewSelected }"
+						class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+
 						>
 							<input
 								type="checkbox"
 								:disabled="isRadioNewSelected"
-									       
-
 									class="form-checkbox h-5 w-5 text-indigo-600"
 									:class="{ 'bg-[#ccc] cursor-help': isRadioNewSelected }"
 								v-model="isCheckedRegister"
@@ -74,7 +73,8 @@
 							<span class="text-sm">Pre-Registration</span>
 						</label>
 						<label
-							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" :class="{ 'text-[#ccc] ': isRadioNewSelected }"
+						class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+
 						>
 							<input
 								type="checkbox"
@@ -103,7 +103,8 @@
 							<span class="text-sm">Employee's Car</span>
 						</label>
 						<label
-							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" 	:class="{ 'text-[#ccc] ': isRadioNewSelected }"
+						class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+
 						>
 							<input
 								type="checkbox"
@@ -113,7 +114,7 @@
 									       
 
 									class="form-checkbox h-5 w-5 text-indigo-600"
-									:class="{ 'disabled-checkbox': isRadioNewSelected }"
+								
 							/>
 							<svg
 								class="icon"
@@ -133,14 +134,14 @@
 							<span class="text-sm">Classic Vehicle</span>
 						</label>
 							<label
-								class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'text-[#ccc] ': isRadioNewSelected }"
+								class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
 							>
 								<input
 									type="checkbox"
 									v-model="isCheckedDemon"
 									@click="toggleShowCheckbox(2)"
 									:disabled="isRadioNewSelected"
-									       
+									:class="{ 'bg-red-500 ': isRadioNewSelected }"     
 
 									class="form-checkbox h-5 w-5 text-indigo-600"
 								
@@ -235,14 +236,14 @@ return{
       this.isCheckedEmploy = false;
       this.isCheckedDemon = false;
       this.isCheckedClassic = false;
-    } else {
+    } else {	
       this.isRadioNewSelected = false;
     }
   },
 	}
 }
 </script>
-<style>
+<style scoped>
 input[type="radio"] {
   /* Убираем стандартные стили радиокнопок */
   -webkit-appearance: none;
@@ -261,19 +262,12 @@ input[type="radio"] {
   padding: 0;
 }
 
-/* Стиль радиокнопок в состоянии "выбрано" (checked) */
-input[type="radio"]:checked {
-  /* Меняем цвет рамки и фона на оранжевый, когда радиокнопка выбрана */
-  border-color: orange;
-  background: orange;
-  /* Можно добавить другие стили, чтобы сделать выбранную радиокнопку более заметной */
-}
- input[type="checkbox"]:disabled {
-  /* Меняем цвет рамки и фона на серый, чтобы показать, что чекбокс отключен */
-  border: #ccc;
-  background: #ccc;
+input[type="checkbox"]:disabled {
+	opacity: 0.5;  border: #ccc;
   /* Убираем возможность кликать на отключенный чекбокс */
   pointer-events: none;
-	cursor: none;
+  /* Убираем указатель курсора */
+  cursor: none;
 }
+
 </style>
