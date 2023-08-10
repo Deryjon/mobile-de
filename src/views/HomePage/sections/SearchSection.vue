@@ -86,22 +86,30 @@
             <!-- Добавлено: flex items-start -->
             <button
               class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-            >
+              @click="setActiveFilter('tab-1')"
+            :class="{ activefilter: isActiveFilter('tab-1') }"
+							>
               {{ $t("message.filter.new") }}
             </button>
             <button
               class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] lg:px-[15px] hover:bg-[#beb5b5]"
-            >
+              @click="setActiveFilter('tab-2')"
+            :class="{ activefilter: isActiveFilter('tab-2') }"
+							>
               {{ $t("message.filter.used") }}
             </button>
             <button
               class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-            >
+              @click="setActiveFilter('tab-3')"
+            :class="{ activefilter: isActiveFilter('tab-3') }"
+							>
               {{ $t("message.filter.rent") }}
             </button>
             <button
               class="filter-btn bg-[#d3d3d3] py-[12px] h-full w-[55px] sm:w-[94.5px] text-[10px] sm:text-[12px] sm:py-[21.5px] lg:py-[15.5px] sm:px-[0.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-            >
+              @click="setActiveFilter('tab-4')"
+            :class="{ activefilter: isActiveFilter('tab-4') }"
+							>
               {{ $t("message.filter.crash") }}
             </button>
             <select
@@ -116,7 +124,9 @@
             ></span>
             <button
               class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
-            >
+              @click="setActiveFilter('tab-5')"
+            :class="{ activefilter: isActiveFilter('tab-5') }"
+							>
               {{ $t("message.filter.classic") }}
             </button>
           </div>
@@ -175,7 +185,7 @@
           class="tab-content  absolute left-[60px] sm:left-[100px]"
         >
           <div class="tab-panel" v-show="isActive('tab-1')">
-            <Tab1Component class=" mt-[100px] sm:mt-[120px] lg:mt-[70px]" />
+            <Tab1Component class="absolute top-[110px] lg:top-[0px] sm:mt-[120px] lg:mt-[70px]" />
           </div>
           <div class="tab-panel" v-show="isActive('tab-2')">
             <div class="for-example">

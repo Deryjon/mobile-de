@@ -1,5 +1,5 @@
 <template>
-  <div class="for-example">
+  <div class="for-example ">
     <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px]">
       <div class="mark">
         <div class="relative mt-2">
@@ -149,13 +149,12 @@
                 type="number"
                 pattern="\d*"
                 v-model="price"
-								/>
-								<select
+              />
+              <select
                 class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-								v-model="selectedPrice"
+                v-model="selectedPrice"
                 @change="updateSelectPrice"
-								
-								>
+              >
                 <option value="50">50 € mtl</option>
                 <option value="100">100 € mtl</option>
                 <option value="150">150 € mtl</option>
@@ -217,10 +216,9 @@ export default {
       this.selectedMake = this.selectedYear;
     },
     updateSelectPrice() {
-		this.price = this.selectedPrice;
-		this.selectedPrice = this.selectedMake;
-
-		},
+      this.price = this.selectedPrice;
+      this.selectedPrice = this.selectedMake;
+    },
     updateSelectYear() {
       this.years = this.selectedYear;
       this.selectedYear = this.selectedMake;
@@ -292,7 +290,7 @@ export default {
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
     },
-    fetchModelYears() {
+     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
       axios
         .get(apiUrl)
@@ -307,13 +305,15 @@ export default {
   },
   components: { FilterBtn },
   mounted() {
+   
+
+    // const apiUrl = 'https://api.api-ninjas.com/v1/cars/make'
     const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
 
     // Выполняем GET-запрос к API с помощью Axios для получения марок
     axios
       .get(apiUrl)
       .then((response) => {
-        // Получаем данные из ответа
         const data = response.data;
 
         // Проверяем, что ответ содержит поле "Results" с массивом объектов

@@ -70,169 +70,82 @@
         </div>
         <CarFilterComponentBasic />
         <SeatsComponent />
-        <div class="condition p-[20px]">
-          <h3>Type and condition</h3>
-          <div class="radios-type flex gap-[244px] mt-[10px]">
-            <label for="condition-any" @click="selectCondition('Any')">
-              <input
-                type="radio"
-                v-model="selectedCondition"
-                :class="{
-                  'bg-transparent': selectedCondition !== 'Any',
-                  'bg-orange': selectedCondition === 'Any',
-                }"
-                class="ml-10px"
-              />
-              <span class="ml-[10px]">Any</span>
-            </label>
-            <label for="condition-any" @click="selectCondition('New')">
-              <input
-                type="radio"
-                id="condition-any"
-                v-model="selectedCondition"
-                :class="{
-                  'bg-transparent': selectedCondition !== 'New',
-                  'bg-orange': selectedCondition === 'New',
-                }"
-              />
-              <span class="ml-[10px]">New</span>
-            </label>
-            <label for="condition-any" @click="selectCondition('Used')">
-              <input
-                type="radio"
-                id="condition-any"
-                v-model="selectedCondition"
-                :class="{
-                  'bg-transparent': selectedCondition !== 'Used',
-                  'bg-orange': selectedCondition === 'Used',
-                }"
-              />
-              <span class="ml-[10px]">Used</span>
-            </label>
+        <ConditionComponent />
+        <div class="line h-[1px] border mt-[50px]"></div>
+        <div class="mt-[30px] p-[20px]">
+          <h2 class="mt-2 text-sm lg:text-[16px]">Payment type</h2>
+          <div class="Kaufen_div mt-[5px]">
+            <button
+              class="Kaufen p-[8px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+              @click="showTab1"
+              :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
+            >
+              {{ $t("message.btn.buy") }}
+            </button>
+            <button
+              class="Kaufen p-[8px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+              @click="showTab2"
+              :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
+            >
+              Leasing
+            </button>
           </div>
-					<div class="conditions flex gap-[140px] mt-[20px]">
-
-						<label
-							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" :class="{ 'text-[#ccc] ': isRadioNewSelected }"
-						>
-							<input
-								type="checkbox"
-								:disabled="isRadioNewSelected"
-									       
-
-									class="form-checkbox h-5 w-5 text-indigo-600"
-									:class="{ 'bg-[#ccc] cursor-help': isRadioNewSelected }"
-								v-model="isCheckedRegister"
-								@click="toggleShowCheckbox(5)"
-							/>
-							<svg
-								class="icon"
-								xmlns="http://www.w3.org/2000/svg"
-								height="1em"
-								viewBox="0 0 448 512"
-								width="1em"
-							>
-								<!-- Insert your SVG arrow icon here -->
-								<path
-									v-if="isCheckedRegister"
-									fill="#FFFFFF"
-									d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-								/>
-							</svg>
-	
-							<span class="text-sm">Pre-Registration</span>
-						</label>
-						<label
-							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" :class="{ 'text-[#ccc] ': isRadioNewSelected }"
-						>
-							<input
-								type="checkbox"
-								v-model="isCheckedEmploy"
-								@click="toggleShowCheckbox(0)"
-								:disabled="isRadioNewSelected"
-									       
-
-									class="form-checkbox h-5 w-5 text-indigo-600"
-							/>
-							<svg
-								class="icon"
-								xmlns="http://www.w3.org/2000/svg"
-								height="1em"
-								viewBox="0 0 448 512"
-								width="1em"
-							>
-								<!-- Insert your SVG arrow icon here -->
-								<path
-									v-if="isCheckedEmploy"
-									fill="#FFFFFF"
-									d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-								/>
-							</svg>
-	
-							<span class="text-sm">Employee's Car</span>
-						</label>
-						<label
-							class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]" 	:class="{ 'text-[#ccc] ': isRadioNewSelected }"
-						>
-							<input
-								type="checkbox"
-								v-model="isCheckedClassic"
-								@click="toggleShowCheckbox(1)"
-								:disabled="isRadioNewSelected"
-									       
-
-									class="form-checkbox h-5 w-5 text-indigo-600"
-									:class="{ 'disabled-checkbox': isRadioNewSelected }"
-							/>
-							<svg
-								class="icon"
-								xmlns="http://www.w3.org/2000/svg"
-								height="1em"
-								viewBox="0 0 448 512"
-								width="1em"
-							>
-								<!-- Insert your SVG arrow icon here -->
-								<path
-									v-if="isCheckedClassic"
-									fill="#FFFFFF"
-									d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-								/>
-							</svg>
-	
-							<span class="text-sm">Classic Vehicle</span>
-						</label>
-							<label
-								class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'text-[#ccc] ': isRadioNewSelected }"
-							>
-								<input
-									type="checkbox"
-									v-model="isCheckedDemon"
-									@click="toggleShowCheckbox(2)"
-									:disabled="isRadioNewSelected"
-									       
-
-									class="form-checkbox h-5 w-5 text-indigo-600"
-								
-								/>
-								<svg
-									class="icon"
-									xmlns="http://www.w3.org/2000/svg"
-									height="1em"
-									viewBox="0 0 448 512"
-									width="1em"
-								>
-									<!-- Insert your SVG arrow icon here -->
-									<path
-										v-if="isCheckedDemon"
-										fill="#FFFFFF"
-										d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-									/>
-								</svg>
-		
-								<span class="text-sm">Demonstration Vehicle</span>
-							</label>
-					</div>
         </div>
+				<div class="mt-[30px] p-[20px] flex items-center gap-[50px]">
+					<div class="price">
+
+						<h2 class="mt-2 text-sm lg:text-[16px]">Price</h2>
+						<div class="marke_select_div relative mt-[10px]">
+								<input
+									placeholder="from"
+									class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+									type="number"
+									pattern="\d*"
+									v-model="price"
+								/>
+								<select
+									class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+									v-model="selectedPrice"
+									@change="updateSelectPrice"
+								>
+									<option value="50">50 € mtl</option>
+									<option value="100">100 € mtl</option>
+									<option value="150">150 € mtl</option>
+									<option value="200">200 € mtl</option>
+									<option value="250">250 € mtl</option>
+									<option value="300">300 € mtl</option>
+								</select>
+								<span
+									class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+								></span>
+							</div>
+					</div>
+						<div class="marke_select_div relative mt-[36px]">
+              <input
+                placeholder="up to"
+                class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                type="number"
+                pattern="\d*"
+                v-model="price"
+              />
+              <select
+                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute left-[150px] text-[10px] lg:text-[12px]"
+                v-model="selectedPrice"
+                @change="updateSelectPrice"
+              >
+                <option value="50">50 € mtl</option>
+                <option value="100">100 € mtl</option>
+                <option value="150">150 € mtl</option>
+                <option value="200">200 € mtl</option>
+                <option value="250">250 € mtl</option>
+                <option value="300">300 € mtl</option>
+              </select>
+              <span
+                class="arrow w-[7px] h-[7px] absolute left-[157px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+              ></span>
+            </div>
+						
+				</div>
       </div>
     </v-container>
   </section>
@@ -244,40 +157,20 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
-import {ref} from "vue";
+import { ref } from "vue";
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
+import ConditionComponent from "../components/ConditionComponentBasic.vue";
 export default {
-  setup() {
-		const isCheckedRegister = ref(false);
-    const isCheckedEmploy = ref(false);
-    const isCheckedClassic = ref(false);
-    const isCheckedDemon = ref(false);
-    
-
-    const toggleShowCheckbox = (index) => {
-      isCheckedRegister[index] = !isCheckedRegister[index];
-    };
-
-    return {
-      isCheckedRegister,
-      isCheckedEmploy,
-      isCheckedDemon,
-      isCheckedClassic,
-      toggleShowCheckbox,
-    };
-	},
   data() {
     return {
       makes: [],
       models: [],
       selectedMark: "14600",
       selectedMake: "",
-      isAnySelected: false,
-      isNewSelected: false,
-      isUsedSelected: false,
-      selectedCondition: "Any",
-			isRadioNewSelected: false,
-			isModelSelectDisabled: false,
+			selectedPrice: "",
+      isModelSelectDisabled: false,
+      activeTab: "tab-1",
+      price: "",
     };
   },
   components: {
@@ -286,6 +179,7 @@ export default {
     FilterBtn,
     SeatsComponent,
     CarFilterComponentBasic,
+    ConditionComponent,
   },
   methods: {
     fetchModels() {
@@ -321,6 +215,12 @@ export default {
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
     },
+    showTab1() {
+      this.activeTab = "tab-1";
+    },
+    async showTab2() {
+      this.activeTab = "tab-2";
+    },
     toggleAnySelection() {
       // Обработчик клика на "Any"
       if (this.isAnySelected) {
@@ -352,17 +252,21 @@ export default {
       }
     },
     selectCondition(condition) {
-    this.selectedCondition = condition;
-    if (condition === 'New') {
-      this.isRadioNewSelected = true;
-			this.isCheckedRegister = false;
-      this.isCheckedEmploy = false;
-      this.isCheckedDemon = false;
-      this.isCheckedClassic = false;
-    } else {
-      this.isRadioNewSelected = false;
-    }
-  },
+      this.selectedCondition = condition;
+      if (condition === "New") {
+        this.isRadioNewSelected = true;
+        this.isCheckedRegister = false;
+        this.isCheckedEmploy = false;
+        this.isCheckedDemon = false;
+        this.isCheckedClassic = false;
+      } else {
+        this.isRadioNewSelected = false;
+      }
+    },
+		updateSelectPrice() {
+      this.price = this.selectedPrice;
+      this.selectedPrice = this.selectedMake;
+    },
   },
   mounted() {
     const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
@@ -395,38 +299,13 @@ export default {
   border: 1px solid grey;
   height: 1px;
 }
-input[type="radio"] {
-  /* Убираем стандартные стили радиокнопок */
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  /* Задаем размер радиокнопки */
-  width: 20px;
-  height: 20px;
-  /* Создаем круглую форму */
-  border-radius: 50%;
-  border: 1px solid gray;
-  /* Позиционируем радиокнопку относительно базовой линии текста */
-  vertical-align: middle;
-  /* Убираем внутренние отступы, чтобы радиокнопка была ближе к тексту */
-  margin: 0;
-  padding: 0;
+.Kaufen:hover {
+  box-shadow: 0 0 2px 1px #eaccb4;
 }
-
-/* Стиль радиокнопок в состоянии "выбрано" (checked) */
-input[type="radio"]:checked {
-  /* Меняем цвет рамки и фона на оранжевый, когда радиокнопка выбрана */
-  border-color: orange;
-  background: orange;
-  /* Можно добавить другие стили, чтобы сделать выбранную радиокнопку более заметной */
-}
- input[type="checkbox"]:disabled {
-  /* Меняем цвет рамки и фона на серый, чтобы показать, что чекбокс отключен */
-  border: #ccc;
-  background: #ccc;
-  /* Убираем возможность кликать на отключенный чекбокс */
-  pointer-events: none;
-	cursor: none;
+.active-Kaufen {
+  background-color: #fffaf6;
+  border: 1px solid #eaccb4;
+  color: #000;
 }
 </style>
-  ``
+``
