@@ -44,7 +44,7 @@
 					<div class="conditions flex gap-[140px] mt-[20px]">
 
 						<label
-						class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+						class="custom-checkbox flex items-center h-10 w-[155px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
 
 						>
 							<input
@@ -73,7 +73,7 @@
 							<span class="text-sm">Pre-Registration</span>
 						</label>
 						<label
-						class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+						class="custom-checkbox flex items-center h-10 w-[145px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
 
 						>
 							<input
@@ -103,7 +103,7 @@
 							<span class="text-sm">Employee's Car</span>
 						</label>
 						<label
-						class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+						class="custom-checkbox flex items-center h-10 w-[134px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
 
 						>
 							<input
@@ -134,15 +134,14 @@
 							<span class="text-sm">Classic Vehicle</span>
 						</label>
 							<label
-								class="custom-checkbox flex gap-4 items-center h-10 w-[170px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
+								class="custom-checkbox flex  items-center h-10 w-[190px] pb-[23px]"	:class="{ 'opacity-20': isRadioNewSelected }"
 							>
 								<input
 									type="checkbox"
 									v-model="isCheckedDemon"
 									@click="toggleShowCheckbox(2)"
 									:disabled="isRadioNewSelected"
-									:class="{ 'bg-red-500 ': isRadioNewSelected }"     
-
+									
 									class="form-checkbox h-5 w-5 text-indigo-600"
 								
 								/>
