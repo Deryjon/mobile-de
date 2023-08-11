@@ -5,7 +5,7 @@
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" />
       <div
-        class="relative filter lg:h-[1300px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto mt-[50px] rounded lg:p-[27px]"
+        class="relative filter lg:h-[1500px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto mt-[50px] rounded lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
@@ -152,7 +152,7 @@
                 <h2 class="text-sm lg:text-[16px] mt-2">
                   {{ $t("message.selects.registration") }}
                 </h2>
-                <div class="relative">
+                <div class="relative mt-[10px]">
                   <input
                     placeholder="from"
                     class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
@@ -178,7 +178,7 @@
                   ></span>
                 </div>
               </div>
-              <div class="relative mt-[30px]">
+              <div class="relative mt-[35px]">
                 <input
                   placeholder="to"
                   class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
@@ -202,6 +202,214 @@
                 <span
                   class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
                 ></span>
+              </div>
+            </div>
+            <div class="kilometres mt-[20px] flex items-center gap-[80px]">
+              <div class="">
+                <h2 class="text-sm lg:text-[16px] mt-2">
+                  {{ $t("message.selects.kilometr") }}
+                </h2>
+                <!-- KIllometer bis -->
+                <div class="marke_select_div flex relative">
+                  <input
+                    placeholder="Beliebig"
+                    id="inputYear"
+                    class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                    type="number"
+                    pattern="\d*"
+                    v-model="killometres"
+                    readonly
+                  />
+                  <select
+                    class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
+                    v-model="selectedMake"
+                    @change="updateSelect"
+                  >
+                    <option value="5000">5.000 km</option>
+                    <option value="10000">10.000 km</option>
+                    <option value="20000">20.000 km</option>
+                    <option value="30000">30.000 km</option>
+                    <option value="40000">40.000 km</option>
+                    <option value="50000">50.000 km</option>
+                    <option value="60000">60.000 km</option>
+                    <option value="70000">70.000 km</option>
+                    <option value="80000">80.000 km</option>
+                    <option value="90000">90.000 km</option>
+                    <option value="100000">100.000 km</option>
+                    <option value="125000">125.000 km</option>
+                    <option value="150000">150.000 km</option>
+                    <option value="175000">175.000 km</option>
+                    <option value="200000">200.000 km</option>
+                  </select>
+                  <span
+                    class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
+                  ></span>
+                </div>
+              </div>
+              <div class="marke_select_div flex relative mt-[30px]">
+                <input
+                  placeholder="Beliebig"
+                  id="inputYear"
+                  class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                  type="number"
+                  pattern="\d*"
+                  v-model="killometres"
+                  readonly
+                />
+                <select
+                  class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
+                  v-model="selectedMake"
+                  @change="updateSelect"
+                >
+                  <option value="5000">5.000 km</option>
+                  <option value="10000">10.000 km</option>
+                  <option value="20000">20.000 km</option>
+                  <option value="30000">30.000 km</option>
+                  <option value="40000">40.000 km</option>
+                  <option value="50000">50.000 km</option>
+                  <option value="60000">60.000 km</option>
+                  <option value="70000">70.000 km</option>
+                  <option value="80000">80.000 km</option>
+                  <option value="90000">90.000 km</option>
+                  <option value="100000">100.000 km</option>
+                  <option value="125000">125.000 km</option>
+                  <option value="150000">150.000 km</option>
+                  <option value="175000">175.000 km</option>
+                  <option value="200000">200.000 km</option>
+                </select>
+                <span
+                  class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
+                ></span>
+              </div>
+            </div>
+            <!-- valid -->
+            <div class="valid-until mt-[40px] flex items-center gap-[80px]">
+              <div class="relative mt-2">
+                <h2 class="text-sm lg:text-[16px]">HU valid until</h2>
+                <select
+                  class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                >
+                  <option value="14600" selected>Any</option>
+                  <option value="">New</option>
+                  <option value="">18</option>
+                  <option value="">12</option>
+                  <option value="">9</option>
+                  <option value="">6</option>
+                  <option value="">3</option>
+                </select>
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
+                ></span>
+              </div>
+              <div class="marke_select_div relative mt-2">
+                <h2 class="text-sm lg:text-[16px]">Previous owners</h2>
+                <select
+                  class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                >
+                  <option value="14600" selected>Any</option>
+                  <option value="">Up to 1</option>
+                  <option value="">Up to 2</option>
+                  <option value="">Up to 3</option>
+                  <option value="">Up to 4</option>
+                </select>
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
+                ></span>
+              </div>
+            </div>
+            <!-- country -->
+            <div class="valid-until mt-[20px] flex items-center gap-[80px]">
+              <div class="relative mt-2">
+                <h2 class="text-sm lg:text-[16px]">Country</h2>
+                <select
+                  class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                >
+                  <optgroup>
+                    <option value="14600" selected>Any</option>
+                  </optgroup>
+                  <optgroup>
+                    <option value="BA">Bosnia and Herzegovina</option>
+                    <option value="AL">Albania</option>
+                    <option value="AT">Austria</option>
+                    <option value="BY">Belarus</option>
+                    <option value="BE">Belgium</option>
+                    <option value="AD">Andorra</option>
+                    <option value="BR">Brazil</option>
+                    <option value="BG">Bulgaria</option>
+                    <option value="CA">Canada</option>
+                    <option value="HR">Croatia</option>
+                    <option value="CY">Cyprus</option>
+                    <option value="CZ">Czech Republic</option>
+                    <option value="DK">Denmark</option>
+                    <option value="EG">Egypt</option>
+                    <option value="EE">Estonia</option>
+                    <option value="ET">Ethiopia</option>
+                    <option value="FO">Faroe Islands</option>
+                    <option value="FI">Finland</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="GR">Greece</option>
+                    <option value="HU">Hungary</option>
+                    <option value="IS">Iceland</option>
+                    <option value="IE">Ireland</option>
+                    <option value="IL">Israel</option>
+                    <option value="IT">Italy</option>
+                    <option value="JP">Japan</option>
+                    <option value="JO">Jordan</option>
+                    <option value="KW">Kuwait</option>
+                    <option value="LV">Latvia</option>
+                    <option value="LB">Lebanon</option>
+                    <option value="LI">Liechtenstein</option>
+                    <option value="LT">Lithuania</option>
+                    <option value="LU">Luxembourg</option>
+                    <option value="MK">Macedonia</option>
+                    <option value="MT">Malta</option>
+                    <option value="MX">Mexico</option>
+                    <option value="MD">Moldova</option>
+                    <option value="MC">Monaco</option>
+                    <option value="ME">Montenegro</option>
+                    <option value="MA">Morocco</option>
+                    <option value="NL">Netherlands</option>
+                    <option value="NZ">New Zealand</option>
+                    <option value="NG">Nigeria</option>
+                    <option value="NO">Norway</option>
+                    <option value="OM">Oman</option>
+                    <option value="PL">Poland</option>
+                    <option value="PT">Portugal</option>
+                    <option value="RO">Romania</option>
+                    <option value="RU">Russian Federation</option>
+                    <option value="SM">San Marino</option>
+                    <option value="SA">Saudi Arabia</option>
+                    <option value="RS">Serbia</option>
+                    <option value="SK">Slovakia</option>
+                    <option value="SI">Slovenia</option>
+                    <option value="ZA">South Africa</option>
+                    <option value="KR">South Korea</option>
+                    <option value="ES">Spain</option>
+                    <option value="SE">Sweden</option>
+                    <option value="CH">Switzerland</option>
+                    <option value="TW">Taiwan</option>
+                    <option value="TN">Tunisia</option>
+                    <option value="TR">Turkey</option>
+                    <option value="UA">Ukraine</option>
+                    <option value="AE">United Arab Emirates</option>
+                    <option value="GB">United Kingdom</option>
+                    <option value="US">USA</option>
+                  </optgroup>
+                </select>
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
+                ></span>
+              </div>
+              <div class="marke_select_div relative mt-2">
+                <h2 class="text-sm lg:text-[16px]">City / zip code</h2>
+                <input
+                  id="inputYear"
+                  class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                  type="number"
+                  pattern="\d*"
+                  readonly
+                />
               </div>
             </div>
           </div>
@@ -237,6 +445,8 @@ export default {
       years: "",
       modelYears: [],
       modeltoYears: [],
+      killometres: "",
+      selectedMake: "",
     };
   },
   components: {
@@ -248,6 +458,10 @@ export default {
     ConditionComponent,
   },
   methods: {
+    updateSelect() {
+      this.killometres = this.selectedMake;
+      this.selectedMake = this.selectedYear;
+    },
     fetchModels() {
       if (!this.selectedMark) {
         this.models = [];
@@ -381,8 +595,8 @@ export default {
 .mark-input2 {
   max-height: 35px; /* Измените значение по вашему усмотрению */
   overflow-y: hidden;
-	border-top-right-radius: 10px;
-		border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 
 /* Добавьте прокрутку при необходимости */
@@ -411,8 +625,8 @@ select:-webkit-scrollbar {
   border: 1px solid #eaccb4;
   color: #000;
 }
-.mark-select{
-	border: 1px solid #111;
+.mark-select {
+  border: 1px solid #111;
 }
 </style>
 ``
