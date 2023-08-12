@@ -2,7 +2,7 @@
   <div class="pl-[20px]">
     <div class="price-tab flex items-center gap-[80px]">
       <div class="price">
-        <h2 class="mt-2 text-sm lg:text-[16px]">Price</h2>
+        <h2 class="mt-2 text-sm lg:text-[16px]">Leasing rate</h2>
         <div class="marke_select_div relative mt-[10px]">
           <input
             placeholder="from"
@@ -52,13 +52,40 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div>
+      <label for="condition-any" class="mt-[30px]"	>
+        <input
+          type="radio"
+          id="condition-any"
+          v-model="selectedCondition"
+          :class="{
+            'bg-transparent': selectedCondition !== 'Private',
+            'bg-orange': selectedCondition === 'Private',
+          }"
+          @click="selectCondition('Private')"
+        />
+        <span class="ml-[10px]">Private use </span>
+      </label>
+      <label
+        for="condition-any"
+        @click="selectCondition('Commercial')"
+        class="mt-[30px]"
+      >
+        <input
+          type="radio"
+          id="condition-any"
+          v-model="selectedCondition"
+          :class="{
+            'bg-transparent': selectedCondition !== 'Commercial',
+            'bg-orange': selectedCondition === 'Commercial',
+          }"
+        />
+        <span class="ml-[10px]">Commercial use</span>
+      </label>
     </div>
-    <div class="line mt-[30px]"></div>
-    <div class="registration flex items-center gap-[80px] mt-[50px]">
+   
+    <div class="duration flex items-center gap-[80px] mt-[20px]">
       <div>
-        <h2 class="text-sm lg:text-[16px] mt-2">
-          {{ $t("message.selects.registration") }}
-        </h2>
+        <h2 class="text-sm lg:text-[16px] mt-2">Duration</h2>
         <div class="relative mt-[10px]">
           <input
             placeholder="from"
@@ -105,9 +132,7 @@
     </div>
     <div class="kilometres mt-[20px] flex items-center gap-[80px]">
       <div class="">
-        <h2 class="text-sm lg:text-[16px] mt-2">
-          {{ $t("message.selects.kilometr") }}
-        </h2>
+        <h2 class="text-sm lg:text-[16px] mt-2">Mileage per year</h2>
         <!-- KIllometer bis -->
         <div class="marke_select_div flex relative">
           <input
@@ -181,6 +206,7 @@
         ></span>
       </div>
     </div>
+		<div class="line mt-[40px]"></div>
     <!-- valid -->
     <div class="valid-until mt-[40px] flex items-center gap-[80px]">
       <div class="relative mt-2">
@@ -211,15 +237,12 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-			<label
-        class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
+      <label class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]">
         <input
           type="checkbox"
           v-model="isCheckedHistory"
           @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600 "
+          class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
           class="icon mt-[10px]"
@@ -238,10 +261,7 @@
 
         <span class="text-sm p]b-[20px">Full Service History</span>
       </label>
-			<label
-        class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
+      <label class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]">
         <input
           type="checkbox"
           v-model="isCheckedRoad"
@@ -360,20 +380,20 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
-import {ref} from 'vue'
+import axios from "axios";
+import { ref } from "vue";
 export default {
-	setup() {
+  setup() {
     const isCheckedHistory = ref(false);
     const isCheckedRoad = ref(false);
- 
+
     const toggleShowCheckbox = (index) => {
       isCheckedRoad[index] = !isCheckedRoad[index];
     };
 
     return {
       isCheckedRoad,
-			isCheckedHistory,
+      isCheckedHistory,
       toggleShowCheckbox,
     };
   },
@@ -388,9 +408,17 @@ export default {
       killometres: "",
       selectedMake: "",
       selectedPrice: "",
+      isPrivateSelected: false,
+      isCommercialSelected: false,
+      isRadioNewSelected: false,
+      selectedCondition: "",
     };
   },
   methods: {
+    selectCondition(condition) {
+      this.selectedCondition = condition;
+    },
+
     updateSelectYear() {
       this.years = this.selectedYear;
       this.selectedYear = this.selectedMake;
@@ -415,9 +443,19 @@ export default {
           console.error("Error fetching model years:", error);
         });
     },
+
+    togglePrivateSelection() {
+      // ... другой код ...
+      this.selectedCondition = this.isPrivateSelected ? "Private" : "";
+    },
+
+    toggleCommercialSelection() {
+      // ... другой код ...
+      this.selectedCondition = this.isCommercialSelected ? "Commercial" : "";
+    },
   },
   mounted() {
-    this.fetchModelYears()
+    this.fetchModelYears();
   },
 };
 </script>
@@ -456,6 +494,23 @@ input[type="checkbox"]:disabled {
 }
 .mark-select {
   border: 1px solid #111;
+}
+input[type="radio"] {
+  /* Убираем стандартные стили радиокнопок */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Задаем размер радиокнопки */
+  width: 20px;
+  height: 20px;
+  /* Создаем круглую форму */
+  border-radius: 50%;
+  border: 1px solid gray;
+  /* Позиционируем радиокнопку относительно базовой линии текста */
+  vertical-align: middle;
+  /* Убираем внутренние отступы, чтобы радиокнопка была ближе к тексту */
+  margin: 0;
+  padding: 0;
 }
 
 .line {

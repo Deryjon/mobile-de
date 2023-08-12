@@ -220,7 +220,7 @@ export default {
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
-      if (condition === "New") {
+      if (condition === "New") {		1
         this.isRadioNewSelected = true;
         this.isCheckedRegister = false;
         this.isCheckedEmploy = false;
