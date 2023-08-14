@@ -87,16 +87,13 @@
               @click="showTab2"
               :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
             >
-              Leasing
+						{{ $t("message.btn.buy") }}
             </button>
           </div>
         </div>
         <div class="tab-content mt-[30px]">
-          <div class="tab-1" v-show="activeTab === 'tab-1'">
+          <div class="tab-1" >
 <PaymentTab1Component/>
-					</div>
-          <div class="" v-show="activeTab === 'tab-2'">
-					<PaymentTab2Component/>
 					</div>
         </div>
       </div>
