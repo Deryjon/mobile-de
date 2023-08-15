@@ -7,10 +7,10 @@
         <h3 class="basic-title text-[25px] font-semibold">Technical Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
         <CarFilterComponentTechnical />
-        <SeatsComponent />
+        <PowerComponent />
         <ConditionComponent />
         <div class="line h-[1px] border mt-[50px]"></div>
-        <div class="mt-[30px] p-[20px]">
+        <!-- <div class="mt-[30px] p-[20px]">
           <h2 class="mt-2 text-sm lg:text-[16px]">Payment type</h2>
           <div class="Kaufen_div mt-[5px]">
             <button
@@ -33,7 +33,7 @@
           <div class="tab-1">
             <PaymentTab1Component />
           </div>
-        </div>
+        </div> -->
       </div>
     </v-container>
   </section>
@@ -43,13 +43,11 @@
 import PathLink from "../../../ui/PathLink.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
-import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
+import PowerComponent from "../components/PowerComponentTechnic.vue";
 import axios from "axios";
-import { ref } from "vue";
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
-import PaymentTab2Component from "../components/PaymentTab2Component.vue";
 import CarFilterComponentTechnical from "../components/CarFilterComponentTechnical.vue";
 export default {
   data() {
@@ -75,11 +73,10 @@ export default {
     PathLink,
     FilterTitle,
     FilterBtn,
-    SeatsComponent,
+    PowerComponent,
     CarFilterComponentBasic,
     ConditionComponent,
     PaymentTab1Component,
-    PaymentTab2Component,
     CarFilterComponentTechnical
 },
   methods: {

@@ -1,8 +1,8 @@
 <template>
-	<div class="mt-[50px]">
+	<div class="mt-[10px] p-[20px]">
 
 		<h3>Fuel Type</h3>
-		<div class="filter-cars flex flex-wrap gap-[20px]  p-[20px]">
+		<div class="filter-cars flex flex-wrap gap-x-[60px] mt-[10px]">
 	
 			<!-- cabrio -->
 			<label
@@ -10,7 +10,7 @@
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedCabrio"
+					v-model="isCheckedDiesel"
 					@click="toggleShowCheckbox(0)"
 				/>
 				<svg
@@ -22,7 +22,7 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedCabrio"
+						v-if="isCheckedDiesel"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
@@ -34,7 +34,7 @@
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedCabrio"
+					v-model="isCheckedDisElect"
 					@click="toggleShowCheckbox(0)"
 				/>
 				<svg
@@ -46,19 +46,19 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedCabrio"
+						v-if="isCheckedDisElect"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				Diesel
+				Hybrid (diesel/electric)
 			</label>
 			<label
 				class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedCabrio"
+					v-model="isCheckedGas"
 					@click="toggleShowCheckbox(0)"
 				/>
 				<svg
@@ -70,19 +70,19 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedCabrio"
+						v-if="isCheckedGas"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				Diesel
+				Natural Gas
 			</label>
 			<label
 				class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedCabrio"
+					v-model="isCheckedOther"
 					@click="toggleShowCheckbox(0)"
 				/>
 				<svg
@@ -94,19 +94,19 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedCabrio"
+						v-if="isCheckedOther"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				Diesel
+				Other
 			</label>
 			<label
 				class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedCabrio"
+					v-model="isCheckedPetrol"
 					@click="toggleShowCheckbox(0)"
 				/>
 				<svg
@@ -118,19 +118,19 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedCabrio"
+						v-if="isCheckedPetrol"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				Diesel
+				Petrol
 			</label>
 			<label
 				class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedCabrio"
+					v-model="isCheckedElectro"
 					@click="toggleShowCheckbox(0)"
 				/>
 				<svg
@@ -142,18 +142,18 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedCabrio"
+						v-if="isCheckedElectro"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				Diesel
+				Electric
 			</label>
 			<!-- estate -->
 			<label class="custom-checkbox flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4">
 				<input
 					type="checkbox"
-					v-model="isCheckedEstate"
+					v-model="isCheckedHydro"
 					@click="toggleShowCheckbox(1)"
 					class="form-checkbox h-5 w-5 text-indigo-600"
 				/>
@@ -166,19 +166,19 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedEstate"
+						v-if="isCheckedHydro"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
-				<span class="text-[14px]">Petrol</span>
+				<span class="text-[14px]">Hydrogen</span>
 			</label>
 	
 			<!-- saloon -->
 			<label class="custom-checkbox flex gap-4 items-center h-10 w-[200px] pb-4">
 				<input
 					type="checkbox"
-					v-model="isCheckedSaloon"
+					v-model="isCheckedHydbrid"
 					@click="toggleShowCheckbox(2)"
 					class="form-checkbox h-5 w-5 text-indigo-600"
 				/>
@@ -192,13 +192,13 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedSaloon"
+						v-if="isCheckedHydbrid"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
 				
-				<span class="text-[14px]">Hybrid (petrol/electric)</span>
+				<span class="text-[14px]">Plug-in hybrid</span>
 			</label>
 			<!-- small -->
 			<label
@@ -206,7 +206,7 @@
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedSmall"
+					v-model="isCheckedPetElect"
 					@click="toggleShowCheckbox(3)"
 					class="form-checkbox h-5 w-5 text-indigo-600"
 				/>
@@ -220,13 +220,13 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedSmall"
+						v-if="isCheckedPetElect"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
 			 
-				<span class="text-[14px]">Hybrid (diesel/electric)</span>
+				<span class="text-[14px]">Hybrid (petrol/electric)</span>
 			</label>
 			<!-- sports -->
 			<label
@@ -234,7 +234,7 @@
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedSuper"
+					v-model="isCheckedLPG"
 					@click="toggleShowCheckbox(4)"
 					class="form-checkbox h-5 w-5 text-indigo-600"
 				/>
@@ -248,13 +248,13 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedSuper"
+						v-if="isCheckedLPG"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
 		
-				<span class="text-[14px]">Electric</span>
+				<span class="text-[14px]">LPG</span>
 			</label>
 			<!-- off-road -->
 			<label
@@ -262,7 +262,7 @@
 			>
 				<input
 					type="checkbox"
-					v-model="isCheckedOff"
+					v-model="isCheckedEthan"
 					@click="toggleShowCheckbox(5)"
 					class="form-checkbox h-5 w-5 text-indigo-600"
 				/>
@@ -275,41 +275,15 @@
 				>
 					<!-- Insert your SVG arrow icon here -->
 					<path
-						v-if="isCheckedOff"
+						v-if="isCheckedEthan"
 						fill="#FFFFFF"
 						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 					/>
 				</svg>
 			
-				<span class="text-sm"> LPG</span>
+				<span class="text-sm">Ethanol (FFV, E85, etc.)</span>
 			</label>
-			<!-- off-road -->
-			<label
-				class="custom-checkbox flex gap-4 items-center h-10 w-[206	px] pb-[23px]"
-			>
-				<input
-					type="checkbox"
-					v-model="isCheckedVan"
-					@click="toggleShowCheckbox()"
-					class="form-checkbox h-5 w-5 text-indigo-600"
-				/>
-				<svg
-					class="icon"
-					xmlns="http://www.w3.org/2000/svg"
-					height="1em"
-					viewBox="0 0 448 512"
-					width="1em"
-				>
-					<!-- Insert your SVG arrow icon here -->
-					<path
-						v-if="isCheckedVan"
-						fill="#FFFFFF"
-						d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-					/>
-				</svg>
-		
-				<span class="text-sm">Natural Gas</span>
-			</label>
+			
 		</div>
 	</div>
 </template>
@@ -320,26 +294,34 @@ export default {
   setup() {
     // ... (other data and methods)
 
-    const isCheckedVan = ref(false);
-    const isCheckedOff = ref(false);
-    const isCheckedSuper = ref(false);
-    const isCheckedSmall = ref(false);
-    const isCheckedSaloon = ref(false);
-    const isCheckedEstate = ref(false);
-    const isCheckedCabrio = ref(false);
+    const isCheckedDiesel = ref(false);
+    const isCheckedDisElect = ref(false);
+    const isCheckedGas = ref(false);
+    const isCheckedOther = ref(false);
+    const isCheckedPetrol = ref(false);
+    const isCheckedElectro = ref(false);
+    const isCheckedHydro = ref(false);
+    const isCheckedHydbrid = ref(false);
+    const isCheckedPetElect = ref(false);
+    const isCheckedLPG = ref(false);
+    const isCheckedEthan = ref(false);
 
     const toggleShowCheckbox = (index) => {
       isCheckedVan[index] = !isCheckedVan[index];
     };
 
     return {
-      isCheckedOff,
-      isCheckedSuper,
-      isCheckedSmall,
-      isCheckedSaloon,
-      isCheckedVan,
-      isCheckedEstate,
-      isCheckedCabrio,
+      isCheckedGas,
+      isCheckedPetrol,
+      isCheckedElectro,
+      isCheckedHydro,
+      isCheckedDisElect,
+      isCheckedHydbrid,
+      isCheckedDiesel,
+      isCheckedOther,
+      isCheckedPetElect	,
+      isCheckedLPG	,
+      isCheckedEthan	,
       toggleShowCheckbox,
     };
   },

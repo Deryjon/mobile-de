@@ -2,7 +2,7 @@
   <div class="pl-[20px]">
     <div class="price-tab flex items-center gap-[80px]">
       <div class="price">
-        <h2 class="mt-2 text-sm lg:text-[16px]">Leasing rate</h2>
+        <h2 class="mt-2 text-sm lg:text-[16px]">Power</h2>
         <div class="marke_select_div relative mt-[10px]">
           <input
             placeholder="from"
@@ -16,12 +16,21 @@
             v-model="selectedPrice"
             @change="updateSelectPrice"
           >
-            <option value="50">50 € mtl</option>
-            <option value="100">100 € mtl</option>
-            <option value="150">150 € mtl</option>
-            <option value="200">200 € mtl</option>
-            <option value="250">250 € mtl</option>
-            <option value="300">300 € mtl</option>
+          <option value="34">34</option>
+          <option value="50">50</option>
+          <option value="60">60</option>
+          <option value="75">75</option>
+          <option value="90">90</option>
+          <option value="101">101</option>
+          <option value="118">118</option>
+          <option value="131">131</option>
+          <option value="150">150</option>
+          <option value="200">200</option>
+          <option value="252">252</option>
+          <option value="303">303</option>
+          <option value="358">358</option>
+          <option value="402">402</option>
+          <option value="454">454</option>
           </select>
           <span
             class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
@@ -41,12 +50,21 @@
           v-model="selectedPrice"
           @change="updateSelectPrice"
         >
-          <option value="50">50 € mtl</option>
-          <option value="100">100 € mtl</option>
-          <option value="150">150 € mtl</option>
-          <option value="200">200 € mtl</option>
-          <option value="250">250 € mtl</option>
-          <option value="300">300 € mtl</option>
+          <option value="34">34</option>
+          <option value="50">50</option>
+          <option value="60">60</option>
+          <option value="75">75</option>
+          <option value="90">90</option>
+          <option value="101">101</option>
+          <option value="118">118</option>
+          <option value="131">131</option>
+          <option value="150">150</option>
+          <option value="200">200</option>
+          <option value="252">252</option>
+          <option value="303">303</option>
+          <option value="358">358</option>
+          <option value="402">402</option>
+          <option value="454">454</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
@@ -58,12 +76,12 @@
           id="condition-any"
           v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedCondition !== 'Private',
-            'bg-orange': selectedCondition === 'Private',
+            'bg-transparent': selectedCondition !== 'Hp',
+            'bg-orange': selectedCondition === 'Hp',
           }"
-          @click="selectCondition('Private')"
+          @click="selectCondition('Hp')"
         />
-        <span class="ml-[10px]">Private use </span>
+        <span class="ml-[10px]">Hp</span>
       </label>
       <label
         for="condition-any"
@@ -446,7 +464,7 @@ export default {
 
     togglePrivateSelection() {
       // ... другой код ...
-      this.selectedCondition = this.isPrivateSelected ? "Private" : "";
+      this.selectedCondition = this.isPrivateSelected ? "Hp" : "";
     },
 
     toggleCommercialSelection() {

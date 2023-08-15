@@ -107,11 +107,9 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
-import { ref } from "vue";
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
-import PaymentTab2Component from "../components/PaymentTab2Component.vue";
 export default {
   data() {
     return {
@@ -140,7 +138,6 @@ export default {
     CarFilterComponentBasic,
     ConditionComponent,
     PaymentTab1Component,
-    PaymentTab2Component,
   },
   methods: {
     updateSelect() {
