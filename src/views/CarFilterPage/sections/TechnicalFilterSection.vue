@@ -1,74 +1,12 @@
 <template>
-  <section class="basic-filter mt-[200px]">
+  <section class="basic-filter">
     <v-container class="w-[1110px]">
-      <PathLink>My New Car</PathLink>
-      <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
       <div
-        class="relative filter lg:h-[1500px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto mt-[50px] rounded lg:p-[27px]"
+        class="relative filter lg:h-[1500px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto rounded lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
-        <div class="line h-[1px] border mt-[10px]"></div>
-        <div
-          class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[80px] mt-[10px] p-[20px]"
-        >
-          <div class="mark">
-            <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[16px]">
-                {{ $t("message.selects.mark") }}
-              </h2>
-              <select
-                class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                v-model="selectedMark"
-                @change="fetchModels"
-              >
-                <option value="14600" selected>Beliebig</option>
-                <optgroup>
-                  <option v-for="make in makes" :key="make" :value="make">
-                    {{ make }}
-                  </option>
-                </optgroup>
-              </select>
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-              ></span>
-            </div>
-          </div>
-
-          <div class="relative">
-            <h2 class="text-sm lg:text-[16px] mt-2">
-              {{ $t("message.selects.model") }}
-            </h2>
-            <select
-              class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="Beliebig"
-              :disabled="isModelSelectDisabled"
-            >
-              <option value="14600">Beliebig</option>
-              <option
-                v-for="model in models"
-                :key="model"
-                :value="model"
-                class=""
-              >
-                {{ model }}
-              </option>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-            ></span>
-          </div>
-          <div class="mark">
-            <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[16px]">Variant</h2>
-              <input
-                class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                placeholder="e.g. GTI..."
-              />
-            </div>
-          </div>
-        </div>
-        <CarFilterComponentBasic />
+        <h3 class="basic-title text-[25px] font-semibold">Technical Data</h3>
+        <div class="line h-[1px] border mt-[10px]"></div>	
+        <CarFilterComponentTechnical />
         <SeatsComponent />
         <ConditionComponent />
         <div class="line h-[1px] border mt-[50px]"></div>
@@ -112,6 +50,7 @@ import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 import PaymentTab2Component from "../components/PaymentTab2Component.vue";
+import CarFilterComponentTechnical from "../components/CarFilterComponentTechnical.vue";
 export default {
   data() {
     return {
@@ -141,7 +80,8 @@ export default {
     ConditionComponent,
     PaymentTab1Component,
     PaymentTab2Component,
-  },
+    CarFilterComponentTechnical
+},
   methods: {
     updateSelect() {
       this.killometres = this.selectedMake;
