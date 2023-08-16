@@ -2,38 +2,13 @@
   <section class="basic-filter">
     <v-container class="w-[1110px]">
       <div
-        class="relative filter lg:h-[1500px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto rounded lg:p-[27px]"
+        class="relative filter lg:h-[682px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto rounded lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Technical Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
         <CarFilterComponentTechnical />
-        <PowerComponent />
-        <ConditionComponent />
-        <div class="line h-[1px] border mt-[50px]"></div>
-        <!-- <div class="mt-[30px] p-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[16px]">Payment type</h2>
-          <div class="Kaufen_div mt-[5px]">
-            <button
-              class="Kaufen p-[8px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-              @click="showTab1"
-              :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
-            >
-              {{ $t("message.btn.buy") }}
-            </button>
-            <button
-              class="Kaufen p-[8px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-              @click="showTab2"
-              :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
-            >
-              {{ $t("message.btn.sell") }}
-            </button>
-          </div>
-        </div>
-        <div class="tab-content mt-[30px]">
-          <div class="tab-1">
-            <PaymentTab1Component />
-          </div>
-        </div> -->
+        <!-- <PowerComponent /> -->
+       
       </div>
     </v-container>
   </section>

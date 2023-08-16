@@ -103,14 +103,23 @@
 
 <script>
 import PathLink from "../../../ui/PathLink.vue";
+import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
+import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
-import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
-import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
+	components: {
+		PathLink,
+		FilterTitle,
+		FilterBtn,
+		SeatsComponent,
+		CarFilterComponentBasic,
+		ConditionComponent,
+		PaymentTab1Component,
+	},
   data() {
     return {
       makes: [],
@@ -129,15 +138,6 @@ export default {
       killometres: "",
       selectedMake: "",
     };
-  },
-  components: {
-    PathLink,
-    FilterTitle,
-    FilterBtn,
-    SeatsComponent,
-    CarFilterComponentBasic,
-    ConditionComponent,
-    PaymentTab1Component,
   },
   methods: {
     updateSelect() {

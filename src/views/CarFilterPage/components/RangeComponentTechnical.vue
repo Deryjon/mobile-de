@@ -1,5 +1,73 @@
 <template>
   <div class="pl-[20px]">
+		<div class="">
+
+			<h2 class="mt-2 text-sm lg:text-[16px]">Range</h2>
+			<div class="marke_select_div relative mt-[10px]">
+				<select
+					class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+					placeholder="Beliebig"
+					
+				>
+					<option value="14600">Beliebig</option>
+			<option value="" selected>Any</option>
+			<option value="" >50 km +</option>
+			<option value="" >100 km +</option>
+			<option value="" >200 km +</option>
+			<option value="" >300 km +</option>
+			<option value="" >400 km +</option>
+			<option value="" >500 km +</option>
+			<option value="" >600 km +</option>
+				</select>
+				<span	
+					class="arrow w-[7px] h-[7px] absolute left-[185px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+				></span>
+			</div>
+		</div>
+		<div class="duration flex items-center gap-[80px] mt-[20px]">
+      <div>
+        <h2 class="text-sm lg:text-[16px] mt-2">Battery capacity</h2>
+        <div class="relative mt-[10px]">
+          <input
+            placeholder="from"
+            class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+            type="number"
+            pattern="\d*"
+            v-model="years"
+          />
+          <select
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+           
+          >
+          
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[6px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+          ></span>
+        </div>
+      </div>
+      <div class="relative mt-[35px]">
+        <input
+          placeholder="to"
+          class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+          type="number"
+          pattern="\d*"
+          v-model="years"
+        />
+        <select
+          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+          v-model="selectedtoYear"
+          @change="updateSelectYear"
+        >
+          <option v-for="year in modeltoYears" :key="year" :value="year">
+            {{ year }}
+          </option>
+        </select>
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+        ></span>
+      </div>
+    </div>
     <div class="price-tab flex items-center gap-[80px]">
       <div class="price">
         <h2 class="mt-2 text-sm lg:text-[16px]">Power</h2>
