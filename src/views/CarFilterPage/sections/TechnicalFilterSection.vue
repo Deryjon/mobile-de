@@ -2,13 +2,11 @@
   <section class="basic-filter">
     <v-container class="w-[1110px]">
       <div
-        class="relative filter lg:h-[682px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto rounded lg:p-[27px]"
+        class="relative filter lg:h-[850px] w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[650px] mx-auto rounded lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Technical Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
-        <CarFilterComponentTechnical />
-        <!-- <PowerComponent /> -->
-       
+        <CarFilterComponentTechnical />       
       </div>
     </v-container>
   </section>

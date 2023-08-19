@@ -287,18 +287,10 @@
     </div>
   </div>
   <div class="tab-content">
-    <div class="tab-1" v-show="isCheckedDiesel">
+    <div class="tab-1" v-show="showTab1">
       <PowerComponentTechnic />
     </div>
-    <div
-      class="tab-2"
-      v-show="
-        isCheckedHydbrid ||
-        isCheckedPetElect ||
-        isCheckedHydro ||
-        isCheckedDisElect
-      "
-    >
+    <div class="tab-2" v-show="showTab2">
       <RangeComponentTechnic />
     </div>
   </div>
@@ -310,6 +302,9 @@ import RangeComponentTechnic from "./RangeComponentTechnical.vue";
 
 export default {
   setup() {
+    const activeTab = ref("tab-1");
+    const showTab1 = ref(true);
+    const showTab2 = ref(false);
     const isCheckedDiesel = ref(true);
     const isCheckedDisElect = ref(false);
     const isCheckedGas = ref(false);
@@ -322,15 +317,17 @@ export default {
     const isCheckedLPG = ref(false);
     const isCheckedEthan = ref(false);
     const toggleShowCheckbox = (index) => {
-      if (index === 0) {
-        isCheckedDisElect = false; 
-        isCheckedDiesel = [false, false, false, false, false, false]; 
-        showTab1.value = false; 
-      } else {
-        // В остальных случаях переключаем значение выбранной опции
-        isCheckedDiesel[index] = !isCheckedDiesel[index];
+      showTab1.value = index === 0; // Показать tab-1 при выборе Diesel
+      showTab2.value = index !== 0; // Показать tab-2 при выборе чего-либо кроме Diesel
+
+      for (let i = 0; i < isCheckedDiesel.length; i++) {
+        if (i !== index) {
+          isCheckedDiesel[i] = false;
+        }
       }
+      isCheckedDiesel[index] = true;
     };
+
     return {
       isCheckedGas,
       isCheckedPetrol,
@@ -343,6 +340,9 @@ export default {
       isCheckedPetElect,
       isCheckedLPG,
       isCheckedEthan,
+      activeTab,
+			showTab1,
+			showTab2,
       toggleShowCheckbox,
     };
   },
@@ -354,7 +354,7 @@ export default {
 </script>
 <style scoped>
 select {
-  scrollbar-width: none; /*For Firefox*/
+  scrollbar-width: none; 
   -ms-overflow-style: none;
 }
 .custom-checkbox input[type="checkbox"] {

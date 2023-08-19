@@ -101,7 +101,7 @@
       </label>
     </div>
 
-    <div class="duration flex items-center gap-[80px] mt-[20px]">
+    <div class="duration flex items-center gap-[80px] mt-[40px]">
       <div>
         <h2 class="text-sm lg:text-[16px] mt-2">Cubic capacity</h2>
         <div class="relative mt-[10px]">
@@ -154,7 +154,7 @@
         class="
 			"
       >
-        <h3 class="mt-[20px]">Transmission</h3>
+        <h3 class="mt-[60px]">Transmission</h3>
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input
             type="checkbox"
@@ -180,7 +180,7 @@
           <span class="text-sm"> Automatic transmission</span>
         </label>
       </div>
-      <div class="mt-[44px]">
+      <div class="mt-[84px]">
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input
             type="checkbox"
@@ -206,7 +206,7 @@
           <span class="text-sm">Semi-automatic</span>
         </label>
       </div>
-      <div class="mt-[44px]">
+      <div class="mt-[84px]">
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input
             type="checkbox"
@@ -234,7 +234,7 @@
       </div>
     </div>
     <!-- valid -->
-    <div class="valid-until mt-[40px] flex items-center gap-[60px]">
+    <div class="valid-until mt-[80px] flex items-center gap-[60px]">
       <div class="relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[16px]">
           Fuel consumption (combined) up to
