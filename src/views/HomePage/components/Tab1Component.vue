@@ -9,12 +9,16 @@
           <select
             class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-            @change="fetchModels"
+            @change="fetchModels()"
           >
             <option value="14600" selected>Beliebig</option>
             <optgroup>
-              <option v-for="make in makes" :key="make" :value="make.car_make_id">
-                {{ make }}
+              <option
+                v-for="make in makes"
+                :key="make"
+                :value="make.car_make_id"
+              >
+                {{ make.car_make_name }}
               </option>
             </optgroup>
           </select>
@@ -32,8 +36,8 @@
           :disabled="isModelSelectDisabled"
         >
           <option value="14600">Beliebig</option>
-          <option v-for="model in models" :key="model" :value="model" class="">
-            {{ model }}
+          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
+            {{ model.car_model_name }}
           </option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -259,21 +263,18 @@ export default {
       }
 
       // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://api.nhtsa.gov/SafetyRatings/modelyear/2023/make/${this.selectedMark}`;
+      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
       axios
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
-          const data = response.data;
-
-          // Проверяем, что ответ содержит поле "Results" с массивом объектов
-          if (data && data.Results && Array.isArray(data.Results)) {
-            // Извлекаем поле "Model" из каждого объекта и сохраняем в массив "models"
-            this.models = data.Results.map((item) => item.Model);
+          const data = response.data.data;
+          if (data) {
+            this.models = data;
             console.log(this.models);
-            this.isModelSelectDisabled = false; // Enable the model select
+            this.isModelSelectDisabled = false; 
           } else {
             console.error("Некорректный формат ответа API.");
             this.isModelSelectDisabled = true; // Disable the model select on error
@@ -302,32 +303,12 @@ export default {
     // const apiUrl = 'https://api.api-ninjas.com/v1/cars/make'
     // const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
     const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
-
-    // Выполняем GET-запрос к API с помощью Axios для получения марок
-    //     axios
-    //       .get(apiUrl)
-    //       .then((response) => {
-    //         const data = response.data;
-    // console.log(data);
-    //         // Проверяем, что ответ содержит поле "Results" с массивом объектов
-    //         if (data && data.Results && Array.isArray(data.Results)) {
-    //           // Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
-    //           this.makes = data.Results.map((item) => item.Make);
-    //           console.log(this.makes);
-    //         } else {
-    //           console.error("Некорректный формат ответа API.");
-    //         }
-    //       })
     axios
       .get(apiUrl)
       .then((response) => {
         const data = response.data.data;
-        console.log(data);
-        // Проверяем, что ответ содержит поле "Results" с массивом объектов
-        if (data ) {
-          // Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
-          this.makes = data.map((item) => item.car_make_name);
-          console.log(this.makes);
+        if (data) {
+          this.makes = data;
         } else {
           console.error("Некорректный формат ответа API.");
         }

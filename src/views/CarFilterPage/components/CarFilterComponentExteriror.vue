@@ -367,14 +367,13 @@
   </div>
   <div class="tab-content">
     <div class="tab-1">
-      <PowerComponentTechnic />
+      <TrailerCoupling />
     </div>
   </div>
 </template>
 <script>
 import { ref } from "vue";
-import PowerComponentTechnic from "./PowerComponentTechnic.vue";
-import RangeComponentTechnic from "./RangeComponentTechnical.vue";
+import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 
 export default {
   setup() {
@@ -423,7 +422,7 @@ export default {
   data() {
     return {};
   },
-  components: { PowerComponentTechnic, RangeComponentTechnic },
+  components: { TrailerCoupling},
 };
 </script>
 <style scoped>
