@@ -16,7 +16,7 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.car_make_id"
+                :value="make.car_make_name"
               >
                 {{ make.car_make_name }}
               </option>
@@ -36,7 +36,12 @@
           :disabled="isModelSelectDisabled"
         >
           <option value="14600">Beliebig</option>
-          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
+          <option
+            v-for="model in models"
+            :key="model"
+            :value="model.car_model_name"
+            class=""
+          >
             {{ model.car_model_name }}
           </option>
         </select>
@@ -62,6 +67,14 @@
             <option v-for="year in modelYears" :key="year" :value="year">
               {{ year }}
             </option>
+            /option>
+            <option value="1985">1985</option>
+            <option value="1980">1980</option>
+            <option value="1975">1975</option>
+            <option value="1970">1970</option>
+            <option value="1965">1965</option>
+            <option value="1960">1960</option>
+            <option value="1900">1900</option>
           </select>
           <span
             class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
@@ -153,12 +166,41 @@
                 v-model="selectedPrice"
                 @change="updateSelectPrice"
               >
-                <option value="50">50 € mtl</option>
-                <option value="100">100 € mtl</option>
-                <option value="150">150 € mtl</option>
-                <option value="200">200 € mtl</option>
-                <option value="250">250 € mtl</option>
-                <option value="300">300 € mtl</option>
+                <option value="500">500 €</option>
+                <option value="1000">1,000 €</option>
+                <option value="1500">1,500 €</option>
+                <option value="2000">2,000 €</option>
+                <option value="2500">2,500 €</option>
+                <option value="3000">3,000 €</option>
+                <option value="3500">3,500 €</option>
+                <option value="4000">4,000 €</option>
+                <option value="4500">4,500 €</option>
+                <option value="5000">5,000 €</option>
+                <option value="6000">6,000 €</option>
+                <option value="7000">7,000 €</option>
+                <option value="8000">8,000 €</option>
+                <option value="9000">9,000 €</option>
+                <option value="10000">10,000 €</option>
+                <option value="11000">11,000 €</option>
+                <option value="12000">12,000 €</option>
+                <option value="13000">13,000 €</option>
+                <option value="14000">14,000 €</option>
+                <option value="15000">15,000 €</option>
+                <option value="17500">17,500 €</option>
+                <option value="20000">20,000 €</option>
+                <option value="22500">22,500 €</option>
+                <option value="25000">25,000 €</option>
+                <option value="27500">27,500 €</option>
+                <option value="30000">30,000 €</option>
+                <option value="35000">35,000 €</option>
+                <option value="40000">40,000 €</option>
+                <option value="45000">45,000 €</option>
+                <option value="50000">50,000 €</option>
+                <option value="55000">55,000 €</option>
+                <option value="60000">60,000 €</option>
+                <option value="70000">70,000 €</option>
+                <option value="80000">80,000 €</option>
+                <option value="90000">90,000 €</option>
               </select>
               <span
                 class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
@@ -274,7 +316,7 @@ export default {
           if (data) {
             this.models = data;
             console.log(this.models);
-            this.isModelSelectDisabled = false; 
+            this.isModelSelectDisabled = false;
           } else {
             console.error("Некорректный формат ответа API.");
             this.isModelSelectDisabled = true; // Disable the model select on error
@@ -361,6 +403,14 @@ input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+select::-webkit-scrollbar {
+  width: 0;
+}
+
+/*Убрать полосу прокрутки для всей страницы*/
+::-webkit-scrollbar {
+  width: 0;
 }
 .mark-select {
   border: 1px solid #111;

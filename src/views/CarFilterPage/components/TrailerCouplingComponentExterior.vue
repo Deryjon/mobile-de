@@ -1,14 +1,14 @@
 <template>
   <div class="condition p-[20px]">
-    <h3>Type and condition</h3>
-    <div class="radios-type flex gap-[244px] mt-[10px]">
-      <label for="condition-any" @click="selectCondition('Any')">
+    <h3>Trailer coupling</h3>
+    <div class="radios-type flex gap-[30px] mt-[10px]">
+      <label for="condition-any" @click="selectCondition('AnyTrai')">
         <input
           type="radio"
           v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedCondition !== 'Any',
-            'bg-orange': selectedCondition === 'Any',
+            'bg-transparent': selectedCondition !== 'AnyTrai',
+            'bg-orange': selectedCondition === 'AnyTrai',
           }"
           class="ml-10px"
         />
@@ -20,27 +20,38 @@
           id="condition-any"
           v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedCondition !== 'New',
-            'bg-orange': selectedCondition === 'New',
+            'bg-transparent': selectedCondition !== 'Fix',
+            'bg-orange': selectedCondition === 'Fix',
           }"
-          @click="selectCondition('New')"
+          @click="selectCondition('Fix')"
         />
-        <span class="ml-[10px]">New</span>
+        <span class="ml-[10px]">Fix, detachable or swiveling</span>
       </label>
-      <label for="condition-any" @click="selectCondition('Used')">
+      <label for="condition-any" @click="selectCondition('Detachable')">
         <input
           type="radio"
           id="condition-any"
           v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedCondition !== 'Used',
-            'bg-orange': selectedCondition === 'Used',
+            'bg-transparent': selectedCondition !== 'Detachable',
+            'bg-orange': selectedCondition === 'Detachable',
           }"
         />
-        <span class="ml-[10px]">Used</span>
+        <span class="ml-[10px]">Detachable or swiveling </span>
+      </label>
+      <label for="condition-any" @click="selectCondition('Swiveling')">
+        <input
+          type="radio"
+          id="condition-any"
+          v-model="selectedCondition"
+          :class="{
+            'bg-transparent': selectedCondition !== 'Swiveling',
+            'bg-orange': selectedCondition === 'Swiveling',
+          }"
+        />
+        <span class="ml-[10px]">Swiveling </span>
       </label>
     </div>
-    
   </div>
 </template>
 <script>
@@ -106,7 +117,8 @@ export default {
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
-      if (condition === "New") {		1
+      if (condition === "New") {
+        1;
         this.isRadioNewSelected = true;
         this.isCheckedRegister = false;
         this.isCheckedEmploy = false;
