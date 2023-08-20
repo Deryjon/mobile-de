@@ -1,5 +1,5 @@
 <template>
-  <div class="for-example ">
+  <div class="for-example">
     <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px]">
       <div class="mark">
         <div class="relative mt-2">
@@ -7,13 +7,13 @@
             {{ $t("message.selects.mark") }}
           </h2>
           <select
-            class="mark-select  w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
             @change="fetchModels"
           >
             <option value="14600" selected>Beliebig</option>
             <optgroup>
-              <option v-for="make in makes" :key="make" :value="make">
+              <option v-for="make in makes" :key="make" :value="make.car_make_id">
                 {{ make }}
               </option>
             </optgroup>
@@ -42,7 +42,7 @@
         <h2 class="text-sm lg:text-[16px] mt-2">
           {{ $t("message.selects.registration") }}
         </h2>
-        <div class=" relative">
+        <div class="relative">
           <input
             placeholder="Beliebig"
             class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
@@ -284,7 +284,7 @@ export default {
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
     },
-     fetchModelYears() {
+    fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
       axios
         .get(apiUrl)
@@ -299,21 +299,34 @@ export default {
   },
   components: { FilterBtn },
   mounted() {
-   
-
     // const apiUrl = 'https://api.api-ninjas.com/v1/cars/make'
-    const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
+    // const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
+    const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
 
     // Выполняем GET-запрос к API с помощью Axios для получения марок
+    //     axios
+    //       .get(apiUrl)
+    //       .then((response) => {
+    //         const data = response.data;
+    // console.log(data);
+    //         // Проверяем, что ответ содержит поле "Results" с массивом объектов
+    //         if (data && data.Results && Array.isArray(data.Results)) {
+    //           // Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
+    //           this.makes = data.Results.map((item) => item.Make);
+    //           console.log(this.makes);
+    //         } else {
+    //           console.error("Некорректный формат ответа API.");
+    //         }
+    //       })
     axios
       .get(apiUrl)
       .then((response) => {
-        const data = response.data;
-
+        const data = response.data.data;
+        console.log(data);
         // Проверяем, что ответ содержит поле "Results" с массивом объектов
-        if (data && data.Results && Array.isArray(data.Results)) {
+        if (data ) {
           // Извлекаем поле "Make" из каждого объекта и сохраняем в массив "makes"
-          this.makes = data.Results.map((item) => item.Make);
+          this.makes = data.map((item) => item.car_make_name);
           console.log(this.makes);
         } else {
           console.error("Некорректный формат ответа API.");
@@ -332,10 +345,10 @@ export default {
 };
 </script>
 <style scoped>
-	.mark-input2 {
-		border-top-right-radius: 10px;
-		border-bottom-right-radius: 10px;
-	}
+.mark-input2 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;
@@ -368,7 +381,7 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
-.mark-select{
-	border: 1px solid #111;
+.mark-select {
+  border: 1px solid #111;
 }
 </style>
