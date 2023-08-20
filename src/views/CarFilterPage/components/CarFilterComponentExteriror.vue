@@ -4,7 +4,8 @@
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[10px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] pb-[20px]"
+        class="custom-checkbox custom-beige
+				 flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] "
       >
         <input
           type="checkbox"
@@ -21,14 +22,14 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedBeige"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
         Beige
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] pb-[20px]"
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -45,14 +46,14 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedBrown"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
         Brown
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] pb-[20px]"
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -69,14 +70,14 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedGold"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
 				Gold
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] pb-[20px]"
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -93,14 +94,14 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedGreen"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
         Green
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -117,14 +118,14 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedRed"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
         Red
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] pb-[20px]"
+        class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -141,7 +142,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedSilver"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -149,12 +150,12 @@
       </label>
       <!-- estate -->
       <label
-        class="custom-checkbox flex gap-4 text-[14px] items-center h-10 w-[120px] pb-4"
+        class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4"
       >
         <input
           type="checkbox"
           v-model="isCheckedWhite"
-          @click="toggleShowCheckbox(1)"
+          @click="toggleShowCheckbox"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -166,8 +167,8 @@
         >
           <!-- Insert your SVG arrow icon here -->
           <path
-            v-if="isCheckedwhite"
-            fill="#FFFFFF"
+            v-if="isCheckedWhite"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -176,7 +177,7 @@
 
       <!-- saloon -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] pb-4"
+        class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4"
       >
         <input
           type="checkbox"
@@ -195,7 +196,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedBlue"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -204,7 +205,7 @@
       </label>
       <!-- small -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] pb-[20px]"
+        class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -223,7 +224,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedYellow"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -232,7 +233,7 @@
       </label>
       <!-- sports -->
       <label
-        class="custom-checkbox flex gap-3 items-center h-10 w-[120px] pb-[20px]"
+        class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -251,7 +252,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedGrey"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -260,7 +261,7 @@
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] pb-[23px]"
+        class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px]"
       >
         <input
           type="checkbox"
@@ -278,7 +279,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedOrange"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -286,7 +287,7 @@
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] pb-[23px]"
+        class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px]"
       >
         <input
           type="checkbox"
@@ -304,7 +305,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedBlack"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -312,7 +313,7 @@
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] pb-[23px]"
+        class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px]"
       >
         <input
           type="checkbox"
@@ -330,7 +331,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedPurple"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -338,7 +339,7 @@
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] pb-[23px]"
+        class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px]"
       >
         <input
           type="checkbox"
@@ -356,7 +357,7 @@
           <!-- Insert your SVG arrow icon here -->
           <path
             v-if="isCheckedMetallic"
-            fill="#FFFFFF"
+            fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
@@ -365,11 +366,8 @@
     </div>
   </div>
   <div class="tab-content">
-    <div class="tab-1" v-show="showTab1">
+    <div class="tab-1">
       <PowerComponentTechnic />
-    </div>
-    <div class="tab-2" v-show="showTab2">
-      <RangeComponentTechnic />
     </div>
   </div>
 </template>
@@ -380,16 +378,13 @@ import RangeComponentTechnic from "./RangeComponentTechnical.vue";
 
 export default {
   setup() {
-    const activeTab = ref("tab-1");
-    const showTab1 = ref(true);
-    const showTab2 = ref(false);
     const isCheckedBeige = ref(true);
     const isCheckedBrown = ref(false);
     const isCheckedGold = ref(false);
     const isCheckedGreen = ref(false);
     const isCheckedRed = ref(false);
     const isCheckedSilver = ref(false);
-    const isCheckedwhite = ref(false);
+    const isCheckedWhite = ref(false);
     const isCheckedBlue = ref(false);
     const isCheckedYellow = ref(false);
     const isCheckedGrey = ref(false);
@@ -398,8 +393,6 @@ export default {
     const isCheckedPurple = ref(false);
     const isCheckedMetallic = ref(false);
     const toggleShowCheckbox = (index) => {
-      showTab1.value = index === 0; // Показать tab-1 при выборе Diesel
-      showTab2.value = index !== 0; // Показать tab-2 при выборе чего-либо кроме Diesel
 
       for (let i = 0; i < isCheckedBeige.length; i++) {
         if (i !== index) {
@@ -416,7 +409,7 @@ export default {
       isCheckedGreen,
       isCheckedRed,
       isCheckedSilver,
-      isCheckedwhite,
+      isCheckedWhite,
       isCheckedBlue,
       isCheckedYellow,
       isCheckedGrey,
@@ -424,9 +417,6 @@ export default {
       isCheckedBlack,
       isCheckedPurple,
       isCheckedMetallic,
-      activeTab,
-			showTab1,
-			showTab2,
       toggleShowCheckbox,
     };
   },
@@ -457,13 +447,256 @@ select {
   left: 0;
   width: 20px;
   height: 20px;
-  fill: #ffffff;
+  fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
 }
 
 .custom-checkbox input[type="checkbox"]:checked + .icon {
-  fill: #ffffff;
-  background: #e04b00;
+  fill: #000;
 }
+.custom-beige .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: rgb(210, 210, 183);
+}
+.custom-beige input[type="checkbox"]:checked + .icon {
+	fill: #000;
+	background: rgb(210, 210, 183);
+}
+
+.custom-brown input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: #804030
+;
+}
+
+.custom-brown .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: #804030
+}
+.custom-gold input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: gold
+;
+}
+
+.custom-gold .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: gold
+}
+.custom-green input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: green
+;
+}
+
+.custom-green .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: green
+}
+.custom-red input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: red
+;
+}
+
+.custom-red .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: red
+}
+.custom-silver input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: silver
+;
+}
+
+.custom-silver .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: silver
+}
+.custom-white input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: white
+;
+}
+
+.custom-white .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: white
+}
+.custom-blue input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: blue
+;
+}
+
+.custom-blue .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: blue
+}
+.custom-yellow input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: yellow
+;
+}
+
+.custom-yellow .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: yellow
+}
+.custom-grey input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: grey
+;
+}
+
+.custom-grey .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: grey
+}
+.custom-orange input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: orange
+;
+}
+
+.custom-orange .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+  background: orange
+}
+.custom-black input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: rgb(37, 37, 37)
+;
+}
+
+.custom-black .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+	background: rgb(37, 37, 37)
+
+	;
+}
+.custom-purple input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: purple
+;
+}
+
+.custom-purple .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+	background: purple
+
+	;
+}
+.custom-purple input[type="checkbox"]:checked + .icon {
+  fill: #000;
+  background: brown
+;
+}
+
+.custom-purple .icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  fill: #000;
+  border: 1px solid #000;
+  border-radius: 4px;
+	background: 
+brown
+	;
+}
+
 </style>
