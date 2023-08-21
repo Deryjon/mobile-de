@@ -4,6 +4,7 @@
       <PathLink>My New Motorbike </PathLink>
 			<FilterTitle>Detailsuche: Pkw - neu oder gebraycht</FilterTitle>
 			<FilterBtn/>
+			SUIII
     </v-container>
   </section>
 </template>
