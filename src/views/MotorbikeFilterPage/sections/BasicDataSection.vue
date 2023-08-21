@@ -2,8 +2,8 @@
   <section class="basic-filter mt-[200px]">
     <v-container>
       <PathLink>My New Motorbike </PathLink>
-			<FilterTitle>Detailsuche: Pkw - neu oder gebraycht</FilterTitle>
-			<FilterBtn/>
+      <FilterTitle>Detailsuche: Pkw - neu oder gebraycht</FilterTitle>
+      <FilterBtn />
     </v-container>
   </section>
 </template>
@@ -15,4 +15,5 @@ export default {
   components: { PathLink, FilterTitle, FilterBtn },
 };
 </script>
-<style scoepd></style>
+<style scoped></style>
+

@@ -370,6 +370,7 @@
       <TrailerCoupling />
 			<ParkingResorComponentExterior/>
 			<CruiseControlComponentExterior/>	
+			<OthersComponentExterior/>
     </div>
   </div>
 </template>
@@ -378,6 +379,7 @@ import { ref } from "vue";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
+import OthersComponentExterior from "./OthersComponentExterior.vue";
 
 export default {
   setup() {
@@ -426,7 +428,7 @@ export default {
   data() {
     return {};
   },
-  components: { TrailerCoupling, ParkingResorComponentExterior, CruiseControlComponentExterior },
+  components: { TrailerCoupling, ParkingResorComponentExterior, CruiseControlComponentExterior, OthersComponentExterior },
 };
 </script>
 <style scoped>
