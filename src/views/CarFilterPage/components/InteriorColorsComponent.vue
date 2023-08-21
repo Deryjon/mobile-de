@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3>Exterior Colour</h3>
+    <h3>Interior Colour</h3>
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[10px]">
       <!-- cabrio -->
       <label
@@ -53,186 +53,6 @@
         Brown
       </label>
       <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedGold"
-          @click="toggleShowCheckbox(0)"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedGold"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-				Gold
-      </label>
-      <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedGreen"
-          @click="toggleShowCheckbox(0)"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedGreen"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Green
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRed"
-          @click="toggleShowCheckbox(0)"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRed"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Red
-      </label>
-      <label
-        class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSilver"
-          @click="toggleShowCheckbox(0)"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSilver"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Silver
-      </label>
-      <!-- estate -->
-      <label
-        class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedWhite"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedWhite"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-[14px]">White</span>
-      </label>
-
-      <!-- saloon -->
-      <label
-        class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedBlue"
-          @click="toggleShowCheckbox(2)"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedBlue"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-[14px]">Blue</span>
-      </label>
-      <!-- small -->
-      <label
-        class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedYellow"
-          @click="toggleShowCheckbox(3)"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedYellow"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-[14px]">Yellow</span>
-      </label>
-      <!-- sports -->
-      <label
         class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px]"
       >
         <input
@@ -258,32 +78,6 @@
         </svg>
 
         <span class="text-[14px]">Grey</span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedOrange"
-          @click="toggleShowCheckbox(5)"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedOrange"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Orange</span>
       </label>
       <!-- off-road -->
       <label
@@ -317,7 +111,7 @@
       >
         <input
           type="checkbox"
-          v-model="isCheckedPurple"
+          v-model="isCheckedOther"
           @click="toggleShowCheckbox(5)"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
@@ -330,73 +124,27 @@
         >
           <!-- Insert your SVG arrow icon here -->
           <path
-            v-if="isCheckedPurple"
+            v-if="isCheckedOther"
             fill="#000000"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Purple</span>
+        <span class="text-sm">Other</span>
       </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedMetallic"
-          @click="toggleShowCheckbox(5)"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedMetallic"
-            fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Metallic</span>
-      </label>
-    </div>
-  </div>
-  <div class="tab-content">
-    <div class="tab-1">
-      <TrailerCoupling />
-			<ParkingResorComponentExterior/>
-			<CruiseControlComponentExterior/>	
-			<OthersComponentExterior/>
     </div>
   </div>
 </template>
 <script>
 import { ref } from "vue";
-import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
-import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
-import OthersComponentExterior from "./OthersComponentExterior.vue";
 
 export default {
   setup() {
     const isCheckedBeige = ref(true);
     const isCheckedBrown = ref(false);
-    const isCheckedGold = ref(false);
-    const isCheckedGreen = ref(false);
-    const isCheckedRed = ref(false);
-    const isCheckedSilver = ref(false);
-    const isCheckedWhite = ref(false);
-    const isCheckedBlue = ref(false);
-    const isCheckedYellow = ref(false);
     const isCheckedGrey = ref(false);
-    const isCheckedOrange = ref(false);
     const isCheckedBlack = ref(false);
-    const isCheckedPurple = ref(false);
-    const isCheckedMetallic = ref(false);
+    const isCheckedOther = ref(false);
+
     const toggleShowCheckbox = (index) => {
 
       for (let i = 0; i < isCheckedBeige.length; i++) {
@@ -410,25 +158,15 @@ export default {
     return {
 			isCheckedBeige,
       isCheckedBrown,
-			isCheckedGold,
-      isCheckedGreen,
-      isCheckedRed,
-      isCheckedSilver,
-      isCheckedWhite,
-      isCheckedBlue,
-      isCheckedYellow,
       isCheckedGrey,
-      isCheckedOrange,
       isCheckedBlack,
-      isCheckedPurple,
-      isCheckedMetallic,
+			isCheckedOther,
       toggleShowCheckbox,
     };
   },
   data() {
     return {};
   },
-  components: { TrailerCoupling, ParkingResorComponentExterior, CruiseControlComponentExterior, OthersComponentExterior },
 };
 </script>
 <style scoped>
@@ -686,7 +424,7 @@ select {
 }
 .custom-purple input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: brown
+  background: #ffffff
 ;
 }
 
@@ -699,8 +437,7 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-	background: 
-brown
+	background: #ffffff
 	;
 }
 
