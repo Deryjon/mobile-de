@@ -10,6 +10,7 @@
 				<InteriorMaterialComponent/> 
 				<AirbagsComponentInterior/> 
 				<AirConditioningComponent/> 
+				<ExtrasComponent/>
       </div>
     </v-container>
   </section>
@@ -23,6 +24,7 @@ import InteriorColorsComponent from "../components/InteriorColorsComponent.vue";
 import InteriorMaterialComponent from "../components/InteriorMaterialComponent.vue";
 import AirbagsComponentInterior from "../components/AirbagsComponentInterior.vue";
 import AirConditioningComponent from "../components/AirConditioningComponent.vue";
+import ExtrasComponent from "../components/ExtrasComponent.vue";
 export default {
   data() {
     return {
@@ -36,7 +38,8 @@ export default {
     InteriorColorsComponent,
     InteriorMaterialComponent,
     AirbagsComponentInterior,
-		AirConditioningComponent
+		AirConditioningComponent,
+		ExtrasComponent
 }
 }
 </script>
