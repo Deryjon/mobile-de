@@ -6,7 +6,8 @@
       >
         <h3 class="basic-title text-[25px] font-semibold">Interior</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
-        <InteriorColorsComponent />       
+        <InteriorColorsComponent />    
+				<InteriorMaterialComponent/>   
       </div>
     </v-container>
   </section>
@@ -17,6 +18,7 @@ import PathLink from "../../../ui/PathLink.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import InteriorColorsComponent from "../components/InteriorColorsComponent.vue";
+import InteriorMaterialComponent from "../components/InteriorMaterialComponent.vue";
 export default {
   data() {
     return {
@@ -27,7 +29,8 @@ export default {
     PathLink,
     FilterTitle,
     FilterBtn,
-    InteriorColorsComponent
+    InteriorColorsComponent,
+    InteriorMaterialComponent
 }
 }
 </script>
