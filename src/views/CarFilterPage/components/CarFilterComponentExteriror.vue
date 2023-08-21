@@ -368,12 +368,16 @@
   <div class="tab-content">
     <div class="tab-1">
       <TrailerCoupling />
+			<ParkingResorComponentExterior/>
+			<CruiseControlComponentExterior/>	
     </div>
   </div>
 </template>
 <script>
 import { ref } from "vue";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
+import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 
 export default {
   setup() {
@@ -422,7 +426,7 @@ export default {
   data() {
     return {};
   },
-  components: { TrailerCoupling},
+  components: { TrailerCoupling, ParkingResorComponentExterior, CruiseControlComponentExterior },
 };
 </script>
 <style scoped>

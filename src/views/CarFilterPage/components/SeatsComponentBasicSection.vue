@@ -25,11 +25,15 @@
             <select
               class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[29px]"
             >
-              <option value="">Any</option>
+						<option value="">Any</option>
               <option value="">2</option>
               <option value="">3</option>
               <option value="">4</option>
               <option value="">5</option>
+              <option value="">6</option>
+              <option value="">7</option>
+              <option value="">8</option>
+              <option value="">9</option>
             </select>
             <span
               class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"
