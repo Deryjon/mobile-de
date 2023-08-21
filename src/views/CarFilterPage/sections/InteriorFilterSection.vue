@@ -7,7 +7,8 @@
         <h3 class="basic-title text-[25px] font-semibold">Interior</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
         <InteriorColorsComponent />    
-				<InteriorMaterialComponent/>   
+				<InteriorMaterialComponent/> 
+				<AirbagsComponentInterior/>  
       </div>
     </v-container>
   </section>
@@ -19,6 +20,7 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import InteriorColorsComponent from "../components/InteriorColorsComponent.vue";
 import InteriorMaterialComponent from "../components/InteriorMaterialComponent.vue";
+import AirbagsComponentInterior from "../components/AirbagsComponentInterior.vue";
 export default {
   data() {
     return {
@@ -30,7 +32,8 @@ export default {
     FilterTitle,
     FilterBtn,
     InteriorColorsComponent,
-    InteriorMaterialComponent
+    InteriorMaterialComponent,
+    AirbagsComponentInterior
 }
 }
 </script>

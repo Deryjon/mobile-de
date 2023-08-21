@@ -1,10 +1,12 @@
 <template>
   <div class=" p-[20px]">
-    <h3>Others</h3>
+    <h3>Interior material
+</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox custom-beige flex gap-[10px] text-[14px]  items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] 
+				 items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -28,7 +30,8 @@
         Alcantra
       </label>
       <label
-        class="custom-checkbox custom-brown flex gap-[10px] text-[14px]  items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] 
+				 items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -51,7 +54,8 @@
         </svg>
 Cloth      </label>
       <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px]  items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] 
+				 items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -75,7 +79,8 @@ Cloth      </label>
 				Part leather
       </label>
       <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px]  items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] 
+				 items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -99,7 +104,8 @@ Cloth      </label>
 				Velour
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px]  items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] 
+				 items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -123,7 +129,8 @@ Cloth      </label>
 				Full Leather
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px]  items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] 
+				 items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
