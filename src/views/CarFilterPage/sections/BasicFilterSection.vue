@@ -5,7 +5,7 @@
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" />
       <div
-        class="relative filter lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[1500px] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter xl:h-[1600px] lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[1500px] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
@@ -49,7 +49,7 @@
               placeholder="Beliebig"
               :disabled="isModelSelectDisabled"
             >
-						<option value="14600">Beliebig</option>
+              <option value="14600">Beliebig</option>
           <option
             v-for="model in models"
             :key="model"
