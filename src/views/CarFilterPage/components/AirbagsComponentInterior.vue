@@ -1,7 +1,7 @@
 	<template>
 		<div class="condition p-[20px]">
 			<h3>Airbags</h3>
-			<div class="radios-type flex gap-[30px] mt-[20px]">
+			<div class="radios-type flex gap-[30px] mt-[10px] xl:mt-[20px]">
 				<label for="condition-ext" @click="selectAirbag('AnyExterior')">
 					<input
 						type="radio"
@@ -12,7 +12,7 @@
 						}"
 						class="ml-10px"
 					/>
-					<span class="ml-[10px] text-[14px]">Any</span>
+					<span class="ml-[2px] xl:ml-[10px] text-[14px]">Any</span>
 				</label>
 				<label for="driver-airbag">
 					<input
@@ -25,7 +25,7 @@
 						}"
 						@click="selectAirbag('Driver')"
 					/>
-					<span class="ml-[10px] text-[14px]">Driver Airbag </span>
+					<span class="ml-[2px] xl:ml-[10px] text-[14px]">Driver Airbag </span>
 				</label>
 				<label for="front-airbag" @click="selectAirbag('Front')">
 					<input
@@ -37,7 +37,7 @@
 							'bg-orange': selectedAirbag === 'Front',
 						}"
 					/>
-					<span class="ml-[10px] text-[14px]">Front Airbags</span>
+					<span class="ml-[2px] xl:ml-[10px] text-[14px]">Front Airbags</span>
 				</label>
 
 				<label for="side-airbag" @click="selectAirbag('FrontAndSide')">
@@ -50,7 +50,7 @@
 							'bg-orange': selectedAirbag === 'FrontAndSide',
 						}"
 					/>
-					<span class="ml-[10px] text-[14px]">Front and Side Airbags </span>
+					<span class="ml-[2px] xl:ml-[10px] text-[14px]">Front and Side Airbags </span>
 				</label>
 				<label for="more-airbag" @click="selectAirbag('FrontAndSideMore')">
 					<input
@@ -62,7 +62,7 @@
 							'bg-orange': selectedAirbag === 'FrontAndSideMore',
 						}"
 					/>
-					<span class="ml-[10px] text-[14px]">Front and Side and More Airbags </span>
+					<span class="ml-[2px] xl:ml-[10px] text-[14px]">Front and Side and More Airbags </span>
 				</label>
 			</div>
 		</div>

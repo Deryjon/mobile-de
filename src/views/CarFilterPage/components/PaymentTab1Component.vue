@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="line mt-[30px]"></div>
-    <div class="registration flex items-center gap-[80px] mt-[50px]">
+    <div class="registration flex items-center gap-[80px] mt-[10px] xl:mt-[50px]">
       <div>
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.registration") }}
@@ -467,8 +467,7 @@ export default {
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
-      axios
-        .get(apiUrl)
+      axios.get(apiUrl)
         .then((response) => {
           const data = response.data;
           this.modelYears = data.Results.map((result) => result.ModelYear);

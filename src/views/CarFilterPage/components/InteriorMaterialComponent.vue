@@ -1,5 +1,5 @@
 <template>
-  <div class=" p-[20px]">
+  <div class="pl-[20px] xl:p-[20px]">
     <h3>Interior material
 </h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">

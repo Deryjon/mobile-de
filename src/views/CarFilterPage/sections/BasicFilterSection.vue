@@ -71,8 +71,8 @@
         <CarFilterComponentBasic />
         <SeatsComponent />
         <ConditionComponent />
-        <div class="line h-[1px] border mt-[50px]"></div>
-        <div class="mt-[30px] p-[20px]">
+        <div class="line h-[1px] border lg:mt-[-10px] xl:mt-[50px]"></div>
+        <div class="lg:mt-[-10px] xl:mt-[30px] p-[20px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
           <div class="Kaufen_div mt-[10px]">
             <button
@@ -91,7 +91,7 @@
             </button>
           </div>
         </div>
-        <div class="tab-content mt-[30px]">
+        <div class="tab-content lg:mt-[-10px] xl:mt-[30px]">
           <div class="tab-1">
             <PaymentTab1Component />
           </div>

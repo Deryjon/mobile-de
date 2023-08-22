@@ -3,29 +3,29 @@
     <div class="relative mt-2 w-[200px]">
       <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
       <select
-        class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+        class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
       >
         <option value="14600" selected>Any</option>
         <option value="">Do not show</option>
         <option value="">Only show</option>
       </select>
-      <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+      <span class="arrow w-[7px] h-[7px] absolute left-[135px] xl:right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 w-[200px]">
       <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
       <select
-        class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+        class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
       >
         <option value="14600" selected>Any</option>
         <option value="">Do not show</option>
         <option value="">Only show</option>
       </select>
-      <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+      <span class="arrow w-[7px] h-[7px] absolute left-[135px] xl:right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 w-[200px]">
       <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
       <select
-        class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+        class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
       >
         <option value="">Please select</option>
         <option value="Any">Any approved label</option>
@@ -56,7 +56,7 @@
         <option value="VW_TRADEPORT">Volkswagen TradePort</option>
         <option value="VOLVO">VOLVO SELEKT</option>
       </select>
-      <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+      <span class="arrow w-[7px] h-[7px] absolute left-[135px] xl:right-2 bottom-4"></span>
     </div>
   </div>
 </template>

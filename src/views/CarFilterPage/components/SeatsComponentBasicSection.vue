@@ -1,5 +1,5 @@
 <template>
-  <div class="salon-filter flex gap-[80px] items-center p-[20px]">
+  <div class="salon-filter flex flex-wrap gap-x-[80px] items-center p-[20px]">
     <!-- seats -->
     <div class="seats">
       <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>

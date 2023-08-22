@@ -250,7 +250,7 @@
           <option value="">6</option>
           <option value="">3</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+        <span class="arrow w-[7px] h-[7px] absolute right-5 xl:right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
@@ -263,7 +263,7 @@
           <option value="">Up to 3</option>
           <option value="">Up to 4</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+        <span class="arrow w-[7px] h-[7px] absolute right-5 xl:right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
@@ -276,7 +276,7 @@
           <option value="">Up to 3</option>
           <option value="">Up to 4</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+        <span class="arrow w-[7px] h-[7px] absolute right-5 xl:right-2 bottom-4"></span>
       </div>
       <label class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]">
         <input
