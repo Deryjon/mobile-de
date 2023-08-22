@@ -1,7 +1,7 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3>Fuel Type</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[10px]">
+    <h3 class="text-[16px]">Fuel Type</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
       <!-- cabrio -->
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -129,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedElectro"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1)"
         />
         <svg
           class="icon"
@@ -305,7 +305,7 @@ export default {
     const activeTab = ref("tab-1");
     const showTab1 = ref(true);
     const showTab2 = ref(false);
-    const isCheckedDiesel = ref(true);
+    const isCheckedDiesel = ref(false);
     const isCheckedDisElect = ref(false);
     const isCheckedGas = ref(false);
     const isCheckedOther = ref(false);
@@ -317,9 +317,8 @@ export default {
     const isCheckedLPG = ref(false);
     const isCheckedEthan = ref(false);
     const toggleShowCheckbox = (index) => {
-      showTab1.value = index === 0; // Показать tab-1 при выборе Diesel
-      showTab2.value = index !== 0; // Показать tab-2 при выборе чего-либо кроме Diesel
-
+      showTab1.value = index === 0; 
+      showTab2.value = index !== 0; 
       for (let i = 0; i < isCheckedDiesel.length; i++) {
         if (i !== index) {
           isCheckedDiesel[i] = false;

@@ -2,7 +2,7 @@
   <div class="pl-[20px]">
 		<div class="">
 
-			<h2 class="mt-2 text-sm lg:text-[16px]">Range</h2>
+			<h2 class="mt-2 text-sm lg:text-[14px]">Range</h2>
 			<div class="marke_select_div relative mt-[10px]">
 				<select
 					class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -26,7 +26,7 @@
 		</div>
 		<div class="duration flex items-center gap-[80px] mt-[20px]">
       <div>
-        <h2 class="text-sm lg:text-[16px] mt-2">Battery capacity</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">Battery capacity</h2>
         <div class="relative mt-[10px]">
           <input
             placeholder="from"
@@ -68,13 +68,13 @@
         ></span>
       </div>
     </div>
-    <div class="price-tab flex items-center gap-[80px]">
+    <div class="price-tab flex items-center gap-[80px] mt-[20px]">
       <div class="price">
-        <h2 class="mt-2 text-sm lg:text-[16px]">Power</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px]">Power</h2>
         <div class="marke_select_div relative mt-[10px]">
           <input
             placeholder="from"
-            class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            class="mark_input text-[12px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
             type="number"
             pattern="\d*"
             v-model="price"
@@ -108,7 +108,7 @@
       <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
-          class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark_input text-[12px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           type="number"
           pattern="\d*"
           v-model="price"
@@ -171,7 +171,7 @@
 
     <div class="duration flex items-center gap-[80px] mt-[20px]">
       <div>
-        <h2 class="text-sm lg:text-[16px] mt-2">Cubic capacity</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">Cubic capacity</h2>
         <div class="relative mt-[10px]">
           <input
             placeholder="from"
@@ -222,7 +222,7 @@
         class="
 			"
       >
-        <h3 class="mt-[20px]">Transmission</h3>
+        <h3 class="mt-[20px] text-[14px]">Transmission</h3>
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input
             type="checkbox"
@@ -302,13 +302,13 @@
       </div>
     </div>
     <!-- valid -->
-    <div class="valid-until mt-[40px] flex items-center gap-[60px]">
+    <div class="valid-until mt-[20px] flex items-center gap-[60px]">
       <div class="relative mt-2 w-[200px]">
-        <h2 class="text-sm lg:text-[16px]">
+        <h2 class="text-sm lg:text-[14px]">
           Fuel consumption (combined) up to
         </h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">New</option>
@@ -321,9 +321,9 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2 w-[200px]">
-        <h2 class="text-sm lg:text-[16px]">Emissions Sticker</h2>
+        <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">Up to 1</option>
@@ -334,9 +334,9 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2 w-[200px]">
-        <h2 class="text-sm lg:text-[16px]">Emission Class</h2>
+        <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select w-full mt-[10px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">Up to 1</option>
