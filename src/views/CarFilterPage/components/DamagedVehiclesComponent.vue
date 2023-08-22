@@ -1,7 +1,7 @@
 <template>
-  <div class="flex items-center gap-[50px]">
+  <div class="flex items-center gap-[50px] p-[20px]">
     <div class="relative mt-2 w-[200px]">
-      <h2 class="text-sm lg:text-[16px]">Damaged Vehicles</h2>
+      <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
       <select
         class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
       >
@@ -12,7 +12,7 @@
       <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 w-[200px]">
-      <h2 class="text-sm lg:text-[16px]">Commercial, Export/Import</h2>
+      <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
       <select
         class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
       >
@@ -23,7 +23,7 @@
       <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 w-[200px]">
-      <h2 class="text-sm lg:text-[16px]">Approved Used Programme</h2>
+      <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
       <select
         class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
       >
