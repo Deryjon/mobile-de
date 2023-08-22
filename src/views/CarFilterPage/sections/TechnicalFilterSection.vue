@@ -2,7 +2,7 @@
   <section class="basic-filter">
     <v-container class="w-[1110px]">
       <div
-        class="relative filter lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[850px] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[850px] mx-auto mt-[5px] rounded p-[10px] lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Technical Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
