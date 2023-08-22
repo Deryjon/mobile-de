@@ -198,9 +198,9 @@ export default {
 
     return {
       isCheckedAny,
-      isCheckedFromThree,
+      isCheckedFromThree, 
       isCheckedFive,
-      isChec`kedfromFour,
+      isCheckedfromFour,
       toggleShowCheckbox,
     };
   },

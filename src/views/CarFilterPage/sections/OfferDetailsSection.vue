@@ -7,10 +7,9 @@
         <h3 class="basic-title text-[25px] font-semibold">Offer details</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
         <VendorComponent />    
-				<InteriorMaterialComponent/> 
-				<AirbagsComponentInterior/> 
-				<AirConditioningComponent/> 
-				<ExtrasComponent/>
+				<AdOnlineSinceComponent/> 
+				<AdsFiltersComponent/>
+				<DamagedVehiclesComponent/>
       </div>
     </v-container>
   </section>
@@ -21,10 +20,9 @@ import PathLink from "../../../ui/PathLink.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import VendorComponent from "../components/VendorComponent.vue";
-import InteriorMaterialComponent from "../components/InteriorMaterialComponent.vue";
-import AirbagsComponentInterior from "../components/AirbagsComponentInterior.vue";
-import AirConditioningComponent from "../components/AirConditioningComponent.vue";
-import ExtrasComponent from "../components/ExtrasComponent.vue";
+import AdsFiltersComponent from "../components/AdsFiltersComponent.vue";
+import AdOnlineSinceComponent from "../components/AdOnlineSinceComponent.vue";
+import DamagedVehiclesComponent from "../components/DamagedVehiclesComponent.vue";
 export default {
   data() {
     return {
@@ -36,10 +34,9 @@ export default {
     FilterTitle,
     FilterBtn,
     VendorComponent,
-    InteriorMaterialComponent,
-    AirbagsComponentInterior,
-		AirConditioningComponent,
-		ExtrasComponent
+    AdsFiltersComponent,
+    AdOnlineSinceComponent,
+    DamagedVehiclesComponent
 }
 }
 </script>
