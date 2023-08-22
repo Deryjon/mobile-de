@@ -1,7 +1,7 @@
 <template>
   <div class="condition p-[20px]">
     <h3 class="text-[14px]">Type and condition</h3>
-    <div class="radios-type flex flex-wrap gap-x-[244px] mt-[10px]">
+    <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
       <label for="condition-any" @click="selectCondition('Any')">
         <input
           type="radio"
@@ -40,7 +40,7 @@
         <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
-    <div class="conditions flex flex-wrap gap-x-[140px] lg:mt-[30px] xl:mt-[20px]">
+    <div class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]">
       <label
         class="custom-checkbox flex items-center h-10 w-[155px] pb-[23px]"
         :class="{ 'opacity-20': isRadioNewSelected }"

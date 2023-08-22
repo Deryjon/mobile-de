@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-cars flex flex-wrap gap-[40px] mt-[50px] p-[20px]">
+  <div class="filter-cars flex flex-wrap gap-[40px] mt-[0px] lg:mt-[50px] p-[20px]">
     <!-- cabrio -->
     <label
       class="custom-checkbox flex gap-[10px] items-center h-[40px] w-[206px] pb-[20px]"

@@ -1,12 +1,12 @@
 <template>
-  <div class="salon-filter flex flex-wrap gap-x-[80px] items-center p-[20px]">
+  <div class="salon-filter flex flex-wrap gap-x-[20px] lg:gap-x-[80px] items-center pl-[20px] xl:p-[20px]">
     <!-- seats -->
     <div class="seats">
       <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
       <div class="marke_select_div relative mt-[10px]">
         <input
           placeholder="from"
-          class="mark_input mark-select text-[14px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark_input mark-select text-[14px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           type="number"
           pattern="\d*"
           v-model="numberSeats"
@@ -36,7 +36,7 @@
     <div class="marke_select_div relative mt-[35px]">
         <input
           placeholder="to"
-          class="mark_input mark-select text-[14px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark_input mark-select text-[14px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           type="number"
           pattern="\d*"
           v-model="numberSeatsTo"
@@ -64,7 +64,7 @@
     <div class="seats relative mt-2">
       <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
       <select
-        class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
+        class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
       >
         <option value="">Any</option>
         <option value="">2/3</option>
@@ -77,7 +77,7 @@
     <div class="seats relative mt-2">
       <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
       <select
-        class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
+        class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
       >
         <option value="">Any</option>
         <option value="">Sliding door right</option>

@@ -1,12 +1,12 @@
 <template>
   <div class="pl-[20px]">
-    <div class="price-tab flex items-center gap-[80px]">
+    <div class="price-tab flex items-center gap-[20px] lg gap-[20px]:lg:gap-[80px]">
       <div class="price">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="marke_select_div relative mt-[10px]">
           <input
             placeholder="from"
-            class="mark_input text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
             type="number" 
             pattern="\d*"
             v-model="price"
@@ -31,7 +31,7 @@
       <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
-          class="mark_input text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+          class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
           type="number"
           pattern="\d*"
           v-model="priceTo"
@@ -54,7 +54,7 @@
       </div>
     </div>
     <div class="line mt-[30px]"></div>
-    <div class="registration flex items-center gap-[80px] mt-[10px] xl:mt-[50px]">
+    <div class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]">
       <div>
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.registration") }}
@@ -62,7 +62,7 @@
         <div class="relative mt-[10px]">
           <input
             placeholder="from"
-            class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+            class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="years"
@@ -91,7 +91,7 @@
       <div class="relative mt-[35px]">
         <input
           placeholder="to"
-          class="no-spinner mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+          class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
           type="number"
           pattern="\d*"
           v-model="yearsTo"
@@ -117,7 +117,7 @@
         ></span>
       </div>
     </div>
-    <div class="kilometres mt-[20px] flex items-center gap-[80px]">
+    <div class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]">
       <div class="">
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.kilometr") }}
@@ -127,7 +127,7 @@
           <input
             placeholder="from"
             id="inputYear"
-            class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
@@ -163,7 +163,7 @@
         <input
           placeholder="to"
           id="inputYear"
-          class="mark_input  mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark_input  mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           type="number"
           pattern="\d*"
           v-model="killometresTo"
@@ -196,11 +196,11 @@
       </div>
     </div>
     <!-- valid -->
-    <div class="valid-until mt-[40px] flex items-center gap-[80px]">
+    <div class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px]">
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
         <select
-          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">New</option>
@@ -215,7 +215,7 @@
       <div class="marke_select_div relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
         <select
-          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">Up to 1</option>
@@ -281,11 +281,11 @@
       </label>
     </div>
     <!-- country -->
-    <div class="valid-until mt-[20px] flex items-center gap-[80px]">
+    <div class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px]">
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
-          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <optgroup>
             <option value="14600" selected>Any</option>
@@ -365,7 +365,7 @@
       <div class="marke_select_div relative mt-2">
         <h2 class="text-sm lg:text-[14px]">City / zip code</h2>
         <input
-          class="mark_input mt-[10px] text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
+          class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="number"
           pattern="\d*"
         />
@@ -374,7 +374,7 @@
         <input
           placeholder="None"
           id="inputYear"
-          class="mark_input  mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark_input  mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           type="number"
           pattern="\d*"
           v-model="radius"
