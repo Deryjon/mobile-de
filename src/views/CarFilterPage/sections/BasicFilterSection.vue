@@ -14,11 +14,11 @@
         >
           <div class="mark">
             <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[16px]">
+              <h2 class="text-sm lg:text-[14px]">
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
                 @change="fetchModels"
               >
@@ -36,11 +36,11 @@
           </div>
 
           <div class="relative">
-            <h2 class="text-sm lg:text-[16px] mt-2">
+            <h2 class="text-sm lg:text-[14px] mt-2">
               {{ $t("message.selects.model") }}
             </h2>
             <select
-              class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="Beliebig"
               :disabled="isModelSelectDisabled"
             >
@@ -60,9 +60,9 @@
           </div>
           <div class="mark">
             <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[16px]">Variant</h2>
+              <h2 class="text-sm lg:text-[14px]">Variant</h2>
               <input
-                class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 placeholder="e.g. GTI..."
               />
             </div>
@@ -73,17 +73,17 @@
         <ConditionComponent />
         <div class="line h-[1px] border mt-[50px]"></div>
         <div class="mt-[30px] p-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[16px]">Payment type</h2>
-          <div class="Kaufen_div mt-[5px]">
+          <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+          <div class="Kaufen_div mt-[10px]">
             <button
-              class="Kaufen p-[8px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab1"
               :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
             >
               {{ $t("message.btn.buy") }}
             </button>
             <button
-              class="Kaufen p-[8px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab2"
               :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
             >

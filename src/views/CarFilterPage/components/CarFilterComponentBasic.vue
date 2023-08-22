@@ -1,5 +1,5 @@
 <template>
-  <div class="filter-cars flex flex-wrap gap-[50px] mt-[50px] p-[20px]">
+  <div class="filter-cars flex flex-wrap gap-[40px] mt-[50px] p-[20px]">
     <!-- cabrio -->
     <label
       class="custom-checkbox flex gap-[10px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -28,7 +28,7 @@
         alt=""
         class="w-[90px] pt-[20px]"
       />
-      Cabrio / Roadster
+      <span class="text-sm"> Cabrio / Roadster</span>
     </label>
     <!-- estate -->
     <label class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-4">
@@ -57,7 +57,7 @@
         alt=""
         class="w-24 pt-[20px]"
       />
-      <span class="text-lg">Estate Car</span>
+      <span class="text-sm">Estate Car</span>
     </label>
 
     <!-- saloon -->
@@ -88,7 +88,7 @@
         alt=""
         class="w-24 pt-[20px]"
       />
-      <span class="text-lg">Saloon</span>
+      <span class="text-sm">Saloon</span>
     </label>
     <!-- small -->
     <label
@@ -120,11 +120,11 @@
         alt=""
         class="w-[75px] pt-[10px]"
       />
-      <span class="text-lg">Small Car</span>
+      <span class="text-sm">Small Car</span>
     </label>
     <!-- sports -->
     <label
-      class="custom-checkbox flex gap-3 items-center h-10 w-[230px] pb-[20px]"
+      class="custom-checkbox flex items-center h-10 w-[230px] pb-[20px]"
     >
       <input
         type="checkbox"
@@ -152,7 +152,7 @@
         alt=""
         class="w-28 pt-[18px]"
       />
-      <span class="text-md"> Sports Car / Coupe</span>
+      <span class="text-sm"> Sports Car / Coupe</span>
     </label>
     <!-- off-road -->
     <label
@@ -256,9 +256,9 @@ export default {
 };
 </script>
 <style scoped>
-select{
-	scrollbar-width: none; /*For Firefox*/;
-    -ms-overflow-style: none;
+select {
+  scrollbar-width: none; /*For Firefox*/
+  -ms-overflow-style: none;
 }
 .custom-checkbox input[type="checkbox"] {
   display: none;

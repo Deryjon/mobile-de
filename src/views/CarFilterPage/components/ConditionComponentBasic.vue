@@ -1,6 +1,6 @@
 <template>
   <div class="condition p-[20px]">
-    <h3>Type and condition</h3>
+    <h3 class="text-[14px]">Type and condition</h3>
     <div class="radios-type flex gap-[244px] mt-[10px]">
       <label for="condition-any" @click="selectCondition('Any')">
         <input
@@ -12,7 +12,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px]">Any</span>
+        <span class="ml-[10px] text-[14px] ">Any</span>
       </label>
       <label for="condition-any">
         <input
@@ -25,7 +25,7 @@
           }"
           @click="selectCondition('New')"
         />
-        <span class="ml-[10px]">New</span>
+        <span class="ml-[10px] text-[14px]">New</span>
       </label>
       <label for="condition-any" @click="selectCondition('Used')">
         <input
@@ -37,7 +37,7 @@
             'bg-orange': selectedCondition === 'Used',
           }"
         />
-        <span class="ml-[10px]">Used</span>
+        <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
     <div class="conditions flex gap-[140px] mt-[20px]">

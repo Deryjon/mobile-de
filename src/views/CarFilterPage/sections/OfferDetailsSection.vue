@@ -18,8 +18,7 @@
             <input
               placeholder="e.g. drive mode switch, LTE, thermal glazing ..."
               class="mark_input mark-select w-full lg:w-[150px] xl:w-[435px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] text-[14px] font-normal pr-[30px]"
-              type="number"
-              pattern="\d*"
+             
             />
           </div>
         </div>

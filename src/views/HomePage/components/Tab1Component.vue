@@ -67,7 +67,6 @@
             <option v-for="year in modelYears" :key="year" :value="year">
               {{ year }}
             </option>
-            /option>
             <option value="1985">1985</option>
             <option value="1980">1980</option>
             <option value="1975">1975</option>
