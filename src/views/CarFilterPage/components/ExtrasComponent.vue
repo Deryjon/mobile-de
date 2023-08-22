@@ -1,10 +1,10 @@
 	<template>
 		<div class="mt-[10px] p-[20px]">
-			<h3>Extras</h3>
-			<div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+			<h3 class="text-[16px]">Extras</h3>
+			<div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
 				<!-- cabrio -->
 				<label
-					class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-beige flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -20,7 +20,7 @@
 					>
 						<!-- Insert your SVG arrow icon here -->
 						<path
-							v-if="isCheckedABS"
+							v-if="isCheckedAlarmSystem"
 							fill="#ffffff"
 							d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
 						/>
@@ -28,7 +28,7 @@
 					Alarm System
 				</label>
 				<label
-					class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-brown flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -52,7 +52,7 @@
 					Disabled accessible
 				</label>
 				<label
-					class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-gold flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -76,7 +76,7 @@
 					Heated steering whee
 				</label>
 				<label
-					class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-green flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -100,7 +100,7 @@
 					Seat ventilation
 				</label>
 				<label
-					class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-red flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -124,7 +124,7 @@
 					Ambient lighting
 				</label>
 				<label
-					class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-red flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -148,7 +148,7 @@
 					Electric backseat adjustment
 				</label>
 				<label
-					class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-red flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -172,7 +172,7 @@
 					Induction charging for smartphones
 				</label>
 				<label
-					class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+					class="custom-checkbox custom-red flex  gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
 				>
 					<input
 						type="checkbox"
@@ -204,7 +204,7 @@
 
 	export default {
 		setup() {
-			const isCheckedAlarmSystem = ref(true);
+			const isCheckedAlarmSystem = ref(false);
 			const isCheckedDisable = ref(false);
 			const isCheckedHeated = ref(false);
 			const isCheckedSeat = ref(false);

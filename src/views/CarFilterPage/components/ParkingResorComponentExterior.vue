@@ -132,7 +132,7 @@ import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 
 export default {
   setup() {
-    const isCheckedRear = ref(true);
+    const isCheckedRear = ref(false);
     const isCheckedFront = ref(false);
     const isCheckedCamera = ref(false);
     const isChecked360 = ref(false);

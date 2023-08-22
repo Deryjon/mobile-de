@@ -1,7 +1,7 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3>Exterior Colour</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[10px]">
+    <h3 class="text-[16px] ">Exterior Colour</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
       <!-- cabrio -->
       <label
         class="custom-checkbox custom-beige

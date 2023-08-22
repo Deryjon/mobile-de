@@ -1,7 +1,7 @@
 <template>
   <div class="mt-[10px] p-[20px]">
     <h3>Interior Colour</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[10px]">
+    <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
       <!-- cabrio -->
       <label
         class="custom-checkbox custom-beige
@@ -139,7 +139,7 @@ import { ref } from "vue";
 
 export default {
   setup() {
-    const isCheckedBeige = ref(true);
+    const isCheckedBeige = ref(false);
     const isCheckedBrown = ref(false);
     const isCheckedGrey = ref(false);
     const isCheckedBlack = ref(false);

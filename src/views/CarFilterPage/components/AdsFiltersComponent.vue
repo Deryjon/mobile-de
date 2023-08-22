@@ -203,7 +203,7 @@ import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 
 export default {
   setup() {
-    const isCheckedAdsImg = ref(true);
+    const isCheckedAdsImg = ref(false);
     const isCheckedVideo = ref(false);
     const isCheckedDiscount = ref(false);
     const isCheckedNon = ref(false);

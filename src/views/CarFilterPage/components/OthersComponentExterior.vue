@@ -208,7 +208,7 @@ import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 
 export default {
   setup() {
-    const isCheckedABS = ref(true);
+    const isCheckedABS = ref(false);
     const isCheckedEmergency = ref(false);
     const isCheckedCentral = ref(false);
     const isCheckedSpeed = ref(false);

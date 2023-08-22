@@ -1,8 +1,8 @@
 <template>
   <div class="condition p-[20px]">
-    <h3>Air conditioning</h3>
-    <div class="radios-type flex flex-wrap gap-x-[60px] mt-[10px]">
-      <label class="w-[180px]" for="air-any" @click="selectAirbag('AnyAir')">
+    <h3 class="text-[16px]">Air conditioning</h3>
+    <div class="radios-type flex flex-wrap gap-x-[60px] gap-y-[10px] mt-[20px]">
+      <label class="w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
         <input
           id="air-any"
           type="radio"
@@ -13,9 +13,9 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px]">Any</span>
+        <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label class="w-[180px]" for="manual">
+      <label class="w-[200px]" for="manual">
         <input
           type="radio"
           id="manual"
@@ -26,9 +26,9 @@
           }"
           @click="selectAirbag('Manual')"
         />
-        <span class="ml-[10px]">Manual or automatic climatisation </span>
+        <span class="ml-[10px] text-[14px]">Manual or automatic climatisation </span>
       </label>
-      <label class="w-[180px]" for="auto-climat" @click="selectAirbag('Auto-Climat')">
+      <label class="w-[200px]" for="auto-climat" @click="selectAirbag('Auto-Climat')">
         <input
           type="radio"
           id="auto-climat"
@@ -38,10 +38,10 @@
             'bg-orange': selectedAirbag === 'Auto-Climat',
           }"
         />
-        <span class="ml-[10px]">Automatic climatisation, 2 zones </span>
+        <span class="ml-[10px] text-[14px]">Automatic climatisation, 2 zones </span>
       </label>
 
-      <label class="w-[180px]" for="auto2" @click="selectAirbag('Auto-Climat2')">
+      <label class="w-[200px]" for="auto2" @click="selectAirbag('Auto-Climat2')">
         <input
           type="radio"
           id="auto2"
@@ -51,9 +51,9 @@
             'bg-orange': selectedAirbag === 'Auto-Climat2',
           }"
         />
-        <span class="ml-[10px]">Automatic climatisation, 4 zones</span>
+        <span class="ml-[10px] text-[14px]">Automatic climatisation, 4 zones</span>
       </label>
-      <label class="w-[180px]" for="more-airbag" @click="selectAirbag('NoClimat')">
+      <label class="w-[200px]" for="more-airbag" @click="selectAirbag('NoClimat')">
         <input
           type="radio"
           id="more-airbag"
@@ -63,9 +63,9 @@
             'bg-orange': selectedAirbag === 'NoClimat',
           }"
         />
-        <span class="ml-[10px]">No climatisation</span>
+        <span class="ml-[10px] text-[14px]">No climatisation</span>
       </label>
-      <label class="w-[180px]" for="more-airbag" @click="selectAirbag('AutoClimat')">
+      <label class="w-[200px]" for="more-airbag" @click="selectAirbag('AutoClimat')">
         <input
           type="radio"
           id="more-airbag"
@@ -75,10 +75,10 @@
             'bg-orange': selectedAirbag === 'AutoClimat',
           }"
         />
-        <span class="ml-[10px]">Automatic air conditioning
+        <span class="ml-[10px] text-[14px]">Automatic air conditioning
 </span>
       </label>
-      <label class="w-[180px]" for="more-airbag" @click="selectAirbag('Auto-Climat3')">
+      <label class="w-[200px]" for="more-airbag" @click="selectAirbag('Auto-Climat3')">
         <input
           type="radio"
           id="more-airbag"
@@ -88,7 +88,7 @@
             'bg-orange': selectedAirbag === 'Auto-Climat3',
           }"
         />
-        <span class="ml-[10px]">Automatic climatisation, 3 zones
+        <span class="ml-[10px] text-[14px]">Automatic climatisation, 3 zones
 
 </span>
       </label>
@@ -99,7 +99,7 @@
 export default {
   data() {
     return {
-      selectedAirbag: "AnyExterior",
+      selectedAirbag: "AnyAir",
     };
   },
   methods: {

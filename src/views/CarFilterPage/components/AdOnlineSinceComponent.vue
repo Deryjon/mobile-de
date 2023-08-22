@@ -12,7 +12,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px]">Any</span>
+        <span class="ml-[10px] text-[14px]">Any</span>
       </label>
       <label for="driver-airbag">
         <input
@@ -25,7 +25,7 @@
           }"
           @click="selectOnlineSince('OneDay')"
         />
-        <span class="ml-[10px]">1 day</span>
+        <span class="ml-[10px] text-[14px]">1 day</span>
       </label>
       <label for="front-airbag" @click="selectOnlineSince('ThreeDay')">
         <input
@@ -37,7 +37,7 @@
             'bg-orange': selectedAdOnline === 'ThreeDay',
           }"
         />
-        <span class="ml-[10px]">3 days </span>
+        <span class="ml-[10px] text-[14px]">3 days </span>
       </label>
 
       <label for="side-airbag" @click="selectOnlineSince('SevenDay')">
@@ -50,7 +50,7 @@
             'bg-orange': selectedAdOnline === 'SevenDay',
           }"
         />
-        <span class="ml-[10px]">7 days</span>
+        <span class="ml-[10px] text-[14px]">7 days</span>
       </label>
       <label for="more-airbag" @click="selectOnlineSince('FourteenDay')">
         <input
@@ -62,7 +62,7 @@
             'bg-orange': selectedAdOnline === 'FourteenDay',
           }"
         />
-        <span class="ml-[10px]">14 days</span>
+        <span class="ml-[10px] text-[14px]">14 days</span>
       </label>
     </div>
   </div>
@@ -71,7 +71,7 @@
 export default {
   data() {
     return {
-      selectedAdOnline: "AnyExterior",
+      selectedAdOnline: "AnyOffer",
     };
   },
   methods: {

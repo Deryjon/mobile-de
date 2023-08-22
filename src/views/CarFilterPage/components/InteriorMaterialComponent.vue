@@ -2,7 +2,7 @@
   <div class=" p-[20px]">
     <h3>Interior material
 </h3>
-    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">
       <!-- cabrio -->
       <label
         class="custom-checkbox custom-beige flex gap-[10px] text-[14px] 
@@ -160,7 +160,7 @@ Cloth      </label>
 import { ref } from "vue";
 export default {
   setup() {
-    const isCheckedAlcantra = ref(true);
+    const isCheckedAlcantra = ref(false);
     const isCheckedCloth = ref(false);
     const isCheckedPartLeather = ref(false);
     const isCheckedVelour = ref(false);
