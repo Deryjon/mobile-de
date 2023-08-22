@@ -123,11 +123,11 @@
           {{ $t("message.selects.kilometr") }}
         </h2>
         <!-- KIllometer bis -->
-        <div class="marke_select_div flex relative">
+        <div class="marke_select_div flex relative mt-[10px]">
           <input
-            placeholder="Beliebig"
+            placeholder="from"
             id="inputYear"
-            class="mark_input text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="mark_input mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
@@ -161,18 +161,18 @@
       </div>
       <div class="marke_select_div flex relative mt-[30px]">
         <input
-          placeholder="Beliebig"
+          placeholder="to"
           id="inputYear"
-          class="mark_input text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark_input  mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           type="number"
           pattern="\d*"
-          v-model="killometres"
+          v-model="killometresTo"
           readonly
         />
         <select
           class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
-          v-model="selectedMake"
-          @change="updateSelect"
+          v-model="selectedMakeTo"
+          @change="updateSelectTo"
         >
           <option value="5000">5.000 km</option>
           <option value="10000">10.000 km</option>
@@ -200,7 +200,7 @@
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">New</option>
@@ -215,7 +215,7 @@
       <div class="marke_select_div relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <option value="14600" selected>Any</option>
           <option value="">Up to 1</option>
@@ -283,9 +283,9 @@
     <!-- country -->
     <div class="valid-until mt-[20px] flex items-center gap-[80px]">
       <div class="relative mt-2">
-        <h2 class="text-sm lg:text-[16px]">Country</h2>
+        <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
           <optgroup>
             <option value="14600" selected>Any</option>
@@ -363,12 +363,38 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[16px]">City / zip code</h2>
+        <h2 class="text-sm lg:text-[14px]">City / zip code</h2>
         <input
-          class="mark_input text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark_input mt-[10px] text-[14px] mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="number"
           pattern="\d*"
         />
+      </div>
+			<div class="marke_select_div flex relative mt-[30px]">
+        <input
+          placeholder="None"
+          id="inputYear"
+          class="mark_input  mark-select w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          type="number"
+          pattern="\d*"
+          v-model="radius"
+          readonly
+        />
+        <select
+          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
+          v-model="selectedRadius"
+          @change="updateRadius"
+        >
+          <option value="10">10 km</option>
+          <option value="20">20 km</option>
+          <option value="50">50 km</option>
+          <option value="100">100 km</option>	
+          <option value="200">200 km</option>	
+          <option value="500">500 km</option>	
+        </select>
+        <span
+          class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
+        ></span>
       </div>
     </div>
   </div>
@@ -394,14 +420,18 @@ export default {
   data() {
     return {
       price: "",
+			radius: "",
       priceTo: "",
       selectedYear: "",
+      selectedRadius: "",
       selectedtoYear: "",
       years: "",
       yearsTo: "",
       modelYears: [],
       killometres: "",
+      killometresTo: "",
       selectedMake: "",
+      selectedMakeTo: "",
       selectedPrice: "",
       selectedPriceTo: "",
     };
@@ -418,6 +448,14 @@ export default {
     updateSelect() {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
+    },
+    updateSelectTo() {
+      this.killometresTo = this.selectedMakeTo;
+      this.selectedMakeTo = this.selectedYear;
+    },
+    updateRadius() {
+      this.radius = this.selectedRadius;
+      this.selectedRadius = this.selectedYear;
     },
     updateSelectPrice() {
       this.price = this.selectedPrice;
