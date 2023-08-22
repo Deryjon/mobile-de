@@ -20,6 +20,7 @@
               >
                 {{ make.car_make_name }}
               </option>
+							<option value="other">other</option>
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
