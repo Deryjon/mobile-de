@@ -370,31 +370,37 @@
           pattern="\d*"
         />
       </div>
-			<div class="marke_select_div flex relative mt-[30px]">
-        <input
-          placeholder="None"
-          id="inputYear"
-          class="mark_input  mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          type="number"
-          pattern="\d*"
-          v-model="radius"
-          readonly
-        />
-        <select
-          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
-          v-model="selectedRadius"
+			<div class="">
+        <h2 class="text-sm lg:text-[14px] mt-2">
+          Radius
+        </h2>
+        <!-- KIllometer bis -->
+        <div class="marke_select_div flex relative mt-[10px]">
+          <input
+            placeholder="from"
+            id="inputYear"
+            class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            type="number"
+            pattern="\d*"
+						v-model="radius"
+            readonly
+          />
+          <select
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
+						v-model="selectedRadius"
           @change="updateRadius"
-        >
-          <option value="10">10 km</option>
+          >
+					<option value="10">10 km</option>
           <option value="20">20 km</option>
           <option value="50">50 km</option>
           <option value="100">100 km</option>	
           <option value="200">200 km</option>	
-          <option value="500">500 km</option>	
-        </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
-        ></span>
+          <option value="500">500 km</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
+          ></span>
+        </div>
       </div>
     </div>
   </div>

@@ -9,7 +9,7 @@
         <option value="">Do not show</option>
         <option value="">Only show</option>
       </select>
-      <span class="arrow w-[7px] h-[7px] absolute left-[135px] xl:right-2 bottom-4"></span>
+      <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 w-[200px]">
       <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
@@ -20,7 +20,7 @@
         <option value="">Do not show</option>
         <option value="">Only show</option>
       </select>
-      <span class="arrow w-[7px] h-[7px] absolute left-[135px] xl:right-2 bottom-4"></span>
+      <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 w-[200px]">
       <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
@@ -56,7 +56,7 @@
         <option value="VW_TRADEPORT">Volkswagen TradePort</option>
         <option value="VOLVO">VOLVO SELEKT</option>
       </select>
-      <span class="arrow w-[7px] h-[7px] absolute left-[135px] xl:right-2 bottom-4"></span>
+      <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
     </div>
   </div>
 </template>
