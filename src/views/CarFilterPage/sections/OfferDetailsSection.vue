@@ -10,7 +10,7 @@
         <AdOnlineSinceComponent />
         <AdsFiltersComponent />
         <DamagedVehiclesComponent />
-        <div class="search mt-[30px] pl-[20px]">
+        <div class="search mt-[30px] pl-[21px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">
             Search vehicle description
           </h2>
