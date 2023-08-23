@@ -2,7 +2,7 @@
 <BasicDataSection/>
 </template>
 <script>
-import BasicDataSection from './sections/BasicDataSection.vue';
+import BasicDataSection from './sections/BasidDataSection/BasicDataSection.vue';
 
 export default{
     components: { BasicDataSection }
