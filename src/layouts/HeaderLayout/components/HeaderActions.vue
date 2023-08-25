@@ -3,7 +3,7 @@
     <div class="price dropdown-container">
       <div class="input-container flex relative">
         <div
-          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent  mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
           @blur="closePriceDropdown"
           @click="openPriceDropdown"
@@ -106,7 +106,7 @@
 			</div> -->
 
     <!--  -->
-    <div class="web-side relative inline-block">
+    <!-- <div class="web-side relative inline-block">
       <select
         name=""
         class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
@@ -129,7 +129,7 @@
         </optgroup>
       </select>
       <span class="arrow w-[7px] h-[7px]"></span>
-    </div>
+    </div> -->
     <!--  -->
     <div class="write-pads relative inline-block">
       <select
@@ -235,7 +235,11 @@ export default defineComponent({
   created() {
     if (localStorage.getItem("lang") == null) {
       localStorage.setItem("lang", "sw");
+      
     }
+		else if (localStorage.getItem("name") == null){
+			localStorage.setItem("name", "Swedish");
+		}
     this.language = localStorage.getItem("lang");
     this.inputValue = localStorage.getItem("name");
   },
@@ -293,6 +297,10 @@ select:focus {
 
 .input-container {
   position: relative;
+}
+
+.dropdown-input{
+	border: 1px solid #444444;
 }
 
 .dropdown-options {

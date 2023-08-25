@@ -37,9 +37,9 @@ export default {
     return {
       activeIndex: 0,
       images: [
-        { src: 'src/assets/images/slider-2.jpg', alt: '' },
-        { src: 'src/assets/images/slider-img.webp', alt: '' },
-        { src: 'src/assets/images/slider-3.jpg', alt: '' },
+        { src: '../../../assets/images/slider-2.jpg', alt: '' },
+        { src: '../../../assets/images/slider-img.webp', alt: '' },
+        { src: '../../../assets/images/slider-3.jpg', alt: '' },
         // ... add other image objects here
       ],
       intervalId: null,
