@@ -5,12 +5,13 @@
 				<h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="input-container flex relative	mt-[10px]">
           <input
-            type="text"
+            type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="inputValue"
             @focus="openDropdown"
             @input="filterOptions"
+						@blur="closeDropdown"
           />
 					<div class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
 					@click="openDropdown"
@@ -547,6 +548,9 @@ export default {
       this.inputValue = option.label;
       this.isOpen = false;
     },
+		closeDropdown() {
+    this.isOpen = false;
+  },
   },
   computed: {
     filteredItems() {
