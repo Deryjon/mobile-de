@@ -37,8 +37,9 @@ export default {
     return {
       activeIndex: 0,
       images: [
-        { src: 'https://images.uzum.uz/cge4e8fhj8j9g69aol90/main_page_banner.jpg', alt: '' },
-        { src: 'https://images.uzum.uz/cg5k4tvhgiov1qie4leg/main_page_banner.jpg', alt: '' },
+        { src: 'src/assets/images/slider-2.jpg', alt: '' },
+        { src: 'src/assets/images/slider-img.webp', alt: '' },
+        { src: 'src/assets/images/slider-3.jpg', alt: '' },
         // ... add other image objects here
       ],
       intervalId: null,
@@ -91,8 +92,11 @@ export default {
     left: 0;
     top: 0;
     transition: 0.5s;
+		object-fit: cover;
 }
-
+.swiper .slider .slider-item img{
+object-fit: cover;
+}
 .swiper  .slider .slider-item.active {
     opacity: 1;
     /* transform: translateY(0) ; */
