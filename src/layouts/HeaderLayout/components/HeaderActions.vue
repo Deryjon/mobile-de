@@ -1,25 +1,109 @@
 <template>
   <div class="actions gap-[10px] items-center mt-[25px]">
-    <div class="language relative inline-block">
-      <select
-        name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
-        :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
-        v-model="language"
-        @change="changeLanguage"
+    <div class="price dropdown-container">
+      <div class="input-container flex relative">
+        <div
+          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          @focus="openPriceDropdown"
+          @blur="closePriceDropdown"
+          @click="openPriceDropdown"
+        >
+          <p>{{ inputValue }}</p>
+        </div>
+
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+        ></span>
+      </div>
+      <ul
+        v-if="isOpenPrice"
+        class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
       >
-        <optgroup label="Language">
-          <option value="en" data-country-code="usa">English</option>
-          <option value="fr" data-country-code="france">France</option>
-          <option value="gr" data-country-code="france">Germany</option>
-          <option value="sp">Spanish</option>
-          <option value="sw">Swedish</option>
-          <option value="ru">Russa</option>
-          <option value="pol">Polish</option>
-        </optgroup>
-      </select>
-      <span class="arrow w-[7px] h-[7px]"></span>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/us.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key @click="selectLanguage('en', 'English')">English</li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/fr.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="fr" @click="selectLanguage('fr', 'France')">France</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/de.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="gr" @click="selectLanguage('gr', 'Germany')">Germany</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/es.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="sp" @click="selectLanguage('sp', 'Spanish')">Spanish</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/se.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="sw" @click="selectLanguage('sw', 'Swedish')">Swedish</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ru.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="ru" @click="selectLanguage('ru', 'Russa')">Russa</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/pl.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="pol" @click="selectLanguage('pol', 'Polish')">Polish</li>
+        </div>
+      </ul>
     </div>
+    <!--	 <div class="language relative inline-block">
+
+				<select
+					name=""
+					class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
+					:class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
+					v-model="language"
+					@change="changeLanguage"
+				>
+					<optgroup label="Language">
+						<option class="pl-[30px]" value="en" data-country-code="usa">
+							English</option>
+						<option value="fr" data-country-code="france">France</option>
+						<option value="gr" data-country-code="france">Germany</option>
+						<option value="sp">Spanish</option>
+						<option value="sw">Swedish</option>
+						<option value="ru">Russa</option>
+						<option value="pol">Polish</option>
+					</optgroup>
+				</select>
+				<span class="arrow w-[7px] h-[7px]"></span>
+			</div> -->
 
     <!--  -->
     <div class="web-side relative inline-block">
@@ -96,12 +180,56 @@ export default defineComponent({
   data() {
     return {
       language: null,
+      isOpen: false,
+      isOpenKilometer: false,
+      isOpenPrice: false,
+      inputValue: "",
+      inputKilometer: "",
+      inputPrice: "English",
+      options: [],
+      filteredOptions: [],
     };
   },
   methods: {
     changeLanguage() {
       localStorage.setItem("lang", this.language);
+      localStorage.setItem("name", this.inputValue);
       window.location.reload();
+    },
+    openDropdown() {
+      this.isOpen = true;
+      this.filteredOptions = this.options;
+    },
+    openKilmeterDropdown() {
+      this.isOpenKilometer = true;
+      this.filteredOptions = this.options;
+    },
+    openPriceDropdown() {
+      this.isOpenPrice = true;
+      this.filteredOptions = this.options;
+    },
+    selectOption(option) {
+      this.inputValue = option;
+      this.isOpen = false;
+    },
+    selectKilometer(option) {
+      this.inputKilometer = option;
+      this.isOpenKilometer = false;
+    },
+    selectLanguage(key, lang) {
+			this.inputValue = lang
+      this.language = key;
+      this.isOpenLanguage = false;
+      this.changeLanguage(); // Вызываем функцию смены языка при выборе
+    },
+    closeDropdown() {
+      this.isOpen = false;
+    },
+    closeKilometerDropdown() {
+      this.isOpenKilometer = false;
+    },
+    closePriceDropdown() {
+      this.isOpenKilometer = false;
     },
   },
   created() {
@@ -109,6 +237,7 @@ export default defineComponent({
       localStorage.setItem("lang", "sw");
     }
     this.language = localStorage.getItem("lang");
+    this.inputValue = localStorage.getItem("name");
   },
 });
 </script>
@@ -154,8 +283,32 @@ select:focus {
   pointer-events: none;
 }
 
-.web-side select option[data-country-code="belgium"] {
-  background-image: url(path/to/belgium-flag.svg);
+.language [data-country-code="usa"] {
+  background-image: url("../../../assets/icons/ua.svg");
+}
+.dropdown-container {
+  position: relative;
+  display: inline-block;
 }
 
+.input-container {
+  position: relative;
+}
+
+.dropdown-options {
+  position: absolute;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-options li {
+  padding: 0.5em;
+  cursor: pointer;
+}
 </style>
