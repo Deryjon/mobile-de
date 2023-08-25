@@ -8,16 +8,19 @@
         v-model="language"
         @change="changeLanguage"
       >
-        <option value="en">English</option>
-        <option value="fr">France</option>
-        <option value="gr">Germany</option>
-        <option value="sp">Spanish</option>
-        <option value="sw">Swedish</option>
-        <option value="ru">Russa</option>
-        <option value="pol">Polish</option>
+        <optgroup label="Language">
+          <option value="en" data-country-code="usa">English</option>
+          <option value="fr" data-country-code="france">France</option>
+          <option value="gr" data-country-code="france">Germany</option>
+          <option value="sp">Spanish</option>
+          <option value="sw">Swedish</option>
+          <option value="ru">Russa</option>
+          <option value="pol">Polish</option>
+        </optgroup>
       </select>
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
+
     <!--  -->
     <div class="web-side relative inline-block">
       <select
@@ -25,19 +28,21 @@
         class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
         :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
       >
-        <option value="bel">Belgium</option>
-        <option value="can">Canda</option>
-        <option value="dan">Danmark</option>
-        <option value="eng">England</option>
-        <option value="fra">France</option>
-        <option value="gr">Germany</option>
-        <option value="it">Italy</option>
-        <option value="neth">Netherland</option>
-        <option value="mor">Morocco</option>
-        <option value="pol">Poland</option>
-        <option value="ru">Russa</option>
-        <option value="sp">Spanien</option>
-        <option value="ru">Sweden</option>
+        <optgroup label="Country">
+          <option value="bel" data-country-code="belgium">Belgium</option>
+          <option value="can" data-country-code="canada">Canda</option>
+          <option value="dan">Danmark</option>
+          <option value="eng">England</option>
+          <option value="fra">France</option>
+          <option value="gr">Germany</option>
+          <option value="it">Italy</option>
+          <option value="neth">Netherland</option>
+          <option value="mor">Morocco</option>
+          <option value="pol">Poland</option>
+          <option value="ru">Russa</option>
+          <option value="sp">Spanien</option>
+          <option value="ru">Sweden</option>
+        </optgroup>
       </select>
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
@@ -65,7 +70,7 @@
       <span class="arrow w-[7px] h-[7px]"></span>
     </div>
     <button
-      class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal	"
+      class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -74,7 +79,7 @@
 </template>
 <script>
 import { useDarkModeStore } from "@/store/dark-mode.js";
-import {  defineComponent, computed } from "vue";
+import { defineComponent, computed } from "vue";
 
 export default defineComponent({
   setup() {
@@ -100,11 +105,10 @@ export default defineComponent({
     },
   },
   created() {
-		if(localStorage.getItem("lang")== null){
-
-			localStorage.setItem("lang", "sw");
-		}
-		this.language = localStorage.getItem("lang")
+    if (localStorage.getItem("lang") == null) {
+      localStorage.setItem("lang", "sw");
+    }
+    this.language = localStorage.getItem("lang");
   },
 });
 </script>
@@ -149,4 +153,9 @@ select:focus {
   transform: rotate(135deg);
   pointer-events: none;
 }
+
+.web-side select option[data-country-code="belgium"] {
+  background-image: url(path/to/belgium-flag.svg);
+}
+
 </style>

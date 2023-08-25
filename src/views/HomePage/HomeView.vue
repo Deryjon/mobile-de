@@ -1,7 +1,9 @@
 <template>
-  <main class="mt-[200px]">
+  <main class="">
+		<SwiperSection/>
     <SearchSection />
 		<RentSection/>
+		<MagazinSection/>
   </main>
 </template>
 
@@ -9,11 +11,15 @@
 import SearchSection from "./sections/SearchSection.vue";
 import HeaderLayoutVue from "../../layouts/HeaderLayout/HeaderLayout.vue";
 import RentSection from "./sections/RentSection.vue";
+import SwiperSection from "./sections/SwiperSection.vue";
+import MagazinSection from "./sections/MagazinSection.vue";
 export default {
   components: {
     HeaderLayoutVue,
     SearchSection,
-    RentSection
+    RentSection,
+    SwiperSection,
+		MagazinSection,
 },
 };
 

@@ -1,13 +1,46 @@
 <template>
   <div class="for-example">
+    <div class="filters-selects flex gap-[20px]">
+      <div class="relative">
+        <h2 class="text-sm lg:text-[14px] mt-2">
+          Condition
+        </h2>
+        <select
+          class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          placeholder="Beliebig"
+        >
+          <option value="14600">Any</option>
+					<option class="">New</option>
+					<option class="">Used</option>
+					<option class="">Rental</option>
+					<option class="">Crash Car</option>
+					<option class="">Classic</option>
+        </select>
+        <span class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"></span>
+      </div>
+      <div class="relative">
+        <h2 class="text-sm lg:text-[14px] mt-2">
+          Condition
+        </h2>
+        <select
+          class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          placeholder="Beliebig"
+        >
+          <option value="14600">Driving site</option>
+					<option class="">Left side</option>
+					<option class="">Right side</option>
+        </select>
+        <span class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"></span>
+      </div>
+    </div>
     <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px]">
       <div class="mark">
         <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[16px]">
+          <h2 class="text-sm lg:text-[14px]">
             {{ $t("message.selects.mark") }}
           </h2>
           <select
-            class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
             @change="fetchModels()"
           >
@@ -20,7 +53,7 @@
               >
                 {{ make.car_make_name }}
               </option>
-							<option value="other">other</option>
+              <option value="other">other</option>
             </optgroup>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -28,11 +61,11 @@
       </div>
 
       <div class="relative">
-        <h2 class="text-sm lg:text-[16px] mt-2">
+        <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
         <select
-          class="mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
           :disabled="isModelSelectDisabled"
         >
@@ -49,10 +82,10 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div>
-        <h2 class="text-sm lg:text-[16px] mt-2">
+        <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.registration") }}
         </h2>
-        <div class="relative">
+        <div class="relative mt-[5px]">
           <input
             placeholder="Beliebig"
             class="no-spinner mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
@@ -82,11 +115,11 @@
         </div>
       </div>
       <div class="">
-        <h2 class="text-sm lg:text-[16px] mt-2">
+        <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.kilometr") }}
         </h2>
         <!-- KIllometer bis -->
-        <div class="marke_select_div flex relative">
+        <div class="marke_select_div flex relative mt-[5px]">
           <input
             placeholder="Beliebig"
             id="inputYear"
@@ -124,13 +157,13 @@
       </div>
     </div>
     <div
-      class="bottom-all lg:flex w-[250px] lg:w-full sm:w-[350px] items-center gap-[20px]"
+      class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[20px]"
     >
       <div>
-        <h2 class="mt-2 text-sm lg:text-[16px]">
+        <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.ad") }}
         </h2>
-        <div class="Kaufen_div lg:flex">
+        <div class="Kaufen_div lg:flex text-[14px]">
           <button
             class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab1"
@@ -149,14 +182,14 @@
       </div>
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[20px]">
-          <div class="mt-2">
-            <h2 class="text-sm lg:text-[16px]">
+          <div class="mt-[14px]">
+            <h2 class="text-sm lg:text-[14px]">
               {{ $t("message.selects.price") }}
             </h2>
             <div class="marke_select_div relative">
               <input
                 placeholder="Beliebig"
-                class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+                class="mark_input text-[12px] mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
                 type="number"
                 pattern="\d*"
                 v-model="price"
@@ -208,17 +241,17 @@
             </div>
           </div>
           <div class="relative">
-            <h2 class="mt-2 text-sm lg:text-[16px]">
+            <h2 class="mt-2 text-sm lg:text-[14px]">
               {{ $t("message.selects.zip") }}
             </h2>
             <input
-              class="mark_input_zip mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+              class="mark_input_zip text-[12px]  mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text"
               placeholder="Beliebig"
               v-model="cityName"
             />
             <div
-              class="icon absolute top-[30px] sm:left-[330px] lg:top-[38px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
+              class="icon absolute top-[30px] sm:left-[330px] lg:top-[43px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
               @click="getLocation()"
             >
               <img src="../../../assets/images/icon-location.svg" alt="" />
