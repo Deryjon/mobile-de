@@ -37,9 +37,9 @@ export default {
     return {
       activeIndex: 0,
       images: [
-        { src: '../../../assets/images/slider-2.jpg', alt: '' },
-        { src: '../../../assets/images/slider-img.webp', alt: '' },
-        { src: '../../../assets/images/slider-3.jpg', alt: '' },
+        { src: 'https://hips.hearstapps.com/hmg-prod/images/ek-bmw-m4-01917-1-1621906813.jpg?crop=1.00xw:0.754xh;0,0.215xh&resize=1200:*', alt: '' },
+        { src: 'https://www.topgear.com/sites/default/files/cars-car/carousel/2020/10/p90403633_highres_bmw-m5-competition.jpg', alt: '' },
+        { src: 'https://luxangeleyes.com/cdn/shop/products/TaylorA.jpg?v=1604885192', alt: '' },
         // ... add other image objects here
       ],
       intervalId: null,

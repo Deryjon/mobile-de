@@ -19,7 +19,7 @@
         ></span>
       </div>
       <div class="relative">
-        <h2 class="text-sm lg:text-[14px] mt-2">Condition</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">Driving site</h2>
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
