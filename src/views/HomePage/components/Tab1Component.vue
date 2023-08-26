@@ -165,7 +165,7 @@
         </div>
       </div> -->
 
-      <div class="price dropdown-container">
+      <div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
@@ -570,10 +570,10 @@ export default {
       );
       this.isOpen = true;
     },
-    selectOption(option) {
-      this.inputValue = option;
-      this.isOpen = false;
-    },
+			selectOption(option) {
+				this.inputValue = option;
+				this.isOpen = false;
+			},	
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;

@@ -1,7 +1,7 @@
 <template>
   <div class="pl-[20px]">
     <div
-      class="price-tab flex items-center gap-[20px] lg gap-[20px]:lg:gap-[80px]"
+      class="price-tab flex items-center gap-[20px] lg gap-[20px] lg:gap-[80px]"
     >
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
@@ -28,15 +28,24 @@
           v-if="priceOpen"
           class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
         >
-				<ul>
-  <li data-value="50" @click="selectNumberPrice(50)">50 € mtl</li>
-  <li data-value="100" @click="selectNumberPrice(100)">100 € mtl</li>
-  <li data-value="150" @click="selectNumberPrice(150)">150 € mtl</li>
-  <li data-value="200" @click="selectNumberPrice(200)">200 € mtl</li>
-  <li data-value="250" @click="selectNumberPrice(250)">250 € mtl</li>
-  <li data-value="300" @click="selectNumberPrice(300)">300 € mtl</li>
-</ul>
-
+          <ul>
+            <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
+            <li data-value="100" @click="selectNumberPrice('100')">
+              100 € mtl
+            </li>
+            <li data-value="150" @click="selectNumberPrice('150')">
+              150 € mtl
+            </li>
+            <li data-value="200" @click="selectNumberPrice('200')">
+              200 € mtl
+            </li>
+            <li data-value="250" @click="selectNumberPrice('250')">
+              250 € mtl
+            </li>
+            <li data-value="300" @click="selectNumberPrice('300')">
+              300 € mtl
+            </li>
+          </ul>
         </ul>
       </div>
       <!-- <div class="price">
@@ -66,7 +75,51 @@
           ></span>
         </div>
       </div> -->
-      <div class="marke_select_div relative mt-[36px]">
+      <div class="price-to dropdown-container mt-[27px]">
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="priceTo"
+            @focus="openPriceToDropdown"
+            @blur="closePriceToDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openPriceToDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="priceToOpen"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <ul>
+            <li data-value="50" @click="selectNumberPriceTo('50')">50 € mtl</li>
+            <li data-value="100" @click="selectNumberPriceTo('100')">
+              100 € mtl
+            </li>
+            <li data-value="150" @click="selectNumberPriceTo('150')">
+              150 € mtl
+            </li>
+            <li data-value="200" @click="selectNumberPriceTo('200')">
+              200 € mtl
+            </li>
+            <li data-value="250" @click="selectNumberPriceTo('250')">
+              250 € mtl
+            </li>
+            <li data-value="300" @click="selectNumberPriceTo('300')">
+              300 € mtl
+            </li>
+          </ul>
+        </ul>
+      </div>
+      <!-- <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
           class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
@@ -89,13 +142,58 @@
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
-      </div>
+      </div> -->
     </div>
     <div class="line mt-[30px]"></div>
     <div
       class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
     >
-      <div>
+      <div class="years dropdown-container">
+        <h2 class="mt-2 text-sm lg:text-[14px]">
+          {{ $t("message.selects.registration") }}
+        </h2>
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="inputValue"
+            @focus="openDropdown"
+            @input="filterOptions"
+            @blur="closeDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpen"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li
+            v-for="option in filteredOptions"
+            :key="option"
+            @click="selectOption(option)"
+            class=""
+          >
+            {{ option }}
+          </li>
+          <li key="1985" @click="selectOption('1985')">1985</li>
+          <li key="1980" @click="selectOption('1980')">1980</li>
+          <li key="1975" @click="selectOption('1975')">1975</li>
+          <li key="1970" @click="selectOption('1970')">1970</li>
+          <li key="1965" @click="selectOption('1965')">1965</li>
+          <li key="1960" @click="selectOption('1960')">1960</li>
+          <li key="1900" @click="selectOption('1900')">1900</li>
+        </ul>
+      </div>
+      <!-- <div>
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.registration") }}
         </h2>
@@ -127,8 +225,51 @@
             class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[6px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
           ></span>
         </div>
+      </div> -->
+      <div class="years-to dropdown-container mt-[27px]">
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="yearsTo"
+            @focus="openYearsToDropdown"
+            @input="filterOptions"
+            @blur="closeYearsToDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openYearsToDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpenYearsTo"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li
+            v-for="option in filteredOptions"
+            :key="option"
+            @click="selectYearsToOption(option)"
+            class=""
+          >
+            {{ option }}
+          </li>
+          <li key="1985" @click="selectYearsToOption('1985')">1985</li>
+          <li key="1980" @click="selectYearsToOption('1980')">1980</li>
+          <li key="1975" @click="selectYearsToOption('1975')">1975</li>
+          <li key="1970" @click="selectYearsToOption('1970')">1970</li>
+          <li key="1965" @click="selectYearsToOption('1965')">1965</li>
+          <li key="1960" @click="selectYearsToOption('1960')">1960</li>
+          <li key="1900" @click="selectYearsToOption('1900')">1900</li>
+        </ul>
       </div>
-      <div class="relative mt-[35px]">
+
+      <!-- <div class="relative mt-[35px]">
         <input
           placeholder="to"
           class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
@@ -155,16 +296,71 @@
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
-      </div>
+      </div> -->
     </div>
     <div
       class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
     >
-      <div class="">
+      <div class="kilometer dropdown-container">
+        <h2 class="mt-2 text-sm lg:text-[14px]">
+          {{ $t("message.selects.kilometr") }}
+        </h2>
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="inputKilometer"
+            @focus="openKilmeterDropdown"
+            @input="filterOptions"
+            @blur="closeKilometerDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openKilmeterDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpenKilometer"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
+          <li data-key="10000" @click="selectKilometer('10000')">10.000 km</li>
+          <li data-key="20000" @click="selectKilometer('20000')">20.000 km</li>
+          <li data-key="30000" @click="selectKilometer('30000')">30.000 km</li>
+          <li data-key="40000" @click="selectKilometer('40000')">40.000 km</li>
+          <li data-key="50000" @click="selectKilometer('50000')">50.000 km</li>
+          <li data-key="60000" @click="selectKilometer('60000')">60.000 km</li>
+          <li data-key="70000" @click="selectKilometer('70000')">70.000 km</li>
+          <li data-key="80000" @click="selectKilometer('80000')">80.000 km</li>
+          <li data-key="90000" @click="selectKilometer('90000')">90.000 km</li>
+          <li data-key="100000" @click="selectKilometer('100000')">
+            100.000 km
+          </li>
+          <li data-key="125000" @click="selectKilometer('125000')">
+            125.000 km
+          </li>
+          <li data-key="150000" @click="selectKilometer('150000')">
+            150.000 km
+          </li>
+          <li data-key="175000" @click="selectKilometer('175000')">
+            175.000 km
+          </li>
+          <li data-key="200000" @click="selectKilometer('200000')">
+            200.000 km
+          </li>
+        </ul>
+      </div>
+      <!-- <div class="">
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.kilometr") }}
         </h2>
-        <!-- KIllometer bis -->
+     
         <div class="marke_select_div flex relative mt-[10px]">
           <input
             placeholder="from"
@@ -200,8 +396,78 @@
             class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
           ></span>
         </div>
+      </div>  -->
+      <div class="kilometer-to dropdown-container mt-[27px]">
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="killometresTo"
+            @focus="openKilometerToDropdown"
+            @input="filterOptions"
+            @blur="closeKilometerToDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openKilometerToDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpenKilometerTo"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li data-key="5000" @click="selectKilometerTo('5000')">5.000 km</li>
+          <li data-key="10000" @click="selectKilometerTo('10000')">
+            10.000 km
+          </li>
+          <li data-key="20000" @click="selectKilometerTo('20000')">
+            20.000 km
+          </li>
+          <li data-key="30000" @click="selectKilometerTo('30000')">
+            30.000 km
+          </li>
+          <li data-key="40000" @click="selectKilometerTo('40000')">
+            40.000 km
+          </li>
+          <li data-key="50000" @click="selectKilometerTo('50000')">
+            50.000 km
+          </li>
+          <li data-key="60000" @click="selectKilometerTo('60000')">
+            60.000 km
+          </li>
+          <li data-key="70000" @click="selectKilometerTo('70000')">
+            70.000 km
+          </li>
+          <li data-key="80000" @click="selectKilometerTo('80000')">
+            80.000 km
+          </li>
+          <li data-key="90000" @click="selectKilometerTo('90000')">
+            90.000 km
+          </li>
+          <li data-key="100000" @click="selectKilometerTo('100000')">
+            100.000 km
+          </li>
+          <li data-key="125000" @click="selectKilometerTo('125000')">
+            125.000 km
+          </li>
+          <li data-key="150000" @click="selectKilometerTo('150000')">
+            150.000 km
+          </li>
+          <li data-key="175000" @click="selectKilometerTo('175000')">
+            175.000 km
+          </li>
+          <li data-key="200000" @click="selectKilometerTo('200000')">
+            200.000 km
+          </li>
+        </ul>
       </div>
-      <div class="marke_select_div flex relative mt-[30px]">
+      <!-- <div class="marke_select_div flex relative mt-[30px]">
         <input
           placeholder="to"
           id="inputYear"
@@ -235,10 +501,12 @@
         <span
           class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
         ></span>
-      </div>
+      </div> -->
     </div>
     <!-- valid -->
-    <div class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px]">
+    <div
+      class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
+    >
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
         <select
@@ -323,7 +591,9 @@
       </label>
     </div>
     <!-- country -->
-    <div class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px]">
+    <div
+      class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
+    >
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
@@ -412,9 +682,53 @@
           pattern="\d*"
         />
       </div>
-      <div class="">
+      <!--  -->
+      <div class="radius dropdown-container ">
+				<h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="radius"
+            @focus="openRadiusDropdown"
+            @input="filterOptions"
+            @blur="closeRadiusDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openRadiusDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpenRadius"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li data-key="10" @click="selectRadius('10')">10 km</li>
+          <li data-key="20" @click="selectRadius('20')">
+            20 km
+          </li>
+          <li data-key="50" @click="selectRadius('50')">
+            50 km
+          </li>
+          <li data-key="100" @click="selectRadius('100')">
+            100 km
+          </li>
+          <li data-key="200" @click="selectRadius('200')">
+            200 km
+          </li>
+          <li data-key="500" @click="selectRadius('500')">
+            500 km
+          </li>         
+        </ul>
+      </div>
+      <!-- <div class="">
         <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
-        <!-- KIllometer bis -->
         <div class="marke_select_div flex relative mt-[10px]">
           <input
             placeholder="from"
@@ -441,7 +755,7 @@
             class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
           ></span>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -474,19 +788,196 @@ export default {
       years: "",
       yearsTo: "",
       modelYears: [],
+      filteredOptions: [],
       killometres: "",
+      inputKilometer: "",
       killometresTo: "",
+      isOpenKilometer: false,
+      isOpenKilometerTo: false,
       selectedMake: "",
       selectedMakeTo: "",
       selectedPrice: "",
       selectedPriceTo: "",
       priceOpen: false,
+      isOpenYearsTo: false,
+      priceToOpen: false,
+      isOpenRadius: false,
+      isOpen: false,
     };
   },
   methods: {
+		openRadiusDropdown() {
+      this.isOpenRadius = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeRadiusDropdownOnClickOutside
+      );
+    },
+    selectRadius(option) {
+      this.radius = option;
+      this.isOpenRadius = false;
+    },
+    closeRadiusDropdown() {
+      this.isOpenRadius = false;
+    },
+    closeRadiusDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".radius");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenRadius = false;
+        document.removeEventListener(
+          "click",
+          this.closeRadiusDropdownOnClickOutside
+        );
+      }
+    },
+		// 
+    openKilometerToDropdown() {
+      this.isOpenKilometerTo = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeKilometerToDropdownOnClickOutside
+      );
+    },
+    selectKilometerTo(option) {
+      this.killometresTo = option;
+      this.isOpenKilometerTo = false;
+    },
+    closeKilometerToDropdown() {
+      this.isOpenKilometerTo = false;
+    },
+    closeKilometerToDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".kilometer-to");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenKilometerTo = false;
+        document.removeEventListener(
+          "click",
+          this.closeKilometerToDropdownOnClickOutside
+        );
+      }
+    },
+    //
+    openKilmeterDropdown() {
+      this.isOpenKilometer = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeKilometerDropdownOnClickOutside
+      );
+    },
+    selectKilometer(option) {
+      this.inputKilometer = option;
+      this.isOpenKilometer = false;
+    },
+    closeKilometerDropdown() {
+      this.isOpenKilometer = false;
+    },
+    closeKilometerDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".kilometer");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenKilometer = false;
+        document.removeEventListener(
+          "click",
+          this.closeKilometerDropdownOnClickOutside
+        );
+      }
+    },
+    //
+    openDropdown() {
+      this.isOpen = true;
+      this.filteredOptions = this.options;
+      document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+    },
+    filterOptions() {
+      this.filteredOptions = this.ModelYears.filter((option) =>
+        option.toLowerCase().includes(this.inputValue.toLowerCase())
+      );
+      this.isOpen = true;
+    },
+    selectOption(option) {
+      this.inputValue = option;
+      this.isOpen = false;
+    },
+    closeYearsDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".years");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeYearsDropdownOnClickOutside
+        );
+      }
+    },
+    //
+    openYearsToDropdown() {
+      this.isOpenYearsTo = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeYearsToDropdownOnClickOutside
+      );
+    },
+    filterToOptions() {
+      this.filteredOptions = this.ModelYears.filter((option) =>
+        option.toLowerCase().includes(this.yearsTo.toLowerCase())
+      );
+      this.isOpenYearsTo = true;
+    },
+    selectYearsToOption(option) {
+      this.yearsTo = option;
+      this.isOpenYearsTo = false;
+    },
+    closeYearsToDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".years-to");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenYearsTo = false;
+        document.removeEventListener(
+          "click",
+          this.closeYearsToDropdownOnClickOutside
+        );
+      }
+    },
+    //
+    openPriceToDropdown() {
+      this.priceToOpen = true;
+      document.addEventListener(
+        "click",
+        this.closePriceToDropdownOnClickOutside
+      );
+    },
+    closePriceToDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".price-to");
+      if (!dropdownElement.contains(event.target)) {
+        this.priceToOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closePriceToDropdownOnClickOutside
+        );
+      }
+    },
+    selectNumberPriceTo(option) {
+      this.priceTo = option;
+      this.priceToOpen = false;
+    },
+    closePriceToDropdown() {
+      this.priceOpenTo = false;
+    },
+    // price
     openPriceDropdown() {
       this.priceOpen = true;
       this.filteredOptions = this.options;
+      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+    },
+    closePriceDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".price");
+      if (!dropdownElement.contains(event.target)) {
+        this.priceOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeSeatsDropdownOnClickOutside
+        );
+      }
     },
     selectNumberPrice(option) {
       this.price = option;
@@ -495,7 +986,7 @@ export default {
     closePriceDropdown() {
       this.priceOpen = false;
     },
-
+    // year
     updateSelectYear() {
       this.years = this.selectedYear;
       this.selectedYear = this.selectedMake;
@@ -508,29 +999,18 @@ export default {
       this.killometres = this.selectedMake;
       this.selectedMake = this.selectedYear;
     },
-    updateSelectTo() {
-      this.killometresTo = this.selectedMakeTo;
-      this.selectedMakeTo = this.selectedYear;
-    },
     updateRadius() {
       this.radius = this.selectedRadius;
       this.selectedRadius = this.selectedYear;
     },
-    updateSelectPrice() {
-      this.price = this.selectedPrice;
-      this.selectedPrice = this.selectedMake;
-    },
-    updateSelectPriceTo() {
-      this.priceTo = this.selectedPriceTo;
-      this.selectedPriceTo = this.selectedMake;
-    },
+
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
       axios
         .get(apiUrl)
         .then((response) => {
           const data = response.data;
-          this.modelYears = data.Results.map((result) => result.ModelYear);
+          this.options = data.Results.map((result) => result.ModelYear);
         })
         .catch((error) => {
           console.error("Error fetching model years:", error);
