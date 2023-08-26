@@ -1,7 +1,52 @@
 <template>
   <div class="pl-[20px]">
-    <div class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[80px]">
-      <div class="price">
+    <div
+      class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[80px]"
+    >
+      <div class="power dropdown-container">
+        <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="power"
+            @focus="openPowerDropdown"
+            @input="filterOptions"
+            @blur="closePowerDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openPowerDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpenPower"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li @click="selectPower('34')" data-key="34">34</li>
+          <li @click="selectPower('50')" data-key="50">50</li>
+          <li @click="selectPower('60')" data-key="60">60</li>
+          <li @click="selectPower('75')" data-key="75">75</li>
+          <li @click="selectPower('90')" data-key="90">90</li>
+          <li @click="selectPower('101')" data-key="101">101</li>
+          <li @click="selectPower('118')" data-key="118">118</li>
+          <li @click="selectPower('131')" data-key="131">131</li>
+          <li @click="selectPower('150')" data-key="150">150</li>
+          <li @click="selectPower('200')" data-key="200">200</li>
+          <li @click="selectPower('252')" data-key="252">252</li>
+          <li @click="selectPower('303')" data-key="303">303</li>
+          <li @click="selectPower('358')" data-key="358">358</li>
+          <li @click="selectPower('402')" data-key="402">402</li>
+          <li @click="selectPower('454')" data-key="454">454</li>
+        </ul>
+      </div>
+      <!-- <div class="price">
         <h2 class="mt-2 text-sm lg:text-[14px]">Power</h2>
         <div class="marke_select_div relative mt-[10px]">
           <input
@@ -36,8 +81,51 @@
             class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
           ></span>
         </div>
+      </div> -->
+			<div class="power-to dropdown-container mt-[27px]">
+
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="powerTo"
+            @focus="openPowerToDropdown"
+            @input="filterOptions"
+            @blur="closePowerToDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openPowerToDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="isOpenPowerTo"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li @click="selectPowerTo('34')" data-key="34">34</li>
+          <li @click="selectPowerTo('50')" data-key="50">50</li>
+          <li @click="selectPowerTo('60')" data-key="60">60</li>
+          <li @click="selectPowerTo('75')" data-key="75">75</li>
+          <li @click="selectPowerTo('90')" data-key="90">90</li>
+          <li @click="selectPowerTo('101')" data-key="101">101</li>
+          <li @click="selectPowerTo('118')" data-key="118">118</li>
+          <li @click="selectPowerTo('131')" data-key="131">131</li>
+          <li @click="selectPowerTo('150')" data-key="150">150</li>
+          <li @click="selectPowerTo('200')" data-key="200">200</li>
+          <li @click="selectPowerTo('252')" data-key="252">252</li>
+          <li @click="selectPowerTo('303')" data-key="303">303</li>
+          <li @click="selectPowerTo('358')" data-key="358">358</li>
+          <li @click="selectPowerTo('402')" data-key="402">402</li>
+          <li @click="selectPowerTo('454')" data-key="454">454</li>
+        </ul>
       </div>
-      <div class="marke_select_div relative mt-[36px]">
+      <!-- <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
           class="mark_input text-[12px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
@@ -69,7 +157,7 @@
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
-      </div>
+      </div> -->
       <label for="condition-any" class="mt-[30px]">
         <input
           type="radio"
@@ -101,7 +189,9 @@
       </label>
     </div>
 
-    <div class="duration flex items-center gap-x-[20px] lg:gap-[80px] mt-[20px] lg:mt-[40px]">
+    <div
+      class="duration flex items-center gap-x-[20px] lg:gap-[80px] mt-[20px] lg:mt-[40px]"
+    >
       <div>
         <h2 class="text-sm lg:text-[14px] mt-2">Cubic capacity</h2>
         <div class="relative mt-[10px]">
@@ -234,7 +324,9 @@
       </div>
     </div>
     <!-- valid -->
-    <div class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]">
+    <div
+      class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]"
+    >
       <div class="relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">
           Fuel consumption (combined) up to
@@ -250,7 +342,9 @@
           <option value="">6</option>
           <option value="">3</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+        ></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
@@ -263,7 +357,9 @@
           <option value="">Up to 3</option>
           <option value="">Up to 4</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+        ></span>
       </div>
       <div class="marke_select_div relative mt-[20px] lg:mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
@@ -276,7 +372,9 @@
           <option value="">Up to 3</option>
           <option value="">Up to 4</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+        ></span>
       </div>
       <label class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]">
         <input
@@ -344,9 +442,57 @@ export default {
       isCommercialSelected: false,
       isRadioNewSelected: false,
       selectedCondition: "",
+      isOpenPower: false,
+      isOpenPowerTo: false,
     };
   },
   methods: {
+		openPowerToDropdown() {
+      this.isOpenPowerTo = true;
+      this.filteredOptions = this.options;
+      document.addEventListener("click", this.closePowerToDropdownOnClickOutside);
+    },
+    selectPowerTo(option) {
+      this.powerTo = option;
+      this.isOpenPowerTo = false;
+    },
+    closePowerToDropdown() {
+      this.isOpenPowerTo = false;
+    },
+    closePowerToDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".power-to");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenPowerTo = false;
+        document.removeEventListener(
+          "click",
+          this.closePowerToDropdownOnClickOutside
+        );
+      }
+    },
+		// 
+    openPowerDropdown() {
+      this.isOpenPower = true;
+      this.filteredOptions = this.options;
+      document.addEventListener("click", this.closePowerDropdownOnClickOutside);
+    },
+    selectPower(option) {
+      this.power = option;
+      this.isOpenPower = false;
+    },
+    closePowerDropdown() {
+      this.isOpenPower = false;
+    },
+    closePowerDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".power");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenPower = false;
+        document.removeEventListener(
+          "click",
+          this.closePowerDropdownOnClickOutside
+        );
+      }
+    },
+    //
     selectCondition(condition) {
       this.selectedCondition = condition;
     },
