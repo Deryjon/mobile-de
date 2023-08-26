@@ -79,14 +79,14 @@ export default {
 .swiper  .slider {
     position: relative;
     width: 1000px;
-    height: 300px;
+    height: 400px;
     left: auto;
 		right: auto;
 }
 
 .swiper .slider .slider-item {
     width: 1000px;
-    height: 300px;
+    height: 400px;
     opacity: 0;
     position: absolute;
     left: 0;
