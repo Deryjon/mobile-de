@@ -1,9 +1,9 @@
 <template>
   <div class="actions gap-[10px] items-center mt-[25px]">
-    <div class="price dropdown-container">
+    <div class="language dropdown-container">
       <div class="input-container flex relative">
         <div
-          class="dropdown-input mark_input bg-transparent  mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
           @blur="closePriceDropdown"
           @click="openPriceDropdown"
@@ -42,7 +42,9 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="gr" @click="selectLanguage('gr', 'Germany')">Germany</li>
+          <li data-key="gr" @click="selectLanguage('gr', 'Germany')">
+            Germany
+          </li>
         </div>
 
         <div class="flex items-center">
@@ -51,7 +53,9 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="sp" @click="selectLanguage('sp', 'Spanish')">Spanish</li>
+          <li data-key="sp" @click="selectLanguage('sp', 'Spanish')">
+            Spanish
+          </li>
         </div>
 
         <div class="flex items-center">
@@ -60,7 +64,9 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="sw" @click="selectLanguage('sw', 'Swedish')">Swedish</li>
+          <li data-key="sw" @click="selectLanguage('sw', 'Swedish')">
+            Swedish
+          </li>
         </div>
 
         <div class="flex items-center">
@@ -78,7 +84,9 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="pol" @click="selectLanguage('pol', 'Polish')">Polish</li>
+          <li data-key="pol" @click="selectLanguage('pol', 'Polish')">
+            Polish
+          </li>
         </div>
       </ul>
     </div>
@@ -106,7 +114,7 @@
 			</div> -->
 
     <!--  -->
-    <!-- <div class="web-side relative inline-block">
+    <div class="web-side relative inline-block">
       <select
         name=""
         class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
@@ -129,30 +137,9 @@
         </optgroup>
       </select>
       <span class="arrow w-[7px] h-[7px]"></span>
-    </div> -->
-    <!--  -->
-    <div class="write-pads relative inline-block">
-      <select
-        name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
-        :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
-        @change="changeLanguage"
-      >
-        <option value="ar">Arabic</option>
-        <option value="bel">Belgium</option>
-        <option value="dan">Danish</option>
-        <option value="fri">Frinch</option>
-        <option value="gr">Germany</option>
-        <option value="it">Italy</option>
-        <option value="neth">Netherland</option>
-        <option value="ru">Russa</option>
-        <option value="pol">Polish</option>
-        <option value="sp">Spanish</option>
-        <option value="ru">Swedish</option>
-        <option value="en">English</option>
-      </select>
-      <span class="arrow w-[7px] h-[7px]"></span>
     </div>
+    <!--  -->
+
     <button
       class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
@@ -196,28 +183,23 @@ export default defineComponent({
       localStorage.setItem("name", this.inputValue);
       window.location.reload();
     },
-    openDropdown() {
-      this.isOpen = true;
-      this.filteredOptions = this.options;
-    },
-    openKilmeterDropdown() {
-      this.isOpenKilometer = true;
-      this.filteredOptions = this.options;
-    },
     openPriceDropdown() {
       this.isOpenPrice = true;
       this.filteredOptions = this.options;
+      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
     },
-    selectOption(option) {
-      this.inputValue = option;
-      this.isOpen = false;
-    },
-    selectKilometer(option) {
-      this.inputKilometer = option;
-      this.isOpenKilometer = false;
+    closePriceDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".language");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenPrice = false;
+        document.removeEventListener(
+          "click",
+          this.closePriceDropdownOnClickOutside
+        );
+      }
     },
     selectLanguage(key, lang) {
-			this.inputValue = lang
+      this.inputValue = lang;
       this.language = key;
       this.isOpenLanguage = false;
       this.changeLanguage(); // Вызываем функцию смены языка при выборе
@@ -225,21 +207,13 @@ export default defineComponent({
     closeDropdown() {
       this.isOpen = false;
     },
-    closeKilometerDropdown() {
-      this.isOpenKilometer = false;
-    },
-    closePriceDropdown() {
-      this.isOpenKilometer = false;
-    },
   },
   created() {
     if (localStorage.getItem("lang") == null) {
       localStorage.setItem("lang", "sw");
-      
+    } else if (localStorage.getItem("name") == null) {
+      localStorage.setItem("name", "Swedish");
     }
-		else if (localStorage.getItem("name") == null){
-			localStorage.setItem("name", "Swedish");
-		}
     this.language = localStorage.getItem("lang");
     this.inputValue = localStorage.getItem("name");
   },
@@ -299,8 +273,8 @@ select:focus {
   position: relative;
 }
 
-.dropdown-input{
-	border: 1px solid #444444;
+.dropdown-input {
+  border: 1px solid #444444;
 }
 
 .dropdown-options {
