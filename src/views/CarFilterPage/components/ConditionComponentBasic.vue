@@ -2,7 +2,7 @@
   <div class="condition p-[20px]">
     <h3 class="text-[14px]">Type and condition</h3>
     <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
-      <label for="condition-any" @click="selectCondition('Any')">
+      <label  >
         <input
           type="radio"
           v-model="selectedCondition"
@@ -11,13 +11,14 @@
             'bg-orange': selectedCondition === 'Any',
           }"
           class="ml-10px"
+					@click="selectCondition('Any')"
         />
-        <span class="ml-[10px] text-[14px] ">Any</span>
+        <span class="ml-[10px] text-[14px]"   >Any</span>
       </label>
-      <label for="condition-any">
+      <label >
         <input
           type="radio"
-          id="condition-any"
+        
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'New',
@@ -27,22 +28,23 @@
         />
         <span class="ml-[10px] text-[14px]">New</span>
       </label>
-      <label for="condition-any" @click="selectCondition('Used')">
+      <label  >
         <input
           type="radio"
-          id="condition-any"
+        
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Used',
             'bg-orange': selectedCondition === 'Used',
           }"
+					@click="selectCondition('Used')"
         />
         <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
     <div class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]">
       <label
-        class="custom-checkbox flex items-center h-10 w-[155px] pb-[23px]"
+        class="custom-checkbox flex items-center h-10 w-[140px] pb-[23px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
@@ -71,7 +73,7 @@
         <span class="text-sm">Pre-Registration</span>
       </label>
       <label
-        class="custom-checkbox flex items-center h-10 w-[145px] pb-[23px]"
+        class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
@@ -99,7 +101,7 @@
         <span class="text-sm">Employee's Car</span>
       </label>
       <label
-        class="custom-checkbox flex items-center h-10 w-[134px] pb-[23px]"
+        class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
