@@ -81,11 +81,11 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-      <div class="price dropdown-container">
+      <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
-        <div class="input-container flex relative mt-[10px]">
+        <div class="1 input-container flex relative mt-[10px]">
           <input
             type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -169,7 +169,7 @@
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
-        <div class="input-container flex relative mt-[10px]">
+        <div class="kilometers input-container flex relative mt-[10px]">
           <input
             type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -288,7 +288,8 @@
       </div>
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[20px]">
-          <div class="price dropdown-container">
+          <div
+					 class="price dropdown-container">
             <h2 class="mt-2 text-sm lg:text-[14px]">
               {{ $t("message.selects.price") }}
             </h2>
@@ -464,18 +465,6 @@ export default {
     };
   },
   methods: {
-    updateSelect() {
-      this.killometres = this.selectedMake;
-      this.selectedMake = this.selectedYear;
-    },
-    updateSelectPrice() {
-      this.price = this.selectedPrice;
-      this.selectedPrice = this.selectedMake;
-    },
-    updateSelectYear() {
-      this.years = this.selectedYear;
-      this.selectedYear = this.selectedMake;
-    },
     showTab1() {
       this.activeTab = "tab-1";
       console.log(this.selectedMark);
@@ -555,20 +544,56 @@ export default {
     openDropdown() {
       this.isOpen = true;
       this.filteredOptions = this.options;
+			document.addEventListener(
+        "click",
+        this.closeDropdownOnClickOutside
+      );
+    },
+		closeDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".years");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeRadiusDropdownOnClickOutside
+        );
+      }
     },
     openKilmeterDropdown() {
       this.isOpenKilometer = true;
       this.filteredOptions = this.options;
+			document.addEventListener(
+        "click",
+        this.closeKilometerDropdownOnClickOutside
+      );
+    },
+		closeKilometerDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".kilometers");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenKilometer = false;
+        document.removeEventListener(
+          "click",
+          this.closeRadiusDropdownOnClickOutside
+        );
+      }
     },
     openPriceDropdown() {
       this.isOpenPrice = true;
       this.filteredOptions = this.options;
-    },
-    filterOptions() {
-      this.filteredOptions = this.modelYears.filter((option) =>
-        option.toLowerCase().includes(this.inputValue.toLowerCase())
+			document.addEventListener(
+        "click",
+        this.closePriceDropdownOnClickOutside
       );
-      this.isOpen = true;
+    },
+		closePriceDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".price");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenPrice = false;
+        document.removeEventListener(
+          "click",
+          this.closePriceDropdownOnClickOutside
+        );
+      }
     },
 			selectOption(option) {
 				this.inputValue = option;
