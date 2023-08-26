@@ -1,14 +1,14 @@
 <template>
   <div
-    class="salon-filter flex flex-wrap gap-x-[20px] lg:gap-x-[80px] items-center pl-[20px] xl:p-[20px]"
-  >
+    class="salon-filter flex flex-wrap gap-x-[20px] lg:gap-x-[60px] items-center pl-[20px] xl:p-[20px]"
+		>
     <!-- seats -->
     <div class="seats dropdown-container">
       <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
       <div class="input-container flex relative mt-[10px]">
         <input
           type="from"
-          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="from"
           v-model="numberSeats"
           @focus="openSeatsDropdown"
@@ -26,7 +26,7 @@
       </div>
       <ul
         v-if="seatsOpen"
-        class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
+        class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
       >
         <ul>
           <li key="any" @click="selectNumberSeats('Any')">Any</li>
@@ -73,11 +73,11 @@
     </div> -->
 
     <!-- seats -->
-    <div class="seats dropdown-container">
+    <div class="seats-to dropdown-container">
       <div class="input-container flex relative mt-[35px]">
         <input
           type="from"
-          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="from"
           v-model="numberSeatsTo"
           @focus="openSeatsToDropdown"
@@ -95,7 +95,7 @@
       </div>
       <ul
         v-if="seatsToOpen"
-        class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
+        class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
       >
         <ul>
           <li key="any" @click="selectNumberSeatsTo('Any')">Any</li>
@@ -171,35 +171,50 @@ export default {
     return {
       numberSeats: "",
       numberSeatsTo: "",
-
       seatsOpen: false,
       seatsToOpen: false,
     };
   },
   methods: {
-    openSeatsDropdown() {
-      this.seatsOpen = true;
-      this.filteredOptions = this.options;
-    },
-    selectNumberSeats(option) {
-      this.numberSeats = option;
-      this.seatsOpen = false;
-    },
-    closeSeatsDropdown() {
-      this.seatsOpen = false;
-    },
-    openSeatsToDropdown() {
-      this.seatsToOpen = true;
-      this.filteredOptions = this.options;
-    },
-    selectNumberSeatsTo(option) {
-      this.numberSeatsTo = option;
-      this.seatsToOpen = false;
-    },
-    closeSeatsToDropdown() {
-      this.seatsToOpen = false;
-    },
+		openSeatsDropdown() {
+    this.seatsOpen = true;
+    document.addEventListener('click', this.closeSeatsDropdownOnClickOutside);
   },
+  closeSeatsDropdownOnClickOutside(event) {
+    const dropdownElement = this.$el.querySelector('.seats');
+    if (!dropdownElement.contains(event.target)) {
+      this.seatsOpen = false;
+      document.removeEventListener('click', this.closeSeatsDropdownOnClickOutside);
+    }
+  },
+  selectNumberSeats(option) {
+    this.numberSeats = option;
+    this.seatsOpen = false;
+  },
+  closeSeatsDropdown() {
+    this.seatsOpen = false;
+    document.removeEventListener('click', this.closeSeatsDropdownOnClickOutside);
+  },
+  openSeatsToDropdown() {
+    this.seatsToOpen = true;
+    document.addEventListener('click', this.closeSeatsToDropdownOnClickOutside);
+  },
+  closeSeatsToDropdownOnClickOutside(event) {
+    const dropdownElement = this.$el.querySelector('.seats-to');
+    if (!dropdownElement.contains(event.target)) {
+      this.seatsToOpen = false;
+      document.removeEventListener('click', this.closeSeatsToDropdownOnClickOutside);
+    }
+  },
+  selectNumberSeatsTo(option) {
+    this.numberSeatsTo = option;
+    this.seatsToOpen = false;
+  },
+  closeSeatsToDropdown() {
+    this.seatsToOpen = false;
+    document.removeEventListener('click', this.closeSeatsToDropdownOnClickOutside);
+  },
+	  },
 };
 </script>
 <style scoped>

@@ -1,7 +1,45 @@
 <template>
   <div class="pl-[20px]">
-    <div class="price-tab flex items-center gap-[20px] lg gap-[20px]:lg:gap-[80px]">
-      <div class="price">
+    <div
+      class="price-tab flex items-center gap-[20px] lg gap-[20px]:lg:gap-[80px]"
+    >
+      <div class="price dropdown-container">
+        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="price"
+            @focus="openPriceDropdown"
+            @blur="closePriceDropdown"
+          />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openPriceDropdown"
+          >
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
+        </div>
+        <ul
+          v-if="priceOpen"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+				<ul>
+  <li data-value="50" @click="selectNumberPrice(50)">50 € mtl</li>
+  <li data-value="100" @click="selectNumberPrice(100)">100 € mtl</li>
+  <li data-value="150" @click="selectNumberPrice(150)">150 € mtl</li>
+  <li data-value="200" @click="selectNumberPrice(200)">200 € mtl</li>
+  <li data-value="250" @click="selectNumberPrice(250)">250 € mtl</li>
+  <li data-value="300" @click="selectNumberPrice(300)">300 € mtl</li>
+</ul>
+
+        </ul>
+      </div>
+      <!-- <div class="price">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="marke_select_div relative mt-[10px]">
           <input
@@ -27,7 +65,7 @@
             class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
           ></span>
         </div>
-      </div>
+      </div> -->
       <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
@@ -54,7 +92,9 @@
       </div>
     </div>
     <div class="line mt-[30px]"></div>
-    <div class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]">
+    <div
+      class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
+    >
       <div>
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.registration") }}
@@ -75,7 +115,7 @@
             <option v-for="year in modelYears" :key="year" :value="year">
               {{ year }}
             </option>
-						<option value="1985">1985</option>
+            <option value="1985">1985</option>
             <option value="1980">1980</option>
             <option value="1975">1975</option>
             <option value="1970">1970</option>
@@ -104,20 +144,22 @@
           <option v-for="year in modelYears" :key="year" :value="year">
             {{ year }}
           </option>
-					<option value="1985">1985</option>
-            <option value="1980">1980</option>
-            <option value="1975">1975</option>
-            <option value="1970">1970</option>
-            <option value="1965">1965</option>
-            <option value="1960">1960</option>
-            <option value="1900">1900</option>
+          <option value="1985">1985</option>
+          <option value="1980">1980</option>
+          <option value="1975">1975</option>
+          <option value="1970">1970</option>
+          <option value="1965">1965</option>
+          <option value="1960">1960</option>
+          <option value="1900">1900</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div>
     </div>
-    <div class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]">
+    <div
+      class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
+    >
       <div class="">
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.kilometr") }}
@@ -163,7 +205,7 @@
         <input
           placeholder="to"
           id="inputYear"
-          class="mark_input  mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           type="number"
           pattern="\d*"
           v-model="killometresTo"
@@ -225,7 +267,7 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-			<label
+      <label
         class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
@@ -233,7 +275,7 @@
           type="checkbox"
           v-model="isCheckedHistory"
           @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600 "
+          class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
           class="icon mt-[10px]"
@@ -252,7 +294,7 @@
 
         <span class="text-sm p]b-[20px">Full Service History</span>
       </label>
-			<label
+      <label
         class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
@@ -370,10 +412,8 @@
           pattern="\d*"
         />
       </div>
-			<div class="">
-        <h2 class="text-sm lg:text-[14px] mt-2">
-          Radius
-        </h2>
+      <div class="">
+        <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
         <!-- KIllometer bis -->
         <div class="marke_select_div flex relative mt-[10px]">
           <input
@@ -382,20 +422,20 @@
             class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
-						v-model="radius"
+            v-model="radius"
             readonly
           />
           <select
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:left-[180px] text-[10px] lg:text-[12px]"
-						v-model="selectedRadius"
-          @change="updateRadius"
+            v-model="selectedRadius"
+            @change="updateRadius"
           >
-					<option value="10">10 km</option>
-          <option value="20">20 km</option>
-          <option value="50">50 km</option>
-          <option value="100">100 km</option>	
-          <option value="200">200 km</option>	
-          <option value="500">500 km</option>
+            <option value="10">10 km</option>
+            <option value="20">20 km</option>
+            <option value="50">50 km</option>
+            <option value="100">100 km</option>
+            <option value="200">200 km</option>
+            <option value="500">500 km</option>
           </select>
           <span
             class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
@@ -406,27 +446,27 @@
   </div>
 </template>
 <script>
-import axios from 'axios';
-import {ref} from 'vue'
+import axios from "axios";
+import { ref } from "vue";
 export default {
-	setup() {
+  setup() {
     const isCheckedHistory = ref(false);
     const isCheckedRoad = ref(false);
- 
+
     const toggleShowCheckbox = (index) => {
       isCheckedRoad[index] = !isCheckedRoad[index];
     };
 
     return {
       isCheckedRoad,
-			isCheckedHistory,
+      isCheckedHistory,
       toggleShowCheckbox,
     };
   },
   data() {
     return {
       price: "",
-			radius: "",
+      radius: "",
       priceTo: "",
       selectedYear: "",
       selectedRadius: "",
@@ -440,9 +480,22 @@ export default {
       selectedMakeTo: "",
       selectedPrice: "",
       selectedPriceTo: "",
+      priceOpen: false,
     };
   },
   methods: {
+    openPriceDropdown() {
+      this.priceOpen = true;
+      this.filteredOptions = this.options;
+    },
+    selectNumberPrice(option) {
+      this.price = option;
+      this.priceOpen = false;
+    },
+    closePriceDropdown() {
+      this.priceOpen = false;
+    },
+
     updateSelectYear() {
       this.years = this.selectedYear;
       this.selectedYear = this.selectedMake;
@@ -473,7 +526,8 @@ export default {
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
-      axios.get(apiUrl)
+      axios
+        .get(apiUrl)
         .then((response) => {
           const data = response.data;
           this.modelYears = data.Results.map((result) => result.ModelYear);
@@ -484,7 +538,7 @@ export default {
     },
   },
   mounted() {
-    this.fetchModelYears()
+    this.fetchModelYears();
   },
 };
 </script>
@@ -523,10 +577,10 @@ input[type="checkbox"]:disabled {
 }
 .mark-select {
   border: 1px solid #111;
-}	
-.mark-input2{
-	border-top-right-radius: 10px;
-	border-bottom-right-radius: 10px;
+}
+.mark-input2 {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
 }
 select::-webkit-scrollbar {
   width: 0;
@@ -539,5 +593,34 @@ select::-webkit-scrollbar {
 .line {
   border: 1px solid grey;
   height: 1px;
+}
+.dropdown-container {
+  position: relative;
+  display: inline-block;
+}
+
+.input-container {
+  position: relative;
+}
+
+.dropdown-options {
+  position: absolute;
+  z-index: 1;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.dropdown-options li {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.dropdown-options li:hover {
+  background-color: #f0f0f0;
 }
 </style>
