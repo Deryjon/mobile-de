@@ -82,8 +82,7 @@
           ></span>
         </div>
       </div> -->
-			<div class="power-to dropdown-container mt-[27px]">
-
+      <div class="power-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
@@ -194,49 +193,87 @@
     >
       <div>
         <h2 class="text-sm lg:text-[14px] mt-2">Cubic capacity</h2>
-        <div class="relative mt-[10px]">
-          <input
-            placeholder="from"
-            class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
-            type="number"
-            pattern="\d*"
-            v-model="years"
-          />
-          <select
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            v-model="selectedYear"
-            @change="updateSelectYear"
+        <div class="cubic dropdown-container">
+          <div class="input-container flex relative mt-[10px]">
+            <input
+              type="from"
+              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              placeholder="from"
+              v-model="cubic"
+              @focus="openCubicDropdown"
+              @input="filterOptions"
+              @blur="closeCubicDropdown"
+            />
+
+            <div
+              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+              @click="openCubicDropdown"
+            >
+              <span
+                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+              ></span>
+            </div>
+          </div>
+          <ul
+            v-if="isOpenCubic"
+            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
           >
-            <option v-for="year in modelYears" :key="year" :value="year">
-              {{ year }}
-            </option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[6px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-          ></span>
+            <li @click="selectCubic('any')" data-key="">Any</li>
+            <li @click="selectCubic('1000')" data-key="1000">1,000 cm³</li>
+            <li @click="selectCubic('1200')" data-key="1200">1,200 cm³</li>
+            <li @click="selectCubic('1400')" data-key="1400">1,400 cm³</li>
+            <li @click="selectCubic('1600')" data-key="1600">1,600 cm³</li>
+            <li @click="selectCubic('1800')" data-key="1800">1,800 cm³</li>
+            <li @click="selectCubic('2000')" data-key="2000">2,000 cm³</li>
+            <li @click="selectCubic('2600')" data-key="2600">2,600 cm³</li>
+            <li @click="selectCubic('3000')" data-key="3000">3,000 cm³</li>
+            <li @click="selectCubic('5000')" data-key="5000">5,000 cm³</li>
+            <li @click="selectCubic('7500')" data-key="7500">7,500 cm³</li>
+            <li @click="selectCubic('8000')" data-key="8000">8,000 cm³</li>
+            <li @click="selectCubic('9000')" data-key="9000">9,000 cm³</li>
+          </ul>
         </div>
       </div>
-      <div class="relative mt-[35px]">
-        <input
-          placeholder="to"
-          class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
-          type="number"
-          pattern="\d*"
-          v-model="years"
-        />
-        <select
-          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-          v-model="selectedtoYear"
-          @change="updateSelectYear"
-        >
-          <option v-for="year in modeltoYears" :key="year" :value="year">
-            {{ year }}
-          </option>
-        </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-        ></span>
-      </div>
+      <div class="cubic-to dropdown-container mt-[27px]">
+          <div class="input-container flex relative mt-[10px]">
+            <input
+              type="from"
+              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              placeholder="from"
+              v-model="cubicTo"
+              @focus="openCubicToDropdown"
+              @input="filterOptions"
+              @blur="closeCubicToDropdown"
+            />
+
+            <div
+              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+              @click="openCubicToDropdown"
+            >
+              <span
+                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+              ></span>
+            </div>
+          </div>
+          <ul
+            v-if="isOpenCubicTo"
+            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          >
+            <li @click="selectCubicTo('any')" data-key="">Any</li>
+            <li @click="selectCubicTo('1000')" data-key="1000">1,000 cm³</li>
+            <li @click="selectCubicTo('1200')" data-key="1200">1,200 cm³</li>
+            <li @click="selectCubicTo('1400')" data-key="1400">1,400 cm³</li>
+            <li @click="selectCubicTo('1600')" data-key="1600">1,600 cm³</li>
+            <li @click="selectCubicTo('1800')" data-key="1800">1,800 cm³</li>
+            <li @click="selectCubicTo('2000')" data-key="2000">2,000 cm³</li>
+            <li @click="selectCubicTo('2600')" data-key="2600">2,600 cm³</li>
+            <li @click="selectCubicTo('3000')" data-key="3000">3,000 cm³</li>
+            <li @click="selectCubicTo('5000')" data-key="5000">5,000 cm³</li>
+            <li @click="selectCubicTo('7500')" data-key="7500">7,500 cm³</li>
+            <li @click="selectCubicTo('8000')" data-key="8000">8,000 cm³</li>
+            <li @click="selectCubicTo('9000')" data-key="9000">9,000 cm³</li>
+          </ul>
+        </div>
     </div>
     <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-[100px]">
@@ -430,6 +467,8 @@ export default {
   data() {
     return {
       price: "",
+			cubic: "",
+			cubicTo: "",
       selectedYear: "",
       selectedtoYear: "",
       years: "",
@@ -444,13 +483,70 @@ export default {
       selectedCondition: "",
       isOpenPower: false,
       isOpenPowerTo: false,
+			isOpenCubic: false,
+			isOpenCubicTo: false,
     };
   },
   methods: {
-		openPowerToDropdown() {
+		openCubicToDropdown() {
+      this.isOpenCubicTo = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeCubicToDropdownOnClickOutside
+      );
+    },
+    selectCubicTo(option) {
+      this.cubicTo = option;
+      this.isOpenCubicTo = false;
+    },
+    closeCubicToDropdown() {
+      this.isOpenCubicTo = false;
+    },
+    closeCubicToDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".cubic-to");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenCubicTo = false;
+        document.removeEventListener(
+          "click",
+          this.closeCubicToDropdownOnClickOutside
+        );
+      }
+    },
+		// 
+		openCubicDropdown() {
+      this.isOpenCubic = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeCubicDropdownOnClickOutside
+      );
+    },
+    selectCubic(option) {
+      this.cubic = option;
+      this.isOpenCubic = false;
+    },
+    closeCubicDropdown() {
+      this.isOpenCubic = false;
+    },
+    closeCubicDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".cubic");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenCubic = false;
+        document.removeEventListener(
+          "click",
+          this.closeCubicDropdownOnClickOutside
+        );
+      }
+    },
+		// 
+    openPowerToDropdown() {
       this.isOpenPowerTo = true;
       this.filteredOptions = this.options;
-      document.addEventListener("click", this.closePowerToDropdownOnClickOutside);
+      document.addEventListener(
+        "click",
+        this.closePowerToDropdownOnClickOutside
+      );
     },
     selectPowerTo(option) {
       this.powerTo = option;
@@ -469,7 +565,7 @@ export default {
         );
       }
     },
-		// 
+    //
     openPowerDropdown() {
       this.isOpenPower = true;
       this.filteredOptions = this.options;
