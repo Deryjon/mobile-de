@@ -1,7 +1,8 @@
 <template>
-  <div class="actions gap-[10px] items-center mt-[25px]">
+  <div class="actions gap-[10px] items-center ">
     <div class="language dropdown-container">
-      <div class="input-container flex relative">
+			<h2 class="text-[14px]">Language</h2>
+      <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
@@ -115,7 +116,8 @@
 
     <!--  -->
 		<div class="country dropdown-container">
-      <div class="input-container flex relative">
+			<h2 class="text-[14px]">Country</h2>
+      <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openCountryDropdown"
@@ -291,7 +293,7 @@
     <!--  -->
 
     <button
-      class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
+      class="btn outline-none mt-[20px] rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
