@@ -114,7 +114,157 @@
 			</div> -->
 
     <!--  -->
-    <div class="web-side relative inline-block">
+		<div class="country dropdown-container">
+      <div class="input-container flex relative">
+        <div
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          @focus="openCountryDropdown"
+          @blur="closeCountryDropdown"
+          @click="openCountryDropdown"
+        >
+          <p>{{ inputCountry }}</p>
+        </div>
+
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+        ></span>
+      </div>
+      <ul
+        v-if="isOpen"
+        class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
+      >
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/be.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="be" @click="selectCountry('Belgium')">Belgium</li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ca.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="can" @click="selectCountry('Canda')">Canda</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/dk.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="dk" @click="selectCountry('Danmark')">
+            Danmark
+          </li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/us.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="us" @click="selectCountry('England')">
+            England
+          </li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/fr.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="fr" @click="selectCountry('France')">
+						France          </li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/de.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="gr" @click="selectCountry('Germany')">Germany</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/it.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="ita" @click="selectCountry('Italy')">
+            Italy
+          </li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/nl.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="nt" @click="selectCountry( 'Netherland')">
+            Netherland
+          </li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ma.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="mor" @click="selectCountry( 'Morocco')">
+            Morocco
+          </li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/pl.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="mor" @click="selectCountry( 'Poland')">
+            Poland
+          </li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ru.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="mor" @click="selectCountry( 'Russa')">
+            Russa
+          </li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/es.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="sp" @click="selectCountry( 'Spanien')">
+            Spanien
+          </li>
+        </div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/se.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="sp" @click="selectCountry( 'Sweden')">
+            Sweden
+          </li>
+        </div>
+      </ul>
+    </div>
+    <!-- <div class="web-side relative inline-block">
       <select
         name=""
         class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
@@ -137,7 +287,7 @@
         </optgroup>
       </select>
       <span class="arrow w-[7px] h-[7px]"></span>
-    </div>
+    </div> -->
     <!--  -->
 
     <button
@@ -171,6 +321,7 @@ export default defineComponent({
       isOpenKilometer: false,
       isOpenPrice: false,
       inputValue: "",
+      inputCountry: "Sweden",
       inputKilometer: "",
       inputPrice: "English",
       options: [],
@@ -178,6 +329,30 @@ export default defineComponent({
     };
   },
   methods: {
+		openCountryDropdown() {
+      this.isOpen = true;
+      this.filteredOptions = this.options;
+      document.addEventListener("click", this.closeCountryDropdownOnClickOutside);
+    },
+		closeCountryDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".country");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeCountryDropdownOnClickOutside
+        );
+      }
+    },
+		closeCountryDropdown() {
+      this.isOpen = false;
+    },
+		selectCountry(option){
+			this.inputCountry = option;
+			this.isOpen = false;
+
+		},
+		// 	
     changeLanguage() {
       localStorage.setItem("lang", this.language);
       localStorage.setItem("name", this.inputValue);
