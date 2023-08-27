@@ -37,9 +37,9 @@ export default {
     return {
       activeIndex: 0,
       images: [
-        { src: 'https://hips.hearstapps.com/hmg-prod/images/ek-bmw-m4-01917-1-1621906813.jpg?crop=1.00xw:0.754xh;0,0.215xh&resize=1200:*', alt: '' },
-        { src: 'https://www.topgear.com/sites/default/files/cars-car/carousel/2020/10/p90403633_highres_bmw-m5-competition.jpg', alt: '' },
-        { src: 'https://luxangeleyes.com/cdn/shop/products/TaylorA.jpg?v=1604885192', alt: '' },
+        { src: 'https://gaadiwaadi.com/wp-content/uploads/2020/01/Changan-CS75-Plus-7-1280x720.jpg', alt: '' },
+        { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-dashboard-view-246796.jpg', alt: '' },
+        { src: 'https://imgcdn.zigwheels.ph/large/gallery/exterior/138/3010/changan-cs75-plus-rear-angle-view-222963.jpg', alt: '' },
         // ... add other image objects here
       ],
       intervalId: null,
