@@ -40,6 +40,7 @@ export default {
         { src: 'https://gaadiwaadi.com/wp-content/uploads/2020/01/Changan-CS75-Plus-7-1280x720.jpg', alt: '' },
         { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-dashboard-view-246796.jpg', alt: '' },
         { src: 'https://imgcdn.zigwheels.ph/large/gallery/exterior/138/3010/changan-cs75-plus-rear-angle-view-222963.jpg', alt: '' },
+        { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-rd-row-seat-417889.jpg', alt: '' },
         // ... add other image objects here
       ],
       intervalId: null,
