@@ -1,13 +1,11 @@
 <template>
-  <div class="actions gap-[10px] items-center ">
+  <div class="actions gap-[10px] items-center">
     <div class="language dropdown-container">
-			<h2 class="text-[14px]">Language</h2>
+      <h2 class="text-[14px]">Language</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          @focus="openPriceDropdown"
-          @blur="closePriceDropdown"
-          @click="openPriceDropdown"
+          @click="toggleLanguageDropdown"
         >
           <p>{{ inputValue }}</p>
         </div>
@@ -17,7 +15,7 @@
         ></span>
       </div>
       <ul
-        v-if="isOpenPrice"
+        v-if="isOpenLanguage"
         class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
       >
         <div class="flex items-center">
@@ -28,16 +26,16 @@
           />
           <li data-key @click="selectLanguage('en', 'English')">English</li>
         </div>
-				<div class="flex items-center">
-					<img
-						src="../../../assets/icons/de.svg"
-						class="w-[50px] h-[20px]"
-						alt=""
-					/>
-					<li data-key="gr" @click="selectLanguage('gr', 'Germany')">
-						Germany
-					</li>
-				</div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/de.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="gr" @click="selectLanguage('gr', 'Germany')">
+            Germany
+          </li>
+        </div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/fr.svg"
@@ -47,25 +45,25 @@
           <li data-key="fr" @click="selectLanguage('fr', 'French')">French</li>
         </div>
 
-				<div class="flex items-center">
-					<img
-						src="../../../assets/icons/ru.svg"
-						class="w-[50px] h-[20px]"
-						alt=""
-					/>
-					<li data-key="ru" @click="selectLanguage('ru', 'Russia')">Russia</li>
-				</div>
-				
-				<div class="flex items-center">
-					<img
-						src="../../../assets/icons/pl.svg"
-						class="w-[50px] h-[20px]"
-						alt=""
-					/>
-					<li data-key="pol" @click="selectLanguage('pol', 'Polish')">
-						Polish
-					</li>
-				</div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ru.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="ru" @click="selectLanguage('ru', 'Russia')">Russia</li>
+        </div>
+
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/pl.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="pol" @click="selectLanguage('pol', 'Polish')">
+            Polish
+          </li>
+        </div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/es.svg"
@@ -87,8 +85,6 @@
             Swedish
           </li>
         </div>
-
-
       </ul>
     </div>
     <!--	 <div class="language relative inline-block">
@@ -115,14 +111,12 @@
 			</div> -->
 
     <!--  -->
-		<div class="country dropdown-container">
-			<h2 class="text-[14px]">Country</h2>
+    <div class="country dropdown-container">
+      <h2 class="text-[14px]">Country</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          @focus="openCountryDropdown"
-          @blur="closeCountryDropdown"
-          @click="openCountryDropdown"
+          @click="toggleCountryDropdown"
         >
           <p>{{ inputCountry }}</p>
         </div>
@@ -132,7 +126,7 @@
         ></span>
       </div>
       <ul
-        v-if="isOpen"
+        v-if="isOpenCountry"
         class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
       >
         <div class="flex items-center">
@@ -158,9 +152,7 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="dk" @click="selectCountry('Danmark')">
-            Danmark
-          </li>
+          <li data-key="dk" @click="selectCountry('Danmark')">Danmark</li>
         </div>
 
         <div class="flex items-center">
@@ -169,9 +161,7 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="us" @click="selectCountry('England')">
-            England
-          </li>
+          <li data-key="us" @click="selectCountry('England')">England</li>
         </div>
 
         <div class="flex items-center">
@@ -180,8 +170,7 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="fr" @click="selectCountry('France')">
-						France          </li>
+          <li data-key="fr" @click="selectCountry('France')">France</li>
         </div>
 
         <div class="flex items-center">
@@ -199,50 +188,40 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="ita" @click="selectCountry('Italy')">
-            Italy
-          </li>
+          <li data-key="ita" @click="selectCountry('Italy')">Italy</li>
         </div>
-				<div class="flex items-center">
-					<img
-						src="../../../assets/icons/ma.svg"
-						class="w-[50px] h-[20px]"
-						alt=""
-					/>
-					<li data-key="mor" @click="selectCountry( 'Morocco')">
-						Morocco
-					</li>
-				</div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ma.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="mor" @click="selectCountry('Morocco')">Morocco</li>
+        </div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/nl.svg"
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="nt" @click="selectCountry( 'Netherland')">
-            Netherland
-          </li>
+          <li data-key="nt" @click="selectCountry('Netherland')">Netherland</li>
         </div>
 
-				<div class="flex items-center">
-					<img
-						src="../../../assets/icons/ru.svg"
-						class="w-[50px] h-[20px]"
-						alt=""
-					/>
-					<li data-key="mor" @click="selectCountry( 'Russa')">
-						Russa
-					</li>
-				</div>
+        <div class="flex items-center">
+          <img
+            src="../../../assets/icons/ru.svg"
+            class="w-[50px] h-[20px]"
+            alt=""
+          />
+          <li data-key="mor" @click="selectCountry('Russa')">Russa</li>
+        </div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/pl.svg"
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="mor" @click="selectCountry( 'Poland')">
-            Poland
-          </li>
+          <li data-key="mor" @click="selectCountry('Poland')">Poland</li>
         </div>
         <div class="flex items-center">
           <img
@@ -250,9 +229,7 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="sp" @click="selectCountry( 'Spanien')">
-            Spanien
-          </li>
+          <li data-key="sp" @click="selectCountry('Spanien')">Spanien</li>
         </div>
         <div class="flex items-center">
           <img
@@ -260,9 +237,7 @@
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="sp" @click="selectCountry( 'Sweden')">
-            Sweden
-          </li>
+          <li data-key="sp" @click="selectCountry('Sweden')">Sweden</li>
         </div>
       </ul>
     </div>
@@ -319,9 +294,8 @@ export default defineComponent({
   data() {
     return {
       language: null,
-      isOpen: false,
-      isOpenKilometer: false,
-      isOpenPrice: false,
+      isOpenCountry: false,
+      isOpenLanguage: false,
       inputValue: "",
       inputCountry: "Sweden",
       inputKilometer: "",
@@ -331,44 +305,56 @@ export default defineComponent({
     };
   },
   methods: {
-		openCountryDropdown() {
-      this.isOpen = true;
+    toggleLanguageDropdown() {
+      if (this.isOpenLanguage) {
+        this.isOpenLanguage = false; // Close the other dropdown
+      } else {
+        this.isOpenLanguage = true;
+      }
       this.filteredOptions = this.options;
-      document.addEventListener("click", this.closeCountryDropdownOnClickOutside);
+      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
     },
-		closeCountryDropdownOnClickOutside(event) {
+    toggleCountryDropdown() {
+      if (this.isOpenCountry) {
+        this.isOpenCountry = false;
+      } else {
+        this.isOpenCountry = true;
+      }
+
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closeCountryDropdownOnClickOutside
+      );
+    },
+    closeCountryDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".country");
       if (!dropdownElement.contains(event.target)) {
-        this.isOpen = false;
+        this.isOpenCountry = false;
         document.removeEventListener(
           "click",
           this.closeCountryDropdownOnClickOutside
         );
       }
     },
-		closeCountryDropdown() {
+    closeCountryDropdown() {
       this.isOpen = false;
     },
-		selectCountry(option){
-			this.inputCountry = option;
-			this.isOpen = false;
-
-		},
-		// 	
+    selectCountry(option) {
+      this.inputCountry = option;
+      this.isOpen = false;
+    },
+    //
     changeLanguage() {
       localStorage.setItem("lang", this.language);
       localStorage.setItem("name", this.inputValue);
       window.location.reload();
     },
-    openPriceDropdown() {
-      this.isOpenPrice = true;
-      this.filteredOptions = this.options;
-      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
-    },
+
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".language");
       if (!dropdownElement.contains(event.target)) {
-        this.isOpenPrice = false;
+        this.isOpenLanguage = false;
         document.removeEventListener(
           "click",
           this.closePriceDropdownOnClickOutside
@@ -380,9 +366,6 @@ export default defineComponent({
       this.language = key;
       this.isOpenLanguage = false;
       this.changeLanguage(); // Вызываем функцию смены языка при выборе
-    },
-    closeDropdown() {
-      this.isOpen = false;
     },
   },
   created() {
@@ -456,7 +439,7 @@ select:focus {
 
 .dropdown-options {
   position: absolute;
-bottom: 35px;
+  bottom: 35px;
   list-style: none;
   padding: 0;
   margin: 0;

@@ -6,7 +6,7 @@
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
-          @blur="closePriceDropdown"
+    
           @click="openPriceDropdown"
         >
           <p>{{ inputValue }}</p>
@@ -124,7 +124,7 @@
           @blur="closeCountryDropdown"
           @click="openCountryDropdown"
         >
-          <p>{{ inputCountry }}</p>
+          <p>{{ inputCountry }}, Stockholm</p>
         </div>
 
         <span
@@ -332,7 +332,11 @@ export default defineComponent({
   },
   methods: {
 		openCountryDropdown() {
-      this.isOpen = true;
+      if (this.isOpen) {
+        this.isOpen = false; // Close the other dropdown
+      } else {
+        this.isOpen = true;
+      }
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closeCountryDropdownOnClickOutside);
     },
@@ -361,7 +365,11 @@ export default defineComponent({
       window.location.reload();
     },
     openPriceDropdown() {
-      this.isOpenPrice = true;
+      if (this.isOpenPrice) {
+        this.isOpenPrice = false; // Close the other dropdown
+      } else {
+        this.isOpenPrice = true;
+      }
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closePriceDropdownOnClickOutside);
     },
