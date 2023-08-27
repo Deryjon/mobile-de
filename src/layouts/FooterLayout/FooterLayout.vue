@@ -5,7 +5,8 @@
   >
     <v-container class="">
       <div class="actions flex h-[50px] items-center gap-[10px]">
-        <HeaderActions class="hidden lg:flex mx-[150px]" />
+				<FooterActions class="hidden lg:flex mx-[150px]"/>
+        
         <HeaderSwitcherTheme class="mt-[21px] hidden lg:flex" />
         <HeaderContact class="mt-[21px] hidden lg:flex" />
       </div>
@@ -13,7 +14,7 @@
   </footer>
 </template>
 <script>
-import HeaderActions from "../HeaderLayout/components/HeaderActions.vue";
+import FooterActions from "../FooterLayout/components/FooterActions.vue";
 import HeaderSwitcherTheme from "../HeaderLayout/components/HeaderSwitcherTheme.vue";
 import HeaderContact from "../HeaderLayout/components/HeaderContact.vue";
 import { useDarkModeStore } from "@/store/dark-mode.js";
@@ -40,7 +41,7 @@ export default {
     },
   },
   components: {
-    HeaderActions,
+    FooterActions,
     HeaderSwitcherTheme,
     HeaderContact,
   },
