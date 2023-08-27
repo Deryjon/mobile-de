@@ -2,10 +2,10 @@
   <header class=""
 	:class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
 	>
-    <v-container class="flex z-50 items-center justify-between "
+    <v-container class="flex z-50 items-center gap-[40px] w-[1110px] mx-auto"
 		
 		>
-      <HeaderLogo />
+      <HeaderLogo class="" />
 
       <div class="actions flex h-[50px] items-center gap-[10px]">
         <HeaderActions class="hidden lg:flex"/>

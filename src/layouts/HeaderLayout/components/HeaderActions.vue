@@ -22,7 +22,7 @@
       >
         <div class="flex items-center">
           <img
-            src="../../../assets/icons/us.svg"
+            src="../../../assets/icons/gb.svg"
             class="w-[50px] h-[20px]"
             alt=""
           />
@@ -165,7 +165,7 @@
 
         <div class="flex items-center">
           <img
-            src="../../../assets/icons/us.svg"
+            src="../../../assets/icons/gb.svg"
             class="w-[50px] h-[20px]"
             alt=""
           />
