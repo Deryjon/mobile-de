@@ -28,26 +28,44 @@
           />
           <li data-key @click="selectLanguage('en', 'English')">English</li>
         </div>
+				<div class="flex items-center">
+					<img
+						src="../../../assets/icons/de.svg"
+						class="w-[50px] h-[20px]"
+						alt=""
+					/>
+					<li data-key="gr" @click="selectLanguage('gr', 'Germany')">
+						Germany
+					</li>
+				</div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/fr.svg"
             class="w-[50px] h-[20px]"
             alt=""
           />
-          <li data-key="fr" @click="selectLanguage('fr', 'France')">France</li>
+          <li data-key="fr" @click="selectLanguage('fr', 'French')">French</li>
         </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/de.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="gr" @click="selectLanguage('gr', 'Germany')">
-            Germany
-          </li>
-        </div>
-
+				<div class="flex items-center">
+					<img
+						src="../../../assets/icons/ru.svg"
+						class="w-[50px] h-[20px]"
+						alt=""
+					/>
+					<li data-key="ru" @click="selectLanguage('ru', 'Russia')">Russia</li>
+				</div>
+				
+				<div class="flex items-center">
+					<img
+						src="../../../assets/icons/pl.svg"
+						class="w-[50px] h-[20px]"
+						alt=""
+					/>
+					<li data-key="pol" @click="selectLanguage('pol', 'Polish')">
+						Polish
+					</li>
+				</div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/es.svg"
@@ -70,25 +88,7 @@
           </li>
         </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/ru.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="ru" @click="selectLanguage('ru', 'Russa')">Russa</li>
-        </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/pl.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="pol" @click="selectLanguage('pol', 'Polish')">
-            Polish
-          </li>
-        </div>
       </ul>
     </div>
     <!--	 <div class="language relative inline-block">
@@ -203,6 +203,16 @@
             Italy
           </li>
         </div>
+				<div class="flex items-center">
+					<img
+						src="../../../assets/icons/ma.svg"
+						class="w-[50px] h-[20px]"
+						alt=""
+					/>
+					<li data-key="mor" @click="selectCountry( 'Morocco')">
+						Morocco
+					</li>
+				</div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/nl.svg"
@@ -214,16 +224,16 @@
           </li>
         </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/ma.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="mor" @click="selectCountry( 'Morocco')">
-            Morocco
-          </li>
-        </div>
+				<div class="flex items-center">
+					<img
+						src="../../../assets/icons/ru.svg"
+						class="w-[50px] h-[20px]"
+						alt=""
+					/>
+					<li data-key="mor" @click="selectCountry( 'Russa')">
+						Russa
+					</li>
+				</div>
         <div class="flex items-center">
           <img
             src="../../../assets/icons/pl.svg"
@@ -232,16 +242,6 @@
           />
           <li data-key="mor" @click="selectCountry( 'Poland')">
             Poland
-          </li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/ru.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="mor" @click="selectCountry( 'Russa')">
-            Russa
           </li>
         </div>
         <div class="flex items-center">
