@@ -428,17 +428,17 @@ export default defineComponent({
 			citiesData: {
 			
 Belgium: ["Brussels", "Antwerp", "Ghent", "Bruges", "Liege", "Namur", "Leuven", "Mechelen", "Charleroi", "Hasselt"],
-Canada: ["Toronto", "Vancouver", "Montreal", "Calgary", "Edmonton", "Ottawa", "Quebec City", "Winnipeg", "Halifax", "Victoria"],
-Denmark: ["Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Kolding", "Horsens", "Vejle", "Roskilde"],
+Canda: ["Toronto", "Vancouver", "Montreal", "Calgary", "Edmonton", "Ottawa", "Quebec City", "Winnipeg", "Halifax", "Victoria"],
+Danmark: ["Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Kolding", "Horsens", "Vejle", "Roskilde"],
 England: ["London", "Manchester", "Birmingham", "Liverpool", "Leeds", "Newcastle", "Bristol", "Sheffield", "Edinburgh", "Glasgow"],
 France: ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille"],
 Germany: ["Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Stuttgart", "Dusseldorf", "Dortmund", "Essen", "Leipzig"],
 Italy: ["Rome", "Milan", "Venice", "Florence", "Naples", "Turin", "Bologna", "Genoa", "Palermo", "Verona"],
 Morocco: ["Casablanca", "Marrakech", "Fez", "Rabat", "Tangier", "Agadir", "Meknes", "Oujda", "Kenitra", "Fes"],
 Netherlands: ["Amsterdam", "Rotterdam", "Utrecht", "The Hague", "Eindhoven", "Tilburg", "Groningen", "Almere", "Breda", "Nijmegen"],
-Russia: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Kazan", "Nizhny Novgorod", "Chelyabinsk", "Samara", "Omsk", "Rostov-on-Don"],
+Russa: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Kazan", "Nizhny Novgorod", "Chelyabinsk", "Samara", "Omsk", "Rostov-on-Don"],
 Poland: ["Warsaw", "Krakow", "Wroclaw", "Poznan", "Gdansk", "Szczecin", "Bydgoszcz", "Lodz", "Katowice", "Lublin"],
-Spain: ["Madrid", "Barcelona", "Seville", "Valencia", "Bilbao", "Malaga", "Zaragoza", "Murcia", "Palma de Mallorca", "Alicante"],
+Spanien: ["Madrid", "Barcelona", "Seville", "Valencia", "Bilbao", "Malaga", "Zaragoza", "Murcia", "Palma de Mallorca", "Alicante"],
 Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "Linkoping", "Helsingborg", "Jonkoping", "Norrkoping"],
       
     },
@@ -469,6 +469,7 @@ Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "L
     },
 		selectCity(city) {
       this.selectedCity  = city;
+			this.isCities = false;
 
     },
     openCountryDropdown() {
