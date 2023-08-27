@@ -7,10 +7,9 @@
 	</section>
 </template>
 <script>
-import FormLogin from '../../components/FormLogin.vue'
-import HeaderLayout from '../../layouts/HeaderLayout/HeaderLayout.vue';
+import FormLogin from './components/FormLogin.vue'
 export default{
-components:{ FormLogin, HeaderLayout }
+components:{ FormLogin }
 }
 </script>
 <style scoped>

@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomePage/HomeView.vue'
 const LogView = () => import("../views/LogoutPage/LogView.vue");
-const ForgetView = () => import("../views/LogoutPage/ForgetView.vue");
 const CarFilterView = () => import("../views/CarFilterPage/CarFilterView.vue");
 const MotorbikeFilterView = () => import("../views/MotorbikeFilterPage/MotorbikeFilterView.vue");
 const VansFilterView = () => import("../views/VansFilterPage/VansFilterView.vue");
@@ -18,11 +17,6 @@ const router = createRouter({
       path: '/login',
       name: 'login',
       component: LogView
-    },
-    {
-      path: '/forget',
-      name: 'forget',
-      component: ForgetView
     },
     {
       path: '/car-filter',
