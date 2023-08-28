@@ -208,7 +208,6 @@
                 </p>
                 <label class="custom-checkbox">
                   <input
-									:disabled="isFormRegisterLogValid"
                     type="checkbox"
                     v-model="isChecked"
                     @click="toggleShowCheckbox()"
@@ -267,6 +266,8 @@ export default {
     const isActive = (tab) => {
 			return activeTab.value === tab;
     };
+		
+		const isChecked = ref(false);
     const showPassword = ref(false);
 
     const toggleShowPassword = () => {
@@ -280,6 +281,7 @@ export default {
     return {
       setActive,
       isActive,
+      isChecked,
       showPassword,
       toggleShowPassword,
       toggleShowCheckbox,
@@ -287,11 +289,11 @@ export default {
   },
   data() {
     return {
-      emailRegister: " ",
+      emailRegister: "",
       passwordRegister: "",
       isEmailValid: true,
       isPasswordValid: true,
-			isChecked: false,
+			isChecked: false
     };
   },
   methods: {
@@ -305,9 +307,7 @@ export default {
       // Пример проверки на длину пароля:
       this.isPasswordValid = this.passwordRegister.length >= 8;
     },
-		toggleShowCheckbox(){
-			this.isChecked = !this.isChecked
-		},
+
     createNewUser(email, password) {
       http.post("/user/register", {
         user_email: email,
@@ -323,9 +323,6 @@ export default {
   },
   components: { HeaderLogo, RightTabComponent },
   computed: {
-		isFormRegisterLogValid() {
-      return this.isEmailValid && this.isPasswordValid 
-    },
     isFormRegisterValid() {
       return this.isEmailValid && this.isPasswordValid && this.isChecked;
     },
