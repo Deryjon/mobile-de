@@ -256,7 +256,8 @@
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
-				<p >{{ selectedCities.length > 2 ? selectedCities.slice(0, 2).join(", ") + '...'  :   selectedCities.join(", ") }}</p>
+				<p>{{ selectedCities.length > 2 ? selectedCities.slice(0, 2).join(", ") + '...' : selectedCities.join(", ") }}</p>
+
         </div>
 
         <span
@@ -476,15 +477,19 @@ Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "L
       }
     },
 		selectCity(city) {
-    if (this.selectedCities.includes(city)) {
-      const index = this.selectedCities.indexOf(city);
-      if (index > -1) {
-        this.selectedCities.splice(index, 1);
-      }
-    } else {
-      this.selectedCities.push(city);
+  if (this.selectedCities.includes(city)) {
+    const index = this.selectedCities.indexOf(city);
+    if (index > -1) {
+      this.selectedCities.splice(index, 1);
     }
-  },
+
+  } else {
+    this.selectedCities.push(city);
+
+  }
+	console.log("Selected cities:", this.selectedCities);
+}
+,
 		// selectCity(city) {
     //   this.selectedCity  = city;
 		// 	this.isCities = false;
