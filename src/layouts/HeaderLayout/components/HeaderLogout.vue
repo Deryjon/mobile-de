@@ -1,7 +1,7 @@
 <template>
   <button
 	v-if="!hasToken"
-    class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[12px] text-xs font-normal lg:mt-[25px]"
+    class="btn bg-transparent outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[12px] text-xs font-normal lg:mt-[25px]"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >

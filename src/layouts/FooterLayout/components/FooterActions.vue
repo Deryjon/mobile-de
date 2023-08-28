@@ -1,7 +1,6 @@
 <template>
   <div class="actions gap-[10px] items-center">
     <div class="language dropdown-container">
-      <h2 class="text-[14px]">Language</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -296,8 +295,8 @@ export default defineComponent({
       language: null,
       isOpenCountry: false,
       isOpenLanguage: false,
-      inputValue: "",
-      inputCountry: "Sweden",
+      inputValue: "Language",
+      inputCountry: "Country",
       inputKilometer: "",
       inputPrice: "English",
       options: [],
@@ -370,9 +369,9 @@ export default defineComponent({
   },
   created() {
     if (localStorage.getItem("lang") == null) {
-      localStorage.setItem("lang", "sw");
+      localStorage.setItem("lang", "en");
     } else if (localStorage.getItem("name") == null) {
-      localStorage.setItem("name", "Swedish");
+      localStorage.setItem("name", "Language");
     }
     this.language = localStorage.getItem("lang");
     this.inputValue = localStorage.getItem("name");

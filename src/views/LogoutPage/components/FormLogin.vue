@@ -107,8 +107,10 @@
                 </p>
                 <button
                   type="submit"
+									:disabled="!isFormRegisterValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[30px]"
                   @click="LoginUser(email, password)"
+									:class="{ 'opacity-50': !isFormRegisterValid }"
                 >
                   Login
                 </button>
@@ -230,9 +232,9 @@
                 <button
                   @click="createNewUser(email, password)"
                   type="submit"
-                  :disabled="!isFormValid"
+                  :disabled="!isFormRegisterValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
-									:class="{ 'opacity-50': !isFormValid }"
+									:class="{ 'opacity-50': !isFormRegisterValid }"
                 >
                   Register
                 </button>
@@ -318,8 +320,11 @@ export default {
   },
   components: { HeaderLogo, RightTabComponent },
   computed: {
-    isFormValid() {
+    isFormRegisterValid() {
       return this.isEmailValid && this.isPasswordValid && this.isChecked;
+    },
+    isFormLoginValid() {
+      return this.isEmailValid && this.isPasswordValid 
     },
   },
 };

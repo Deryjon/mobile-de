@@ -1,7 +1,6 @@
 <template>
-  <div class="actions gap-[10px] items-center">
+  <div class="actions gap-[10px] items-center mt-[20px]">
     <div class="language dropdown-container">
-      <h2 class="text-[14px]">Language</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -113,7 +112,7 @@
 
     <!--  -->
     <div class="country dropdown-container">
-      <h2 class="text-[14px]">Country</h2>
+
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -248,8 +247,7 @@
         </div>
       </ul>
     </div>
-    <div class="cities dropdown-container" v-show="showCities">
-      <h2 class="text-[14px]">Cities</h2>
+    <div class="cities dropdown-container" >
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
@@ -407,7 +405,7 @@
         </div> -->
     </div>
     <button
-      class="btn outline-none mt-[20px] rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
+      class="btn dropdown-input	 bg-transparent outline-none mt-[5px] rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[3px] lg:py-[9px] lg:px-[5px] text-xs font-normal"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -437,15 +435,15 @@ export default defineComponent({
       isCities: false,
       isOpenKilometer: false,
       isOpenPrice: false,
-      inputValue: "",
-      inputCountry: "Sweden",
+      inputValue: "Language",
+      inputCountry: "Country",
       selectedCity: "",
       inputKilometer: "",
-      inputPrice: "English",
+      inputPrice: "Language",
       options: [],
       filteredOptions: [],
       showCities: false,
-      selectedCities: [],
+      selectedCities: ["Cities"],
       citiesData: {
         Belgium: [
           "Brussels",
@@ -672,15 +670,14 @@ export default defineComponent({
     },
     selectCountry(option) {
       this.inputCountry = option;
-      this.showCities = true;
       this.isOpen = false;
-      this.selectedCities = [];
+      this.selectedCities = [""];
     },
     //
     changeLanguage() {
       localStorage.setItem("lang", this.language);
       localStorage.setItem("name", this.inputValue);
-      localStorage.setItem("token", this.inputValue);
+      localStorage.setItem("token");
 
       window.location.reload();
     },
@@ -713,11 +710,11 @@ export default defineComponent({
       this.isOpen = false;
     },
   },
-  created() {
+  mounted() {
     if (localStorage.getItem("lang") == null) {
-      localStorage.setItem("lang", "sw");
+      localStorage.setItem("lang", "en");
     } else if (localStorage.getItem("name") == null) {
-      localStorage.setItem("name", "Swedish");
+      localStorage.setItem("name", "Language");
     }
     this.language = localStorage.getItem("lang");
     this.inputValue = localStorage.getItem("name");
@@ -747,9 +744,6 @@ select:focus {
   background-color: #526d82;
 }
 
-.btn {
-  border: 1px solid #7b7c80;
-}
 
 .btn:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
