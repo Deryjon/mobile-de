@@ -128,7 +128,7 @@
               class="mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto" />
-              <v-form @submit.prevent="signUp">
+              <v-form @submit.prevent="createNewUser">
                 <p class="font-bold text-[24px] text-center">
                   Create your sellcenter account!
                 </p>
@@ -232,7 +232,7 @@
                   the account settings).
                 </label>
                 <button
-                  @click="createNewUser(email, password)"
+                  @click="createNewUser(emailRegister, passwordRegister)"
                   type="submit"
                   :disabled="!isFormRegisterValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
@@ -264,18 +264,18 @@ export default {
       activeTab.value = tab;
     };
     const isActive = (tab) => {
-			return activeTab.value === tab;
+      return activeTab.value === tab;
     };
-		
-		const isChecked = ref(false);
+
+    const isChecked = ref(false);
     const showPassword = ref(false);
 
     const toggleShowPassword = () => {
-			showPassword.value = !showPassword.value;
+      showPassword.value = !showPassword.value;
     };
 
     const toggleShowCheckbox = () => {
-			isChecked.value = !isChecked.value;
+      isChecked.value = !isChecked.value;
     };
 
     return {
@@ -293,7 +293,7 @@ export default {
       passwordRegister: "",
       isEmailValid: true,
       isPasswordValid: true,
-			isChecked: false
+      isChecked: false,
     };
   },
   methods: {
@@ -309,11 +309,21 @@ export default {
     },
 
     createNewUser(email, password) {
-      http.post("/user/register", {
-        user_email: email,
-        user_password: password,
-      });
+      http
+        .post("/user/register", {
+          user_email: email,
+          user_password: password,
+        })
+        .then((response) => {
+          const responseData = response.data;
+
+          localStorage.setItem("token-register", responseData.token);
+        })
+        .catch((error) => {
+          console.error("Error fetching model years:", error);
+        });
     },
+
     LoginUser(email, password) {
       http.post("/user/login", {
         user_email: email,
