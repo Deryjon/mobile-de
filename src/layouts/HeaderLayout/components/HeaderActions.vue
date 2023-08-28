@@ -4,7 +4,7 @@
       <h2 class="text-[14px]">Language</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[150px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
           @click="openPriceDropdown"
         >
@@ -17,7 +17,7 @@
       </div>
       <ul
         v-if="isOpenPrice"
-        class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
+        class="dropdown-options w-[135px] text-[10px] lg:text-[12px]"
       >
         <div class="flex items-center">
           <img
@@ -116,7 +116,7 @@
       <h2 class="text-[14px]">Country</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[150px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openCountryDropdown"
           @blur="closeCountryDropdown"
           @click="openCountryDropdown"
@@ -130,7 +130,7 @@
       </div>
       <ul
         v-if="isOpen"
-        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
+        class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
       >
         <div class="countries">
           <div class="flex items-center">
@@ -252,11 +252,11 @@
       <h2 class="text-[14px]">Cities</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[150px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input  mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
-				<p>{{ selectedCities.join(', ') }}</p>
+				<p >{{ selectedCities.length > 2 ? selectedCities.slice(0, 2).join(", ") + '...'  :   selectedCities.join(", ") }}</p>
         </div>
 
         <span

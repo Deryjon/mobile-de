@@ -1,5 +1,5 @@
 <template>
-  <v-container class="lg:flex justify-between">
+  <v-container class="lg:flex justify-between relative">
     <div class="left">
       <div class="tab-buttons mt-[0px]">
         <button
@@ -116,6 +116,7 @@
             </v-sheet>
           </div>
         </div>
+				<!-- tab-2 -->
         <div class="tab-panel" v-show="isActive('tab-2')">
           <div class="for-example">
             <v-sheet
@@ -228,8 +229,9 @@
                 <button
                   type="submit"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
-                >
-                  Register
+
+									>
+                  
                 </button>
               </v-form>
             </v-sheet>
@@ -289,7 +291,7 @@
   </v-container>
 </template>
 <script>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import HeaderLogo from "../layouts/HeaderLayout/components/HeaderLogo.vue";
 
 export default {
@@ -306,6 +308,7 @@ export default {
     const showPassword = ref(false);
     const email = ref("");
     const password = ref("");
+		const isFormValid = ref(false);
     const isEmailValid = ref(true);
     const isPasswordValid = ref(true);
 
@@ -326,6 +329,13 @@ export default {
       isPasswordValid.value = password.value.length >= 8;
     };
 
+// 		const isFormValid = computed(() => {
+//   return isEmailValid.value && isPasswordValid.value && isChecked.value;
+// });
+
+
+
+
     const signUp = () => {
       // Validate email and password before submitting
       validateEmail();
@@ -343,6 +353,7 @@ export default {
       isChecked,
       showPassword,
       email,
+			isFormValid,
       password,
       isEmailValid,
       isPasswordValid,
