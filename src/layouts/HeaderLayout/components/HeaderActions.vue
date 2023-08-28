@@ -405,7 +405,7 @@
         </div> -->
     </div>
     <button
-      class="btn dropdown-input	 bg-transparent outline-none mt-[5px] rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[3px] lg:py-[9px] lg:px-[5px] text-xs font-normal"
+      class="dropdown-input mt-[5px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}

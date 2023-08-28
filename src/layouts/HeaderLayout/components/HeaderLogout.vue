@@ -1,7 +1,7 @@
 <template>
   <button
 	v-if="!hasToken"
-    class="btn bg-transparent outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[12px] text-xs font-normal lg:mt-[25px]"
+    class="btn bg-transparent dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[150px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[24px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >
@@ -50,7 +50,7 @@ export default defineComponent({
 </script>
 <style scoped>
 .btn {
-  border: 1px solid #7b7c80;
+  border: 1px solid #444444;
 }
 .btn:hover {
   box-shadow: 0 0 2px 1px #6a6acc;

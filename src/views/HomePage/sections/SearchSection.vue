@@ -2,7 +2,7 @@
   <section class="search">
     <v-container>
       <div
-        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1000px] bg-[#0000001f] h-[650px] lg:h-[240px]  mx-auto flex"
+        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1200px] bg-[#0000001f] h-[650px] lg:h-[240px]  mx-auto flex"
       >
         <div class="tabs h-full">
           <div class="nav-tabs flex lg:flex-col mt-[-0.01px]">

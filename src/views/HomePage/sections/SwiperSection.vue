@@ -1,6 +1,6 @@
 <template>
   <section class="swiper">
-    <v-container>
+    <v-container class="w-[1440px]">
       <div class="slider mx-auto">
         <img
           v-for="(image, index) in images"
@@ -79,18 +79,20 @@ export default {
 <style scoped>
 .swiper  .slider {
     position: relative;
-    width: 1000px;
+    width: 1440px;
     height: 400px;
     left: auto;
 		right: auto;
 }
 
 .swiper .slider .slider-item {
-    width: 1000px;
+    width: 1200px;
     height: 400px;
     opacity: 0;
     position: absolute;
-    left: 0;
+		height: 400px;
+    left: auto;
+		right: auto;
     top: 0;
     transition: 0.5s;
 		object-fit: cover;

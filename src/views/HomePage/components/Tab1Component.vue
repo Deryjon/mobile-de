@@ -1,6 +1,6 @@
 <template>
   <div class="for-example">
-    <div class="filters-selects flex gap-[20px]">
+    <div class="filters-selects flex gap-[80px]">
       <div class="relative">
         <h2 class="text-sm lg:text-[14px] mt-2">Condition</h2>
         <select
@@ -33,7 +33,7 @@
         ></span>
       </div>
     </div>
-    <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[20px]">
+    <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[80px]">
       <div class="mark">
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">
@@ -345,7 +345,7 @@
       </div> -->
     </div>
     <div
-      class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[20px]"
+      class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]"
     >
       <div>
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -369,7 +369,7 @@
         </div>
       </div>
       <div class="tab-content">
-        <div class="bottom tab-panel lg:flex items-center gap-[20px]">
+        <div class="bottom tab-panel lg:flex items-center gap-[80px]">
           <div
 					 class="price dropdown-container">
             <h2 class="mt-2 text-sm lg:text-[14px]">

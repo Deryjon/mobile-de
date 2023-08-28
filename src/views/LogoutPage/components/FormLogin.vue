@@ -41,7 +41,8 @@
                     type="email"
                     class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
                     placeholder="you@example.com"
-                    v-model="email"
+                    v-model="emailLogin"
+                    @input="validateEmail"
                   />
                   <span v-if="!isEmailValid" class="text-red-600 text-sm mt-1"
                     >Please enter a valid email address.</span
@@ -53,11 +54,12 @@
                   >
                   <div class="relative rounded-md shadow-sm">
                     <input
+                      @input="validatePassword"
                       id="password"
                       :type="showPassword ? 'text' : 'password'"
                       class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
                       placeholder="Your Password"
-                      v-model="password"
+                      v-model="passwordLogin"
                     />
                     <div
                       class="absolute inset-y-0 right-0 pr-3 flex items-center"
@@ -107,10 +109,10 @@
                 </p>
                 <button
                   type="submit"
-									:disabled="!isFormRegisterValid"
+                  :disabled="!isFormRegisterValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[30px]"
                   @click="LoginUser(email, password)"
-									:class="{ 'opacity-50': !isFormRegisterValid }"
+                  :class="{ 'opacity-50': !isFormRegisterValid }"
                 >
                   Login
                 </button>
@@ -139,7 +141,7 @@
                     type="email"
                     class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
                     placeholder="you@example.com"
-                    v-model="email"
+                    v-model="emailRegister"
                     @input="validateEmail"
                   />
                   <span v-if="!isEmailValid" class="text-red-600 text-sm mt-1">
@@ -154,7 +156,7 @@
                   <div class="relative rounded-md shadow-sm">
                     <input
                       @input="validatePassword"
-                      v-model="password"
+                      v-model="passwordRegister"
                       id="password"
                       :type="showPassword ? 'text' : 'password'"
                       class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
@@ -206,6 +208,7 @@
                 </p>
                 <label class="custom-checkbox">
                   <input
+									:disabled="isFormRegisterLogValid"
                     type="checkbox"
                     v-model="isChecked"
                     @click="toggleShowCheckbox()"
@@ -234,7 +237,7 @@
                   type="submit"
                   :disabled="!isFormRegisterValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
-									:class="{ 'opacity-50': !isFormRegisterValid }"
+                  :class="{ 'opacity-50': !isFormRegisterValid }"
                 >
                   Register
                 </button>
@@ -262,24 +265,21 @@ export default {
       activeTab.value = tab;
     };
     const isActive = (tab) => {
-      return activeTab.value === tab;
+			return activeTab.value === tab;
     };
-
-    const isChecked = ref(false);
     const showPassword = ref(false);
 
     const toggleShowPassword = () => {
-      showPassword.value = !showPassword.value;
+			showPassword.value = !showPassword.value;
     };
 
     const toggleShowCheckbox = () => {
-      isChecked.value = !isChecked.value;
+			isChecked.value = !isChecked.value;
     };
 
     return {
       setActive,
       isActive,
-      isChecked,
       showPassword,
       toggleShowPassword,
       toggleShowCheckbox,
@@ -287,24 +287,27 @@ export default {
   },
   data() {
     return {
-      email: "",
-      password: "",
+      emailRegister: " ",
+      passwordRegister: "",
       isEmailValid: true,
       isPasswordValid: true,
+			isChecked: false,
     };
   },
   methods: {
     validateEmail() {
       // Ваш код валидации email
       // Пример проверки на корректность email:
-      this.isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+      this.isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.emailRegister);
     },
     validatePassword() {
       // Ваш код валидации пароля
       // Пример проверки на длину пароля:
-      this.isPasswordValid = this.password.length >= 8;
+      this.isPasswordValid = this.passwordRegister.length >= 8;
     },
-
+		toggleShowCheckbox(){
+			this.isChecked = !this.isChecked
+		},
     createNewUser(email, password) {
       http.post("/user/register", {
         user_email: email,
@@ -320,11 +323,14 @@ export default {
   },
   components: { HeaderLogo, RightTabComponent },
   computed: {
+		isFormRegisterLogValid() {
+      return this.isEmailValid && this.isPasswordValid 
+    },
     isFormRegisterValid() {
       return this.isEmailValid && this.isPasswordValid && this.isChecked;
     },
     isFormLoginValid() {
-      return this.isEmailValid && this.isPasswordValid 
+      return this.isEmailValid && this.isPasswordValid;
     },
   },
 };

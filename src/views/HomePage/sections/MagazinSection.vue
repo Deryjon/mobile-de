@@ -1,9 +1,9 @@
 <template>
-  <v-container>
-    <div class="header">
+  <v-container class="w-[1200px ]">
+    <div class="header w-[1200px]">
       <div class="container">
-        <div class="navbar">
-          <div class="magazine-bmw">
+    
+          <div class="magazine-bmw w-[1200px]">
             <div class="row head-bottom">
               <h2 class="head">SellCenter Magazin</h2>
             </div>
@@ -116,7 +116,6 @@
           </div>
         </div>
       </div>
-    </div>
   </v-container>
 </template>
 <script></script>
@@ -399,12 +398,13 @@ select {
   .container {
     box-sizing: border-box;
     width: 100%;
-    max-width: 1110px;
+    max-width: 1200px;
     margin: 0 auto;
   }
 }
 
 .header {
+	width: 1200px;
   height: 945px;
   margin: 0 auto;
 }
@@ -477,11 +477,11 @@ select {
   margin-top: 30px;
 }
 .wrapper{
-	width: 1000px;
+	width: 1200px;
 }
 .sect-2 {
   display: flex;
-  width: 495px;
+  width: 600px;
   padding: 20px;
   gap: 15px;
   background-color: #f5f5f5;
@@ -493,14 +493,10 @@ select {
 }
 
 .sec-02 {
-  width: 495px;
+  width: 590px;
 }
 
-.navbar {
-  width: 1000px;
-  padding: 32px 0;
-  margin: 0 auto;
-}
+
 
 .button {
   width: 120px;

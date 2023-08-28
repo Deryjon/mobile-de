@@ -11,8 +11,8 @@
         <HeaderActions class="hidden lg:flex"/>
         <HeaderMenuAction @openMenu="toggleMenu" />
         <HeaderSwitcherTheme class="mt-[21px] hidden lg:flex" />
-        <HeaderContact class="mt-[21px] hidden lg:flex" />
-        <HeaderLogout class="mt-[21px] hidden lg:flex" />
+        <HeaderContact class="mt-[25px] hidden lg:flex" />
+        <HeaderLogout class="mt-[25px] hidden lg:flex" />
         <Transition name="menu">
           <HiddenMenu class="z-50" v-if="isOpen" @closeMenu="toggleMenu" />
         </Transition>
