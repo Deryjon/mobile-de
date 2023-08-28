@@ -108,7 +108,7 @@
                 <button
                   type="submit"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[30px]"
-									@click="LoginUser(email, password)"
+                  @click="LoginUser(email, password)"
                 >
                   Login
                 </button>
@@ -151,6 +151,7 @@
                   >
                   <div class="relative rounded-md shadow-sm">
                     <input
+                      @input="validatePassword"
                       v-model="password"
                       id="password"
                       :type="showPassword ? 'text' : 'password'"
@@ -229,7 +230,9 @@
                 <button
                   @click="createNewUser(email, password)"
                   type="submit"
+                  :disabled="!isFormValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
+									:class="{ 'opacity-50': !isFormValid }"
                 >
                   Register
                 </button>
@@ -262,8 +265,6 @@ export default {
 
     const isChecked = ref(false);
     const showPassword = ref(false);
-    const isEmailValid = ref(true);
-    const isPasswordValid = ref(true);
 
     const toggleShowPassword = () => {
       showPassword.value = !showPassword.value;
@@ -273,45 +274,35 @@ export default {
       isChecked.value = !isChecked.value;
     };
 
-    const validateEmail = () => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      isEmailValid.value = emailRegex.test(email.value);
-    };
-
-    const validatePassword = () => {
-      isPasswordValid.value = password.value.length >= 8;
-    };
-
-    const signUp = () => {
-      // Validate email and password before submitting
-      validateEmail();
-      validatePassword();
-
-      if (isEmailValid.value && isPasswordValid.value) {
-        // Submit form or do other actions here
-        // ...
-      }
-    };
-
     return {
       setActive,
       isActive,
       isChecked,
       showPassword,
-      isEmailValid,
-      isPasswordValid,
       toggleShowPassword,
       toggleShowCheckbox,
-      signUp,
     };
   },
   data() {
     return {
       email: "",
       password: "",
+      isEmailValid: true,
+      isPasswordValid: true,
     };
   },
   methods: {
+    validateEmail() {
+      // Ваш код валидации email
+      // Пример проверки на корректность email:
+      this.isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.email);
+    },
+    validatePassword() {
+      // Ваш код валидации пароля
+      // Пример проверки на длину пароля:
+      this.isPasswordValid = this.password.length >= 8;
+    },
+
     createNewUser(email, password) {
       http.post("/user/register", {
         user_email: email,
@@ -326,6 +317,11 @@ export default {
     },
   },
   components: { HeaderLogo, RightTabComponent },
+  computed: {
+    isFormValid() {
+      return this.isEmailValid && this.isPasswordValid && this.isChecked;
+    },
+  },
 };
 </script>
 <style scoped>

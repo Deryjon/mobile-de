@@ -1,12 +1,13 @@
 <template>
   <button
+	v-if="!hasToken"
     class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[12px] text-xs font-normal lg:mt-[25px]"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >
     {{ $t("message.header.login") }}
   </button>
-  <div class=" w-[30px] mt-[20px]">
+  <div v-else class="profile-icon w-[30px] mt-[20px]">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
       <g data-name="Layer 2">
         <circle cx="16" cy="6.96" r="6"></circle>
@@ -23,6 +24,8 @@ import { defineComponent, computed } from "vue";
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
+		const hasToken = localStorage.getItem("token") !== null;
+
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
@@ -31,6 +34,7 @@ export default defineComponent({
     const updateTranslate = () => i18nStore.updateTranslation();
 
     return {
+			hasToken,
       isDarkMode,
       toggleDarkMode,
       currentLanguage,

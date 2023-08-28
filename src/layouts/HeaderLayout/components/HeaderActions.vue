@@ -252,24 +252,36 @@
       <h2 class="text-[14px]">Cities</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input  mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
-				<p>{{ selectedCities.length > 2 ? selectedCities.slice(0, 2).join(", ") + '...' : selectedCities.join(", ") }}</p>
-
+          <p>
+            {{
+              selectedCities.length > 2
+                ? selectedCities.slice(0, 2).join(", ") + "..."
+                : selectedCities.join(", ")
+            }}
+          </p>
         </div>
 
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div>
-			<ul v-if="isCities" class="dropdown-options text-[10px] lg:text-[12px] w-[150px]">
-  <li v-for="city in citiesData[inputCountry]" :key="city" @click="selectCity(city)">
-    <input type="checkbox" v-model="selectedCities" :value="city" />
-    {{ city }}
-  </li>
-</ul>
+      <ul
+        v-if="isCities"
+        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
+      >
+        <li
+          v-for="city in citiesData[inputCountry]"
+          :key="city"
+          @click="selectCity(city)"
+        >
+          <input type="checkbox" v-model="selectedCities" :value="city" />
+          {{ city }}
+        </li>
+      </ul>
       <!-- <ul
         v-if="isCities"
         class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
@@ -279,7 +291,7 @@
         </li>
       </ul> -->
 
-        <!-- <div class="countries">
+      <!-- <div class="countries">
           <div class="flex items-center">
             <img
               src="../../../assets/icons/be.svg"
@@ -427,34 +439,175 @@ export default defineComponent({
       isOpenPrice: false,
       inputValue: "",
       inputCountry: "Sweden",
-      selectedCity : "",
+      selectedCity: "",
       inputKilometer: "",
       inputPrice: "English",
       options: [],
       filteredOptions: [],
       showCities: false,
-			selectedCities: [],
-			citiesData: {
-			
-Belgium: ["Brussels", "Antwerp", "Ghent", "Bruges", "Liege", "Namur", "Leuven", "Mechelen", "Charleroi", "Hasselt"],
-Canda: ["Toronto", "Vancouver", "Montreal", "Calgary", "Edmonton", "Ottawa", "Quebec City", "Winnipeg", "Halifax", "Victoria"],
-Danmark: ["Copenhagen", "Aarhus", "Odense", "Aalborg", "Esbjerg", "Randers", "Kolding", "Horsens", "Vejle", "Roskilde"],
-England: ["London", "Manchester", "Birmingham", "Liverpool", "Leeds", "Newcastle", "Bristol", "Sheffield", "Edinburgh", "Glasgow"],
-France: ["Paris", "Marseille", "Lyon", "Toulouse", "Nice", "Nantes", "Strasbourg", "Montpellier", "Bordeaux", "Lille"],
-Germany: ["Berlin", "Munich", "Hamburg", "Frankfurt", "Cologne", "Stuttgart", "Dusseldorf", "Dortmund", "Essen", "Leipzig"],
-Italy: ["Rome", "Milan", "Venice", "Florence", "Naples", "Turin", "Bologna", "Genoa", "Palermo", "Verona"],
-Morocco: ["Casablanca", "Marrakech", "Fez", "Rabat", "Tangier", "Agadir", "Meknes", "Oujda", "Kenitra", "Fes"],
-Netherlands: ["Amsterdam", "Rotterdam", "Utrecht", "The Hague", "Eindhoven", "Tilburg", "Groningen", "Almere", "Breda", "Nijmegen"],
-Russa: ["Moscow", "Saint Petersburg", "Novosibirsk", "Yekaterinburg", "Kazan", "Nizhny Novgorod", "Chelyabinsk", "Samara", "Omsk", "Rostov-on-Don"],
-Poland: ["Warsaw", "Krakow", "Wroclaw", "Poznan", "Gdansk", "Szczecin", "Bydgoszcz", "Lodz", "Katowice", "Lublin"],
-Spanien: ["Madrid", "Barcelona", "Seville", "Valencia", "Bilbao", "Malaga", "Zaragoza", "Murcia", "Palma de Mallorca", "Alicante"],
-Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "Linkoping", "Helsingborg", "Jonkoping", "Norrkoping"],
-      
-    },
+      selectedCities: [],
+      citiesData: {
+        Belgium: [
+          "Brussels",
+          "Antwerp",
+          "Ghent",
+          "Bruges",
+          "Liege",
+          "Namur",
+          "Leuven",
+          "Mechelen",
+          "Charleroi",
+          "Hasselt",
+        ],
+        Canda: [
+          "Toronto",
+          "Vancouver",
+          "Montreal",
+          "Calgary",
+          "Edmonton",
+          "Ottawa",
+          "Quebec City",
+          "Winnipeg",
+          "Halifax",
+          "Victoria",
+        ],
+        Danmark: [
+          "Copenhagen",
+          "Aarhus",
+          "Odense",
+          "Aalborg",
+          "Esbjerg",
+          "Randers",
+          "Kolding",
+          "Horsens",
+          "Vejle",
+          "Roskilde",
+        ],
+        England: [
+          "London",
+          "Manchester",
+          "Birmingham",
+          "Liverpool",
+          "Leeds",
+          "Newcastle",
+          "Bristol",
+          "Sheffield",
+          "Edinburgh",
+          "Glasgow",
+        ],
+        France: [
+          "Paris",
+          "Marseille",
+          "Lyon",
+          "Toulouse",
+          "Nice",
+          "Nantes",
+          "Strasbourg",
+          "Montpellier",
+          "Bordeaux",
+          "Lille",
+        ],
+        Germany: [
+          "Berlin",
+          "Munich",
+          "Hamburg",
+          "Frankfurt",
+          "Cologne",
+          "Stuttgart",
+          "Dusseldorf",
+          "Dortmund",
+          "Essen",
+          "Leipzig",
+        ],
+        Italy: [
+          "Rome",
+          "Milan",
+          "Venice",
+          "Florence",
+          "Naples",
+          "Turin",
+          "Bologna",
+          "Genoa",
+          "Palermo",
+          "Verona",
+        ],
+        Morocco: [
+          "Casablanca",
+          "Marrakech",
+          "Fez",
+          "Rabat",
+          "Tangier",
+          "Agadir",
+          "Meknes",
+          "Oujda",
+          "Kenitra",
+          "Fes",
+        ],
+        Netherlands: [
+          "Amsterdam",
+          "Rotterdam",
+          "Utrecht",
+          "The Hague",
+          "Eindhoven",
+          "Tilburg",
+          "Groningen",
+          "Almere",
+          "Breda",
+          "Nijmegen",
+        ],
+        Russa: [
+          "Moscow",
+          "Saint Petersburg",
+          "Novosibirsk",
+          "Yekaterinburg",
+          "Kazan",
+          "Nizhny Novgorod",
+          "Chelyabinsk",
+          "Samara",
+          "Omsk",
+          "Rostov-on-Don",
+        ],
+        Poland: [
+          "Warsaw",
+          "Krakow",
+          "Wroclaw",
+          "Poznan",
+          "Gdansk",
+          "Szczecin",
+          "Bydgoszcz",
+          "Lodz",
+          "Katowice",
+          "Lublin",
+        ],
+        Spanien: [
+          "Madrid",
+          "Barcelona",
+          "Seville",
+          "Valencia",
+          "Bilbao",
+          "Malaga",
+          "Zaragoza",
+          "Murcia",
+          "Palma de Mallorca",
+          "Alicante",
+        ],
+        Sweden: [
+          "Stockholm",
+          "Gothenburg",
+          "Malmo",
+          "Uppsala",
+          "Vasteras",
+          "Orebro",
+          "Linkoping",
+          "Helsingborg",
+          "Jonkoping",
+          "Norrkoping",
+        ],
+      },
     };
   },
   methods: {
-		openCitiesDropdown() {
+    openCitiesDropdown() {
       if (this.isCities) {
         this.isCities = false;
       } else {
@@ -466,7 +619,7 @@ Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "L
         this.closeCitiesDropdownOnClickOutside
       );
     },
-		closeCitiesDropdownOnClickOutside(event) {
+    closeCitiesDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".cities");
       if (!dropdownElement.contains(event.target)) {
         this.isCities = false;
@@ -476,23 +629,20 @@ Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "L
         );
       }
     },
-		selectCity(city) {
-  if (this.selectedCities.includes(city)) {
-    const index = this.selectedCities.indexOf(city);
-    if (index > -1) {
-      this.selectedCities.splice(index, 1);
-    }
-
-  } else {
-    this.selectedCities.push(city);
-
-  }
-	console.log("Selected cities:", this.selectedCities);
-}
-,
-		// selectCity(city) {
+    selectCity(city) {
+      if (this.selectedCities.includes(city)) {
+        const index = this.selectedCities.indexOf(city);
+        if (index > -1) {
+          this.selectedCities.splice(index, 1);
+        }
+      } else {
+        this.selectedCities.push(city);
+      }
+      console.log("Selected cities:", this.selectedCities);
+    },
+    // selectCity(city) {
     //   this.selectedCity  = city;
-		// 	this.isCities = false;
+    // 	this.isCities = false;
 
     // },
     openCountryDropdown() {
@@ -522,14 +672,16 @@ Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "L
     },
     selectCountry(option) {
       this.inputCountry = option;
-			this.showCities = true;
-			this.isOpen = false;
-this.selectedCity = ""; 
+      this.showCities = true;
+      this.isOpen = false;
+      this.selectedCities = [];
     },
     //
     changeLanguage() {
       localStorage.setItem("lang", this.language);
       localStorage.setItem("name", this.inputValue);
+      localStorage.setItem("token", this.inputValue);
+
       window.location.reload();
     },
     openPriceDropdown() {
