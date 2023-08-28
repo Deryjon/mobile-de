@@ -256,20 +256,28 @@
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
-          <p>{{ selectedCity  }}</p>
+				<p>{{ selectedCities.join(', ') }}</p>
         </div>
 
         <span
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div>
-      <ul
+			<ul v-if="isCities" class="dropdown-options text-[10px] lg:text-[12px] w-[150px]">
+  <li v-for="city in citiesData[inputCountry]" :key="city" @click="selectCity(city)">
+    <input type="checkbox" v-model="selectedCities" :value="city" />
+    {{ city }}
+  </li>
+</ul>
+      <!-- <ul
         v-if="isCities"
         class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
       >
 			<li v-for="city in citiesData[inputCountry]" :key="city" @click="selectCity(city)">
           {{ city }}
         </li>
+      </ul> -->
+
         <!-- <div class="countries">
           <div class="flex items-center">
             <img
@@ -384,7 +392,6 @@
             <li data-key="sp" @click="selectCity('Sweden')">Sweden</li>
           </div>
         </div> -->
-      </ul>
     </div>
     <button
       class="btn outline-none mt-[20px] rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
@@ -425,6 +432,7 @@ export default defineComponent({
       options: [],
       filteredOptions: [],
       showCities: false,
+			selectedCities: [],
 			citiesData: {
 			
 Belgium: ["Brussels", "Antwerp", "Ghent", "Bruges", "Liege", "Namur", "Leuven", "Mechelen", "Charleroi", "Hasselt"],
@@ -468,10 +476,20 @@ Sweden: ["Stockholm", "Gothenburg", "Malmo", "Uppsala", "Vasteras", "Orebro", "L
       }
     },
 		selectCity(city) {
-      this.selectedCity  = city;
-			this.isCities = false;
+    if (this.selectedCities.includes(city)) {
+      const index = this.selectedCities.indexOf(city);
+      if (index > -1) {
+        this.selectedCities.splice(index, 1);
+      }
+    } else {
+      this.selectedCities.push(city);
+    }
+  },
+		// selectCity(city) {
+    //   this.selectedCity  = city;
+		// 	this.isCities = false;
 
-    },
+    // },
     openCountryDropdown() {
       if (this.isOpen) {
         this.isOpen = false;
