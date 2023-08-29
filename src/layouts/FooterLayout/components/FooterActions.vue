@@ -1,6 +1,6 @@
 <template>
   <div class="actions gap-[10px] items-center mt-[20px]">
-    <div class="language dropdown-container">
+    <div class="language dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -111,7 +111,8 @@
 			</div> -->
 
     <!--  -->
-    <div class="country dropdown-container">
+    <div class="country dropdown-container mt-[15px]">
+
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -246,7 +247,7 @@
         </div>
       </ul>
     </div>
-    <div class="cities dropdown-container">
+    <div class="cities dropdown-container mt-[15px]" >
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
@@ -255,9 +256,11 @@
         >
           <p>
             {{
+                 
               selectedCities.length > 2
                 ? selectedCities.slice(1, 3).join(",") + "..."
                 : selectedCities.join(", ")
+            
             }}
           </p>
         </div>
@@ -404,7 +407,7 @@
         </div> -->
     </div>
     <button
-      class="dropdown-input mt-[5px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[50px] outline-none bg-white rounded-[10px] py-[6px] px-[20px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+      class="dropdown-input mt-[10px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[45px] outline-none bg-white rounded-[10px] py-[6px] px-[20px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -741,6 +744,7 @@ select:focus {
   background-color: #526d82;
 }
 
+
 .btn:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
 }
@@ -774,10 +778,11 @@ select:focus {
 
 .dropdown-options {
   position: absolute;
+	bottom: 35px;
   z-index: 1;
-  bottom: 35px;
   list-style: none;
   padding: 0;
+  margin: 0;
   border: 1px solid #ccc;
   background-color: #fff;
   max-height: 200px;
