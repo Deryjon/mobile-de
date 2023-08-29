@@ -317,7 +317,7 @@ export default {
         .then((response) => {
           const responseData = response.data;
 
-          localStorage.setItem("token-register", responseData.token);
+          localStorage.setItem("r-tok", responseData.token);
         })
         .catch((error) => {
           console.error("Error fetching model years:", error);

@@ -1,7 +1,7 @@
 <template>
   <button
 	v-if="!hasToken"
-    class="btn bg-transparent dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[150px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[24px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+    class="btn bg-transparent dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[150px] h-[50px] outline-none bg-white rounded-[10px] py-[8px] px-[24px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >
@@ -24,7 +24,7 @@ import { defineComponent, computed } from "vue";
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
-		const hasToken = localStorage.getItem("token-registere") !== null;
+		const hasToken = localStorage.getItem("r-tok") !== null;
 
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);

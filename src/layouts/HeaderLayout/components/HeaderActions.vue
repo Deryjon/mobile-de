@@ -15,7 +15,7 @@
         ></span>
       </div>
       <ul
-        v-if="isOpenPrice"
+        v-if="isOpenLanguage"
         class="dropdown-options w-[135px] text-[10px] lg:text-[12px]"
       >
         <div class="flex items-center">
@@ -405,7 +405,7 @@
         </div> -->
     </div>
     <button
-      class="dropdown-input mt-[5px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+      class="dropdown-input mt-[5px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[50px] outline-none bg-white rounded-[10px] py-[6px] px-[20px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -434,7 +434,7 @@ export default defineComponent({
       isOpen: false,
       isCities: false,
       isOpenKilometer: false,
-      isOpenPrice: false,
+      isOpenLanguage: false,
       inputValue: "Language",
       inputCountry: "Country",
       selectedCity: "",
@@ -677,15 +677,13 @@ export default defineComponent({
     changeLanguage() {
       localStorage.setItem("lang", this.language);
       localStorage.setItem("name", this.inputValue);
-      localStorage.setItem("token");
-
       window.location.reload();
     },
     openPriceDropdown() {
-      if (this.isOpenPrice) {
-        this.isOpenPrice = false; // Close the other dropdown
+      if (this.isOpenLanguage) {
+        this.isOpenLanguage = false; // Close the other dropdown
       } else {
-        this.isOpenPrice = true;
+        this.isOpenLanguage = true;
       }
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closePriceDropdownOnClickOutside);
@@ -693,7 +691,7 @@ export default defineComponent({
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".language");
       if (!dropdownElement.contains(event.target)) {
-        this.isOpenPrice = false;
+        this.isOpenLanguage = false;
         document.removeEventListener(
           "click",
           this.closePriceDropdownOnClickOutside
