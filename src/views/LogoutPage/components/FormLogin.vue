@@ -42,9 +42,9 @@
                     class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
                     placeholder="you@example.com"
                     v-model="emailLogin"
-                    @input="validateEmail"
+                    @input="validateEmailLogin"
                   />
-                  <span v-if="!isEmailValid" class="text-red-600 text-sm mt-1"
+                  <span v-if="!isEmailLoginValid" class="text-red-600 text-sm mt-1"
                     >Please enter a valid email address.</span
                   >
                 </div>
@@ -54,7 +54,7 @@
                   >
                   <div class="relative rounded-md shadow-sm">
                     <input
-                      @input="validatePassword"
+                      @input="validatePasswordLogin"
                       id="password"
                       :type="showPassword ? 'text' : 'password'"
                       class="block w-full mt-[5px] pl-3 pr-10 py-2 rounded-md border-black hover:shadow-lg"
@@ -96,7 +96,7 @@
                     </div>
                   </div>
                   <span
-                    v-if="!isPasswordValid"
+                    v-if="!isPasswordLoginValid"
                     class="text-red-600 text-sm mt-1"
                     >Password must be at least 8 characters long.</span
                   >
@@ -293,8 +293,10 @@ export default {
       passwordRegister: "",
       emailLogin: "",
       passwordLogin: "",
-      isEmailValid: true,
-      isPasswordValid: true,
+      isEmailValid: false,
+      isPasswordValid: false,
+      isEmailLoginValid: false,
+      isPasswordLoginValid: false,
       isChecked: false,
     };
   },
@@ -310,15 +312,15 @@ export default {
       this.isPasswordValid = this.passwordRegister.length >= 8;
     },
 
-    validateEmail() {
+    validateEmailLogin() {
       // Ваш код валидации email
       // Пример проверки на корректность email:
-      this.isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.emailLogin);
+      this.isEmailLoginValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.emailLogin);
     },
-    validatePassword() {
+    validatePasswordLogin() {
       // Ваш код валидации пароля
       // Пример проверки на длину пароля:
-      this.isPasswordValid = this.passwordLogin.length >= 8;
+      this.isPasswordLoginValid = this.passwordLogin.length >= 8;
     },
 
     createNewUser(email, password) {
@@ -350,7 +352,7 @@ export default {
       return this.isEmailValid && this.isPasswordValid && this.isChecked;
     },
     isFormLoginValid() {
-      return this.isEmailValid && this.isPasswordValid;
+      return this.isEmailLoginValid && this.isPasswordLoginValid;
     },
   },
 };
