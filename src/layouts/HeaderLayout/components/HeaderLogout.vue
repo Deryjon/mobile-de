@@ -1,7 +1,7 @@
 <template>
   <button
-	v-if="!hasToken"
-    class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[12px] text-xs font-normal	lg:mt-[25px]"
+    v-if="!hasToken"
+    class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[12px] text-xs font-normal lg:mt-[25px]"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     @click="gotoLogin"
   >
@@ -24,8 +24,7 @@ import { defineComponent, computed } from "vue";
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
-		const hasToken = localStorage.getItem("r-tok") !== null;
-
+    const hasToken = localStorage.getItem("	") !== null;
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
@@ -34,7 +33,7 @@ export default defineComponent({
     const updateTranslate = () => i18nStore.updateTranslation();
 
     return {
-			hasToken,
+      hasToken,
       isDarkMode,
       toggleDarkMode,
       currentLanguage,

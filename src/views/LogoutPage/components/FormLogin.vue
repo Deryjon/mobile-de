@@ -109,10 +109,10 @@
                 </p>
                 <button
                   type="submit"
-                  :disabled="!isFormRegisterValid"
+                  :disabled="!isFormLoginValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[30px]"
                   @click="LoginUser(email, password)"
-                  :class="{ 'opacity-50': !isFormRegisterValid }"
+                  :class="{ 'opacity-50': !isFormLoginValid }"
                 >
                   Login
                 </button>
@@ -291,6 +291,8 @@ export default {
     return {
       emailRegister: "",
       passwordRegister: "",
+      emailLogin: "",
+      passwordLogin: "",
       isEmailValid: true,
       isPasswordValid: true,
       isChecked: false,
@@ -306,6 +308,17 @@ export default {
       // Ваш код валидации пароля
       // Пример проверки на длину пароля:
       this.isPasswordValid = this.passwordRegister.length >= 8;
+    },
+
+    validateEmail() {
+      // Ваш код валидации email
+      // Пример проверки на корректность email:
+      this.isEmailValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.emailLogin);
+    },
+    validatePassword() {
+      // Ваш код валидации пароля
+      // Пример проверки на длину пароля:
+      this.isPasswordValid = this.passwordLogin.length >= 8;
     },
 
     createNewUser(email, password) {
