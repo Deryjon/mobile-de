@@ -24,7 +24,7 @@ import { defineComponent, computed } from "vue";
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
-		const hasToken = localStorage.getItem("token-register") !== null;
+		const hasToken = localStorage.getItem("token-registere") !== null;
 
 
     const isDarkMode = computed(() => darkModeStore.isDarkMode);

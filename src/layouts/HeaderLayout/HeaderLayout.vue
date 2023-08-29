@@ -2,7 +2,7 @@
   <header class=""
 	:class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
 	>
-    <v-container class="flex z-50 items-center gap-[40px] w-[1440px] mx-auto"
+    <v-container class="flex z-50 items-center gap-[260px] max-w-[1440px]"
 		
 		>
       <HeaderLogo class="" />

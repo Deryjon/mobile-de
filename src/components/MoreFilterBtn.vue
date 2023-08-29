@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex items-center gap-3 justify-end m-auto mt-[10px] lg:text-[16px] text-right w-[330px] sm:w-[520px] lg:w-[1000px] xl:w-[1200px] cursor-pointer"
+    class="flex items-center gap-3 justify-end m-auto mt-[10px] lg:text-[16px] text-right w-[330px] sm:w-[520px] lg:w-[1000px] xl:w-[1400px] cursor-pointer"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
