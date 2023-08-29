@@ -250,7 +250,7 @@
     <div class="cities dropdown-container mt-[15px]" >
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
@@ -407,7 +407,7 @@
         </div> -->
     </div>
     <button
-      class="dropdown-input mt-[10px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[45px] outline-none bg-white rounded-[10px] py-[6px] px-[20px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+      class="dropdown-input mt-[22px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -672,7 +672,6 @@ export default defineComponent({
     },
     selectCountry(option) {
       this.inputCountry = option;
-      this.isOpen = false;
       this.selectedCities = [""];
     },
     //
