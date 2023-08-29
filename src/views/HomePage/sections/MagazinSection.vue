@@ -1,9 +1,9 @@
 <template>
-  <v-container class="w-[1200px ]">
-    <div class="header w-[1200px]">
+  <v-container class="max-w-[1440px]">
+    <div class="header max-w-[1440px]">
       <div class="container">
     
-          <div class="magazine-bmw w-[1200px]">
+          <div class="magazine-bmw max-w-[1410px]">
             <div class="row head-bottom">
               <h2 class="head">SellCenter Magazin</h2>
             </div>
@@ -85,7 +85,7 @@
               </div>
             </div>
           </div>
-          <div class="wrapper flex gap-[10px] mt-[20px]" >
+          <div class="wrapper flex justify-between mt-[20px] w-[1410px]" >
             <div class="sect-2"> 
               <img
                 class="tablet-man"
@@ -404,7 +404,7 @@ select {
 }
 
 .header {
-	width: 1200px;
+	width: 1440px;
   height: 945px;
   margin: 0 auto;
 }
@@ -430,7 +430,7 @@ select {
 }
 
 .magazine-bmw {
-  width: 1000px;
+  width: 1440px;
   padding: 20px;
   background-color: #f5f5f5;
 }
@@ -481,7 +481,7 @@ select {
 }
 .sect-2 {
   display: flex;
-  width: 600px;
+  width: 700px;
   padding: 20px;
   gap: 15px;
   background-color: #f5f5f5;

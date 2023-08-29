@@ -1,10 +1,11 @@
 <template>
-  <div class="actions gap-[10px] items-center">
+  <div class="actions gap-[10px] items-center mt-[20px]">
     <div class="language dropdown-container">
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          @click="toggleLanguageDropdown"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          @focus="openPriceDropdown"
+          @click="openPriceDropdown"
         >
           <p>{{ inputValue }}</p>
         </div>
@@ -15,7 +16,7 @@
       </div>
       <ul
         v-if="isOpenLanguage"
-        class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
+        class="dropdown-options w-[135px] text-[10px] lg:text-[12px]"
       >
         <div class="flex items-center">
           <img
@@ -111,11 +112,12 @@
 
     <!--  -->
     <div class="country dropdown-container">
-      <h2 class="text-[14px]">Country</h2>
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          @click="toggleCountryDropdown"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          @focus="openCountryDropdown"
+          @blur="closeCountryDropdown"
+          @click="openCountryDropdown"
         >
           <p>{{ inputCountry }}</p>
         </div>
@@ -125,149 +127,284 @@
         ></span>
       </div>
       <ul
-        v-if="isOpenCountry"
-        class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
+        v-if="isOpen"
+        class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
       >
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/be.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="be" @click="selectCountry('Belgium')">Belgium</li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/ca.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="can" @click="selectCountry('Canda')">Canda</li>
-        </div>
+        <div class="countries">
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/be.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="be" @click="selectCountry('Belgium')">Belgium</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/ca.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="can" @click="selectCountry('Canda')">Canda</li>
+          </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/dk.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="dk" @click="selectCountry('Danmark')">Danmark</li>
-        </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/dk.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="dk" @click="selectCountry('Danmark')">Danmark</li>
+          </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/gb.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="us" @click="selectCountry('England')">England</li>
-        </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/gb.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="us" @click="selectCountry('England')">England</li>
+          </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/fr.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="fr" @click="selectCountry('France')">France</li>
-        </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/fr.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="fr" @click="selectCountry('France')">France</li>
+          </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/de.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="gr" @click="selectCountry('Germany')">Germany</li>
-        </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/de.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="gr" @click="selectCountry('Germany')">Germany</li>
+          </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/it.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="ita" @click="selectCountry('Italy')">Italy</li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/ma.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="mor" @click="selectCountry('Morocco')">Morocco</li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/nl.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="nt" @click="selectCountry('Netherland')">Netherland</li>
-        </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/it.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="ita" @click="selectCountry('Italy')">Italy</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/ma.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="mor" @click="selectCountry('Morocco')">Morocco</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/nl.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="nt" @click="selectCountry('Netherland')">
+              Netherland
+            </li>
+          </div>
 
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/ru.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="mor" @click="selectCountry('Russa')">Russa</li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/pl.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="mor" @click="selectCountry('Poland')">Poland</li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/es.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="sp" @click="selectCountry('Spanien')">Spanien</li>
-        </div>
-        <div class="flex items-center">
-          <img
-            src="../../../assets/icons/se.svg"
-            class="w-[50px] h-[20px]"
-            alt=""
-          />
-          <li data-key="sp" @click="selectCountry('Sweden')">Sweden</li>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/ru.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="mor" @click="selectCountry('Russa')">Russa</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/pl.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="mor" @click="selectCountry('Poland')">Poland</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/es.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="sp" @click="selectCountry('Spanien')">Spanien</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/se.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="sp" @click="selectCountry('Sweden')">Sweden</li>
+          </div>
         </div>
       </ul>
     </div>
-    <!-- <div class="web-side relative inline-block">
-      <select
-        name=""
-        class="outline-none rounded-[10px] w-[130px] lg:w-[115px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
-        :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
-      >
-        <optgroup label="Country">
-          <option value="bel" data-country-code="belgium">Belgium</option>
-          <option value="can" data-country-code="canada">Canda</option>
-          <option value="dan">Danmark</option>
-          <option value="eng">England</option>
-          <option value="fra">France</option>
-          <option value="gr">Germany</option>
-          <option value="it">Italy</option>
-          <option value="neth">Netherland</option>
-          <option value="mor">Morocco</option>
-          <option value="pol">Poland</option>
-          <option value="ru">Russa</option>
-          <option value="sp">Spanien</option>
-          <option value="ru">Sweden</option>
-        </optgroup>
-      </select>
-      <span class="arrow w-[7px] h-[7px]"></span>
-    </div> -->
-    <!--  -->
+    <div class="cities dropdown-container">
+      <div class="input-container flex relative mt-[5px]">
+        <div
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+          @focus="openCitiesDropdown"
+          @click="openCitiesDropdown"
+        >
+          <p>
+            {{
+              selectedCities.length > 2
+                ? selectedCities.slice(1, 3).join(",") + "..."
+                : selectedCities.join(", ")
+            }}
+          </p>
+        </div>
 
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+        ></span>
+      </div>
+      <ul
+        v-if="isCities"
+        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
+      >
+        <li
+          v-for="city in citiesData[inputCountry]"
+          :key="city"
+          @click="selectCity(city)"
+        >
+          <input type="checkbox" v-model="selectedCities" :value="city" />
+          {{ city }}
+        </li>
+      </ul>
+      <!-- <ul
+        v-if="isCities"
+        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
+      >
+			<li v-for="city in citiesData[inputCountry]" :key="city" @click="selectCity(city)">
+          {{ city }}
+        </li>
+      </ul> -->
+
+      <!-- <div class="countries">
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/be.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="be" @click="selectCity('Belgium')">Belgium</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/ca.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="can" @click="select('Canda')">Canda</li>
+          </div>
+
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/dk.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="dk" @click="selectCity('Danmark')">Danmark</li>
+          </div>
+
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/gb.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="us" @click="selectCity('England')">England</li>
+          </div>
+
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/fr.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="fr" @click="selectCity('France')">France</li>
+          </div>
+
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/de.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="gr" @click="selectCity('Germany')">Germany</li>
+          </div>
+
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/it.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="ita" @click="selectCity('Italy')">Italy</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/ma.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="mor" @click="selectCity('Morocco')">Morocco</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/nl.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="nt" @click="selectCity('Netherland')">
+              Netherland
+            </li>
+          </div>
+
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/ru.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="mor" @click="selectCity('Russa')">Russa</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/pl.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="mor" @click="selectCity('Poland')">Poland</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/es.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="sp" @click="selectCity('Spanien')">Spanien</li>
+          </div>
+          <div class="flex items-center">
+            <img
+              src="../../../assets/icons/se.svg"
+              class="w-[50px] h-[20px]"
+              alt=""
+            />
+            <li data-key="sp" @click="selectCity('Sweden')">Sweden</li>
+          </div>
+        </div> -->
+    </div>
     <button
-      class="btn outline-none mt-[20px] rounded-[10px] w-[130px] lg:w-[120px] px-[2px] py-[6px] lg:py-[10px] lg:px-[5px] text-xs font-normal"
+      class="dropdown-input mt-[5px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[50px] outline-none bg-white rounded-[10px] py-[6px] px-[20px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -293,33 +430,224 @@ export default defineComponent({
   data() {
     return {
       language: null,
-      isOpenCountry: false,
+      isOpen: false,
+      isCities: false,
+      isOpenKilometer: false,
       isOpenLanguage: false,
       inputValue: "Language",
       inputCountry: "Country",
+      selectedCity: "",
       inputKilometer: "",
-      inputPrice: "English",
+      inputPrice: "Language",
       options: [],
       filteredOptions: [],
+      showCities: false,
+      selectedCities: ["Cities"],
+      citiesData: {
+        Belgium: [
+          "Brussels",
+          "Antwerp",
+          "Ghent",
+          "Bruges",
+          "Liege",
+          "Namur",
+          "Leuven",
+          "Mechelen",
+          "Charleroi",
+          "Hasselt",
+        ],
+        Canda: [
+          "Toronto",
+          "Vancouver",
+          "Montreal",
+          "Calgary",
+          "Edmonton",
+          "Ottawa",
+          "Quebec City",
+          "Winnipeg",
+          "Halifax",
+          "Victoria",
+        ],
+        Danmark: [
+          "Copenhagen",
+          "Aarhus",
+          "Odense",
+          "Aalborg",
+          "Esbjerg",
+          "Randers",
+          "Kolding",
+          "Horsens",
+          "Vejle",
+          "Roskilde",
+        ],
+        England: [
+          "London",
+          "Manchester",
+          "Birmingham",
+          "Liverpool",
+          "Leeds",
+          "Newcastle",
+          "Bristol",
+          "Sheffield",
+          "Edinburgh",
+          "Glasgow",
+        ],
+        France: [
+          "Paris",
+          "Marseille",
+          "Lyon",
+          "Toulouse",
+          "Nice",
+          "Nantes",
+          "Strasbourg",
+          "Montpellier",
+          "Bordeaux",
+          "Lille",
+        ],
+        Germany: [
+          "Berlin",
+          "Munich",
+          "Hamburg",
+          "Frankfurt",
+          "Cologne",
+          "Stuttgart",
+          "Dusseldorf",
+          "Dortmund",
+          "Essen",
+          "Leipzig",
+        ],
+        Italy: [
+          "Rome",
+          "Milan",
+          "Venice",
+          "Florence",
+          "Naples",
+          "Turin",
+          "Bologna",
+          "Genoa",
+          "Palermo",
+          "Verona",
+        ],
+        Morocco: [
+          "Casablanca",
+          "Marrakech",
+          "Fez",
+          "Rabat",
+          "Tangier",
+          "Agadir",
+          "Meknes",
+          "Oujda",
+          "Kenitra",
+          "Fes",
+        ],
+        Netherlands: [
+          "Amsterdam",
+          "Rotterdam",
+          "Utrecht",
+          "The Hague",
+          "Eindhoven",
+          "Tilburg",
+          "Groningen",
+          "Almere",
+          "Breda",
+          "Nijmegen",
+        ],
+        Russa: [
+          "Moscow",
+          "Saint Petersburg",
+          "Novosibirsk",
+          "Yekaterinburg",
+          "Kazan",
+          "Nizhny Novgorod",
+          "Chelyabinsk",
+          "Samara",
+          "Omsk",
+          "Rostov-on-Don",
+        ],
+        Poland: [
+          "Warsaw",
+          "Krakow",
+          "Wroclaw",
+          "Poznan",
+          "Gdansk",
+          "Szczecin",
+          "Bydgoszcz",
+          "Lodz",
+          "Katowice",
+          "Lublin",
+        ],
+        Spanien: [
+          "Madrid",
+          "Barcelona",
+          "Seville",
+          "Valencia",
+          "Bilbao",
+          "Malaga",
+          "Zaragoza",
+          "Murcia",
+          "Palma de Mallorca",
+          "Alicante",
+        ],
+        Sweden: [
+          "Stockholm",
+          "Gothenburg",
+          "Malmo",
+          "Uppsala",
+          "Vasteras",
+          "Orebro",
+          "Linkoping",
+          "Helsingborg",
+          "Jonkoping",
+          "Norrkoping",
+        ],
+      },
     };
   },
   methods: {
-    toggleLanguageDropdown() {
-      if (this.isOpenLanguage) {
-        this.isOpenLanguage = false; // Close the other dropdown
+    openCitiesDropdown() {
+      if (this.isCities) {
+        this.isCities = false;
       } else {
-        this.isOpenLanguage = true;
+        this.isCities = true;
       }
       this.filteredOptions = this.options;
-      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+      document.addEventListener(
+        "click",
+        this.closeCitiesDropdownOnClickOutside
+      );
     },
-    toggleCountryDropdown() {
-      if (this.isOpenCountry) {
-        this.isOpenCountry = false;
-      } else {
-        this.isOpenCountry = true;
+    closeCitiesDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".cities");
+      if (!dropdownElement.contains(event.target)) {
+        this.isCities = false;
+        document.removeEventListener(
+          "click",
+          this.closeCitiesDropdownOnClickOutside
+        );
       }
+    },
+    selectCity(city) {
+      if (this.selectedCities.includes(city)) {
+        const index = this.selectedCities.indexOf(city);
+        if (index > -1) {
+          this.selectedCities.splice(index, 1);
+        }
+      } else {
+        this.selectedCities.push(city);
+      }
+      console.log("Selected cities:", this.selectedCities);
+    },
+    // selectCity(city) {
+    //   this.selectedCity  = city;
+    // 	this.isCities = false;
 
+    // },
+    openCountryDropdown() {
+      if (this.isOpen) {
+        this.isOpen = false;
+      } else {
+        this.isOpen = true;
+      }
       this.filteredOptions = this.options;
       document.addEventListener(
         "click",
@@ -329,7 +657,7 @@ export default defineComponent({
     closeCountryDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".country");
       if (!dropdownElement.contains(event.target)) {
-        this.isOpenCountry = false;
+        this.isOpen = false;
         document.removeEventListener(
           "click",
           this.closeCountryDropdownOnClickOutside
@@ -342,6 +670,7 @@ export default defineComponent({
     selectCountry(option) {
       this.inputCountry = option;
       this.isOpen = false;
+      this.selectedCities = [""];
     },
     //
     changeLanguage() {
@@ -349,7 +678,15 @@ export default defineComponent({
       localStorage.setItem("name", this.inputValue);
       window.location.reload();
     },
-
+    openPriceDropdown() {
+      if (this.isOpenLanguage) {
+        this.isOpenLanguage = false; // Close the other dropdown
+      } else {
+        this.isOpenLanguage = true;
+      }
+      this.filteredOptions = this.options;
+      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+    },
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".language");
       if (!dropdownElement.contains(event.target)) {
@@ -366,8 +703,11 @@ export default defineComponent({
       this.isOpenLanguage = false;
       this.changeLanguage(); // Вызываем функцию смены языка при выборе
     },
+    closeDropdown() {
+      this.isOpen = false;
+    },
   },
-  created() {
+  mounted() {
     if (localStorage.getItem("lang") == null) {
       localStorage.setItem("lang", "en");
     } else if (localStorage.getItem("name") == null) {
@@ -399,10 +739,6 @@ select:focus {
 
 .bg-gray-800 {
   background-color: #526d82;
-}
-
-.btn {
-  border: 1px solid #7b7c80;
 }
 
 .btn:hover {
@@ -438,10 +774,10 @@ select:focus {
 
 .dropdown-options {
   position: absolute;
+  z-index: 1;
   bottom: 35px;
   list-style: none;
   padding: 0;
-  margin: 0;
   border: 1px solid #ccc;
   background-color: #fff;
   max-height: 200px;

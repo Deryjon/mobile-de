@@ -256,9 +256,11 @@
         >
           <p>
             {{
+                 
               selectedCities.length > 2
-                ? selectedCities.slice(0, 2).join(", ") + "..."
+                ? selectedCities.slice(1, 3).join(",") + "..."
                 : selectedCities.join(", ")
+            
             }}
           </p>
         </div>
