@@ -1,7 +1,7 @@
 <template>
   <section class="swiper">
-    <v-container class="max-w-[1440px]">
-      <div class="slider mx-auto">
+    <v-container class="max-w-[1120px]">
+      <div class="slider">
         <img
           v-for="(image, index) in images"
           :key="index"
@@ -79,14 +79,14 @@ export default {
 <style scoped>
 .swiper  .slider {
     position: relative;
-    max-width: 1440px;
+    width: 1120px;
     height: 400px;
     left: auto;
 		right: auto;
 }
 
 .swiper .slider .slider-item {
-    width: 1440px;
+    width: 1120px;
     height: 400px;
     opacity: 0;
     position: absolute;

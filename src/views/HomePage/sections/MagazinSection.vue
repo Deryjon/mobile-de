@@ -1,9 +1,9 @@
 <template>
-  <v-container class="max-w-[1440px]">
-    <div class="header max-w-[1440px]">
+  <v-container class="max-w-[1120px]">
+    <div class="header max-w-[1120px]">
       <div class="container">
     
-          <div class="magazine-bmw max-w-[1410px]">
+          <div class="magazine-bmw max-w-[1120px]">
             <div class="row head-bottom">
               <h2 class="head">SellCenter Magazin</h2>
             </div>
@@ -85,7 +85,7 @@
               </div>
             </div>
           </div>
-          <div class="wrapper flex justify-between mt-[20px] w-[1410px]" >
+          <div class="wrapper flex justify-between mt-[20px] w-[1120px]" >
             <div class="sect-2"> 
               <img
                 class="tablet-man"
@@ -481,7 +481,7 @@ select {
 }
 .sect-2 {
   display: flex;
-  width: 700px;
+  width: 550px;
   padding: 20px;
   gap: 15px;
   background-color: #f5f5f5;
