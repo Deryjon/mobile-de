@@ -3,7 +3,7 @@
     class=""
     :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
   >
-    <v-container class="">
+    <v-container class="w-[1240]">
       <div class="actions flex h-[50px] items-center gap-[10px]">
 				<FooterActions class="hidden lg:flex mx-[150px]"/>
         
