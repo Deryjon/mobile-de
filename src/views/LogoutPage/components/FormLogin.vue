@@ -358,7 +358,8 @@ export default {
 					localStorage.setItem("r-d", responseData)
 					localStorage.setItem("r-tok", responseData.token);
 					if (localStorage.getItem("r-tok")) {
-            this.$router.push({ name: "home" }); 
+						this.$router.push({ name: "home" });
+           
           }	
 			})
     },
