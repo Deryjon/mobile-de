@@ -3,7 +3,7 @@
     <div class="language dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
           @click="openPriceDropdown"
         >
@@ -115,7 +115,7 @@
 
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openCountryDropdown"
           @blur="closeCountryDropdown"
           @click="openCountryDropdown"
@@ -250,7 +250,7 @@
     <div class="cities dropdown-container mt-[15px]" >
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
@@ -432,7 +432,7 @@ export default defineComponent({
   },
   data() {
     return {
-      language: null,
+      language: "Language",
       isOpen: false,
       isCities: false,
       isOpenKilometer: false,
@@ -441,11 +441,10 @@ export default defineComponent({
       inputCountry: "Country",
       selectedCity: "",
       inputKilometer: "",
-      inputPrice: "Language",
       options: [],
       filteredOptions: [],
       showCities: false,
-      selectedCities: ["Cities"],
+      selectedCities: ["City's"],
       citiesData: {
         Belgium: [
           "Brussels",

@@ -1,5 +1,5 @@
 <template>
-  <div class="actions gap-[10px] items-center mt-[20px]">
+  <div class="actions gap-[10px] items-center ">
     <div class="language dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div

@@ -10,7 +10,7 @@
       <div class="actions flex h-[50px] items-center gap-[10px]">
         <HeaderActions class="hidden lg:flex"/>
         <HeaderMenuAction @openMenu="toggleMenu" />
-        <HeaderSwitcherTheme class="mt-[21px] hidden lg:flex" />
+        <HeaderSwitcherTheme class="mt-[40px] hidden lg:flex" />
         <HeaderContact class="mt-[25px] hidden lg:flex" />
         <HeaderLogout class="mt-[25px] hidden lg:flex" />
         <Transition name="menu">
