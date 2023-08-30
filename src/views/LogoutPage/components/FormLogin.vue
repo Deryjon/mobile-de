@@ -23,7 +23,7 @@
           <div class="for-example">
             <v-sheet
               width="480"
-              height="450"
+              height="480"
               class="mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
@@ -283,7 +283,6 @@ export default {
     return {
       setActive,
       isActive,
-      isChecked,
       showPassword,
       toggleShowPassword,
       toggleShowCheckbox,
@@ -336,9 +335,10 @@ export default {
         .then((response) => {
           const responseData = response.data;
 
+					localStorage.setItem("r-d", responseData)
           localStorage.setItem("r-tok", responseData.token);
           if (localStorage.getItem("r-tok")) {
-            this.$router.push({ name: "home" }); // Перенаправляем на страницу "home"
+            this.$router.push({ name: "home" }); 
           }	
         })
         .catch((error) => {
@@ -355,6 +355,11 @@ export default {
 			.then((response) => {
           const responseData = response.data;
 					console.log(responseData);
+					localStorage.setItem("r-d", responseData)
+					localStorage.setItem("r-tok", responseData.token);
+					if (localStorage.getItem("r-tok")) {
+            this.$router.push({ name: "home" }); 
+          }	
 			})
     },
   },
