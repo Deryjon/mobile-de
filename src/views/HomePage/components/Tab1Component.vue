@@ -496,7 +496,7 @@
             </div>
           </div> -->
           <div class="relative">
-            <h2 class="mt-2 text-sm lg:text-[14px]">
+            <h2 class="mt-2 text-sm lg:text-[12px]">
               {{ $t("message.selects.zip") }}
             </h2>
             <input

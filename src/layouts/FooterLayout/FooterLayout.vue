@@ -7,7 +7,7 @@
       <div class="actions flex h-[50px] items-center gap-[10px]">
 				<FooterActions class="hidden lg:flex mx-[150px]"/>
         
-        <HeaderSwitcherTheme class="mt-[2	0px] hidden lg:flex" />
+        <HeaderSwitcherTheme class="mt-[20px] hidden lg:flex" />
         <HeaderContact class="mb-[15px] hidden lg:flex" />
       </div>
     </v-container>

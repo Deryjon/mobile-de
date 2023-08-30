@@ -1,10 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomePage/HomeView.vue'
-const LogView = () => import("../views/LogoutPage/LogView.vue");
-const CarFilterView = () => import("../views/CarFilterPage/CarFilterView.vue");
-const MotorbikeFilterView = () => import("../views/MotorbikeFilterPage/MotorbikeFilterView.vue");
-const VansFilterView = () => import("../views/VansFilterPage/VansFilterView.vue");
-
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -16,22 +11,27 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: LogView
+      component: import("../views/LogoutPage/LogView.vue")
     },
     {
       path: '/car-filter',
       name: 'car-filter',
-      component: CarFilterView
+      component: import("../views/CarFilterPage/CarFilterView.vue")
     },
 		{
       path: '/motorbike-filter',
       name: 'motorbike-filter',
-      component: MotorbikeFilterView
+      component: import("../views/MotorbikeFilterPage/MotorbikeFilterView.vue")
     },
 		{
       path: '/vans-filter',
       name: 'vans-filter',
-      component: VansFilterView
+      component: import("../views/VansFilterPage/VansFilterView.vue")
+    },
+		{
+      path: '/my-profile',
+      name: 'profile-settings',
+      component: import("../views/SettingProfilePage/SettingsProfilePage.vue")
     },
   ]
 })

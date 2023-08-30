@@ -44,7 +44,9 @@
                     v-model="emailLogin"
                     @input="validateEmailLogin"
                   />
-                  <span v-if="!isEmailLoginValid" class="text-red-600 text-sm mt-1"
+                  <span
+                    v-if="!isEmailLoginValid"
+                    class="text-red-600 text-sm mt-1"
                     >Please enter a valid email address.</span
                   >
                 </div>
@@ -111,7 +113,7 @@
                   type="submit"
                   :disabled="!isFormLoginValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[30px]"
-                  @click="LoginUser(email, password)"
+                  @click="LoginUser(emailLogin, passwordLogin)"
                   :class="{ 'opacity-50': !isFormLoginValid }"
                 >
                   Login
@@ -315,7 +317,9 @@ export default {
     validateEmailLogin() {
       // Ваш код валидации email
       // Пример проверки на корректность email:
-      this.isEmailLoginValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(this.emailLogin);
+      this.isEmailLoginValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+        this.emailLogin
+      );
     },
     validatePasswordLogin() {
       // Ваш код валидации пароля
@@ -333,6 +337,9 @@ export default {
           const responseData = response.data;
 
           localStorage.setItem("r-tok", responseData.token);
+          if (localStorage.getItem("r-tok")) {
+            this.$router.push({ name: "home" }); // Перенаправляем на страницу "home"
+          }	
         })
         .catch((error) => {
           console.error("Error fetching model years:", error);
@@ -340,10 +347,15 @@ export default {
     },
 
     LoginUser(email, password) {
-      http.post("/user/login", {
+      http
+			.post("/user/login", {
         user_email: email,
         user_password: password,
-      });
+      })
+			.then((response) => {
+          const responseData = response.data;
+					console.log(responseData);
+			})
     },
   },
   components: { HeaderLogo, RightTabComponent },
