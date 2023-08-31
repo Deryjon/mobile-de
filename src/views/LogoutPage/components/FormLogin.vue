@@ -334,11 +334,27 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
-
-          localStorage.setItem("r-d", responseData.user_data);
+          console.log(responseData);
+          localStorage.setItem("u-i", responseData.data.user_id);
+          localStorage.setItem("u-e", responseData.data.user_email);
+          localStorage.setItem("u-p", responseData.data.user_password);
+          localStorage.setItem("u-fn", responseData.data.user_first_name);
+          localStorage.setItem("u-ln", responseData.data.user_last_name);
+          localStorage.setItem("u-g", responseData.data.user_gender);
+          localStorage.setItem("u-d-s", responseData.data.user_address_street);
+          localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
+          localStorage.setItem("u-d-z", responseData.data.user_address_zip);
+          localStorage.setItem("u-d-c", responseData.data.user_address_city);
+          localStorage.setItem("u-d-co", responseData.data.user_address_country);
+          localStorage.setItem("u-code", responseData.data.user_country_code);
+          localStorage.setItem("u-pre", responseData.data.user_number_prefix);
+          localStorage.setItem("u-phone", responseData.data.user_phone_number);
+          localStorage.setItem("u-bal", responseData.data.user_balance);
           localStorage.setItem("r-tok", responseData.token);
           if (localStorage.getItem("r-tok")) {
-            this.$router.push({ name: "home" });
+            // Set a flag in local storage to indicate successful login
+            localStorage.setItem("logged-in", "true");
+            window.location.reload();
           }
         })
         .catch((error) => {
@@ -355,7 +371,21 @@ export default {
         .then((response) => {
           const responseData = response.data;
           console.log(responseData);
-          localStorage.setItem("r-d", responseData.data);
+          localStorage.setItem("u-i", responseData.data.user_id);
+          localStorage.setItem("u-e", responseData.data.user_email);
+          localStorage.setItem("u-p", responseData.data.user_password);
+          localStorage.setItem("u-fn", responseData.data.user_first_name);
+          localStorage.setItem("u-ln", responseData.data.user_last_name);
+          localStorage.setItem("u-g", responseData.data.user_gender);
+          localStorage.setItem("u-d-s", responseData.data.user_address_street);
+          localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
+          localStorage.setItem("u-d-z", responseData.data.user_address_zip);
+          localStorage.setItem("u-d-c", responseData.data.user_address_city);
+          localStorage.setItem("u-d-co", responseData.data.user_address_country);
+          localStorage.setItem("u-code", responseData.data.user_country_code);
+          localStorage.setItem("u-pre", responseData.data.user_number_prefix);
+          localStorage.setItem("u-phone", responseData.data.user_phone_number);
+          localStorage.setItem("u-bal", responseData.data.user_balance);
           localStorage.setItem("r-tok", responseData.token);
           if (localStorage.getItem("r-tok")) {
             // Set a flag in local storage to indicate successful login

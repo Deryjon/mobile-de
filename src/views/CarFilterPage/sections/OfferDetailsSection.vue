@@ -53,7 +53,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style >
+.arrow {
+  transform: translateY(-50%);
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(135deg);
+  pointer-events: none;
+}
 .mark-input2 {
   max-height: 35px; /* Измените значение по вашему усмотрению */
   overflow-y: hidden;

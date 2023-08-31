@@ -304,5 +304,12 @@ select:-webkit-scrollbar {
 .mark-select {
   border: 1px solid #111;
 }
+.arrow {
+  transform: translateY(-50%);
+  border-top: 2px solid #000;
+  border-right: 2px solid #000;
+  transform: rotate(135deg);
+  pointer-events: none;
+}
 </style>
-``
+
