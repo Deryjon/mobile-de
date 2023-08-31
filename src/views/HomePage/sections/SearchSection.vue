@@ -206,7 +206,7 @@
       </div>
       <MoreFilterBtn v-show="isActive('tab-1')" />
 			<MotorbikeFilterBtn v-show="isActive('tab-2')"/>
-			<VansFilterBtn  v-show="isActive('tab-3')"/>
+			<VansFilterBtn v-show="isActive('tab-3')"/>
     </v-container>
   </section>
 </template>

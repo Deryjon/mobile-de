@@ -11,27 +11,27 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: import("../views/LogoutPage/LogView.vue")
+      component: import("@/views/LogoutPage/LogView.vue")
     },
     {
       path: '/car-filter',
       name: 'car-filter',
-      component: import("../views/CarFilterPage/CarFilterView.vue")
+      component: import("@/views/CarFilterPage/CarFilterView.vue")
     },
 		{
       path: '/motorbike-filter',
       name: 'motorbike-filter',
-      component: import("../views/MotorbikeFilterPage/MotorbikeFilterView.vue")
+      component: import("@/views/MotorbikeFilterPage/MotorbikeFilterView.vue")
     },
 		{
       path: '/vans-filter',
       name: 'vans-filter',
-      component: import("../views/VansFilterPage/VansFilterView.vue")
+      component: import("@/views/VansFilterPage/VansFilterView.vue")
     },
 		{
       path: '/my-profile',
       name: 'profile-settings',
-      component: import("../views/SettingProfilePage/SettingsProfilePage.vue")
+      component: import("@/views/SettingProfilePage/SettingsProfilePage.vue")
     },
   ]
 })
