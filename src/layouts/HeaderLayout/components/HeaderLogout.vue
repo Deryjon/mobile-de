@@ -7,7 +7,7 @@
   >
     {{ $t("message.header.login") }}
   </button>
-  <div v-else class="dropdown-container mt-[40px]">
+  <div v-else class="settings dropdown-container mt-[40px]">
     <div
       @click="openProfileDropdown"
       class="profile-icon w-[30px] cursor-pointer"
@@ -106,10 +106,11 @@ export default defineComponent({
     openProfileDropdown() {
       this.isProfileSetting = !this.isProfileSetting;
     },
+
     logOut() {
       localStorage.removeItem("r-tok");
       this.$router.push({ name: "home" });
-      window.location.reload()
+      window.location.reload();
     },
   },
 });
