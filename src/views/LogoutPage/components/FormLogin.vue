@@ -335,7 +335,7 @@ export default {
         .then((response) => {
           const responseData = response.data;
 
-					localStorage.setItem("r-d", responseData.data)
+          localStorage.setItem("r-d", responseData.user_data);
           localStorage.setItem("r-tok", responseData.token);
           if (localStorage.getItem("r-tok")) {
             this.$router.push({ name: "home" });
@@ -347,28 +347,26 @@ export default {
     },
 
     LoginUser(email, password) {
-  http.post("/user/login", {
-    user_email: email,
-    user_password: password,
-  })
-  .then((response) => {
-    const responseData = response.data;
-    console.log(responseData);
-    localStorage.setItem("r-d", responseData);
-    localStorage.setItem("r-tok", responseData.token);
-    if (localStorage.getItem("r-tok")) {
-      // Set a flag in local storage to indicate successful login
-      localStorage.setItem("logged-in", "true");
-      
-      // Reload the page
-      window.location.reload();
-    }
-  })
-  .catch((error) => {
-    console.error("Error logging in:", error);
-  });
-},
-
+      http
+        .post("/user/login", {
+          user_email: email,
+          user_password: password,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          console.log(responseData);
+          localStorage.setItem("r-d", responseData.data);
+          localStorage.setItem("r-tok", responseData.token);
+          if (localStorage.getItem("r-tok")) {
+            // Set a flag in local storage to indicate successful login
+            localStorage.setItem("logged-in", "true");
+            window.location.reload();
+          }
+        })
+        .catch((error) => {
+          console.error("Error logging in:", error);
+        });
+    },
   },
   components: { HeaderLogo, RightTabComponent },
   computed: {
@@ -386,9 +384,9 @@ export default {
       this.$router.push({ name: "home" });
       localStorage.removeItem("logged-in"); // Clear the flag
     }
-  }
-}
-  // ... rest of your component code ...
+  },
+};
+// ... rest of your component code ...
 </script>
 <style scoped>
 .login,

@@ -112,7 +112,6 @@
 
     <!--  -->
     <div class="country dropdown-container mt-[15px]">
-
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -247,7 +246,7 @@
         </div>
       </ul>
     </div>
-    <div class="cities dropdown-container mt-[15px]" >
+    <div class="cities dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
@@ -256,11 +255,9 @@
         >
           <p>
             {{
-                 
               selectedCities.length > 2
                 ? selectedCities.slice(1, 3).join(",") + "..."
                 : selectedCities.join(", ")
-            
             }}
           </p>
         </div>
@@ -437,7 +434,7 @@ export default defineComponent({
       isCities: false,
       isOpenKilometer: false,
       isOpenLanguage: false,
-      inputValue: "Language",
+      inputValue: localStorage.getItem("name") || "Language",
       inputCountry: "Country",
       selectedCity: "",
       inputKilometer: "",
@@ -457,8 +454,18 @@ export default defineComponent({
           "Mechelen",
           "Charleroi",
           "Hasselt",
+          "Mons",
+          "Aalst",
+          "Tournai",
+          "Sint-Niklaas",
+          "Ostend",
+          "Genk",
+          "Seraing",
+          "Roeselare",
+          "Verviers",
+          "Mouscron",
         ],
-        Canda: [
+        Canada: [
           "Toronto",
           "Vancouver",
           "Montreal",
@@ -469,6 +476,16 @@ export default defineComponent({
           "Winnipeg",
           "Halifax",
           "Victoria",
+          "London",
+          "Hamilton",
+          "Kitchener",
+          "Burnaby",
+          "Windsor",
+          "Saskatoon",
+          "Regina",
+          "Richmond",
+          "Brampton",
+          "Markham",
         ],
         Danmark: [
           "Copenhagen",
@@ -481,6 +498,16 @@ export default defineComponent({
           "Horsens",
           "Vejle",
           "Roskilde",
+          "Helsingor",
+          "Herning",
+          "Silkeborg",
+          "Naestved",
+          "Fredericia",
+          "Viborg",
+          "Koge",
+          "Holstebro",
+          "Slagelse",
+          "Taastrup",
         ],
         England: [
           "London",
@@ -493,6 +520,16 @@ export default defineComponent({
           "Sheffield",
           "Edinburgh",
           "Glasgow",
+          "Belfast",
+          "Nottingham",
+          "Southampton",
+          "Leicester",
+          "Cardiff",
+          "Brighton",
+          "Stoke-on-Trent",
+          "Coventry",
+          "Hull",
+          "Plymouth",
         ],
         France: [
           "Paris",
@@ -505,6 +542,16 @@ export default defineComponent({
           "Montpellier",
           "Bordeaux",
           "Lille",
+          "Rennes",
+          "Reims",
+          "Le Havre",
+          "Cergy-Pontoise",
+          "Saint-Etienne",
+          "Toulon",
+          "Angers",
+          "Grenoble",
+          "Dijon",
+          "Nimes",
         ],
         Germany: [
           "Berlin",
@@ -517,6 +564,16 @@ export default defineComponent({
           "Dortmund",
           "Essen",
           "Leipzig",
+          "Bremen",
+          "Dresden",
+          "Hanover",
+          "Nuremberg",
+          "Duisburg",
+          "Bochum",
+          "Wuppertal",
+          "Bielefeld",
+          "Bonn",
+          "Munster",
         ],
         Italy: [
           "Rome",
@@ -529,6 +586,16 @@ export default defineComponent({
           "Genoa",
           "Palermo",
           "Verona",
+          "Padua",
+          "Trieste",
+          "Brescia",
+          "Reggio Calabria",
+          "Mestre",
+          "Modena",
+          "Prato",
+          "Cagliari",
+          "Parma",
+          "Livorno",
         ],
         Morocco: [
           "Casablanca",
@@ -541,6 +608,16 @@ export default defineComponent({
           "Oujda",
           "Kenitra",
           "Fes",
+          "Sale",
+          "Mohammedia",
+          "Temara",
+          "Khouribga",
+          "Beni Mellal",
+          "El Jadida",
+          "Tetouan",
+          "Nador",
+          "Settat",
+          "Safi",
         ],
         Netherlands: [
           "Amsterdam",
@@ -553,6 +630,16 @@ export default defineComponent({
           "Almere",
           "Breda",
           "Nijmegen",
+          "Apeldoorn",
+          "Haarlem",
+          "Arnhem",
+          "Zaanstad",
+          "Amersfoort",
+          "Zwolle",
+          "Hoofddorp",
+          "Leeuwarden",
+          "Leiden",
+          "Dordrecht",
         ],
         Russa: [
           "Moscow",
@@ -565,6 +652,16 @@ export default defineComponent({
           "Samara",
           "Omsk",
           "Rostov-on-Don",
+          "Ufa",
+          "Volgograd",
+          "Perm",
+          "Krasnoyarsk",
+          "Voronezh",
+          "Saratov",
+          "Krasnodar",
+          "Tolyatti",
+          "Izhevsk",
+          "Ulyanovsk",
         ],
         Poland: [
           "Warsaw",
@@ -577,6 +674,16 @@ export default defineComponent({
           "Lodz",
           "Katowice",
           "Lublin",
+          "Bialystok",
+          "Czestochowa",
+          "Gdynia",
+          "Sosnowiec",
+          "Radom",
+          "Kielce",
+          "Gliwice",
+          "Torun",
+          "Zabrze",
+          "Bytom",
         ],
         Spanien: [
           "Madrid",
@@ -589,6 +696,16 @@ export default defineComponent({
           "Murcia",
           "Palma de Mallorca",
           "Alicante",
+          "Cordoba",
+          "Valladolid",
+          "Vigo",
+          "Gijon",
+          "Hospitalet de Llobregat",
+          "A Coruna",
+          "Vitoria-Gasteiz",
+          "Granada",
+          "Elche",
+          "Oviedo",
         ],
         Sweden: [
           "Stockholm",
@@ -601,6 +718,16 @@ export default defineComponent({
           "Helsingborg",
           "Jonkoping",
           "Norrkoping",
+          "Lund",
+          "Umea",
+          "Gavle",
+          "Boras",
+          "Sodertalje",
+          "Taby",
+          "Eskilstuna",
+          "Halmstad",
+          "Vaxjo",
+          "Karlstad",
         ],
       },
     };
@@ -671,7 +798,8 @@ export default defineComponent({
     },
     selectCountry(option) {
       this.inputCountry = option;
-      this.selectedCities = [""];
+      this.selectedCities = ["City's"];
+      this.isOpen = false;
     },
     //
     changeLanguage() {
@@ -715,8 +843,9 @@ export default defineComponent({
       localStorage.setItem("name", "Language");
     }
     this.language = localStorage.getItem("lang");
-    this.inputValue = localStorage.getItem("name");
+   
   },
+  created() {},
 });
 </script>
 
@@ -741,7 +870,6 @@ select:focus {
 .bg-gray-800 {
   background-color: #526d82;
 }
-
 
 .btn:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
