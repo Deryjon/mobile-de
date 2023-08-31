@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomePage/HomeView.vue'
+import LogView from "../views/LogoutPage/LogView.vue"
+import CarFilter from "../views/CarFilterPage/CarFilterView.vue"
+import MotorbikeFilter from "../views/MotorbikeFilterPage/MotorbikeFilterView.vue"
+import VansFilter from "../views/VansFilterPage/VansFilterView.vue"
+import SettingProfile from "../views/SettingProfilePage/SettingsProfilePage.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -11,27 +16,27 @@ const router = createRouter({
     {
       path: '/login',
       name: 'login',
-      component: import("/views/LogoutPage/LogView.vue")
+      component: LogView
     },
     {
       path: '/car-filter',
       name: 'car-filter',
-      component: import("/views/CarFilterPage/CarFilterView.vue")
+      component: CarFilter
     },
 		{
       path: '/motorbike-filter',
       name: 'motorbike-filter',
-      component: import("/views/MotorbikeFilterPage/MotorbikeFilterView.vue")
+      component: MotorbikeFilter
     },
 		{
       path: '/vans-filter',
       name: 'vans-filter',
-      component: import("/views/VansFilterPage/VansFilterView.vue")
+      component: VansFilter
     },
 		{
       path: '/my-profile',
       name: 'profile-settings',
-      component: import("/views/SettingProfilePage/SettingsProfilePage.vue")
+      component: SettingProfile
     },
   ]
 })
