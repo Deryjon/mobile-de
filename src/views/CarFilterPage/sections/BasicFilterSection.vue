@@ -10,7 +10,7 @@
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <div
-          class="top sm:flex w-[250px] sm:w-[350px] items-center  sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]"
+          class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -25,13 +25,13 @@
                 <option value="14600" selected>Beliebig</option>
                 <optgroup>
                   <option
-                v-for="make in makes"
-                :key="make"
-                :value="make.car_make_name"
-              >
-                {{ make.car_make_name }}
-              </option>
-									<option value="other">other</option>
+                    v-for="make in makes"
+                    :key="make"
+                    :value="make.car_make_name"
+                  >
+                    {{ make.car_make_name }}
+                  </option>
+                  <option value="other">other</option>
                 </optgroup>
               </select>
               <span
@@ -46,18 +46,18 @@
             </h2>
             <select
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="Beliebig"
               :disabled="isModelSelectDisabled"
+							v-model="selectedModel"
             >
-              <option value="14600">Beliebig</option>
-          <option
-            v-for="model in models"
-            :key="model"
-            :value="model.car_model_name"
-            class=""
-          >
-            {{ model.car_model_name }}
-          </option>
+<option :value="selectedModel" selected>{{ selectedModel }}</option>
+              <option
+                v-for="model in models"
+                :key="model"
+                :value="model.car_model_name"
+                class=""
+              >
+                {{ model.car_model_name }}
+              </option>
             </select>
             <span
               class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
@@ -116,21 +116,20 @@ import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
-	components: {
-		PathLink,
-		FilterTitle,
-		FilterBtn,
-		SeatsComponent,
-		CarFilterComponentBasic,
-		ConditionComponent,
-		PaymentTab1Component,
-	},
+  components: {
+    PathLink,
+    FilterTitle,
+    FilterBtn,
+    SeatsComponent,
+    CarFilterComponentBasic,
+    ConditionComponent,
+    PaymentTab1Component,
+  },
   data() {
     return {
       makes: [],
       models: [],
       selectedMark: "14600",
-      selectedMake: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "tab-1",
@@ -141,17 +140,12 @@ export default {
       modelYears: [],
       modeltoYears: [],
       killometres: "",
-      selectedMake: "",
+      selectedModel: localStorage.getItem("mark-model"),
     };
   },
   methods: {
-    updateSelect() {
-      this.killometres = this.selectedMake;
-      this.selectedMake = this.selectedYear;
-    },
     fetchModels() {
       if (!this.selectedMark) {
-        this.models = [];
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
@@ -178,10 +172,6 @@ export default {
           console.error("Ошибка при выполнении запроса:", error.message);
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
-    },
-    updateSelectYear() {
-      this.years = this.selectedYear;
-      this.selectedYear = this.selectedMake;
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -243,12 +233,9 @@ export default {
         this.isRadioNewSelected = false;
       }
     },
-    updateSelectPrice() {
-      this.price = this.selectedPrice;
-      this.selectedPrice = this.selectedMake;
-    },
   },
   mounted() {
+					this.selectedMark = localStorage.getItem("mark");
     const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
     axios
       .get(apiUrl)
@@ -312,4 +299,3 @@ select:-webkit-scrollbar {
   pointer-events: none;
 }
 </style>
-

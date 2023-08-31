@@ -1,7 +1,7 @@
 <template>
   <div class="pl-[20px]">
     <div
-      class="price-tab flex items-center gap-[20px] lg gap-[20px] lg:gap-[80px]"
+      class="price-tab flex items-center gap-[20px] lg:gap-[80px]"
     >
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
@@ -1018,6 +1018,9 @@ export default {
     },
   },
   mounted() {
+		this.price = localStorage.getItem("price")
+		this.inputValue = localStorage.getItem("reg-year")
+		this.inputKilometer = localStorage.getItem("kilometer")
     this.fetchModelYears();
   },
 };
