@@ -145,7 +145,7 @@
               class="w-[50px] h-[20px]"
               alt=""
             />
-            <li data-key="can" @click="selectCountry('Canda')">Canda</li>
+            <li data-key="can" @click="selectCountry('Canada')">Canda</li>
           </div>
 
           <div class="flex items-center">
