@@ -354,11 +354,11 @@ export default {
           localStorage.setItem("r-tok", responseData.token);
 
           if (localStorage.getItem("r-tok")) {
-            // Set a flag in local storage to indicate successful login
-
             localStorage.setItem("logged-in", "true");
-    
+						this.$router.push({name: "home"})
+
           }
+					
         })
         .catch((error) => {
           console.error("Error fetching model years:", error);
