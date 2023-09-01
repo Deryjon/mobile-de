@@ -284,6 +284,7 @@ export default {
     return {
       setActive,
       isActive,
+			showPassword,
       toggleShowPassword,
       toggleShowCheckbox,
     };
@@ -351,10 +352,12 @@ export default {
           localStorage.setItem("u-phone", responseData.data.user_phone_number);
           localStorage.setItem("u-bal", responseData.data.user_balance);
           localStorage.setItem("r-tok", responseData.token);
+
           if (localStorage.getItem("r-tok")) {
             // Set a flag in local storage to indicate successful login
+
             localStorage.setItem("logged-in", "true");
-            window.location.reload();
+    
           }
         })
         .catch((error) => {
@@ -388,11 +391,9 @@ export default {
           localStorage.setItem("u-bal", responseData.data.user_balance);
           localStorage.setItem("r-tok", responseData.token);
           if (localStorage.getItem("r-tok")) {
-            // Set a flag in local storage to indicate successful login
             localStorage.setItem("logged-in", "true");
-						this.$router.push({ name: "home" });
+						this.$router.push({name: "home"})
 
-            // window.location.reload();
           }
         })
         .catch((error) => {
@@ -414,7 +415,6 @@ export default {
     const isLoggedIn = localStorage.getItem("logged-in");
     if (isLoggedIn === "true") {
       this.$router.push({ name: "home" });
-      localStorage.removeItem("logged-in"); // Clear the flag
     }
   },
 };

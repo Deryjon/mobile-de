@@ -21,21 +21,16 @@ export default {
     SwiperSection,
 		MagazinSection,
 },
-};
+created() {
+    const hasReloaded = localStorage.getItem('hasReloaded');
+    if (!hasReloaded && this.$route.name === 'home') { // Замените 'home' на имя вашего маршрута для главной страницы
+      location.reload();
+      localStorage.setItem('hasReloaded', 'true');
+    }
+}
+}	
 
-// Директива v-focus
-export const focusDirective = {
-  mounted(el, binding) {
-    if (binding.value) {
-      el.focus();
-    }
-  },
-  updated(el, binding) {
-    if (binding.value) {
-      el.focus();
-    }
-  },
-};
+
 </script>
 
 <style scoped></style>
