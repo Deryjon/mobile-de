@@ -23,7 +23,7 @@ export default {
 },
 created() {
     const hasReloaded = localStorage.getItem('hasReloaded');
-    if (!hasReloaded && this.$route.name === 'home') { // Замените 'home' на имя вашего маршрута для главной страницы
+    if (!hasReloaded && localStorage.getItem('r-tok')) { 
       location.reload();
       localStorage.setItem('hasReloaded', 'true');
     }
