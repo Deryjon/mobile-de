@@ -255,9 +255,10 @@
 </template>
 <script>
 import { ref } from "vue";
-import HeaderLogo from "../../../layouts/HeaderLayout/components/HeaderLogo.vue";
-import http from "../../../axios.config";
+import HeaderLogo from "@/layouts/HeaderLayout/components/HeaderLogo.vue";
+import http from "@/axios.config";
 import RightTabComponent from "./RightTabComponent.vue";
+
 
 export default {
   setup() {
@@ -283,7 +284,6 @@ export default {
     return {
       setActive,
       isActive,
-      showPassword,
       toggleShowPassword,
       toggleShowCheckbox,
     };
@@ -390,7 +390,7 @@ export default {
           if (localStorage.getItem("r-tok")) {
             // Set a flag in local storage to indicate successful login
             localStorage.setItem("logged-in", "true");
-            window.location.reload();
+            // window.location.reload();
           }
         })
         .catch((error) => {

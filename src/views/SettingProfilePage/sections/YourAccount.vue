@@ -19,7 +19,7 @@
           </svg>
         </div>
         <div class="changes">
-          <p class="email text-[14px]">{{ userEmail.slice(0, 10) }}</p>
+          <p class="email text-[14px]">{{ userEmail.slice(0, 10) + "..."}}</p>
           <p class="email text-[14px] underline cursor-pointer">Edit</p>
         </div>
       </div>
