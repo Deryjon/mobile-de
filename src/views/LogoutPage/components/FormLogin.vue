@@ -390,6 +390,8 @@ export default {
           if (localStorage.getItem("r-tok")) {
             // Set a flag in local storage to indicate successful login
             localStorage.setItem("logged-in", "true");
+						this.$router.push({ name: "home" });
+
             // window.location.reload();
           }
         })
