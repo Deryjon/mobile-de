@@ -3,7 +3,7 @@ export default {
     header: {
       sell: "Vendre",
       login: "Connexion ou Inscription",
-      contact: "Contact",
+      contact: "Passer une annonce",
     },
     selects: {
       mark: "Marquer",

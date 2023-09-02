@@ -3,7 +3,7 @@ export default {
     header: {
       sell: "Продайте автомобиль",
       login: "Войдите или зарегистрируйтесь",
-      contact: "Контакт",
+      contact: "Разместить объявление",
     },
     selects: {
       mark: "Марка",

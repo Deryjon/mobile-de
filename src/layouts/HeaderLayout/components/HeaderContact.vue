@@ -1,6 +1,6 @@
 <template>
   <button
-    class="bg-transparent mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none rounded-[10px] py-[8px] px-12 font-normal  text-[10px] lg:text-[12px] mt-[42px]"
+    class="bg-transparent mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none rounded-[10px] py-[9px] px-3 font-normal  text-[10px] lg:text-[10px] mt-[42px]"
     :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
   >
     {{ $t("message.header.contact") }}

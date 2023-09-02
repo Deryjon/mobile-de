@@ -3,7 +3,7 @@ export default {
     header: {
       sell: "Auto verkaufen",
       login: "Anmelden oder Registrieren",
-      contact: "Kontakt",
+      contact: "Anzeige aufgeben",
     },
     selects: {
       mark: "Markieren",
