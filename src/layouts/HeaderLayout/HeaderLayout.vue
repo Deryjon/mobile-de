@@ -1,14 +1,16 @@
 <template>
-  <header class=""
-	:class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
-	>
-    <v-container class="flex z-50 items-center gap-[20px] max-w-[1230px]"
-		
+  <header
+    class=""
+    :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
+  >
+    <v-container class="flex z-50 items-center   " 
+		:class="{  'gap-[125px] max-w-[1150px]': hasToken,
+      'gap-[30px] max-w-[1150px]': !hasToken,  }"
 		>
       <HeaderLogo class="" />
 
       <div class="actions flex h-[50px] items-center gap-[10px]">
-        <HeaderActions class="hidden lg:flex"/>
+        <HeaderActions class="hidden lg:flex" />
         <HeaderMenuAction @openMenu="toggleMenu" />
         <HeaderSwitcherTheme class="mt-[40px] hidden lg:flex" />
         <HeaderContact class="mt-[25px] hidden lg:flex" />
@@ -31,14 +33,19 @@ import { useDarkModeStore } from "@/store/dark-mode.js";
 import HeaderMenuAction from "./components/HeaderMenuAction.vue";
 import { computed } from "vue";
 export default {
-	setup() {
+  setup() {
     const darkModeStore = useDarkModeStore();
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
 
+    const hasToken = computed(() => {
+      const token = localStorage.getItem("r-tok");
+      return !!token;
+    });
     return {
       isDarkMode,
       toggleDarkMode,
+      hasToken,
     };
   },
   data() {
@@ -59,7 +66,6 @@ export default {
     HeaderLogout,
     HiddenMenu,
     HeaderMenuAction,
-		
   },
 };
 </script>
