@@ -3,7 +3,7 @@
     <div class="language dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
           @click="openPriceDropdown"
         >
@@ -114,7 +114,7 @@
     <div class="country dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[135px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openCountryDropdown"
           @blur="closeCountryDropdown"
           @click="openCountryDropdown"
@@ -246,10 +246,10 @@
         </div>
       </ul>
     </div>
-    <div class="cities dropdown-container mt-[15px]">
+    <div class="cities dropdown-container mt-[15px] ">
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-2 px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
           @focus="openCitiesDropdown"
           @click="openCitiesDropdown"
         >
@@ -404,7 +404,7 @@
         </div> -->
     </div>
     <button
-      class="dropdown-input mt-[22px] mark_input bg-transparent mark-select w-[180px] lg:w-[150px] xl:w-[158px] h-[35px] outline-none rounded-[10px] py-[6px] px-4 font-normal pr-[30px] text-[10px] lg:text-[11px]"
+      class="dropdown-input mt-[22px] mark_input bg-transparent mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none rounded-[10px] py-[6px] px-4 font-normal pr-[30px] text-[10px] lg:text-[10px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}

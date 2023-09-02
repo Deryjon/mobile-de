@@ -230,7 +230,7 @@
         </button>
         <button
           class="flex gap-[8px] items-center mt-[20px] w-[160px]"
-          @click="setActive('tab-2')"
+          @click="logOut"
           :class="{ active: isActive('tab-2') }"
         >
 				<div class="icon-settings w-[24px]">
