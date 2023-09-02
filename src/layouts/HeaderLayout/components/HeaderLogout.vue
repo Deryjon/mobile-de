@@ -109,6 +109,7 @@ export default defineComponent({
       localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
       localStorage.removeItem("logged-in");
+			localStorage.setItem("logged-in", "false");	
       this.$router.push({ name: "home" });
       window.location.reload();
     },
