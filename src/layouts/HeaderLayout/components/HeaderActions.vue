@@ -404,7 +404,7 @@
         </div> -->
     </div>
     <button
-      class="dropdown-input mt-[22px] mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
+      class="dropdown-input mt-[22px] mark_input bg-transparent mark-select w-[180px] lg:w-[150px] xl:w-[165px] h-[35px] outline-none rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -884,10 +884,6 @@ select:focus {
   border-right: 2px solid #000;
   transform: rotate(135deg);
   pointer-events: none;
-}
-
-.language [data-country-code="usa"] {
-  background-image: url("../../../assets/icons/ua.svg");
 }
 .dropdown-container {
   position: relative;

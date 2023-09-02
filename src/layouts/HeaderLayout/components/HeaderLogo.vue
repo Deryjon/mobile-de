@@ -5,7 +5,7 @@
     </div>
     <p
       class="text-[26px] font-extrabold pt-6 title"
-      :class="{ 'text-white' : isDarkMode, 'text-black' : !isDarkMode }"
+      :class="{ 'text-black' : isDarkMode, 'text-black' : !isDarkMode }"
     >
       SellCenter
     </p>
