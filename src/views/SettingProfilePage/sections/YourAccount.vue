@@ -61,7 +61,7 @@
           <button
             class="flex gap-[8px] items-center mt-[20px] w-[160px]"
             @click="openCountryDropdown"
-            :class="{ active: isActive('tab-2') }"
+            :class="{ active: isActive('tab-1') }"
           >
             <svg
               class="sdOa3"
@@ -231,25 +231,23 @@
         <button
           class="flex gap-[8px] items-center mt-[20px] w-[160px]"
           @click="logOut"
-          :class="{ active: isActive('tab-2') }"
         >
-				<div class="icon-settings w-[24px]">
-							<svg
-								data-name="Layer 1"
-								xmlns="http://www.w3.org/2000/svg"
-								viewBox="0 0 128 128"
-							>
-								<path
-									d="M13.076 97.083a1.75 1.75 0 0 0 1.75-1.75V66.667a1.75 1.75 0 0 0-3.5 0v28.666a1.75 1.75 0 0 0 1.75 1.75zM122.38 64.97c.027-.041.046-.085.069-.128a1.037 1.037 0 0 0 .146-.348c.015-.051.035-.1.045-.152a1.755 1.755 0 0 0 0-.685c-.01-.053-.03-.1-.045-.152a1.733 1.733 0 0 0-.054-.174 1.692 1.692 0 0 0-.092-.174c-.023-.042-.042-.086-.069-.127a1.75 1.75 0 0 0-.22-.269l-12.509-12.509a1.75 1.75 0 0 0-2.475 2.475l9.524 9.523H63.424a1.75 1.75 0 0 0 0 3.5H116.7l-9.523 9.523a1.75 1.75 0 1 0 2.475 2.475l12.508-12.509a1.75 1.75 0 0 0 .22-.269z"
-								/>
-								<path
-									d="M95.424 72.25a1.75 1.75 0 0 0-1.75 1.75v36.9H48.633V17.1h45.041V54a1.75 1.75 0 1 0 3.5 0V15.35a1.75 1.75 0 0 0-1.75-1.75H48.633V6.5a1.75 1.75 0 0 0-2.461-1.6L6.365 22.593a1.751 1.751 0 0 0-1.039 1.6v79.615a1.751 1.751 0 0 0 1.039 1.6L46.172 123.1a1.75 1.75 0 0 0 2.461-1.6v-7.1h46.791a1.75 1.75 0 0 0 1.75-1.75V74a1.75 1.75 0 0 0-1.75-1.75zm-50.291 46.558L8.826 102.67V25.33L45.133 9.192z"
-								/>
-							</svg>
-						</div>
+          <div class="icon-settings w-[24px]">
+            <svg
+              data-name="Layer 1"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 128 128"
+            >
+              <path
+                d="M13.076 97.083a1.75 1.75 0 0 0 1.75-1.75V66.667a1.75 1.75 0 0 0-3.5 0v28.666a1.75 1.75 0 0 0 1.75 1.75zM122.38 64.97c.027-.041.046-.085.069-.128a1.037 1.037 0 0 0 .146-.348c.015-.051.035-.1.045-.152a1.755 1.755 0 0 0 0-.685c-.01-.053-.03-.1-.045-.152a1.733 1.733 0 0 0-.054-.174 1.692 1.692 0 0 0-.092-.174c-.023-.042-.042-.086-.069-.127a1.75 1.75 0 0 0-.22-.269l-12.509-12.509a1.75 1.75 0 0 0-2.475 2.475l9.524 9.523H63.424a1.75 1.75 0 0 0 0 3.5H116.7l-9.523 9.523a1.75 1.75 0 1 0 2.475 2.475l12.508-12.509a1.75 1.75 0 0 0 .22-.269z"
+              />
+              <path
+                d="M95.424 72.25a1.75 1.75 0 0 0-1.75 1.75v36.9H48.633V17.1h45.041V54a1.75 1.75 0 1 0 3.5 0V15.35a1.75 1.75 0 0 0-1.75-1.75H48.633V6.5a1.75 1.75 0 0 0-2.461-1.6L6.365 22.593a1.751 1.751 0 0 0-1.039 1.6v79.615a1.751 1.751 0 0 0 1.039 1.6L46.172 123.1a1.75 1.75 0 0 0 2.461-1.6v-7.1h46.791a1.75 1.75 0 0 0 1.75-1.75V74a1.75 1.75 0 0 0-1.75-1.75zm-50.291 46.558L8.826 102.67V25.33L45.133 9.192z"
+              />
+            </svg>
+          </div>
           Log out
         </button>
-				
       </div>
     </div>
     <section
@@ -280,13 +278,14 @@ export default {
       this.activeTab = tab;
     },
     isActive(tab) {
-      this.activeTab === tab;
+      return this.activeTab === tab;
     },
-		logOut() {
+
+    logOut() {
       localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
       localStorage.removeItem("logged-in");
-			localStorage.setItem("logged-in", "false");	
+      localStorage.setItem("logged-in", "false");
       this.$router.push({ name: "home" });
       window.location.reload();
     },
@@ -302,13 +301,15 @@ export default {
       );
     },
     closeCountryDropdownOnClickOutside(event) {
-    const dropdownElement = this.$el.querySelector(".adds");
-    if (dropdownElement && !dropdownElement.contains(event.target)) {
+      const dropdownElement = this.$el.querySelector(".adds");
+      if (dropdownElement && !dropdownElement.contains(event.target)) {
         this.isOpen = false;
-        document.removeEventListener("click", this.closeCountryDropdownOnClickOutside);
-    }
-},
-
+        document.removeEventListener(
+          "click",
+          this.closeCountryDropdownOnClickOutside
+        );
+      }
+    },
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
