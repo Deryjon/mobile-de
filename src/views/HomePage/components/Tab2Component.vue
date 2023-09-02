@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.car_make_name"
+                :value="make.motorcycle_make_name"
               >
-                {{ make.car_make_name }}
+                {{ make.motorcycle_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -670,7 +670,7 @@ export default {
   mounted() {
     // const apiUrl = 'https://api.api-ninjas.com/v1/cars/make'
     // const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
-    const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
+    const apiUrl = "https://sellcenter.onrender.com/api/v1/motorcycle/marks";
     axios
       .get(apiUrl)
       .then((response) => {
