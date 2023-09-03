@@ -87,11 +87,14 @@
             class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
           >
             <div class="countries">
-              <div class="flex items-center">
+              <div class="flex items-center"
+							@click="setActive('tab-3')"
+          :class="{ active: isActive('tab-3') }"
+							>
                 <li
                   class="text-[14px]"
                   data-key="be"
-                  @click="selectCountry('Cars')"
+                  
                 >
                   Cars
                 </li>
@@ -254,17 +257,21 @@
       class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] h-[1670px] flex"
     >
       <div class="" v-show="isActive('tab-1')">
-        <MessagesTab />
+				<OverviewTab />
       </div>
       <div class="" v-show="isActive('tab-2')">
-        <OverviewTab />
+				<SettingsTab />
+      </div>
+      <div class="" v-show="isActive('tab-3')">
+				<MyAdCarsTab />
       </div>
     </section>
   </v-container>
 </template>
 <script>
-import MessagesTab from "../components/MessagesComponentTab.vue";
+import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
+import MyAdCarsTab from "../components/MyAdCarsTab.vue"
 export default {
   data() {
     return {
@@ -315,8 +322,9 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-    MessagesTab,
+    SettingsTab,
     OverviewTab,
+		MyAdCarsTab
   },
 };
 </script>

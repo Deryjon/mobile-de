@@ -1,6 +1,5 @@
 <template>
-	message
-	</template>
+cars ad	</template>
 	<script>
 	</script>
 	<style>
