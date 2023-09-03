@@ -1,9 +1,9 @@
 export default {
   message: {
     header: {
-      sell: "Продайте автомобиль",
+      sell: "Разместить объявление",
       login: "Войдите или зарегистрируйтесь",
-      contact: "Разместить объявление",
+      contact: "Контакт",
     },
     selects: {
       mark: "Марка",

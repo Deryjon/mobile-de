@@ -1,9 +1,9 @@
 export default {
   message: {
     header: {
-      sell: "Sälja bil",
+      sell: "Lägg in annons",
       login: "Logga in eller registrera dig",
-      contact: "Lägg in annons",
+      contact: "Kontakt",
     },
     selects: {
       mark: "Mark",

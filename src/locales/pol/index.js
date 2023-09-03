@@ -1,9 +1,9 @@
 export default {
   message: {
     header: {
-      sell: "Sprzedać samochód",
+      sell: "Umieść ogłoszenie",
       login: "Zaloguj się lub zarejestruj",
-      contact: "Umieść ogłoszenie",
+      contact: "Kontakt",
     },
     selects: {
       mark: "Ocena",

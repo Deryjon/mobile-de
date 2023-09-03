@@ -1,9 +1,9 @@
 export default {
   message: {
     header: {
-      sell: "vender coche",
+      sell: "Colocar un anuncio",
       login: "Inicie sesión o regístrese",
-      contact: "Colocar un anuncio",
+      contact: "Contacto",
     },
     selects: {
       mark: "Marca",

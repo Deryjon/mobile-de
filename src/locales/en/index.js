@@ -1,9 +1,9 @@
 export default {
   message: {
     header: {
-      sell: "Sell Car",
+      sell: "Place an ad",
       login: "Login or Register",
-      contact: "Place an ad",
+      contact: "Contact",
     },
     selects: {
       mark: "Mark",
