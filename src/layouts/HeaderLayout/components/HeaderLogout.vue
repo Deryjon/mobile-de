@@ -2,7 +2,7 @@
 	<div class="mb-">
 		<button
 			v-if="!hasToken"
-			class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[10px] bg-transparent"
+			class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[17px] bg-transparent "
 			:class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
 			@click="gotoLogin"
 		>
