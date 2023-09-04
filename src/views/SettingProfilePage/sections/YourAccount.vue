@@ -63,23 +63,7 @@
             @click="openCountryDropdown"
             :class="{ active: isActive('tab-1') }"
           >
-            <svg
-              class="sdOa3"
-              width="20"
-              height="20"
-              viewBox="0 0 24 24"
-              focusable="false"
-              aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M16.501 14h-8.5l-4 4v-4L2.5 14a1.5 1.5 0 01-1.5-1.5V3.5a1.5 1.5 0 011.5-1.5h14a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5zm3-8h2a1.5 1.5 0 011.5 1.5v9a1.5 1.5 0 01-1.5 1.5h-1.5v4l-4-4h-5.5a1.5 1.5 0 01-1.5-1.5v-1h7.5a3 3 0 003-3V6z"
-                fill="currentColor"
-              ></path>
-            </svg>
+					<svg class="SvgIcon___YgmFC" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.335 9.009A1.5 1.5 0 0121 11.915V19.5a1.5 1.5 0 01-1.5 1.5H18a1.5 1.5 0 01-1.5-1.5V18h-9v1.5A1.5 1.5 0 016 21H4.5A1.5 1.5 0 013 19.5v-7.585a1.5 1.5 0 01.665-2.906l.9-4.051A2.5 2.5 0 017.005 3h9.99a2.5 2.5 0 012.44 1.958l.9 4.05zM18.507 10l-1.024-4.608A.5.5 0 0016.995 5h-9.99a.5.5 0 00-.488.392L5.493 10h13.014zM6.5 16a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="currentColor"></path></svg>
             My Adds
           </button>
           <ul

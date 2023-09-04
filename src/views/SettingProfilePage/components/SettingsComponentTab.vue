@@ -70,7 +70,7 @@
           </button>
         </div>
       </div>
-      <div class="box w-[658px] h-[420px] p-[15px]" v-if="changeLogin">
+      <div class="box w-[658px] h-[440px] p-[15px]" v-if="changeLogin">
         <div class="current-email">
           <p class="font-medium">Current e-mail address</p>
           <p class="current-email font-normal text-[14px]">{{ userE }}</p>
@@ -83,64 +83,469 @@
           />
         </div>
         <div class="current-email mt-[30px] mb-[20px]">
-          <p class="font-medium">Change password </p>
+          <p class="font-medium">Change password</p>
         </div>
-				<label for="" class="mt-[10px] text-[14px]">New password </label>
+        <label for="" class="mt-[10px] text-[14px]">New password </label>
         <div class="new flex mb-[30px]">
-          <input
-            type="text "
-            class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
-            v-model="userNewPass"
-          />
+          <div class="relative rounded-md shadow-sm">
+            <input
+              @input="validatePasswordLogin"
+              id="password"
+              :type="showPassword ? 'text' : 'password'"
+              class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
+              v-model="newPasswordLogin"
+            />
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+              <button
+                @click="toggleShowPassword"
+                class="h-5 w-5 text-gray-400 focus:outline-none"
+              >
+                <svg
+                  v-if="showPassword"
+                  class="pt-[3px]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 640 512"
+                >
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
+                  />
+                </svg>
+                <svg
+                  v-else
+                  class="pt-[3px]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 576 512"
+                >
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-				<label for="" class="text-[14px]">Current password </label>
-        <div class="current flex">
-          <input
-            type="text "
-            class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
-            v-model="userCurrentPass"
-          />
+        <label for="" class="text-[14px]">Current password </label>
+        <div class="new flex mb-[30px]">
+          <div class="relative rounded-md shadow-sm">
+            <input
+              @input="validatePasswordLogin"
+              id="password"
+              :type="showPassword ? 'text' : 'password'"
+              class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
+              v-model="currentPasswordLogin"
+            />
+            <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
+              <button
+                @click="toggleShowPassword"
+                class="h-5 w-5 text-gray-400 focus:outline-none"
+              >
+                <svg
+                  v-if="showPassword"
+                  class="pt-[3px]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 640 512"
+                >
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
+                  />
+                </svg>
+                <svg
+                  v-else
+                  class="pt-[3px]"
+                  xmlns="http://www.w3.org/2000/svg"
+                  height="1em"
+                  viewBox="0 0 576 512"
+                >
+                  <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
-        
-				<div class="btns flex gap-[10px] justify-end">
 
-					<button
-							class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-							
-						>
-							Cancel
-						</button>
-					<button
-							class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-							
-						>
-							Save
-						</button>
-				</div>
+        <div class="btns flex gap-[10px] justify-end">
+          <button
+            class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+            @click="openDataLogin"
+          >
+            Cancel
+          </button>
+          <button
+            class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+            @click="changeLoginData"
+          >
+            Save
+          </button>
+        </div>
+      </div>
+      <div class="profile mt-[30px]">
+        <h2 class="text-[26px] font-semibold">Contact data</h2>
+        <div class="box">
+          <div
+            class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+            v-if="!nameChange"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic">
+                <p class="font-medium">Name</p>
+                <p class="font-normal text-[14px]">
+                  {{ selectedGender }} {{ userName }} {{ userLastName }}
+                </p>
+              </div>
+            </div>
+            <button
+              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+              @click="openChangeName"
+            >
+              Complete
+            </button>
+          </div>
+          <div class="" v-if="nameChange">
+            <div class="box">
+              <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
+                <p>Complete name</p>
+              </div>
+              <div class="changes w-[656px] h-[292px] p-[20px]">
+                <div class="mark">
+                  <div class="relative w-[300px] mt-2">
+                    <h2 class="text-sm lg:text-[14px]">Form of Address</h2>
+                    <select
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[300px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="selectedGender"
+                    >
+                      <option value="14600" selected>Please select</option>
 
+                      <option>Mr.</option>
+                      <option value="other">Ms.</option>
+                    </select>
+                    <span
+                      class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
+                    ></span>
+                  </div>
+                </div>
+                <div class="flex gap-[20px] mt-[20px]">
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">First Name</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                      v-model="userFirstName"
+                    />
+                  </div>
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">Last Name</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                      v-model="userLastName"
+                    />
+                  </div>
+                </div>
+                <div class="btns flex gap-[10px] justify-end mt-[40px]">
+                  <button
+                    class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                    @click="openChangeName"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                    @click="changeContactDataName"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic">
+                <p class="font-medium">Address</p>
+                <p class="font-normal text-[14px]">{{ userAddCountry }}</p>
+              </div>
+            </div>
+            <button
+              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+              @click="openAddressChange"
+            >
+              Complete
+            </button>
+          </div>
+          <div class="" v-if="addressChange">
+            <div class="box">
+              <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
+                <p>Complete address</p>
+              </div>
+              <div class="changes w-[656px] h-[292px] p-[20px]">
+                <div class="top flex items-center gap-[40px] w-[656px]">
+                  <div class="mark">
+                    <div class="w-[440px] mt-2">
+                      <h2 class="text-sm lg:text-[14px]">Street</h2>
+                      <input
+                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                        v-model="selectedGender"
+                      />
+                    </div>
+                  </div>
+                  <div class="email mt-[10px]">
+										<p class="text-sm lg:text-[14px]">Nr</p>
+                    <input
+										type="text "
+										class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+										v-model="userFirstName"
+                    />
+                  </div>
+                </div>
+                <div class="top flex items-center gap-[40px] w-[656px]">
+									<div class="email mt-[10px]">
+										<p class="text-sm lg:text-[14px]">Zip</p>
+										<input
+											type="text "
+											class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+											v-model="userFirstName"
+										/>
+									</div>
+                  <div class="mark">
+                    <div class="w-[440px] mt-2">
+                      <h2 class="text-sm lg:text-[14px]">City</h2>
+                      <input
+                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                        v-model="selectedGender"
+                      />
+                    </div>
+                  </div>
+					
+									
+                </div>
+								<div class="relative mt-2">
+									<h2 class="text-sm lg:text-[14px]">Country</h2>
+									<select
+										class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[620px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+									>
+										<optgroup>
+											<option value="14600" selected>Any</option>
+										</optgroup>
+										<optgroup>
+											<option value="BA">Bosnia and Herzegovina</option>
+											<option value="AL">Albania</option>
+											<option value="AT">Austria</option>
+											<option value="BY">Belarus</option>
+											<option value="BE">Belgium</option>
+											<option value="AD">Andorra</option>
+											<option value="BR">Brazil</option>
+											<option value="BG">Bulgaria</option>
+											<option value="CA">Canada</option>
+											<option value="HR">Croatia</option>
+											<option value="CY">Cyprus</option>
+											<option value="CZ">Czech Republic</option>
+											<option value="DK">Denmark</option>
+											<option value="EG">Egypt</option>
+											<option value="EE">Estonia</option>
+											<option value="ET">Ethiopia</option>
+											<option value="FO">Faroe Islands</option>
+											<option value="FI">Finland</option>
+											<option value="FR">France</option>
+											<option value="DE">Germany</option>
+											<option value="GR">Greece</option>
+											<option value="HU">Hungary</option>
+											<option value="IS">Iceland</option>
+											<option value="IE">Ireland</option>
+											<option value="IL">Israel</option>
+											<option value="IT">Italy</option>
+											<option value="JP">Japan</option>
+											<option value="JO">Jordan</option>
+											<option value="KW">Kuwait</option>
+											<option value="LV">Latvia</option>
+											<option value="LB">Lebanon</option>
+											<option value="LI">Liechtenstein</option>
+											<option value="LT">Lithuania</option>
+											<option value="LU">Luxembourg</option>
+											<option value="MK">Macedonia</option>
+											<option value="MT">Malta</option>
+											<option value="MX">Mexico</option>
+											<option value="MD">Moldova</option>
+											<option value="MC">Monaco</option>
+											<option value="ME">Montenegro</option>
+											<option value="MA">Morocco</option>
+											<option value="NL">Netherlands</option>
+											<option value="NZ">New Zealand</option>
+											<option value="NG">Nigeria</option>
+											<option value="NO">Norway</option>
+											<option value="OM">Oman</option>
+											<option value="PL">Poland</option>
+											<option value="PT">Portugal</option>
+											<option value="RO">Romania</option>
+											<option value="RU">Russian Federation</option>
+											<option value="SM">San Marino</option>
+											<option value="SA">Saudi Arabia</option>
+											<option value="RS">Serbia</option>
+											<option value="SK">Slovakia</option>
+											<option value="SI">Slovenia</option>
+											<option value="ZA">South Africa</option>
+											<option value="KR">South Korea</option>
+											<option value="ES">Spain</option>
+											<option value="SE">Sweden</option>
+											<option value="CH">Switzerland</option>
+											<option value="TW">Taiwan</option>
+											<option value="TN">Tunisia</option>
+											<option value="TR">Turkey</option>
+											<option value="UA">Ukraine</option>
+											<option value="AE">United Arab Emirates</option>
+											<option value="GB">United Kingdom</option>
+											<option value="US">USA</option>
+										</optgroup>
+									</select>
+									<span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
+								</div>
+               
+                <div class="btns flex gap-[10px] justify-end mt-[0px]">
+                  <button
+                    class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                    @click="openChangeName"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                    @click="changeContactDataName"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic">
+                <p class="font-medium">Phone number</p>
+                <p class="font-normal text-[14px]">{{ userCountryCode }}</p>
+              </div>
+            </div>
+            <button
+              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+              @click="openDataLogin"
+            >
+              Complete
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { ref } from "vue";
+import http from "../../../axios.config";
 export default {
+  setup() {
+    const showPassword = ref(false);
+
+    const toggleShowPassword = () => {
+      showPassword.value = !showPassword.value;
+    };
+    return {
+      toggleShowPassword,
+      showPassword,
+    };
+  },
   data() {
     return {
       userI: "",
       userE: "",
       userECh: "",
+      userName: "",
+      userAddStreet: "",
+      userAddNr: "",
+      userAddZip: "",
+      userAddCity: "",
+      userAddCountry: "",
+      userCountryCode: "",
+      userNumberPre: "",
+      userNumberPre: "",
+      selectedGender: "14600",
+      nameChange: false,
+      userNumber: "",
       changeLogin: false,
+      newPasswordLogin: "",
+      currentPasswordLogin: "",
+      userFirstName: "",
+      userLastName: "",
+      addressChange: false,
     };
   },
   methods: {
     openDataLogin() {
       this.changeLogin = !this.changeLogin;
     },
+    openAddressChange() {
+      this.addressChange = !this.addressChange;
+    },
+    changeLoginData() {
+      http
+        .put("/user/edit/mail", {
+          user_id: this.userI,
+          user_email: this.userECh,
+          user_new_password: this.newPasswordLogin,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          console.log(responseData);
+          localStorage.setItem("u-e", responseData.data.user_email);
+          localStorage.setItem("u-p", responseData.data.user_password);
+        });
+    },
+    openChangeName() {
+      this.nameChange = !this.nameChange;
+    },
+    changeContactDataName() {
+      this.nameChange = !this.nameChange;
+      console.log(this.selectedGender, this.userLastName, this.userFirstName);
+      http
+        .put("/user/edit/name", {
+          user_id: this.userI,
+          gender: this.selectedGender,
+          first_name: this.userFirstName,
+          last_name: this.userLastName,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          console.log(responseData);
+          localStorage.setItem("u-fn", responseData.data.user_first_name);
+          localStorage.setItem("u-ln", responseData.data.user_last_name);
+          localStorage.setItem("u-gen", responseData.data.user_gender);
+        });
+    },
   },
   created() {
     this.userI = localStorage.getItem("u-i");
     this.userE = localStorage.getItem("u-e");
     this.userECh = localStorage.getItem("u-e");
+    this.userName = localStorage.getItem("u-fn");
+    this.userLastName = localStorage.getItem("u-ln");
+    this.selectedGender = localStorage.getItem("u-gen");
+    this.userAddStreet = localStorage.getItem("u-d-s");
+    this.userAddNr = localStorage.getItem("u-d-nr");
+    this.userAddZip = localStorage.getItem("u-d-z");
+    this.userAddCity = localStorage.getItem("u-d-c");
+    this.userAddCountry = localStorage.getItem("u-d-co");
+    this.userCountryCode = localStorage.getItem("u-code");
+    this.userNumberPre = localStorage.getItem("u-pre");
+    this.userNumber = localStorage.getItem("u-phone");
   },
 };
 </script>
