@@ -269,11 +269,16 @@
           </div>
           <div
             class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+						v-if="!addressChange"
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="font-medium">Address</p>
-                <p class="font-normal text-[14px]">{{userAddressStreet}} {{ userAddressNr }} {{ userAddressZip }} {{ userAddressCity }} {{ userAddCountry }}</p>
+                <p class="font-normal text-[14px]">
+                  {{ userAddressStreet }} {{ userAddressNr }}
+                  {{ userAddressZip }} {{ userAddressCity }}
+                  {{ userAddCountry }}
+                </p>
               </div>
             </div>
             <button
@@ -411,7 +416,7 @@
                 <div class="btns flex gap-[10px] justify-end mt-[30px]">
                   <button
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-                    @click="openChangeName"
+                    @click="openAddressChange"
                   >
                     Cancel
                   </button>
@@ -427,19 +432,140 @@
           </div>
           <div
             class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+						v-if="!numberChanges"
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="font-medium">Phone number</p>
-                <p class="font-normal text-[14px]">{{ userCountryCode }}</p>
+                <p class="font-normal text-[14px]">{{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}</p>
               </div>
             </div>
             <button
               class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-              @click="openDataLogin"
+              @click="openNumberChange"
             >
               Complete
             </button>
+          </div>
+          <div class="" v-if="numberChanges">
+            <div class="box">
+              <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
+                <p>Complete name</p>
+              </div>
+              <div class="changes w-[656px] h-[200px] p-[20px]">
+                <div class="mark flex gap-[15px]">
+                  <div class="relative w-[141px]">
+                    <h2 class="text-sm lg:text-[14px]">Country code</h2>
+                    <select
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="userCountryCode"
+                    >
+                      <option value="1">+1 (CA)</option>
+                      <option value="+1">+1 (US)</option>
+                      <option value="+7">+7 (RU)</option>
+                      <option value="+20">+20 (EG)</option>
+                      <option value="+27">+27 (ZA)</option>
+                      <option value="+30">+30 (GR)</option>
+                      <option value="+31">+31 (NL)</option>
+                      <option value="+32">+32 (BE)</option>
+                      <option value="+33">+33 (FR)</option>
+                      <option value="+34">+34 (ES)</option>
+                      <option value="+36">+36 (HU)</option>
+                      <option value="+39">+39 (IT)</option>
+                      <option value="+40">+40 (RO)</option>
+                      <option value="+41">+41 (CH)</option>
+                      <option value="+43">+43 (AT)</option>
+                      <option value="+44">+44 (GB)</option>
+                      <option value="+45">+45 (DK)</option>
+                      <option value="+46">+46 (SE)</option>
+                      <option value="+47">+47 (NO)</option>
+                      <option value="+48">+48 (PL)</option>
+                      <option value="+49">+49 (DE)</option>
+                      <option value="+52">+52 (MX)</option>
+                      <option value="+55">+55 (BR)</option>
+                      <option value="+64">+64 (NZ)</option>
+                      <option value="+81">+81 (JP)</option>
+                      <option value="+82">+82 (KR)</option>
+                      <option value="+90">+90 (TR)</option>
+                      <option value="+212">+212 (MA)</option>
+                      <option value="+216">+216 (TN)</option>
+                      <option value="+234">+234 (NG)</option>
+                      <option value="+251">+251 (ET)</option>
+                      <option value="+298">+298 (FO)</option>
+                      <option value="+351">+351 (PT)</option>
+                      <option value="+352">+352 (LU)</option>
+                      <option value="+353">+353 (IE)</option>
+                      <option value="+354">+354 (IS)</option>
+                      <option value="+355">+355 (AL)</option>
+                      <option value="+356">+356 (MT)</option>
+                      <option value="+357">+357 (CY)</option>
+                      <option value="+358">+358 (FI)</option>
+                      <option value="+359">+359 (BG)</option>
+                      <option value="+370">+370 (LT)</option>
+                      <option value="+371">+371 (LV)</option>
+                      <option value="+372">+372 (EE)</option>
+                      <option value="+373">+373 (MD)</option>
+                      <option value="+375">+375 (BY)</option>
+                      <option value="+376">+376 (AD)</option>
+                      <option value="+377">+377 (MC)</option>
+                      <option value="+378">+378 (SM)</option>
+                      <option value="+380">+380 (UA)</option>
+                      <option value="+381">+381 (RS)</option>
+                      <option value="+382">+382 (ME)</option>
+                      <option value="+385">+385 (HR)</option>
+                      <option value="+386">+386 (SI)</option>
+                      <option value="+387">+387 (BA)</option>
+                      <option value="+389">+389 (MK)</option>
+                      <option value="+420">+420 (CZ)</option>
+                      <option value="+421">+421 (SK)</option>
+                      <option value="+423">+423 (LI)</option>
+                      <option value="+886">+886 (TW)</option>
+                      <option value="+961">+961 (LB)</option>
+                      <option value="+962">+962 (JO)</option>
+                      <option value="+965">+965 (KW)</option>
+                      <option value="+966">+966 (SA)</option>
+                      <option value="+968">+968 (OM)</option>
+                      <option value="+971">+971 (AE)</option>
+                      <option value="+972">+972 (IL)</option>
+                    </select>
+                    <span
+                      class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
+                    ></span>
+                  </div>
+
+                  <div class="email mt-[5px]">
+                    <p class="text-sm lg:text-[14px]">Prefix</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
+                      v-model="userNumberPre"
+                    />
+                  </div>
+                  <div class="email mt-[5px]">
+                    <p class="text-sm lg:text-[14px]">Phone number</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                      v-model="userPhoneNumber"
+                    />
+                  </div>
+                </div>
+                <div class="btns flex gap-[10px] justify-end mt-[40px]">
+                  <button
+                    class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                    @click="openNumberChange"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                    @click="changeContactDataNumber"
+                  >
+                    Save
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -469,7 +595,6 @@ export default {
       userName: "",
       userCountryCode: "",
       userNumberPre: "",
-      userNumberPre: "",
       selectedGender: "14600",
       userAddressStreet: "",
       userAddressNr: "",
@@ -484,9 +609,36 @@ export default {
       userFirstName: "",
       userLastName: "",
       addressChange: false,
+      numberChanges: false,
+      userPhoneNumber: "",
     };
   },
   methods: {
+		changeContactDataNumber(){
+			this.numberChanges = !this.numberChanges;
+			http
+        .put("/user/edit/phone", {
+          user_id: this.userI,
+          country_code: this.userCountryCode,
+          prefix: this.userNumberPre,
+          phone_number: this.userPhoneNumber,
+        
+        })
+        .then((response) => {
+          const responseData = response.data;
+          localStorage.setItem("u-code", responseData.data.user_country_code);
+          localStorage.setItem("u-pre", responseData.data.user_number_prefix);
+          localStorage.setItem("u-phone", responseData.data.user_phone_number);
+          localStorage.setItem(
+            "u-d-co",
+            responseData.data.user_address_country
+          );
+        });
+				window.location.reload()
+		},
+    openNumberChange() {
+      this.numberChanges = !this.numberChanges;
+    },
     openDataLogin() {
       this.changeLogin = !this.changeLogin;
     },
@@ -506,10 +658,12 @@ export default {
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
         });
+				window.location.reload()
+
     },
     changeContactDataAddress() {
       this.addressChange = !this.addressChange;
-	      http
+      http
         .put("/user/edit/address", {
           user_id: this.userI,
           street: this.userAddressStreet,
@@ -524,9 +678,13 @@ export default {
           localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
           localStorage.setItem("u-d-c", responseData.data.user_address_city);
-          localStorage.setItem("u-d-co", responseData.data.user_address_country);
-          
+          localStorage.setItem(
+            "u-d-co",
+            responseData.data.user_address_country
+          );
         });
+				window.location.reload()
+
     },
     openChangeName() {
       this.nameChange = !this.nameChange;
@@ -565,11 +723,11 @@ export default {
     this.userCountryCode = localStorage.getItem("u-code");
     this.userNumberPre = localStorage.getItem("u-pre");
     this.userNumber = localStorage.getItem("u-phone");
-		this.userAddressStreet = localStorage.getItem("u-d-s")
-		this.userAddressNr = localStorage.getItem("u-d-nr")
-		this.userAddressZip = localStorage.getItem("u-d-z")
-		this.userAddressCity = localStorage.getItem("u-d-c")
-		this.userAddressCountry = localStorage.getItem("u-d-c0")
+    this.userAddressStreet = localStorage.getItem("u-d-s");
+    this.userAddressNr = localStorage.getItem("u-d-nr");
+    this.userAddressZip = localStorage.getItem("u-d-z");
+    this.userAddressCity = localStorage.getItem("u-d-c");
+    this.userAddressCountry = localStorage.getItem("u-d-c0");
   },
 };
 </script>
