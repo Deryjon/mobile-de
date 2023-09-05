@@ -273,7 +273,7 @@
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="font-medium">Address</p>
-                <p class="font-normal text-[14px]">{{ userAddCountry }}</p>
+                <p class="font-normal text-[14px]">{{userAddressStreet}} {{ userAddressNr }} {{ userAddressZip }} {{ userAddressCity }} {{ userAddCountry }}</p>
               </div>
             </div>
             <button
@@ -288,129 +288,127 @@
               <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
                 <p>Complete address</p>
               </div>
-              <div class="changes w-[656px] h-[292px] p-[20px]">
+              <div class="changes w-[656px] h-[350px] p-[20px]">
                 <div class="top flex items-center gap-[40px] w-[656px]">
                   <div class="mark">
                     <div class="w-[440px] mt-2">
                       <h2 class="text-sm lg:text-[14px]">Street</h2>
                       <input
                         class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="selectedGender"
+                        v-model="userAddressStreet"
                       />
                     </div>
                   </div>
                   <div class="email mt-[10px]">
-										<p class="text-sm lg:text-[14px]">Nr</p>
+                    <p class="text-sm lg:text-[14px]">Nr</p>
                     <input
-										type="text "
-										class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-										v-model="userFirstName"
+                      type="text "
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="userAddressNr"
                     />
                   </div>
                 </div>
                 <div class="top flex items-center gap-[40px] w-[656px]">
-									<div class="email mt-[10px]">
-										<p class="text-sm lg:text-[14px]">Zip</p>
-										<input
-											type="text "
-											class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-											v-model="userFirstName"
-										/>
-									</div>
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">Zip</p>
+                    <input
+                      type="text "
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="userAddressZip"
+                    />
+                  </div>
                   <div class="mark">
                     <div class="w-[440px] mt-2">
                       <h2 class="text-sm lg:text-[14px]">City</h2>
                       <input
                         class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="selectedGender"
+                        v-model="userAddressCity"
                       />
                     </div>
                   </div>
-					
-									
                 </div>
-								<div class="relative mt-2">
-									<h2 class="text-sm lg:text-[14px]">Country</h2>
-									<select
-										class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[620px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-									>
-										<optgroup>
-											<option value="14600" selected>Any</option>
-										</optgroup>
-										<optgroup>
-											<option value="BA">Bosnia and Herzegovina</option>
-											<option value="AL">Albania</option>
-											<option value="AT">Austria</option>
-											<option value="BY">Belarus</option>
-											<option value="BE">Belgium</option>
-											<option value="AD">Andorra</option>
-											<option value="BR">Brazil</option>
-											<option value="BG">Bulgaria</option>
-											<option value="CA">Canada</option>
-											<option value="HR">Croatia</option>
-											<option value="CY">Cyprus</option>
-											<option value="CZ">Czech Republic</option>
-											<option value="DK">Denmark</option>
-											<option value="EG">Egypt</option>
-											<option value="EE">Estonia</option>
-											<option value="ET">Ethiopia</option>
-											<option value="FO">Faroe Islands</option>
-											<option value="FI">Finland</option>
-											<option value="FR">France</option>
-											<option value="DE">Germany</option>
-											<option value="GR">Greece</option>
-											<option value="HU">Hungary</option>
-											<option value="IS">Iceland</option>
-											<option value="IE">Ireland</option>
-											<option value="IL">Israel</option>
-											<option value="IT">Italy</option>
-											<option value="JP">Japan</option>
-											<option value="JO">Jordan</option>
-											<option value="KW">Kuwait</option>
-											<option value="LV">Latvia</option>
-											<option value="LB">Lebanon</option>
-											<option value="LI">Liechtenstein</option>
-											<option value="LT">Lithuania</option>
-											<option value="LU">Luxembourg</option>
-											<option value="MK">Macedonia</option>
-											<option value="MT">Malta</option>
-											<option value="MX">Mexico</option>
-											<option value="MD">Moldova</option>
-											<option value="MC">Monaco</option>
-											<option value="ME">Montenegro</option>
-											<option value="MA">Morocco</option>
-											<option value="NL">Netherlands</option>
-											<option value="NZ">New Zealand</option>
-											<option value="NG">Nigeria</option>
-											<option value="NO">Norway</option>
-											<option value="OM">Oman</option>
-											<option value="PL">Poland</option>
-											<option value="PT">Portugal</option>
-											<option value="RO">Romania</option>
-											<option value="RU">Russian Federation</option>
-											<option value="SM">San Marino</option>
-											<option value="SA">Saudi Arabia</option>
-											<option value="RS">Serbia</option>
-											<option value="SK">Slovakia</option>
-											<option value="SI">Slovenia</option>
-											<option value="ZA">South Africa</option>
-											<option value="KR">South Korea</option>
-											<option value="ES">Spain</option>
-											<option value="SE">Sweden</option>
-											<option value="CH">Switzerland</option>
-											<option value="TW">Taiwan</option>
-											<option value="TN">Tunisia</option>
-											<option value="TR">Turkey</option>
-											<option value="UA">Ukraine</option>
-											<option value="AE">United Arab Emirates</option>
-											<option value="GB">United Kingdom</option>
-											<option value="US">USA</option>
-										</optgroup>
-									</select>
-									<span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
-								</div>
-               
-                <div class="btns flex gap-[10px] justify-end mt-[0px]">
+                <div class="relative mt-2">
+                  <h2 class="text-sm lg:text-[14px]">Country</h2>
+                  <select
+                    class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[620px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                    v-model="selectedCountry"
+                  >
+                    <optgroup>
+                      <option value="BA">Bosnia and Herzegovina</option>
+                      <option value="AL">Albania</option>
+                      <option value="AT">Austria</option>
+                      <option value="BY">Belarus</option>
+                      <option value="BE">Belgium</option>
+                      <option value="AD">Andorra</option>
+                      <option value="BR">Brazil</option>
+                      <option value="BG">Bulgaria</option>
+                      <option value="CA">Canada</option>
+                      <option value="HR">Croatia</option>
+                      <option value="CY">Cyprus</option>
+                      <option value="CZ">Czech Republic</option>
+                      <option value="DK">Denmark</option>
+                      <option value="EG">Egypt</option>
+                      <option value="EE">Estonia</option>
+                      <option value="ET">Ethiopia</option>
+                      <option value="FO">Faroe Islands</option>
+                      <option value="FI">Finland</option>
+                      <option value="FR">France</option>
+                      <option value="DE">Germany</option>
+                      <option value="GR">Greece</option>
+                      <option value="HU">Hungary</option>
+                      <option value="IS">Iceland</option>
+                      <option value="IE">Ireland</option>
+                      <option value="IL">Israel</option>
+                      <option value="IT">Italy</option>
+                      <option value="JP">Japan</option>
+                      <option value="JO">Jordan</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="LV">Latvia</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="LI">Liechtenstein</option>
+                      <option value="LT">Lithuania</option>
+                      <option value="LU">Luxembourg</option>
+                      <option value="MK">Macedonia</option>
+                      <option value="MT">Malta</option>
+                      <option value="MX">Mexico</option>
+                      <option value="MD">Moldova</option>
+                      <option value="MC">Monaco</option>
+                      <option value="ME">Montenegro</option>
+                      <option value="MA">Morocco</option>
+                      <option value="NL">Netherlands</option>
+                      <option value="NZ">New Zealand</option>
+                      <option value="NG">Nigeria</option>
+                      <option value="NO">Norway</option>
+                      <option value="OM">Oman</option>
+                      <option value="PL">Poland</option>
+                      <option value="PT">Portugal</option>
+                      <option value="RO">Romania</option>
+                      <option value="RU">Russian Federation</option>
+                      <option value="SM">San Marino</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="RS">Serbia</option>
+                      <option value="SK">Slovakia</option>
+                      <option value="SI">Slovenia</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="KR">South Korea</option>
+                      <option value="ES">Spain</option>
+                      <option value="SE">Sweden</option>
+                      <option value="CH">Switzerland</option>
+                      <option value="TW">Taiwan</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="TR">Turkey</option>
+                      <option value="UA">Ukraine</option>
+                      <option value="AE">United Arab Emirates</option>
+                      <option value="GB">United Kingdom</option>
+                      <option value="US">USA</option>
+                    </optgroup>
+                  </select>
+                  <span
+                    class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"
+                  ></span>
+                </div>
+
+                <div class="btns flex gap-[10px] justify-end mt-[30px]">
                   <button
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
                     @click="openChangeName"
@@ -419,7 +417,7 @@
                   </button>
                   <button
                     class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-                    @click="changeContactDataName"
+                    @click="changeContactDataAddress"
                   >
                     Save
                   </button>
@@ -469,15 +467,15 @@ export default {
       userE: "",
       userECh: "",
       userName: "",
-      userAddStreet: "",
-      userAddNr: "",
-      userAddZip: "",
-      userAddCity: "",
-      userAddCountry: "",
       userCountryCode: "",
       userNumberPre: "",
       userNumberPre: "",
       selectedGender: "14600",
+      userAddressStreet: "",
+      userAddressNr: "",
+      userAddressZip: "",
+      userAddressCity: "",
+      selectedCountry: "",
       nameChange: false,
       userNumber: "",
       changeLogin: false,
@@ -507,6 +505,27 @@ export default {
           console.log(responseData);
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
+        });
+    },
+    changeContactDataAddress() {
+      this.addressChange = !this.addressChange;
+	      http
+        .put("/user/edit/address", {
+          user_id: this.userI,
+          street: this.userAddressStreet,
+          near: this.userAddressNr,
+          zip: this.userAddressZip,
+          country: this.selectedCountry,
+          city: this.userAddressCity,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          localStorage.setItem("u-d-s", responseData.data.user_address_street);
+          localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
+          localStorage.setItem("u-d-z", responseData.data.user_address_zip);
+          localStorage.setItem("u-d-c", responseData.data.user_address_city);
+          localStorage.setItem("u-d-co", responseData.data.user_address_country);
+          
         });
     },
     openChangeName() {
@@ -546,6 +565,11 @@ export default {
     this.userCountryCode = localStorage.getItem("u-code");
     this.userNumberPre = localStorage.getItem("u-pre");
     this.userNumber = localStorage.getItem("u-phone");
+		this.userAddressStreet = localStorage.getItem("u-d-s")
+		this.userAddressNr = localStorage.getItem("u-d-nr")
+		this.userAddressZip = localStorage.getItem("u-d-z")
+		this.userAddressCity = localStorage.getItem("u-d-c")
+		this.userAddressCountry = localStorage.getItem("u-d-c0")
   },
 };
 </script>
