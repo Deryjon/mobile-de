@@ -648,56 +648,40 @@
           </div>
         </div>
         <div class="profile mt-[30px]">
-          <h2 class="text-[26px] font-semibold">Delete account
-</h2>
-          <div class="box">
-            <div
-              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+      <h2 class="text-[26px] font-semibold">Delete account</h2>
+      <div
+        class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+      >
+        <div class="flex items-center gap-[20px]">
+          <div class="icon w-[30px]">
+            <svg
+              data-v-53d99ea3=""
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 32 32"
+              id="profile"
             >
-              <div class="w-[656px] p-[15px] flex items-center justify-between">
-                <div class="flex items-center gap-[20px]">
-                  <div class="profile-pic">
-                    <p class="font-medium">Newsletter</p>
-                    <p class="font-normal text-[12px]">
-                      I would like to receive emails from mobile.de about
-                      offers, surveys and information on products and services
-                      from mobile.de and Kleinanzeigen (can be cancelled at any
-                      time in the account settings).
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <button
-                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
-              >
-                None available
-              </button>
-            </div>
+              <g data-v-53d99ea3="" data-name="Layer 2">
+                <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+                <path
+                  data-v-53d99ea3=""
+                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
+                ></path>
+              </g>
+            </svg>
           </div>
-          <div class="box">
-            <div
-              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
-            >
-              <div class="w-[656px] p-[15px] flex items-center justify-between">
-                <div class="flex items-center gap-[20px]">
-                  <div class="profile-pic">
-                    <p class="font-medium">Market research
+          <div class="profile-pic">
+            <p class="font-medium">{{userE}}</p>
+            <p class="font-normal">Private Account, registered since 2023
 </p>
-                    <p class="font-normal text-[12px]">
-											I agree that my data is used for market research.
-
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <button
-                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
-              >
-                None available
-              </button>
-            </div>
           </div>
         </div>
+        <button
+          class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+        >
+          Delete account
+        </button>
+      </div>
+    </div>
       </div>
     </div>
   </div>
