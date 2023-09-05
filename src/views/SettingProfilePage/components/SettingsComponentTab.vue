@@ -40,9 +40,9 @@
         </button>
       </div>
     </div>
-    <div class="profile mt-[30px]" >
+    <div class="profile mt-[30px]">
       <h2 class="text-[26px] font-semibold">Login Data</h2>
-      <div class="box " v-if="!changeLogin">
+      <div class="box" v-if="!changeLogin">
         <div
           class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
         >
@@ -71,7 +71,7 @@
         </div>
       </div>
       <div class="box w-[658px] h-[500px] p-[15px]" v-if="changeLogin">
-				<p class="font-medium ">Change email</p>
+        <p class="font-medium">Change email</p>
         <div class="box w-[220px] current-email mt-[20px] px-[10px]">
           <p class="text-[14px]">Current e-mail address</p>
           <p class="current-email font-normal text-[14px]">{{ userE }}</p>
@@ -269,7 +269,7 @@
           </div>
           <div
             class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-						v-if="!addressChange"
+            v-if="!addressChange"
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
@@ -432,12 +432,14 @@
           </div>
           <div
             class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-						v-if="!numberChanges"
+            v-if="!numberChanges"
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="font-medium">Phone number</p>
-                <p class="font-normal text-[14px]">{{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}</p>
+                <p class="font-normal text-[14px]">
+                  {{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}
+                </p>
               </div>
             </div>
             <button
@@ -568,6 +570,134 @@
             </div>
           </div>
         </div>
+        <div class="profile mt-[30px]">
+          <h2 class="text-[26px] font-semibold">Documents</h2>
+          <div class="box">
+            <div
+              class="w-[656px] h-[84px] p-[10px] flex items-center justify-between"
+            >
+              <div
+                class="w-[656px] h-[84px] p-[10px] flex items-center justify-between"
+              >
+                <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">My invoices</p>
+                    <p class="font-normal text-[14px]">
+                      Here you will find an overview of your booked packages and
+                      options
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+              >
+                None available
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="profile mt-[30px]">
+          <h2 class="text-[26px] font-semibold">Privacy</h2>
+          <div class="box">
+            <div
+              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+            >
+              <div class="w-[656px] p-[15px] flex items-center justify-between">
+                <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">Newsletter</p>
+                    <p class="font-normal text-[12px]">
+                      I would like to receive emails from mobile.de about
+                      offers, surveys and information on products and services
+                      from mobile.de and Kleinanzeigen (can be cancelled at any
+                      time in the account settings).
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+              >
+                None available
+              </button>
+            </div>
+          </div>
+          <div class="box">
+            <div
+              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+            >
+              <div class="w-[656px] p-[15px] flex items-center justify-between">
+                <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">Market research
+</p>
+                    <p class="font-normal text-[12px]">
+											I agree that my data is used for market research.
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+              >
+                None available
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="profile mt-[30px]">
+          <h2 class="text-[26px] font-semibold">Delete account
+</h2>
+          <div class="box">
+            <div
+              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+            >
+              <div class="w-[656px] p-[15px] flex items-center justify-between">
+                <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">Newsletter</p>
+                    <p class="font-normal text-[12px]">
+                      I would like to receive emails from mobile.de about
+                      offers, surveys and information on products and services
+                      from mobile.de and Kleinanzeigen (can be cancelled at any
+                      time in the account settings).
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+              >
+                None available
+              </button>
+            </div>
+          </div>
+          <div class="box">
+            <div
+              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+            >
+              <div class="w-[656px] p-[15px] flex items-center justify-between">
+                <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">Market research
+</p>
+                    <p class="font-normal text-[12px]">
+											I agree that my data is used for market research.
+
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+              >
+                None available
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -614,15 +744,14 @@ export default {
     };
   },
   methods: {
-		changeContactDataNumber(){
-			this.numberChanges = !this.numberChanges;
-			http
+    changeContactDataNumber() {
+      this.numberChanges = !this.numberChanges;
+      http
         .put("/user/edit/phone", {
           user_id: this.userI,
           country_code: this.userCountryCode,
           prefix: this.userNumberPre,
           phone_number: this.userPhoneNumber,
-        
         })
         .then((response) => {
           const responseData = response.data;
@@ -634,8 +763,8 @@ export default {
             responseData.data.user_address_country
           );
         });
-				window.location.reload()
-		},
+      window.location.reload();
+    },
     openNumberChange() {
       this.numberChanges = !this.numberChanges;
     },
@@ -658,8 +787,7 @@ export default {
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
         });
-				window.location.reload()
-
+      window.location.reload();
     },
     changeContactDataAddress() {
       this.addressChange = !this.addressChange;
@@ -683,8 +811,7 @@ export default {
             responseData.data.user_address_country
           );
         });
-				window.location.reload()
-
+      window.location.reload();
     },
     openChangeName() {
       this.nameChange = !this.nameChange;

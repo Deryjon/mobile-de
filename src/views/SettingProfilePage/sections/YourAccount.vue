@@ -238,7 +238,7 @@
       </div>
     </div>
     <section
-      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] h-[1670px] flex"
+      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
 				<OverviewTab />
