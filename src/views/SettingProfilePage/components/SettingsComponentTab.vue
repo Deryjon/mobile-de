@@ -40,9 +40,9 @@
         </button>
       </div>
     </div>
-    <div class="profile mt-[30px]">
+    <div class="profile mt-[30px]" >
       <h2 class="text-[26px] font-semibold">Login Data</h2>
-      <div class="box">
+      <div class="box " v-if="!changeLogin">
         <div
           class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
         >
@@ -70,9 +70,10 @@
           </button>
         </div>
       </div>
-      <div class="box w-[658px] h-[440px] p-[15px]" v-if="changeLogin">
-        <div class="current-email">
-          <p class="font-medium">Current e-mail address</p>
+      <div class="box w-[658px] h-[500px] p-[15px]" v-if="changeLogin">
+				<p class="font-medium ">Change email</p>
+        <div class="box w-[220px] current-email mt-[20px] px-[10px]">
+          <p class="text-[14px]">Current e-mail address</p>
           <p class="current-email font-normal text-[14px]">{{ userE }}</p>
         </div>
         <div class="email mt-[10px]">
@@ -222,10 +223,9 @@
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[300px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                       v-model="selectedGender"
                     >
-                      <option value="14600" selected>Please select</option>
-
-                      <option>Mr.</option>
-                      <option value="other">Ms.</option>
+                      <option value="14600">Pleaseselect</option>
+                      <option value="Mr.">Mr.</option>
+                      <option value="Ms.">Ms.</option>
                     </select>
                     <span
                       class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
@@ -238,7 +238,7 @@
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
-                      v-model="userFirstName"
+                      v-model="userName"
                     />
                   </div>
                   <div class="email mt-[10px]">
@@ -595,7 +595,7 @@ export default {
       userName: "",
       userCountryCode: "",
       userNumberPre: "",
-      selectedGender: "14600",
+      selectedGender: "",
       userAddressStreet: "",
       userAddressNr: "",
       userAddressZip: "",
@@ -606,7 +606,7 @@ export default {
       changeLogin: false,
       newPasswordLogin: "",
       currentPasswordLogin: "",
-      userFirstName: "",
+      userName: "",
       userLastName: "",
       addressChange: false,
       numberChanges: false,
@@ -691,12 +691,12 @@ export default {
     },
     changeContactDataName() {
       this.nameChange = !this.nameChange;
-      console.log(this.selectedGender, this.userLastName, this.userFirstName);
+      console.log(this.selectedGender, this.userLastName, this.userName);
       http
         .put("/user/edit/name", {
           user_id: this.userI,
           gender: this.selectedGender,
-          first_name: this.userFirstName,
+          first_name: this.userName,
           last_name: this.userLastName,
         })
         .then((response) => {
@@ -704,7 +704,7 @@ export default {
           console.log(responseData);
           localStorage.setItem("u-fn", responseData.data.user_first_name);
           localStorage.setItem("u-ln", responseData.data.user_last_name);
-          localStorage.setItem("u-gen", responseData.data.user_gender);
+          localStorage.setItem("u-g", responseData.data.user_gender);
         });
     },
   },
@@ -714,7 +714,7 @@ export default {
     this.userECh = localStorage.getItem("u-e");
     this.userName = localStorage.getItem("u-fn");
     this.userLastName = localStorage.getItem("u-ln");
-    this.selectedGender = localStorage.getItem("u-gen");
+    this.selectedGender = localStorage.getItem("u-g");
     this.userAddStreet = localStorage.getItem("u-d-s");
     this.userAddNr = localStorage.getItem("u-d-nr");
     this.userAddZip = localStorage.getItem("u-d-z");
@@ -727,7 +727,7 @@ export default {
     this.userAddressNr = localStorage.getItem("u-d-nr");
     this.userAddressZip = localStorage.getItem("u-d-z");
     this.userAddressCity = localStorage.getItem("u-d-c");
-    this.userAddressCountry = localStorage.getItem("u-d-c0");
+    this.userAddressCountry = localStorage.getItem("u-d-co");
   },
 };
 </script>
