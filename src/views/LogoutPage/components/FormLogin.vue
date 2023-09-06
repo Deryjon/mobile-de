@@ -209,7 +209,7 @@
 										@click="handleRadioClick(false)"
 										v-model="userCompany"
 										/>
-										User
+										Private
 									</label>
 									<label for="user-com" class="">
 										<input type="radio"  id="user-com" value="true"

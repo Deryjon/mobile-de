@@ -341,6 +341,7 @@ export default {
   cursor: pointer;
 }
 .active{
-	background: transparent;
+	background: #fff;
+	padding: 5px 8px;
 }
 </style>
