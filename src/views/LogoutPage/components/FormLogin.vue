@@ -204,14 +204,14 @@
                 </div>
 								<div class="flex gap-[30px] mt-[20px]">
 
-									<label for="user-rad" class="">
+									<label class="">
 										<input type="radio" id="user-rad" value="false"
 										@click="handleRadioClick(false)"
 										v-model="userCompany"
 										/>
 										Private
 									</label>
-									<label for="user-com" class="">
+									<label  class="">
 										<input type="radio"  id="user-com" value="true"
 										v-model="userCompany"
 										@click="handleRadioClick(true)"
@@ -346,12 +346,12 @@ export default {
 		handleRadioClick(value) {
             console.log(value);
         },
-    createNewUser(email, password, value) {
+    createNewUser(email, password) {
       http
         .post("/user/register", {
           user_email: email,
           user_password: password,
-					user_company: value
+					user_company: true
         })
         .then((response) => {
           const responseData = response.data;

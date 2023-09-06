@@ -49,7 +49,7 @@
 						</div>
 						<li class="p-[5px]">Settings</li>
 					</div>
-					<div @click="logOut" class="btns flex items-center p-[10px]">
+					<div @click="logOut" class="btns flex items-center p-[10px] mt-[-20px]">
 						<div class="icon-settings w-[24px]">
 							<svg
 								data-name="Layer 1"
@@ -66,7 +66,7 @@
 						</div>
 						<li class="p-[5px]">Log out</li>
 					</div>
-					<div @click="goSettingsCompany()" 	v-if="uComValue"  class="btns flex items-center p-[10px]">
+					<div @click="goSettingsCompany()" 	v-if="uComValue"  class="btns mt-[-20px] flex items-center p-[10px]">
 						<div class="icon-settings w-[24px]">
 							<svg
 								data-name="Layer 1"
