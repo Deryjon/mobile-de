@@ -340,7 +340,4 @@ export default {
   padding: 0.5em;
   cursor: pointer;
 }
-.active{
-	background: transparent;
-}
 </style>

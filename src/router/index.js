@@ -5,6 +5,7 @@ import CarFilter from "../views/CarFilterPage/CarFilterView.vue"
 import MotorbikeFilter from "../views/MotorbikeFilterPage/MotorbikeFilterView.vue"
 import VansFilter from "../views/VansFilterPage/VansFilterView.vue"
 import SettingProfile from "../views/SettingProfilePage/SettingsProfilePage.vue"
+import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfilePage.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -37,6 +38,11 @@ const router = createRouter({
       path: '/my-profile',
       name: 'profile-settings',
       component: SettingProfile
+    },
+		{
+      path: '/my-company',
+      name: 'company-settings',
+      component: CompanySettings
     },
   ]
 })

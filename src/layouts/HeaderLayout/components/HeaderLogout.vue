@@ -66,7 +66,7 @@
 						</div>
 						<li class="p-[5px]">Log out</li>
 					</div>
-					<div @click="goSettings()" 	v-if="uComValue"  class="btns flex items-center p-[10px]">
+					<div @click="goSettingsCompany()" 	v-if="uComValue"  class="btns flex items-center p-[10px]">
 						<div class="icon-settings w-[24px]">
 							<svg
 								data-name="Layer 1"
@@ -127,6 +127,9 @@ export default defineComponent({
     },
     goSettings() {
       this.$router.push({ name: "profile-settings" });
+    },
+    goSettingsCompany() {
+      this.$router.push({ name: "company-settings" });
     },
     logOut() {
       localStorage.removeItem("r-tok");
