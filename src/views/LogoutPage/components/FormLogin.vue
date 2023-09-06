@@ -126,7 +126,7 @@
           <div class="for-example">
             <v-sheet
               width="480"
-              height="600"
+              height="650"
               class="mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto" />
@@ -202,6 +202,23 @@
                     >Password must be at least 8 characters long.</span
                   >
                 </div>
+								<div class="flex gap-[30px] mt-[20px]">
+
+									<label for="user-rad" class="">
+										<input type="radio" id="user-rad" value="false"
+										@click="handleRadioClick(false)"
+										v-model="userCompany"
+										/>
+										User
+									</label>
+									<label for="user-com" class="">
+										<input type="radio"  id="user-com" value="true"
+										v-model="userCompany"
+										@click="handleRadioClick(true)"
+										/>
+										Company
+									</label>
+								</div>
 
                 <p class="conditions text-[14px] mt-[20px] mb-[20px]">
                   The <span>General Terms and Conditions</span> apply.
@@ -259,7 +276,6 @@ import HeaderLogo from "@/layouts/HeaderLayout/components/HeaderLogo.vue";
 import http from "@/axios.config";
 import RightTabComponent from "./RightTabComponent.vue";
 
-
 export default {
   setup() {
     const activeTab = ref("tab-1");
@@ -284,7 +300,7 @@ export default {
     return {
       setActive,
       isActive,
-			showPassword,
+      showPassword,
       toggleShowPassword,
       toggleShowCheckbox,
     };
@@ -300,6 +316,7 @@ export default {
       isEmailLoginValid: false,
       isPasswordLoginValid: false,
       isChecked: false,
+			userCompany: false
     };
   },
   methods: {
@@ -326,12 +343,15 @@ export default {
       // Пример проверки на длину пароля:
       this.isPasswordLoginValid = this.passwordLogin.length >= 8;
     },
-
-    createNewUser(email, password) {
+		handleRadioClick(value) {
+            console.log(value);
+        },
+    createNewUser(email, password, value) {
       http
         .post("/user/register", {
           user_email: email,
           user_password: password,
+					user_company: value
         })
         .then((response) => {
           const responseData = response.data;
@@ -346,7 +366,10 @@ export default {
           localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
           localStorage.setItem("u-d-c", responseData.data.user_address_city);
-          localStorage.setItem("u-d-co", responseData.data.user_address_country);
+          localStorage.setItem(
+            "u-d-co",
+            responseData.data.user_address_country
+          );
           localStorage.setItem("u-code", responseData.data.user_country_code);
           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);
@@ -355,10 +378,8 @@ export default {
 
           if (localStorage.getItem("r-tok")) {
             localStorage.setItem("logged-in", "true");
-						this.$router.push({name: "home"})
-
+            this.$router.push({ name: "home" });
           }
-					
         })
         .catch((error) => {
           console.error("Error fetching model years:", error);
@@ -375,6 +396,7 @@ export default {
           const responseData = response.data;
           console.log(responseData);
           localStorage.setItem("u-i", responseData.data.user_id);
+          localStorage.setItem("u-com", responseData.data.user_company);
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
           localStorage.setItem("u-fn", responseData.data.user_first_name);
@@ -384,7 +406,10 @@ export default {
           localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
           localStorage.setItem("u-d-c", responseData.data.user_address_city);
-          localStorage.setItem("u-d-co", responseData.data.user_address_country);
+          localStorage.setItem(
+            "u-d-co",
+            responseData.data.user_address_country
+          );
           localStorage.setItem("u-code", responseData.data.user_country_code);
           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);
@@ -392,8 +417,7 @@ export default {
           localStorage.setItem("r-tok", responseData.token);
           if (localStorage.getItem("r-tok")) {
             localStorage.setItem("logged-in", "true");
-						this.$router.push({name: "home"})
-
+            this.$router.push({ name: "home" });
           }
         })
         .catch((error) => {
@@ -420,7 +444,7 @@ export default {
 };
 // ... rest of your component code ...
 </script>
-<style scoped>
+<style scope		d>
 .login,
 .forget {
   border-bottom: 0.5px solid rgb(216, 216, 216);
@@ -479,5 +503,9 @@ export default {
 }
 input:focus {
   box-shadow: 0px 0px 1px 4px rgba(58, 190, 213, 0.671);
+}
+input[type="radio"]:focus {
+background: orange;
+box-shadow: transparent
 }
 </style>
