@@ -351,7 +351,7 @@ export default {
         .post("/user/register", {
           user_email: email,
           user_password: password,
-					user_company: true
+					user_company: this.userCompany
         })
         .then((response) => {
           const responseData = response.data;
@@ -444,7 +444,25 @@ export default {
 };
 // ... rest of your component code ...
 </script>
-<style scope		d>
+<style scoped>
+input[type="radio"] {
+  /* Убираем стандартные стили радиокнопок */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  /* Задаем размер радиокнопки */
+  width: 20px;
+  height: 20px;
+  /* Создаем круглую форму */
+  border-radius: 50%;
+  border: 1px solid gray;
+  /* Позиционируем радиокнопку относительно базовой линии текста */
+  vertical-align: middle;
+  /* Убираем внутренние отступы, чтобы радиокнопка была ближе к тексту */
+  margin: 0;
+  padding: 0;
+}
+
 .login,
 .forget {
   border-bottom: 0.5px solid rgb(216, 216, 216);
@@ -505,6 +523,9 @@ input:focus {
   box-shadow: 0px 0px 1px 4px rgba(58, 190, 213, 0.671);
 }
 input[type="radio"]:focus {
+  box-shadow: none;
+}
+input[type="radio"]:checked {
 background: orange;
 box-shadow: transparent
 }

@@ -1,13 +1,13 @@
 <template>
   <div class="set p-[40px]">
     <div class="your-setting">
-      <h2 class="text-[32px] font-semibold">Your account settings</h2>
+      <h2 class="text-[32px] font-semibold">Your company settings</h2>
       <p class="mt-[5px] font-normal text-gray-600">
-        Your customer number: {{ userI }}
+        Your company number: {{ userI }}
       </p>
     </div>
     <div class="profile mt-[30px]">
-      <h2 class="text-[26px] font-semibold">Profile</h2>
+      <h2 class="text-[26px] font-semibold"> Profile</h2>
       <div
         class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
       >
