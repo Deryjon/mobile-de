@@ -40,7 +40,7 @@
         </button>
       </div>
     </div>
-    <div class="profile mt-[30px]">
+    <div class="profile  mt-[30px]">
       <h2 class="text-[26px] font-semibold">Login Data</h2>
       <div class="box" v-if="!changeLogin">
         <div
