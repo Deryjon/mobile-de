@@ -3,7 +3,7 @@
     <div class="your-setting">
       <h2 class="text-[32px] font-semibold">Your company settings</h2>
       <p class="mt-[5px] font-normal text-gray-600">
-        Your company number: {{ userI }}
+        Your company number: {{ companyI }}
       </p>
     </div>
     <div class="profile mt-[20px]">
@@ -160,380 +160,712 @@
 					</button>
 				</div> -->
       </div>
-			<div class="">
-
-				<h2 class="text-[26px] font-semibold mt-[50px]">Create company</h2>
-				<div class="  h-[80px] flex justify-end pt-[15px] p-[15px]" v-if="!contactData">
-	
-					<button
-						class="complete bg-[#fff] h-[50px] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-						@click="openContactData"
-					>
-						Create company
-					</button>
-				</div>
-			</div>
-      <div class="box p-[10px] mt-[20px]" v-if="contactData">
-        <div class="profile">
-          <div class="">
-            <!-- <div
-							class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-							v-if="!nameChange"
-						>
-							<div class="flex items-center gap-[20px]">
-								<div class="profile-pic">
-									<p class="font-medium">Name</p>
-									<p class="font-normal text-[14px]">
-										{{ selectedGender }} {{ companyName }} {{ userLastName }}
-									</p>
-								</div>
-							</div>
-							<button
-								class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-								@click="openChangeName"
-							>
-								Complete
-							</button>
-						</div> -->
-            <!-- v-if="nameChange" -->
-            <div class="">
-              <div class="">
-                <div class="changes w-[656px] p-[20px]">
-                  <div class="mark"></div>
-                  <div class="flex gap-[20px]">
-                    <div class="email mt-[10px]">
-                      <p class="text-sm lg:text-[14px]">Company Name</p>
-                      <input
-                        type="text "
-                        class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
-                        v-model="companyName"
-                      />
-                    </div>
-                  </div>
-                </div>
+			<div class="profile mt-[30px]" v-if="changeContactData">
+        <h2 class="text-[26px] font-semibold">Contact data</h2>
+        <div class="box">
+          <div
+            class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+            v-if="!companyDataChange"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic">
+                <p class="font-medium">Company Name</p>
+                <p class="font-normal text-[14px]">
+           {{ companyName	 }} 
+                </p>
               </div>
             </div>
-            <!-- <div
-							class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-							v-if="!addressChange"
-						>
-							<div class="flex items-center gap-[20px]">
-								<div class="profile-pic">
-									<p class="font-medium">Address</p>
-									<p class="font-normal text-[14px]">
-										{{ userAddressStreet }} {{ userAddressNr }}
-										{{ userAddressZip }} {{ userAddressCity }}
-										{{ userAddCountry }}
-									</p>
-								</div>
-							</div>
-							<button
-								class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-								@click="openAddressChange"
-							>
-								Complete
-							</button>
-						</div> -->
-            <div class="">
-              <div class="">
-                <div class="changes w-[656px] p-[20px]">
-                  <div class="top flex items-center gap-[40px] w-[656px]">
-                    <div class="mark">
-                      <div class="w-[440px] mt-2">
-                        <h2 class="text-sm lg:text-[14px]">Street</h2>
-                        <input
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="userAddressStreet"
-                        />
-                      </div>
-                    </div>
-                    <div class="email mt-[10px]">
-                      <p class="text-sm lg:text-[14px]">Nr</p>
-                      <input
-                        type="text "
-                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="userAddressNr"
-                      />
-                    </div>
+          </div>
+          <!-- <div class="" v-if="companyDataChange">
+            <div class="box">
+              <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
+                <p>Complete name</p>
+              </div>
+              <div class="changes w-[656px] p-[20px]">
+                
+                <div class="flex gap-[20px] ">
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">First Name</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                      v-model="userName"
+                    />
                   </div>
-                  <div class="top flex items-center gap-[40px] w-[656px]">
-                    <div class="email mt-[10px]">
-                      <p class="text-sm lg:text-[14px]">Zip</p>
-                      <input
-                        type="text "
-                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="userAddressZip"
-                      />
-                    </div>
-                    <div class="mark">
-                      <div class="w-[440px] mt-2">
-                        <h2 class="text-sm lg:text-[14px]">City</h2>
-                        <input
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="userAddressCity"
-                        />
-                      </div>
-                    </div>
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">Last Name</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                      v-model="userLastName"
+                    />
                   </div>
-                  <div class="top flex items-center gap-[40px] w-[656px]">
-                    <div class="relative mt-2">
-                      <h2 class="text-sm lg:text-[14px]">Country</h2>
-                      <select
+                </div>
+              
+              </div>
+            </div>
+          </div> -->
+          <div
+            class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+            v-if="!companyDataChange"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic">
+                <p class="font-medium">Address</p>
+                <p class="font-normal text-[14px]">
+                  {{ companyAddStreet }} {{ companyAddNr }}
+                  {{ companyAddZip }} {{ companyAddressCity }}
+                  {{ companyAddCountry }}
+                </p>
+              </div>
+            </div>
+           
+          </div>
+          <div class="" v-if="companyDataChange">
+            <div class="box">
+              <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
+                <p>Complete address</p>
+              </div>
+              <div class="changes w-[656px] h-[350px] p-[20px]">
+                <div class="top flex items-center gap-[40px] w-[656px]">
+                  <div class="mark">
+                    <div class="w-[440px] mt-2">
+                      <h2 class="text-sm lg:text-[14px]">Street</h2>
+                      <input
                         class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="selectedCountry"
-                      >
-                        <optgroup>
-                          <option value="BA">Bosnia and Herzegovina</option>
-                          <option value="AL">Albania</option>
-                          <option value="AT">Austria</option>
-                          <option value="BY">Belarus</option>
-                          <option value="BE">Belgium</option>
-                          <option value="AD">Andorra</option>
-                          <option value="BR">Brazil</option>
-                          <option value="BG">Bulgaria</option>
-                          <option value="CA">Canada</option>
-                          <option value="HR">Croatia</option>
-                          <option value="CY">Cyprus</option>
-                          <option value="CZ">Czech Republic</option>
-                          <option value="DK">Denmark</option>
-                          <option value="EG">Egypt</option>
-                          <option value="EE">Estonia</option>
-                          <option value="ET">Ethiopia</option>
-                          <option value="FO">Faroe Islands</option>
-                          <option value="FI">Finland</option>
-                          <option value="FR">France</option>
-                          <option value="DE">Germany</option>
-                          <option value="GR">Greece</option>
-                          <option value="HU">Hungary</option>
-                          <option value="IS">Iceland</option>
-                          <option value="IE">Ireland</option>
-                          <option value="IL">Israel</option>
-                          <option value="IT">Italy</option>
-                          <option value="JP">Japan</option>
-                          <option value="JO">Jordan</option>
-                          <option value="KW">Kuwait</option>
-                          <option value="LV">Latvia</option>
-                          <option value="LB">Lebanon</option>
-                          <option value="LI">Liechtenstein</option>
-                          <option value="LT">Lithuania</option>
-                          <option value="LU">Luxembourg</option>
-                          <option value="MK">Macedonia</option>
-                          <option value="MT">Malta</option>
-                          <option value="MX">Mexico</option>
-                          <option value="MD">Moldova</option>
-                          <option value="MC">Monaco</option>
-                          <option value="ME">Montenegro</option>
-                          <option value="MA">Morocco</option>
-                          <option value="NL">Netherlands</option>
-                          <option value="NZ">New Zealand</option>
-                          <option value="NG">Nigeria</option>
-                          <option value="NO">Norway</option>
-                          <option value="OM">Oman</option>
-                          <option value="PL">Poland</option>
-                          <option value="PT">Portugal</option>
-                          <option value="RO">Romania</option>
-                          <option value="RU">Russian Federation</option>
-                          <option value="SM">San Marino</option>
-                          <option value="SA">Saudi Arabia</option>
-                          <option value="RS">Serbia</option>
-                          <option value="SK">Slovakia</option>
-                          <option value="SI">Slovenia</option>
-                          <option value="ZA">South Africa</option>
-                          <option value="KR">South Korea</option>
-                          <option value="ES">Spain</option>
-                          <option value="SE">Sweden</option>
-                          <option value="CH">Switzerland</option>
-                          <option value="TW">Taiwan</option>
-                          <option value="TN">Tunisia</option>
-                          <option value="TR">Turkey</option>
-                          <option value="UA">Ukraine</option>
-                          <option value="AE">United Arab Emirates</option>
-                          <option value="GB">United Kingdom</option>
-                          <option value="US">USA</option>
-                        </optgroup>
-                      </select>
-                      <span
-                        class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"
-                      ></span>
-                    </div>
-                    <div class="email">
-                      <p class="text-sm lg:text-[14px]">Radius</p>
-                      <input
-                        type="text "
-                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="userAddressRadius"
+                        v-model="userAddressStreet"
                       />
                     </div>
                   </div>
-                  <!-- <div class="btns flex gap-[10px] justify-end mt-[30px]">
-										<button
-											class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-											@click="openAddressChange"
-										>
-											Cancel
-										</button>
-										<button
-											class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-											@click="changeContactDataAddress"
-										>
-											Save
-										</button>
-									</div> -->
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">Nr</p>
+                    <input
+                      type="text "
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="userAddressNr"
+                    />
+                  </div>
                 </div>
+                <div class="top flex items-center gap-[40px] w-[656px]">
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">Zip</p>
+                    <input
+                      type="text "
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="userAddressZip"
+                    />
+                  </div>
+                  <div class="mark">
+                    <div class="w-[440px] mt-2">
+                      <h2 class="text-sm lg:text-[14px]">City</h2>
+                      <input
+                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                        v-model="userAddressCity"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="relative mt-2">
+                  <h2 class="text-sm lg:text-[14px]">Country</h2>
+                  <select
+                    class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[620px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                    v-model="selectedCountry"
+                  >
+                    <optgroup>
+                      <option value="BA">Bosnia and Herzegovina</option>
+                      <option value="AL">Albania</option>
+                      <option value="AT">Austria</option>
+                      <option value="BY">Belarus</option>
+                      <option value="BE">Belgium</option>
+                      <option value="AD">Andorra</option>
+                      <option value="BR">Brazil</option>
+                      <option value="BG">Bulgaria</option>
+                      <option value="CA">Canada</option>
+                      <option value="HR">Croatia</option>
+                      <option value="CY">Cyprus</option>
+                      <option value="CZ">Czech Republic</option>
+                      <option value="DK">Denmark</option>
+                      <option value="EG">Egypt</option>
+                      <option value="EE">Estonia</option>
+                      <option value="ET">Ethiopia</option>
+                      <option value="FO">Faroe Islands</option>
+                      <option value="FI">Finland</option>
+                      <option value="FR">France</option>
+                      <option value="DE">Germany</option>
+                      <option value="GR">Greece</option>
+                      <option value="HU">Hungary</option>
+                      <option value="IS">Iceland</option>
+                      <option value="IE">Ireland</option>
+                      <option value="IL">Israel</option>
+                      <option value="IT">Italy</option>
+                      <option value="JP">Japan</option>
+                      <option value="JO">Jordan</option>
+                      <option value="KW">Kuwait</option>
+                      <option value="LV">Latvia</option>
+                      <option value="LB">Lebanon</option>
+                      <option value="LI">Liechtenstein</option>
+                      <option value="LT">Lithuania</option>
+                      <option value="LU">Luxembourg</option>
+                      <option value="MK">Macedonia</option>
+                      <option value="MT">Malta</option>
+                      <option value="MX">Mexico</option>
+                      <option value="MD">Moldova</option>
+                      <option value="MC">Monaco</option>
+                      <option value="ME">Montenegro</option>
+                      <option value="MA">Morocco</option>
+                      <option value="NL">Netherlands</option>
+                      <option value="NZ">New Zealand</option>
+                      <option value="NG">Nigeria</option>
+                      <option value="NO">Norway</option>
+                      <option value="OM">Oman</option>
+                      <option value="PL">Poland</option>
+                      <option value="PT">Portugal</option>
+                      <option value="RO">Romania</option>
+                      <option value="RU">Russian Federation</option>
+                      <option value="SM">San Marino</option>
+                      <option value="SA">Saudi Arabia</option>
+                      <option value="RS">Serbia</option>
+                      <option value="SK">Slovakia</option>
+                      <option value="SI">Slovenia</option>
+                      <option value="ZA">South Africa</option>
+                      <option value="KR">South Korea</option>
+                      <option value="ES">Spain</option>
+                      <option value="SE">Sweden</option>
+                      <option value="CH">Switzerland</option>
+                      <option value="TW">Taiwan</option>
+                      <option value="TN">Tunisia</option>
+                      <option value="TR">Turkey</option>
+                      <option value="UA">Ukraine</option>
+                      <option value="AE">United Arab Emirates</option>
+                      <option value="GB">United Kingdom</option>
+                      <option value="US">USA</option>
+                    </optgroup>
+                  </select>
+                  <span
+                    class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"
+                  ></span>
+                </div>
+
               </div>
             </div>
-            <!-- <div
-							class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-							v-if="!numberChanges"
-						>
-							<div class="flex items-center gap-[20px]">
-								<div class="profile-pic">
-									<p class="font-medium">Phone number</p>
-									<p class="font-normal text-[14px]">
-										{{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}
-									</p>
-								</div>
-							</div>
-							<button
-								class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-								@click="openNumberChange"
-							>
-								Complete
-							</button>
-						</div> -->
-            <div class="">
-              <div class="">
-                <div class="changes w-[656px] p-[20px]">
-                  <div class="mark flex gap-[15px]">
-                    <div class="relative w-[141px]">
-                      <h2 class="text-sm lg:text-[14px]">Country code</h2>
-                      <select
-                        class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                        v-model="userCountryCode"
-                      >
-                        <option value="1">+1 (CA)</option>
-                        <option value="+1">+1 (US)</option>
-                        <option value="+7">+7 (RU)</option>
-                        <option value="+20">+20 (EG)</option>
-                        <option value="+27">+27 (ZA)</option>
-                        <option value="+30">+30 (GR)</option>
-                        <option value="+31">+31 (NL)</option>
-                        <option value="+32">+32 (BE)</option>
-                        <option value="+33">+33 (FR)</option>
-                        <option value="+34">+34 (ES)</option>
-                        <option value="+36">+36 (HU)</option>
-                        <option value="+39">+39 (IT)</option>
-                        <option value="+40">+40 (RO)</option>
-                        <option value="+41">+41 (CH)</option>
-                        <option value="+43">+43 (AT)</option>
-                        <option value="+44">+44 (GB)</option>
-                        <option value="+45">+45 (DK)</option>
-                        <option value="+46">+46 (SE)</option>
-                        <option value="+47">+47 (NO)</option>
-                        <option value="+48">+48 (PL)</option>
-                        <option value="+49">+49 (DE)</option>
-                        <option value="+52">+52 (MX)</option>
-                        <option value="+55">+55 (BR)</option>
-                        <option value="+64">+64 (NZ)</option>
-                        <option value="+81">+81 (JP)</option>
-                        <option value="+82">+82 (KR)</option>
-                        <option value="+90">+90 (TR)</option>
-                        <option value="+212">+212 (MA)</option>
-                        <option value="+216">+216 (TN)</option>
-                        <option value="+234">+234 (NG)</option>
-                        <option value="+251">+251 (ET)</option>
-                        <option value="+298">+298 (FO)</option>
-                        <option value="+351">+351 (PT)</option>
-                        <option value="+352">+352 (LU)</option>
-                        <option value="+353">+353 (IE)</option>
-                        <option value="+354">+354 (IS)</option>
-                        <option value="+355">+355 (AL)</option>
-                        <option value="+356">+356 (MT)</option>
-                        <option value="+357">+357 (CY)</option>
-                        <option value="+358">+358 (FI)</option>
-                        <option value="+359">+359 (BG)</option>
-                        <option value="+370">+370 (LT)</option>
-                        <option value="+371">+371 (LV)</option>
-                        <option value="+372">+372 (EE)</option>
-                        <option value="+373">+373 (MD)</option>
-                        <option value="+375">+375 (BY)</option>
-                        <option value="+376">+376 (AD)</option>
-                        <option value="+377">+377 (MC)</option>
-                        <option value="+378">+378 (SM)</option>
-                        <option value="+380">+380 (UA)</option>
-                        <option value="+381">+381 (RS)</option>
-                        <option value="+382">+382 (ME)</option>
-                        <option value="+385">+385 (HR)</option>
-                        <option value="+386">+386 (SI)</option>
-                        <option value="+387">+387 (BA)</option>
-                        <option value="+389">+389 (MK)</option>
-                        <option value="+420">+420 (CZ)</option>
-                        <option value="+421">+421 (SK)</option>
-                        <option value="+423">+423 (LI)</option>
-                        <option value="+886">+886 (TW)</option>
-                        <option value="+961">+961 (LB)</option>
-                        <option value="+962">+962 (JO)</option>
-                        <option value="+965">+965 (KW)</option>
-                        <option value="+966">+966 (SA)</option>
-                        <option value="+968">+968 (OM)</option>
-                        <option value="+971">+971 (AE)</option>
-                        <option value="+972">+972 (IL)</option>
-                      </select>
-                      <span
-                        class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
-                      ></span>
-                    </div>
-
-                    <div class="email mt-[5px]">
-                      <p class="text-sm lg:text-[14px]">Prefix</p>
-                      <input
-                        type="text "
-                        class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
-                        v-model="userNumberPre"
-                      />
-                    </div>
-                    <div class="email mt-[5px]">
-                      <p class="text-sm lg:text-[14px]">Phone number</p>
-                      <input
-                        type="text "
-                        class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
-                        v-model="userPhoneNumber"
-                      />
-                    </div>
+          </div>
+          <div
+            class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+            v-if="!companyDataChange"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic">
+                <p class="font-medium">Phone number</p>
+                <p class="font-normal text-[14px]">
+                  {{ companyCountryCode }} {{ companyNumberPre }} {{ companyNumber }}
+                </p>
+              </div>
+            </div>
+            <button
+              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+              @click="openChangeData"
+            >
+              Complete
+            </button>
+          </div>
+          <div class="" v-if="companyDataChange">
+            <div class="box">
+              <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
+                <p>Complete name</p>
+              </div>
+              <div class="changes w-[656px] h-[200px] p-[20px]">
+                <div class="mark flex gap-[15px]">
+                  <div class="relative w-[141px]">
+                    <h2 class="text-sm lg:text-[14px]">Country code</h2>
+                    <select
+                      class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                      v-model="userCountryCode"
+                    >
+                      <option value="1">+1 (CA)</option>
+                      <option value="+1">+1 (US)</option>
+                      <option value="+7">+7 (RU)</option>
+                      <option value="+20">+20 (EG)</option>
+                      <option value="+27">+27 (ZA)</option>
+                      <option value="+30">+30 (GR)</option>
+                      <option value="+31">+31 (NL)</option>
+                      <option value="+32">+32 (BE)</option>
+                      <option value="+33">+33 (FR)</option>
+                      <option value="+34">+34 (ES)</option>
+                      <option value="+36">+36 (HU)</option>
+                      <option value="+39">+39 (IT)</option>
+                      <option value="+40">+40 (RO)</option>
+                      <option value="+41">+41 (CH)</option>
+                      <option value="+43">+43 (AT)</option>
+                      <option value="+44">+44 (GB)</option>
+                      <option value="+45">+45 (DK)</option>
+                      <option value="+46">+46 (SE)</option>
+                      <option value="+47">+47 (NO)</option>
+                      <option value="+48">+48 (PL)</option>
+                      <option value="+49">+49 (DE)</option>
+                      <option value="+52">+52 (MX)</option>
+                      <option value="+55">+55 (BR)</option>
+                      <option value="+64">+64 (NZ)</option>
+                      <option value="+81">+81 (JP)</option>
+                      <option value="+82">+82 (KR)</option>
+                      <option value="+90">+90 (TR)</option>
+                      <option value="+212">+212 (MA)</option>
+                      <option value="+216">+216 (TN)</option>
+                      <option value="+234">+234 (NG)</option>
+                      <option value="+251">+251 (ET)</option>
+                      <option value="+298">+298 (FO)</option>
+                      <option value="+351">+351 (PT)</option>
+                      <option value="+352">+352 (LU)</option>
+                      <option value="+353">+353 (IE)</option>
+                      <option value="+354">+354 (IS)</option>
+                      <option value="+355">+355 (AL)</option>
+                      <option value="+356">+356 (MT)</option>
+                      <option value="+357">+357 (CY)</option>
+                      <option value="+358">+358 (FI)</option>
+                      <option value="+359">+359 (BG)</option>
+                      <option value="+370">+370 (LT)</option>
+                      <option value="+371">+371 (LV)</option>
+                      <option value="+372">+372 (EE)</option>
+                      <option value="+373">+373 (MD)</option>
+                      <option value="+375">+375 (BY)</option>
+                      <option value="+376">+376 (AD)</option>
+                      <option value="+377">+377 (MC)</option>
+                      <option value="+378">+378 (SM)</option>
+                      <option value="+380">+380 (UA)</option>
+                      <option value="+381">+381 (RS)</option>
+                      <option value="+382">+382 (ME)</option>
+                      <option value="+385">+385 (HR)</option>
+                      <option value="+386">+386 (SI)</option>
+                      <option value="+387">+387 (BA)</option>
+                      <option value="+389">+389 (MK)</option>
+                      <option value="+420">+420 (CZ)</option>
+                      <option value="+421">+421 (SK)</option>
+                      <option value="+423">+423 (LI)</option>
+                      <option value="+886">+886 (TW)</option>
+                      <option value="+961">+961 (LB)</option>
+                      <option value="+962">+962 (JO)</option>
+                      <option value="+965">+965 (KW)</option>
+                      <option value="+966">+966 (SA)</option>
+                      <option value="+968">+968 (OM)</option>
+                      <option value="+971">+971 (AE)</option>
+                      <option value="+972">+972 (IL)</option>
+                    </select>
+                    <span
+                      class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
+                    ></span>
                   </div>
-                  <!-- <div class="btns flex gap-[10px] justify-end mt-[40px]">
-										<button
-											class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-											@click="openNumberChange"
-										>
-											Cancel
-										</button>
-										<button
-											class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-											@click="changeContactDataNumber"
-										>
-											Save
-										</button>
-									</div> -->
+
+                  <div class="email mt-[5px]">
+                    <p class="text-sm lg:text-[14px]">Prefix</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
+                      v-model="companyNumberPre"
+                    />
+                  </div>
+                  <div class="email mt-[5px]">
+                    <p class="text-sm lg:text-[14px]">Phone number</p>
+                    <input
+                      type="text "
+                      class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                      v-model="userPhoneNumber"
+                    />
+                  </div>
+                </div>
+                <div class="btns flex gap-[10px] justify-end mt-[40px]">
+                  <button
+                    class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                    @click="openChangeData"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                    @click="changeContactDataNumber"
+                  >
+                    Save
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="btns flex gap-[10px] justify-end">
+        </div>
+      <div class="" v-if="!changeContactData">
+        <h2 class="text-[26px] font-semibold mt-[50px]">Create company</h2>
+        <div
+          class="h-[80px] flex justify-end pt-[15px] p-[15px]"
+          v-if="!contactData"
+        >
           <button
-            class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+            class="complete bg-[#fff] h-[50px] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
             @click="openContactData"
           >
-            Cancel
-          </button>
-          <button
-            class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-            @click="addSettingsCompany"
-          >
-            Save
+            Create company
           </button>
         </div>
+
+				<div class="box p-[10px] mt-[20px]" v-if="contactData">
+					<div class="profile">
+						<div class="">
+							<!-- <div
+								class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+								v-if="!nameChange"
+							>
+								<div class="flex items-center gap-[20px]">
+									<div class="profile-pic">
+										<p class="font-medium">Name</p>
+										<p class="font-normal text-[14px]">
+											{{ selectedGender }} {{ companyName }} {{ userLastName }}
+										</p>
+									</div>
+								</div>
+								<button
+									class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+									@click="openChangeName"
+								>
+									Complete
+								</button>
+							</div> -->
+							<!-- v-if="nameChange" -->
+							<div class="">
+								<div class="">
+									<div class="changes w-[656px] p-[20px]">
+										<div class="mark"></div>
+										<div class="flex gap-[20px]">
+											<div class="email mt-[10px]">
+												<p class="text-sm lg:text-[14px]">Company Name</p>
+												<input
+													type="text "
+													class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+													v-model="companyName"
+												/>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- <div
+								class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+								v-if="!addressChange"
+							>
+								<div class="flex items-center gap-[20px]">
+									<div class="profile-pic">
+										<p class="font-medium">Address</p>
+										<p class="font-normal text-[14px]">
+											{{ userAddressStreet }} {{ userAddressNr }}
+											{{ userAddressZip }} {{ userAddressCity }}
+											{{ userAddCountry }}
+										</p>
+									</div>
+								</div>
+								<button
+									class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+									@click="openAddressChange"
+								>
+									Complete
+								</button>
+							</div> -->
+							<div class="">
+								<div class="">
+									<div class="changes w-[656px] p-[20px]">
+										<div class="top flex items-center gap-[40px] w-[656px]">
+											<div class="mark">
+												<div class="w-[440px] mt-2">
+													<h2 class="text-sm lg:text-[14px]">Street</h2>
+													<input
+														class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+														v-model="userAddressStreet"
+													/>
+												</div>
+											</div>
+											<div class="email mt-[10px]">
+												<p class="text-sm lg:text-[14px]">Nr</p>
+												<input
+													type="text "
+													class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+													v-model="userAddressNr"
+												/>
+											</div>
+										</div>
+										<div class="top flex items-center gap-[40px] w-[656px]">
+											<div class="email mt-[10px]">
+												<p class="text-sm lg:text-[14px]">Zip</p>
+												<input
+													type="text "
+													class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+													v-model="userAddressZip"
+												/>
+											</div>
+											<div class="mark">
+												<div class="w-[440px] mt-2">
+													<h2 class="text-sm lg:text-[14px]">City</h2>
+													<input
+														class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+														v-model="userAddressCity"
+													/>
+												</div>
+											</div>
+										</div>
+										<div class="top flex items-center gap-[40px] w-[656px]">
+											<div class="relative mt-2">
+												<h2 class="text-sm lg:text-[14px]">Country</h2>
+												<select
+													class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+													v-model="selectedCountry"
+												>
+													<optgroup>
+														<option value="BA">Bosnia and Herzegovina</option>
+														<option value="AL">Albania</option>
+														<option value="AT">Austria</option>
+														<option value="BY">Belarus</option>
+														<option value="BE">Belgium</option>
+														<option value="AD">Andorra</option>
+														<option value="BR">Brazil</option>
+														<option value="BG">Bulgaria</option>
+														<option value="CA">Canada</option>
+														<option value="HR">Croatia</option>
+														<option value="CY">Cyprus</option>
+														<option value="CZ">Czech Republic</option>
+														<option value="DK">Denmark</option>
+														<option value="EG">Egypt</option>
+														<option value="EE">Estonia</option>
+														<option value="ET">Ethiopia</option>
+														<option value="FO">Faroe Islands</option>
+														<option value="FI">Finland</option>
+														<option value="FR">France</option>
+														<option value="DE">Germany</option>
+														<option value="GR">Greece</option>
+														<option value="HU">Hungary</option>
+														<option value="IS">Iceland</option>
+														<option value="IE">Ireland</option>
+														<option value="IL">Israel</option>
+														<option value="IT">Italy</option>
+														<option value="JP">Japan</option>
+														<option value="JO">Jordan</option>
+														<option value="KW">Kuwait</option>
+														<option value="LV">Latvia</option>
+														<option value="LB">Lebanon</option>
+														<option value="LI">Liechtenstein</option>
+														<option value="LT">Lithuania</option>
+														<option value="LU">Luxembourg</option>
+														<option value="MK">Macedonia</option>
+														<option value="MT">Malta</option>
+														<option value="MX">Mexico</option>
+														<option value="MD">Moldova</option>
+														<option value="MC">Monaco</option>
+														<option value="ME">Montenegro</option>
+														<option value="MA">Morocco</option>
+														<option value="NL">Netherlands</option>
+														<option value="NZ">New Zealand</option>
+														<option value="NG">Nigeria</option>
+														<option value="NO">Norway</option>
+														<option value="OM">Oman</option>
+														<option value="PL">Poland</option>
+														<option value="PT">Portugal</option>
+														<option value="RO">Romania</option>
+														<option value="RU">Russian Federation</option>
+														<option value="SM">San Marino</option>
+														<option value="SA">Saudi Arabia</option>
+														<option value="RS">Serbia</option>
+														<option value="SK">Slovakia</option>
+														<option value="SI">Slovenia</option>
+														<option value="ZA">South Africa</option>
+														<option value="KR">South Korea</option>
+														<option value="ES">Spain</option>
+														<option value="SE">Sweden</option>
+														<option value="CH">Switzerland</option>
+														<option value="TW">Taiwan</option>
+														<option value="TN">Tunisia</option>
+														<option value="TR">Turkey</option>
+														<option value="UA">Ukraine</option>
+														<option value="AE">United Arab Emirates</option>
+														<option value="GB">United Kingdom</option>
+														<option value="US">USA</option>
+													</optgroup>
+												</select>
+												<span
+													class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"
+												></span>
+											</div>
+											<div class="email">
+												<p class="text-sm lg:text-[14px]">Radius</p>
+												<input
+													type="text "
+													class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+													v-model="userAddressRadius"
+												/>
+											</div>
+										</div>
+										<!-- <div class="btns flex gap-[10px] justify-end mt-[30px]">
+											<button
+												class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+												@click="openAddressChange"
+											>
+												Cancel
+											</button>
+											<button
+												class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+												@click="changeContactDataAddress"
+											>
+												Save
+											</button>
+										</div> -->
+									</div>
+								</div>
+							</div>
+							<!-- <div
+								class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+								v-if="!numberChanges"
+							>
+								<div class="flex items-center gap-[20px]">
+									<div class="profile-pic">
+										<p class="font-medium">Phone number</p>
+										<p class="font-normal text-[14px]">
+											{{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}
+										</p>
+									</div>
+								</div>
+								<button
+									class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+									@click="openNumberChange"
+								>
+									Complete
+								</button>
+							</div> -->
+							<div class="">
+								<div class="">
+									<div class="changes w-[656px] p-[20px]">
+										<div class="mark flex gap-[15px]">
+											<div class="relative w-[141px]">
+												<h2 class="text-sm lg:text-[14px]">Country code</h2>
+												<select
+													class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+													v-model="userCountryCode"
+												>
+													<option value="1">+1 (CA)</option>
+													<option value="+1">+1 (US)</option>
+													<option value="+7">+7 (RU)</option>
+													<option value="+20">+20 (EG)</option>
+													<option value="+27">+27 (ZA)</option>
+													<option value="+30">+30 (GR)</option>
+													<option value="+31">+31 (NL)</option>
+													<option value="+32">+32 (BE)</option>
+													<option value="+33">+33 (FR)</option>
+													<option value="+34">+34 (ES)</option>
+													<option value="+36">+36 (HU)</option>
+													<option value="+39">+39 (IT)</option>
+													<option value="+40">+40 (RO)</option>
+													<option value="+41">+41 (CH)</option>
+													<option value="+43">+43 (AT)</option>
+													<option value="+44">+44 (GB)</option>
+													<option value="+45">+45 (DK)</option>
+													<option value="+46">+46 (SE)</option>
+													<option value="+47">+47 (NO)</option>
+													<option value="+48">+48 (PL)</option>
+													<option value="+49">+49 (DE)</option>
+													<option value="+52">+52 (MX)</option>
+													<option value="+55">+55 (BR)</option>
+													<option value="+64">+64 (NZ)</option>
+													<option value="+81">+81 (JP)</option>
+													<option value="+82">+82 (KR)</option>
+													<option value="+90">+90 (TR)</option>
+													<option value="+212">+212 (MA)</option>
+													<option value="+216">+216 (TN)</option>
+													<option value="+234">+234 (NG)</option>
+													<option value="+251">+251 (ET)</option>
+													<option value="+298">+298 (FO)</option>
+													<option value="+351">+351 (PT)</option>
+													<option value="+352">+352 (LU)</option>
+													<option value="+353">+353 (IE)</option>
+													<option value="+354">+354 (IS)</option>
+													<option value="+355">+355 (AL)</option>
+													<option value="+356">+356 (MT)</option>
+													<option value="+357">+357 (CY)</option>
+													<option value="+358">+358 (FI)</option>
+													<option value="+359">+359 (BG)</option>
+													<option value="+370">+370 (LT)</option>
+													<option value="+371">+371 (LV)</option>
+													<option value="+372">+372 (EE)</option>
+													<option value="+373">+373 (MD)</option>
+													<option value="+375">+375 (BY)</option>
+													<option value="+376">+376 (AD)</option>
+													<option value="+377">+377 (MC)</option>
+													<option value="+378">+378 (SM)</option>
+													<option value="+380">+380 (UA)</option>
+													<option value="+381">+381 (RS)</option>
+													<option value="+382">+382 (ME)</option>
+													<option value="+385">+385 (HR)</option>
+													<option value="+386">+386 (SI)</option>
+													<option value="+387">+387 (BA)</option>
+													<option value="+389">+389 (MK)</option>
+													<option value="+420">+420 (CZ)</option>
+													<option value="+421">+421 (SK)</option>
+													<option value="+423">+423 (LI)</option>
+													<option value="+886">+886 (TW)</option>
+													<option value="+961">+961 (LB)</option>
+													<option value="+962">+962 (JO)</option>
+													<option value="+965">+965 (KW)</option>
+													<option value="+966">+966 (SA)</option>
+													<option value="+968">+968 (OM)</option>
+													<option value="+971">+971 (AE)</option>
+													<option value="+972">+972 (IL)</option>
+												</select>
+												<span
+													class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
+												></span>
+											</div>
+	
+											<div class="email mt-[5px]">
+												<p class="text-sm lg:text-[14px]">Prefix</p>
+												<input
+													type="text "
+													class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
+													v-model="userNumberPre"
+												/>
+											</div>
+											<div class="email mt-[5px]">
+												<p class="text-sm lg:text-[14px]">Phone number</p>
+												<input
+													type="text "
+													class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+													v-model="userPhoneNumber"
+												/>
+											</div>
+										</div>
+										<!-- <div class="btns flex gap-[10px] justify-end mt-[40px]">
+											<button
+												class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+												@click="openNumberChange"
+											>
+												Cancel
+											</button>
+											<button
+												class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+												@click="changeContactDataNumber"
+											>
+												Save
+											</button>
+										</div> -->
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="btns flex gap-[10px] justify-end">
+						<button
+							class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+							@click="openContactData"
+						>
+							Cancel
+						</button>
+						<button
+							class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+							@click="addSettingsCompany"
+						>
+							Save
+						</button>
+					</div>
+				</div>
       </div>
     </div>
     <div class="profile mt-[30px]">
@@ -663,17 +995,10 @@ export default {
   data() {
     return {
       userI: "",
+      companyI: "",
       userE: "",
       userECh: "",
-      companyName: "",
-      userCountryCode: "",
-      userNumberPre: "",
-      selectedGender: "",
-      userAddressStreet: "",
-      userAddressNr: "",
-      userAddressRadius: "",
-      userAddressZip: "",
-      userAddressCity: "",
+			companyNumberPre: "",
       selectedCountry: "",
       nameChange: false,
       userNumber: "",
@@ -681,11 +1006,18 @@ export default {
       newPasswordLogin: "",
       currentPasswordLogin: "",
       companyName: "",
-      userLastName: "",
+			companyCountryCode: "",
+      companyNumber: "",
+      companyAddStreet: "",
+      companyAddNr: "",
+      companyAddZip: "",
+      companyAddressCity: "",
+      companyAddCountry: "",
       addressChange: false,
       numberChanges: false,
-      userPhoneNumber: "",
-      contactData: false,
+      contactData: true,
+		  changeContactData: false,	
+			companyDataChange: false
     };
   },
   methods: {
@@ -721,6 +1053,8 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
+          localStorage.setItem("com-i", responseData.data.company_id);
+
           console.log(responseData);
         });
     },
@@ -730,6 +1064,9 @@ export default {
     openContactData() {
       this.contactData = !this.contactData;
     },
+		openChangeData(){
+			this.companyDataChange = !this.companyDataChange
+		},
     openAddChanges() {},
     // changeContactDataNumber() {
     //   this.numberChanges = !this.numberChanges;
@@ -823,25 +1160,30 @@ export default {
     // },
   },
   created() {
+    this.companyI = localStorage.getItem("com-i");
+
+    // Проверьте, существует ли значение для ключа "com-i"
+    if (this.companyI) {
+      // Если значение существует, выполните нужное действие, например, установите элемент в true
+      this.changeContactData = true;
+    } else {
+      // Если значение отсутствует, выполните другое действие
+      // Например, установите элемент в false или выполните другие действия
+      this.contactData = false;
+    }
+
+    // Другие операции с другими ключами localStorage
     this.userI = localStorage.getItem("u-i");
     this.userE = localStorage.getItem("u-e");
-    // this.userECh = localStorage.getItem("u-e");
-    // this.companyName = localStorage.getItem("u-fn");
-    // this.userLastName = localStorage.getItem("u-ln");
-    // this.selectedGender = localStorage.getItem("u-g");
-    // this.userAddStreet = localStorage.getItem("u-d-s");
-    // this.userAddNr = localStorage.getItem("u-d-nr");
-    // this.userAddZip = localStorage.getItem("u-d-z");
-    // this.userAddCity = localStorage.getItem("u-d-c");
-    // this.userAddCountry = localStorage.getItem("u-d-co");
-    // this.userCountryCode = localStorage.getItem("u-code");
-    // this.userNumberPre = localStorage.getItem("u-pre");
-    // this.userNumber = localStorage.getItem("u-phone");
-    // this.userAddressStreet = localStorage.getItem("u-d-s");
-    // this.userAddressNr = localStorage.getItem("u-d-nr");
-    // this.userAddressZip = localStorage.getItem("u-d-z");
-    // this.userAddressCity = localStorage.getItem("u-d-c");
-    // this.userAddressCountry = localStorage.getItem("u-d-co");
+    this.companyName = localStorage.getItem("com-name");
+    this.companyAddStreet = localStorage.getItem("com-street");
+    this.companyAddNr = localStorage.getItem("com-nr");
+    this.companyAddZip = localStorage.getItem("com-zip");
+    this.companyAddCountry = localStorage.getItem("com-country");
+    this.companyCountryCode = localStorage.getItem("com-numcode");
+    this.companyNumberPre = localStorage.getItem("com-prefix");
+    this.companyNumber = localStorage.getItem("com-number");
+    this.companyAddressCity = localStorage.getItem("com-city");
   },
 };
 </script>

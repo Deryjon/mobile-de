@@ -397,6 +397,7 @@ export default {
           console.log(responseData);
           localStorage.setItem("u-i", responseData.data.user_id);
           localStorage.setItem("u-com", responseData.data.user_company);
+					localStorage.setItem("com-i", responseData.company_id);
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
           localStorage.setItem("u-fn", responseData.data.user_first_name);
