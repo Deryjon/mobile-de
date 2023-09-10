@@ -1,106 +1,72 @@
 <template>
-	  <v-container class="max-w-[1120px]">
-
-	<div class="magazine-bmw">
-        <div class="row sections-2">
-          <div class="col-xl-5">
-            <h2 class="head">mobile.de Magazin</h2>
-          </div>
+  <v-container class="max-w-[1120px]">
+    <div class="magazine-bmw ">
+      <div class="row sections-2">
+        <div class="col-xl-5">
+          <h2 class="head">mobile.de Magazin</h2>
         </div>
+      </div>
 
-        <div class="row">
-          <div class="col-xl-5 col-xs-5 mobe">
-            <p>
-              Hier findest Du alles, was mit Fahrzeugen zu tun hat - verschaff
-              Dir ganz einfach einen Überblick über den gesamten Automarkt. Hier
-              warten täglich über 1,2 Millionen Fahrzeuge auf Dich.
-            </p>
-            <h2 class="marketF">
-              mobile.de ist Deutschlands größter Fahrzeugmarkt
-            </h2>
-            <p>
-              mobile.de ist Deutschlands größter Fahrzeugmarkt, auf dem Du
-              einfach ein Auto kaufen oder verkaufen kannst. Hier gibt es
-              Gebrauchtwagen, <span>Neuwagen</span> , Youngtimer,
-              <span>Oldtimer</span> , <span>Kleinwagen</span> und Kompakte,
-              <span>SUV</span>, luxuriöse Limousinen und günstige Autos. Du
-              kannst Dein gebrauchtes <span>Auto verkaufen</span>, Neuwagen- und
-              Gebrauchtwagenverkäufer kontaktieren. Du kannst mehr über
-              <span>Automarken und Modelle</span> herausfinden, Dich über die
-              Fahrzeugfinanzierung informieren, Finanzierungsangebote und
-              Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
-              findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles
-              mehr.
-            </p>
-          </div>
-          <div class="col-xl-6">
-            <img src="./assets/images/family.jpg" alt="" />
-          </div>
-          <div class="col-xl-5 nomobe">
-            <p>
-              Hier findest Du alles, was mit Fahrzeugen zu tun hat - verschaff
-              Dir ganz einfach einen Überblick über den gesamten Automarkt. Hier
-              warten täglich über 1,2 Millionen Fahrzeuge auf Dich.
-            </p>
-            <h2 class="marketF">
-              mobile.de ist Deutschlands größter Fahrzeugmarkt
-            </h2>
-            <p>
-              mobile.de ist Deutschlands größter Fahrzeugmarkt, auf dem Du
-              einfach ein Auto kaufen oder verkaufen kannst. Hier gibt es
-              Gebrauchtwagen, <span>Neuwagen</span> , Youngtimer,
-              <span>Oldtimer</span> , <span>Kleinwagen</span> und Kompakte,
-              <span>SUV</span>, luxuriöse Limousinen und günstige Autos. Du
-              kannst Dein gebrauchtes <span>Auto verkaufen</span>, Neuwagen- und
-              Gebrauchtwagenverkäufer kontaktieren. Du kannst mehr über
-              <span>Automarken und Modelle</span> herausfinden, Dich über die
-              Fahrzeugfinanzierung informieren, Finanzierungsangebote und
-              Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
-              findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles
-              mehr.
-            </p>
-          </div>
+      <div class="row">
+        <div class="col-xl-5 col-xs-5 mobe">
+          <p>
+            Hier findest Du alles, was mit Fahrzeugen zu tun hat - verschaff Dir
+            ganz einfach einen Überblick über den gesamten Automarkt. Hier
+            warten täglich über 1,2 Millionen Fahrzeuge auf Dich.
+          </p>
+          <h2 class="marketF">
+            mobile.de ist Deutschlands größter Fahrzeugmarkt
+          </h2>
+          <p>
+            mobile.de ist Deutschlands größter Fahrzeugmarkt, auf dem Du einfach
+            ein Auto kaufen oder verkaufen kannst. Hier gibt es Gebrauchtwagen,
+            <span>Neuwagen</span> , Youngtimer, <span>Oldtimer</span> ,
+            <span>Kleinwagen</span> und Kompakte, <span>SUV</span>, luxuriöse
+            Limousinen und günstige Autos. Du kannst Dein gebrauchtes
+            <span>Auto verkaufen</span>, Neuwagen- und Gebrauchtwagenverkäufer
+            kontaktieren. Du kannst mehr über
+            <span>Automarken und Modelle</span> herausfinden, Dich über die
+            Fahrzeugfinanzierung informieren, Finanzierungsangebote und
+            Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
+            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr.
+          </p>
         </div>
-
-        <div class="row sec-5">
-          <div class="mini-sec">
-            <div class="col-xl-1 col-md-2">
-              <img
-                class="men-glase"
-                src="./assets/images/men-glase.jpg"
-                alt="" />
-            </div>
-            <div class="col-xl-4 Auto">
-              <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
-              <p>
-                Dann kannst Du Dein gebrauchtes Auto hier kostenlos verkaufen.
-                Einfach und bequem. Zum maximalen Preis per Inserat oder schnell
-                per Expressverkauf an einer mobile.de Ankaufsstation.
-              </p>
-              <span>➤ Auto bewerten</span>
-            </div>
-          </div>
-          <div class="mini-sec">
-            <div class="col-xl-1">
-              <img class="men-glase" src="./assets/images/woman.jpg" alt="" />
-            </div>
-            <div class="col-xl-4 Auto">
-              <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
-              <p>
-                Dann kannst Du hier zahlreiche Angebote vergleichen und
-                Verkäufer direkt kontaktieren. Professionelle Autohändler oder
-                Privatverkäufer, Firmenfahrzeuge von gewerblichen Anbietern oder
-                Jahreswagen. Auch mit Gebrauchtwagen-Garantie oder
-                Qualitätssiegel.
-              </p>
-              <span>➤ Gebrauchtwagen kaufen</span>
-            </div>
-          </div>
+        <div class="col-xl-6">
+          <img src="../../../assets/images/family.jpg" alt="" />
         </div>
+        <div class="col-xl-5 nomobe">
+          <p>
+            Hier findest Du alles, was mit Fahrzeugen zu tun hat - verschaff Dir
+            ganz einfach einen Überblick über den gesamten Automarkt. Hier
+            warten täglich über 1,2 Millionen Fahrzeuge auf Dich.
+          </p>
+          <h2 class="marketF">
+            mobile.de ist Deutschlands größter Fahrzeugmarkt
+          </h2>
+          <p>
+            mobile.de ist Deutschlands größter Fahrzeugmarkt, auf dem Du einfach
+            ein Auto kaufen oder verkaufen kannst. Hier gibt es Gebrauchtwagen,
+            <span>Neuwagen</span> , Youngtimer, <span>Oldtimer</span> ,
+            <span>Kleinwagen</span> und Kompakte, <span>SUV</span>, luxuriöse
+            Limousinen und günstige Autos. Du kannst Dein gebrauchtes
+            <span>Auto verkaufen</span>, Neuwagen- und Gebrauchtwagenverkäufer
+            kontaktieren. Du kannst mehr über
+            <span>Automarken und Modelle</span> herausfinden, Dich über die
+            Fahrzeugfinanzierung informieren, Finanzierungsangebote und
+            Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
+            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr.
+          </p>
+        </div>
+      </div>
 
-        <div class="row sec-4">
+      <div class="row sec-5">
+        <div class="mini-sec">
           <div class="col-xl-1 col-md-2">
-            <img class="men-glase" src="./assets/images/men-glase.jpg" alt="" />
+            <img
+              class="men-glase"
+              src="../../../assets/images/men-glase.jpg"
+              alt=""
+            />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
@@ -111,9 +77,14 @@
             </p>
             <span>➤ Auto bewerten</span>
           </div>
-
+        </div>
+        <div class="mini-sec">
           <div class="col-xl-1">
-            <img class="men-glase" src="./assets/images/woman.jpg" alt="" />
+            <img
+              class="men-glase"
+              src="../../../assets/images/woman.jpg"
+              alt=""
+            />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
@@ -127,10 +98,83 @@
             <span>➤ Gebrauchtwagen kaufen</span>
           </div>
         </div>
+      </div>
 
-        <div class="row sec-4">
+      <div class="row sec-4">
+        <div class="col-xl-1 col-md-2">
+          <img
+            class="men-glase"
+            src="../../../assets/images/men-glase.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-xl-4 Auto">
+          <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
+          <p>
+            Dann kannst Du Dein gebrauchtes Auto hier kostenlos verkaufen.
+            Einfach und bequem. Zum maximalen Preis per Inserat oder schnell per
+            Expressverkauf an einer mobile.de Ankaufsstation.
+          </p>
+          <span>➤ Auto bewerten</span>
+        </div>
+
+        <div class="col-xl-1">
+          <img
+            class="men-glase"
+            src="../../../assets/images/woman.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-xl-4 Auto">
+          <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
+          <p>
+            Dann kannst Du hier zahlreiche Angebote vergleichen und Verkäufer
+            direkt kontaktieren. Professionelle Autohändler oder
+            Privatverkäufer, Firmenfahrzeuge von gewerblichen Anbietern oder
+            Jahreswagen. Auch mit Gebrauchtwagen-Garantie oder Qualitätssiegel.
+          </p>
+          <span>➤ Gebrauchtwagen kaufen</span>
+        </div>
+      </div>
+
+      <div class="row sec-4">
+        <div class="col-xl-1">
+          <img class="men-glase" src="../../../assets/images/mens.jpg" alt="" />
+        </div>
+        <div class="col-xl-4 Auto">
+          <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
+          <p>
+            Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos mit
+            Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen.
+          </p>
+          <span>➤ Neuwagen kaufen</span>
+        </div>
+        <div class="col-xl-1">
+          <img
+            class="men-glase"
+            src="../../../assets/images/man-telephone.jpg"
+            alt=""
+          />
+        </div>
+        <div class="col-xl-4 Auto">
+          <h2 class="denkst">Denkst Du Leasing?</h2>
+          <p>
+            Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
+            Traumwagen und finde passende Leasing-Angebote von unseren Händlern
+            in Deiner Nähe.
+          </p>
+          <span>➤ Leasing-Angebote finden</span>
+        </div>
+      </div>
+
+      <div class="row sec-5">
+        <div class="mini-sec">
           <div class="col-xl-1">
-            <img class="men-glase" src="./assets/images/mens.jpg" alt="" />
+            <img
+              class="men-glase"
+              src="../../../assets/images/mens.jpg"
+              alt=""
+            />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
@@ -140,11 +184,14 @@
             </p>
             <span>➤ Neuwagen kaufen</span>
           </div>
+        </div>
+        <div class="mini-sec">
           <div class="col-xl-1">
             <img
               class="men-glase"
-              src="./assets/images/man-telephone.jpg"
-              alt="" />
+              src="../../../assets/images/man-telephone.jpg"
+              alt=""
+            />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">Denkst Du Leasing?</h2>
@@ -156,42 +203,9 @@
             <span>➤ Leasing-Angebote finden</span>
           </div>
         </div>
-
-        <div class="row sec-5">
-          <div class="mini-sec">
-            <div class="col-xl-1">
-              <img class="men-glase" src="./assets/images/mens.jpg" alt="" />
-            </div>
-            <div class="col-xl-4 Auto">
-              <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
-              <p>
-                Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos
-                mit Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen.
-              </p>
-              <span>➤ Neuwagen kaufen</span>
-            </div>
-          </div>
-          <div class="mini-sec">
-            <div class="col-xl-1">
-              <img
-                class="men-glase"
-                src="./assets/images/man-telephone.jpg"
-                alt="" />
-            </div>
-            <div class="col-xl-4 Auto">
-              <h2 class="denkst">Denkst Du Leasing?</h2>
-              <p>
-                Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
-                Traumwagen und finde passende Leasing-Angebote von unseren
-                Händlern in Deiner Nähe.
-              </p>
-              <span>➤ Leasing-Angebote finden</span>
-            </div>
-          </div>
-        </div>
       </div>
-						
-		</v-container>
+    </div>
+  </v-container>
 </template>
 <style scoped>
 @font-face {
@@ -204,11 +218,18 @@ body {
   margin: 0;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
 }
 
-ol, ul {
+ol,
+ul {
   padding: 0;
   margin: 0;
 }
@@ -221,7 +242,10 @@ a {
   text-decoration: none;
 }
 
-button, input, textarea, select {
+button,
+input,
+textarea,
+select {
   font-family: inherit;
 }
 
@@ -517,10 +541,10 @@ body {
 }
 
 .magazine-bmw {
-  width: 100%;
+  width: 112git a0px;
+	margin: 0 auto;
   padding: 20px;
-  background-color: rgb(61, 61, 61);
-  border-radius: 10px;
+  background-color: #f5f5f5;
 }
 
 .mini-bmw {
@@ -572,7 +596,7 @@ body {
   padding: 20px;
   gap: 0 15px;
   border-radius: 10px;
-  background-color: rgb(61, 61, 61);
+  background-color: #f5f5f5;
 }
 
 .tablet-man {
@@ -741,7 +765,7 @@ body {
   border-radius: 5px;
   border: 1px solid gray;
   color: rgb(191, 245, 245);
-  background-color: rgb(61, 61, 61);
+  background-color: #f5f5f5;
 }
 
 .button:hover,

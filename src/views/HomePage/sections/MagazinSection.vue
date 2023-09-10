@@ -404,7 +404,7 @@ select {
 }
 
 .header {
-	width: 1440px;
+	width: 1120px;
   height: 945px;
   margin: 0 auto;
 }
@@ -430,7 +430,7 @@ select {
 }
 
 .magazine-bmw {
-  width: 1440px;
+  width: 1120px;
   padding: 20px;
   background-color: #f5f5f5;
 }
