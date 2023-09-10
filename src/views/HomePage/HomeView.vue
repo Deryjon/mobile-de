@@ -4,6 +4,7 @@
     <SearchSection />
 		<RentSection/>
 		<MagazinSection/>
+		<FinanceSection/>
   </main>
 </template>
 
@@ -13,13 +14,15 @@ import HeaderLayoutVue from "../../layouts/HeaderLayout/HeaderLayout.vue";
 import RentSection from "./sections/RentSection.vue";
 import SwiperSection from "./sections/SwiperSection.vue";
 import MagazinSection from "./sections/MagazinSection.vue";
+import FinanceSection from "./sections/FinanceSection.vue";
 export default {
   components: {
     HeaderLayoutVue,
     SearchSection,
     RentSection,
     SwiperSection,
-		MagazinSection,
+    MagazinSection,
+    FinanceSection
 },
 created() {
     const hasReloaded = localStorage.getItem('hasReloaded');

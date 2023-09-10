@@ -1,5 +1,5 @@
 <template>
-  <v-container class="max-w-[1120px]">
+  <v-container class="max-w-[1120px] h-[700px]">
     <div class="header max-w-[1120px]">
       <div class="container">
     

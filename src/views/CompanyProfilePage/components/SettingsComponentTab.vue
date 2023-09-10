@@ -983,21 +983,6 @@ export default {
       this.companyDataChange = !this.companyDataChange;
     },
     changeDataContactCompany() {
-      console.log({
-        company_id: this.companyI,
-        company_name: this.companyName,
-        company_mail: this.userE,
-        company_address_street: this.companyAddStreet,
-        company_address_nr: this.companyAddNr,
-        company_address_zip: this.companyAddZip,
-        company_address_city: this.companyAddressCity,
-        company_address_country: this.companyAddCountry,
-        company_address_radius: this.companyAddRadius,
-        company_country_code: this.companyCountryCode,
-        company_number_prefix: this.companyNumberPre,
-        company_phone_number: this.companyNumber,
-        user_id: this.userI,
-      });
       http.put("/company/edit", {
       	company_id: this.companyI,
       	company_name: this.companyName,
@@ -1016,7 +1001,33 @@ export default {
 			.then((response) => {
           const responseData = response.data;
           console.log(responseData);
-					
+					localStorage.setItem("com-name", responseData.data.company_name);
+          localStorage.setItem("com-street", responseData.data.company_address_street);
+          localStorage.setItem("com-nr", responseData.data.company_address_nr);
+          localStorage.setItem(
+            "com-zip",
+            responseData.data.company_address_zip
+          );
+          localStorage.setItem(
+            "com-city",
+            responseData.data.company_address_city
+          );
+          localStorage.setItem(
+            "com-radius",
+            responseData.data.company_address_radius
+          );
+          localStorage.setItem(
+            "com-numcode",
+            responseData.data.company_country_code
+          );
+          localStorage.setItem(
+            "com-prefix",
+            responseData.data.company_number_prefix
+          );
+          localStorage.setItem(
+            "com-number",
+            responseData.data.company_phone_number
+          );
         });
 				this.companyDataChange = !this.companyDataChange;
 
