@@ -998,7 +998,7 @@ export default {
         company_phone_number: this.companyNumber,
         user_id: this.userI,
       });
-      http.put("/company/update", {
+      http.put("/company/edit", {
       	company_id: this.companyI,
       	company_name: this.companyName,
         company_mail: this.userE,
@@ -1016,6 +1016,7 @@ export default {
 			.then((response) => {
           const responseData = response.data;
           console.log(responseData);
+					
         });
 				this.companyDataChange = !this.companyDataChange;
 
