@@ -6,6 +6,7 @@
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
+          @change="fetchCondition()"
         >
           <option value="14600">Any</option>
           <option class="">New</option>
@@ -80,6 +81,7 @@
           >
             {{ model.car_model_name }}
           </option>
+          <option value="other" class="">Others</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
@@ -87,7 +89,7 @@
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
-        <div class="1 input-container flex relative mt-[10px]">
+        <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -209,45 +211,6 @@
           <li @click="selectOption('1901')">1901</li>
         </ul>
       </div>
-      <!-- <div class="dropdown-container">
-        <h2 class="text-sm lg:text-[14px] mt-2">
-          {{ $t("message.selects.registration") }}
-        </h2>
-
-        <div class=" relative w-[150px] mt-[5px] lg:w-[170px] xl:w-[170px]">
-          <input
-            placeholder="Beliebig"
-            class="no-spinner mark-select w-full h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
-            type="number"
-            pattern="\d*"
-            v-model="years"
-            @focus="openDropdown"
-          />
-          <div v-if="isDropdownOpen" class="dropdown">
-            <select
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-0 text-[10px] lg:text-[12px]"
-              v-model="selectedYear"
-              @change="updateSelectYear"
-              @blur="closeDropdown"
-            >
-              <option v-for="year in modelYears" :key="year" :value="year">
-                {{ year }}
-              </option>
-              <option value="1985">1985</option>
-              <option value="1980">1980</option>
-              <option value="1975">1975</option>
-              <option value="1970">1970</option>
-              <option value="1965">1965</option>
-              <option value="1960">1960</option>
-              <option value="1900">1900</option>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
-          </div>
-        </div>
-      </div> -->
-
       <div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
@@ -303,47 +266,6 @@
           </li>
         </ul>
       </div>
-      <!-- <div class="">
-        <h2 class="text-sm lg:text-[14px] mt-2">
-          {{ $t("message.selects.kilometr") }}
-        </h2>
-      
-        <div class="marke_select_div flex relative mt-[5px]">
-          <input
-            placeholder="Beliebig"
-            id="inputYear"
-            class="mark_input mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            type="number"
-            pattern="\d*"
-            v-model="killometres"
-            readonly
-          />
-          <select
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] lg:right-[0px] xl:right-[0px] text-[10px] lg:text-[12px]"
-            v-model="selectedMake"
-            @change="updateSelect"
-          >
-            <option value="5000">5.000 km</option>
-            <option value="10000">10.000 km</option>
-            <option value="20000">20.000 km</option>
-            <option value="30000">30.000 km</option>
-            <option value="40000">40.000 km</option>
-            <option value="50000">50.000 km</option>
-            <option value="60000">60.000 km</option>
-            <option value="70000">70.000 km</option>
-            <option value="80000">80.000 km</option>
-            <option value="90000">90.000 km</option>
-            <option value="100000">100.000 km</option>
-            <option value="125000">125.000 km</option>
-            <option value="150000">150.000 km</option>
-            <option value="175000">175.	000 km</option>
-            <option value="200000">200.000 km</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:right-[7px] lg:top-[13px]"
-          ></span>
-        </div>
-      </div> -->
     </div>
     <div
       class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]"
@@ -436,64 +358,6 @@
               <li data-key="90000" @click="selectPrice('90000')">90,000 €</li>
             </ul>
           </div>
-          <!-- <div class="mt-[14px]">
-            <h2 class="text-sm lg:text-[14px]">
-              {{ $t("message.selects.price") }}
-            </h2>
-            <div class="marke_select_div relative">
-              <input
-                placeholder="Beliebig"
-                class="mark_input text-[12px] mark-select w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-                type="number"
-                pattern="\d*"
-                v-model="price"
-              />
-              <select
-                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-                v-model="selectedPrice"
-                @change="updateSelectPrice"
-              >
-                <option value="500">500 €</option>
-                <option value="1000">1,000 €</option>
-                <option value="1500">1,500 €</option>
-                <option value="2000">2,000 €</option>
-                <option value="2500">2,500 €</option>
-                <option value="3000">3,000 €</option>
-                <option value="3500">3,500 €</option>
-                <option value="4000">4,000 €</option>
-                <option value="4500">4,500 €</option>
-                <option value="5000">5,000 €</option>
-                <option value="6000">6,000 €</option>
-                <option value="7000">7,000 €</option>
-                <option value="8000">8,000 €</option>
-                <option value="9000">9,000 €</option>
-                <option value="10000">10,000 €</option>
-                <option value="11000">11,000 €</option>
-                <option value="12000">12,000 €</option>
-                <option value="13000">13,000 €</option>
-                <option value="14000">14,000 €</option>
-                <option value="15000">15,000 €</option>
-                <option value="17500">17,500 €</option>
-                <option value="20000">20,000 €</option>
-                <option value="22500">22,500 €</option>
-                <option value="25000">25,000 €</option>
-                <option value="27500">27,500 €</option>
-                <option value="30000">30,000 €</option>
-                <option value="35000">35,000 €</option>
-                <option value="40000">40,000 €</option>
-                <option value="45000">45,000 €</option>
-                <option value="50000">50,000 €</option>
-                <option value="55000">55,000 €</option>
-                <option value="60000">60,000 €</option>
-                <option value="70000">70,000 €</option>
-                <option value="80000">80,000 €</option>
-                <option value="90000">90,000 €</option> 
-              </select>
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div> -->
           <div class="relative">
             <h2 class="mt-2 text-sm lg:text-[12px]">
               {{ $t("message.selects.zip") }}
@@ -518,6 +382,7 @@
   </div>
 </template>
 <script>
+import http from "../../../axios.config";
 import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
 export default {
@@ -543,13 +408,35 @@ export default {
       inputPrice: "",
       options: [],
       filteredOptions: [],
-      selectedModel: "",
+      selectedModel: "14600",
     };
   },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+  },
   methods: {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          car_make: this.selectedMark,
+          car_model: this.selectedModel,
+        })
+        .then((response) => {
+          const data = response.data;
+					console.log(data);
+        });
+    },
     showTab1() {
       this.activeTab = "tab-1";
-      console.log(this.selectedMark);
     },
     async showTab2() {
       this.activeTab = "tab-2";
@@ -557,10 +444,6 @@ export default {
     async getLocation() {
       try {
         const coordinates = await this.$getLocation();
-        console.log("Latitude:", coordinates.lat);
-        console.log("Longitude:", coordinates.lng);
-
-        // Выполняем обратное геокодирование
         const url = `https://nominatim.openstreetmap.org/reverse?lat=${coordinates.lat}&lon=${coordinates.lng}&format=json`;
         const response = await axios.get(url);
 
@@ -588,13 +471,8 @@ export default {
         return;
       }
       localStorage.setItem("mark", this.selectedMark);
-
-      // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
-
-      // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
+      http
+        .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
           // Получаем данные из ответа
           const data = response.data.data;
@@ -613,7 +491,7 @@ export default {
         });
     },
     postModels() {
-				localStorage.setItem("mark-model", this.selectedModel);
+      localStorage.setItem("mark-model", this.selectedModel);
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -677,20 +555,18 @@ export default {
     },
     selectOption(option) {
       this.inputValue = option;
-			localStorage.setItem("reg-year", this.inputValue)
+      localStorage.setItem("reg-year", this.inputValue);
       this.isOpen = false;
     },
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;
-			localStorage.setItem("kilometer", this.inputKilometer)
-
+      localStorage.setItem("kilometer", this.inputKilometer);
     },
     selectPrice(option) {
       this.inputPrice = option;
       this.isOpenPrice = false;
-			localStorage.setItem("price", this.inputPrice)
-
+      localStorage.setItem("price", this.inputPrice);
     },
     closeDropdown() {
       this.isOpen = false;
@@ -704,11 +580,8 @@ export default {
   },
   components: { FilterBtn },
   mounted() {
-    // const apiUrl = 'https://api.api-ninjas.com/v1/cars/make'
-    // const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
-    const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
-    axios
-      .get(apiUrl)
+    http
+      .get("/car/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {

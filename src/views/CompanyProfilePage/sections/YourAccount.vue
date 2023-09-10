@@ -260,7 +260,7 @@ export default {
   data() {
     return {
       userEmail: "",
-      activeTab: "tab-1",
+      activeTab: "tab-2",
       isOpen: false,
     };
   },
