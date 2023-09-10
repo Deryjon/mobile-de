@@ -412,6 +412,7 @@
   </div>
 </template>
 <script>
+import http from "../../../axios.config";
 import { useDarkModeStore } from "@/store/dark-mode.js";
 import { defineComponent, computed } from "vue";
 
@@ -732,7 +733,24 @@ export default defineComponent({
       },
     };
   },
+	watch: {
+				selectedCities(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+	},
   methods: {
+		fetchData() {
+      http
+        .get("/cars/count", {
+					car_city_zipcode: this.selectedCities
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+			},
     openCitiesDropdown() {
       if (this.isCities) {
         this.isCities = false;
@@ -764,7 +782,7 @@ export default defineComponent({
       } else {
         this.selectedCities.push(city);
       }
-      console.log("Selected cities:", this.selectedCities);
+      console.log( this.selectedCities);
     },
     // selectCity(city) {
     //   this.selectedCity  = city;
