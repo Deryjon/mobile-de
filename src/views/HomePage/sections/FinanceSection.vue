@@ -541,7 +541,7 @@ body {
 }
 
 .magazine-bmw {
-  width: 112git a0px;
+  width: 1120px;
 	margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
