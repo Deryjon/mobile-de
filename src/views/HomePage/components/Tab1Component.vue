@@ -7,6 +7,7 @@
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
           @change="fetchCondition()"
+          v-model="selectedCondition"
         >
           <option value="14600">Any</option>
           <option class="">New</option>
@@ -24,6 +25,7 @@
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
+          v-model="selectedDriving"
         >
           <option value="14600">Any</option>
           <option class="">Left side</option>
@@ -278,14 +280,14 @@
           <button
             class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab1"
-            :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
+            :class="{ 'active-Kaufen': activeTab === 'sell' }"
           >
             {{ $t("message.btn.sell") }}
           </button>
           <button
             class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
             @click="showTab2"
-            :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
+            :class="{ 'active-Kaufen': activeTab === 'buy' }"
           >
             {{ $t("message.btn.buy") }}
           </button>
@@ -294,9 +296,7 @@
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[80px]">
           <div class="price dropdown-container">
-            <h2 class="mt-2 text-sm lg:text-[14px]">
-              {{ $t("message.selects.price") }}
-            </h2>
+            <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
             <div class="input-container flex relative mt-[10px]">
               <input
                 type="from"
@@ -393,7 +393,7 @@ export default {
       selectedYear: "",
       killometres: "",
       price: "",
-      activeTab: "tab-1",
+      activeTab: "sell",
       cityName: "",
       makes: [],
       selectedMark: "14600",
@@ -409,6 +409,8 @@ export default {
       options: [],
       filteredOptions: [],
       selectedModel: "14600",
+      selectedDriving: "14600",
+      selectedCondition: "14600",
     };
   },
   watch: {
@@ -422,6 +424,41 @@ export default {
         this.fetchData();
       }
     },
+    inputValue(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    inputKilometer(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    inputPrice(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    cityName(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    selectedDriving(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
   },
   methods: {
     fetchData() {
@@ -429,17 +466,26 @@ export default {
         .get("/cars/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
+          car_condition: this.selectedModel,
+          car_firt_date_year_from: this.inputValue,
+          car_mileage_from: this.inputKilometer,
+          car_payment_type: this.activeTab,
+          car_price_from: this.inputPrice,
+          car_city_zipcode: this.cityName,
+          car_condition: this.selectedCondition,
+          car_condition: this.selectedCondition,
+          car_silding_door: this.selectedDriving,
         })
         .then((response) => {
           const data = response.data;
-					console.log(data);
+          console.log(data);
         });
     },
     showTab1() {
-      this.activeTab = "tab-1";
+      this.activeTab = "sell";
     },
     async showTab2() {
-      this.activeTab = "tab-2";
+      this.activeTab = "buy";
     },
     async getLocation() {
       try {
