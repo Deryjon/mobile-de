@@ -1,8 +1,6 @@
 <template>
   <div class="pl-[20px]">
-    <div
-      class="price-tab flex items-center gap-[20px] lg:gap-[80px]"
-    >
+    <div class="price-tab flex items-center gap-[20px] lg:gap-[80px]">
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="input-container flex relative mt-[10px]">
@@ -511,14 +509,15 @@
         <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="huValid"
         >
           <option value="14600" selected>Any</option>
-          <option value="">New</option>
-          <option value="">18</option>
-          <option value="">12</option>
-          <option value="">9</option>
-          <option value="">6</option>
-          <option value="">3</option>
+          <option value="new">New</option>
+          <option value="18">18</option>
+          <option value="12">12</option>
+          <option value="9">9</option>
+          <option value="6">6</option>
+          <option value="3">3</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
@@ -526,12 +525,13 @@
         <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="preOwners"
         >
-          <option value="14600" selected>Any</option>
-          <option value="">Up to 1</option>
-          <option value="">Up to 2</option>
-          <option value="">Up to 3</option>
-          <option value="">Up to 4</option>
+          <option value="any" selected>Any</option>
+          <option value="1">Up to 1</option>
+          <option value="2">Up to 2</option>
+          <option value="3">Up to 3</option>
+          <option value="4">Up to 4</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
@@ -598,6 +598,7 @@
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="selectedCountry"
         >
           <optgroup>
             <option value="14600" selected>Any</option>
@@ -680,11 +681,12 @@
           class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="number"
           pattern="\d*"
+					v-model="zipCode"
         />
       </div>
       <!--  -->
-      <div class="radius dropdown-container ">
-				<h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+      <div class="radius dropdown-container">
+        <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
@@ -710,21 +712,11 @@
           class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
         >
           <li data-key="10" @click="selectRadius('10')">10 km</li>
-          <li data-key="20" @click="selectRadius('20')">
-            20 km
-          </li>
-          <li data-key="50" @click="selectRadius('50')">
-            50 km
-          </li>
-          <li data-key="100" @click="selectRadius('100')">
-            100 km
-          </li>
-          <li data-key="200" @click="selectRadius('200')">
-            200 km
-          </li>
-          <li data-key="500" @click="selectRadius('500')">
-            500 km
-          </li>         
+          <li data-key="20" @click="selectRadius('20')">20 km</li>
+          <li data-key="50" @click="selectRadius('50')">50 km</li>
+          <li data-key="100" @click="selectRadius('100')">100 km</li>
+          <li data-key="200" @click="selectRadius('200')">200 km</li>
+          <li data-key="500" @click="selectRadius('500')">500 km</li>
         </ul>
       </div>
       <!-- <div class="">
@@ -762,6 +754,7 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
+import http from "../../../axios.config";
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -798,6 +791,11 @@ export default {
       selectedMakeTo: "",
       selectedPrice: "",
       selectedPriceTo: "",
+      inputValue: "",
+      huValid: "14600",
+      preOwners: "any",
+      selectedCountry: "14600",
+			zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
       priceToOpen: false,
@@ -805,8 +803,97 @@ export default {
       isOpen: false,
     };
   },
+  watch: {
+    price(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    priceTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    inputValue(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    yearsTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    inputKilometer(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    killometresTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    huValid(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    preOwners(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    isCheckedHistory(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    isCheckedRoad(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    selectedCountry(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    zipCode(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    radius(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+  },
   methods: {
-		openRadiusDropdown() {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          car_price_from: this.price,
+          car_price_up_to: this.priceTo,
+          car_firt_date_year_from: this.inputValue,
+          car_firt_date_year_up_to: this.yearsTo,
+          car_mileage_from: this.inputKilometer,
+          car_mileage_up_to: this.killometresTo,
+          car_hu_valid_until: this.huValid,
+          car_previous_owners: this.preOwners,
+          car_full_service_history: this.isCheckedHistory,
+          car_roadworthy: this.isCheckedRoad,
+          car_country: this.selectedCountry,
+          car_city_zipcode: this.zipCode,
+          car_radius: this.radius,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
+    openRadiusDropdown() {
       this.isOpenRadius = true;
       this.filteredOptions = this.options;
       document.addEventListener(
@@ -831,7 +918,7 @@ export default {
         );
       }
     },
-		// 
+    //
     openKilometerToDropdown() {
       this.isOpenKilometerTo = true;
       this.filteredOptions = this.options;
@@ -1018,9 +1105,9 @@ export default {
     },
   },
   mounted() {
-		this.price = localStorage.getItem("price")
-		this.inputValue = localStorage.getItem("reg-year")
-		this.inputKilometer = localStorage.getItem("kilometer")
+    this.price = localStorage.getItem("price");
+    this.inputValue = localStorage.getItem("reg-year");
+    this.inputKilometer = localStorage.getItem("kilometer");
     this.fetchModelYears();
   },
 };
