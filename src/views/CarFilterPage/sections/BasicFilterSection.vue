@@ -86,21 +86,21 @@
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab1"
-              :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
+              :class="{ 'active-Kaufen': activeTab === 'buy' }"
             >
               {{ $t("message.btn.buy") }}
             </button>
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab2"
-              :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
+              :class="{ 'active-Kaufen': activeTab === 'sell' }"
             >
               {{ $t("message.btn.sell") }}
             </button>
           </div>
         </div>
         <div class="tab-content lg:mt-[-10px] xl:mt-[30px]">
-          <div class="tab-1">
+          <div class="buy">
             <PaymentTab1Component />
           </div>
         </div>
@@ -136,7 +136,7 @@ export default {
       selectedMark: "14600",
       selectedPrice: "",
       isModelSelectDisabled: false,
-      activeTab: "tab-1",
+      activeTab: "buy",
       price: "",
       selectedYear: "",
       selectedtoYear: "",
@@ -155,6 +155,7 @@ export default {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
 					car_variant: this.inputVariant,
+					car_payment_type: this.activeTab
         })
         .then((response) => {
           const data = response.data;
@@ -203,10 +204,10 @@ export default {
         });
     },
     showTab1() {
-      this.activeTab = "tab-1";
+      this.activeTab = "buy";
     },
     async showTab2() {
-      this.activeTab = "tab-2";
+      this.activeTab = "sell";
     },
     toggleAnySelection() {
       // Обработчик клика на "Any"
@@ -280,6 +281,11 @@ export default {
       }
     },
     inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
       }
