@@ -24,7 +24,14 @@ export default {
     MagazinSection,
     FinanceSection
 },
-created() {
+mounted() {
+	if (localStorage.getItem("u-com") == null) {
+      localStorage.setItem("u-com", false);
+    } else if (localStorage.getItem("logged-in") == null){
+      localStorage.setItem("logged-in", false);
+
+		}
+
     const hasReloaded = localStorage.getItem('hasReloaded');
     if (!hasReloaded && localStorage.getItem('r-tok')) { 
       location.reload();

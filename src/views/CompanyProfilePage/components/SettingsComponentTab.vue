@@ -944,6 +944,9 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
+					localStorage.clear()
+					this.$router.push({ name: "home" });
+					window.location.reload(	)
           console.log(responseData);
         });
     },
@@ -980,7 +983,7 @@ export default {
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-window.location.reload()
+          window.location.reload();
           console.log(responseData);
         });
     },
