@@ -370,14 +370,15 @@
         </h2>
         <select
           class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] mt-[10px] lg:text-[12px]"
-        >
-          <option value="14600" selected>Any</option>
-          <option value="">New</option>
-          <option value="">18</option>
-          <option value="">12</option>
-          <option value="">9</option>
-          <option value="">6</option>
-          <option value="">3</option>
+        v-model="consumptionFuel"
+					>
+          <option value="any" selected>Any</option>
+          <option value="new">New</option>
+          <option value="18">18</option>
+          <option value="12">12</option>
+          <option value="9">9</option>
+          <option value="6">6</option>
+          <option value="3">3</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
@@ -387,12 +388,13 @@
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
         <select
           class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-        >
-          <option value="14600" selected>Any</option>
-          <option value="">Up to 1</option>
-          <option value="">Up to 2</option>
-          <option value="">Up to 3</option>
-          <option value="">Up to 4</option>
+        v-model="stickerEmission"
+					>
+          <option value="any" selected>Any</option>
+          <option value="1">Up to 1</option>
+          <option value="2">Up to 2</option>
+          <option value="3">Up to 3</option>
+          <option value="4">Up to 4</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
@@ -402,12 +404,13 @@
         <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-        >
-          <option value="14600" selected>Any</option>
-          <option value="">Up to 1</option>
-          <option value="">Up to 2</option>
-          <option value="">Up to 3</option>
-          <option value="">Up to 4</option>
+        v-model="classEmision"
+					>
+          <option value="any" selected>Any</option>
+          <option value="1">Up to 1</option>
+          <option value="2">Up to 2</option>
+          <option value="3">Up to 3</option>
+          <option value="4">Up to 4</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
@@ -443,6 +446,7 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
+import http from "../../../axios.config"
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -481,13 +485,78 @@ export default {
       isCommercialSelected: false,
       isRadioNewSelected: false,
       selectedCondition: "",
+			power: "",
+			powerTo: "",
+			consumptionFuel: "any",
+			stickerEmission: "any",
+			classEmision: "any",
+
       isOpenPower: false,
       isOpenPowerTo: false,
 			isOpenCubic: false,
 			isOpenCubicTo: false,
     };
   },
+	watch:{
+		power(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		powerTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		cubic(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		cubicTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		consumptionFuel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		stickerEmission(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		classEmision(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+	},
   methods: {
+		fetchData() {
+      http
+        .get("/cars/count", {
+          car_power_from: this.power,
+          car_power_up_to: this.powerTo,
+          car_cubic_capacity_from: this.cubic,
+          car_cubic_capacity_to: this.cubicTo,
+          transmission: this.inputKilometer,
+          car_fuel_consumption: this.consumptionFuel,
+          car_emissions_sticker: this.stickerEmission,
+          car_emission_class: this.classEmision,
+          car_full_service_history: this.isCheckedHistory,
+          car_roadworthy: this.isCheckedRoad,
+          car_country: this.selectedCountry,
+          car_city_zipcode: this.zipCode,
+          car_radius: this.radius,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
 		openCubicToDropdown() {
       this.isOpenCubicTo = true;
       this.filteredOptions = this.options;
