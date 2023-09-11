@@ -884,6 +884,7 @@
         </div>
         <button
           class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+          @click="deleteCompany"
         >
           Delete account
         </button>
@@ -937,9 +938,14 @@ export default {
   },
   methods: {
     deleteCompany() {
-      http.delete("/company/delete", {
-				id: this.companyI
-			});
+      http
+        .delete("/company/delete", {
+          company_id: this.companyI,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          console.log(responseData);
+        });
     },
     addSettingsCompany() {
       console.log({
@@ -1041,19 +1047,14 @@ export default {
       this.companyDataChange = !this.companyDataChange;
     },
   },
-  created() {
-  // Получите значение из localStorage для ключа "com-i"
-this.companyI = localStorage.getItem("com-i");
+  mounted() {
+    this.companyI = localStorage.getItem("com-i");
 
-// Проверьте, существует ли значение для ключа "com-i"
-if (this.companyI !== undefined && this.companyI !== null) {
-  // Если значение существует, установите элемент в true
-	this.contactData = false;
-} else {
-  // Если значение отсутствует, установите элемент в false
-  this.changeContactData = true1;
-}
-
+    if (this.companyI === undefined || this.companyI === null) {
+      console.log(123);
+    } else {
+      // Делайте что-то еще с this.companyI, если оно не равно undefined
+    }
 
     // Другие операции с другими ключами localStorage
     this.userI = localStorage.getItem("u-i");
