@@ -1007,45 +1007,42 @@ export default {
         .then((response) => {
           const responseData = response.data;
           console.log(responseData);
-          localStorage.setItem("com-name", responseData.data.company_name);
+          localStorage.setItem("com-name", responseData.company_name);
           localStorage.setItem(
             "com-street",
-            responseData.data.company_address_street
+            responseData.company_address_street
           );
-          localStorage.setItem("com-nr", responseData.data.company_address_nr);
+          localStorage.setItem("com-nr", responseData.company_address_nr);
           localStorage.setItem(
             "com-zip",
-            responseData.data.company_address_zip
+            responseData.company_address_zip
           );
           localStorage.setItem(
             "com-city",
-            responseData.data.company_address_city
+            responseData.company_address_city
           );
           localStorage.setItem(
             "com-radius",
-            responseData.data.company_address_radius
+            responseData.company_address_radius
           );
           localStorage.setItem(
             "com-numcode",
-            responseData.data.company_country_code
+            responseData.company_country_code
           );
           localStorage.setItem(
             "com-prefix",
-            responseData.data.company_number_prefix
+            responseData.company_number_prefix
           );
           localStorage.setItem(
             "com-number",
-            responseData.data.company_phone_number
+            responseData.company_phone_number
           );
         });
       this.companyDataChange = !this.companyDataChange;
     },
   },
   created() {
-  // Получите значение из localStorage для ключа "com-i"
 this.companyI = localStorage.getItem("com-i");
-
-// Проверьте, существует ли значение для ключа "com-i"
 if (this.companyI !== undefined && this.companyI !== null) {
   // Если значение существует, установите элемент в true
 	this.contactData = false;
