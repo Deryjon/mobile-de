@@ -980,7 +980,7 @@ export default {
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-
+window.location.reload()
           console.log(responseData);
         });
     },
@@ -1048,15 +1048,13 @@ export default {
     },
   },
   mounted() {
-		this.companyI = localStorage.getItem("com-i");
+    this.companyI = localStorage.getItem("com-i");
 
-if (isNaN(this.companyI)) {
-  this.contactData = false;
-} else {
-	this.changeContactData = true;
-}
-
-
+    if (isNaN(this.companyI)) {
+      this.contactData = false;
+    } else {
+      this.changeContactData = true;
+    }
 
     // Другие операции с другими ключами localStorage
     this.userI = localStorage.getItem("u-i");
