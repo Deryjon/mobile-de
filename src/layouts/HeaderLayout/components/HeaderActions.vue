@@ -404,7 +404,7 @@
         </div> -->
     </div>
     <button
-      class=" bg-[#67bbff] mt-[22px] mark_input mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] text-[#000] outline-none rounded-[10px] py-[6px] px-2 font-normal pr-[30px] text-[10px] lg:text-[10px]"
+      class=" bg-[#67bbffa6] mt-[22px] mark_input mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] text-[#000] outline-none rounded-[10px] py-[6px] px-2 font-normal pr-[30px] text-[10px] lg:text-[10px]"
       :class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
     >
       {{ $t("message.header.sell") }}

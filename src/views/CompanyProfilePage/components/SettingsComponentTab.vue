@@ -936,6 +936,9 @@ export default {
     };
   },
   methods: {
+		deleteCompany(){
+http.dele
+		},
     addSettingsCompany() {
       console.log({
         company_name: this.companyName,
