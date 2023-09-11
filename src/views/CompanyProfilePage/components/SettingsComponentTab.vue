@@ -930,7 +930,7 @@ export default {
       companyAddCountry: "",
       addressChange: false,
       numberChanges: false,
-      contactData: true,
+      contactData: false,
       changeContactData: false,
       companyDataChange: false,
       companyAddRadius: "",
@@ -1048,13 +1048,15 @@ export default {
     },
   },
   mounted() {
-    this.companyI = localStorage.getItem("com-i");
+		this.companyI = localStorage.getItem("com-i");
 
-    if (this.companyI === undefined || this.companyI === null) {
-      console.log(123);
-    } else {
-      // Делайте что-то еще с this.companyI, если оно не равно undefined
-    }
+if (isNaN(this.companyI)) {
+  this.contactData = false;
+} else {
+	this.changeContactData = true;
+}
+
+
 
     // Другие операции с другими ключами localStorage
     this.userI = localStorage.getItem("u-i");
