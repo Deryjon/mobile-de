@@ -936,9 +936,11 @@ export default {
     };
   },
   methods: {
-		deleteCompany(){
-http.dele
-		},
+    deleteCompany() {
+      http.delete("/company/delete", {
+				id: this.companyI
+			});
+    },
     addSettingsCompany() {
       console.log({
         company_name: this.companyName,
@@ -986,26 +988,30 @@ http.dele
       this.companyDataChange = !this.companyDataChange;
     },
     changeDataContactCompany() {
-      http.put("/company/edit", {
-      	company_id: this.companyI,
-      	company_name: this.companyName,
-        company_mail: this.userE,
-        company_address_street: this.companyAddStreet,
-        company_address_nr: this.companyAddNr,
-        company_address_zip: this.companyAddZip,
-        company_address_city: this.companyAddressCity,
-        company_address_country: this.companyAddCountry,
-        company_address_radius: this.companyAddRadius,
-        company_country_code: this.companyCountryCode,
-        company_number_prefix: this.companyNumberPre,
-        company_phone_number: this.companyNumber,
-        user_id: this.userI,
-      })
-			.then((response) => {
+      http
+        .put("/company/edit", {
+          company_id: this.companyI,
+          company_name: this.companyName,
+          company_mail: this.userE,
+          company_address_street: this.companyAddStreet,
+          company_address_nr: this.companyAddNr,
+          company_address_zip: this.companyAddZip,
+          company_address_city: this.companyAddressCity,
+          company_address_country: this.companyAddCountry,
+          company_address_radius: this.companyAddRadius,
+          company_country_code: this.companyCountryCode,
+          company_number_prefix: this.companyNumberPre,
+          company_phone_number: this.companyNumber,
+          user_id: this.userI,
+        })
+        .then((response) => {
           const responseData = response.data;
           console.log(responseData);
-					localStorage.setItem("com-name", responseData.data.company_name);
-          localStorage.setItem("com-street", responseData.data.company_address_street);
+          localStorage.setItem("com-name", responseData.data.company_name);
+          localStorage.setItem(
+            "com-street",
+            responseData.data.company_address_street
+          );
           localStorage.setItem("com-nr", responseData.data.company_address_nr);
           localStorage.setItem(
             "com-zip",
@@ -1032,22 +1038,22 @@ http.dele
             responseData.data.company_phone_number
           );
         });
-				this.companyDataChange = !this.companyDataChange;
-
+      this.companyDataChange = !this.companyDataChange;
     },
   },
   created() {
-    this.companyI = localStorage.getItem("com-i");
+  // Получите значение из localStorage для ключа "com-i"
+this.companyI = localStorage.getItem("com-i");
 
-    // Проверьте, существует ли значение для ключа "com-i"
-    if (this.companyI) {
-      // Если значение существует, выполните нужное действие, например, установите элемент в true
-      this.changeContactData = true;
-    } else {
-      // Если значение отсутствует, выполните другое действие
-      // Например, установите элемент в false или выполните другие действия
-      this.contactData = false;
-    }
+// Проверьте, существует ли значение для ключа "com-i"
+if (this.companyI !== undefined && this.companyI !== null) {
+  // Если значение существует, установите элемент в true
+	this.contactData = false;
+} else {
+  // Если значение отсутствует, установите элемент в false
+  this.changeContactData = true1;
+}
+
 
     // Другие операции с другими ключами localStorage
     this.userI = localStorage.getItem("u-i");
