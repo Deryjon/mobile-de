@@ -35,7 +35,8 @@
       <input
         type="checkbox"
         v-model="isCheckedEstate"
-        @click="toggleShowCheckbox(1)"
+				@click="toggleShowCheckbox(1, 'Estate Car	')"
+
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
       <svg
@@ -232,10 +233,23 @@ export default {
     const isCheckedSaloon = ref(false);
     const isCheckedEstate = ref(false);
     const isCheckedCabrio = ref(false);
+		const selectedCars = ref([]);
 
-    const toggleShowCheckbox = (index) => {
-      isCheckedVan[index] = !isCheckedVan[index];
-    };
+		const toggleShowCheckbox = (index, carName) => {
+  isCheckedVan[index] = !isCheckedVan[index];
+  if (isCheckedVan[index]) {
+    selectedCars.value.push(carName);
+  } else {
+    const carIndex = selectedCars.value.indexOf(carName);
+    if (carIndex !== -1) {
+      selectedCars.value.splice(carIndex, 1);
+    }
+  }
+};
+
+    // const toggleShowCheckbox = (index) => {
+    //   isCheckedVan[index] = !isCheckedVan[index];
+    // };
 
     return {
       isCheckedOff,
@@ -250,7 +264,7 @@ export default {
   },
   data() {
     return {
-      checkboxStatus: [false, false, false, false, false, false], // Add this array to store checkbox status
+      checkboxStatus: [false, false, false, false, false, false], 
     };
   },
 };
