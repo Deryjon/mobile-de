@@ -246,7 +246,7 @@
         </div>
       </ul>
     </div>
-    <div class="cities dropdown-container mt-[15px] ">
+    <div class="cities dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-2 px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
@@ -404,7 +404,7 @@
         </div> -->
     </div>
     <button
-      class=" bg-[#67bbffa6] mt-[22px] mark_input mark-select  text-[#000] outline-none rounded-[10px] py-1 px-2 font-normal pr-[30px] text-[10px] lg:text-[12px]"
+      class="bg-[#67bbffa6] mt-[22px] mark_input mark-select text-[#000] outline-none rounded-[10px] py-1 px-2 font-normal pr-[30px] text-[10px] lg:text-[12px]"
       :class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
     >
       {{ $t("message.header.sell") }}
@@ -733,24 +733,24 @@ export default defineComponent({
       },
     };
   },
-	watch: {
-				selectedCities(newValue, oldValue) {
+  watch: {
+    selectedCities(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
       }
     },
-	},
+  },
   methods: {
-		fetchData() {
+    fetchData() {
       http
         .get("/cars/count", {
-					car_city_zipcode: this.selectedCities
+          car_city_zipcode: this.selectedCities,
         })
         .then((response) => {
           const data = response.data;
           console.log(data);
-        })
-			},
+        });
+    },
     openCitiesDropdown() {
       if (this.isCities) {
         this.isCities = false;
@@ -782,7 +782,7 @@ export default defineComponent({
       } else {
         this.selectedCities.push(city);
       }
-      console.log( this.selectedCities);
+      console.log(this.selectedCities);
     },
     // selectCity(city) {
     //   this.selectedCity  = city;
@@ -861,7 +861,6 @@ export default defineComponent({
       localStorage.setItem("name", "Language");
     }
     this.language = localStorage.getItem("lang");
-   
   },
   created() {},
 });

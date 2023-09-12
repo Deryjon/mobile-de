@@ -5,11 +5,11 @@
   >
     <v-container class="flex z-50 items-center  " 
 		:class="{  'gap-[115px] max-w-[1150px]': hasToken,
-      'gap-[20px] max-w-[1140px]': !hasToken,  }"
+      'gap-[10px] max-w-[1145px]': !hasToken,  }"
 		>
       <HeaderLogo class="" />
 
-      <div class="actions flex h-[50px] items-center gap-[5px]">
+      <div class="actions flex h-[50px] items-center gap-[8px]">
         <HeaderActions class="hidden lg:flex" />
         <HeaderMenuAction @openMenu="toggleMenu" />
         <HeaderSwitcherTheme class="mt-[40px] hidden lg:flex" />
