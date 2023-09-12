@@ -740,7 +740,7 @@ export default defineComponent({
       }
     },
   },
-  methods: {
+  methods: {	
     fetchData() {
       http
         .get("/cars/count", {
