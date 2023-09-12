@@ -151,6 +151,36 @@
       </div>
     </div> 
 
+
+    <!-- MYY CARS -- INFO  -- TREE -->
+    <div class="mycars-container">
+      <div class="mycars-container-item">
+        <svg class="msssio-icon" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 15.879l-5-5L1.879 13 9 20.121 23.121 6 21 3.879l-12 12z" fill="currentColor"></path></svg>
+        <span class="msssio1-s"> Никогда больше не забывайте о встрече: мы напомним вам о следующей встрече для осмотра или замены шин.</span>
+      </div>
+      <div class="mycars-container-item">
+        <svg class="msssio-icon" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 15.879l-5-5L1.879 13 9 20.121 23.121 6 21 3.879l-12 12z" fill="currentColor"></path></svg>
+        <span class="msssio1-s"> Никогда больше не забывайте о встрече: мы напомним вам о следующей встрече для осмотра или замены шин.</span>
+      </div>
+      <div class="mycars-container-item">
+        <svg class="msssio-icon" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 15.879l-5-5L1.879 13 9 20.121 23.121 6 21 3.879l-12 12z" fill="currentColor"></path></svg>
+        <span class="msssio1-s"> Никогда больше не забывайте о встрече: мы напомним вам о следующей встрече для осмотра или замены шин.</span>
+      </div>
+    </div>
+
+    <!-- <div class="mycars-status-info">
+          <div class="msssio">
+            Цифровой двойник вашего автомобиля
+          </div>
+          <div class="mycars-status-info-tree">
+              <div class="msssio1">
+                <svg class="msssio-icon" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 15.879l-5-5L1.879 13 9 20.121 23.121 6 21 3.879l-12 12z" fill="currentColor"></path></svg>
+                <span class="msssio1-s"> Никогда больше не забывайте о встрече: мы напомним вам о следующей встрече для осмотра или замены шин.</span>
+              </div>
+
+          </div>
+        </div> -->
+
 </div> <!-- /.container -->
 
 </template>
@@ -168,11 +198,58 @@ export default {
   box-sizing: border-box;
 }
 
+
+.mycars-container{
+  width: auto;
+  border: 1px solid #757575;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.mycars-container-item{
+  display: flex;
+}
+
+.msssio1-s{
+  margin-left: 16px
+}
+
+/* .mycars-status-info-tree {
+  display: flex;
+}
+
+.msssio1 {
+  display: flex;
+  align-items: center;
+}
+
+.msssio{
+  margin-left: 24px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 24px;
+  margin-bottom: calc(18px/2);
+}
+
+.msssio1-s{
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+  margin-bottom: calc(18px/2);
+}
+
+.msssio-icon {
+  padding: 8px;
+} */
+
+/* INDEX */
+
 .container-ot{
   width: 18px;
 }
 
-.container {
+.container{
   margin: 16px;
 }
 
@@ -237,6 +314,7 @@ export default {
 
 .mycars {
   display: flex;
+  align-items: center;
   margin-top: 18px;
   padding: 18px;
   padding-right: 18px;
@@ -277,6 +355,7 @@ export default {
 .mycars-button-title{
   padding: 28px;
 }
+
 
 </style>
 
