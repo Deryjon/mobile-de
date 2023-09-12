@@ -417,7 +417,7 @@ export default {
 		fetchData() {
       http
         .get("/cars/count", {
-          body: this.selectedColors,
+          exterior_colour: this.selectedColors,
         })
         .then((response) => {
           const data = response.data;

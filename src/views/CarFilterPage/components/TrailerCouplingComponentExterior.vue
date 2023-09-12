@@ -55,15 +55,33 @@
   </div>
 </template>
 <script>
+import http from '../../../axios.config';
 export default {
   data() {
     return {
       selectedCondition: "AnyTrai",
     };
   },
+	watch:{
+		selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+	},
   methods: {
     selectCondition(condition) {
       this.selectedCondition = condition;
+    },
+		fetchData() {
+      http
+        .get("/cars/count", {
+          car_trailer_coupling: this.selectedCondition,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
     },
   },
 };
