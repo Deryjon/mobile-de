@@ -1,16 +1,15 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3 class="text-[16px] ">Exterior Colour</h3>
+    <h3 class="text-[16px]">Exterior Colour</h3>
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox custom-beige
-				 flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] "
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedBeige"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(0, 'Beige')"
         />
         <svg
           class="icon"
@@ -34,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedBrown"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Brown')"
         />
         <svg
           class="icon"
@@ -58,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedGold"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Gold')"
         />
         <svg
           class="icon"
@@ -74,7 +73,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Gold
+        Gold
       </label>
       <label
         class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
@@ -82,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedGreen"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(3, 'Green')"
         />
         <svg
           class="icon"
@@ -106,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRed"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(4, 'Red')"
         />
         <svg
           class="icon"
@@ -130,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSilver"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(5, 'Silver')"
         />
         <svg
           class="icon"
@@ -155,7 +154,7 @@
         <input
           type="checkbox"
           v-model="isCheckedWhite"
-          @click="toggleShowCheckbox"
+          @click="toggleShowCheckbox(6, 'White')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -182,7 +181,7 @@
         <input
           type="checkbox"
           v-model="isCheckedBlue"
-          @click="toggleShowCheckbox(2)"
+          @click="toggleShowCheckbox(7, 'Blue')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -210,7 +209,7 @@
         <input
           type="checkbox"
           v-model="isCheckedYellow"
-          @click="toggleShowCheckbox(3)"
+          @click="toggleShowCheckbox(8, 'Yellow')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -238,7 +237,7 @@
         <input
           type="checkbox"
           v-model="isCheckedGrey"
-          @click="toggleShowCheckbox(4)"
+          @click="toggleShowCheckbox(9, 'Grey')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -266,7 +265,7 @@
         <input
           type="checkbox"
           v-model="isCheckedOrange"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(10, 'Orange')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -292,7 +291,7 @@
         <input
           type="checkbox"
           v-model="isCheckedBlack"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(11, 'Black')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -318,7 +317,7 @@
         <input
           type="checkbox"
           v-model="isCheckedPurple"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(12, 'Purple')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -344,7 +343,7 @@
         <input
           type="checkbox"
           v-model="isCheckedMetallic"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(13, 'Metallic')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -368,72 +367,78 @@
   <div class="tab-content">
     <div class="tab-1">
       <TrailerCoupling />
-			<ParkingResorComponentExterior/>
-			<CruiseControlComponentExterior/>	
-			<OthersComponentExterior/>
+      <ParkingResorComponentExterior />
+      <CruiseControlComponentExterior />
+      <OthersComponentExterior />
     </div>
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 
 export default {
-  setup() {
-    const isCheckedBeige = ref(true);
-    const isCheckedBrown = ref(false);
-    const isCheckedGold = ref(false);
-    const isCheckedGreen = ref(false);
-    const isCheckedRed = ref(false);
-    const isCheckedSilver = ref(false);
-    const isCheckedWhite = ref(false);
-    const isCheckedBlue = ref(false);
-    const isCheckedYellow = ref(false);
-    const isCheckedGrey = ref(false);
-    const isCheckedOrange = ref(false);
-    const isCheckedBlack = ref(false);
-    const isCheckedPurple = ref(false);
-    const isCheckedMetallic = ref(false);
-    const toggleShowCheckbox = (index) => {
-
-      for (let i = 0; i < isCheckedBeige.length; i++) {
-        if (i !== index) {
-          isCheckedBeige[i] = false;
+  data() {
+    return {
+      isCheckedBeige: false,
+      isCheckedBrown: false,
+      isCheckedGold: false,
+      isCheckedGreen: false,
+      isCheckedRed: false,
+      isCheckedSilver: false,
+      isCheckedWhite: false,
+      isCheckedBlue: false,
+      isCheckedYellow: false,
+      isCheckedGrey: false,
+      isCheckedOrange: false,
+      isCheckedBlack: false,
+      isCheckedPurple: false,
+      isCheckedMetallic: false,
+			selectedColors: [],
+    };
+  },
+	methods:{
+		toggleShowCheckbox(index, colorName) {
+      const isChecked = !this.selectedColors.includes(colorName);
+      if (isChecked) {
+        this.selectedColors.push(colorName);
+      } else {
+        const colorIndex = this.selectedColors.indexOf(colorName);
+        if (colorIndex !== -1) {
+          this.selectedColors.splice(colorIndex, 1);
         }
       }
-      isCheckedBeige[index] = true;
-    };
-		
-    return {
-			isCheckedBeige,
-      isCheckedBrown,
-			isCheckedGold,
-      isCheckedGreen,
-      isCheckedRed,
-      isCheckedSilver,
-      isCheckedWhite,
-      isCheckedBlue,
-      isCheckedYellow,
-      isCheckedGrey,
-      isCheckedOrange,
-      isCheckedBlack,
-      isCheckedPurple,
-      isCheckedMetallic,
-      toggleShowCheckbox,
-    };
+      console.log("selectedCars изменен:", this.selectedColors)
+			this.fetchData()
+    },
+		fetchData() {
+      http
+        .get("/cars/count", {
+          body: this.selectedColors,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error);
+        });
+    },
+	},
+  components: {
+    TrailerCoupling,
+    ParkingResorComponentExterior,
+    CruiseControlComponentExterior,
+    OthersComponentExterior,
   },
-  data() {
-    return {};
-  },
-  components: { TrailerCoupling, ParkingResorComponentExterior, CruiseControlComponentExterior, OthersComponentExterior },
 };
 </script>
 <style scoped>
 select {
-  scrollbar-width: none; 
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .custom-checkbox input[type="checkbox"] {
@@ -472,14 +477,13 @@ select {
   background: rgb(210, 210, 183);
 }
 .custom-beige input[type="checkbox"]:checked + .icon {
-	fill: #000;
-	background: rgb(210, 210, 183);
+  fill: #000;
+  background: rgb(210, 210, 183);
 }
 
 .custom-brown input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: #804030
-;
+  background: #804030;
 }
 
 .custom-brown .icon {
@@ -491,12 +495,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: #804030
+  background: #804030;
 }
 .custom-gold input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: gold
-;
+  background: gold;
 }
 
 .custom-gold .icon {
@@ -508,12 +511,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: gold
+  background: gold;
 }
 .custom-green input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: green
-;
+  background: green;
 }
 
 .custom-green .icon {
@@ -525,12 +527,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: green
+  background: green;
 }
 .custom-red input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: red
-;
+  background: red;
 }
 
 .custom-red .icon {
@@ -542,12 +543,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: red
+  background: red;
 }
 .custom-silver input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: silver
-;
+  background: silver;
 }
 
 .custom-silver .icon {
@@ -559,12 +559,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: silver
+  background: silver;
 }
 .custom-white input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: white
-;
+  background: white;
 }
 
 .custom-white .icon {
@@ -576,12 +575,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: white
+  background: white;
 }
 .custom-blue input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: blue
-;
+  background: blue;
 }
 
 .custom-blue .icon {
@@ -593,12 +591,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: blue
+  background: blue;
 }
 .custom-yellow input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: yellow
-;
+  background: yellow;
 }
 
 .custom-yellow .icon {
@@ -610,12 +607,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: yellow
+  background: yellow;
 }
 .custom-grey input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: grey
-;
+  background: grey;
 }
 
 .custom-grey .icon {
@@ -627,12 +623,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: grey
+  background: grey;
 }
 .custom-orange input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: orange
-;
+  background: orange;
 }
 
 .custom-orange .icon {
@@ -644,12 +639,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-  background: orange
+  background: orange;
 }
 .custom-black input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: rgb(37, 37, 37)
-;
+  background: rgb(37, 37, 37);
 }
 
 .custom-black .icon {
@@ -661,14 +655,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-	background: rgb(37, 37, 37)
-
-	;
+  background: rgb(37, 37, 37);
 }
 .custom-purple input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: purple
-;
+  background: purple;
 }
 
 .custom-purple .icon {
@@ -680,14 +671,11 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-	background: purple
-
-	;
+  background: purple;
 }
 .custom-purple input[type="checkbox"]:checked + .icon {
   fill: #000;
-  background: brown
-;
+  background: brown;
 }
 
 .custom-purple .icon {
@@ -699,9 +687,6 @@ select {
   fill: #000;
   border: 1px solid #000;
   border-radius: 4px;
-	background: 
-brown
-	;
+  background: brown;
 }
-
 </style>
