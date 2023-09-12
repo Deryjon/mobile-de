@@ -4,7 +4,7 @@
 
 <div class="container"> 
   <div class="row-title">
-          <span>Привет!</span> Что желаете сделать сегодня?
+          <span class="span-row-ttile">Привет!</span> Что желаете сделать сегодня?
       </div> <!-- ./row-title -->
   <div class="container-row">
 
@@ -193,7 +193,7 @@ export default {
   font-weight: bold;
 }
 
-.row-title, span, div {
+.row-title, .span-row-ttile, div {
   font-weight: 400;
   font-size: 32px;
   line-height: 40px;
@@ -231,7 +231,12 @@ export default {
 .element-icon, svg {
   width: 48px; height:48px;
 }
+
+
+/* CARS   SECTION */
+
 .mycars {
+  display: flex;
   margin-top: 18px;
   padding: 18px;
   padding-right: 18px;
@@ -258,9 +263,9 @@ export default {
 }
 
 .mycars-button-pos{
-  display: flex;
-  align-items: center;
+  align-items: flex-end;
   margin-left: auto;
+  align-self: center;
 }
 .mycars-button{
   background-color: aqua;
