@@ -1,17 +1,15 @@
 <template>
   <div class="pl-[20px] xl:p-[20px]">
-    <h3>Interior material
-</h3>
+    <h3>Interior material</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] 
-				 items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedAlcantra"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(0, 'Alcantra')"
         />
         <svg
           class="icon"
@@ -30,13 +28,12 @@
         Alcantra
       </label>
       <label
-        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] 
-				 items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedCloth"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Cloth')"
         />
         <svg
           class="icon"
@@ -52,15 +49,15 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-Cloth      </label>
+        Cloth
+      </label>
       <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] 
-				 items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedPartLeather"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Part leather')"
         />
         <svg
           class="icon"
@@ -76,16 +73,15 @@ Cloth      </label>
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Part leather
+        Part leather
       </label>
       <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px] 
-				 items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedVelour"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(3, 'Velour')"
         />
         <svg
           class="icon"
@@ -101,16 +97,15 @@ Cloth      </label>
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Velour
+        Velour
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] 
-				 items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedFullLeather"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(4, 'Full Leather')"
         />
         <svg
           class="icon"
@@ -126,16 +121,15 @@ Cloth      </label>
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Full Leather
+        Full Leather
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] 
-				 items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedOther"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(5, 'Other')"
         />
         <svg
           class="icon"
@@ -151,43 +145,53 @@ Cloth      </label>
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Other
+        Other
       </label>
     </div>
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import http from '../../../axios.config';
 export default {
-  setup() {
-    const isCheckedAlcantra = ref(false);
-    const isCheckedCloth = ref(false);
-    const isCheckedPartLeather = ref(false);
-    const isCheckedVelour = ref(false);
-    const isCheckedFullLeather = ref(false);
-    const isCheckedOther = ref(false);
-    const toggleShowCheckbox = (index) => {
-      for (let i = 0; i < isCheckedAlcantra.length; i++) {
-        if (i !== index) {
-          isCheckedAlcantra[i] = false;
+  data() {
+    return {
+      isCheckedAlcantra: false,
+      isCheckedCloth: false,
+      isCheckedPartLeather: false,
+      isCheckedVelour: false,
+      isCheckedFullLeather: false,
+      isCheckedOther: false,
+			selectedMaterial: []
+    };
+  },
+	methods:{
+		fetchData() {
+      http
+        .get("/cars/count", {
+          interior_material: this.selectedMaterial,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error);
+        });
+    },
+    toggleShowCheckbox(index, materialName) {
+      const isChecked = !this.selectedMaterial.includes(materialName);
+      if (isChecked) {
+        this.selectedMaterial.push(materialName);
+      } else {
+        const carIndex = this.selectedMaterial.indexOf(materialName);
+        if (carIndex !== -1) {
+          this.selectedMaterial.splice(carIndex, 1);
         }
       }
-      isCheckedAlcantra[index] = true;
-    };
-
-    return {
-      isCheckedAlcantra,
-      isCheckedCloth,
-      isCheckedPartLeather,
-      isCheckedVelour,
-      isCheckedFullLeather,
-      isCheckedOther,
-      toggleShowCheckbox,
-    };
-  },
-  data() {
-    return {};
-  },
+      console.log("selectedMaterial изменен:", this.selectedMaterial)
+			this.fetchData()
+    },
+	}
 };
 </script>
 <style scoped>

@@ -9,7 +9,7 @@
         <input
           type="checkbox"
           v-model="isCheckedABS"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(0, 'ABS')"
         />
         <svg
           class="icon"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEmergency"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Emergency brake assist')"
         />
         <svg
           class="icon"
@@ -50,7 +50,6 @@
           />
         </svg>
         Emergency brake assist
-
       </label>
       <label
         class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -58,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedCentral"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Keyless central locking')"
         />
         <svg
           class="icon"
@@ -75,7 +74,6 @@
           />
         </svg>
         Keyless central locking
-
       </label>
       <label
         class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -83,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSpeed"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(3, '	Speed limit control system')"
         />
         <svg
           class="icon"
@@ -99,7 +97,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Speed limit control system
+        Speed limit control system
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -107,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAdaptive"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(4, 'Adaptive cornering lights')"
         />
         <svg
           class="icon"
@@ -123,7 +121,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Adaptive cornering lights
+        Adaptive cornering lights
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -131,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTyre"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(5, 'Emergency tyre')"
         />
         <svg
           class="icon"
@@ -147,8 +145,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Emergency tyre
-
+        Emergency tyre
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -156,7 +153,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLastChanges"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(6, 'Lane change assist')"
         />
         <svg
           class="icon"
@@ -172,8 +169,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Lane change assist
-
+        Lane change assist
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -181,7 +177,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSportsPackage"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(7, 'Sports package')"
         />
         <svg
           class="icon"
@@ -197,48 +193,55 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-				Sports package
-     </label>
+        Sports package
+      </label>
     </div>
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-
 export default {
-  setup() {
-    const isCheckedABS = ref(false);
-    const isCheckedEmergency = ref(false);
-    const isCheckedCentral = ref(false);
-    const isCheckedSpeed = ref(false);
-    const isCheckedAdaptive = ref(false);
-    const isCheckedTyre = ref(false);
-    const isCheckedLastChanges = ref(false);
-    const isCheckedSportsPackage = ref(false);
-    const toggleShowCheckbox = (index) => {
-      for (let i = 0; i < isCheckedABS.length; i++) {
-        if (i !== index) {
-          isCheckedABS[i] = false;
-        }
-      }
-      isCheckedABS[index] = true;
-    };
-
+  data() {
     return {
-      isCheckedABS,
-      isCheckedEmergency,
-      isCheckedCentral,
-      isCheckedSpeed,
-      isCheckedAdaptive,
-      isCheckedTyre,
-      isCheckedLastChanges,
-      isCheckedSportsPackage,
-      toggleShowCheckbox,
+      isCheckedABS: false,
+      isCheckedEmergency: false,
+      isCheckedCentral: false,
+      isCheckedSpeed: false,
+      isCheckedAdaptive: false,
+      isCheckedTyre: false,
+      isCheckedLastChanges: false,
+      isCheckedSportsPackage: false,
+      selectedOthers: [],
     };
   },
-  data() {
-    return {};
+  methods: {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          body: this.selectedOthers,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error);
+        });
+    },
+    toggleShowCheckbox(index, otherName) {
+      const isChecked = !this.selectedOthers.includes(otherName);
+      if (isChecked) {
+        this.selectedOthers.push(otherName);
+      } else {
+        const carIndex = this.selectedOthers.indexOf(otherName);
+        if (carIndex !== -1) {
+          this.selectedOthers.splice(carIndex, 1);
+        }
+      }
+      console.log("selectedOthers изменен:", this.selectedOthers);
+      this.fetchData();
+    },
   },
   components: { TrailerCoupling },
 };
