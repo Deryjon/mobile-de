@@ -282,21 +282,6 @@ export default {
         el.classList.add('animate'); 
       });
 
-      // Получаем элемент с текстом
-      const textElement = document.querySelector('.span-row-ttile');
-
-      // Разбиваем текст на массив символов
-      const text = textElement.textContent.trim().split(''); 
-
-      text.forEach(char => {
-        const charElement = document.createElement('span'); 
-        charElement.textContent = char;
-        textElement.appendChild(charElement); 
-      });
-
-      textElement.querySelectorAll('span').forEach((char, index) => {
-        char.style.animationDelay = `${index * 50}ms`;
-      });
     }
   }
 
