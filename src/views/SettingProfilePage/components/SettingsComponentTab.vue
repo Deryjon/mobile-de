@@ -35,11 +35,7 @@
         </div>
         <div class="">
           <label class="custom-file-label">Complete</label>
-          <input
-            type="file"
-            accept="image/*"
-            @change="handleFileChange"
-          />
+          <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange" />
         </div>
       </div>
     </div>
@@ -738,22 +734,18 @@ export default {
     },
   },
   methods: {
-    handleFileChange(event) {
-      const selectedFile = event.target.files[0];
-
-      // Выполнить необходимые действия с выбранным файлом, например, сохранить его в data
-      this.selectedImg = selectedFile;
-    },
-
-    changeProfilImage() {
-      // Здесь можно использовать this.selectedImg для отправки на сервер, как было показано ранее
+    handleFileChange() {
       const formData = new FormData();
-      formData.append("photo", this.selectedImg);
-      formData.append("user_id", this.userI);
-
-      http.post("/user/edit/photo", formData).then((response) => {
-        console.log(response);
+      const file = this.$refs.fileInput.files[0];
+      formData.append("photo", file);
+      formData.append("id", this.userI);
+			console.log(file);
+      
+      http.post("/user/edit/photo", formData)
+			.then((response) => {
+				console.log(response);
       });
+			console.log();
     },
     changeContactDataNumber() {
       this.numberChanges = !this.numberChanges;
