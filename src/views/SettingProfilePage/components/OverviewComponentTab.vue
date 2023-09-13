@@ -406,6 +406,7 @@ export default {
 }
 
 .mycars-status-tree-title-txt{
+  margin-left: 14px;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: calc(18/2);
