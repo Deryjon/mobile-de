@@ -12,7 +12,7 @@
       <div>
         <div
           @click="openProfileDropdown"
-          class="profile-icon w-[200px] flex items-center gap-[10px] cursor-pointer "
+          class="profile-icon w-[200px] flex items-center gap-[10px]  cursor-pointer "
         >
           <svg
             data-v-53d99ea3=""
@@ -29,8 +29,8 @@
               ></path>
             </g>
           </svg>
-					<p v-if="!uComValue" class="w-[100px] btn  bg-[#47f353eb] py-2 pl-[35px] text-[12px] rounded-[8px]">User</p>
-					<p v-if="uComValue" class="w-[100px] btn  bg-[#47f353eb] py-2 pl-[20px] text-[12px] rounded-[8px]">Company </p>
+					<p v-if="!uComValue" class=" font-bold text-[#47f353eb] py-2  text-[16px] rounded-[8px]">{{ userName }}</p>
+					<p v-if="uComValue" class="w-[100px] btn  bg-[#47f353eb] py-2 pl-[20px] text-[12px] rounded-[8px]">{{ companyName }} </p>
         </div>
 
         <ul v-if="isProfileSetting" class="dropdown-options w-[160px]">
@@ -135,6 +135,7 @@ export default defineComponent({
   data() {
     return {
       isProfileSetting: false,
+			userName: ""
     };
   },
   methods: {
@@ -173,6 +174,9 @@ export default defineComponent({
       }
     },
   },
+	created(){
+		this.userName = localStorage.getItem("u-fn")
+	}
 });
 </script>
 <style scoped>

@@ -741,9 +741,10 @@ export default {
       formData.append("id", this.userI);
 			console.log(file);
       
-      http.post("/user/edit/photo", formData)
+      http.put("/user/edit/photo", formData)
 			.then((response) => {
-				console.log(response);
+				const responseData = response.data;
+				console.log(responseData);
       });
 			console.log();
     },

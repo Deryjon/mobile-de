@@ -4,7 +4,7 @@
     :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
   >
     <v-container class="flex z-50 items-center  " 
-		:class="{  'gap-[115px] max-w-[1150px]': hasToken,
+		:class="{  'gap-[20px] max-w-[1150px]': hasToken,
       'gap-[10px] max-w-[1145px]': !hasToken,  }"
 		>
       <HeaderLogo class="" />
