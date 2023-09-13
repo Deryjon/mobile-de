@@ -30,7 +30,7 @@
             </g>
           </svg>
 					<p v-if="!uComValue" class=" font-bold text-[#47f353eb] py-2  text-[16px] rounded-[8px]">{{ userName }}</p>
-					<p v-if="uComValue" class="w-[100px] btn  bg-[#47f353eb] py-2 pl-[20px] text-[12px] rounded-[8px]">{{ companyName }} </p>
+					<p v-if="uComValue" class=" font-bold text-[#47f353eb] py-2  text-[16px] rounded-[8px]">{{ companyName }} </p>
         </div>
 
         <ul v-if="isProfileSetting" class="dropdown-options w-[160px]">
@@ -176,6 +176,7 @@ export default defineComponent({
   },
 	created(){
 		this.userName = localStorage.getItem("u-fn")
+		this.companyName = localStorage.getItem("com-name")
 	}
 });
 </script>

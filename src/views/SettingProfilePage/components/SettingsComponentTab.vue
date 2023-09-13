@@ -34,8 +34,15 @@
           </div>
         </div>
         <div class="">
-          <label class="custom-file-label">Complete</label>
-          <input type="file" ref="fileInput" accept="image/*" @change="handleFileChange" />
+          <label for="fileInput" class="custom-file-label">Complete</label>
+          <input
+            id="fileInput"
+            class="input-file"
+            type="file"
+            ref="fileInput"
+            accept="image/*"
+            @change="handleFileChange"
+          />
         </div>
       </div>
     </div>
@@ -723,7 +730,6 @@ export default {
       addressChange: false,
       numberChanges: false,
       userPhoneNumber: "",
-      selectedImg: null,
     };
   },
   watch: {
@@ -739,14 +745,13 @@ export default {
       const file = this.$refs.fileInput.files[0];
       formData.append("photo", file);
       formData.append("id", this.userI);
-			console.log(file);
-      
-      http.put("/user/edit/photo", formData)
-			.then((response) => {
-				const responseData = response.data;
-				console.log(responseData);
+      console.log(file);
+
+      http.put("/user/edit/photo", formData).then((response) => {
+        const responseData = response.data;
+        localStorage.setItem("u-img-prof", responseData.data.user_image_url);
+        localStorage.setItem("u-img-alt", responseData.data.user_image_name);
       });
-			console.log();
     },
     changeContactDataNumber() {
       this.numberChanges = !this.numberChanges;
@@ -886,5 +891,8 @@ export default {
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+.input-file {
+  display: none;
 }
 </style>
