@@ -33,14 +33,17 @@
             <p class="font-normal">(Only visible for you)</p>
           </div>
         </div>
-        <button
-          class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-        >
-          Complete
-        </button>
+        <div class="">
+          <label class="custom-file-label">Complete</label>
+          <input
+            type="file"
+            accept="image/*"
+            @change="handleFileChange"
+          />
+        </div>
       </div>
     </div>
-    <div class="profile  mt-[30px]">
+    <div class="profile mt-[30px]">
       <h2 class="text-[26px] font-semibold">Login Data</h2>
       <div class="box" v-if="!changeLogin">
         <div
@@ -315,7 +318,7 @@
                 </div>
                 <div class="top flex items-center gap-[40px] w-[656px]">
                   <div class="email mt-[10px]">
-                    <p class="text-sm lg:text-[14px]">Zip</p>
+                    <p class="text-sm lg:text-[14px]">PostCode</p>
                     <input
                       type="text "
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -630,11 +633,9 @@
               <div class="w-[656px] p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">Market research
-</p>
+                    <p class="font-medium">Market research</p>
                     <p class="font-normal text-[12px]">
-											I agree that my data is used for market research.
-
+                      I agree that my data is used for market research.
                     </p>
                   </div>
                 </div>
@@ -648,40 +649,41 @@
           </div>
         </div>
         <div class="profile mt-[30px]">
-      <h2 class="text-[26px] font-semibold">Delete account</h2>
-      <div
-        class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-      >
-        <div class="flex items-center gap-[20px]">
-          <div class="icon w-[30px]">
-            <svg
-              data-v-53d99ea3=""
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              id="profile"
-            >
-              <g data-v-53d99ea3="" data-name="Layer 2">
-                <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-                <path
+          <h2 class="text-[26px] font-semibold">Delete account</h2>
+          <div
+            class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="icon w-[30px]">
+                <svg
                   data-v-53d99ea3=""
-                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
-                ></path>
-              </g>
-            </svg>
-          </div>
-          <div class="profile-pic">
-            <p class="font-medium">{{userE}}</p>
-            <p class="font-normal">Private Account, registered since 2023
-</p>
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  id="profile"
+                >
+                  <g data-v-53d99ea3="" data-name="Layer 2">
+                    <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+                    <path
+                      data-v-53d99ea3=""
+                      d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="profile-pic">
+                <p class="font-medium">{{ userE }}</p>
+                <p class="font-normal">
+                  Private Account, registered since 2023
+                </p>
+              </div>
+            </div>
+            <button
+              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+            >
+              Delete account
+            </button>
           </div>
         </div>
-        <button
-          class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-        >
-          Delete account
-        </button>
-      </div>
-    </div>
       </div>
     </div>
   </div>
@@ -725,9 +727,34 @@ export default {
       addressChange: false,
       numberChanges: false,
       userPhoneNumber: "",
+      selectedImg: null,
     };
   },
+  watch: {
+    selectedImg(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.changeProfilImage();
+      }
+    },
+  },
   methods: {
+    handleFileChange(event) {
+      const selectedFile = event.target.files[0];
+
+      // Выполнить необходимые действия с выбранным файлом, например, сохранить его в data
+      this.selectedImg = selectedFile;
+    },
+
+    changeProfilImage() {
+      // Здесь можно использовать this.selectedImg для отправки на сервер, как было показано ранее
+      const formData = new FormData();
+      formData.append("photo", this.selectedImg);
+      formData.append("user_id", this.userI);
+
+      http.post("/user/edit/photo", formData).then((response) => {
+        console.log(response);
+      });
+    },
     changeContactDataNumber() {
       this.numberChanges = !this.numberChanges;
       http
@@ -848,5 +875,23 @@ export default {
 }
 .input-bor {
   border: 1px solid #000;
+}
+.custom-file-label {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  background-color: #094559;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Стилизация кнопки "Обзор" (по желанию) */
+.custom-file-label {
+  padding: 5px 10px;
+  background-color: #094559;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 </style>
