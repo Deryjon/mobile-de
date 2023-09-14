@@ -751,6 +751,7 @@ export default {
         const responseData = response.data;
         localStorage.setItem("u-img-prof", responseData.data.user_image_url);
         localStorage.setItem("u-img-alt", responseData.data.user_image_name);
+				window.location.reload()
       });
     },
     changeContactDataNumber() {
