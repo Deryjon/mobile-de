@@ -6,6 +6,7 @@ import MotorbikeFilter from "../views/MotorbikeFilterPage/MotorbikeFilterView.vu
 import VansFilter from "../views/VansFilterPage/VansFilterView.vue"
 import SettingProfile from "../views/SettingProfilePage/SettingsProfilePage.vue"
 import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfilePage.vue"
+import About from "../views/AboutPage/AboutPage.vue"
 import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/my-company',
       name: 'company-settings',
       component: CompanySettings
+    },
+		{
+      path: '/about',
+      name: 'about-us',
+      component: About
     },
 		{
       path: '/:catchAll(.*)',
