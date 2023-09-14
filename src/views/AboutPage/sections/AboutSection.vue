@@ -239,7 +239,7 @@ export default {
 
 @media screen and (max-width: 768px) {
     .container-img-header {
-        border-radius: 14px; /* Changed from "0 0 14px 14px" to "14px" */
+        border-radius: 0 0 14px 14px; /* Changed from "0 0 14px 14px" to "14px" */
     }
     .outer{
         justify-content: center;
@@ -250,8 +250,13 @@ export default {
         flex-direction: column;
         flex-wrap: wrap;
     }
+
+    .aboutus-element-icon{
+        margin: 4px;
+    }
     .aboutus-element {
-        width: 30%; /* Changed from "33.33%" to "50%" */
+        border: none;
+        width: 33.33%; /* Changed from "33.33%" to "50%" */
     }
     
     .aboutus-element-title {
@@ -259,7 +264,7 @@ export default {
     }
     
     .abouts-element-desc {
-        font-size: 24px; /* Changed from "32px" to "24px" */
+        font-size: 22px; /* Changed from "32px" to "24px" */
     }
     
     .info-content-text {
