@@ -1,12 +1,16 @@
 <template>
   <div class="not-found-container">
-    <h1 class="not-found-title">About us</h1>
-    <!-- Добавьте здесь любое дополнительное содержимое или ссылки -->
+    <AboutSection/>
   </div>
 </template>
 
 <script>
+import AboutSection from './sections/AboutSection.vue';
+
 export default {
+  components: {
+    AboutSection
+  },
   // Возможно, здесь вы захотите добавить логику для страницы 404
 }
 </script>
@@ -16,9 +20,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   height: 100vh;
-  text-align: center;
 }
 
 .not-found-title {
@@ -26,7 +28,5 @@ export default {
   margin-bottom: 1rem;
 }
 
-.not-found-message {
-  font-size: 1.2rem;
-}
+
 </style>
