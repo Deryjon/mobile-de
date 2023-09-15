@@ -118,7 +118,7 @@
       </label>
       <!-- small -->
       <label
-        class="custom-checkbox p-[0] gap-[10px] flex gap-[10px] items-center h-10 w-[210px]20px]"
+        class="custom-checkbox p-[0]  flex gap-[10px] items-center h-10 w-[210px]20px]"
       >
         <input
           type="radio"
@@ -162,7 +162,7 @@
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox p-[0] gap-[10px] flex gap-4 items-center h-10 w-[230px]"
+        class="custom-checkbox p-[0]  flex gap-4 items-center h-10 w-[230px]"
       >
         <input
           type="radio"
