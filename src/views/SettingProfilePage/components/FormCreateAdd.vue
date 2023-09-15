@@ -118,7 +118,7 @@
       </label>
       <!-- small -->
       <label
-        class="custom-checkbox p-[0]  flex gap-[10px] items-center h-10 w-[210px]20px]"
+        class="custom-checkbox p-[0] flex gap-[10px] items-center h-10 w-[210px]20px]"
       >
         <input
           type="radio"
@@ -162,7 +162,7 @@
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox p-[0]  flex gap-4 items-center h-10 w-[230px]"
+        class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]"
       >
         <input
           type="radio"
@@ -326,7 +326,7 @@
         class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]"
       >
         <label
-          class="custom-checkbox flex items-center h-10 w-[140px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 w-[140px] pb-[23px] "
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -355,7 +355,7 @@
           <span class="text-sm">Pre-Registration</span>
         </label>
         <label
-          class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px] " 
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -383,7 +383,7 @@
           <span class="text-sm">Employee's Car</span>
         </label>
         <label
-          class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px] "
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -411,7 +411,7 @@
           <span class="text-sm">Classic Vehicle</span>
         </label>
         <label
-          class="custom-checkbox flex items-center h-10 w-[190px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 w-[190px] pb-[23px] "
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -802,7 +802,7 @@
       <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
         <!-- cabrio -->
         <label
-          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -817,7 +817,7 @@
           Diesel
         </label>
         <label
-          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -832,7 +832,7 @@
           Hybrid (diesel/electric)
         </label>
         <label
-          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -847,7 +847,7 @@
           Natural Gas
         </label>
         <label
-          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -862,7 +862,7 @@
           Other
         </label>
         <label
-          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -877,7 +877,7 @@
           Petrol
         </label>
         <label
-          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -893,7 +893,7 @@
         </label>
         <!-- estate -->
         <label
-          class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4"
+          class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4 p-0"
         >
           <input
             type="radio"
@@ -911,7 +911,7 @@
 
         <!-- saloon -->
         <label
-          class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4"
+          class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4 p-0"
         >
           <input
             type="radio"
@@ -928,7 +928,7 @@
         </label>
         <!-- small -->
         <label
-          class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -945,7 +945,7 @@
         </label>
         <!-- sports -->
         <label
-          class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px]"
+          class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px] p-0"
         >
           <input
             type="radio"
@@ -962,7 +962,7 @@
         </label>
         <!-- off-road -->
         <label
-          class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px]"
+          class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px] p-0"
         >
           <input
             type="radio"
@@ -979,7 +979,7 @@
         </label>
       </div>
     </div>
-		<div
+    <div
       class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[30px]"
     >
       <div class="power dropdown-container">
@@ -1166,7 +1166,7 @@
         <span class="ml-[10px]">kW</span>
       </label>
     </div>
-		<div
+    <div
       class="duration flex items-center gap-x-[20px] lg:gap-[30px] mt-[20px] lg:mt-[40px]"
     >
       <div>
@@ -1253,7 +1253,7 @@
         </ul>
       </div>
     </div>
-		<div class="flex gap-[40px] lg:gap-[100px]">
+    <div class="flex gap-[40px] lg:gap-[100px]">
       <div
         class="
 			"
@@ -1337,7 +1337,7 @@
         </label>
       </div>
     </div>
-		<div
+    <div
       class="valid-until mt-[30px] lg:mt-[30px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]"
     >
       <div class="relative mt-2 w-[200px]">
@@ -1417,7 +1417,831 @@
         <span class="text-sm">Particulate filter </span>
       </label>
     </div>
-		<div class="line mt-[30px]"></div>
+    <div class="line mt-[50px]"></div>
+    <div class="mt-[10px]">
+      <h3 class="text-[16px]">Exterior Colour</h3>
+      <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Beige',
+              'bg-orange': selectedExteriorColour === 'Beige',
+            }"
+            @click="selectExteriorColour('Beige')"
+          />
+
+          Beige
+        </label>
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Brown',
+              'bg-orange': selectedExteriorColour === 'Brown',
+            }"
+            @click="selectExteriorColour('Brown')"
+          />
+
+          Brown
+        </label>
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Gold',
+              'bg-orange': selectedExteriorColour === 'Gold',
+            }"
+            @click="selectExteriorColour('Gold')"
+          />
+
+          Gold
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Green',
+              'bg-orange': selectedExteriorColour === 'Green',
+            }"
+            @click="selectExteriorColour('Green')"
+          />
+
+          Green
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Red',
+              'bg-orange': selectedExteriorColour === 'Red',
+            }"
+            @click="selectExteriorColour('Red')"
+          />
+
+          Red
+        </label>
+        <label
+          class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Silver',
+              'bg-orange': selectedExteriorColour === 'Silver',
+            }"
+            @click="selectExteriorColour('Silver')"
+          />
+
+          Silver
+        </label>
+        <!-- estate -->
+        <label
+          class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4 p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'White',
+              'bg-orange': selectedExteriorColour === 'White',
+            }"
+            @click="selectExteriorColour('White')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-[14px]">White</span>
+        </label>
+
+        <!-- saloon -->
+        <label
+          class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4 p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Blue',
+              'bg-orange': selectedExteriorColour === 'Blue',
+            }"
+            @click="selectExteriorColour('Blue')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-[14px]">Blue</span>
+        </label>
+        <!-- small -->
+        <label
+          class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Yellow',
+              'bg-orange': selectedExteriorColour === 'Yellow',
+            }"
+            @click="selectExteriorColour('Yellow')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-[14px]">Yellow</span>
+        </label>
+        <!-- sports -->
+        <label
+          class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Grey',
+              'bg-orange': selectedExteriorColour === 'Grey',
+            }"
+            @click="selectExteriorColour('Grey')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-[14px]">Grey</span>
+        </label>
+        <!-- off-road -->
+        <label
+          class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Orange',
+              'bg-orange': selectedExteriorColour === 'Orange',
+            }"
+            @click="selectExteriorColour('Orange')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-sm">Orange</span>
+        </label>
+        <!-- off-road -->
+        <label
+          class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Black',
+              'bg-orange': selectedExteriorColour === 'Black',
+            }"
+            @click="selectExteriorColour('Black')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-sm">Black</span>
+        </label>
+        <!-- off-road -->
+        <label
+          class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Purple',
+              'bg-orange': selectedExteriorColour === 'Purple',
+            }"
+            @click="selectExteriorColour('Purple')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-sm">Purple</span>
+        </label>
+        <!-- off-road -->
+        <label
+          class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+        >
+          <input
+            type="radio"
+            v-model="selectedExteriorColour"
+            :class="{
+              'bg-transparent': selectedExteriorColour !== 'Metallic',
+              'bg-orange': selectedExteriorColour === 'Metallic',
+            }"
+            @click="selectExteriorColour('Metallic')"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-sm">Metallic</span>
+        </label>
+      </div>
+    </div>
+    <div class="condition mt-[20px]">
+      <h3>Trailer coupling</h3>
+      <div class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
+        <label>
+          <input
+            type="radio"
+            id="condition-any"
+            v-model="selectedTrailer"
+            :class="{
+              'bg-transparent': selectedTrailer !== 'Fix',
+              'bg-orange': selectedTrailer === 'Fix',
+            }"
+            @click="selectTrailer('Fix')"
+          />
+          <span class="ml-[10px]">Fix, detachable or swiveling</span>
+        </label>
+        <label @click="selectTrailer('Detachable')">
+          <input
+            type="radio"
+            id="condition-any"
+            v-model="selectedTrailer"
+            :class="{
+              'bg-transparent': selectedTrailer !== 'Detachable',
+              'bg-orange': selectedTrailer === 'Detachable',
+            }"
+          />
+          <span class="ml-[10px]">Detachable or swiveling </span>
+        </label>
+        <label @click="selectTrailer('Swiveling')">
+          <input
+            type="radio"
+            id="condition-any"
+            v-model="selectedTrailer"
+            :class="{
+              'bg-transparent': selectedTrailer !== 'Swiveling',
+              'bg-orange': selectedTrailer === 'Swiveling',
+            }"
+          />
+          <span class="ml-[10px]">Swiveling</span>
+        </label>
+      </div>
+    </div>
+    <div class="mt-[30px]">
+      <h3>Parking sensors</h3>
+      <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Rear')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Rear',
+              'bg-orange': selectedParking === 'Rear',
+            }"
+          />
+
+          Rear
+        </label>
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Front')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Front',
+              'bg-orange': selectedParking === 'Front',
+            }"
+          />
+
+          Front
+        </label>
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Camera')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Camera',
+              'bg-orange': selectedParking === 'Camera',
+            }"
+          />
+
+          Camera
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('360° camera')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== '360° camera',
+              'bg-orange': selectedParking === '360° camera',
+            }"
+          />
+
+          360° camera
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Self-steering systems')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Self-steering systems',
+              'bg-orange': selectedParking === 'Self-steering systems',
+            }"
+          />
+
+          Self-steering systems
+        </label>
+      </div>
+    </div>
+    <div class="condition">
+      <h3>Cruise control</h3>
+      <div class="radios-type flex gap-[30px] mt-[10px]">
+        <label>
+          <input
+            type="radio"
+            id="condition-any"
+            v-model="selectedCruise"
+            :class="{
+              'bg-transparent': selectedCruise !== 'Cruise',
+              'bg-orange': selectedCruise === 'Cruise',
+            }"
+            @click="selectCruise('Cruise')"
+          />
+          <span class="ml-[10px]">Cruise control </span>
+        </label>
+        <label>
+          <input
+            type="radio"
+            id="condition-adap"
+            v-model="selectedCruise"
+            :class="{
+              'bg-transparent': selectedCruise !== 'Adaptive',
+              'bg-orange': selectedCruise === 'Adaptive',
+            }"
+            @click="selectCruise('Adaptive')"
+          />
+          <span class="ml-[10px]">Adaptive Cruise Control</span>
+        </label>
+      </div>
+    </div>
+		<div class="mt-[30px] ">
+    <h3>Others</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+      <!-- cabrio -->
+      <label
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedABS"
+          @click="toggleShowCheckboxOthers(0, 'ABS')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedABS"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        ABS
+      </label>
+      <label
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedEmergency"
+          @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedEmergency"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Emergency brake assist
+      </label>
+      <label
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedCentral"
+          @click="toggleShowCheckboxOthers(2, 'Keyless central locking')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedCentral"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Keyless central locking
+      </label>
+      <label
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSpeed"
+          @click="toggleShowCheckboxOthers(3, '	Speed limit control system')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedSpeed"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Speed limit control system
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAdaptive"
+          @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAdaptive"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Adaptive cornering lights
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedTyre"
+          @click="toggleShowCheckboxOthers(5, 'Emergency tyre')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedTyre"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Emergency tyre
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedLastChanges"
+          @click="toggleShowCheckboxOthers(6, 'Lane change assist')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedLastChanges"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Lane change assist
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSportsPackage"
+          @click="toggleShowCheckboxOthers(7, 'Sports package')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedSportsPackage"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Sports package
+      </label>
+    </div>
+  </div>
+	<div class="line mt-[40px]" ></div>
+	<div class="mt-[30px]">
+    <h3>Interior Colour</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
+      <!-- cabrio -->
+      <label
+        class="custom-checkbox p-0 custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="radio"
+          @click="selectInteriorColour('Beige')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Beige',
+              'bg-orange': selectedInteriorColour === 'Beige',
+            }"
+        />
+       
+        Beige
+      </label>
+      <label
+        class="custom-checkbox p-0 custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="radio"
+					@click="selectInteriorColour('Brown')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Brown',
+              'bg-orange': selectedInteriorColour === 'Brown',
+            }"
+        />
+       
+        Brown
+      </label>
+      <label
+        class="custom-checkbox p-0 custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px]"
+      >
+        <input
+          type="radio"
+					@click="selectInteriorColour('Grey')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Grey',
+              'bg-orange': selectedInteriorColour === 'Grey',
+            }"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+
+       
+
+        <span class="text-[14px]">Grey</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox p-0 custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+      >
+        <input
+          type="radio"
+					@click="selectInteriorColour('Black')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Black',
+              'bg-orange': selectedInteriorColour === 'Black',
+            }"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+       
+        <span class="text-sm">Black</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox p-0 custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+      >
+        <input
+          type="radio"
+					@click="selectInteriorColour('Other')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Other',
+              'bg-orange': selectedInteriorColour === 'Other',
+            }"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+       
+        <span class="text-sm">Other</span>
+      </label>
+    </div>
+  </div>
+	<div class="mt-[20px]">
+    <h3>Interior material</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">
+      <!-- cabrio -->
+      <label
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAlcantra"
+          @click="toggleShowCheckboxMaterial(0, 'Alcantra')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAlcantra"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Alcantra
+      </label>
+      <label
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedCloth"
+          @click="toggleShowCheckboxMaterial(1, 'Cloth')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedCloth"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Cloth
+      </label>
+      <label
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedPartLeather"
+          @click="toggleShowCheckboxMaterial(2, 'Part leather')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedPartLeather"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Part leather
+      </label>
+      <label
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedVelour"
+          @click="toggleShowCheckboxMaterial(3, 'Velour')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedVelour"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Velour
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedFullLeather"
+          @click="toggleShowCheckboxMaterial(4, 'Full Leather')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedFullLeather"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Full Leather
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedOther"
+          @click="toggleShowCheckboxMaterial(5, 'Other')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedOther"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Other
+      </label>
+    </div>
+  </div>
   </div>
 </template>
 <script>
@@ -1430,6 +2254,8 @@ export default {
       selectedMark: "14600",
       selectedCar: "",
       selectedCondition: "Any",
+      selectedInteriorColour: "",
+      selectedCruise: "Any",
       seatsOpen: false,
       numDoor: "",
       slidingDoor: "",
@@ -1438,6 +2264,9 @@ export default {
       isCheckedClassic: false,
       isCheckedDemon: false,
       isRadioNewSelected: false,
+      selectedExteriorColour: "",
+      selectedTrailer: "",
+      selectedParking: "",
       price: "",
       selectedYear: "",
       selectedFuel: "",
@@ -1452,7 +2281,29 @@ export default {
       isCheckedHistory: false,
       isCheckedRoad: false,
       isOpenRadius: false,
+			isCheckedABS: false,
+      isCheckedEmergency: false,
+      isCheckedCentral: false,
+      isCheckedSpeed: false,
+      isCheckedAdaptive: false,
+      isCheckedTyre: false,
+      isCheckedLastChanges: false,
+      isCheckedSportsPackage: false,
+      selectedOthers: [],
       type: [],
+			isCheckedBeige: false,
+      isCheckedBrown: false,
+      isCheckedGrey: false,
+      isCheckedBlack: false,
+      isCheckedOther: false,
+			selectedColor: [],
+			isCheckedAlcantra: false,
+      isCheckedCloth: false,
+      isCheckedPartLeather: false,
+      isCheckedVelour: false,
+      isCheckedFullLeather: false,
+      isCheckedOther: false,
+			selectedMaterial: []
     };
   },
   methods: {
@@ -1467,6 +2318,21 @@ export default {
     selectRadius(option) {
       this.radius = option;
       this.isOpenRadius = false;
+    },
+    selectTrailer(option) {
+      this.selectedTrailer = option;
+    },
+    selectInteriorColour(option) {
+      this.selectedInteriorColour = option;
+    },
+    selectParking(option) {
+      this.selectedParking = option;
+    },
+    selectCruise(option) {
+      this.selectedCruise = option;
+    },
+    selectExteriorColour(option) {
+      this.selectedExteriorColour = option;
     },
     closeRadiusDropdown() {
       this.isOpenRadius = false;
@@ -1553,6 +2419,17 @@ export default {
         );
       }
     },
+		toggleShowCheckboxMaterial(index, colorName) {
+      const isChecked = !this.selectedColor.includes(colorName);
+      if (isChecked) {
+        this.selectedColor.push(colorName);
+      } else {
+        const carIndex = this.selectedColor.indexOf(colorName);
+        if (carIndex !== -1) {
+          this.selectedColor.splice(carIndex, 1);
+        }
+      }
+    },
     toggleShowCheckbox(index, typeName) {
       const isChecked = !this.type.includes(typeName);
       if (isChecked) {
@@ -1561,6 +2438,17 @@ export default {
         const typeIndex = this.type.indexOf(typeName);
         if (typeIndex !== -1) {
           this.type.splice(typeIndex, 1);
+        }
+      }
+    },
+		toggleShowCheckboxOthers(index, otherName) {
+      const isChecked = !this.selectedOthers.includes(otherName);
+      if (isChecked) {
+        this.selectedOthers.push(otherName);
+      } else {
+        const carIndex = this.selectedOthers.indexOf(otherName);
+        if (carIndex !== -1) {
+          this.selectedOthers.splice(carIndex, 1);
         }
       }
     },
@@ -1714,12 +2602,10 @@ input[type="checkbox"]:disabled {
   max-height: 200px;
   overflow-y: auto;
 }
-
 .dropdown-options li {
   padding: 0.5em;
   cursor: pointer;
 }
-
 .dropdown-options li:hover {
   background-color: #f0f0f0;
 }
