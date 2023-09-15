@@ -1,6 +1,9 @@
 <template>
   <div
-    class="resultast_div flex items-center gap-[10px] lg:gap-[5px] w-[300px] lg:w-[160px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[20px]">
+    class="resultast_div flex items-center gap-[10px] lg:gap-[5px] w-[300px] lg:w-[160px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[20px] cursor-pointer
+		"
+		@click="goCarList"
+		>
     <svg
       class="icon ml-[45px] sm:ml-[90px] lg:ml-[3px] xl:ml-[18px]"
       viewBox="0 0 24 24"
@@ -23,5 +26,10 @@
 <script>
 
 export default {
+	methods:{
+		goCarList(){
+			this.$router.push({ name: "car-list" });
+		}
+	}
 }
 </script>
