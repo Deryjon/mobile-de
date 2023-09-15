@@ -9,7 +9,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAlarmSystem"
-          @click="toggleShowCheckbox(0, 'Alarm System')"
+          @click="toggleShowCheckboxExtras(0, 'Alarm System')"
         />
         <svg
           class="icon"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDisable"
-          @click="toggleShowCheckbox(1, 'Disabled accessible')"
+          @click="toggleShowCheckboxExtras(1, 'Disabled accessible')"
         />
         <svg
           class="icon"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHeated"
-          @click="toggleShowCheckbox(2, 'Heated steering whee')"
+          @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
         />
         <svg
           class="icon"
@@ -81,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSeat"
-          @click="toggleShowCheckbox(3, 'Seat ventilation')"
+          @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
         />
         <svg
           class="icon"
@@ -105,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAmbient"
-          @click="toggleShowCheckbox(4, 'Ambient lighting')"
+          @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
         />
         <svg
           class="icon"
@@ -129,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedElectric"
-          @click="toggleShowCheckbox(5, 'Electric backseat adjustment')"
+          @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
         />
         <svg
           class="icon"
@@ -153,7 +153,7 @@
         <input
           type="checkbox"
           v-model="isCheckedInduction"
-          @click="toggleShowCheckbox(6, 'Induction charging for smartphones')"
+          @click="toggleShowCheckboxExtras(6, 'Induction charging for smartphones')"
         />
         <svg
           class="icon"
@@ -177,7 +177,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSki"
-          @click="toggleShowCheckbox(7, 'Ski bag')"
+          @click="toggleShowCheckboxExtras(7, 'Ski bag')"
         />
         <svg
           class="icon"
@@ -230,7 +230,7 @@ export default {
           console.error("Ошибка при выполнении запроса:", error);
         });
     },
-    toggleShowCheckbox(index, extrasName) {
+    toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
       if (isChecked) {
         this.extras.push(extrasName);
