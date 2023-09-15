@@ -162,7 +162,6 @@
   </div>
 </template>
 <script>
-import { ref } from "vue";
 import http from "../../../axios.config";
 export default {
   data() {
@@ -211,36 +210,6 @@ export default {
       }
       console.log("selectedCars изменен:", this.type)
 			this.fetchData()
-    },
-    toggleAnySelection() {
-      // Обработчик клика на "Any"
-      if (this.isAnySelected) {
-        // Если уже выбрано, меняем обратно на не выбрано
-        this.isAnySelected = false;
-      } else {
-        // Если не выбрано, делаем выбранным
-        this.isAnySelected = true;
-      }
-    },
-    toggleNewSelection() {
-      // Обработчик клика на "Any"
-      if (this.isNewSelected) {
-        // Если уже выбрано, меняем обратно на не выбрано
-        this.isNewSelected = false;
-      } else {
-        // Если не выбрано, делаем выбранным
-        this.isNewSelected = true;
-      }
-    },
-    toggleUsedSelection() {
-      // Обработчик клика на "Any"
-      if (this.isUsedSelected) {
-        // Если уже выбрано, меняем обратно на не выбрано
-        this.isUsedSelected = false;
-      } else {
-        // Если не выбрано, делаем выбранным
-        this.isUsedSelected = true;
-      }
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
