@@ -2991,6 +2991,7 @@ export default {
       rating: [],
       numDoor: "",
       slidingDoor: "",
+      radius: "",
       isCheckedRegister: false,
       isCheckedEmploy: false,
       isCheckedClassic: false,
@@ -3047,6 +3048,8 @@ export default {
       isCheckedInduction: false,
       isCheckedSki: false,
       extras: [],
+      others: [],
+      power: [],
       selectedFiles: [],
 			userI: "",
 			inputVariant: "",
@@ -3399,6 +3402,7 @@ export default {
   mounted() {
     this.selectedMark = localStorage.getItem("mark");
     this.userI = localStorage.getItem("u-i");
+    this.uEmail = localStorage.getItem("u-e");
 	
 
     this.userPhone = localStorage.getItem("u-phone");
