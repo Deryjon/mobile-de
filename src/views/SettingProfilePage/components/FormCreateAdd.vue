@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="flex h-[100px] items-center gap-[20px]">
+    <div class="flex  items-center gap-[20px]">
       <input
         type="file"
         ref="fileInput"
@@ -9,15 +9,18 @@
         style="display: none"
         @change="handleFileChange"
       />
-      <button @click="openFileInput">Выбрать изображения</button>
-      <div class="file-preview">
+      <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]"> + Add image </button>
+      <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
         <div
           v-for="(file, index) in selectedFiles"
           :key="index"
-          class="file-item"
+          class="file-item relative"
         >
-          <img class="w-[100px]" :src="file.url" :alt="file.name" />
-          <button @click="removeFile(index)">Удалить</button>
+				<div class="w-[190px] h-[200px] "> 
+
+          <img class="w-full h-full" :src="file.url" :alt="file.name" />
+				</div>
+          <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">X</button>
         </div>
         <span v-if="selectedFiles.length === 0">Нет выбранных изображений</span>
       </div>
@@ -1319,79 +1322,52 @@
 			"
       >
         <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[210px]">
           <input
-            type="checkbox"
-            v-model="isCheckedAutomatic"
-            @click="toggleShowCheckbox(0, 'Automatic transmission')"
+					type="radio"
+					v-model="selectedTransmision"
+            :class="{
+              'bg-transparent': selectedTransmision !== 'Automatic transmissio',
+              'bg-orange': selectedTransmision === 'Automatic transmissio',
+            }"
+            @click="selectTransmision('Automatic transmissio')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
-          <svg
-            class="icon mt-[10px]"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedAutomatic"
-              fill="#FFFFFF"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
+        
 
           <span class="text-sm">Automatic transmission</span>
         </label>
       </div>
       <div class="mt-[43px] lg:mt-[84px]">
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]">
           <input
-            type="checkbox"
-            v-model="isCheckedSemi"
-            @click="toggleShowCheckbox(1, 'Semi-automatic')"
+					type="radio"
+            v-model="selectedTransmision"
+            :class="{
+              'bg-transparent': selectedTransmision !== 'Semi-automatic',
+              'bg-orange': selectedTransmision === 'Semi-automatic',
+            }"
+            @click="selectTransmision('Semi-automatic')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
-          <svg
-            class="icon mt-[10px]"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedSemi"
-              fill="#FFFFFF"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
+        
 
           <span class="text-sm">Semi-automatic</span>
         </label>
       </div>
       <div class="mt-[43px] lg:mt-[84px]">
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]">
           <input
-            type="checkbox"
-            v-model="isCheckedManual"
-            @click="toggleShowCheckbox(2, 'Manual gearbox')"
+					type="radio"
+					v-model="selectedTransmision"
+            :class="{
+              'bg-transparent': selectedTransmision !== 'Manual gearbox',
+              'bg-orange': selectedTransmision === 'Manual gearbox',
+            }"
+            @click="selectTransmision('Manual gearbox')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
-          <svg
-            class="icon mt-[10px]"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedManual"
-              fill="#FFFFFF"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
+        
 
           <span class="text-sm">Manual gearbox </span>
         </label>
@@ -3059,6 +3035,7 @@ export default {
 			userCodeNumber: "",
 			userPre: "",
 			combinedNumber: "",
+			selectedTransmision: "",
     };
   },
   methods: {
@@ -3185,6 +3162,9 @@ export default {
     },
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;
+    },
+    selectTransmision(condition) {
+      this.selectedTransmision = condition;
     },
     selectAirbag(condition) {
       this.selectedAirbag = condition;
