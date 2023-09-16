@@ -17,7 +17,8 @@
     </div> 
 		<div class="form-ad"  v-if="!createAdd">
 			<FormCreateAdd/>
-		</div>
+				</div>
+
   </div>
 </template>
 <script>

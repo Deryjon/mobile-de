@@ -22,10 +22,10 @@
 				</div>
           <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">X</button>
         </div>
-        <span v-if="selectedFiles.length === 0">Нет выбранных изображений</span>
+        <span v-if="selectedFiles.length === 0">No Images</span>
       </div>
     </div>
-    <div class="video-link">
+    <div class="video-link mt-[30px]">
       <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
       <input
         type="text"
@@ -2903,8 +2903,13 @@
         v-model="descriptionText"
       ></textarea>
     </div>
+<div>
+<div class="flex gap-[30px] justify-end" >
 
-    <button @click="addAdCars">create</button>
+	<button  class="bg-red-500 rounded-[8px] p-[10px]">Cancel</button>
+	<button @click="addAdCars" class="bg-blue-500 rounded-[8px] p-[10px]">Create Add</button>
+</div>
+</div>
   </div>
 </template>
 <script>
@@ -3046,8 +3051,8 @@ export default {
       this.activeTab = "sell";
     },
     addAdCars() {
-      console.log({
-        photos : this.selectedFiles,
+			http.post("/car/add", {
+				photos : this.selectedFiles,
         user_id: this.userI,
         car_make: this.selectedMark,
         car_model: this.selectedModel,
@@ -3100,7 +3105,65 @@ export default {
         car_vide_link: this.linkVideo,
         user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
         user_email: this.uEmail,
-      });
+			}).then((response) => {
+				const responseData = response.data;
+				console.log(responseData)
+			})
+      // console.log({
+      //   photos : this.selectedFiles,
+      //   user_id: this.userI,
+      //   car_make: this.selectedMark,
+      //   car_model: this.selectedModel,
+      //   car_description: this.descriptionText,
+      //   car_variant: this.inputVariant,
+      //   car_body: this.selectedCar,
+      //   car_number_seats: this.numberSeats,
+      //   car_number_door: this.numDoor,
+      //   car_silding_door: this.slidingDoor,
+      //   car_condition: this.selectedCondition,
+      //   car_type: this.type,
+      //   car_payment_type: this.activeTab,
+      //   car_price: this.price,
+      //   car_firt_date_year: this.inputValue,
+      //   car_mileage: this.inputKilometer,
+      //   car_hu_valid_until: this.huValid,
+      //   car_previous_owners: this.preOwners,
+      //   car_full_service_history: this.isCheckedHistory,
+      //   car_roadworthy: this.isCheckedRoad,
+      //   car_country: this.selectedCountry,
+      //   car_city_zipcode: this.zipCode,
+      //   car_radius: this.radius,
+      //   car_fuel_type: this.selectedFuel,
+      //   car_power: this.power,
+      //   car_cubic_capacity: this.cubic,
+      //   car_transmission: this.transmission,
+      //   car_fuel_consumption: this.consumptionFuel,
+      //   car_emissions_sticker: this.stickerEmission,
+      //   car_emission_class: this.classEmision,
+      //   car_exterior_colour: this.selectedExteriorColour,
+      //   car_trailer_coupling: this.selectedTrailer,
+      //   car_parking_sensors: this.selectedParking,
+      //   car_cruise_control: this.selectedCruise,
+      //   car_interior_colour: this.selectedInteriorColour,
+      //   car_interior_material: this.selectedInteriorColour,
+      //   car_airbags: this.selectedAirbag,
+      //   car_air_conditioning: this.selectAirConditioning,
+      //   extras: this.extras,
+      //   others: this.others,
+      //   car_vendor: this.selectedVendor,
+      //   car_discount_offers: this.isCheckedDiscount,
+      //   car_non_smoker: this.isCheckedNon,
+      //   car_taxi: this.isCheckedTaxi,
+      //   car_vat: this.isCheckedVAT,
+      //   car_warranty: this.isCheckedWarranty,
+      //   car_environmental_bonus: this.isCheckedEnvironmental,
+      //   car_damaged: this.damageVehicle,
+      //   car_commercial: this.exportCommercial,
+      //   car_programme: this.approveUsed,
+      //   car_vide_link: this.linkVideo,
+      //   user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
+      //   user_email: this.uEmail,
+      // });
     },
     openFileInput() {
       this.$refs.fileInput.click();
