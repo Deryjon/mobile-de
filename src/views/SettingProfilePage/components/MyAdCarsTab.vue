@@ -6,11 +6,13 @@
         <p class="car-text font-bold text-[20px] mt-[20px]">Create new ad</p>
       </div>
       <div
-        class="btn w-[200px] h-[190px] bg-orange-600 mx-auto mt-[40px] pt-[20px] cursor-pointer rounded-[20px]"
+        class="btn w-[500px] h-[350px] hover:bg-orange-200 mx-auto mt-[40px] pt-[10px] cursor-pointer rounded-[20px]"
         @click="createCarAdd"
       >
-        <p class="text-[70px] mx-auto w-[40px]">+</p>
-        <p class="add mx-auto w-[150px]">Sell your car for free</p>
+        <p class="text-[100px] mx-auto w-[50px] h-[120px]">+</p>
+				<p class="text-[18px] font-medium mx-auto w-[360px]" >Do you have any treasures in your garage?</p>
+<p class="text-center w-[310px] mx-auto">Whether you want to run a Direct Sale for the quickest sale or an ad for the best price, we offer you the right option for selling your vehicles!</p>
+        <p class="add mx-auto w-[170px] bg-[#e04b00] px-[10px] py-[10px] text-[#fff] mt-[20px]">Sell your car for free</p>
       </div>
     </div> 
 		<div class="form-ad"  v-if="!createAdd">
@@ -36,4 +38,8 @@ export default {
 	}
 };
 </script>
-<style scoped></style>
+<style scoped>
+.btn{
+	border: 1px gray inset;
+}
+</style>
