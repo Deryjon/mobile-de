@@ -22,7 +22,15 @@
         <span v-if="selectedFiles.length === 0">Нет выбранных изображений</span>
       </div>
     </div>
-    <div class="flex gap-[20px] mt-[50px]">
+    <div class="video-link">
+      <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
+      <input
+        type="text"
+        class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+        v-model="linkVideo"
+      />
+    </div>
+    <div class="flex gap-[20px] mt-[30px]">
       <div class="mark">
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">
@@ -72,16 +80,16 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-			<div class="mark">
-            <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[14px]">Variant</h2>
-              <input
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                placeholder="e.g. GTI..."
-								v-model="inputVariant"
-              />
-            </div>
-          </div>
+      <div class="mark">
+        <div class="relative mt-2">
+          <h2 class="text-sm lg:text-[14px]">Variant</h2>
+          <input
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            placeholder="e.g. GTI..."
+            v-model="inputVariant"
+          />
+        </div>
+      </div>
     </div>
 
     <div class="filter-cars flex flex-wrap gap-[15px] mt-[0px] lg:mt-[50px]">
@@ -473,25 +481,25 @@
         </label>
       </div>
     </div>
-		<div class="lg:mt-[-10px] xl:mt-[30px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
-          <div class="Kaufen_div mt-[10px]">
-            <button
-              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-              @click="showTab1"
-              :class="{ 'active-Kaufen': activeTab === 'buy' }"
-            >
-              {{ $t("message.btn.buy") }}
-            </button>
-            <button
-              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-              @click="showTab2"
-              :class="{ 'active-Kaufen': activeTab === 'sell' }"
-            >
-              {{ $t("message.btn.sell") }}
-            </button>
-          </div>
-        </div>
+    <div class="lg:mt-[-10px] xl:mt-[30px]">
+      <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+      <div class="Kaufen_div mt-[10px]">
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab1"
+          :class="{ 'active-Kaufen': activeTab === 'buy' }"
+        >
+          {{ $t("message.btn.buy") }}
+        </button>
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab2"
+          :class="{ 'active-Kaufen': activeTab === 'sell' }"
+        >
+          {{ $t("message.btn.sell") }}
+        </button>
+      </div>
+    </div>
     <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
@@ -804,7 +812,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">City / zip code</h2>
+        <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
         <input
           class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="number"
@@ -2919,6 +2927,8 @@
         v-model="descriptionText"
       ></textarea>
     </div>
+
+    <button @click="addAdCars">create</button>
   </div>
 </template>
 <script>
@@ -3041,6 +3051,11 @@ export default {
 			userI: "",
 			inputVariant: "",
 			activeTab: "buy",
+			linkVideo: "",
+			userPhone: "",
+			userCodeNumber: "",
+			userPre: "",
+			combinedNumber: "",
     };
   },
   methods: {
@@ -3064,49 +3079,47 @@ export default {
         car_silding_door: this.slidingDoor,
         car_condition: this.selectedCondition,
         car_type: this.type,
-        car_payment_type: this.type,
-        car_price,
-        car_firt_date,
-        car_firt_date_year,
-        car_mileage,
-        car_hu_valid_until,
-        car_previous_owners,
-        car_full_service_history,
-        car_roadworthy,
-        car_country,
-        car_city_zipcode,
-        car_radius,
-        car_fuel_type,
-        car_power,
-        car_cubic_capacity,
-        car_transmission,
-        car_fuel_consumption,
-        car_emissions_sticker,
-        car_emission_class,
-        car_exterior_colour,
-        car_trailer_coupling,
-        car_parking_sensors,
-        car_cruise_control,
-        car_interior_colour,
-        car_interior_material,
-        car_airbags,
-        car_air_conditioning,
-        extras,
-        others,
-        car_vendor,
-        car_dealer_rating,
-        car_discount_offers,
-        car_non_smoker,
-        car_taxi,
-        car_vat,
-        car_warranty,
-        car_environmental_bonus,
-        car_damaged,
-        car_commercial,
-        car_programme,
-        car_vide_link,
-        user_phone,
-        user_email,
+        car_payment_type: this.activeTab,
+        car_price: this.price,
+        car_firt_date_year: this.inputValue,
+        car_mileage: this.inputKilometer,
+        car_hu_valid_until: this.huValid,
+        car_previous_owners: this.preOwners,
+        car_full_service_history: this.isCheckedHistory,
+        car_roadworthy: this.isCheckedRoad,
+        car_country: this.selectedCountry,
+        car_city_zipcode: this.zipCode,
+        car_radius: this.radius,
+        car_fuel_type: this.selectedFuel,
+        car_power: this.power,
+        car_cubic_capacity: this.cubic,
+        car_transmission: this.transmission,
+        car_fuel_consumption: this.consumptionFuel,
+        car_emissions_sticker: this.stickerEmission,
+        car_emission_class: this.classEmision,
+        car_exterior_colour: this.selectedExteriorColour,
+        car_trailer_coupling: this.selectedTrailer,
+        car_parking_sensors: this.selectedParking,
+        car_cruise_control: this.selectedCruise,
+        car_interior_colour: this.selectedInteriorColour,
+        car_interior_material: this.selectedInteriorColour,
+        car_airbags: this.selectedAirbag,
+        car_air_conditioning: this.selectAirConditioning,
+        extras: this.extras,
+        others: this.others,
+        car_vendor: this.selectedVendor,
+        car_discount_offers: this.isCheckedDiscount,
+        car_non_smoker: this.isCheckedNon,
+        car_taxi: this.isCheckedTaxi,
+        car_vat: this.isCheckedVAT,
+        car_warranty: this.isCheckedWarranty,
+        car_environmental_bonus: this.isCheckedEnvironmental,
+        car_damaged: this.damageVehicle,
+        car_commercial: this.exportCommercial,
+        car_programme: this.approveUsed,
+        car_vide_link: this.linkVideo,
+        user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
+        user_email: this.uEmail,
       });
     },
     openFileInput() {
@@ -3386,6 +3399,11 @@ export default {
   mounted() {
     this.selectedMark = localStorage.getItem("mark");
     this.userI = localStorage.getItem("u-i");
+	
+
+    this.userPhone = localStorage.getItem("u-phone");
+    this.userCodeNumber = localStorage.getItem("u-code");
+    this.userPre = localStorage.getItem("u-pre");
 
     http
       .get("/car/marks")
