@@ -887,9 +887,9 @@ export default {
     this.userName = localStorage.getItem("u-fn");
     this.userName = localStorage.getItem("u-fn");
 
-    if (this.userName === null) {
-      this.userName = "Noname";
-    }
+			if (this.userName === 'null') {
+				this.userName = "Noname";
+			}
 
     const storedLastUserName = localStorage.getItem("u-ln");
     const storedGender = localStorage.getItem("u-ln");

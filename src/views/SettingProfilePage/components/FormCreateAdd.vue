@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="flex  items-center gap-[20px]">
+    <div class="flex items-center gap-[20px]">
       <input
         type="file"
         ref="fileInput"
@@ -9,18 +9,24 @@
         style="display: none"
         @change="handleFileChange"
       />
-      <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]"> + Add image </button>
+      <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
+        + Add image
+      </button>
       <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
         <div
           v-for="(file, index) in selectedFiles"
           :key="index"
           class="file-item relative"
         >
-				<div class="w-[190px] h-[200px] "> 
-
-          <img class="w-full h-full" :src="file.url" :alt="file.name" />
-				</div>
-          <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">X</button>
+          <div class="w-[190px] h-[200px]">
+            <img class="w-full h-full" :src="file.url" :alt="file.name" />
+          </div>
+          <button
+            @click="removeFile(index)"
+            class="absolute top-0 right-0 w-[20px]"
+          >
+            X
+          </button>
         </div>
         <span v-if="selectedFiles.length === 0">No Images</span>
       </div>
@@ -1322,10 +1328,12 @@
 			"
       >
         <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-        <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[210px]">
+        <label
+          class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[210px]"
+        >
           <input
-					type="radio"
-					v-model="selectedTransmision"
+            type="radio"
+            v-model="selectedTransmision"
             :class="{
               'bg-transparent': selectedTransmision !== 'Automatic transmissio',
               'bg-orange': selectedTransmision === 'Automatic transmissio',
@@ -1333,15 +1341,16 @@
             @click="selectTransmision('Automatic transmissio')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
-        
 
           <span class="text-sm">Automatic transmission</span>
         </label>
       </div>
       <div class="mt-[43px] lg:mt-[84px]">
-        <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]">
+        <label
+          class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]"
+        >
           <input
-					type="radio"
+            type="radio"
             v-model="selectedTransmision"
             :class="{
               'bg-transparent': selectedTransmision !== 'Semi-automatic',
@@ -1350,16 +1359,17 @@
             @click="selectTransmision('Semi-automatic')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
-        
 
           <span class="text-sm">Semi-automatic</span>
         </label>
       </div>
       <div class="mt-[43px] lg:mt-[84px]">
-        <label class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]">
+        <label
+          class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]"
+        >
           <input
-					type="radio"
-					v-model="selectedTransmision"
+            type="radio"
+            v-model="selectedTransmision"
             :class="{
               'bg-transparent': selectedTransmision !== 'Manual gearbox',
               'bg-orange': selectedTransmision === 'Manual gearbox',
@@ -1367,7 +1377,6 @@
             @click="selectTransmision('Manual gearbox')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
-        
 
           <span class="text-sm">Manual gearbox </span>
         </label>
@@ -2903,13 +2912,14 @@
         v-model="descriptionText"
       ></textarea>
     </div>
-<div>
-<div class="flex gap-[30px] justify-end" >
-
-	<button  class="bg-red-500 rounded-[8px] p-[10px]">Cancel</button>
-	<button @click="addAdCars" class="bg-blue-500 rounded-[8px] p-[10px]">Create Add</button>
-</div>
-</div>
+    <div>
+      <div class="flex gap-[30px] justify-end">
+        <button class="bg-red-500 rounded-[8px] p-[10px]">Cancel</button>
+        <button @click="addAdCars" class="bg-blue-500 rounded-[8px] p-[10px]">
+          Create Add
+        </button>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -3050,7 +3060,7 @@ export default {
     async showTab2() {
       this.activeTab = "sell";
     },
-    addAdCars() {
+    addAdBasicCars() {
 			http.post("/car/add", {
 				photos : this.selectedFiles,
         user_id: this.userI,
@@ -3075,95 +3085,107 @@ export default {
         car_country: this.selectedCountry,
         car_city_zipcode: this.zipCode,
         car_radius: this.radius,
-        car_fuel_type: this.selectedFuel,
-        car_power: this.power,
-        car_cubic_capacity: this.cubic,
-        car_transmission: this.transmission,
-        car_fuel_consumption: this.consumptionFuel,
-        car_emissions_sticker: this.stickerEmission,
-        car_emission_class: this.classEmision,
-        car_exterior_colour: this.selectedExteriorColour,
-        car_trailer_coupling: this.selectedTrailer,
-        car_parking_sensors: this.selectedParking,
-        car_cruise_control: this.selectedCruise,
-        car_interior_colour: this.selectedInteriorColour,
-        car_interior_material: this.selectedInteriorColour,
-        car_airbags: this.selectedAirbag,
-        car_air_conditioning: this.selectAirConditioning,
-        extras: this.extras,
-        others: this.others,
-        car_vendor: this.selectedVendor,
-        car_discount_offers: this.isCheckedDiscount,
-        car_non_smoker: this.isCheckedNon,
-        car_taxi: this.isCheckedTaxi,
-        car_vat: this.isCheckedVAT,
-        car_warranty: this.isCheckedWarranty,
-        car_environmental_bonus: this.isCheckedEnvironmental,
-        car_damaged: this.damageVehicle,
-        car_commercial: this.exportCommercial,
-        car_programme: this.approveUsed,
-        car_vide_link: this.linkVideo,
-        user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
-        user_email: this.uEmail,
+
+        // car_fuel_type: this.selectedFuel,
+        // car_power: this.power,
+        // car_cubic_capacity: this.cubic,
+        // car_transmission: this.transmission,
+        // car_fuel_consumption: this.consumptionFuel,
+        // car_emissions_sticker: this.stickerEmission,
+        // car_emission_class: this.classEmision,
+        // car_exterior_colour: this.selectedExteriorColour,
+        // car_trailer_coupling: this.selectedTrailer,
+        // car_parking_sensors: this.selectedParking,
+        // car_cruise_control: this.selectedCruise,
+        // car_interior_colour: this.selectedInteriorColour,
+        // car_interior_material: this.selectedInteriorColour,
+        // car_airbags: this.selectedAirbag,
+        // car_air_conditioning: this.selectAirConditioning,
+        // extras: this.extras,
+        // others: this.others,
+        // car_vendor: this.selectedVendor,
+        // car_discount_offers: this.isCheckedDiscount,
+        // car_non_smoker: this.isCheckedNon,
+        // car_taxi: this.isCheckedTaxi,
+        // car_vat: this.isCheckedVAT,
+        // car_warranty: this.isCheckedWarranty,
+        // car_environmental_bonus: this.isCheckedEnvironmental,
+        // car_damaged: this.damageVehicle,
+        // car_commercial: this.exportCommercial,
+        // car_programme: this.approveUsed,
+        // car_vide_link: this.linkVideo,
+        // user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
+        // user_email: this.uEmail,
 			}).then((response) => {
 				const responseData = response.data;
+			// set item local storage id add
 				console.log(responseData)
 			})
-      // console.log({
-      //   photos : this.selectedFiles,
-      //   user_id: this.userI,
-      //   car_make: this.selectedMark,
-      //   car_model: this.selectedModel,
-      //   car_description: this.descriptionText,
-      //   car_variant: this.inputVariant,
-      //   car_body: this.selectedCar,
-      //   car_number_seats: this.numberSeats,
-      //   car_number_door: this.numDoor,
-      //   car_silding_door: this.slidingDoor,
-      //   car_condition: this.selectedCondition,
-      //   car_type: this.type,
-      //   car_payment_type: this.activeTab,
-      //   car_price: this.price,
-      //   car_firt_date_year: this.inputValue,
-      //   car_mileage: this.inputKilometer,
-      //   car_hu_valid_until: this.huValid,
-      //   car_previous_owners: this.preOwners,
-      //   car_full_service_history: this.isCheckedHistory,
-      //   car_roadworthy: this.isCheckedRoad,
-      //   car_country: this.selectedCountry,
-      //   car_city_zipcode: this.zipCode,
-      //   car_radius: this.radius,
-      //   car_fuel_type: this.selectedFuel,
-      //   car_power: this.power,
-      //   car_cubic_capacity: this.cubic,
-      //   car_transmission: this.transmission,
-      //   car_fuel_consumption: this.consumptionFuel,
-      //   car_emissions_sticker: this.stickerEmission,
-      //   car_emission_class: this.classEmision,
-      //   car_exterior_colour: this.selectedExteriorColour,
-      //   car_trailer_coupling: this.selectedTrailer,
-      //   car_parking_sensors: this.selectedParking,
-      //   car_cruise_control: this.selectedCruise,
-      //   car_interior_colour: this.selectedInteriorColour,
-      //   car_interior_material: this.selectedInteriorColour,
-      //   car_airbags: this.selectedAirbag,
-      //   car_air_conditioning: this.selectAirConditioning,
-      //   extras: this.extras,
-      //   others: this.others,
-      //   car_vendor: this.selectedVendor,
-      //   car_discount_offers: this.isCheckedDiscount,
-      //   car_non_smoker: this.isCheckedNon,
-      //   car_taxi: this.isCheckedTaxi,
-      //   car_vat: this.isCheckedVAT,
-      //   car_warranty: this.isCheckedWarranty,
-      //   car_environmental_bonus: this.isCheckedEnvironmental,
-      //   car_damaged: this.damageVehicle,
-      //   car_commercial: this.exportCommercial,
-      //   car_programme: this.approveUsed,
-      //   car_vide_link: this.linkVideo,
-      //   user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
-      //   user_email: this.uEmail,
-      // });
+		},
+			thenPowerAdd(){
+				console.log({
+					photos : this.selectedFiles,
+					user_id: this.userI,
+					car_make: this.selectedMark,
+					car_model: this.selectedModel,
+					car_description: this.descriptionText,
+					car_variant: this.inputVariant,
+					car_body: this.selectedCar,
+					car_number_seats: this.numberSeats,
+					car_number_door: this.numDoor,
+					car_silding_door: this.slidingDoor,
+					car_condition: this.selectedCondition,
+					car_type: this.type,
+					car_payment_type: this.activeTab,
+					car_price: this.price,
+					car_firt_date_year: this.inputValue,
+					car_mileage: this.inputKilometer,
+					car_hu_valid_until: this.huValid,
+					car_previous_owners: this.preOwners,
+					car_full_service_history: this.isCheckedHistory,
+					car_roadworthy: this.isCheckedRoad,
+					car_country: this.selectedCountry,
+					car_city_zipcode: this.zipCode,
+					car_radius: this.radius,
+					car_fuel_type: this.selectedFuel,
+					car_power: this.power,
+					car_cubic_capacity: this.cubic,
+					car_transmission: this.transmission,
+					car_fuel_consumption: this.consumptionFuel,
+					car_emissions_sticker: this.stickerEmission,
+					car_emission_class: this.classEmision,
+					car_exterior_colour: this.selectedExteriorColour,
+					car_trailer_coupling: this.selectedTrailer,
+					car_parking_sensors: this.selectedParking,
+					car_cruise_control: this.selectedCruise,
+					others: this.others,
+				})
+			},
+
+			thenAddsInterior(){
+console.log({
+	car_interior_colour: this.selectedInteriorColour,
+	car_interior_material: this.selectedInteriorColour,
+	car_airbags: this.selectedAirbag,
+	car_air_conditioning: this.selectAirConditioning,
+	extras: this.extras,
+	car_vendor: this.selectedVendor,
+	car_discount_offers: this.isCheckedDiscount,
+	car_non_smoker: this.isCheckedNon,
+	car_taxi: this.isCheckedTaxi,
+	car_vat: this.isCheckedVAT,
+	car_warranty: this.isCheckedWarranty,
+	car_environmental_bonus: this.isCheckedEnvironmental,
+	car_damaged: this.damageVehicle,
+	car_commercial: this.exportCommercial,
+	car_programme: this.approveUsed,
+	car_vide_link: this.linkVideo,
+	user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
+	user_email: this.uEmail,
+
+			})
+
+
     },
     openFileInput() {
       this.$refs.fileInput.click();
@@ -3446,7 +3468,7 @@ export default {
     this.selectedMark = localStorage.getItem("mark");
     this.userI = localStorage.getItem("u-i");
     this.uEmail = localStorage.getItem("u-e");
-	
+
 
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
