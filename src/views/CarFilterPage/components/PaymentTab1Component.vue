@@ -594,7 +594,7 @@
     <div
       class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
     >
-      <div class="relative mt-2">
+		<div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -684,6 +684,96 @@
 					v-model="zipCode"
         />
       </div>
+      <!-- <div class="relative mt-2">
+        <h2 class="text-sm lg:text-[14px]">Country</h2>
+        <select
+          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="selectedCountry"
+        >
+          <optgroup>
+            <option value="14600" selected>Any</option>
+          </optgroup>
+          <optgroup>
+            <option value="BA">Bosnia and Herzegovina</option>
+            <option value="AL">Albania</option>
+            <option value="AT">Austria</option>
+            <option value="BY">Belarus</option>
+            <option value="BE">Belgium</option>
+            <option value="AD">Andorra</option>
+            <option value="BR">Brazil</option>
+            <option value="BG">Bulgaria</option>
+            <option value="CA">Canada</option>
+            <option value="HR">Croatia</option>
+            <option value="CY">Cyprus</option>
+            <option value="CZ">Czech Republic</option>
+            <option value="DK">Denmark</option>
+            <option value="EG">Egypt</option>
+            <option value="EE">Estonia</option>
+            <option value="ET">Ethiopia</option>
+            <option value="FO">Faroe Islands</option>
+            <option value="FI">Finland</option>
+            <option value="FR">France</option>
+            <option value="DE">Germany</option>
+            <option value="GR">Greece</option>
+            <option value="HU">Hungary</option>
+            <option value="IS">Iceland</option>
+            <option value="IE">Ireland</option>
+            <option value="IL">Israel</option>
+            <option value="IT">Italy</option>
+            <option value="JP">Japan</option>
+            <option value="JO">Jordan</option>
+            <option value="KW">Kuwait</option>
+            <option value="LV">Latvia</option>
+            <option value="LB">Lebanon</option>
+            <option value="LI">Liechtenstein</option>
+            <option value="LT">Lithuania</option>
+            <option value="LU">Luxembourg</option>
+            <option value="MK">Macedonia</option>
+            <option value="MT">Malta</option>
+            <option value="MX">Mexico</option>
+            <option value="MD">Moldova</option>
+            <option value="MC">Monaco</option>
+            <option value="ME">Montenegro</option>
+            <option value="MA">Morocco</option>
+            <option value="NL">Netherlands</option>
+            <option value="NZ">New Zealand</option>
+            <option value="NG">Nigeria</option>
+            <option value="NO">Norway</option>
+            <option value="OM">Oman</option>
+            <option value="PL">Poland</option>
+            <option value="PT">Portugal</option>
+            <option value="RO">Romania</option>
+            <option value="RU">Russian Federation</option>
+            <option value="SM">San Marino</option>
+            <option value="SA">Saudi Arabia</option>
+            <option value="RS">Serbia</option>
+            <option value="SK">Slovakia</option>
+            <option value="SI">Slovenia</option>
+            <option value="ZA">South Africa</option>
+            <option value="KR">South Korea</option>
+            <option value="ES">Spain</option>
+            <option value="SE">Sweden</option>
+            <option value="CH">Switzerland</option>
+            <option value="TW">Taiwan</option>
+            <option value="TN">Tunisia</option>
+            <option value="TR">Turkey</option>
+            <option value="UA">Ukraine</option>
+            <option value="AE">United Arab Emirates</option>
+            <option value="GB">United Kingdom</option>
+            <option value="US">USA</option>
+          </optgroup>
+        </select>
+        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+      </div> -->
+      <!-- <div class="marke_select_div relative mt-2">
+        <h2 class="text-sm lg:text-[14px]">City / zip code</h2>
+        <input
+          class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
+          type="number"
+          pattern="\d*"
+					v-model="zipCode"
+        />
+      </div> -->
       <!--  -->
       <div class="radius dropdown-container">
         <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>

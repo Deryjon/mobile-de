@@ -957,15 +957,11 @@ export default {
   methods: {
     deleteCompany() {
       http
-        .delete("/company/delete", {
-          company_id: this.companyI,
-        })
+        .delete(`/company/delete/${this.companyI}`)
         .then((response) => {
-          const responseData = response.data;
+					console.log(this.companyI);
 					localStorage.clear()
 					this.$router.push({ name: "home" });
-					window.location.reload(	)
-          
         });
 				this.dialog = false
     },

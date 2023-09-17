@@ -750,7 +750,7 @@ export default {
       dialog: false,
       numberChanges: false,
       userPhoneNumber: "",
-			userAddressCountry: ""
+      userAddressCountry: "",
     };
   },
   watch: {
@@ -793,8 +793,8 @@ export default {
             "u-d-co",
             responseData.data.user_address_country
           );
+          window.location.reload();
         });
-      window.location.reload();
     },
     openNumberChange() {
       this.numberChanges = !this.numberChanges;
@@ -845,20 +845,17 @@ export default {
       window.location.reload();
     },
     userDelete() {
-      http
-        .delete("user/delete", {
-          id: this.userI,
-        })
-        .then((res) => {
-          localStorage.clear();
-          this.$router.push({ name: "home" });
-          if (localStorage.getItem("u-com") == null) {
-            localStorage.setItem("u-com", false);
-          } else if (localStorage.getItem("logged-in") == null) {
-            localStorage.setItem("logged-in", false);
-          }
-          window.location.reload();
-        });
+      http.delete(`user/delete/${this.userI}`).then((res) => {
+        console.log(res.data);
+        localStorage.clear();
+        this.$router.push({ name: "home" });
+        if (localStorage.getItem("u-com") == null) {
+          localStorage.setItem("u-com", false);
+        } else if (localStorage.getItem("logged-in") == null) {
+          localStorage.setItem("logged-in", false);
+        }
+        window.location.reload();
+      });
       this.dialog = false;
     },
     openChangeName() {
@@ -888,31 +885,35 @@ export default {
     this.userE = localStorage.getItem("u-e");
     this.userECh = localStorage.getItem("u-e");
     this.userName = localStorage.getItem("u-fn");
+    this.userName = localStorage.getItem("u-fn");
 
+    if (this.userName === null) {
+      this.userName = "Noname";
+    }
 
-
-
-    const storedUserName = localStorage.getItem("u-fn");
     const storedLastUserName = localStorage.getItem("u-ln");
     const storedGender = localStorage.getItem("u-ln");
     const storedCompanyName = localStorage.getItem("com-name");
-		const storedAddressStreet = localStorage.getItem("u-d-s");
-		const storedAddressNr = localStorage.getItem("u-d-nr");
+    const storedAddressStreet = localStorage.getItem("u-d-s");
+    const storedAddressNr = localStorage.getItem("u-d-nr");
     const storedAddressZip = localStorage.getItem("u-d-z");
     const storedAddressCity = localStorage.getItem("u-d-c");
     const storedAddressCountry = localStorage.getItem("u-d-co");
-		const storedCountryCode = localStorage.getItem("u-code");
+    const storedCountryCode = localStorage.getItem("u-code");
     const storedNumberPre = localStorage.getItem("u-pre");
     const storedNumber = localStorage.getItem("u-phone");
 
-    this.userName = storedUserName == null ? storedUserName : "Noname";
     this.userLastName = storedLastUserName == null ? storedLastUserName : "";
     this.selectedGender = storedGender == null ? storedGender : "";
-    this.userAddressStreet = storedAddressStreet == null ? storedAddressStreet : "No Adress";
+    this.userAddressStreet =
+      storedAddressStreet == null ? storedAddressStreet : "No Adress";
     this.userAddressNr = storedAddressNr == null ? storedAddressNr : "";
     this.userAddressZip = storedAddressZip == null ? storedAddressZip : "";
     this.userAddressCity = storedAddressCity == null ? storedAddressCity : "";
-    this.userAddressCountry = storedAddressCountry == null ? storedAddressCountry : "";    this.userCountryCode = storedCountryCode == null ? storedCountryCode : "No Number";
+    this.userAddressCountry =
+      storedAddressCountry == null ? storedAddressCountry : "";
+    this.userCountryCode =
+      storedCountryCode == null ? storedCountryCode : "No Number";
     this.userNumberPre = storedNumberPre == null ? storedNumberPre : "";
     this.userNumber = storedNumber == null ? storedNumber : "";
     this.companyName =

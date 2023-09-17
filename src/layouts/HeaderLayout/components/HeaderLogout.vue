@@ -12,14 +12,14 @@
       <div>
         <div
           @click="openProfileDropdown"
-          class="profile-icon w-[200px] flex items-center gap-[10px]  cursor-pointer "
+          class="profile-icon w-[200px] flex items-center gap-[10px] cursor-pointer"
         >
           <svg
             data-v-53d99ea3=""
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 32 32"
             id="profile"
-						width="30px"
+            width="30px"
           >
             <g data-v-53d99ea3="" data-name="Layer 2">
               <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
@@ -29,8 +29,18 @@
               ></path>
             </g>
           </svg>
-					<p v-if="!uComValue" class=" font-bold text-[#47f353eb] py-2  text-[16px] rounded-[8px]">{{ userName }}</p>
-					<p v-if="uComValue" class=" font-bold text-[#47f353eb] py-2  text-[16px] rounded-[8px]">{{ companyName }} </p>
+          <p
+            v-if="!uComValue"
+            class="font-bold text-[#47f353eb] py-2 text-[16px] rounded-[8px]"
+          >
+            {{ userName }}
+          </p>
+          <p
+            v-if="uComValue"
+            class="font-bold text-[#47f353eb] py-2 text-[16px] rounded-[8px]"
+          >
+            {{ companyName }}
+          </p>
         </div>
 
         <ul v-if="isProfileSetting" class="dropdown-options w-[160px]">
@@ -135,8 +145,8 @@ export default defineComponent({
   data() {
     return {
       isProfileSetting: false,
-			userName: "Noname",
-			companyName: "No Company"
+      userName: "Noname",
+      companyName: "No Company",
     };
   },
   methods: {
@@ -175,15 +185,20 @@ export default defineComponent({
       }
     },
   },
-	created(){
-  const storedUserName = localStorage.getItem("u-fn");
-  const storedCompanyName = localStorage.getItem("com-name");
+  created() {
+    this.userName = localStorage.getItem("u-fn");
+this.companyName = localStorage.getItem("com-name");
 
-  this.userName = storedUserName == null ? storedUserName : "Noname";
-  this.companyName = storedCompanyName == null ? storedCompanyName : "No Company";
+    if (this.userName === null) {
+      this.userName = "Noname";
+    }
 
+    if (this.companyName === null) {
+      this.companyName = "Noname";
+    }
 
-	}
+    
+  },
 });
 </script>
 <style scoped>

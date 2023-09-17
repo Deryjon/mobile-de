@@ -14,7 +14,7 @@ import http from "../../axios.config";
 export default {
   data() {
     return {
-			userId: "",
+			userId: localStorage.getItem("u-i"),
 		};
   },
   methods: {

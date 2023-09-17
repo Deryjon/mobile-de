@@ -320,7 +320,7 @@ export default {
   },
 	computed:{
 		imgProfile() {
-      return this.userProfileImg === null;
+       this.userProfileImg === null;
     }
 	},
   mounted() {
