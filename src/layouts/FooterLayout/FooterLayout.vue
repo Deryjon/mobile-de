@@ -3,22 +3,25 @@
     class=""
     :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
   >
-    <v-container class="w-[1240]">
-      <div class="actions flex h-[50px] items-center gap-[10px]">
-				<FooterActions class="hidden lg:flex mx-[150px]"/>
-        
-        <HeaderSwitcherTheme class="mt-[20px] hidden lg:flex" />
-        <HeaderContact class="mb-[15px] hidden lg:flex" />
+    <v-container class="w-[1100px] flex  justify-between h-[382px] pt-[80px]">
+      <div class="actions flex flex-col  gap-[20px]">
+        <FooterSocialLinks/>
+				<FooterActions class="hidden lg:flex "/>
+        <FooterSwitcherTheme class="hidden lg:flex" />
       </div>
+			<FooterCompanyLinks/>
+			<FooterDealerLogin/>
     </v-container>
   </footer>
 </template>
 <script>
 import FooterActions from "../FooterLayout/components/FooterActions.vue";
-import HeaderSwitcherTheme from "../HeaderLayout/components/HeaderSwitcherTheme.vue";
-import HeaderContact from "../HeaderLayout/components/HeaderContact.vue";
+import FooterCompanyLinks from "../FooterLayout//components/FooterCompanyLinks.vue";
+import FooterDealerLogin from "../FooterLayout//components/FooterDealerLogin.vue";
+import FooterSwitcherTheme from "../FooterLayout//components/FooterSwitcherTheme.vue";
 import { useDarkModeStore } from "@/store/dark-mode.js";
 import { computed } from "vue";
+import FooterSocialLinks from "./components/FooterSocialLinks.vue";
 export default {
   setup() {
     const darkModeStore = useDarkModeStore();
@@ -42,9 +45,11 @@ export default {
   },
   components: {
     FooterActions,
-    HeaderSwitcherTheme,
-    HeaderContact,
-  },
+    FooterSwitcherTheme,
+    FooterSocialLinks,
+    FooterCompanyLinks,
+		FooterDealerLogin
+},
 };
 </script>
 <style scoped>
