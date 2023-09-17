@@ -682,25 +682,26 @@
             </div>
             <v-dialog v-model="dialog" width="200px">
               <template v-slot:activator="{ props }">
-								<button
-									class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-									v-bind="props"
-								>
-									Delete account
-								</button>
+                <button
+                  class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+                  v-bind="props"
+                >
+                  Delete account
+                </button>
               </template>
 
               <v-card>
                 <v-card-text class="mx-auto"> Are you sure? </v-card-text>
-								<div class=" flex items-center w-[120px] mx-auto">
-
-									<v-card-actions>
-						<v-btn color="error" block @click="dialog = false">No</v-btn>
-					</v-card-actions>
-							 <v-card-actions>
-						<v-btn color="success" block @click="userDelete">Yes</v-btn>
-							 </v-card-actions>
-								</div>
+                <div class="flex items-center w-[120px] mx-auto">
+                  <v-card-actions>
+                    <v-btn color="error" block @click="dialog = false"
+                      >No</v-btn
+                    >
+                  </v-card-actions>
+                  <v-card-actions>
+                    <v-btn color="success" block @click="userDelete">Yes</v-btn>
+                  </v-card-actions>
+                </div>
               </v-card>
             </v-dialog>
           </div>
@@ -749,6 +750,7 @@ export default {
       dialog: false,
       numberChanges: false,
       userPhoneNumber: "",
+			userAddressCountry: ""
     };
   },
   watch: {
@@ -842,25 +844,23 @@ export default {
         });
       window.location.reload();
     },
-		userDelete(){
-			http.delete("user/delete", {
-				id: this.userI
-			})
-			.then((res) => {
-				localStorage.clear()	
-				this.$router.push({ name: "home" });
-				if (localStorage.getItem("u-com") == null) {
-      localStorage.setItem("u-com", false);
-    } else if (localStorage.getItem("logged-in") == null){
-      localStorage.setItem("logged-in", false);
-
-		}
-				window.location.reload();
-
-			})
-			this.dialog = false
-
-		},
+    userDelete() {
+      http
+        .delete("user/delete", {
+          id: this.userI,
+        })
+        .then((res) => {
+          localStorage.clear();
+          this.$router.push({ name: "home" });
+          if (localStorage.getItem("u-com") == null) {
+            localStorage.setItem("u-com", false);
+          } else if (localStorage.getItem("logged-in") == null) {
+            localStorage.setItem("logged-in", false);
+          }
+          window.location.reload();
+        });
+      this.dialog = false;
+    },
     openChangeName() {
       this.nameChange = !this.nameChange;
     },
@@ -888,21 +888,35 @@ export default {
     this.userE = localStorage.getItem("u-e");
     this.userECh = localStorage.getItem("u-e");
     this.userName = localStorage.getItem("u-fn");
-    this.userLastName = localStorage.getItem("u-ln");
-    this.selectedGender = localStorage.getItem("u-g");
-    this.userAddStreet = localStorage.getItem("u-d-s");
-    this.userAddNr = localStorage.getItem("u-d-nr");
-    this.userAddZip = localStorage.getItem("u-d-z");
-    this.userAddCity = localStorage.getItem("u-d-c");
-    this.userAddCountry = localStorage.getItem("u-d-co");
-    this.userCountryCode = localStorage.getItem("u-code");
-    this.userNumberPre = localStorage.getItem("u-pre");
-    this.userNumber = localStorage.getItem("u-phone");
-    this.userAddressStreet = localStorage.getItem("u-d-s");
-    this.userAddressNr = localStorage.getItem("u-d-nr");
-    this.userAddressZip = localStorage.getItem("u-d-z");
-    this.userAddressCity = localStorage.getItem("u-d-c");
-    this.userAddressCountry = localStorage.getItem("u-d-co");
+
+
+
+
+    const storedUserName = localStorage.getItem("u-fn");
+    const storedLastUserName = localStorage.getItem("u-ln");
+    const storedGender = localStorage.getItem("u-ln");
+    const storedCompanyName = localStorage.getItem("com-name");
+		const storedAddressStreet = localStorage.getItem("u-d-s");
+		const storedAddressNr = localStorage.getItem("u-d-nr");
+    const storedAddressZip = localStorage.getItem("u-d-z");
+    const storedAddressCity = localStorage.getItem("u-d-c");
+    const storedAddressCountry = localStorage.getItem("u-d-co");
+		const storedCountryCode = localStorage.getItem("u-code");
+    const storedNumberPre = localStorage.getItem("u-pre");
+    const storedNumber = localStorage.getItem("u-phone");
+
+    this.userName = storedUserName == null ? storedUserName : "Noname";
+    this.userLastName = storedLastUserName == null ? storedLastUserName : "";
+    this.selectedGender = storedGender == null ? storedGender : "";
+    this.userAddressStreet = storedAddressStreet == null ? storedAddressStreet : "No Adress";
+    this.userAddressNr = storedAddressNr == null ? storedAddressNr : "";
+    this.userAddressZip = storedAddressZip == null ? storedAddressZip : "";
+    this.userAddressCity = storedAddressCity == null ? storedAddressCity : "";
+    this.userAddressCountry = storedAddressCountry == null ? storedAddressCountry : "";    this.userCountryCode = storedCountryCode == null ? storedCountryCode : "No Number";
+    this.userNumberPre = storedNumberPre == null ? storedNumberPre : "";
+    this.userNumber = storedNumber == null ? storedNumber : "";
+    this.companyName =
+      storedCompanyName == null ? storedCompanyName : "No Company";
   },
 };
 </script>
