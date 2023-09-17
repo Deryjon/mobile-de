@@ -33,6 +33,8 @@ export default {
 			title: "Côté conduite",
 			left: "Conduite à gauche",
 			right: "Conduite à droite"
+		},
+		car_filter:{
 		}
   },
 };

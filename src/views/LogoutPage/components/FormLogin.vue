@@ -411,6 +411,14 @@ export default {
             "u-d-co",
             responseData.data.user_address_country
           );
+          localStorage.setItem(
+            "u-img-prof",
+            responseData.data.user_image_url
+          );
+          localStorage.setItem(
+            "u-img-alt",
+            responseData.data.user_image_name
+          );
           localStorage.setItem("u-code", responseData.data.user_country_code);
           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);

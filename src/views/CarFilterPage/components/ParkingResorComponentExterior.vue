@@ -9,7 +9,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRear"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(0, 'Rear')"
         />
         <svg
           class="icon"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedFront"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Front')"
         />
         <svg
           class="icon"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedCamera"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Camera')"
         />
         <svg
           class="icon"
@@ -81,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isChecked360"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(3, '360° camera')"
         />
         <svg
           class="icon"
@@ -105,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSelf"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(4, 'Self-steering systems')"
         />
         <svg
           class="icon"
@@ -127,36 +127,46 @@
   </div>
 </template>
 <script>
-import { ref } from "vue";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-
+import http from '../../../axios.config'
 export default {
-  setup() {
-    const isCheckedRear = ref(false);
-    const isCheckedFront = ref(false);
-    const isCheckedCamera = ref(false);
-    const isChecked360 = ref(false);
-    const isCheckedSelf = ref(false);
-    const toggleShowCheckbox = (index) => {
-      for (let i = 0; i < isCheckedRear.length; i++) {
-        if (i !== index) {
-          isCheckedRear[i] = false;
-        }
-      }
-      isCheckedRear[index] = true;
-    };
-
+  data() {
     return {
-      isCheckedRear,
-      isCheckedFront,
-      isCheckedCamera,
-      isChecked360,
-      isCheckedSelf,
-      toggleShowCheckbox,
+      isCheckedRear: false,
+      isCheckedFront: false,
+      isCheckedCamera: false,
+      isChecked360: false,
+      isCheckedSelf: false,
+			selectedParking: []
     };
   },
-  data() {
-    return {};
+	methods: {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          parking_sensors: this.selectedParking,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error);
+        });
+    },
+    toggleShowCheckbox(index, parkingName) {
+      const isChecked = !this.selectedParking.includes(parkingName);
+      if (isChecked) {
+        this.selectedParking.push(parkingName);
+      } else {
+        const index = this.selectedParking.indexOf(parkingName);
+        if (index !== -1) {
+          this.selectedParking.splice(index, 1);
+        }
+      }
+      console.log("selectedParking изменен:", this.selectedParking)
+			this.fetchData()
+    },
   },
   components: { TrailerCoupling },
 };

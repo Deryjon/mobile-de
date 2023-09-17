@@ -1,5 +1,7 @@
 <template>
-  <div class="filter-cars flex flex-wrap gap-[40px] mt-[0px] lg:mt-[50px] p-[20px]">
+  <div
+    class="filter-cars flex flex-wrap gap-[40px] mt-[0px] lg:mt-[50px] p-[20px]"
+  >
     <!-- cabrio -->
     <label
       class="custom-checkbox flex gap-[10px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -7,7 +9,7 @@
       <input
         type="checkbox"
         v-model="isCheckedCabrio"
-        @click="toggleShowCheckbox(0)"
+        @click="toggleShowCheckbox(0, 'Cabrio / Roadster')"
       />
       <svg
         class="icon"
@@ -35,7 +37,7 @@
       <input
         type="checkbox"
         v-model="isCheckedEstate"
-        @click="toggleShowCheckbox(1)"
+        @click="toggleShowCheckbox(1, 'Estate Car')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
       <svg
@@ -65,7 +67,7 @@
       <input
         type="checkbox"
         v-model="isCheckedSaloon"
-        @click="toggleShowCheckbox(2)"
+        @click="toggleShowCheckbox(2, 'Saloon')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
 
@@ -97,7 +99,7 @@
       <input
         type="checkbox"
         v-model="isCheckedSmall"
-        @click="toggleShowCheckbox(3)"
+        @click="toggleShowCheckbox(3, 'Small Car')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
 
@@ -123,13 +125,11 @@
       <span class="text-sm">Small Car</span>
     </label>
     <!-- sports -->
-    <label
-      class="custom-checkbox flex items-center h-10 w-[230px] pb-[20px]"
-    >
+    <label class="custom-checkbox flex items-center h-10 w-[230px] pb-[20px]">
       <input
         type="checkbox"
         v-model="isCheckedSuper"
-        @click="toggleShowCheckbox(4)"
+        @click="toggleShowCheckbox(4, 'Sports Car / Coupe')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
 
@@ -161,7 +161,7 @@
       <input
         type="checkbox"
         v-model="isCheckedOff"
-        @click="toggleShowCheckbox(5)"
+        @click="toggleShowCheckbox(5, 'SUV / Off-road Vehicle / Pickup Truck')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
       <svg
@@ -192,7 +192,7 @@
       <input
         type="checkbox"
         v-model="isCheckedVan"
-        @click="toggleShowCheckbox()"
+        @click="toggleShowCheckbox(6, 'Van / Minibus')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
       <svg
@@ -219,39 +219,65 @@
   </div>
 </template>
 <script>
-import { ref } from "vue";
-
+import http from "../../../axios.config";
 export default {
-  setup() {
-    // ... (other data and methods)
-
-    const isCheckedVan = ref(false);
-    const isCheckedOff = ref(false);
-    const isCheckedSuper = ref(false);
-    const isCheckedSmall = ref(false);
-    const isCheckedSaloon = ref(false);
-    const isCheckedEstate = ref(false);
-    const isCheckedCabrio = ref(false);
-
-    const toggleShowCheckbox = (index) => {
-      isCheckedVan[index] = !isCheckedVan[index];
-    };
-
-    return {
-      isCheckedOff,
-      isCheckedSuper,
-      isCheckedSmall,
-      isCheckedSaloon,
-      isCheckedVan,
-      isCheckedEstate,
-      isCheckedCabrio,
-      toggleShowCheckbox,
-    };
-  },
   data() {
     return {
-      checkboxStatus: [false, false, false, false, false, false], // Add this array to store checkbox status
+      isCheckedVan: false,
+      isCheckedOff: false,
+      isCheckedSuper: false,
+      isCheckedSmall: false,
+      isCheckedSaloon: false,
+      isCheckedEstate: false,
+      isCheckedCabrio: false,
+      selectedCars: [],
     };
+  },
+  methods: {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          body: this.selectedCars,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error);
+        });
+    },
+    toggleShowCheckbox(index, carName) {
+      const isChecked = !this.selectedCars.includes(carName);
+      if (isChecked) {
+        this.selectedCars.push(carName);
+      } else {
+        const carIndex = this.selectedCars.indexOf(carName);
+        if (carIndex !== -1) {
+          this.selectedCars.splice(carIndex, 1);
+        }
+      }
+      console.log("selectedCars изменен:", this.selectedCars)
+			this.fetchData()
+    },
+  },
+  watch: {
+    // selectedCars(new, old) {
+    //   if (new !== old) {
+    //     http
+    //       .get("/cars/count", {
+    //         body: this.selectedCars,
+    //       })
+    //       .then((response) => {
+    //         const data = response.data;
+    //         console.log(data);
+    //       })
+    //       .catch((error) => {
+    //         console.error("Ошибка при выполнении запроса:", error);
+    //       });
+    //     console.log(123);
+    //   }
+    // },
   },
 };
 </script>

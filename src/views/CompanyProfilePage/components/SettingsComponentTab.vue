@@ -882,12 +882,29 @@
             <p class="font-normal">Private Account, registered since 2023</p>
           </div>
         </div>
-        <button
-          class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-          @click="deleteCompany"
-        >
-          Delete account
-        </button>
+        <v-dialog v-model="dialog" width="200px">
+              <template v-slot:activator="{ props }">
+								<button
+									class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+									v-bind="props"
+								>
+									Delete account
+								</button>
+              </template>
+
+              <v-card>
+                <v-card-text class="mx-auto"> Are you sure? </v-card-text>
+								<div class=" flex items-center w-[120px] mx-auto">
+
+									<v-card-actions>
+						<v-btn color="error" block @click="dialog = false">No</v-btn>
+					</v-card-actions>
+							 <v-card-actions>
+						<v-btn color="success" block @click="deleteCompany">Yes</v-btn>
+							 </v-card-actions>
+								</div>
+              </v-card>
+            </v-dialog>
       </div>
     </div>
   </div>
@@ -934,21 +951,19 @@ export default {
       changeContactData: false,
       companyDataChange: false,
       companyAddRadius: "",
+			dialog: false,
     };
   },
   methods: {
     deleteCompany() {
       http
-        .delete("/company/delete", {
-          company_id: this.companyI,
-        })
+        .delete(`/company/delete/${this.companyI}`)
         .then((response) => {
-          const responseData = response.data;
+					console.log(this.companyI);
 					localStorage.clear()
 					this.$router.push({ name: "home" });
-					window.location.reload(	)
-          console.log(responseData);
         });
+				this.dialog = false
     },
     addSettingsCompany() {
       console.log({

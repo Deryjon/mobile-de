@@ -1,8 +1,10 @@
 <template>
   <div class="condition p-[20px]">
     <h3 class="text-[14px]">Type and condition</h3>
-    <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
-      <label  >
+    <div
+      class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
+    >
+      <label>
         <input
           type="radio"
           v-model="selectedCondition"
@@ -11,14 +13,13 @@
             'bg-orange': selectedCondition === 'Any',
           }"
           class="ml-10px"
-					@click="selectCondition('Any')"
+          @click="selectCondition('Any')"
         />
-        <span class="ml-[10px] text-[14px]"   >Any</span>
+        <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label >
+      <label>
         <input
           type="radio"
-        
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'New',
@@ -28,21 +29,22 @@
         />
         <span class="ml-[10px] text-[14px]">New</span>
       </label>
-      <label  >
+      <label>
         <input
           type="radio"
-        
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Used',
             'bg-orange': selectedCondition === 'Used',
           }"
-					@click="selectCondition('Used')"
+          @click="selectCondition('Used')"
         />
         <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
-    <div class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]">
+    <div
+      class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]"
+    >
       <label
         class="custom-checkbox flex items-center h-10 w-[140px] pb-[23px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
@@ -53,7 +55,7 @@
           class="form-checkbox h-5 w-5 text-indigo-600"
           :class="{ 'bg-[#ccc] cursor-help': isRadioNewSelected }"
           v-model="isCheckedRegister"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(0, 'Pre-Registration')"
         />
         <svg
           class="icon"
@@ -79,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEmploy"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Employees Car')"
           :disabled="isRadioNewSelected"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
@@ -107,7 +109,7 @@
         <input
           type="checkbox"
           v-model="isCheckedClassic"
-          @click="toggleShowCheckbox(1)"
+          @click="toggleShowCheckbox(2, 'Classic Vehicle')"
           :disabled="isRadioNewSelected"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
@@ -135,7 +137,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDemon"
-          @click="toggleShowCheckbox(2)"
+          @click="toggleShowCheckbox(3, 'Demonstration Vehicle')"
           :disabled="isRadioNewSelected"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
@@ -160,7 +162,7 @@
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import http from "../../../axios.config";
 export default {
   data() {
     return {
@@ -169,60 +171,50 @@ export default {
       isUsedSelected: false,
       selectedCondition: "Any",
       isRadioNewSelected: false,
+      isCheckedRegister: false,
+      isCheckedEmploy: false,
+      isCheckedClassic: false,
+      isCheckedDemon: false,
+			type: []
     };
   },
-  setup() {
-    const isCheckedRegister = ref(false);
-    const isCheckedEmploy = ref(false);
-    const isCheckedClassic = ref(false);
-    const isCheckedDemon = ref(false);
-
-    const toggleShowCheckbox = (index) => {
-      isCheckedRegister[index] = !isCheckedRegister[index];
-    };
-
-    return {
-      isCheckedRegister,
-      isCheckedEmploy,
-      isCheckedDemon,
-      isCheckedClassic,
-      toggleShowCheckbox,
-    };
+  setup() {},
+  watch: {
+    selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
   },
   methods: {
-    toggleAnySelection() {
-      // Обработчик клика на "Any"
-      if (this.isAnySelected) {
-        // Если уже выбрано, меняем обратно на не выбрано
-        this.isAnySelected = false;
-      } else {
-        // Если не выбрано, делаем выбранным
-        this.isAnySelected = true;
-      }
+    fetchData() {
+      http
+        .get("/cars/count", {
+          car_condition: this.selectedCondition,
+					type: this.type
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
     },
-    toggleNewSelection() {
-      // Обработчик клика на "Any"
-      if (this.isNewSelected) {
-        // Если уже выбрано, меняем обратно на не выбрано
-        this.isNewSelected = false;
+		toggleShowCheckbox(index, typeName) {
+      const isChecked = !this.type.includes(typeName);
+      if (isChecked) {
+        this.type.push(typeName);
       } else {
-        // Если не выбрано, делаем выбранным
-        this.isNewSelected = true;
+        const typeIndex = this.type.indexOf(typeName);
+        if (typeIndex !== -1) {
+          this.type.splice(typeIndex, 1);
+        }
       }
-    },
-    toggleUsedSelection() {
-      // Обработчик клика на "Any"
-      if (this.isUsedSelected) {
-        // Если уже выбрано, меняем обратно на не выбрано
-        this.isUsedSelected = false;
-      } else {
-        // Если не выбрано, делаем выбранным
-        this.isUsedSelected = true;
-      }
+      console.log("selectedCars изменен:", this.type)
+			this.fetchData()
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
-      if (condition === "New") {		1
+      if (condition === "New") {
+        1;
         this.isRadioNewSelected = true;
         this.isCheckedRegister = false;
         this.isCheckedEmploy = false;
