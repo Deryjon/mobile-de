@@ -680,11 +680,29 @@
                 </p>
               </div>
             </div>
-            <button
-              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-            >
-              Delete account
-            </button>
+            <v-dialog v-model="dialog" width="200px">
+              <template v-slot:activator="{ props }">
+								<button
+									class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+									v-bind="props"
+								>
+									Delete account
+								</button>
+              </template>
+
+              <v-card>
+                <v-card-text class="mx-auto"> Are you sure? </v-card-text>
+								<div class=" flex items-center w-[120px] mx-auto">
+
+									<v-card-actions>
+						<v-btn color="error" block @click="dialog = false">No</v-btn>
+					</v-card-actions>
+							 <v-card-actions>
+						<v-btn color="success" block @click="userDelete">Yes</v-btn>
+							 </v-card-actions>
+								</div>
+              </v-card>
+            </v-dialog>
           </div>
         </div>
       </div>
@@ -728,6 +746,7 @@ export default {
       userName: "",
       userLastName: "",
       addressChange: false,
+      dialog: false,
       numberChanges: false,
       userPhoneNumber: "",
     };
@@ -751,7 +770,7 @@ export default {
         const responseData = response.data;
         localStorage.setItem("u-img-prof", responseData.data.user_image_url);
         localStorage.setItem("u-img-alt", responseData.data.user_image_name);
-				window.location.reload()
+        window.location.reload();
       });
     },
     changeContactDataNumber() {
@@ -823,6 +842,25 @@ export default {
         });
       window.location.reload();
     },
+		userDelete(){
+			http.delete("user/delete", {
+				id: this.userI
+			})
+			.then((res) => {
+				localStorage.clear()	
+				this.$router.push({ name: "home" });
+				if (localStorage.getItem("u-com") == null) {
+      localStorage.setItem("u-com", false);
+    } else if (localStorage.getItem("logged-in") == null){
+      localStorage.setItem("logged-in", false);
+
+		}
+				window.location.reload();
+
+			})
+			this.dialog = false
+
+		},
     openChangeName() {
       this.nameChange = !this.nameChange;
     },

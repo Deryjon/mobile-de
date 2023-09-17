@@ -135,7 +135,8 @@ export default defineComponent({
   data() {
     return {
       isProfileSetting: false,
-			userName: ""
+			userName: "Noname",
+			companyName: "No Company"
     };
   },
   methods: {
@@ -175,8 +176,13 @@ export default defineComponent({
     },
   },
 	created(){
-		this.userName = localStorage.getItem("u-fn")
-		this.companyName = localStorage.getItem("com-name")
+  const storedUserName = localStorage.getItem("u-fn");
+  const storedCompanyName = localStorage.getItem("com-name");
+
+  this.userName = storedUserName == null ? storedUserName : "Noname";
+  this.companyName = storedCompanyName == null ? storedCompanyName : "No Company";
+
+
 	}
 });
 </script>
