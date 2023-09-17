@@ -1,0 +1,12 @@
+node_modules/
+.vscode/
+*.log
+*.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+/.idea/
+/.vs/
+/.nuxt/
+/.DS_Store
+/Thumbs.db
