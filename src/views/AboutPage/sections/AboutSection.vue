@@ -1,9 +1,9 @@
 <template>
   <div> <!-- /template-->
-    <div class="container">
-        <div class="image-container" id="mobileoptimize">
+    <div class="container w-[1100px]">
+        <div class="image-container " id="mobileoptimize">
             <!-- img -->
-            <img src="./header.png" alt="" class="container-img-header" style="width: 100%; height: 100%;">
+            <img src="./header.png" alt="" class="container-img-header rounded-lg" style="width: 100%; height: 100%;">
         </div> <!-- /inage-container -->
         <div class="info-container">
             <div class="line-container">
@@ -123,11 +123,8 @@ export default {
 
 
 
-<style>
-.container {
-    border-radius: 8px;
-    border: 1px solid #757575;
-}
+<style scoped>
+
 
 .info-otder {
     border: 1px solid #757575;

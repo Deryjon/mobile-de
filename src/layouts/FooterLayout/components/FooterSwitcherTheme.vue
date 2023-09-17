@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-		<div class="">
+		<div class="relative">
 
 			<select @change="changeTheme" v-model="selectedTheme" class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]">
 				<option value="light">Light</option>
