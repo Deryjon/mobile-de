@@ -101,10 +101,10 @@
       </div>
     </div>
 
-    <div class="filter-cars flex flex-wrap gap-[15px] mt-[0px] lg:mt-[50px]">
+    <div class="filter-cars flex flex-wrap gap-[50px] mt-[0px] lg:mt-[50px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox p-[0] gap-[10px] flex items-center h-[40px] w-[250px]"
+        class="custom-checkbox p-[0] gap-[10px] flex items-center h-[40px] w-[230px]"
       >
         <input
           type="radio"
@@ -118,23 +118,23 @@
         <img
           src="../../../assets/icons/cabriolet-icon.svg"
           alt=""
-          class="w-[90px] pt-[20px]"
+          class="w-[90px]  pt-[20px]"
         />
         <span class="text-sm"> Cabrio / Roadster</span>
       </label>
       <!-- estate -->
       <label
         class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]"
-      >
+				>
         <input
+				@click="selectCar('Estate Car')"
           type="radio"
           v-model="selectedCar"
           :class="{
             'bg-transparent': selectedCar !== 'Estate Car',
             'bg-orange': selectedCar === 'Estate Car',
           }"
-          @click="selectCar('Estate Car')"
-          class="form-checkbox h-7 w-7 text-indigo-600"
+        
         />
         <img
           src="../../../assets/icons/estate-car-icon.svg"
@@ -190,7 +190,7 @@
       </label>
       <!-- sports -->
       <label
-        class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[280px]20px]"
+        class="custom-checkbox p-[0] gap-[10px] flex items-center h-8 w-[280px]20px]"
       >
         <input
           type="radio"
