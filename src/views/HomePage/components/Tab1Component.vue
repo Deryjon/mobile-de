@@ -605,7 +605,7 @@ export default {
       this.isOpen = false;
     },
     selectKilometer(option) {
-      this.inputKilometer = option;
+      this.inputKilometer	 = option;
       this.isOpenKilometer = false;
       localStorage.setItem("kilometer", this.inputKilometer);
     },
