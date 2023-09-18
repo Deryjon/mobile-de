@@ -2032,6 +2032,892 @@
         </button>
       </div>
     </div>
+		<div class="interior" v-if="interiorAdd">
+			<div class="mt-[30px]">
+      <h3>Interior Colour</h3>
+      <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox p-0 custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+        >
+          <input
+            type="radio"
+            @click="selectInteriorColour('Beige')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Beige',
+              'bg-orange': selectedInteriorColour === 'Beige',
+            }"
+          />
+
+          Beige
+        </label>
+        <label
+          class="custom-checkbox p-0 custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+        >
+          <input
+            type="radio"
+            @click="selectInteriorColour('Brown')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Brown',
+              'bg-orange': selectedInteriorColour === 'Brown',
+            }"
+          />
+
+          Brown
+        </label>
+        <label
+          class="custom-checkbox p-0 custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px]"
+        >
+          <input
+            type="radio"
+            @click="selectInteriorColour('Grey')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Grey',
+              'bg-orange': selectedInteriorColour === 'Grey',
+            }"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-[14px]">Grey</span>
+        </label>
+        <!-- off-road -->
+        <label
+          class="custom-checkbox p-0 custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+        >
+          <input
+            type="radio"
+            @click="selectInteriorColour('Black')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Black',
+              'bg-orange': selectedInteriorColour === 'Black',
+            }"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-sm">Black</span>
+        </label>
+        <!-- off-road -->
+        <label
+          class="custom-checkbox p-0 custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+        >
+          <input
+            type="radio"
+            @click="selectInteriorColour('Other')"
+            v-model="selectedInteriorColour"
+            :class="{
+              'bg-transparent': selectedInteriorColour !== 'Other',
+              'bg-orange': selectedInteriorColour === 'Other',
+            }"
+            class="form-checkbox h-5 w-5 text-indigo-600"
+          />
+
+          <span class="text-sm">Other</span>
+        </label>
+      </div>
+    </div>
+    <div class="mt-[20px]">
+      <h3>Interior material</h3>
+      <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedAlcantra"
+            @click="toggleShowCheckboxMaterial(0, 'Alcantra')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedAlcantra"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Alcantra
+        </label>
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedCloth"
+            @click="toggleShowCheckboxMaterial(1, 'Cloth')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedCloth"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Cloth
+        </label>
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedPartLeather"
+            @click="toggleShowCheckboxMaterial(2, 'Part leather')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedPartLeather"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Part leather
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedVelour"
+            @click="toggleShowCheckboxMaterial(3, 'Velour')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedVelour"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Velour
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedFullLeather"
+            @click="toggleShowCheckboxMaterial(4, 'Full Leather')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedFullLeather"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Full Leather
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedOther"
+            @click="toggleShowCheckboxMaterial(5, 'Other')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedOther"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Other
+        </label>
+      </div>
+    </div>
+    <div class="condition mt-[30px]">
+      <h3>Airbags</h3>
+      <div class="radios-type flex flex-wrap gap-[30px] mt-[10px] xl:mt-[20px]">
+        <label for="driver-airbag">
+          <input
+            type="radio"
+            id="driver-airbag"
+            v-model="selectedAirbag"
+            :class="{
+              'bg-transparent': selectedAirbag !== 'Driver',
+              'bg-orange': selectedAirbag === 'Driver',
+            }"
+            @click="selectAirbag('Driver')"
+          />
+          <span class="ml-[2px] xl:ml-[10px] text-[14px]">Driver Airbag </span>
+        </label>
+        <label for="front-airbag" >
+          <input
+            type="radio"
+            id="front-airbag"
+            v-model="selectedAirbag"
+            :class="{
+              'bg-transparent': selectedAirbag !== 'Front',
+              'bg-orange': selectedAirbag === 'Front',
+            }"
+						@click="selectAirbag('Front')"
+          />
+          <span class="ml-[2px] xl:ml-[10px] text-[14px]">Front Airbags</span>
+        </label>
+
+        <label for="side-airbag" >
+          <input
+            type="radio"
+            id="side-airbag"
+            v-model="selectedAirbag"
+            :class="{
+              'bg-transparent': selectedAirbag !== 'FrontAndSide',
+              'bg-orange': selectedAirbag === 'FrontAndSide',
+            }"
+						@click="selectAirbag('FrontAndSide')"
+          />
+          <span class="ml-[2px] xl:ml-[10px] text-[14px]"
+            >Front and Side Airbags
+          </span>
+
+        </label>
+        <label for="more-airbag" >
+          <input
+            type="radio"
+            id="more-airbag"
+            v-model="selectedAirbag"
+            :class="{
+              'bg-transparent': selectedAirbag !== 'FrontAndSideMore',
+              'bg-orange': selectedAirbag === 'FrontAndSideMore',
+            }"
+						@click="selectAirbag('FrontAndSideMore')"
+          />
+          <span class="ml-[2px] xl:ml-[10px] text-[14px]"
+            >Front and Side and More Airbags
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="condition mt-[40px]">
+      <h3 class="text-[16px]">Air conditioning</h3>
+      <div
+        class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]"
+      >
+        <label class="w-[250px]" for="manual">
+          <input
+            type="radio"
+            id="manual"
+            v-model="selectedConditioning"
+            :class="{
+              'bg-transparent': selectedConditioning !== 'Manual',
+              'bg-orange': selectedConditioning === 'Manual',
+            }"
+            @click="selectAirConditioning('Manual')"
+          />
+          <span class="ml-[10px] text-[14px]"
+            >Manual or automatic climatisation
+          </span>
+        </label>
+        <label
+          class="w-[250px]"
+          for="auto-climat"
+         
+        >
+          <input
+            type="radio"
+            id="auto-climat"
+            v-model="selectedConditioning"
+            :class="{
+              'bg-transparent': selectedConditioning !== 'Auto-Climat',
+              'bg-orange': selectedConditioning === 'Auto-Climat',
+            }"
+						 @click="selectAirConditioning('Auto-Climat')"
+          />
+          <span class="ml-[10px] text-[14px]"
+            >Automatic climatisation, 2 zones
+          </span>
+        </label>
+
+        <label
+          class="w-[250px]"
+          for="auto2"
+          
+        >
+          <input
+            type="radio"
+            id="auto2"
+            v-model="selectedConditioning"
+            :class="{
+              'bg-transparent': selectedConditioning !== 'Auto-Climat2',
+              'bg-orange': selectedConditioning === 'Auto-Climat2',
+            }"
+						@click="selectAirConditioning('Auto-Climat2')"
+          />
+          <span class="ml-[10px] text-[14px]"
+            >Automatic climatisation, 4 zones</span
+          >
+        </label>
+        <label class="w-[200px]" >
+          <input
+            type="radio"
+            v-model="selectedConditioning"
+            :class="{
+              'bg-transparent': selectedConditioning !== 'NoClimat',
+              'bg-orange': selectedConditioning === 'NoClimat',
+            }"
+						@click="selectAirConditioning('NoClimat')"
+          />
+          <span class="ml-[10px] text-[14px]">No climatisation</span>
+        </label>
+        <label class="w-[200px]" >
+          <input
+            type="radio"
+            v-model="selectedConditioning"
+            :class="{
+              'bg-transparent': selectedConditioning !== 'AutoClimat',
+              'bg-orange': selectedConditioning === 'AutoClimat',
+            }"
+						@click="selectAirConditioning('AutoClimat')"
+          />
+          <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
+        </label>
+        <label class="w-[250px]" >
+          <input
+            type="radio"
+            v-model="selectedConditioning"
+            :class="{
+              'bg-transparent': selectedConditioning !== 'Auto-Climat3',
+              'bg-orange': selectedConditioning === 'Auto-Climat3',
+            }"
+						@click="selectAirConditioning('Auto-Climat3')"
+          />
+          <span class="ml-[10px] text-[14px]"
+            >Automatic climatisation, 3 zones
+          </span>
+        </label>
+      </div>
+    </div>
+    <div class="mt-[40px]">
+      <h3 class="text-[16px]">Extras</h3>
+      <div
+        class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]"
+      >
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedAlarmSystem"
+            @click="toggleShowCheckboxExtras(0, 'Alarm System')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedAlarmSystem"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Alarm System
+        </label>
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedDisable"
+            @click="toggleShowCheckboxExtras(1, 'Disabled accessible')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedDisable"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Disabled accessible
+        </label>
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedHeated"
+            @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedHeated"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Heated steering whee
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedSeat"
+            @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedSeat"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Seat ventilation
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedAmbient"
+            @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedAmbient"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Ambient lighting
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedElectric"
+            @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedElectric"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Electric backseat adjustment
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedInduction"
+            @click="
+              toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
+            "
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedInduction"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Induction charging for smartphones
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedSki"
+            @click="toggleShowCheckboxExtras(7, 'Ski bag')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedSki"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Ski bag
+        </label>
+      </div>
+    </div>
+    <div class="condition mt-[30px]">
+      <h3 class="text-[16px]">Vendor</h3>
+      <div class="radios-type flex gap-[40px] mt-[20px]">
+        <label >
+          <input
+            type="radio"
+            id="vendor-private"
+            v-model="selectedVendor"
+            :class="{
+              'bg-transparent': selectedVendor !== 'Private',
+              'bg-orange': selectedVendor === 'Private',
+            }"
+            @click="selectVendor('Private')"
+          />
+          <span class="ml-[10px] text-[14px]">Private seller</span>
+        </label>
+        <label  >
+          <input
+            type="radio"
+            id="vendor-dealer"
+            v-model="selectedVendor"
+            :class="{
+              'bg-transparent': selectedVendor !== 'Dealer',
+              'bg-orange': selectedVendor === 'Dealer',
+            }"
+						@click="selectVendor('Dealer')"
+          />
+          <span class="ml-[10px] text-[14px]">Dealer </span>
+        </label>
+        <label  >
+          <input
+            type="radio"
+            id="vendor-dealer"
+            v-model="selectedVendor"
+            :class="{
+              'bg-transparent': selectedVendor !== 'Company',
+              'bg-orange': selectedVendor === 'Company',
+            }"
+						@click="selectVendor('Company')"
+          />
+          <span class="ml-[10px] text-[14px]">Company vehicles</span>
+        </label>
+      </div>
+    </div>
+    <div class="mt-[30px]">
+      <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedDiscount"
+            @click="toggleShowCheckboxAds(0)"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedDiscount"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Discount offers
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedNon"
+            @click="toggleShowCheckboxAds(0)"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedNon"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Non-smoker vehicle
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedTaxi"
+            @click="toggleShowCheckboxAds(0)"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedTaxi"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Taxi
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedVAT"
+            @click="toggleShowCheckboxAds(0)"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedVAT"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          VAT reclaimable
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedWarranty"
+            @click="toggleShowCheckboxAds(0)"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedWarranty"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Warranty
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedEnvironmental"
+            @click="toggleShowCheckboxAds(0)"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedEnvironmental"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          With environmental bonus
+        </label>
+      </div>
+    </div>
+    <div class="flex items-center gap-[50px]">
+      <div class="relative mt-2 w-[200px]">
+        <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
+        <select
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="damageVehicle"
+        >
+          <option value="any" selected>Any</option>
+          <option value="not">Do not show</option>
+          <option value="only">Only show</option>
+        </select>
+        <span
+          class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+        ></span>
+      </div>
+      <div class="relative mt-2 w-[200px]">
+        <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
+        <select
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="exportCommercial"
+        >
+          <option value="any" selected>Any</option>
+          <option value="not">Do not show</option>
+          <option value="only">Only show</option>
+        </select>
+        <span
+          class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+        ></span>
+      </div>
+      <div class="relative mt-2 w-[200px]">
+        <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
+        <select
+          class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="approveUsed"
+        >
+          <option value="">Please select</option>
+          <option value="Any">Any approved label</option>
+          <option value="ASTON_MARTIN">Aston Martin Timeless</option>
+          <option value="BMW">BMW Premium Selection</option>
+          <option value="BENTLEY">Certified by Bentley</option>
+          <option value="DS_CERTIFIED">DS Certified</option>
+          <option value="FERRARI">Ferrari Approved</option>
+          <option value="HYUNDAI_PROMISE">Hyundai Promise</option>
+          <option value="JAGUAR">Jaguar APPROVED</option>
+          <option value="KIA_ZERTIFIZIERTE_GEBRAUCHTWAGEN">
+            Kia Zertifizierte Gebrauchtwagen
+          </option>
+          <option value="LANDROVER">Land Rover APPROVED</option>
+          <option value="MASERATI">Maserati Approved</option>
+          <option value="MERCEDES_TRANSPORTER">
+            Mercedes-Benz Junge Sterne Transporter
+          </option>
+          <option value="MINI">MINI Gebrauchtwagen Next</option>
+          <option value="NISSAN">Nissan Intelligent Choice</option>
+          <option value="PORSCHE">Porsche Approved</option>
+          <option value="SEAT">SEAT "Das Weltauto"</option>
+          <option value="LAMBORGHINI">
+            Selezione Lamborghini Certified Pre-Owned
+          </option>
+          <option value="SKODA">ŠKODA Plus</option>
+          <option value="SPOTICAR">SPOTICAR</option>
+          <option value="VW_TRADEPORT">Volkswagen TradePort</option>
+          <option value="VOLVO">VOLVO SELEKT</option>
+        </select>
+        <span
+          class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+        ></span>
+      </div>
+    </div>
+    <div class="">
+      <h2 class="mt-[30px] text-[16px]">Description</h2>
+      <textarea
+        class="bg-[#ccc] mt-[10px] p-[20px]"
+        name=""
+        id=""
+        cols="40"
+        rows="5"
+        placeholder="Description "
+        v-model="descriptionText"
+      ></textarea>
+    </div>
+    <div>
+      <div class="flex gap-[30px] justify-end">
+        <button class="bg-red-500 rounded-[8px] p-[10px]"
+				@click="cancelAdCar"
+				>Cancel</button>
+        <button @click="addAdCars" class="bg-blue-500 rounded-[8px] p-[10px]">
+          Create Add
+        </button>
+      </div>
+    </div>
+		</div>
   </div>
 </template>
 <script>
@@ -2072,6 +2958,7 @@ export default {
   },
   data() {
     return {
+			interiorAdd: false,
       fuelAdd: false,
       basicAdd: true,
       makes: [],
@@ -2261,30 +3148,8 @@ export default {
         });
     },
     thenPowerAdd() {
-      console.log({
-        photos: this.selectedFiles,
-        user_id: this.userI,
-        car_make: this.selectedMark,
-        car_model: this.selectedModel,
-        car_description: this.descriptionText,
-        car_variant: this.inputVariant,
-        car_body: this.selectedCar,
-        car_number_seats: this.numberSeats,
-        car_number_door: this.numDoor,
-        car_silding_door: this.slidingDoor,
-        car_condition: this.selectedCondition,
-        car_type: this.type,
-        car_payment_type: this.activeTab,
-        car_price: this.price,
-        car_firt_date_year: this.inputValue,
-        car_mileage: this.inputKilometer,
-        car_hu_valid_until: this.huValid,
-        car_previous_owners: this.preOwners,
-        car_full_service_history: this.isCheckedHistory,
-        car_roadworthy: this.isCheckedRoad,
-        car_country: this.selectedCountry,
-        car_city_zipcode: this.zipCode,
-        car_radius: this.radius,
+      http.edit("/car/add/engine", {
+				car_id,
         car_fuel_type: this.selectedFuel,
         car_power: this.power,
         car_cubic_capacity: this.cubic,
@@ -2297,10 +3162,15 @@ export default {
         car_parking_sensors: this.selectedParking,
         car_cruise_control: this.selectedCruise,
         others: this.others,
-      });
+      })
+			.then((res) => {
+				console.log(res.data);
+				this.fuelAdd = !this.fuelAdd;
+				this.interiorAdd = !this.interiorAdd
+			})
     },
     thenAddsInterior() {
-      console.log({
+      http.edit("/car/add/engine",{
         car_interior_colour: this.selectedInteriorColour,
         car_interior_material: this.selectedInteriorColour,
         car_airbags: this.selectedAirbag,
@@ -2316,9 +3186,7 @@ export default {
         car_damaged: this.damageVehicle,
         car_commercial: this.exportCommercial,
         car_programme: this.approveUsed,
-        car_vide_link: this.linkVideo,
-        user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
-        user_email: this.uEmail,
+				car_description: this.descriptionText
       });
     },
     openFileInput() {
