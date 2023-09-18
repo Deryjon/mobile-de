@@ -591,13 +591,94 @@
           >
             {{ option }}
           </li>
-          <li key="1985" @click="selectOption('1985')">1985</li>
-          <li key="1980" @click="selectOption('1980')">1980</li>
-          <li key="1975" @click="selectOption('1975')">1975</li>
-          <li key="1970" @click="selectOption('1970')">1970</li>
-          <li key="1965" @click="selectOption('1965')">1965</li>
-          <li key="1960" @click="selectOption('1960')">1960</li>
-          <li key="1900" @click="selectOption('1900')">1900</li>
+          <li @click="selectOption('1989')">1989</li>
+          <li @click="selectOption('1988')">1988</li>
+          <li @click="selectOption('1987')">1987</li>
+          <li @click="selectOption('1986')">1986</li>
+          <li @click="selectOption('1985')">1985</li>
+          <li @click="selectOption('1984')">1984</li>
+          <li @click="selectOption('1983')">1983</li>
+          <li @click="selectOption('1982')">1982</li>
+          <li @click="selectOption('1981')">1981</li>
+          <li @click="selectOption('1980')">1980</li>
+          <li @click="selectOption('1979')">1979</li>
+          <li @click="selectOption('1978')">1978</li>
+          <li @click="selectOption('1977')">1977</li>
+          <li @click="selectOption('1976')">1976</li>
+          <li @click="selectOption('1975')">1975</li>
+          <li @click="selectOption('1974')">1974</li>
+          <li @click="selectOption('1973')">1973</li>
+          <li @click="selectOption('1972')">1972</li>
+          <li @click="selectOption('1971')">1971</li>
+          <li @click="selectOption('1970')">1970</li>
+          <li @click="selectOption('1969')">1969</li>
+          <li @click="selectOption('1968')">1968</li>
+          <li @click="selectOption('1967')">1967</li>
+          <li @click="selectOption('1966')">1966</li>
+          <li @click="selectOption('1965')">1965</li>
+          <li @click="selectOption('1964')">1964</li>
+          <li @click="selectOption('1963')">1963</li>
+          <li @click="selectOption('1962')">1962</li>
+          <li @click="selectOption('1961')">1961</li>
+          <li @click="selectOption('1960')">1960</li>
+          <li @click="selectOption('1959')">1959</li>
+          <li @click="selectOption('1958')">1958</li>
+          <li @click="selectOption('1957')">1957</li>
+          <li @click="selectOption('1956')">1956</li>
+          <li @click="selectOption('1955')">1955</li>
+          <li @click="selectOption('1954')">1954</li>
+          <li @click="selectOption('1953')">1953</li>
+          <li @click="selectOption('1952')">1952</li>
+          <li @click="selectOption('1951')">1951</li>
+          <li @click="selectOption('1950')">1950</li>
+          <li @click="selectOption('1949')">1949</li>
+          <li @click="selectOption('1948')">1948</li>
+          <li @click="selectOption('1947')">1947</li>
+          <li @click="selectOption('1946')">1946</li>
+          <li @click="selectOption('1945')">1945</li>
+          <li @click="selectOption('1944')">1944</li>
+          <li @click="selectOption('1943')">1943</li>
+          <li @click="selectOption('1942')">1942</li>
+          <li @click="selectOption('1941')">1941</li>
+          <li @click="selectOption('1939')">1939</li>
+          <li @click="selectOption('1938')">1938</li>
+          <li @click="selectOption('1937')">1937</li>
+          <li @click="selectOption('1936')">1936</li>
+          <li @click="selectOption('1935')">1935</li>
+          <li @click="selectOption('1934')">1934</li>
+          <li @click="selectOption('1933')">1933</li>
+          <li @click="selectOption('1932')">1932</li>
+          <li @click="selectOption('1931')">1931</li>
+          <li @click="selectOption('1930')">1930</li>
+          <li @click="selectOption('1929')">1929</li>
+          <li @click="selectOption('1928')">1928</li>
+          <li @click="selectOption('1927')">1927</li>
+          <li @click="selectOption('1926')">1926</li>
+          <li @click="selectOption('1925')">1925</li>
+          <li @click="selectOption('1924')">1924</li>
+          <li @click="selectOption('1923')">1923</li>
+          <li @click="selectOption('1922')">1922</li>
+          <li @click="selectOption('1921')">1921</li>
+          <li @click="selectOption('1920')">1920</li>
+          <li @click="selectOption('1919')">1919</li>
+          <li @click="selectOption('1918')">1918</li>
+          <li @click="selectOption('1917')">1917</li>
+          <li @click="selectOption('1916')">1916</li>
+          <li @click="selectOption('1915')">1915</li>
+          <li @click="selectOption('1914')">1914</li>
+          <li @click="selectOption('1913')">1913</li>
+          <li @click="selectOption('1912')">1912</li>
+          <li @click="selectOption('1911')">1911</li>
+          <li @click="selectOption('1910')">1910</li>
+          <li @click="selectOption('1909')">1909</li>
+          <li @click="selectOption('1908')">1908</li>
+          <li @click="selectOption('1907')">1907</li>
+          <li @click="selectOption('1906')">1906</li>
+          <li @click="selectOption('1905')">1905</li>
+          <li @click="selectOption('1904')">1904</li>
+          <li @click="selectOption('1903')">1903</li>
+          <li @click="selectOption('1902')">1902</li>
+          <li @click="selectOption('1901')">1901</li>
         </ul>
       </div>
       <div class="kilometer dropdown-container">
@@ -2924,6 +3005,7 @@
 </template>
 <script>
 import { ref } from "vue";
+import axios from "axios"
 import http from "../../../axios.config";
 export default {
   setup() {
@@ -2998,7 +3080,7 @@ export default {
       years: "",
       killometres: "",
       inputValue: "",
-      isOpen: false,
+      isOpen: true,
       selectedPrice: "",
       huValid: "14600",
       preOwners: "any",
@@ -3051,6 +3133,8 @@ export default {
 			userPre: "",
 			combinedNumber: "",
 			selectedTransmision: "",
+			filteredOptions: [],
+			options: ""
     };
   },
   methods: {
@@ -3254,7 +3338,7 @@ console.log({
     selectAirbag(condition) {
       this.selectedAirbag = condition;
     },
-    openRadiusDropdown() {
+    openRadiusDropdown() { 
       this.isOpenRadius = true;
       this.filteredOptions = this.options;
       document.addEventListener(
@@ -3463,6 +3547,18 @@ console.log({
         this.isRadioNewSelected = false;
       }
     },
+		fetchModelYears() {
+      const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
+      axios
+        .get(apiUrl)
+        .then((response) => {
+          const data = response.data;
+          this.filteredOptions = data.Results.map((result) => result.ModelYear);
+        })
+        .catch((error) => {
+          console.error("Error fetching model years:", error);
+        });
+    },
   },
   mounted() {
     this.selectedMark = localStorage.getItem("mark");
@@ -3487,6 +3583,7 @@ console.log({
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+			this.fetchModelYears();
   },
 };
 </script>
