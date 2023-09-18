@@ -886,38 +886,53 @@ export default {
     this.userECh = localStorage.getItem("u-e");
     this.userName = localStorage.getItem("u-fn");
     this.userName = localStorage.getItem("u-fn");
+    if (this.userName === "null") {
+      this.userName = "Noname";
+    }
+    this.userLastName = localStorage.getItem("u-ln");
+    if (this.userLastName === "null") {
+      this.userLastName = "";
+    }
+    this.selectedGender = localStorage.getItem("u-g");
+    if (this.userLastName === "null") {
+      this.userLastName = "";
+    }
+    this.userAddressStreet = localStorage.getItem("u-d-s");
+    if (this.userAddressStreet === "null") {
+      this.userAddressStreet = "No Address";
+    }
+    this.userAddressNr = localStorage.getItem("u-d-nr");
 
-			if (this.userName === 'null') {
-				this.userName = "Noname";
-			}
+    if (this.userAddressNr === "null") {
+      this.userAddressNr = "";
+    }
+    this.userAddressZip = localStorage.getItem("u-d-z");
 
-    const storedLastUserName = localStorage.getItem("u-ln");
-    const storedGender = localStorage.getItem("u-ln");
-    const storedCompanyName = localStorage.getItem("com-name");
-    const storedAddressStreet = localStorage.getItem("u-d-s");
-    const storedAddressNr = localStorage.getItem("u-d-nr");
-    const storedAddressZip = localStorage.getItem("u-d-z");
-    const storedAddressCity = localStorage.getItem("u-d-c");
-    const storedAddressCountry = localStorage.getItem("u-d-co");
-    const storedCountryCode = localStorage.getItem("u-code");
-    const storedNumberPre = localStorage.getItem("u-pre");
-    const storedNumber = localStorage.getItem("u-phone");
+    if (this.userAddressZip === "null") {
+      this.userAddressZip = "";
+    }
+    this.userAddressCity = localStorage.getItem("u-d-c");
 
-    this.userLastName = storedLastUserName == null ? storedLastUserName : "";
-    this.selectedGender = storedGender == null ? storedGender : "";
-    this.userAddressStreet =
-      storedAddressStreet == null ? storedAddressStreet : "No Adress";
-    this.userAddressNr = storedAddressNr == null ? storedAddressNr : "";
-    this.userAddressZip = storedAddressZip == null ? storedAddressZip : "";
-    this.userAddressCity = storedAddressCity == null ? storedAddressCity : "";
-    this.userAddressCountry =
-      storedAddressCountry == null ? storedAddressCountry : "";
-    this.userCountryCode =
-      storedCountryCode == null ? storedCountryCode : "No Number";
-    this.userNumberPre = storedNumberPre == null ? storedNumberPre : "";
-    this.userNumber = storedNumber == null ? storedNumber : "";
-    this.companyName =
-      storedCompanyName == null ? storedCompanyName : "No Company";
+    if ((this.userAddressCity = "null")) {
+      this.userAddressCity = "";
+    }
+    this.userAddressCountry = localStorage.getItem("u-d-co");
+
+    if (this.userAddressCountry === "null") {
+      this.userAddressCountry = "";
+    }
+    this.userCountryCode = localStorage.getItem("u-code");
+    if (this.userCountryCode === "null") {
+      this.userCountryCode = "No Number";
+    }
+    this.userNumberPre = localStorage.getItem("u-pre");
+    if (this.userNumberPre === "null") {
+      this.userNumberPre = "";
+    }
+    this.userNumber = localStorage.getItem("u-phone");
+    if (this.userNumber === "null") {
+      this.userNumber = "";
+    }
   },
 };
 </script>
