@@ -94,15 +94,7 @@ Sellcenter.com также предлагает различные способы
 <script>
 export default {
   mounted() {
-    const image = new Image();
-    image.src = "./header.png";
-    image.onload = () => {
-      // Добавляем изображение в кэш
-      const cacheName = "imageCache";
-      caches.open(cacheName).then(cache => {
-        cache.add(image.src);
-      });
-    };
+ 
     if (window.innerWidth <= 768) {
       // Сжатие изображения для мобильных устройств
       const canvas = document.createElement("canvas");

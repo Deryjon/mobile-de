@@ -6,7 +6,7 @@
 			<li class="text text-[14px]"><a href="">Register	</a></li>
 			<li class="text text-[14px]"><a href="">Our Offer</a></li>
 			<li class="text text-[14px]"><a href="">Price list</a></li>
-			<li class="text text-[14px]"><a href="">erms and Conditions</a></li>
+			<li class="text text-[14px]"><a href="">Terms and Conditions</a></li>
 		</ul>
 	</div>
 </template>

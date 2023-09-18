@@ -3,11 +3,11 @@
     <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
     </div>
     <section
-      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex">
+      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex p-[40px]">
 
 
-    <div class="car-list">
-      <div class="car-element-list">
+    <div class="car-list ">
+      <div class="car-element-list w-full">
         <div class="product">
 
         <img src="https://img.classistatic.de/api/v1/mo-prod/images/15/15211295-0c43-40f8-bfe2-1643a9949c57?rule=mo-160.jpg" class="product-image">
@@ -184,7 +184,9 @@ export default {
 
 .car-list {
   display: flex;
-  flex-wrap: wrap
+  flex-wrap: wrap;
+	margin: 0 auto;
+
 }
 
 .car-element-list {
