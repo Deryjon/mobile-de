@@ -31,13 +31,13 @@
           </svg>
           <p
             v-if="!uComValue"
-            class="font-bold text-[#47f353eb] py-2 text-[16px] rounded-[8px]"
+            class="font-bold text-[#479ef3eb] py-2 text-[16px] rounded-[8px]"
           >
             {{ userName }}
           </p>
           <p
             v-if="uComValue"
-            class="font-bold text-[#47f353eb] py-2 text-[16px] rounded-[8px]"
+            class="font-bold text-[#479ef3eb] py-2 text-[16px] rounded-[8px]"
           >
             {{ companyName }}
           </p>

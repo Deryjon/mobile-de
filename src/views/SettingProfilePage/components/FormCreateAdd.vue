@@ -890,7 +890,7 @@
           <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
           <input
             class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
-            type="number"
+            type="text"
             pattern="\d*"
             v-model="zipCode"
           />
@@ -2869,7 +2869,7 @@
         <button class="bg-red-500 rounded-[8px] p-[10px]"
 				@click="cancelAdCar"
 				>Cancel</button>
-        <button @click="addAdCars" class="bg-blue-500 rounded-[8px] p-[10px]">
+        <button @click="thenAddsInterior" class="bg-blue-500 rounded-[8px] p-[10px]">
           Create Add
         </button>
       </div>
@@ -2915,9 +2915,9 @@ export default {
   },
   data() {
     return {
-			interiorAdd: false,
+			interiorAdd: true,
       fuelAdd: false,
-      basicAdd: true,
+      basicAdd: false,
       makes: [],
       models: [],
       selectedMark: "14600",
@@ -3098,29 +3098,28 @@ export default {
           // user_email: this.uEmail,
         })
         .then((response) => {
-          const responseData = response.data;
-          const carId = responseData.car_id;
-  localStorage.setItem('car_id', carId);
+          const responseData = response.data.data;
+  localStorage.setItem('car_id', responseData.car_id);
           this.basicAdd = !this.basicAdd;
           this.fuelAdd = !this.fuelAdd;
-          console.log(responseData);
+          console.log(responseData.car_id);
         });
     },
     thenPowerAdd() {
-      http.edit("/car/add/engine", {
+      http.put("/car/add/engine", {
 				car_id: localStorage.getItem('car_id'),
         car_fuel_type: this.selectedFuel,
         car_power: parseInt(this.power),
         car_cubic_capacity: parseInt(this.cubic),
         car_transmission: this.transmission,
-        car_fuel_consumption: this.consumptionFuel,
+        car_fuel_consumption: parseInt(this.consumptionFuel),
         car_emissions_sticker: this.stickerEmission,
         car_emission_class: this.classEmision,
         car_exterior_colour: this.selectedExteriorColour,
         car_trailer_coupling: this.selectedTrailer,
         car_parking_sensors: this.selectedParking,
         car_cruise_control: this.selectedCruise,
-        others: this.others,
+        others: this.selectedOthers,
       })
 			.then((res) => {
 				console.log(res.data);
@@ -3129,13 +3128,15 @@ export default {
 			})
     },
     thenAddsInterior() {
-      http.edit("/car/add/engine",{
+      http.put("/car/add/interior",{
+				car_id: localStorage.getItem('car_id'),
         car_interior_colour: this.selectedInteriorColour,
         car_interior_material: this.selectedInteriorColour,
         car_airbags: this.selectedAirbag,
         car_air_conditioning: this.selectAirConditioning,
         extras: this.extras,
         car_vendor: this.selectedVendor,
+				car_discount_offers: 3,
         car_discount_offers: this.isCheckedDiscount,
         car_non_smoker: this.isCheckedNon,
         car_taxi: this.isCheckedTaxi,
