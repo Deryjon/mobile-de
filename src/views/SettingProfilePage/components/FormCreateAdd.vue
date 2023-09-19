@@ -382,116 +382,73 @@
           class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]"
         >
           <label
-            class="custom-checkbox flex items-center h-10 w-[140px] pb-[23px]"
+            class=" gap-2 flex items-center h-10 w-[140px] pb-[23px]"
             :class="{ 'opacity-20': isRadioNewSelected }"
           >
             <input
-              type="checkbox"
+            
               :disabled="isRadioNewSelected"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-              :class="{ 'bg-[#ccc] cursor-help': isRadioNewSelected }"
-              v-model="isCheckedRegister"
-              @click="toggleShowCheckbox(0, 'Pre-Registration')"
+							type="radio"
+              v-model="selectedType"
+              :class="{
+                'bg-transparent': selectedType !== 'Pre-Registration',
+                'bg-orange': selectedType === 'Pre-Registration',
+              }"
+              @click="selectType('Pre-Registration')"
             />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedRegister"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-
+            
             <span class="text-sm">Pre-Registration</span>
           </label>
           <label
-            class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
+            class=" gap-2 flex items-center h-10 w-[130px] pb-[23px]"
             :class="{ 'opacity-20': isRadioNewSelected }"
           >
             <input
-              type="checkbox"
-              v-model="isCheckedEmploy"
-              @click="toggleShowCheckbox(1, 'Employees Car')"
+             
               :disabled="isRadioNewSelected"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+							type="radio"
+              v-model="selectedType"
+              :class="{
+                'bg-transparent': selectedType !== 'Employees Car',
+                'bg-orange': selectedType === 'Employees Car',
+              }"
+              @click="selectType('Employees Car')"
             />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedEmploy"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-
+            
             <span class="text-sm">Employee's Car</span>
           </label>
           <label
-            class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
+            class=" gap-2 flex items-center h-10 w-[130px] pb-[23px]"
             :class="{ 'opacity-20': isRadioNewSelected }"
           >
             <input
-              type="checkbox"
-              v-model="isCheckedClassic"
-              @click="toggleShowCheckbox(2, 'Classic Vehicle')"
-              :disabled="isRadioNewSelected"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+						:disabled="isRadioNewSelected"
+							type="radio"
+              v-model="selectedType"
+              :class="{
+                'bg-transparent': selectedType !== 'Classic Vehicle',
+                'bg-orange': selectedType === 'Classic Vehicle',
+              }"
+              @click="selectType('Classic Vehicle')"
             />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedClassic"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-
+            
             <span class="text-sm">Classic Vehicle</span>
           </label>
           <label
-            class="custom-checkbox flex items-center h-10 w-[190px] pb-[23px]"
+            class=" gap-2 flex items-center h-10 w-[190px] pb-[23px]"
             :class="{ 'opacity-20': isRadioNewSelected }"
           >
             <input
-              type="checkbox"
-              v-model="isCheckedDemon"
-              @click="toggleShowCheckbox(3, 'Demonstration Vehicle')"
-              :disabled="isRadioNewSelected"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+						:disabled="isRadioNewSelected"
+							type="radio"
+              v-model="selectedType"
+              :class="{
+                'bg-transparent': selectedType !== 'Demonstration Vehicle',
+                'bg-orange': selectedType === 'Demonstration Vehicle',
+              }"
+              @click="selectType('Demonstration Vehicle')"
             />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedDemon"
-                fill="#FFFFFF"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-
+            
             <span class="text-sm">Demonstration Vehicle</span>
           </label>
         </div>
@@ -3008,7 +2965,7 @@ export default {
       isOpen: false,
       selectedPrice: "",
       huValid: "14600",
-      preOwners: "any",
+      preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
       isCheckedRoad: false,
@@ -3022,7 +2979,6 @@ export default {
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
       selectedOthers: [],
-      type: [],
       isCheckedBeige: false,
       isCheckedBrown: false,
       isCheckedGrey: false,
@@ -3048,6 +3004,7 @@ export default {
       extras: [],
       others: [],
       power: [],
+			selectedType: "",
       selectedFiles: [],
       userI: "",
       inputVariant: "",
@@ -3088,21 +3045,22 @@ export default {
           car_variant: this.inputVariant,
           car_body: this.selectedCar,
           car_number_seats: this.numberSeats,
-          car_number_door: this.numDoor,
+          car_number_door: parseInt(this.numDoor),
           car_silding_door: this.slidingDoor,
           car_condition: this.selectedCondition,
-          car_type: this.type,
+          car_type: this.selectedType,
           car_payment_type: this.activeTab,
-          car_price: this.price,
-          car_firt_date_year: this.inputValue,
-          car_mileage: this.inputKilometer,
+          car_price: parseInt(this.price),
+          car_firt_date: parseInt(this.inputValue),
+          car_firt_date_year: parseInt(this.inputValue),
+          car_mileage: parseInt(this.inputKilometer),
           car_hu_valid_until: this.huValid,
-          car_previous_owners: this.preOwners,
+          car_previous_owners: parseInt(this.preOwners),
           car_full_service_history: this.isCheckedHistory,
           car_roadworthy: this.isCheckedRoad,
           car_country: this.selectedCountry,
           car_city_zipcode: this.zipCode,
-          car_radius: this.radius,
+          car_radius: parseInt(this.radius),
           car_description: this.descriptionText,
           user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
           user_email: this.uEmail,
@@ -3141,7 +3099,8 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
-          // set item local storage id add
+          const carId = responseData.car_id;
+  localStorage.setItem('car_id', carId);
           this.basicAdd = !this.basicAdd;
           this.fuelAdd = !this.fuelAdd;
           console.log(responseData);
@@ -3149,10 +3108,10 @@ export default {
     },
     thenPowerAdd() {
       http.edit("/car/add/engine", {
-				car_id,
+				car_id: localStorage.getItem('car_id'),
         car_fuel_type: this.selectedFuel,
-        car_power: this.power,
-        car_cubic_capacity: this.cubic,
+        car_power: parseInt(this.power),
+        car_cubic_capacity: parseInt(this.cubic),
         car_transmission: this.transmission,
         car_fuel_consumption: this.consumptionFuel,
         car_emissions_sticker: this.stickerEmission,
@@ -3187,7 +3146,12 @@ export default {
         car_commercial: this.exportCommercial,
         car_programme: this.approveUsed,
 				car_description: this.descriptionText
-      });
+      })
+			.then((res) =>  {
+				console.log(res.data)
+				this.interiorAdd = !this.interiorAdd
+
+			}) 
     },
     openFileInput() {
       this.$refs.fileInput.click();
@@ -3273,6 +3237,9 @@ export default {
     },
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;
+    },
+    selectType(condition) {
+      this.selectedType = condition;
     },
     selectTransmision(condition) {
       this.selectedTransmision = condition;
