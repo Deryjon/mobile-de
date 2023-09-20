@@ -2915,9 +2915,9 @@ export default {
   },
   data() {
     return {
-			interiorAdd: true,
+			interiorAdd: false,
       fuelAdd: false,
-      basicAdd: false,
+      basicAdd: true,
       makes: [],
       models: [],
       selectedMark: "14600",
@@ -3111,7 +3111,7 @@ export default {
         car_fuel_type: this.selectedFuel,
         car_power: parseInt(this.power),
         car_cubic_capacity: parseInt(this.cubic),
-        car_transmission: this.transmission,
+        car_transmission: this.selectedTransmision,
         car_fuel_consumption: parseInt(this.consumptionFuel),
         car_emissions_sticker: this.stickerEmission,
         car_emission_class: this.classEmision,

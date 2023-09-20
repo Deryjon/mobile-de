@@ -6,16 +6,13 @@
       class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex p-[40px]">
 
 
-    <div class="car-list ">
-      <div class="car-element-list w-full">
-        <div class="product">
+    <div class="car-list w-[870px] h-[350px]">
+      <div class="car-element-list border-[#000] bor rounded-[8px] w-full p-[20px]">
+        <div class="product flex items-center max-w-[33.3%]">
 
         <img src="https://img.classistatic.de/api/v1/mo-prod/images/15/15211295-0c43-40f8-bfe2-1643a9949c57?rule=mo-160.jpg" class="product-image">
 
         <div class="product-info">
-
-        <div class="sponsored">СПОНСИРОВАНО</div>
-
         <div class="product-title">Название товара</div>
 
         <div class="product-date">abobaobaboa</div>
@@ -145,62 +142,11 @@ export default {
 };
 </script>
 <style scoped>
-.line {
-  border: 0.5px solid rgb(190, 190, 190);
-}
-.dropdown-container {
-  position: relative;
-  display: inline-block;
-}
-
-.input-container {
-  position: relative;
-}
-.dropdown-options {
-  position: relative;
-  z-index: 1;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  border: 1px solid transparent;
-  background-color: transparent;
-  max-height: 380px;
-  overflow-y: auto;
-}
-
-.dropdown-options li {
-  padding: 0.5em;
-  cursor: pointer;
-}
-.active{
-	background: #fff;
-	padding: 5px 8px;
-}
-
-
 
 /* CAR -- LIST  */
-
-
-.car-list {
-  display: flex;
-  flex-wrap: wrap;
-	margin: 0 auto;
-
+.bor{
+border: 1px solid #000 ;
 }
-
-.car-element-list {
-  border: 1px solid #757575;
-  border-radius: 8px;
-  width: 550px;
-  height: 350px;
-}
-.product {
-  display: flex;
-  max-width: 33.33%;
-  align-items: center;
-}
-
 .product-image {
   width: 200px;
   height: auto; 
