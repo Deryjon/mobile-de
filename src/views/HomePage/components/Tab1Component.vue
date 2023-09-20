@@ -463,7 +463,7 @@ export default {
   methods: {
     fetchData() {
       http
-        .get("/cars/count", {
+        .post("/cars/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
           car_condition: this.selectedModel,
