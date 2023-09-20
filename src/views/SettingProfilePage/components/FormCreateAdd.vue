@@ -3036,75 +3036,67 @@ export default {
       this.activeTab = "sell";
     },
     addAdBasicCars() {
+			const formData = new FormData();
+  for (let i = 0; i < this.selectedFiles.length; i++) {
+    formData.append('photos[]', this.selectedFiles[i]);
+  }
       http
-        .post("/car/add", {
-          photos: this.selectedFiles,
-          user_id: this.userI,
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_variant: this.inputVariant,
-          car_body: this.selectedCar,
-          car_number_seats: this.numberSeats,
-          car_number_door: parseInt(this.numDoor),
-          car_silding_door: this.slidingDoor,
-          car_condition: this.selectedCondition,
-          car_type: this.selectedType,
-          car_payment_type: this.activeTab,
-          car_price: parseInt(this.price),
-          car_firt_date: parseInt(this.inputValue),
-          car_firt_date_year: parseInt(this.inputValue),
-          car_mileage: parseInt(this.inputKilometer),
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: parseInt(this.preOwners),
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: parseInt(this.radius),
-          car_description: this.descriptionText,
-          user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
-          user_email: this.uEmail,
-          car_vide_link: this.linkVideo,
+        .post("/car/add"), formData, {
+          addAdBasicCars() {
+  // Создаем новый объект FormData
+  const formData = new FormData();
 
-          // car_fuel_type: this.selectedFuel,
-          // car_power: this.power,
-          // car_cubic_capacity: this.cubic,
-          // car_transmission: this.transmission,
-          // car_fuel_consumption: this.consumptionFuel,
-          // car_emissions_sticker: this.stickerEmission,
-          // car_emission_class: this.classEmision,
-          // car_exterior_colour: this.selectedExteriorColour,
-          // car_trailer_coupling: this.selectedTrailer,
-          // car_parking_sensors: this.selectedParking,
-          // car_cruise_control: this.selectedCruise,
-          // car_interior_colour: this.selectedInteriorColour,
-          // car_interior_material: this.selectedInteriorColour,
-          // car_airbags: this.selectedAirbag,
-          // car_air_conditioning: this.selectAirConditioning,
-          // extras: this.extras,
-          // others: this.others,
-          // car_vendor: this.selectedVendor,
-          // car_discount_offers: this.isCheckedDiscount,
-          // car_non_smoker: this.isCheckedNon,
-          // car_taxi: this.isCheckedTaxi,
-          // car_vat: this.isCheckedVAT,
-          // car_warranty: this.isCheckedWarranty,
-          // car_environmental_bonus: this.isCheckedEnvironmental,
-          // car_damaged: this.damageVehicle,
-          // car_commercial: this.exportCommercial,
-          // car_programme: this.approveUsed,
-          // car_vide_link: this.linkVideo,
-          // user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
-          // user_email: this.uEmail,
-        })
-        .then((response) => {
-          const responseData = response.data.data;
-  localStorage.setItem('car_id', responseData.car_id);
-          this.basicAdd = !this.basicAdd;
-          this.fuelAdd = !this.fuelAdd;
-          console.log(responseData.car_id);
-        });
-    },
+  // Добавляем фотографии в FormData
+  for (let i = 0; i < this.selectedFiles.length; i++) {
+    formData.append('photos[]', this.selectedFiles[i]);
+  }
+
+  // Добавляем остальные данные как параметры запроса
+  formData.append('user_id', this.userI);
+  formData.append('car_make', this.selectedMark);
+  formData.append('car_model', this.selectedModel);
+  formData.append('car_variant', this.inputVariant);
+  formData.append('car_body', this.selectedCar);
+  formData.append('car_number_seats', this.numberSeats);
+  formData.append('car_number_door', parseInt(this.numDoor));
+  formData.append('car_silding_door', this.slidingDoor);
+  formData.append('car_condition', this.selectedCondition);
+  formData.append('car_type', this.selectedType);
+  formData.append('car_payment_type', this.activeTab);
+  formData.append('car_price', parseInt(this.price));
+  formData.append('car_firt_date', parseInt(this.inputValue));
+  formData.append('car_firt_date_year', parseInt(this.inputValue));
+  formData.append('car_mileage', parseInt(this.inputKilometer));
+  formData.append('car_hu_valid_until', this.huValid);
+  formData.append('car_previous_owners', parseInt(this.preOwners));
+  formData.append('car_full_service_history', this.isCheckedHistory);
+  formData.append('car_roadworthy', this.isCheckedRoad);
+  formData.append('car_country', this.selectedCountry);
+  formData.append('car_city_zipcode', this.zipCode);
+  formData.append('car_radius', parseInt(this.radius));
+  formData.append('car_description', this.descriptionText);
+  formData.append('user_phone', `${this.userCodeNumber}${this.userPre}${this.userPhone}`);
+  formData.append('user_email', this.uEmail);
+  formData.append('car_vide_link', this.linkVideo);
+
+  // Отправляем POST-запрос с FormData
+  http
+    .post("/car/add", formData)
+    .then((response) => {
+      const responseData = response.data.data;
+      localStorage.setItem('car_id', responseData.car_id);
+      this.basicAdd = !this.basicAdd;
+      this.fuelAdd = !this.fuelAdd;
+      console.log(responseData.car_id);
+    })
+    .catch((error) => {
+      console.error('Ошибка при отправке данных:', error);
+      // Обработка ошибки
+    })
+    }
+    }
+},
+
     thenPowerAdd() {
       http.put("/car/add/engine", {
 				car_id: localStorage.getItem('car_id'),
