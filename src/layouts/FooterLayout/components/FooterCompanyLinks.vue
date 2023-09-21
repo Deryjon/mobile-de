@@ -3,7 +3,7 @@
 		<h3 class="font-bold ">Company</h3>
 		<ul class=" flex flex-col gap-[10px]">
 		<router-link class="text text-[14px]" :to="{ name: 'about-us' }">About</router-link>
-			<li class="text text-[14px] "><a href="">Newsroom</a></li>
+		<router-link class="text text-[14px]" :to="{ name: 'news' }">Newsroom</router-link>
 			<li class="text text-[14px]"><a href="">Careers</a></li>
 			<li class="text text-[14px]"><a href="">Adversting</a></li>
 			<li class="text text-[14px]"><a href="">Contact</a></li>
