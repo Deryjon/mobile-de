@@ -8,7 +8,6 @@
           accept="image/*"
           multiple
           style="display: none"
-
           @change="handleFileChange"
         />
         <button
@@ -3111,7 +3110,7 @@ export default {
         car_interior_colour: this.selectedInteriorColour,
         car_interior_material: this.selectedInteriorColour,
         car_airbags: this.selectedAirbag,
-        car_air_conditioning: this.selectAirConditioning,
+        car_air_conditioning: this.selectedAirConditioning,
         extras: this.extras,
         car_vendor: this.selectedVendor,
 				car_discount_offers: 3,

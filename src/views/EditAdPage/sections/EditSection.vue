@@ -8,7 +8,7 @@
           accept="image/*"
           multiple
           style="display: none"
-          @change="handleFileChange($event)"
+          @change="handleFileChange"
         />
         <button
           @click="openFileInput"
@@ -2849,7 +2849,7 @@
           >
             Cancel
           </button>
-          <button @click="" class="bg-blue-500 rounded-[8px] p-[10px]">
+          <button @click="editAddCars" class="bg-blue-500 rounded-[8px] p-[10px]">
             Edit Add
           </button>
         </div>
@@ -3041,7 +3041,16 @@ this.selectedMaterial = this.dataAd.car_interior_material
 this.selectedAirbag = this.dataAd.car_airbags
 this.selectedConditioning = this.dataAd.car_air_conditioning
 this.extras = this.dataAd.extras
-this.extras = this.dataAd.extras
+this.selectedVendor = this.dataAd.car_vendor
+this.isCheckedDiscount = this.dataAd.car_discount_offers
+this.isCheckedNon = this.dataAd.car_non_smoker
+this.isCheckedTaxi = this.dataAd.car_taxi
+this.isCheckedVAT = this.dataAd.car_vat
+this.isCheckedWarranty = this.dataAd.car_warranty
+this.damageVehicle = this.dataAd.car_damaged
+this.exportCommercial = this.dataAd.car_commercial
+this.approveUsed = this.dataAd.car_programme
+this.descriptionText = this.dataAd.car_description
 })
 		},
     closeDropdownOnClickOutside(event) {
@@ -3060,72 +3069,79 @@ this.extras = this.dataAd.extras
     async showTab2() {
       this.activeTab = "sell";
     },
-    addAdBasicCars() {
-      http
-        .put("/car/add", {
-					car_id: this.carId,
-          photos: this.selectedFiles,
-          user_id: this.userI,
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_variant: this.inputVariant,
-          car_body: this.selectedCar,
-          car_number_seats: this.numberSeats,
-          car_number_door: parseInt(this.numDoor),
-          car_silding_door: this.slidingDoor,
-          car_condition: this.selectedCondition,
-          car_type: this.selectedType,
-          car_payment_type: this.activeTab,
-          car_price: parseInt(this.price),
-          car_firt_date: parseInt(this.inputValue),
-          car_firt_date_year: parseInt(this.inputValue),
-          car_mileage: parseInt(this.inputKilometer),
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: parseInt(this.preOwners),
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: parseInt(this.radius),
-          car_description: this.descriptionText,
-          user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
-          user_email: this.uEmail,
-          car_vide_link: this.linkVideo,
-        car_fuel_type: this.selectedFuel,
-        car_power: parseInt(this.power),
-        car_cubic_capacity: parseInt(this.cubic),
-        car_transmission: this.selectedTransmision,
-        car_fuel_consumption: parseInt(this.consumptionFuel),
-        car_emissions_sticker: this.stickerEmission,
-        car_emission_class: this.classEmision,
-        car_exterior_colour: this.selectedExteriorColour,
-        car_trailer_coupling: this.selectedTrailer,
-        car_parking_sensors: this.selectedParking,
-        car_cruise_control: this.selectedCruise,
-        others: this.selectedOthers,
-				car_interior_colour: this.selectedInteriorColour,
-        car_interior_material: this.selectedInteriorColour,
-        car_airbags: this.selectedAirbag,
-        car_air_conditioning: this.selectAirConditioning,
-        extras: this.extras,
-        car_vendor: this.selectedVendor,
-				car_discount_offers: 3,
-        car_discount_offers: this.isCheckedDiscount,
-        car_non_smoker: this.isCheckedNon,
-        car_taxi: this.isCheckedTaxi,
-        car_vat: this.isCheckedVAT,
-        car_warranty: this.isCheckedWarranty,
-        car_environmental_bonus: this.isCheckedEnvironmental,
-        car_damaged: this.damageVehicle,
-        car_commercial: this.exportCommercial,
-        car_programme: this.approveUsed,
-				car_description: this.descriptionText
-        })
-        .then((response) => {
-          const responseData = response.data.data;
-  console.log(responseData);
-        });
-    },
+    editAddCars() {
+  // Create a new FormData object
+  const formData = new FormData();
+	for (let i = 0; i < this.selectedFiles.length; i++) {
+        
+        formData.append("photos", this.selectedFiles[i]); // Используйте 'photos[]' для отправки массива файлов
+      }
+  formData.append('car_id', this.carId);
+  formData.append('user_id', this.userI);
+  formData.append('car_make', this.selectedMark);
+  formData.append('car_model', this.selectedModel);
+  formData.append('car_variant', this.inputVariant);
+  formData.append('car_body', this.selectedCar);
+  formData.append('car_number_seats', this.numberSeats);
+  formData.append('car_number_door', parseInt(this.numDoor));
+  formData.append('car_silding_door', this.slidingDoor);
+  formData.append('car_condition', this.selectedCondition);
+  formData.append('car_type', this.selectedType);
+  formData.append('car_payment_type', this.activeTab);
+  formData.append('car_price', parseInt(this.price));
+  formData.append('car_firt_date', parseInt(this.inputValue));
+  formData.append('car_firt_date_year', parseInt(this.inputValue));
+  formData.append('car_mileage', parseInt(this.inputKilometer));
+  formData.append('car_hu_valid_until', this.huValid);
+  formData.append('car_previous_owners', parseInt(this.preOwners));
+  formData.append('car_full_service_history', this.isCheckedHistory);
+  formData.append('car_roadworthy', this.isCheckedRoad);
+  formData.append('car_country', this.selectedCountry);
+  formData.append('car_city_zipcode', this.zipCode);
+  formData.append('car_radius', parseInt(this.radius));
+  formData.append('car_description', this.descriptionText);
+  formData.append('user_phone', `${this.userCodeNumber}${this.userPre}${this.userPhone}`);
+  formData.append('user_email', this.uEmail);
+  formData.append('car_vide_link', this.linkVideo);
+  formData.append('car_fuel_type', this.selectedFuel);
+  formData.append('car_power', parseInt(this.power));
+  formData.append('car_cubic_capacity', parseInt(this.cubic));
+  formData.append('car_transmission', this.selectedTransmision);
+  formData.append('car_fuel_consumption', parseInt(this.consumptionFuel));
+  formData.append('car_emissions_sticker', this.stickerEmission);
+  formData.append('car_emission_class', this.classEmision);
+  formData.append('car_exterior_colour', this.selectedExteriorColour);
+  formData.append('car_trailer_coupling', this.selectedTrailer);
+  formData.append('car_parking_sensors', this.selectedParking);
+  formData.append('car_cruise_control', this.selectedCruise);
+  formData.append('others', this.selectedOthers);
+  formData.append('car_interior_colour', this.selectedInteriorColour);
+  formData.append('car_interior_material', this.selectedInteriorColour);
+  formData.append('car_airbags', this.selectedAirbag);
+  formData.append('car_air_conditioning', this.selectedConditioning);
+  formData.append('extras', this.extras);
+  formData.append('car_vendor', this.selectedVendor);
+  formData.append('car_discount_offers', this.isCheckedDiscount); // You have two lines for this, remove one as needed
+  formData.append('car_non_smoker', this.isCheckedNon);
+  formData.append('car_taxi', this.isCheckedTaxi);
+  formData.append('car_vat', this.isCheckedVAT);
+  formData.append('car_warranty', this.isCheckedWarranty);
+  formData.append('car_environmental_bonus', this.isCheckedEnvironmental);
+  formData.append('car_damaged', this.damageVehicle);
+  formData.append('car_commercial', this.exportCommercial);
+  formData.append('car_programme', this.approveUsed);
+  formData.append('car_description', this.descriptionText);
+
+  // Send the FormData object as the request body
+  http
+    .put("/car/update", formData)
+    .then((response) => {
+     
+      const responseData = response;
+      console.log(responseData);
+    });
+},
+
     // thenPowerAdd() {
     //   http.put("/car/add/engine", {
 		// 		car_id: localStorage.getItem('car_id'),
@@ -3176,44 +3192,10 @@ this.extras = this.dataAd.extras
     openFileInput() {
       this.$refs.fileInput.click();
     },
-		async handleFileChange(event) {
-
-    const files = event.target.files;
-    const compressedFiles = [];
-
-    // Пройдитесь по каждому файлу и сжимайте их с помощью Compressor.js
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-
-      // Сначала добавьте файл в список выбранных файлов для отображения
-      this.selectedFiles.push({
-        name: file.name,
-        url: URL.createObjectURL(file),
-      });
-
-      // Сжатие файла с помощью Compressor.js
-      await new Promise((resolve) => {
-        new Compressor(file, {
-          quality: 0.6, // Здесь можно настроить качество сжатия
-          success(result) {
-            // Результатом будет сжатый файл
-            compressedFiles.push(result);
-            resolve();
-          },
-          error(err) {
-            console.error('Ошибка сжатия:', err.message);
-            resolve();
-          },
-        });
-      });
-    }
-
-    // Если все файлы обработаны, выполните какие-либо действия с ними
-    if (compressedFiles.length === files.length) {
-      // Здесь вы можете отправить сжатые файлы на сервер или что-то ещё
-      console.log('Сжатые файлы:', compressedFiles);
-    }
-  },
+		handleFileChange(event) {
+			this.selectedFiles = event.target.files;
+				
+			},
 			removeFile(index) {
 				this.selectedFiles.splice(index, 1);
 			},
