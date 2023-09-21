@@ -6,7 +6,7 @@
 		<router-link class="text text-[14px]" :to="{ name: 'news' }">Newsroom</router-link>
 			<li class="text text-[14px]"><a href="">Careers</a></li>
 			<li class="text text-[14px]"><a href="">Adversting</a></li>
-			<li class="text text-[14px]"><a href="">Contact</a></li>
+			<router-link class="text text-[14px]" :to="{ name: 'contact' }">Contact</router-link>
 		</ul>
 	</div>
 </template>

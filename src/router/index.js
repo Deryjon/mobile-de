@@ -11,6 +11,7 @@ import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 import CarList from "../views/CarListPage/CarListPage.vue"
 import EditPage from "../views/EditAdPage/EditAdPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
+import ContactPage from "../views/ContactPage/Contact.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -68,6 +69,11 @@ const router = createRouter({
       path: "/news",
       name: "news",
       component: NewsPage,
+    },
+		{
+      path: "/contact",
+      name: "contact",
+      component: ContactPage,
     },
 		{
       path: '/:catchAll(.*)',
