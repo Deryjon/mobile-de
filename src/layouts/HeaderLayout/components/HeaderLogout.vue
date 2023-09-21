@@ -14,21 +14,23 @@
           @click="openProfileDropdown"
           class="profile-icon w-[200px] flex items-center gap-[10px] cursor-pointer"
         >
-          <svg
-            data-v-53d99ea3=""
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 32 32"
-            id="profile"
-            width="30px"
-          >
-            <g data-v-53d99ea3="" data-name="Layer 2">
-              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-              <path
-                data-v-53d99ea3=""
-                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
-              ></path>
-            </g>
-          </svg>
+				<svg
+  data-v-53d99ea3=""
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 32 32"
+  id="profile"
+  width="30px"
+>
+  <g data-v-53d99ea3="" data-name="Layer 2">
+    <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6" fill="green"></circle>
+    <path
+      data-v-53d99ea3=""
+      d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
+      fill="green"
+    ></path>
+  </g>
+</svg>
+
           <p
             v-if="!uComValue"
             class="font-bold text-[#479ef3eb] py-2 text-[16px] rounded-[8px]"

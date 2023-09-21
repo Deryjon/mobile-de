@@ -101,9 +101,10 @@ export default {
   },
 	deleteAdCar(carId) {
       // Отправляем запрос DELETE на сервер с указанием carId
+			console.log(`Объявление с ID ${carId} удалено.`)
       http
         .delete(`/car/delete`, {
-          data: { car_id: carId }, // Передаем ID для удаления
+          data: { car_id: parseInt(carId) }, 
         })
         .then((response) => {
           // Обработка успешного удаления
