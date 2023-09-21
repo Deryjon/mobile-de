@@ -6,7 +6,9 @@
 			:data-car-id="car.id"
       class="card bor bg-white flex justify-between w-full h-[300px]  p-[20px]"
     >
-      <div class="img w-[400px] h-[260px] bor"></div>
+      <div class="img w-[400px] h-[120px] mr-[20px]">
+				<img :src="car.car_images_url[0]" alt="">
+			</div>
       <div class="texts w-[520px]  h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">

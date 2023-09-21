@@ -9,7 +9,7 @@
           multiple
           style="display: none"
 
-          @change="handleFileChange($event)"
+          @change="handleFileChange"
         />
         <button
           @click="openFileInput"
@@ -3038,7 +3038,11 @@ export default {
     addAdBasicCars() {
   const formData = new FormData();
 
-  formData.append("photos", this.selectedFiles);
+	for (let i = 0; i < this.selectedFiles.length; i++) {
+        
+        formData.append("photos", this.selectedFiles[i]); // Используйте 'photos[]' для отправки массива файлов
+      }
+
   formData.append("user_id", this.userI);
   formData.append("car_make", this.selectedMark);
   formData.append("car_model", this.selectedModel);
@@ -3076,7 +3080,8 @@ export default {
       this.fuelAdd = !this.fuelAdd;
       console.log(responseData.car_id);
     });
-},
+}
+,
 
     thenPowerAdd() {
       http.put("/car/add/engine", {
@@ -3130,44 +3135,10 @@ export default {
     openFileInput() {
       this.$refs.fileInput.click();
     },
-		async handleFileChange(event) {
-			
-    const files = event.target.files;
-    const compressedFiles = [];
-
-    // Пройдитесь по каждому файлу и сжимайте их с помощью Compressor.js
-    for (let i = 0; i < files.length; i++) {
-      const file = files[i];
-
-      // Сначала добавьте файл в список выбранных файлов для отображения
-      this.selectedFiles.push({
-        name: file.name,
-        url: URL.createObjectURL(file),
-      });
-
-      // Сжатие файла с помощью Compressor.js
-      await new Promise((resolve) => {
-        new Compressor(file, {
-          quality: 0.6, // Здесь можно настроить качество сжатия
-          success(result) {
-            // Результатом будет сжатый файл
-            compressedFiles.push(result);
-            resolve();
-          },
-          error(err) {
-            console.error('Ошибка сжатия:', err.message);
-            resolve();
-          },
-        });
-      });
-    }
-
-    // Если все файлы обработаны, выполните какие-либо действия с ними
-    if (compressedFiles.length === files.length) {
-      // Здесь вы можете отправить сжатые файлы на сервер или что-то ещё
-      console.log('Сжатые файлы:', compressedFiles);
-    }
-  },
+			handleFileChange(event) {
+			this.selectedFiles = event.target.files;
+				
+			},
 			removeFile(index) {
 				this.selectedFiles.splice(index, 1);
 			},
