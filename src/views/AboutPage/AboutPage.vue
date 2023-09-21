@@ -11,7 +11,6 @@ export default {
   components: {
     AboutSection
   },
-  // Возможно, здесь вы захотите добавить логику для страницы 404
 }
 </script>
 

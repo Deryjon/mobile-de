@@ -93,22 +93,7 @@ Sellcenter.com также предлагает различные способы
 
 <script>
 export default {
-  mounted() {
- 
-    if (window.innerWidth <= 768) {
-      // Сжатие изображения для мобильных устройств
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = image.width;
-      canvas.height = image.height;
-      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob(blob => {
-        const compressedImage = new File([blob], "compressed-image.png", { type: "image/png" });
-        // Используем сжатое изображение
-        console.log(compressedImage);
-      }, "image/png", 0.5);
-    }
-  }
+  
 }
 </script>
 
