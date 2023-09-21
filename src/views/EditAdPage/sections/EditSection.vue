@@ -3226,17 +3226,18 @@ this.descriptionText = this.dataAd.car_description
         this.isCheckedfromFour = false;
       }
     },
-    toggleShowCheckboxExtras(index, extrasName) {
-      const isChecked = !this.extras.includes(extrasName);
-      if (isChecked) {
-        this.extras.push(extrasName);
-      } else {
-        const carIndex = this.extras.indexOf(extrasName);
-        if (carIndex !== -1) {
-          this.extras.splice(carIndex, 1);
-        }
-      }
-    },
+		toggleShowCheckboxExtras(index, extrasName) {
+  const isChecked = !this.extras.includes(extrasName);
+  if (isChecked) {
+		this.extras.push(extrasName); // Добавляем extrasName как отдельную строку
+		console.log(this.extras);
+  } else {
+    const carIndex = this.extras.indexOf(extrasName);
+    if (carIndex !== -1) {
+      this.extras.splice(carIndex, 1); // Удаляем extrasName из массива
+    }
+  }
+},
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;
     },
