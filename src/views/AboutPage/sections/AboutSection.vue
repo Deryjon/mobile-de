@@ -1,7 +1,7 @@
 <template>
   <div> <!-- /template-->
-    <div class="container w-[1100px]">
-        <div class="image-container " id="mobileoptimize">
+    <v-container class=" w-[1130px] mx-[14%]">
+        <div class="" >
             <!-- img -->
             <img src="./header.png" alt="" class="container-img-header rounded-lg" style="width: 100%; height: 100%;">
         </div> <!-- /inage-container -->
@@ -86,7 +86,7 @@ Sellcenter.com также предлагает различные способы
 
 
 
-    </div> <!-- container -->
+			</v-container> <!-- container -->
   </div> <!-- /template -->
 </template>
 
