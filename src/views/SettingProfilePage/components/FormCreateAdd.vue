@@ -272,7 +272,7 @@
               placeholder="from"
               v-model="numberSeats"
               @focus="openSeatsDropdown"
-              @blur="closeSeatsDropdown"
+              @blur="openSeatsDropdown"
             />
 
             <div
@@ -481,7 +481,7 @@
               placeholder="from"
               v-model="price"
               @focus="openPriceDropdown"
-              @blur="closePriceDropdown"
+              @blur="openPriceDropdown"
             />
 
             <div
@@ -529,7 +529,7 @@
               v-model="inputValue"
               @focus="openDropdown"
               @input="filterOptions"
-              @blur="closeDropdown"
+              @blur="openDropdown"
             />
 
             <div
@@ -655,7 +655,7 @@
               v-model="inputKilometer"
               @focus="openKilmeterDropdown"
               @input="filterOptions"
-              @blur="closeKilometerDropdown"
+              @blur="openKilmeterDropdown"
             />
 
             <div
@@ -905,7 +905,7 @@
               v-model="radius"
               @focus="openRadiusDropdown"
               @input="filterOptions"
-              @blur="closeRadiusDropdown"
+              @blur="openRadiusDropdown"
             />
 
             <div
@@ -1138,7 +1138,7 @@
               v-model="power"
               @focus="openPowerDropdown"
               @input="filterOptions"
-              @blur="closePowerDropdown"
+              @blur="openPowerDropdown"
             />
 
             <div
@@ -1182,7 +1182,7 @@
                 v-model="cubic"
                 @focus="openCubicDropdown"
                 @input="filterOptions"
-                @blur="closeCubicDropdown"
+                @blur="openCubicDropdown"
               />
 
               <div
@@ -2914,9 +2914,9 @@ export default {
   },
   data() {
     return {
-			interiorAdd: false,
+			interiorAdd: true,
       fuelAdd: false,
-      basicAdd: true,
+      basicAdd: false,
       makes: [],
       models: [],
       selectedMark: "14600",
