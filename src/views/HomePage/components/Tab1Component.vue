@@ -99,7 +99,7 @@
             v-model="inputValue"
             @focus="openDropdown"
             @input="filterOptions"
-            @blur="closeDropdown"
+            @blur="openDropdown"
           />
 
           <div
@@ -225,7 +225,7 @@
             v-model="inputKilometer"
             @focus="openKilmeterDropdown"
             @input="filterOptions"
-            @blur="closeKilometerDropdown"
+            @blur="openKilmeterDropdown"
           />
 
           <div
