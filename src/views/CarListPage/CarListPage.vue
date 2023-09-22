@@ -16,20 +16,9 @@ export default {
     PathLink,
     YourAccount
   },
-  created() {
-    // После успешной аутентификации
-
-  
-
-// Проверка, что значение существует и строго равно "false"
-const isLoggedIn = localStorage.getItem("logged-in");
-if (isLoggedIn === "false") {
-  // Перенаправление на страницу "home"
-  this.$router.push({ name: "home" });
-}
-
-  }
 };
 </script>
 
-<style></style>
+<style>
+
+</style>
