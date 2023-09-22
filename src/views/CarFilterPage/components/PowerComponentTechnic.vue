@@ -13,7 +13,7 @@
             v-model="power"
             @focus="openPowerDropdown"
             @input="filterOptions"
-            @blur="closePowerDropdown"
+            @blur="openPowerDropdown"
           />
 
           <div
@@ -91,7 +91,7 @@
             v-model="powerTo"
             @focus="openPowerToDropdown"
             @input="filterOptions"
-            @blur="closePowerToDropdown"
+            @blur="openPowerToDropdown"
           />
 
           <div
@@ -202,7 +202,7 @@
               v-model="cubic"
               @focus="openCubicDropdown"
               @input="filterOptions"
-              @blur="closeCubicDropdown"
+              @blur="openCubicDropdown"
             />
 
             <div
@@ -243,7 +243,7 @@
             v-model="cubicTo"
             @focus="openCubicToDropdown"
             @input="filterOptions"
-            @blur="closeCubicToDropdown"
+            @blur="openCubicToDropdown"
           />
 
           <div
