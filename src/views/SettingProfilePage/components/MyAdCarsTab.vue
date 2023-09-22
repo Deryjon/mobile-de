@@ -6,7 +6,7 @@
       </div>
       <div class="">
 				<p class="car-text font-bold text-[20px] mt-[20px]">Create new ad</p>
-				<SellButton class="ml-[78.4%] w-[140px] mt-[20px]" @click="createCarAdd" />
+				<SellButton class="ml-[78.4%] w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
 			</div>
       <div
 			class="btn w-[500px] h-[350px] hover:bg-orange-200 mx-auto mt-[40px] pt-[10px] cursor-pointer rounded-[20px]"
@@ -27,8 +27,8 @@
 			<MyAddsAll />
     </div>
     <div class="form-ad" v-if="!createAdd">
-      <FormCreateAdd />
-    </div>
+			<FormCreateAdd :createAdd="createAdd" @cancel-create-add="handleCancelCreateAdd" />
+    </div>   
   </div>
 </template>
 <script>
@@ -43,7 +43,10 @@ export default {
     };
   },
   methods: {
-    createCarAdd() {
+		updateCreateAdd(newValue) {
+      this.createAdd = newValue;
+    },
+    handleCancelCreateAdd() {
       this.createAdd = !this.createAdd;
     },
   },

@@ -931,7 +931,7 @@
         </div>
       </div>
       <div class="flex gap-[30px] justify-end mt-[20px]">
-        <button class="bg-red-500 rounded-[8px] p-[10px]" @click="cancelAdCar">
+        <button class="bg-red-500 rounded-[8px] p-[10px]" @click="handleCancelButtonClick">
           Cancel
         </button>
         <button
@@ -2862,9 +2862,9 @@ export default {
   },
   data() {
     return {
-			interiorAdd: true,
+			interiorAdd: false,
       fuelAdd: false,
-      basicAdd: false,
+      basicAdd: true,
       makes: [],
       models: [],
       selectedMark: "14600",
@@ -2965,6 +2965,9 @@ export default {
 			selectedMaterial: "",
       options: [],
     };
+  },
+	props: {
+    createAdd: Boolean, // Определите тип данных в соответствии с вашими требованиями
   },
   methods: {
     closeDropdownOnClickOutside(event) {
@@ -3404,6 +3407,10 @@ export default {
           this.closePowerDropdownOnClickOutside
         );
       }
+    },
+		handleCancelButtonClick() {
+      // Создаем событие и отправляем его вверх по иерархии
+      this.$emit('cancel-create-add');
     },
   },
   mounted() {
