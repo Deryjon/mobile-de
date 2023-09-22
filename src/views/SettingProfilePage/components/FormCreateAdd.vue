@@ -2914,9 +2914,9 @@ export default {
   },
   data() {
     return {
-			interiorAdd: true,
+			interiorAdd: false,
       fuelAdd: false,
-      basicAdd: false,
+      basicAdd: true,
       makes: [],
       models: [],
       selectedMark: "14600",
