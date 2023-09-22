@@ -2962,6 +2962,7 @@ export default {
       userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
+			selectedMaterial: "",
       options: [],
     };
   },
@@ -3131,6 +3132,9 @@ export default {
 },
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;
+    },
+    selectMaterial(condition) {
+      this.selectedMaterial = condition;
     },
     selectType(condition) {
       this.selectedType = condition;
