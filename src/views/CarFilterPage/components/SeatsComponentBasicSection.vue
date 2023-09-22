@@ -12,7 +12,7 @@
           placeholder="from"
           v-model="numberSeats"
           @focus="openSeatsDropdown"
-          @blur="closeSeatsDropdown"
+          @blur="openSeatsDropdown"
         />
 
         <div
@@ -81,7 +81,7 @@
           placeholder="from"
           v-model="numberSeatsTo"
           @focus="openSeatsToDropdown"
-          @blur="closeSeatsToDropdown"
+          @blur="openSeatsToDropdown"
         />
 
         <div

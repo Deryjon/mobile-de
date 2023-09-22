@@ -10,7 +10,7 @@
             placeholder="from"
             v-model="price"
             @focus="openPriceDropdown"
-            @blur="closePriceDropdown"
+            @blur="openPriceDropdown"
           />
 
           <div
@@ -81,7 +81,7 @@
             placeholder="from"
             v-model="priceTo"
             @focus="openPriceToDropdown"
-            @blur="closePriceToDropdown"
+            @blur="openPriceToDropdown"
           />
 
           <div
@@ -158,7 +158,7 @@
             v-model="inputValue"
             @focus="openDropdown"
             @input="filterOptions"
-            @blur="closeDropdown"
+            @blur="openDropdown"
           />
 
           <div
@@ -233,7 +233,7 @@
             v-model="yearsTo"
             @focus="openYearsToDropdown"
             @input="filterOptions"
-            @blur="closeYearsToDropdown"
+            @blur="openYearsToDropdown"
           />
 
           <div
@@ -311,7 +311,7 @@
             v-model="inputKilometer"
             @focus="openKilmeterDropdown"
             @input="filterOptions"
-            @blur="closeKilometerDropdown"
+            @blur="openKilmeterDropdown"
           />
 
           <div
@@ -404,7 +404,7 @@
             v-model="killometresTo"
             @focus="openKilometerToDropdown"
             @input="filterOptions"
-            @blur="closeKilometerToDropdown"
+            @blur="openKilometerToDropdown"
           />
 
           <div
@@ -676,10 +676,10 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">City / zip code</h2>
+        <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
         <input
           class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
-          type="number"
+          type="text"
           pattern="\d*"
 					v-model="zipCode"
         />
@@ -785,7 +785,7 @@
             v-model="radius"
             @focus="openRadiusDropdown"
             @input="filterOptions"
-            @blur="closeRadiusDropdown"
+            @blur="openRadiusDropdown"
           />
 
           <div
