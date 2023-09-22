@@ -362,7 +362,7 @@
     </div>
     <!-- valid -->
     <div
-      class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]"
+      class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
     >
       <div class="relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">
@@ -384,7 +384,7 @@
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
         ></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
         <select
           class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -400,7 +400,7 @@
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
         ></span>
       </div>
-      <div class="marke_select_div relative mt-[20px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[20px] lg:mt-7 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
