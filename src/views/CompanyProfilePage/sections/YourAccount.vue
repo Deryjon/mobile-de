@@ -1,8 +1,15 @@
 <template>
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
-      <div class="top flex items-center mt-[10px]">
-        <div class="icon w-[35px] h-[35px] mx-[15px]">
+      <div class="top flex gap-[10px] items-center mt-[10px]">
+        <div class="profile-img" v-if="!companyIcon">
+          <img
+            :src="companyProfileImg"
+            :alt="companyProfileImgName"
+            class="w-[60px] h-[60px] rounded-[100%]"
+          />
+        </div>
+        <div class="icon w-[35px] h-[35px] mx-[15px]" v-if="companyIcon">
           <svg
             data-v-53d99ea3=""
             xmlns="http://www.w3.org/2000/svg"
@@ -262,6 +269,9 @@ export default {
       userEmail: "",
       activeTab: "tab-2",
       isOpen: false,
+			companyProfileImg: null,
+      companyProfileImgName: null,
+			companyIcon: false
     };
   },
   methods: {
@@ -302,8 +312,13 @@ export default {
       }
     },
   },
-  mounted() {
+  created() {
     this.userEmail = localStorage.getItem("u-e");
+    this.companyProfileImg = localStorage.getItem("com-img-prof");
+		if (this.companyProfileImg === 'null') {
+    return   this.companyIcon = true;
+    }
+    this.companyProfileImgName = localStorage.getItem("com-img-alt");
   },
   components: {
     SettingsTab,
