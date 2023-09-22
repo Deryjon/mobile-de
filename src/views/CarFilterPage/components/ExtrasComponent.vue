@@ -213,6 +213,7 @@ export default {
       isCheckedTyre: false,
       isCheckedInduction: false,
       isCheckedSki: false,
+      isCheckedElectric: false,
 			extras: []
     };
   },
