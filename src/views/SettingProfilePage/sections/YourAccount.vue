@@ -1,3 +1,4 @@
+--
 <template>
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
@@ -254,6 +255,8 @@
         </button>
       </div>
     </div>
+		<p>{{ activeTab }}</p> <!-- Правильный способ обращения к данным хранилища -->
+
     <section
       class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
     >
@@ -263,19 +266,24 @@
       <div class="" v-show="isActive('tab-2')">
         <SettingsTab />
       </div>
-      <div class="" v-show="isActive('tab-3')">
+      	<div class="" v-show="isActive('tab-3')">
         <MyAdCarsTab />
+      </div>
+      	<div class="" v-show="isActive('tab-4')">
+        ejkfbwkjf
       </div>
     </section>
   </v-container>
 </template>
 <script>
+import { useTabsStore } from "../../../store/storeAd";
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
 export default {
   data() {
     return {
+			 
       userEmail: "",
       activeTab: "tab-2",
       userProfileImg: null,
@@ -283,6 +291,12 @@ export default {
       isOpen: false,
 			userIcon: false
     };
+  },
+	computed: {
+    activeTab() {
+      const store = useTabsStore();
+      this.activeTab = store.activeTab; // Получите значение activeTab из хранилища
+    },
   },
   methods: {
     setActive(tab) {

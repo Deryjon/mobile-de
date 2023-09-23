@@ -256,18 +256,41 @@
         </li>
       </ul>
     </div>
-    <button
-      class="bg-[#67bbffa6] mt-[20px] mark_input mark-select outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[20px] "
-      :class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
-    >
-      {{ $t("message.header.sell") }}
-    </button>
+		<div class="place relative">
+
+			<button
+				class="bg-[#67bbffa6]  mt-[20px] mark_input mark-select outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[20px] "
+				@click="toggleDropdown"
+	
+				:class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
+			>
+				{{ $t("message.header.sell") }}
+			</button>
+				<div v-if="showDropdown" class="dropdown-options  w-[120px] p-[10px]">
+				<!-- Ваше содержимое выпадающего списка -->
+				<ul>
+					<li class="text-[12px]" @click="setActiveTab('tab-3')"  >Cars</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-4')" >Motorcycles</li>
+
+					<li class="text-[12px]">Motor homes</li>
+					<li class="text-[12px]">Trucks</li>
+					<li class="text-[12px]">Trailers</li>
+					<li class="text-[12px]">Vans</li>
+					<li class="text-[12px]">Semi trailer trucks</li>
+					<li class="text-[12px]">Semi trailers</li>
+					<li class="text-[12px]">Coaches</li>
+					<li class="text-[12px]">Agricultural vehicle</li>
+					<li class="text-[12px]">Forklift trucks</li>
+				</ul>
+			</div>
+		</div>
   </div>
 </template>
 <script>
 import http from "../../../axios.config";
 import { useDarkModeStore } from "@/store/dark-mode.js";
 import { defineComponent, computed } from "vue";
+import { useTabsStore } from '../../../store/storeAd';
 
 export default defineComponent({
   setup() {
@@ -292,6 +315,7 @@ export default defineComponent({
       inputCountry: "Country",
       selectedCity: "",
       inputKilometer: "",
+			showDropdown: false,
       options: [],
       filteredOptions: [],
       showCities: false,
@@ -594,6 +618,13 @@ export default defineComponent({
     },
   },
   methods: {	
+		setActiveTab(tab) {
+			const store = useTabsStore();
+      store.setActiveTab(tab); 
+			this.$router.push({ name: "profile-settings" });
+
+    },
+
     fetchData() {
       http
         .get("/cars/count", {
@@ -625,6 +656,24 @@ export default defineComponent({
           this.closeCitiesDropdownOnClickOutside
         );
       }
+    },
+		closePlaceDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".place");
+      if (!dropdownElement.contains(event.target)) {
+        this.showDropdown = false;
+        document.removeEventListener(
+          "click",
+          this.closePlaceDropdownOnClickOutside
+        );
+      }
+    },
+		toggleDropdown() {
+      // Этот метод переключает состояние выпадающего списка
+      this.showDropdown = !this.showDropdown;
+			document.addEventListener(
+        "click",
+        this.closePlaceDropdownOnClickOutside
+      );
     },
     selectCity(city) {
       if (this.selectedCities.includes(city)) {
