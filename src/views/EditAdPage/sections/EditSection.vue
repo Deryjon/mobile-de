@@ -2861,7 +2861,6 @@
 import { ref } from "vue";
 import axios from "axios";
 import http from "../../../axios.config";
-import Compressor from 'compressorjs';
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
