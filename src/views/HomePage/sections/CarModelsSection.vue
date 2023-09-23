@@ -1,7 +1,7 @@
 <template>
   <section class="rental-section">
 		<v-container class="max-w-[1120px]">
-			 fkerfjkrjerjflk
+			 
 		</v-container>
 	</section>
 </template>
