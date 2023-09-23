@@ -5,6 +5,7 @@
 		<RentSection/>
 		<MagazinSection/>
 		<FinanceSection/>
+		<CarModelsSection/>
   </main>
 </template>
 
@@ -15,6 +16,7 @@ import RentSection from "./sections/RentSection.vue";
 import SwiperSection from "./sections/SwiperSection.vue";
 import MagazinSection from "./sections/MagazinSection.vue";
 import FinanceSection from "./sections/FinanceSection.vue";
+import CarModelsSection from "./sections/CarModelsSection.vue";
 export default {
   components: {
     HeaderLayoutVue,
@@ -22,7 +24,8 @@ export default {
     RentSection,
     SwiperSection,
     MagazinSection,
-    FinanceSection
+    FinanceSection,
+    CarModelsSection
 },
 mounted() {
 	if (localStorage.getItem("u-com") == null) {

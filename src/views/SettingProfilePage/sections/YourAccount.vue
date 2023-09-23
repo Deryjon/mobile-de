@@ -104,8 +104,9 @@
               <div class="flex items-center">
                 <li
                   class="text-[14px]"
-                  data-key="can"
-                  @click="selectCountry('Motorcycles')"
+									
+                  @click="setActive('tab-4')"
+                :class="{ active: isActive('tab-4') }"
                 >
                   Motorcycles
                 </li>
@@ -270,7 +271,7 @@
         <MyAdCarsTab />
       </div>
       	<div class="" v-show="isActive('tab-4')">
-        ejkfbwkjf
+        <MyAdMotorCycleTab/> 
       </div>
     </section>
   </v-container>
@@ -280,6 +281,7 @@ import { useTabsStore } from "../../../store/storeAd";
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
+import MyAdMotorCycleTab from "../components/MyAdMotorbikeTab.vue";
 export default {
   data() {
     return {
@@ -350,6 +352,7 @@ export default {
     SettingsTab,
     OverviewTab,
     MyAdCarsTab,
+		MyAdMotorCycleTab
   },
 };
 </script>
