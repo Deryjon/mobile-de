@@ -158,10 +158,9 @@
         class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
      v-model="slidingDoor"
 				>
-        <option value="any">Any</option>
-        <option value="Sliding door right">Sliding door right</option>
-        <option value="Sliding door left">Sliding door left</option>
-        <option value="Sliding door both-sided">Sliding door both-sided</option>
+				<option value="14600">Any</option>
+          <option class="Left">Left side</option>
+          <option class="Right">Right side</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>
