@@ -12,6 +12,7 @@ import CarList from "../views/CarListPage/CarListPage.vue"
 import EditPage from "../views/EditAdPage/EditAdPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
+import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -74,6 +75,11 @@ const router = createRouter({
       path: "/contact",
       name: "contact",
       component: ContactPage,
+    },
+		{
+      path: "/car/:id",
+      name: "car-single",
+      component: CarSinglePage,
     },
 		{
       path: '/:catchAll(.*)',

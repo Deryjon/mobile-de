@@ -1,71 +1,80 @@
 <template>
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
-    </div>
     <section
-      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f]  p-[40px]">
-
-
+      class="w-full settings relative  bg-[#0000001f]  p-[40px]">
 			<div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="car in cars"
-      :key="car.id"
-      class="card bor flex justify-between w-full h-[320px]  p-[20px]"
+     
+      class="card bor flex justify-between w-full h-[320px]  p-[20px] cursor-pointer "
+			@click="goToSinglePageAd(1)"
     >
       <div class="img w-[400px] h-[260px] bor"></div>
       <div class="texts w-[520px]  h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ car.car_make }}
+            <!-- {{ car.car_make }} -->
           </div>
           <div class="model">
-            {{ car.car_model }}
+            <!-- {{ car.car_model }} -->
           </div>
           <div class="variant">
-            {{ car.car_variant }}
+            <!-- {{ car.car_variant }} -->
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ car.car_firt_date_year }}
+            <!-- {{ car.car_firt_date_year }} -->
           </div>
           •
-          <div class="mileage">{{ car.car_mileage }} km</div>
+          <div class="mileage">
+						<!-- {{ car.car_mileage }}  -->
+						km</div>
           •
-          <div class="power">{{ car.car_power }} Hp</div>
+          <div class="power">
+						<!-- {{ car.car_power }} -->
+						 Hp</div>
         </div>
         <div class="car-body flex gap-[5px] text-[14px]">
           <div class="car-body">
-            {{ car.car_body }}
+            <!-- {{ car.car_body }} -->
           </div>
           •
           <div class="fuel">
-            {{ car.car_fuel_type }}
+            <!-- {{ car.car_fuel_type }} -->
           </div>
           •
           <div class="transmission">
-            {{ car.car_transmission }}
+            <!-- {{ car.car_transmission }} -->
           </div>
           •
           <div class="hu">
             HU
-            {{ car.car_hu_valid_until }}
+            <!-- {{ car.car_hu_valid_until }} -->
           </div>
         </div>
         <div class="car-body flex gap-[5px] text-[14px]">
           <div class="car-body">
-            {{ car.car_number_door }}
+            <!-- {{ car.car_number_door }} -->
           </div>
           Doors
         </div>
       </div>
 			<div class="price text-[18px] font-semibold">
-				<p class="price">€{{ car.car_price }}</p>
+				<p class="price">
+					<!-- €{{ car.car_price }} -->
+				</p>
 				<div class="flex gap-[10px] justify-end mt-[200px]">
-        <button class=" flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" @click="cancelAdCar">
-          <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z" fill="currentColor"></path></svg>
-					Contact
-        </button>
+					<div class="">
+
+						<button class=" flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" @click="contactAd" v-if="!contactUser">
+							<svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z" fill="currentColor"></path></svg>
+							Contact
+						</button>
+						<div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
+<p>+998946120844</p>
+<p>lonewolf@gmail.com</p>
+						</div>
+					</div>
         <button
           @click="addAdBasicCars"
           class="bg-transparent bor rounded-[4px] text-[14px] p-[8px] px-[20px] text-[#08829a] flex items-center gap-[5px]"
@@ -94,9 +103,13 @@ export default {
       activeTab: "tab-2",
       isOpen: false,
 			cars: [],
+			contactUser: false,
     };
   },
   methods: {
+		contactAd(){
+this.contactUser = !this.contactUser
+		},
 		fetchAds() {
 			this.userI = localStorage.getItem("u-i");
       http.get(`/user/cars/${this.userI}?limit=100&offset=0`).then((res) => {
@@ -104,6 +117,9 @@ export default {
         console.log(this.cars);
       });
     },
+		goToSinglePageAd(carId){
+			this.$router.push({ name: "car-single", params: { id: carId } });
+		}
     
   },
   mounted() {
