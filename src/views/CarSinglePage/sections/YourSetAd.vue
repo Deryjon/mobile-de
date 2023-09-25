@@ -491,7 +491,7 @@
       </div>
     </div>
     <div
-      class="right bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
+      class="right fixed right-[210px] bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
     >
       <div class="car-name flex gap-[5px] text-[20px] font-bold">
         <p class="car-mark">Peugeout</p>
@@ -624,7 +624,6 @@ export default {
 };
 </script>
 <style scoped>
-/* CAR -- LIST  */
 .bor {
   border: 1px solid #000;
 }
