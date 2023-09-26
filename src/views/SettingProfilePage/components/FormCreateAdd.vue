@@ -2826,7 +2826,8 @@
 import { ref } from "vue";
 import axios from "axios";
 import http from "../../../axios.config";
-import Compressor from 'compressorjs';
+import { useTabsStore } from '../../../store/storeAd';
+
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -3014,7 +3015,6 @@ export default {
   formData.append("car_country", this.selectedCountry);
   formData.append("car_city_zipcode", this.zipCode);
   formData.append("car_radius", parseInt(this.radius));
-  formData.append("car_description", this.descriptionText);
   formData.append("user_phone", `${this.userCodeNumber}${this.userPre}${this.userPhone}`);
   formData.append("user_email", this.uEmail);
   formData.append("car_vide_link", this.linkVideo);
@@ -3078,7 +3078,8 @@ export default {
 			.then((res) =>  {
 				console.log(res.data)
 				this.interiorAdd = !this.interiorAdd
-
+				const store = useTabsStore();
+      store.setActiveTab("tab-3"); 
 			}) 
     },
     openFileInput() {
@@ -3339,12 +3340,8 @@ export default {
     selectCondition(condition) {
       this.selectedCondition = condition;
       if (condition === "New") {
-        1;
         this.isRadioNewSelected = true;
-        this.isCheckedRegister = false;
-        this.isCheckedEmploy = false;
-        this.isCheckedDemon = false;
-        this.isCheckedClassic = false;
+        this.selectedType = "";
       } else {
         this.isRadioNewSelected = false;
       }
