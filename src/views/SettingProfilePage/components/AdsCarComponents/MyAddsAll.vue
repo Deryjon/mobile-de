@@ -98,7 +98,7 @@
 </template>
 
 <script>
-import http from "../../../axios.config";
+import http from "@/axios.config";
 export default {
   data() {
     return {

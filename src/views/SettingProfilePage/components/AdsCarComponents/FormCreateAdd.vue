@@ -2825,8 +2825,8 @@
 <script>
 import { ref } from "vue";
 import axios from "axios";
-import http from "../../../axios.config";
-import { useTabsStore } from '../../../store/storeAd';
+import http from "@/axios.config";
+import { useTabsStore } from '@/store/storeAd';
 
 export default {
   setup() {

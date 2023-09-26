@@ -93,7 +93,7 @@
             v-if="isOpen"
             class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
           >
-            <div class="countries">
+            <div class="tabs">
               <div
                 class="flex items-center"
                 @click="setActive('tab-3')"
@@ -101,12 +101,14 @@
               >
                 <li class="text-[14px]" data-key="be">Cars</li>
               </div>
-              <div class="flex items-center">
+              <div class="flex items-center"
+							
+							@click="setActive('tab-4')"
+                :class="{ active: isActive('tab-4') }"
+							>
                 <li
                   class="text-[14px]"
 									
-                  @click="setActive('tab-4')"
-                :class="{ active: isActive('tab-4') }"
                 >
                   Motorcycles
                 </li>
@@ -280,8 +282,8 @@
 import { useTabsStore } from "../../../store/storeAd";
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
-import MyAdCarsTab from "../components/MyAdCarsTab.vue";
-import MyAdMotorCycleTab from "../components/MyAdMotorbikeTab.vue";
+import MyAdCarsTab from "../components/AdsCarComponents/MyAdCarsTab.vue";
+import MyAdMotorCycleTab from "../components/AdsMotobikeComponents//MyAdMotorbikeTab.vue";
 export default {
   data() {
     return {

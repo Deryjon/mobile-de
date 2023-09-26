@@ -32,8 +32,8 @@
   </div>
 </template>
 <script>
-import SellButton from "../../../ui/SellButton.vue";
-import FormCreateAdd from "../components/FormCreateAdd.vue";
+import SellButton from "../../../../ui/SellButton.vue";
+import FormCreateAdd from "./FormCreateAdd.vue";
 import MyAddsAll from "./MyAddsAll.vue";
 export default {
   data() {
