@@ -2994,30 +2994,59 @@ export default {
       }
 
   formData.append("user_id", this.userI);
-  formData.append("car_make", this.selectedMark);
-  formData.append("car_model", this.selectedModel);
+  formData.append("motorcycle_make", this.selectedMark);
+  formData.append("motorcycle_model", this.selectedModel);
   formData.append("car_variant", this.inputVariant);
   formData.append("car_body", this.selectedCar);
   formData.append("car_number_seats", this.numberSeats);
   formData.append("car_number_door", parseInt(this.numDoor));
   formData.append("car_silding_door", this.slidingDoor);
-  formData.append("car_condition", this.selectedCondition);
-  formData.append("car_type", this.selectedType);
+  formData.append("motorcycle_condition", this.selectedCondition);
+  formData.append("motorcycle_type", this.selectedType);
   formData.append("car_payment_type", this.activeTab);
-  formData.append("car_price", parseInt(this.price));
-  formData.append("car_firt_date", parseInt(this.inputValue));
-  formData.append("car_firt_date_year", parseInt(this.inputValue));
-  formData.append("car_mileage", parseInt(this.inputKilometer));
+  formData.append("motorcycle_price", parseInt(this.price));
+  formData.append("motorcycle_firt_date", parseInt(this.inputValue));
+  formData.append("motorcycle_firt_date_year", parseInt(this.inputValue));
+  formData.append("motorcycle_mileage", parseInt(this.inputKilometer));
   formData.append("car_hu_valid_until", this.huValid);
   formData.append("car_previous_owners", parseInt(this.preOwners));
-  formData.append("car_full_service_history", this.isCheckedHistory);
+  formData.append("motorcycle_history", this.isCheckedHistory);
   formData.append("car_roadworthy", this.isCheckedRoad);
-  formData.append("car_country", this.selectedCountry);
-  formData.append("car_city_zipcode", this.zipCode);
-  formData.append("car_radius", parseInt(this.radius));
+  formData.append("motorcycle_country", this.selectedCountry);
+  formData.append("motorcycle_city_zipcode", this.zipCode);
+  formData.append("motorcycle_radius", parseInt(this.radius));
   formData.append("user_phone", `${this.userCodeNumber}${this.userPre}${this.userPhone}`);
   formData.append("user_email", this.uEmail);
-  formData.append("car_vide_link", this.linkVideo);
+  formData.append("motorcycle_vide_link", this.linkVideo);
+
+// 	,
+//             ,
+//             motorcycle_description,
+//             ,
+//             ,
+//             ,
+//             ,
+//             ,
+//             ,
+//             ,
+//             motorcycle_power,
+//             ,
+//             ,
+//             ,
+//             motorcycle_fuel_type,
+//             motorcycle_driving_mode,
+//             motorcycle_transmission,
+//             motorcycle_cubic_capacity,
+//             motorcycle_exterior_colour,
+//             others,
+//             motorcycle_vat,
+//             motorcycle_discount_offers,
+//             motorcycle_vendor,
+//             ,
+//             motorcycle_damaged,
+//             motorcycle_number_owners,
+//             motorcycle_approved_used_programme,
+//             motorcycle_dealer_rating,
 
   // Выполняем POST-запрос с использованием объекта FormData
   http
