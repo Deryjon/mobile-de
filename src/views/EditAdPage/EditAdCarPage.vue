@@ -9,7 +9,7 @@
 
 <script>
 import PathLink from "../../ui/PathLink.vue";
-import EditSection from "./sections/EditSection.vue";
+import EditSection from "./sections/EditCarSection.vue";
 
 export default {
   components: {

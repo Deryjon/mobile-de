@@ -2861,6 +2861,8 @@
 import { ref } from "vue";
 import axios from "axios";
 import http from "../../../axios.config";
+import { useTabsStore } from '../../../store/storeAd';
+
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -3135,10 +3137,17 @@ this.descriptionText = this.dataAd.car_description
   http
     .put("/car/update", formData)
     .then((response) => {
-     
+			const store = useTabsStore();
+      store.setActiveTab("tab-3"); 
+     this.$router.push({name: "profile-settings"})
       const responseData = response;
       console.log(responseData);
     });
+},
+cancelAdCar(){
+	const store = useTabsStore();
+      store.setActiveTab("tab-3"); 
+     this.$router.push({name: "profile-settings"})
 },
 
     // thenPowerAdd() {

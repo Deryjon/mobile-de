@@ -9,7 +9,7 @@ import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfileP
 import About from "../views/AboutPage/AboutPage.vue"
 import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 import CarList from "../views/CarListPage/CarListPage.vue"
-import EditPage from "../views/EditAdPage/EditAdPage.vue"
+import EditPage from "../views/EditAdPage/EditAdCarPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
