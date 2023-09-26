@@ -2,7 +2,7 @@
   <v-container class="w-[1120px]">
     <PathLink>Car list</PathLink>
     <div class="sections">
-      <YourAccount />
+      <YourAccount />	
     </div>
   </v-container>
 </template>

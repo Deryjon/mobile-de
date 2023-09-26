@@ -2,7 +2,7 @@ import { defineStore } from 'pinia';
 
 export const useTabsStore = defineStore	( 'tabsStore', {
   state: () => ({
-    activeTab: '', // Инициализируйте переменную значением по умолчанию
+    activeTab: 'tab-2', // Инициализируйте переменную значением по умолчанию
   }),
 
   actions: {

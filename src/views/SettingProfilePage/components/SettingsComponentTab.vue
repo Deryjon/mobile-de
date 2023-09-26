@@ -444,7 +444,7 @@
               <div class="profile-pic">
                 <p class="font-medium">Phone number</p>
                 <p class="font-normal text-[14px]">
-                  {{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}
+                  {{ userCountryCode }} {{ userNumberPre }} {{ userPhoneNumber }}
                 </p>
               </div>
             </div>
@@ -789,11 +789,7 @@ export default {
           localStorage.setItem("u-code", responseData.data.user_country_code);
           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);
-          localStorage.setItem(
-            "u-d-co",
-            responseData.data.user_address_country
-          );
-          window.location.reload();
+					
         });
     },
     openNumberChange() {
@@ -842,7 +838,7 @@ export default {
             responseData.data.user_address_country
           );
         });
-      window.location.reload();
+
     },
     userDelete() {
       http.delete(`user/delete/${this.userI}`).then((res) => {
@@ -884,7 +880,6 @@ export default {
     this.userI = localStorage.getItem("u-i");
     this.userE = localStorage.getItem("u-e");
     this.userECh = localStorage.getItem("u-e");
-    this.userName = localStorage.getItem("u-fn");
     this.userName = localStorage.getItem("u-fn");
     if (this.userName === "null") {
       this.userName = "Noname";
@@ -929,9 +924,9 @@ export default {
     if (this.userNumberPre === "null") {
       this.userNumberPre = "";
     }
-    this.userNumber = localStorage.getItem("u-phone");
-    if (this.userNumber === "null") {
-      this.userNumber = "";
+    this.userPhoneNumber = localStorage.getItem("u-phone");
+    if (this.userPhoneNumber === "null") {
+      this.userPhoneNumber = "";
     }
   },
 };
