@@ -288,6 +288,7 @@ import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/AdsCarComponents/MyAdCarsTab.vue";
 import MyAdMotorCycleTab from "../components/AdsMotorbikeComponents/MyAdMotorbikeTab.vue";
 import MyAdVansTab from "../components/AdsVansComponents/MyAdVansTab.vue";
+import MyAdMotorhomesTab from "../components/AdsMotorhomesComponents/MyAdMotorhomesTab.vue";
 export default {
   data() {
     return {
