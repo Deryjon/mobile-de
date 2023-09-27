@@ -1,66 +1,66 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="car in motorcycles"
-      :key="car.car_id"
-      :data-car-id="car.id"
-      class="card bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      v-for="motorcycle in motorcycles"
+      :key="motorcycle.motorcycle_id"
+      :data-motorcycle-id="motorcycle.id"
+      class="motorcycled bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="car.car_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="motorcycle.motorcycle_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ car.car_make }}
+            {{ motorcycle.motorcycle_make }}
           </div>
           <div class="model">
-            {{ car.car_model }}
+            {{ motorcycle.motorcycle_model }}
           </div>
           <div class="variant">
-            {{ car.car_variant }}
+            {{ motorcycle.motorcycle_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ car.car_firt_date_year }}
+            {{ motorcycle.motorcycle_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ car.car_mileage }} km</div>
+          <div class="mileage">{{ motorcycle.motorcycle_mileage }} km</div>
           •
-          <div class="power">{{ car.car_power }} Hp</div>
+          <div class="power">{{ motorcycle.motorcycle_power }} Hp</div>
         </div>
-        <div class="car-body flex gap-[5px] text-[14px]">
-          <div class="car-body">
-            {{ car.car_body }}
+        <div class="motorcycle-body flex gap-[5px] text-[14px]">
+          <div class="motorcycle-body">
+            {{ motorcycle.motorcycle_body }}
           </div>
           •
           <div class="fuel">
-            {{ car.car_fuel_type }}
+            {{ motorcycle.motorcycle_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ car.car_transmission }}
+            {{ motorcycle.motorcycle_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ car.car_hu_valid_until }}
+            {{ motorcycle.motorcycle_hu_valid_until }}
           </div>
         </div>
-        <div class="car-body flex gap-[5px] text-[14px]">
-          <div class="car-body">
-            {{ car.car_number_door }}
+        <div class="motorcycle-body flex gap-[5px] text-[14px]">
+          <div class="motorcycle-body">
+            {{ motorcycle.motorcycle_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ car.car_price }}</p>
+        <p class="price">€{{ motorcycle.motorcycle_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdCar(car.car_id)"
+            @click="deleteAdmotorcycle(motorcycle.motorcycle_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdCar(car.car_id)"
+            @click="editAdmotorcycle(motorcycle.motorcycle_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -114,26 +114,26 @@ export default {
         console.log(this.motorcycles);
       });
     },
-    editAdCar(carId) {
-      this.$router.push({ name: "edit-ad", params: { id: carId } });
+    editAdmotorcycle(motorcycleId) {
+      this.$router.push({ name: "edit-ad", params: { id: motorcycleId } });
     },
-    deleteAdCar(carId) {
-      // Отправляем запрос DELETE на сервер с указанием carId
-      console.log(`Объявление с ID ${carId} удалено.`);
+    deleteAdmotorcycle(motorcycleId) {
+      // Отправляем запрос DELETE на сервер с указанием motorcycleId
+      console.log(`Объявление с ID ${motorcycleId} удалено.`);
       http
-        .delete(`/car/delete`, {
-          data: { car_id: parseInt(carId) },
+        .delete(`/motorcycle/delete`, {
+          data: { motorcycle_id: parseInt(motorcycleId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${carId} удалено.`);
+          console.log(`Объявление с ID ${motorcycleId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${carId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${motorcycleId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },
