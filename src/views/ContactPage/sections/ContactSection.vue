@@ -1,10 +1,7 @@
 <template>
-
-
-
     <div class="contact-page">
 
-        <div class="container">
+        <div class="container ">
 
 
             <div class="content">
@@ -15,7 +12,7 @@
                     
                 </div> <!-- breadcrumbs -->
                 <div class="headerLabel">
-                    Контакт
+                    Contact
                 </div>
                 <div class="ContentDesc">
                     Есть ли у вас дополнительные вопросы или вы предпочитаете обсудить свои опасения по телефону? Тогда вы найдете здесь всю необходимую информацию!
@@ -81,7 +78,6 @@ export default {
 
 .container {
     margin: 16px;
-    background: #f9fafb;
     border-radius: 8px;
     justify-content: center;
     align-content: center;
