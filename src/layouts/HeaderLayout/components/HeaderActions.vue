@@ -272,15 +272,16 @@
 					<li class="text-[12px]" @click="setActiveTab('tab-3')"  >Cars</li>
 					<li class="text-[12px]" @click="setActiveTab('tab-4')" >Motorcycles</li>
 
-					<li class="text-[12px]">Motor homes</li>
-					<li class="text-[12px]">Trucks</li>
-					<li class="text-[12px]">Trailers</li>
-					<li class="text-[12px]">Vans</li>
-					<li class="text-[12px]">Semi trailer trucks</li>
-					<li class="text-[12px]">Semi trailers</li>
-					<li class="text-[12px]">Coaches</li>
-					<li class="text-[12px]">Agricultural vehicle</li>
-					<li class="text-[12px]">Forklift trucks</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-5')">Motor homes</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-6')">Trucks</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-7')">Trailers</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-8')">Vans</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-9')">Semi trailer trucks</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-10')">Semi trailers</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-11')">Coaches</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-12')">Agricultural vehicle</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-13')">Construction Machines</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-14')">Forklift trucks</li>
 				</ul>
 			</div>
 		</div>

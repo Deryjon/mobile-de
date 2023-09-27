@@ -2,7 +2,7 @@
   <div class="set p-[40px] w-[870px]">
     <div class="add car" v-if="createAdd">
       <div class="ads">
-        <p class="car-text font-bold text-[30px]">My Motorbike Ads</p>
+        <p class="car-text font-bold text-[30px]">My Construction Machines Ads</p>
       </div>
       <div class="">
 				<p class="car-text font-bold text-[20px] mt-[20px]">Create new ad</p>

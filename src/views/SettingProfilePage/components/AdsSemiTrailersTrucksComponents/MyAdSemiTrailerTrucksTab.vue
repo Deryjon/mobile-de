@@ -1,17 +1,17 @@
 <template>
   <div class="set p-[40px] w-[870px]">
-    <div class="add car" v-if="createAdd">
+    <div class="add SemiTrailer" v-if="createAdd">
       <div class="ads">
-        <p class="car-text font-bold text-[30px]">My Motorbike Ads</p>
+        <p class="SemiTrailer-text font-bold text-[30px]">My SemiTrailerTruck Ads</p>
       </div>
       <div class="">
-				<p class="car-text font-bold text-[20px] mt-[20px]">Create new ad</p>
+				<p class="SemiTrailer-text font-bold text-[20px] mt-[20px]">Create new ad</p>
 				<SellButton class="ml-[78.4%] w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
 			</div>
       <div
 			class="btn w-[500px] h-[350px] hover:bg-orange-200 mx-auto mt-[40px] pt-[10px] cursor-pointer rounded-[20px]"
-			@click="createCarAdd"
-			v-if="isCarAdd"
+			@click="createSemiTrailerAdd"
+			v-if="isSemiTrailerAdd"
       >
         <p class="text-[100px] mx-auto w-[50px] h-[120px]">+</p>
         <p class="text-[18px] font-medium mx-auto w-[360px]">
@@ -39,7 +39,7 @@ export default {
   data() {
     return {
       createAdd: true,
-      isCarAdd: false,
+      isSemiTrailerAdd: false,
     };
   },
   methods: {

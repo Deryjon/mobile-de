@@ -118,8 +118,10 @@
                 <li
                   class="text-[14px]"
                   data-key="dk"
-                  @click="selectCountry('Motor homes')"
-                >
+									@click="setActive('tab-5')"
+                :class="{ active: isActive('tab-5') }"
+							>
+                
                   Motor homes
                 </li>
               </div>
@@ -128,8 +130,10 @@
                 <li
                   class="text-[14px]"
                   data-key="us"
-                  @click="selectCountry('Trucks')"
-                >
+									@click="setActive('tab-6')"
+                :class="{ active: isActive('tab-6') }"
+							>
+                
                   Trucks
                 </li>
               </div>
@@ -138,8 +142,10 @@
                 <li
                   class="text-[14px]"
                   data-key="fr"
-                  @click="selectCountry('Trailers')"
-                >
+                	@click="setActive('tab-7')"
+                :class="{ active: isActive('tab-7') }"
+							>
+                
                   Trailers
                 </li>
               </div>
@@ -147,8 +153,8 @@
               <div class="flex items-center">
                 <li
                   class="text-[14px]"
-                  data-key="gr"	@click="setActive('tab-6')"
-                :class="{ active: isActive('tab-6') }"
+                  data-key="gr"	@click="setActive('tab-8')"
+                :class="{ active: isActive('tab-8') }"
                 >
                   Vans
                 </li>
@@ -158,8 +164,10 @@
                 <li
                   class="text-[14px]"
                   data-key="ita"
-                  @click="selectCountry('Semi trailer trucks')"
-                >
+									@click="setActive('tab-9')"
+                :class="{ active: isActive('tab-9') }"
+							>
+                
                   Semi trailer trucks
                 </li>
               </div>
@@ -167,8 +175,10 @@
                 <li
                   class="text-[14px]"
                   data-key="mor"
-                  @click="selectCountry('Semi trailers')"
-                >
+									@click="setActive('tab-10')"
+                :class="{ active: isActive('tab-10') }"
+							>
+                
                   Semi trailers
                 </li>
               </div>
@@ -176,8 +186,10 @@
                 <li
                   class="text-[14px]"
                   data-key="mor"
-                  @click="selectCountry('Coaches')"
-                >
+									@click="setActive('tab-11')"
+                :class="{ active: isActive('tab-11') }"
+							>
+                
                   Coaches
                 </li>
               </div>
@@ -185,8 +197,10 @@
                 <li
                   class="text-[14px]"
                   data-key="nt"
-                  @click="selectCountry('Agricultural vehicle')"
-                >
+									@click="setActive('tab-12')"
+                :class="{ active: isActive('tab-12') }"
+							>
+                
                   Agricultural vehicle
                 </li>
               </div>
@@ -195,8 +209,10 @@
                 <li
                   class="text-[14px]"
                   data-key="mor"
-                  @click="selectCountry('Construction machines')"
-                >
+									@click="setActive('tab-13')"
+                :class="{ active: isActive('tab-13') }"
+							>
+                
                   Construction machines
                 </li>
               </div>
@@ -204,8 +220,10 @@
                 <li
                   class="text-[14px]"
                   data-key="sp"
-                  @click="selectCountry('Forklift trucks')"
-                >
+									@click="setActive('tab-14')"
+                :class="{ active: isActive('tab-14') }"
+							>
+                
                   Forklift trucks
                 </li>
               </div>
@@ -275,8 +293,35 @@
       	<div class="" v-show="isActive('tab-4')">
         <MyAdMotorCycleTab/> 
       </div>
+      	<div class="" v-show="isActive('tab-5')">
+        <MyAdMotorhomesTab/> 
+      </div>
       	<div class="" v-show="isActive('tab-6')">
+        <MyAdTrucksTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-7')">
+        <MyAdTrailerTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-8')">
         <MyAdVansTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-9')">
+        <MyAdSemiTrailerTruckTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-10')">
+        <MyAdSemiTrailerTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-11')">
+        <MyAdCoachesTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-12')">
+        <MyAdAgriculturalTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-13')">
+        <MyAdConstructionTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-14')">
+        <MyAdForkliftTab/> 
       </div>
     </section>
   </v-container>
@@ -289,6 +334,14 @@ import MyAdCarsTab from "../components/AdsCarComponents/MyAdCarsTab.vue";
 import MyAdMotorCycleTab from "../components/AdsMotorbikeComponents/MyAdMotorbikeTab.vue";
 import MyAdVansTab from "../components/AdsVansComponents/MyAdVansTab.vue";
 import MyAdMotorhomesTab from "../components/AdsMotorhomesComponents/MyAdMotorhomesTab.vue";
+import MyAdTrucksTab from "../components/AdsTrucksComponents/MyAdTrucksTab.vue";
+import MyAdTrailerTab from "../components/AdsTrailersComponents/MyAdTrailersTab.vue";
+import MyAdSemiTrailerTab from "../components/AdsSemiTrailersComponents/MyAdSemiTrailerTab.vue";
+import MyAdSemiTrailerTruckTab from "../components/AdsSemiTrailersTrucksComponents/MyAdSemiTrailerTrucksTab.vue";
+import MyAdCoachesTab from "../components/AdsCoachesComponents/MyAdCoachesTab.vue";
+import MyAdAgriculturalTab from "../components/AdsAgriculturalVehicleComponents/MyAdAgriculturalTab.vue";
+import MyAdConstructionTab from "../components/AdsConstructionMachinesComponents/MyAdConstructionsTab.vue";
+import MyAdForkliftTab from "../components/AdsForkliftTrucksComponents/MyAdForkliftTruckTab.vue";
 export default {
   data() {
     return {
@@ -360,7 +413,16 @@ export default {
     OverviewTab,
     MyAdCarsTab,
 		MyAdMotorCycleTab,
-		MyAdVansTab
+		MyAdVansTab,
+		MyAdMotorhomesTab,
+		MyAdTrucksTab,
+		MyAdTrailerTab,
+		MyAdSemiTrailerTab,
+		MyAdSemiTrailerTruckTab,
+		MyAdCoachesTab,
+		MyAdAgriculturalTab,
+		MyAdConstructionTab,
+		MyAdForkliftTab,
   },
 };
 </script>

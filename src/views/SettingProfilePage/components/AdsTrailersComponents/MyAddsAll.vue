@@ -1,66 +1,66 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="motorcycle in motorcycles"
-      :key="motorcycle.motorcycle_id"
-      :data-motorcycle-id="motorcycle.id"
-      class="motorcycled bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      v-for="trailer in trailers"
+      :key="trailer.trailer_id"
+      :data-trailer-id="trailer.id"
+      class="trailerd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="motorcycle.motorcycle_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="trailer.trailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ motorcycle.motorcycle_make }}
+            {{ trailer.trailer_make }}
           </div>
           <div class="model">
-            {{ motorcycle.motorcycle_model }}
+            {{ trailer.trailer_model }}
           </div>
           <div class="variant">
-            {{ motorcycle.motorcycle_variant }}
+            {{ trailer.trailer_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ motorcycle.motorcycle_firt_date_year }}
+            {{ trailer.trailer_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ motorcycle.motorcycle_mileage }} km</div>
+          <div class="mileage">{{ trailer.trailer_mileage }} km</div>
           •
-          <div class="power">{{ motorcycle.motorcycle_power }} Hp</div>
+          <div class="power">{{ trailer.trailer_power }} Hp</div>
         </div>
-        <div class="motorcycle-body flex gap-[5px] text-[14px]">
-          <div class="motorcycle-body">
-            {{ motorcycle.motorcycle_body }}
+        <div class="trailer-body flex gap-[5px] text-[14px]">
+          <div class="trailer-body">
+            {{ trailer.trailer_body }}
           </div>
           •
           <div class="fuel">
-            {{ motorcycle.motorcycle_fuel_type }}
+            {{ trailer.trailer_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ motorcycle.motorcycle_transmission }}
+            {{ trailer.trailer_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ motorcycle.motorcycle_hu_valid_until }}
+            {{ trailer.trailer_hu_valid_until }}
           </div>
         </div>
-        <div class="motorcycle-body flex gap-[5px] text-[14px]">
-          <div class="motorcycle-body">
-            {{ motorcycle.motorcycle_number_door }}
+        <div class="trailer-body flex gap-[5px] text-[14px]">
+          <div class="trailer-body">
+            {{ trailer.trailer_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ motorcycle.motorcycle_price }}</p>
+        <p class="price">€{{ trailer.trailer_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdmotorcycle(motorcycle.motorcycle_id)"
+            @click="deleteAdtrailer(trailer.trailer_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdmotorcycle(motorcycle.motorcycle_id)"
+            @click="editAdtrailer(trailer.trailer_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -103,37 +103,37 @@ export default {
   data() {
     return {
       userI: "",
-      motorcycles: [],
+      trailers: [],
     };
   },
 
   methods: {
     fetchAds() {
-      http.get(`/user/motorcycles/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.motorcycles = res.data.data;
-        console.log(this.motorcycles);
+      http.get(`/user/trailers/${this.userI}?limit=100&offset=0`).then((res) => {
+        this.trailers = res.data.data;
+        console.log(this.trailers);
       });
     },
-    editAdmotorcycle(motorcycleId) {
-      this.$router.push({ name: "edit-ad", params: { id: motorcycleId } });
+    editAdtrailer(trailerId) {
+      this.$router.push({ name: "edit-ad", params: { id: trailerId } });
     },
-    deleteAdmotorcycle(motorcycleId) {
-      // Отправляем запрос DELETE на сервер с указанием motorcycleId
-      console.log(`Объявление с ID ${motorcycleId} удалено.`);
+    deleteAdtrailer(trailerId) {
+      // Отправляем запрос DELETE на сервер с указанием trailerId
+      console.log(`Объявление с ID ${trailerId} удалено.`);
       http
-        .delete(`/motorcycle/delete`, {
-          data: { motorcycle_id: parseInt(motorcycleId) },
+        .delete(`/trailer/delete`, {
+          data: { trailer_id: parseInt(trailerId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${motorcycleId} удалено.`);
+          console.log(`Объявление с ID ${trailerId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${motorcycleId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${trailerId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },
