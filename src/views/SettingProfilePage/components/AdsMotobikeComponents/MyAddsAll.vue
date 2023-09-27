@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="car in cars"
+      v-for="car in motorcycles"
       :key="car.car_id"
       :data-car-id="car.id"
       class="card bor bg-white flex justify-between w-full h-[300px] p-[20px]"
@@ -103,15 +103,15 @@ export default {
   data() {
     return {
       userI: "",
-      cars: [],
+      motorcycles: [],
     };
   },
 
   methods: {
     fetchAds() {
-      http.get(`/user/cars/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.cars = res.data.data;
-        console.log(this.cars);
+      http.get(`/user/motorcycles/${this.userI}?limit=100&offset=0`).then((res) => {
+        this.motorcycles = res.data.data;
+        console.log(this.motorcycles);
       });
     },
     editAdCar(carId) {

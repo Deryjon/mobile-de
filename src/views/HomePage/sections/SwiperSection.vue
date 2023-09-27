@@ -10,14 +10,6 @@
           :class="{ 'slider-item': true, active: activeIndex === index }"
         />
       </div>
-      <!-- <div class="next-prev">
-        <div class="prev" @click="prevSlide">
-          <img src="https://img.icons8.com/material-outlined/1x/back.png" alt="" class="previcon" />
-        </div>
-        <div class="next" @click="nextSlide">
-          <img src="https://img.icons8.com/material-outlined/1x/forward.png" alt="" class="nexticon" />
-        </div>
-      </div> -->
       <div class="indicators">
         <div
           v-for="(dot, index) in images"
