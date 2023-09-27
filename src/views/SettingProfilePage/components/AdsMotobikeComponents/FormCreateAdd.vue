@@ -107,162 +107,6 @@
           </div>
         </div>
       </div>
-
-      <div class="filter-cars flex flex-wrap gap-[50px] mt-[0px] lg:mt-[50px]">
-        <!-- cabrio -->
-        <label
-          class="custom-checkbox p-[0] gap-[10px] flex items-center h-[40px] w-[230px]"
-        >
-          <input
-            type="radio"
-            v-model="selectedCar"
-            :class="{
-              'bg-transparent': selectedCar !== 'Cabrio / Roadster',
-              'bg-orange': selectedCar === 'Cabrio / Roadster',
-            }"
-            @click="selectCar('Cabrio / Roadster')"
-          />
-          <img
-            src="../../../assets/icons/cabriolet-icon.svg"
-            alt=""
-            class="w-[90px] pt-[20px]"
-          />
-          <span class="text-sm"> Cabrio / Roadster</span>
-        </label>
-        <!-- estate -->
-        <label
-          class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]"
-        >
-          <input
-            @click="selectCar('Estate Car')"
-            type="radio"
-            v-model="selectedCar"
-            :class="{
-              'bg-transparent': selectedCar !== 'Estate Car',
-              'bg-orange': selectedCar === 'Estate Car',
-            }"
-          />
-          <img
-            src="../../../assets/icons/estate-car-icon.svg"
-            alt=""
-            class="w-24 pt-[20px]"
-          />
-          <span class="text-sm">Estate Car</span>
-        </label>
-
-        <!-- saloon -->
-        <label
-          class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]"
-        >
-          <input
-            type="radio"
-            v-model="selectedCar"
-            @click="selectCar('Saloon')"
-            :class="{
-              'bg-transparent': selectedCar !== 'Saloon',
-              'bg-orange': selectedCar === 'Saloon',
-            }"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-
-          <img
-            src="../../../assets/icons/saloon-car-icon.svg"
-            alt=""
-            class="w-24 pt-[20px]"
-          />
-          <span class="text-sm">Saloon</span>
-        </label>
-        <!-- small -->
-        <label
-          class="custom-checkbox p-[0] flex gap-[10px] items-center h-10 w-[210px]20px]"
-        >
-          <input
-            type="radio"
-            v-model="selectedCar"
-            @click="selectCar('Small Car')"
-            :class="{
-              'bg-transparent': selectedCar !== 'Small Car',
-              'bg-orange': selectedCar === 'Small Car',
-            }"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-
-          <img
-            src="../../../assets/icons/small-car-icon.svg"
-            alt=""
-            class="w-[75px] pt-[10px]"
-          />
-          <span class="text-sm">Small Car</span>
-        </label>
-        <!-- sports -->
-        <label
-          class="custom-checkbox p-[0] gap-[10px] flex items-center h-8 w-[280px]20px]"
-        >
-          <input
-            type="radio"
-            v-model="selectedCar"
-            @click="selectCar(' Sports Car / Coupe')"
-            :class="{
-              'bg-transparent': selectedCar !== ' Sports Car / Coupe',
-              'bg-orange': selectedCar === ' Sports Car / Coupe',
-            }"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-
-          <img
-            src="../../../assets/icons/sports-car-icon.svg"
-            alt=""
-            class="w-28 pt-[18px]"
-          />
-          <span class="text-sm"> Sports Car / Coupe</span>
-        </label>
-        <!-- off-road -->
-        <label
-          class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]"
-        >
-          <input
-            type="radio"
-            v-model="selectedCar"
-            @click="selectCar('Van / Minibus')"
-            :class="{
-              'bg-transparent': selectedCar !== 'Van / Minibus',
-              'bg-orange': selectedCar === 'Van / Minibus',
-            }"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-
-          <img
-            src="../../../assets/icons/car-minibus-icon.svg"
-            alt=""
-            class="w-[70px] pt-[8px]"
-          />
-          <span class="text-sm">Van / Minibus</span>
-        </label>
-        <!-- off-road -->
-        <label
-          class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[350px]"
-        >
-          <input
-            type="radio"
-            v-model="selectedCar"
-            @click="selectCar('SUV / Off-road Vehicle / Pickup Truck')"
-            :class="{
-              'bg-transparent':
-                selectedCar !== 'SUV / Off-road Vehicle / Pickup Truck',
-              'bg-orange':
-                selectedCar === 'SUV / Off-road Vehicle / Pickup Truck',
-            }"
-            class="form-checkbox h-7 w-7 text-indigo-600"
-          />
-
-          <img
-            src="../../../assets/icons/car-suv-icon.svg"
-            alt=""
-            class="w-20 pt-[18px]"
-          />
-          <span class="text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
-        </label>
-      </div>
       <div class="flex gap-[30px]">
         <div class="seats dropdown-container mt-[20px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
@@ -2867,7 +2711,6 @@ export default {
       makes: [],
       models: [],
       selectedMark: "14600",
-      selectedCar: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -2997,7 +2840,6 @@ export default {
   formData.append("motorcycle_make", this.selectedMark);
   formData.append("motorcycle_model", this.selectedModel);
   formData.append("car_variant", this.inputVariant);
-  formData.append("car_body", this.selectedCar);
   formData.append("car_number_seats", this.numberSeats);
   formData.append("car_number_door", parseInt(this.numDoor));
   formData.append("car_silding_door", this.slidingDoor);
@@ -3361,9 +3203,6 @@ export default {
           console.error("Ошибка при выполнении запроса:", error.message);
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
-    },
-    selectCar(condition) {
-      this.selectedCar = condition;
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
