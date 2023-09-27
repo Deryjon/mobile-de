@@ -148,10 +148,9 @@ object-fit: cover;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
-    right: 30px;
+
     gap: 10px;
-    
+    width: 100%;
    
 }
 
