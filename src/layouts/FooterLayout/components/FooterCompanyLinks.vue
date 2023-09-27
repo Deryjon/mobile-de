@@ -18,9 +18,6 @@ export default {
 		}
 	},
 	methods:{
-		// goAboutPage(){
-		// 	this.$router.push({name: 'about-us'})
-		// }
 	}
 };
 </script>
