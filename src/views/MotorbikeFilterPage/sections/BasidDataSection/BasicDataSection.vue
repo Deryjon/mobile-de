@@ -47,33 +47,11 @@
             <h2 class="text-sm lg:text-[14px] mt-2">
               {{ $t("message.selects.model") }}
             </h2>
-            <select
+            <input
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="Beliebig"
-              :disabled="isModelSelectDisabled"
-            >
-              <option value="14600">Beliebig</option>
-          <option
-            v-for="model in models"
-            :key="model"
-            :value="model.car_model_name"
-            class=""
-          >
-            {{ model.car_model_name }}
-          </option>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-            ></span>
-          </div>
-          <div class="mark">
-            <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[14px]">Variant</h2>
-              <input
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                placeholder="e.g. GTI..."
-              />
-            </div>
+              placeholder="e. g. Brutale 1090, R 1200 …"
+              
+            />
           </div>
         </div>
 				<VehicleTypeComponent/>
