@@ -96,85 +96,6 @@
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
-        <div class="mark">
-          <div class="relative mt-2">
-            <h2 class="text-sm lg:text-[14px]">Variant</h2>
-            <input
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              placeholder="e.g. GTI..."
-              v-model="inputVariant"
-            />
-          </div>
-        </div>
-      </div>
-      <div class="flex gap-[30px]">
-        <div class="seats dropdown-container mt-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="numberSeats"
-              @focus="openSeatsDropdown"
-              @blur="openSeatsDropdown"
-            />
-
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openSeatsDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div>
-          <ul
-            v-if="seatsOpen"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-          >
-            <ul>
-              <li key="2" @click="selectNumberSeats('2')">2</li>
-              <li key="3" @click="selectNumberSeats('3')">3</li>
-              <li key="4" @click="selectNumberSeats('4')">4</li>
-              <li key="5" @click="selectNumberSeats('5')">5</li>
-              <li key="6" @click="selectNumberSeats('6')">6</li>
-              <li key="7" @click="selectNumberSeats('7')">7</li>
-              <li key="8" @click="selectNumberSeats('8')">8</li>
-              <li key="9" @click="selectNumberSeats('9')">9</li>
-            </ul>
-          </ul>
-        </div>
-        <div class="seats relative mt-[28px]">
-          <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
-          <select
-            class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
-            v-model="numDoor"
-          >
-            <option value="">Any</option>
-            <option value="2/3">2/3</option>
-            <option value="3/5">3/5</option>
-            <option value="6/7">6/7</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"
-          ></span>
-        </div>
-        <!-- sliding-door -->
-        <div class="seats relative mt-[28px]">
-          <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
-          <select
-            class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
-            v-model="slidingDoor"
-          >
-					<option value="14600">Any</option>
-          <option class="">Left side</option>
-          <option class="">Right side</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"
-          ></span>
-        </div>
       </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
@@ -2839,19 +2760,17 @@ export default {
   formData.append("user_id", this.userI);
   formData.append("motorcycle_make", this.selectedMark);
   formData.append("motorcycle_model", this.selectedModel);
-  formData.append("car_variant", this.inputVariant);
-  formData.append("car_number_seats", this.numberSeats);
   formData.append("car_number_door", parseInt(this.numDoor));
   formData.append("car_silding_door", this.slidingDoor);
   formData.append("motorcycle_condition", this.selectedCondition);
   formData.append("motorcycle_type", this.selectedType);
-  formData.append("car_payment_type", this.activeTab);
+  formData.append("motorcycle_payment_type", this.activeTab);
   formData.append("motorcycle_price", parseInt(this.price));
   formData.append("motorcycle_firt_date", parseInt(this.inputValue));
   formData.append("motorcycle_firt_date_year", parseInt(this.inputValue));
   formData.append("motorcycle_mileage", parseInt(this.inputKilometer));
   formData.append("car_hu_valid_until", this.huValid);
-  formData.append("car_previous_owners", parseInt(this.preOwners));
+  formData.append("motorcycle_number_owners", parseInt(this.preOwners));
   formData.append("motorcycle_history", this.isCheckedHistory);
   formData.append("car_roadworthy", this.isCheckedRoad);
   formData.append("motorcycle_country", this.selectedCountry);
@@ -2861,20 +2780,8 @@ export default {
   formData.append("user_email", this.uEmail);
   formData.append("motorcycle_vide_link", this.linkVideo);
 
-// 	,
-//             ,
 //             motorcycle_description,
-//             ,
-//             ,
-//             ,
-//             ,
-//             ,
-//             ,
-//             ,
 //             motorcycle_power,
-//             ,
-//             ,
-//             ,
 //             motorcycle_fuel_type,
 //             motorcycle_driving_mode,
 //             motorcycle_transmission,
@@ -2884,13 +2791,9 @@ export default {
 //             motorcycle_vat,
 //             motorcycle_discount_offers,
 //             motorcycle_vendor,
-//             ,
 //             motorcycle_damaged,
-//             motorcycle_number_owners,
 //             motorcycle_approved_used_programme,
 //             motorcycle_dealer_rating,
-
-  // Выполняем POST-запрос с использованием объекта FormData
   http
     .post("/car/add", formData)
     .then((response) => {

@@ -4,8 +4,8 @@
 		<ul class=" flex flex-col gap-[10px]">
 		<router-link class="text text-[14px]" :to="{ name: 'about-us' }">About</router-link>
 		<router-link class="text text-[14px]" :to="{ name: 'news' }">Newsroom</router-link>
-			<li class="text text-[14px]"><a href="">Careers</a></li>
-			<li class="text text-[14px]"><a href="">Adversting</a></li>
+		<router-link class="text text-[14px]" :to="{ name: 'home' }">Careers</router-link>
+		<router-link class="text text-[14px]" :to="{ name: 'home' }">Adversting</router-link>
 			<router-link class="text text-[14px]" :to="{ name: 'contact' }">Contact</router-link>
 		</ul>
 	</div>
