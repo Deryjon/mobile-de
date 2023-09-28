@@ -1,6 +1,6 @@
 <template>
   <section class="basic-filter mt-[200px]">
-    <v-container>
+    <v-container class="w-[1140px]">
       <PathLink>My New Motorbike </PathLink>
 
       <FilterTitle>Detailsuche: Pkw - neu oder gebraycht</FilterTitle>
