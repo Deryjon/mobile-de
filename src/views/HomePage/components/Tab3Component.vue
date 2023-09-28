@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.car_make_name"
+                :value="make.motorcycle_make_name"
               >
-                {{ make.car_make_name }}
+                {{ make.motorcycle_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -31,12 +31,12 @@
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
-        <select
+        <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
-          :disabled="isModelSelectDisabled"
-        >
-          <option value="14600">Beliebig</option>
+					type="text"
+        />
+          <!-- <option value="14600">Beliebig</option>
           <option
             v-for="model in models"
             :key="model"
@@ -44,9 +44,8 @@
             class=""
           >
             {{ model.car_model_name }}
-          </option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+          </option> -->
+               <!-- <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span> -->
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -670,7 +669,7 @@ export default {
   mounted() {
     // const apiUrl = 'https://api.api-ninjas.com/v1/cars/make'
     // const apiUrl = "https://api.nhtsa.gov/SafetyRatings/modelyear/2023";
-    const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
+    const apiUrl = "https://sellcenter.onrender.com/api/v1/motorcycle/marks";
     axios
       .get(apiUrl)
       .then((response) => {

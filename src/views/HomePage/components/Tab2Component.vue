@@ -34,7 +34,7 @@
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
-          :disabled="isModelSelectDisabled"
+					type="text"
         />
           <!-- <option value="14600">Beliebig</option>
           <option
