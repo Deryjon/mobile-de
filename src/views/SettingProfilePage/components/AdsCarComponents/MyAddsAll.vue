@@ -58,7 +58,7 @@
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ car.car_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
-          <button
+          <!-- <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
             @click="deleteAdCar(car.car_id)"
           >
@@ -67,14 +67,38 @@
               height="1em"
               viewBox="0 0 448 512"
             >
-              <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+            Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
               <path
                 d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
               />
             </svg>
             Delete
-          </button>
+          </button> -->
 
+					<v-dialog v-model="dialog" width="200px">
+              <template v-slot:activator="{ props }">
+                <button
+                  class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
+                  v-bind="props"
+                >
+                  Delete
+                </button>
+              </template>
+
+              <v-card>
+                <v-card-text class="mx-auto"> Are you sure? </v-card-text>
+                <div class="flex items-center w-[120px] mx-auto">
+                  <v-card-actions>
+                    <v-btn color="error" block @click="dialog = false"
+                      >No</v-btn
+                    >
+                  </v-card-actions>
+                  <v-card-actions>
+                    <v-btn color="success" block @click="deleteAdCar(car.car_id)">Yes</v-btn>
+                  </v-card-actions>
+                </div>
+              </v-card>
+            </v-dialog>
           <button
             @click="editAdCar(car.car_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
@@ -104,6 +128,7 @@ export default {
     return {
       userI: "",
       cars: [],
+			dialog: false,
     };
   },
 
@@ -111,31 +136,29 @@ export default {
     fetchAds() {
       http.get(`/user/cars/${this.userI}?limit=100&offset=0`).then((res) => {
         this.cars = res.data.data;
-        console.log(this.cars);
       });
     },
     editAdCar(carId) {
       this.$router.push({ name: "edit-ad", params: { id: carId } });
     },
     deleteAdCar(carId) {
-      // Отправляем запрос DELETE на сервер с указанием carId
-      console.log(`Объявление с ID ${carId} удалено.`);
       http
         .delete(`/car/delete`, {
           data: { car_id: parseInt(carId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${carId} удалено.`);
+         
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${carId}:`, error);
+        
           // Выполните здесь необходимые действия при ошибке
         });
+				this.dialog = false;
     },
   },
   created() {
