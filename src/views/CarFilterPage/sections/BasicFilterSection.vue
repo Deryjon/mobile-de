@@ -47,9 +47,11 @@
             <select
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               :disabled="isModelSelectDisabled"
-							v-model="selectedModel"
+              v-model="selectedModel"
             >
-<option :value="selectedModel" selected>{{ selectedModel }}</option>
+              <option :value="selectedModel" selected>
+                {{ selectedModel }}
+              </option>
               <option
                 v-for="model in models"
                 :key="model"
@@ -69,6 +71,7 @@
               <input
                 class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 placeholder="e.g. GTI..."
+								v-model="inputVariant"
               />
             </div>
           </div>
@@ -83,21 +86,21 @@
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab1"
-              :class="{ 'active-Kaufen': activeTab === 'tab-1' }"
+              :class="{ 'active-Kaufen': activeTab === 'buy' }"
             >
               {{ $t("message.btn.buy") }}
             </button>
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab2"
-              :class="{ 'active-Kaufen': activeTab === 'tab-2' }"
+              :class="{ 'active-Kaufen': activeTab === 'sell' }"
             >
               {{ $t("message.btn.sell") }}
             </button>
           </div>
         </div>
         <div class="tab-content lg:mt-[-10px] xl:mt-[30px]">
-          <div class="tab-1">
+          <div class="buy">
             <PaymentTab1Component />
           </div>
         </div>
@@ -114,6 +117,7 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
+import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
   components: {
@@ -132,18 +136,32 @@ export default {
       selectedMark: "14600",
       selectedPrice: "",
       isModelSelectDisabled: false,
-      activeTab: "tab-1",
+      activeTab: "buy",
       price: "",
       selectedYear: "",
       selectedtoYear: "",
       years: "",
       modelYears: [],
+			inputVariant: "",
       modeltoYears: [],
       killometres: "",
       selectedModel: localStorage.getItem("mark-model"),
     };
   },
   methods: {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          car_make: this.selectedMark,
+          car_model: this.selectedModel,
+					car_variant: this.inputVariant,
+					car_payment_type: this.activeTab
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
     fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
@@ -186,10 +204,10 @@ export default {
         });
     },
     showTab1() {
-      this.activeTab = "tab-1";
+      this.activeTab = "buy";
     },
     async showTab2() {
-      this.activeTab = "tab-2";
+      this.activeTab = "sell";
     },
     toggleAnySelection() {
       // Обработчик клика на "Any"
@@ -235,10 +253,10 @@ export default {
     },
   },
   mounted() {
-					this.selectedMark = localStorage.getItem("mark");
-    const apiUrl = "https://sellcenter.onrender.com/api/v1/car/marks";
-    axios
-      .get(apiUrl)
+    this.selectedMark = localStorage.getItem("mark");
+
+    http
+      .get("/car/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -250,6 +268,28 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+  },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
   },
 };
 </script>

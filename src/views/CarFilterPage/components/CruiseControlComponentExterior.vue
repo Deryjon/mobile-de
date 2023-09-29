@@ -2,7 +2,7 @@
   <div class="condition p-[20px]">
     <h3>Cruise control
 </h3>
-    <div class="radios-type flex gap-[30px] mt-[10px]">
+    <div class="radios-type flex gap-[30px] mt-[10px] text-[14px]">
       <label for="condition-ext" @click="selectCondition('AnyExterior')">
         <input
           type="radio"
@@ -15,7 +15,7 @@
         />
         <span class="ml-[10px]">Any</span>
       </label>
-      <label for="condition-any">
+      <label >
         <input
           type="radio"
           id="condition-any"
@@ -29,15 +29,17 @@
         <span class="ml-[10px]">Cruise control
 </span>
       </label>
-      <label for="condition-any" @click="selectCondition('Adaptive')">
+      <label  >
         <input
           type="radio"
-          id="condition-any"
+					id="condition-adap"
+				
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Adaptive',
             'bg-orange': selectedCondition === 'Adaptive',
           }"
+					@click="selectCondition('Adaptive')"
         />
         <span class="ml-[10px]">Adaptive Cruise Control</span>
       </label>
@@ -45,13 +47,31 @@
   </div>
 </template>
 <script>
+import http from "../../../axios.config"
 export default {
   data() {
     return {
       selectedCondition: "AnyExterior",
     };	
   },
+	watch: {
+    selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+  },
   methods: {
+		fetchData() {
+      http
+        .get("/cars/count", {
+          car_city_zipcode: this.selectedCities,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
     selectCondition(condition) {
       this.selectedCondition = condition;
     },

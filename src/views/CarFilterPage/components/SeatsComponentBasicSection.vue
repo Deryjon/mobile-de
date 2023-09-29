@@ -12,7 +12,7 @@
           placeholder="from"
           v-model="numberSeats"
           @focus="openSeatsDropdown"
-          @blur="closeSeatsDropdown"
+          @blur="openSeatsDropdown"
         />
 
         <div
@@ -81,7 +81,7 @@
           placeholder="from"
           v-model="numberSeatsTo"
           @focus="openSeatsToDropdown"
-          @blur="closeSeatsToDropdown"
+          @blur="openSeatsToDropdown"
         />
 
         <div
@@ -142,11 +142,12 @@
       <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
       <select
         class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
-      >
+      v-model="numDoor"
+				>
         <option value="">Any</option>
-        <option value="">2/3</option>
-        <option value="">3/5</option>
-        <option value="">6/7</option>
+        <option value="2/3">2/3</option>
+        <option value="3/5">3/5</option>
+        <option value="6/7">6/7</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>
@@ -155,17 +156,18 @@
       <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
       <select
         class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
-      >
-        <option value="">Any</option>
-        <option value="">Sliding door right</option>
-        <option value="">Sliding door left</option>
-        <option value="">Sliding door both-sided</option>
+     v-model="slidingDoor"
+				>
+				<option value="14600">Any</option>
+          <option class="Left">Left side</option>
+          <option class="Right">Right side</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>
   </div>
 </template>
 <script>
+import http from '../../../axios.config';
 export default {
   data() {
     return {
@@ -173,9 +175,46 @@ export default {
       numberSeatsTo: "",
       seatsOpen: false,
       seatsToOpen: false,
+			numDoor: "",
+			slidingDoor: ""
     };
   },
+	watch:{
+		numberSeats(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		numDoor(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		slidingDoor(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+	},
   methods: {
+		fetchData() {
+      http
+        .get("/cars/count", {
+          car_number_seats: this.numberSeats,
+          car_number_door: this.numDoor,
+          car_silding_door: this.slidingDoor,
+          // car_payment_type: this.activeTab,
+          // car_price_from: this.inputPrice,
+          // car_city_zipcode: this.cityName,
+          // car_condition: this.selectedCondition,
+          // car_condition: this.selectedCondition,
+          // car_silding_door: this.selectedDriving,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
 		openSeatsDropdown() {
     this.seatsOpen = true;
     document.addEventListener('click', this.closeSeatsDropdownOnClickOutside);

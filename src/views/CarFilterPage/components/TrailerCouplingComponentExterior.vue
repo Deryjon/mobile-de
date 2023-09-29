@@ -1,7 +1,7 @@
 <template>
   <div class="condition p-[20px]">
     <h3>Trailer coupling</h3>
-    <div class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
+    <div class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
       <label for="condition-any" @click="selectCondition('AnyTrai')">
         <input
           type="radio"
@@ -55,15 +55,33 @@
   </div>
 </template>
 <script>
+import http from '../../../axios.config';
 export default {
   data() {
     return {
       selectedCondition: "AnyTrai",
     };
   },
+	watch:{
+		selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+	},
   methods: {
     selectCondition(condition) {
       this.selectedCondition = condition;
+    },
+		fetchData() {
+      http
+        .get("/cars/count", {
+          car_trailer_coupling: this.selectedCondition,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
     },
   },
 };

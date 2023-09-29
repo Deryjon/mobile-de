@@ -4,7 +4,7 @@
       <img src="../../../assets/images/logo.png" alt="header-logo" />
     </div>
     <p
-      class="text-[26px] font-extrabold pt-6 title"
+      class="text-[28px] font-extrabold pt-6 title"
       :class="{ 'text-black' : isDarkMode, 'text-black' : !isDarkMode }"
     >
       SellCenter

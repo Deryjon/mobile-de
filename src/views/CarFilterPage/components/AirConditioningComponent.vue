@@ -6,10 +6,10 @@
         <input
           id="air-any"
           type="radio"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'AnyAir',
-            'bg-orange': selectedAirbag === 'AnyAir',
+            'bg-transparent': selectedCondition !== 'AnyAir',
+            'bg-orange': selectedCondition === 'AnyAir',
           }"
           class="ml-10px"
         />
@@ -19,92 +19,121 @@
         <input
           type="radio"
           id="manual"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'Manual',
-            'bg-orange': selectedAirbag === 'Manual',
+            'bg-transparent': selectedCondition !== 'Manual',
+            'bg-orange': selectedCondition === 'Manual',
           }"
           @click="selectAirbag('Manual')"
         />
-        <span class="ml-[10px] text-[14px]">Manual or automatic climatisation </span>
+        <span class="ml-[10px] text-[14px]"
+          >Manual or automatic climatisation
+        </span>
       </label>
-      <label class="w-[200px]" for="auto-climat" @click="selectAirbag('Auto-Climat')">
+      <label
+        class="w-[200px]"
+        for="auto-climat"
+        @click="selectAirbag('Auto-Climat')"
+      >
         <input
           type="radio"
           id="auto-climat"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'Auto-Climat',
-            'bg-orange': selectedAirbag === 'Auto-Climat',
+            'bg-transparent': selectedCondition !== 'Auto-Climat',
+            'bg-orange': selectedCondition === 'Auto-Climat',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Automatic climatisation, 2 zones </span>
+        <span class="ml-[10px] text-[14px]"
+          >Automatic climatisation, 2 zones
+        </span>
       </label>
 
-      <label class="w-[200px]" for="auto2" @click="selectAirbag('Auto-Climat2')">
+      <label
+        class="w-[200px]"
+        for="auto2"
+        @click="selectAirbag('Auto-Climat2')"
+      >
         <input
           type="radio"
           id="auto2"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'Auto-Climat2',
-            'bg-orange': selectedAirbag === 'Auto-Climat2',
+            'bg-transparent': selectedCondition !== 'Auto-Climat2',
+            'bg-orange': selectedCondition === 'Auto-Climat2',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Automatic climatisation, 4 zones</span>
+        <span class="ml-[10px] text-[14px]"
+          >Automatic climatisation, 4 zones</span
+        >
       </label>
-      <label class="w-[200px]" for="more-airbag" @click="selectAirbag('NoClimat')">
+      <label class="w-[200px]" @click="selectAirbag('NoClimat')">
         <input
           type="radio"
-          id="more-airbag"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'NoClimat',
-            'bg-orange': selectedAirbag === 'NoClimat',
+            'bg-transparent': selectedCondition !== 'NoClimat',
+            'bg-orange': selectedCondition === 'NoClimat',
           }"
         />
         <span class="ml-[10px] text-[14px]">No climatisation</span>
       </label>
-      <label class="w-[200px]" for="more-airbag" @click="selectAirbag('AutoClimat')">
+      <label class="w-[200px]" @click="selectAirbag('AutoClimat')">
         <input
           type="radio"
-          id="more-airbag"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'AutoClimat',
-            'bg-orange': selectedAirbag === 'AutoClimat',
+            'bg-transparent': selectedCondition !== 'AutoClimat',
+            'bg-orange': selectedCondition === 'AutoClimat',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Automatic air conditioning
-</span>
+        <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
       </label>
-      <label class="w-[200px]" for="more-airbag" @click="selectAirbag('Auto-Climat3')">
+      <label class="w-[200px]" @click="selectAirbag('Auto-Climat3')">
         <input
           type="radio"
-          id="more-airbag"
-          v-model="selectedAirbag"
+          v-model="selectedCondition"
           :class="{
-            'bg-transparent': selectedAirbag !== 'Auto-Climat3',
-            'bg-orange': selectedAirbag === 'Auto-Climat3',
+            'bg-transparent': selectedCondition !== 'Auto-Climat3',
+            'bg-orange': selectedCondition === 'Auto-Climat3',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Automatic climatisation, 3 zones
-
-</span>
+        <span class="ml-[10px] text-[14px]"
+          >Automatic climatisation, 3 zones
+        </span>
       </label>
     </div>
+		
   </div>
 </template>
 <script>
+import http from "../../../axios.config";
 export default {
   data() {
     return {
-      selectedAirbag: "AnyAir",
+      selectedCondition: "AnyAir",
     };
   },
+  watch: {
+    selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+  },
   methods: {
+    fetchData() {
+      http
+        .get("/cars/count", {
+          car_air_conditioning: this.selectedCondition,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
     selectAirbag(condition) {
-      this.selectedAirbag = condition;
+      this.selectedCondition = condition;
     },
   },
 };

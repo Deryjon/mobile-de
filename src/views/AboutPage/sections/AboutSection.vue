@@ -1,9 +1,9 @@
 <template>
   <div> <!-- /template-->
-    <div class="container">
-        <div class="image-container" id="mobileoptimize">
+    <v-container class=" w-[1130px] mx-[14%]">
+        <div class="" >
             <!-- img -->
-            <img src="./header.png" alt="" class="container-img-header" style="width: 100%; height: 100%;">
+            <img src="./header.png" alt="" class="container-img-header rounded-lg" style="width: 100%; height: 100%;">
         </div> <!-- /inage-container -->
         <div class="info-container">
             <div class="line-container">
@@ -86,48 +86,22 @@ Sellcenter.com также предлагает различные способы
 
 
 
-    </div> <!-- container -->
+			</v-container> <!-- container -->
   </div> <!-- /template -->
 </template>
 
 
 <script>
 export default {
-  mounted() {
-    const image = new Image();
-    image.src = "./header.png";
-    image.onload = () => {
-      // Добавляем изображение в кэш
-      const cacheName = "imageCache";
-      caches.open(cacheName).then(cache => {
-        cache.add(image.src);
-      });
-    };
-    if (window.innerWidth <= 768) {
-      // Сжатие изображения для мобильных устройств
-      const canvas = document.createElement("canvas");
-      const ctx = canvas.getContext("2d");
-      canvas.width = image.width;
-      canvas.height = image.height;
-      ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-      canvas.toBlob(blob => {
-        const compressedImage = new File([blob], "compressed-image.png", { type: "image/png" });
-        // Используем сжатое изображение
-        console.log(compressedImage);
-      }, "image/png", 0.5);
-    }
-  }
+  
 }
 </script>
 
 
 
 
-<style>
-.container {
-    border-radius: 8px;
-    border: 1px solid #757575;
-}
+<style scoped>
+
 
 .info-otder {
     border: 1px solid #757575;

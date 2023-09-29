@@ -1,9 +1,9 @@
 <template>
   <v-container class="max-w-[1120px]">
-    <div class="magazine-bmw ">
+    <div class="magazine-bmw">
       <div class="row sections-2">
         <div class="col-xl-5">
-          <h2 class="head">mobile.de Magazin</h2>
+          <h2 class="head text-[#000]">mobile.de Magazin</h2>
         </div>
       </div>
 
@@ -61,7 +61,7 @@
 
       <div class="row sec-5">
         <div class="mini-sec">
-          <div class="col-xl-1 col-md-2">
+          <div class="w-[200px] col-md-2">
             <img
               class="men-glase"
               src="../../../assets/images/men-glase.jpg"
@@ -79,7 +79,7 @@
           </div>
         </div>
         <div class="mini-sec">
-          <div class="col-xl-1">
+          <div class="w-[200px]">
             <img
               class="men-glase"
               src="../../../assets/images/woman.jpg"
@@ -100,70 +100,80 @@
         </div>
       </div>
 
-      <div class="row sec-4">
-        <div class="col-xl-1 col-md-2">
-          <img
-            class="men-glase"
-            src="../../../assets/images/men-glase.jpg"
+      <div class="flex flex-wrap gap-[40px] justify-between mt-[30px]">
+        <div class="flex gap-[20px]">
+          <div class="w-[170px]">
+            <img
+              class="w-[100%]"
+              src="../../../assets/images/men-glase.jpg"
+              alt=""
+            />
+          </div>
+          <div class="w-[300px]">
+            <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
+            <p class="text-[14px]">
+              Dann kannst Du Dein gebrauchtes Auto hier kostenlos verkaufen.
+              Einfach und bequem. Zum maximalen Preis per Inserat oder schnell
+              per Expressverkauf an einer mobile.de Ankaufsstation.
+            </p>
+            <span>➤ Auto bewerten</span>
+          </div>
+        </div>
+        <div class="flex gap-[20px]">
+          <div class="w-[170px]">
+            <img class="" src="../../../assets/images/woman.jpg" alt="" />
+          </div>
+          <div class="w-[300px]">
+            <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
+            <p class="text-[14px]">
+              Dann kannst Du hier zahlreiche Angebote vergleichen und Verkäufer
+              direkt kontaktieren. Professionelle Autohändler oder
+              Privatverkäufer, Firmenfahrzeuge von gewerblichen Anbietern oder
+            </p>
+            <span>➤ Gebrauchtwagen kaufen</span>
+          </div>
+        </div>
+        <div class="flex gap-[20px]">
+          <div class="w-[170px]">
+            <img class="" src="../../../assets/images/mens.jpg" alt="" />
+          </div>
+          <div class="w-[300px]">
+            <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
+            <p class="text-[14px]">
+              Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos
+              mit Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen. Lorem ipsum
+              dolor sit amet consectetur adipisicing elit. Id pariatu
+            </p>
+            <span>➤ Neuwagen kaufen</span>
+          </div>
+        </div>
+        <div class="flex gap-[20px]">
+          <div class="w-[170px]">
+						<img
+            class="h-[170px]"
+            src="../../../assets/images/man-telephone.jpg"
             alt=""
-          />
-        </div>
-        <div class="col-xl-4 Auto">
-          <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
-          <p>
-            Dann kannst Du Dein gebrauchtes Auto hier kostenlos verkaufen.
-            Einfach und bequem. Zum maximalen Preis per Inserat oder schnell per
-            Expressverkauf an einer mobile.de Ankaufsstation.
+          />          </div>
+          <div class="w-[300px]">
+            <h2 class="denkst">Denkst Du Leasing?</h2>
+          <p class="text-[14px]">
+            Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
+            Traumwagen und finde passende Leasing-Angebote von unseren Händlern
+            in Deiner Nähe. Lorem ipsum, dolor sit amet consectetur adipisicin
           </p>
-          <span>➤ Auto bewerten</span>
-        </div>
-
-        <div class="col-xl-1">
-          <img
-            class="men-glase"
-            src="../../../assets/images/woman.jpg"
-            alt=""
-          />
-        </div>
-        <div class="col-xl-4 Auto">
-          <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
-          <p>
-            Dann kannst Du hier zahlreiche Angebote vergleichen und Verkäufer
-            direkt kontaktieren. Professionelle Autohändler oder
-            Privatverkäufer, Firmenfahrzeuge von gewerblichen Anbietern oder
-            Jahreswagen. Auch mit Gebrauchtwagen-Garantie oder Qualitätssiegel.
-          </p>
-          <span>➤ Gebrauchtwagen kaufen</span>
+          <span>➤ Leasing-Angebote finden</span>
+          </div>
         </div>
       </div>
 
       <div class="row sec-4">
+        <div class="col-xl-1"></div>
+
         <div class="col-xl-1">
-          <img class="men-glase" src="../../../assets/images/mens.jpg" alt="" />
+         
         </div>
         <div class="col-xl-4 Auto">
-          <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
-          <p>
-            Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos mit
-            Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen.
-          </p>
-          <span>➤ Neuwagen kaufen</span>
-        </div>
-        <div class="col-xl-1">
-          <img
-            class="men-glase"
-            src="../../../assets/images/man-telephone.jpg"
-            alt=""
-          />
-        </div>
-        <div class="col-xl-4 Auto">
-          <h2 class="denkst">Denkst Du Leasing?</h2>
-          <p>
-            Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
-            Traumwagen und finde passende Leasing-Angebote von unseren Händlern
-            in Deiner Nähe.
-          </p>
-          <span>➤ Leasing-Angebote finden</span>
+          
         </div>
       </div>
 
@@ -542,7 +552,7 @@ body {
 
 .magazine-bmw {
   width: 1120px;
-	margin: 0 auto;
+  margin: 0 auto;
   padding: 20px;
   background-color: #f5f5f5;
 }
@@ -746,10 +756,6 @@ body {
   }
   .Auto {
     margin-left: 50px;
-  }
-  .men-glase {
-    width: 144px;
-    height: 144px;
   }
   .denkst {
     margin-bottom: 20px;

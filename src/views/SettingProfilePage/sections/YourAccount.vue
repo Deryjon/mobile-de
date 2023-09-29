@@ -1,8 +1,16 @@
+--
 <template>
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
-      <div class="top flex items-center mt-[10px]">
-        <div class="icon w-[35px] h-[35px] mx-[15px]">
+      <div class="top flex gap-[10px] items-center mt-[10px]">
+        <div class="profile-img" v-if="!userIcon">
+          <img
+            :src="userProfileImg"
+            :alt="userProfileImgName"
+            class="w-[60px] h-[60px] rounded-[100%]"
+          />
+        </div>
+        <div class="icon w-[35px] h-[35px] mx-[15px]" v-if="userIcon">
           <svg
             data-v-53d99ea3=""
             xmlns="http://www.w3.org/2000/svg"
@@ -61,33 +69,46 @@
           <button
             class="flex gap-[8px] items-center mt-[20px] w-[160px]"
             @click="openCountryDropdown"
-            
           >
-					<svg class="SvgIcon___YgmFC" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.335 9.009A1.5 1.5 0 0121 11.915V19.5a1.5 1.5 0 01-1.5 1.5H18a1.5 1.5 0 01-1.5-1.5V18h-9v1.5A1.5 1.5 0 016 21H4.5A1.5 1.5 0 013 19.5v-7.585a1.5 1.5 0 01.665-2.906l.9-4.051A2.5 2.5 0 017.005 3h9.99a2.5 2.5 0 012.44 1.958l.9 4.05zM18.507 10l-1.024-4.608A.5.5 0 0016.995 5h-9.99a.5.5 0 00-.488.392L5.493 10h13.014zM6.5 16a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="currentColor"></path></svg>
+            <svg
+              class="SvgIcon___YgmFC"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              focusable="false"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M20.335 9.009A1.5 1.5 0 0121 11.915V19.5a1.5 1.5 0 01-1.5 1.5H18a1.5 1.5 0 01-1.5-1.5V18h-9v1.5A1.5 1.5 0 016 21H4.5A1.5 1.5 0 013 19.5v-7.585a1.5 1.5 0 01.665-2.906l.9-4.051A2.5 2.5 0 017.005 3h9.99a2.5 2.5 0 012.44 1.958l.9 4.05zM18.507 10l-1.024-4.608A.5.5 0 0016.995 5h-9.99a.5.5 0 00-.488.392L5.493 10h13.014zM6.5 16a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                fill="currentColor"
+              ></path>
+            </svg>
             My Adds
           </button>
           <ul
             v-if="isOpen"
             class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
           >
-            <div class="countries">
+            <div class="tabs">
+              <div
+                class="flex items-center"
+                @click="setActive('tab-3')"
+                :class="{ active: isActive('tab-3') }"
+              >
+                <li class="text-[14px]" data-key="be">Cars</li>
+              </div>
               <div class="flex items-center"
-							@click="setActive('tab-3')"
-          :class="{ active: isActive('tab-3') }"
+							
+							@click="setActive('tab-4')"
+                :class="{ active: isActive('tab-4') }"
 							>
                 <li
                   class="text-[14px]"
-                  data-key="be"
-                  
-                >
-                  Cars
-                </li>
-              </div>
-              <div class="flex items-center">
-                <li
-                  class="text-[14px]"
-                  data-key="can"
-                  @click="selectCountry('Motorcycles')"
+									
                 >
                   Motorcycles
                 </li>
@@ -126,8 +147,8 @@
               <div class="flex items-center">
                 <li
                   class="text-[14px]"
-                  data-key="gr"
-                  @click="selectCountry('Vans')"
+                  data-key="gr"	@click="setActive('tab-6')"
+                :class="{ active: isActive('tab-6') }"
                 >
                   Vans
                 </li>
@@ -237,32 +258,54 @@
         </button>
       </div>
     </div>
+		<p>{{ activeTab }}</p> <!-- Правильный способ обращения к данным хранилища -->
+
     <section
       class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
-				<OverviewTab />
+        <OverviewTab />
       </div>
       <div class="" v-show="isActive('tab-2')">
-				<SettingsTab />
+        <SettingsTab />
       </div>
-      <div class="" v-show="isActive('tab-3')">
-				<MyAdCarsTab />
+      	<div class="" v-show="isActive('tab-3')">
+        <MyAdCarsTab />
+      </div>
+      	<div class="" v-show="isActive('tab-4')">
+        <MyAdMotorCycleTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-6')">
+        <MyAdVansTab/> 
       </div>
     </section>
   </v-container>
 </template>
 <script>
+import { useTabsStore } from "../../../store/storeAd";
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
-import MyAdCarsTab from "../components/MyAdCarsTab.vue"
+import MyAdCarsTab from "../components/AdsCarComponents/MyAdCarsTab.vue";
+import MyAdMotorCycleTab from "../components/AdsMotorbikeComponents/MyAdMotorbikeTab.vue";
+import MyAdVansTab from "../components/AdsVansComponents/MyAdVansTab.vue";
+import MyAdMotorhomesTab from "../components/AdsMotorhomesComponents/MyAdMotorhomesTab.vue";
 export default {
   data() {
     return {
+			 
       userEmail: "",
       activeTab: "tab-2",
+      userProfileImg: null,
+      userProfileImgName: null,
       isOpen: false,
+			userIcon: false
     };
+  },
+	computed: {
+    activeTab() {
+      const store = useTabsStore();
+      this.activeTab = store.activeTab; // Получите значение activeTab из хранилища
+    },
   },
   methods: {
     setActive(tab) {
@@ -302,13 +345,22 @@ export default {
       }
     },
   },
-  mounted() {
+
+
+  created() {
     this.userEmail = localStorage.getItem("u-e");
+    this.userProfileImg = localStorage.getItem("u-img-prof");
+		if (this.userProfileImg === 'null') {
+    return   this.userIcon = true;
+    }
+    this.userProfileImgName = localStorage.getItem("u-img-alt");
   },
   components: {
     SettingsTab,
     OverviewTab,
-		MyAdCarsTab
+    MyAdCarsTab,
+		MyAdMotorCycleTab,
+		MyAdVansTab
   },
 };
 </script>
@@ -340,8 +392,8 @@ export default {
   padding: 0.5em;
   cursor: pointer;
 }
-.active{
-	background: #fff;
-	padding: 5px 8px;
+.active {
+  background: #fff;
+  padding: 5px 8px;
 }
 </style>

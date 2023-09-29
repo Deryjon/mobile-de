@@ -13,7 +13,7 @@
             v-model="power"
             @focus="openPowerDropdown"
             @input="filterOptions"
-            @blur="closePowerDropdown"
+            @blur="openPowerDropdown"
           />
 
           <div
@@ -91,7 +91,7 @@
             v-model="powerTo"
             @focus="openPowerToDropdown"
             @input="filterOptions"
-            @blur="closePowerToDropdown"
+            @blur="openPowerToDropdown"
           />
 
           <div
@@ -202,7 +202,7 @@
               v-model="cubic"
               @focus="openCubicDropdown"
               @input="filterOptions"
-              @blur="closeCubicDropdown"
+              @blur="openCubicDropdown"
             />
 
             <div
@@ -235,45 +235,45 @@
         </div>
       </div>
       <div class="cubic-to dropdown-container mt-[27px]">
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="cubicTo"
-              @focus="openCubicToDropdown"
-              @input="filterOptions"
-              @blur="closeCubicToDropdown"
-            />
+        <div class="input-container flex relative mt-[10px]">
+          <input
+            type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from"
+            v-model="cubicTo"
+            @focus="openCubicToDropdown"
+            @input="filterOptions"
+            @blur="openCubicToDropdown"
+          />
 
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openCubicToDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div>
-          <ul
-            v-if="isOpenCubicTo"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openCubicToDropdown"
           >
-            <li @click="selectCubicTo('any')" data-key="">Any</li>
-            <li @click="selectCubicTo('1000')" data-key="1000">1,000 cm³</li>
-            <li @click="selectCubicTo('1200')" data-key="1200">1,200 cm³</li>
-            <li @click="selectCubicTo('1400')" data-key="1400">1,400 cm³</li>
-            <li @click="selectCubicTo('1600')" data-key="1600">1,600 cm³</li>
-            <li @click="selectCubicTo('1800')" data-key="1800">1,800 cm³</li>
-            <li @click="selectCubicTo('2000')" data-key="2000">2,000 cm³</li>
-            <li @click="selectCubicTo('2600')" data-key="2600">2,600 cm³</li>
-            <li @click="selectCubicTo('3000')" data-key="3000">3,000 cm³</li>
-            <li @click="selectCubicTo('5000')" data-key="5000">5,000 cm³</li>
-            <li @click="selectCubicTo('7500')" data-key="7500">7,500 cm³</li>
-            <li @click="selectCubicTo('8000')" data-key="8000">8,000 cm³</li>
-            <li @click="selectCubicTo('9000')" data-key="9000">9,000 cm³</li>
-          </ul>
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+            ></span>
+          </div>
         </div>
+        <ul
+          v-if="isOpenCubicTo"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        >
+          <li @click="selectCubicTo('any')" data-key="">Any</li>
+          <li @click="selectCubicTo('1000')" data-key="1000">1,000 cm³</li>
+          <li @click="selectCubicTo('1200')" data-key="1200">1,200 cm³</li>
+          <li @click="selectCubicTo('1400')" data-key="1400">1,400 cm³</li>
+          <li @click="selectCubicTo('1600')" data-key="1600">1,600 cm³</li>
+          <li @click="selectCubicTo('1800')" data-key="1800">1,800 cm³</li>
+          <li @click="selectCubicTo('2000')" data-key="2000">2,000 cm³</li>
+          <li @click="selectCubicTo('2600')" data-key="2600">2,600 cm³</li>
+          <li @click="selectCubicTo('3000')" data-key="3000">3,000 cm³</li>
+          <li @click="selectCubicTo('5000')" data-key="5000">5,000 cm³</li>
+          <li @click="selectCubicTo('7500')" data-key="7500">7,500 cm³</li>
+          <li @click="selectCubicTo('8000')" data-key="8000">8,000 cm³</li>
+          <li @click="selectCubicTo('9000')" data-key="9000">9,000 cm³</li>
+        </ul>
+      </div>
     </div>
     <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-[100px]">
@@ -286,7 +286,7 @@
           <input
             type="checkbox"
             v-model="isCheckedAutomatic"
-            @click="toggleShowCheckbox"
+            @click="toggleShowCheckbox(0, 'Automatic transmission')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
           <svg
@@ -304,7 +304,7 @@
             />
           </svg>
 
-          <span class="text-sm"> Automatic transmission</span>
+          <span class="text-sm">Automatic transmission</span>
         </label>
       </div>
       <div class="mt-[43px] lg:mt-[84px]">
@@ -312,7 +312,7 @@
           <input
             type="checkbox"
             v-model="isCheckedSemi"
-            @click="toggleShowCheckbox"
+            @click="toggleShowCheckbox(1, 'Semi-automatic')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
           <svg
@@ -338,7 +338,7 @@
           <input
             type="checkbox"
             v-model="isCheckedManual"
-            @click="toggleShowCheckbox"
+            @click="toggleShowCheckbox(2, 'Manual gearbox')"
             class="form-checkbox h-5 w-5 text-indigo-600"
           />
           <svg
@@ -362,7 +362,7 @@
     </div>
     <!-- valid -->
     <div
-      class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]"
+      class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
     >
       <div class="relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">
@@ -370,44 +370,47 @@
         </h2>
         <select
           class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] mt-[10px] lg:text-[12px]"
+          v-model="consumptionFuel"
         >
-          <option value="14600" selected>Any</option>
-          <option value="">New</option>
-          <option value="">18</option>
-          <option value="">12</option>
-          <option value="">9</option>
-          <option value="">6</option>
-          <option value="">3</option>
+          <option value="any" selected>Any</option>
+          <option value="new">New</option>
+          <option value="18">18</option>
+          <option value="12">12</option>
+          <option value="9">9</option>
+          <option value="6">6</option>
+          <option value="3">3</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
         ></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
         <select
           class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="stickerEmission"
         >
-          <option value="14600" selected>Any</option>
-          <option value="">Up to 1</option>
-          <option value="">Up to 2</option>
-          <option value="">Up to 3</option>
-          <option value="">Up to 4</option>
+          <option value="any" selected>Any</option>
+          <option value="1">Up to 1</option>
+          <option value="2">Up to 2</option>
+          <option value="3">Up to 3</option>
+          <option value="4">Up to 4</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
         ></span>
       </div>
-      <div class="marke_select_div relative mt-[20px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[20px] lg:mt-7 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          v-model="classEmision"
         >
-          <option value="14600" selected>Any</option>
-          <option value="">Up to 1</option>
-          <option value="">Up to 2</option>
-          <option value="">Up to 3</option>
-          <option value="">Up to 4</option>
+          <option value="any" selected>Any</option>
+          <option value="1">Up to 1</option>
+          <option value="2">Up to 2</option>
+          <option value="3">Up to 3</option>
+          <option value="4">Up to 4</option>
         </select>
         <span
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
@@ -442,33 +445,13 @@
 </template>
 <script>
 import axios from "axios";
-import { ref } from "vue";
+import http from "../../../axios.config";
 export default {
-  setup() {
-    const isCheckedHistory = ref(false);
-    const isCheckedAutomatic = ref(false);
-    const isCheckedParticulate = ref(false);
-    const isCheckedManual = ref(false);
-    const isCheckedSemi = ref(false);
-
-    const toggleShowCheckbox = (index) => {
-      isCheckedRoad[index] = !isCheckedRoad[index];
-    };
-
-    return {
-      isCheckedAutomatic,
-      isCheckedHistory,
-      isCheckedParticulate,
-      isCheckedManual,
-      isCheckedSemi,
-      toggleShowCheckbox,
-    };
-  },
   data() {
     return {
       price: "",
-			cubic: "",
-			cubicTo: "",
+      cubic: "",
+      cubicTo: "",
       selectedYear: "",
       selectedtoYear: "",
       years: "",
@@ -481,14 +464,92 @@ export default {
       isCommercialSelected: false,
       isRadioNewSelected: false,
       selectedCondition: "",
+      power: "",
+      powerTo: "",
+      consumptionFuel: "any",
+      stickerEmission: "any",
+      classEmision: "any",
       isOpenPower: false,
       isOpenPowerTo: false,
-			isOpenCubic: false,
-			isOpenCubicTo: false,
+      isOpenCubic: false,
+      isOpenCubicTo: false,
+      isCheckedHistory: false,
+      isCheckedAutomatic: false,
+      isCheckedParticulate: false,
+      isCheckedManual: false,
+      isCheckedSemi: false,
+			selectedTransmision: [],
     };
   },
+  watch: {
+    power(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    powerTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    cubic(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    cubicTo(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    consumptionFuel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    stickerEmission(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+    classEmision(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+  },
   methods: {
-		openCubicToDropdown() {
+		toggleShowCheckbox(index, transName) {
+      const isChecked = !this.selectedTransmision.includes(transName);
+      if (isChecked) {
+        this.selectedTransmision.push(transName);
+      } else {
+        const transIndex = this.selectedTransmision.indexOf(transName);
+        if (transIndex !== -1) {
+          this.selectedTransmision.splice(transIndex, 1);
+        }
+      }
+      console.log("selectedtranss изменен:", this.selectedTransmision)
+			this.fetchData()
+    },
+    fetchData() {
+      http
+        .get("/cars/count", {
+          car_power_from: this.power,
+          car_power_up_to: this.powerTo,
+          car_cubic_capacity_from: this.cubic,
+          car_cubic_capacity_to: this.cubicTo,
+          transmission: this.inputKilometer,
+          car_fuel_consumption: this.consumptionFuel,
+          car_emissions_sticker: this.stickerEmission,
+          car_emission_class: this.classEmision,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
+    openCubicToDropdown() {
       this.isOpenCubicTo = true;
       this.filteredOptions = this.options;
       document.addEventListener(
@@ -513,14 +574,11 @@ export default {
         );
       }
     },
-		// 
-		openCubicDropdown() {
+    //
+    openCubicDropdown() {
       this.isOpenCubic = true;
       this.filteredOptions = this.options;
-      document.addEventListener(
-        "click",
-        this.closeCubicDropdownOnClickOutside
-      );
+      document.addEventListener("click", this.closeCubicDropdownOnClickOutside);
     },
     selectCubic(option) {
       this.cubic = option;
@@ -539,7 +597,7 @@ export default {
         );
       }
     },
-		// 
+    //
     openPowerToDropdown() {
       this.isOpenPowerTo = true;
       this.filteredOptions = this.options;

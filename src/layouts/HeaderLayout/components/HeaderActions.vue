@@ -87,30 +87,6 @@
         </div>
       </ul>
     </div>
-    <!--	 <div class="language relative inline-block">
-
-				<select
-					name=""
-					class="outline-none rounded-[10px] w-[130px] lg:w-[90px] xl:w-[120px] px-[10px] py-[6px] lg:py-[6px] lg:px-[10px] text-base lg:text-[14px] font-normal pr-[30px]"
-					:class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
-					v-model="language"
-					@change="changeLanguage"
-				>
-					<optgroup label="Language">
-						<option class="pl-[30px]" value="en" data-country-code="usa">
-							English</option>
-						<option value="fr" data-country-code="france">France</option>
-						<option value="gr" data-country-code="france">Germany</option>
-						<option value="sp">Spanish</option>
-						<option value="sw">Swedish</option>
-						<option value="ru">Russa</option>
-						<option value="pol">Polish</option>
-					</optgroup>
-				</select>
-				<span class="arrow w-[7px] h-[7px]"></span>
-			</div> -->
-
-    <!--  -->
     <div class="country dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
@@ -246,7 +222,7 @@
         </div>
       </ul>
     </div>
-    <div class="cities dropdown-container mt-[15px] ">
+    <div class="cities dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-2 px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
@@ -279,142 +255,42 @@
           {{ city }}
         </li>
       </ul>
-      <!-- <ul
-        v-if="isCities"
-        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
-      >
-			<li v-for="city in citiesData[inputCountry]" :key="city" @click="selectCity(city)">
-          {{ city }}
-        </li>
-      </ul> -->
-
-      <!-- <div class="countries">
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/be.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="be" @click="selectCity('Belgium')">Belgium</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/ca.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="can" @click="select('Canda')">Canda</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/dk.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="dk" @click="selectCity('Danmark')">Danmark</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/gb.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="us" @click="selectCity('England')">England</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/fr.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="fr" @click="selectCity('France')">France</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/de.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="gr" @click="selectCity('Germany')">Germany</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/it.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="ita" @click="selectCity('Italy')">Italy</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/ma.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="mor" @click="selectCity('Morocco')">Morocco</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/nl.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="nt" @click="selectCity('Netherland')">
-              Netherland
-            </li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/ru.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="mor" @click="selectCity('Russa')">Russa</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/pl.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="mor" @click="selectCity('Poland')">Poland</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/es.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="sp" @click="selectCity('Spanien')">Spanien</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/se.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="sp" @click="selectCity('Sweden')">Sweden</li>
-          </div>
-        </div> -->
     </div>
-    <button
-      class=" bg-[#67bbffa6] mt-[22px] mark_input mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] text-[#000] outline-none rounded-[10px] py-[6px] px-2 font-normal pr-[30px] text-[10px] lg:text-[10px]"
-      :class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
-    >
-      {{ $t("message.header.sell") }}
-    </button>
+		<div class="place relative">
+
+			<button
+				class="bg-[#67bbffa6]  mt-[20px] mark_input mark-select outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[20px] "
+				@click="toggleDropdown"
+	
+				:class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
+			>
+				{{ $t("message.header.sell") }}
+			</button>
+				<div v-if="showDropdown" class="dropdown-options  w-[120px] p-[10px]">
+				<!-- Ваше содержимое выпадающего списка -->
+				<ul>
+					<li class="text-[12px]" @click="setActiveTab('tab-3')"  >Cars</li>
+					<li class="text-[12px]" @click="setActiveTab('tab-4')" >Motorcycles</li>
+
+					<li class="text-[12px]">Motor homes</li>
+					<li class="text-[12px]">Trucks</li>
+					<li class="text-[12px]">Trailers</li>
+					<li class="text-[12px]">Vans</li>
+					<li class="text-[12px]">Semi trailer trucks</li>
+					<li class="text-[12px]">Semi trailers</li>
+					<li class="text-[12px]">Coaches</li>
+					<li class="text-[12px]">Agricultural vehicle</li>
+					<li class="text-[12px]">Forklift trucks</li>
+				</ul>
+			</div>
+		</div>
   </div>
 </template>
 <script>
 import http from "../../../axios.config";
 import { useDarkModeStore } from "@/store/dark-mode.js";
 import { defineComponent, computed } from "vue";
+import { useTabsStore } from '../../../store/storeAd';
 
 export default defineComponent({
   setup() {
@@ -439,6 +315,7 @@ export default defineComponent({
       inputCountry: "Country",
       selectedCity: "",
       inputKilometer: "",
+			showDropdown: false,
       options: [],
       filteredOptions: [],
       showCities: false,
@@ -733,24 +610,31 @@ export default defineComponent({
       },
     };
   },
-	watch: {
-				selectedCities(newValue, oldValue) {
+  watch: {
+    selectedCities(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
       }
     },
-	},
-  methods: {
-		fetchData() {
+  },
+  methods: {	
+		setActiveTab(tab) {
+			const store = useTabsStore();
+      store.setActiveTab(tab); 
+			this.$router.push({ name: "profile-settings" });
+
+    },
+
+    fetchData() {
       http
         .get("/cars/count", {
-					car_city_zipcode: this.selectedCities
+          car_city_zipcode: this.selectedCities,
         })
         .then((response) => {
           const data = response.data;
           console.log(data);
-        })
-			},
+        });
+    },
     openCitiesDropdown() {
       if (this.isCities) {
         this.isCities = false;
@@ -773,6 +657,24 @@ export default defineComponent({
         );
       }
     },
+		closePlaceDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".place");
+      if (!dropdownElement.contains(event.target)) {
+        this.showDropdown = false;
+        document.removeEventListener(
+          "click",
+          this.closePlaceDropdownOnClickOutside
+        );
+      }
+    },
+		toggleDropdown() {
+      // Этот метод переключает состояние выпадающего списка
+      this.showDropdown = !this.showDropdown;
+			document.addEventListener(
+        "click",
+        this.closePlaceDropdownOnClickOutside
+      );
+    },
     selectCity(city) {
       if (this.selectedCities.includes(city)) {
         const index = this.selectedCities.indexOf(city);
@@ -782,7 +684,7 @@ export default defineComponent({
       } else {
         this.selectedCities.push(city);
       }
-      console.log( this.selectedCities);
+      console.log(this.selectedCities);
     },
     // selectCity(city) {
     //   this.selectedCity  = city;
@@ -861,7 +763,6 @@ export default defineComponent({
       localStorage.setItem("name", "Language");
     }
     this.language = localStorage.getItem("lang");
-   
   },
   created() {},
 });

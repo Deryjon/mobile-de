@@ -1,9 +1,9 @@
 <template>
-  <div class="actions gap-[10px] items-center mt-[20px]">
-    <div class="language dropdown-container mt-[15px]">
+  <div class="actions gap-[10px] items-center ">
+    <div class="language dropdown-container ">
       <div class="input-container flex relative mt-[5px]">
         <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
           @click="openPriceDropdown"
         >
@@ -111,7 +111,7 @@
 			</div> -->
 
     <!--  -->
-    <div class="country dropdown-container mt-[15px]">
+    <!-- <div class="country dropdown-container mt-[15px]">
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -245,170 +245,7 @@
           </div>
         </div>
       </ul>
-    </div>
-    <div class="cities dropdown-container mt-[15px] ">
-      <div class="input-container flex relative mt-[5px]">
-        <div
-          class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:max-w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-2 px-[10px] font-normal pr-[30px] text-[10px] lg:text-[11px]"
-          @focus="openCitiesDropdown"
-          @click="openCitiesDropdown"
-        >
-          <p>
-            {{
-              selectedCities.length > 2
-                ? selectedCities.slice(1, 3).join(",") + "..."
-                : selectedCities.join(", ")
-            }}
-          </p>
-        </div>
-
-        <span
-          class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-        ></span>
-      </div>
-      <ul
-        v-if="isCities"
-        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
-      >
-        <li
-          v-for="city in citiesData[inputCountry]"
-          :key="city"
-          @click="selectCity(city)"
-        >
-          <input type="checkbox" v-model="selectedCities" :value="city" />
-          {{ city }}
-        </li>
-      </ul>
-      <!-- <ul
-        v-if="isCities"
-        class="dropdown-options text-[10px] lg:text-[12px] w-[150px]"
-      >
-			<li v-for="city in citiesData[inputCountry]" :key="city" @click="selectCity(city)">
-          {{ city }}
-        </li>
-      </ul> -->
-
-      <!-- <div class="countries">
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/be.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="be" @click="selectCity('Belgium')">Belgium</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/ca.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="can" @click="select('Canda')">Canda</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/dk.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="dk" @click="selectCity('Danmark')">Danmark</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/gb.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="us" @click="selectCity('England')">England</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/fr.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="fr" @click="selectCity('France')">France</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/de.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="gr" @click="selectCity('Germany')">Germany</li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/it.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="ita" @click="selectCity('Italy')">Italy</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/ma.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="mor" @click="selectCity('Morocco')">Morocco</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/nl.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="nt" @click="selectCity('Netherland')">
-              Netherland
-            </li>
-          </div>
-
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/ru.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="mor" @click="selectCity('Russa')">Russa</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/pl.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="mor" @click="selectCity('Poland')">Poland</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/es.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="sp" @click="selectCity('Spanien')">Spanien</li>
-          </div>
-          <div class="flex items-center">
-            <img
-              src="../../../assets/icons/se.svg"
-              class="w-[50px] h-[20px]"
-              alt=""
-            />
-            <li data-key="sp" @click="selectCity('Sweden')">Sweden</li>
-          </div>
-        </div> -->
-    </div>
-    <button
-      class=" bg-[#67bbff] mt-[22px] mark_input mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] text-[#000] outline-none rounded-[10px] py-[6px] px-2 font-normal pr-[30px] text-[10px] lg:text-[10px]"
-      :class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"
-    >
-      {{ $t("message.header.sell") }}
-    </button>
+    </div> -->
   </div>
 </template>
 <script>

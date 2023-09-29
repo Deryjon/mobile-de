@@ -9,7 +9,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDiesel"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(0, 'Diesel')"
         />
         <svg
           class="icon"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDisElect"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Hybrid (diesel/electric)')"
         />
         <svg
           class="icon"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedGas"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Natural Gas')"
         />
         <svg
           class="icon"
@@ -81,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedOther"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(3, 'Other')"
         />
         <svg
           class="icon"
@@ -105,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedPetrol"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(4, 'Petrol')"
         />
         <svg
           class="icon"
@@ -129,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedElectro"
-          @click="toggleShowCheckbox(1)"
+          @click="toggleShowCheckbox(5, 'Electric')"
         />
         <svg
           class="icon"
@@ -154,7 +154,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHydro"
-          @click="toggleShowCheckbox(1)"
+          @click="toggleShowCheckbox(6, 'Hydrogen')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -181,7 +181,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHydbrid"
-          @click="toggleShowCheckbox(2)"
+          @click="toggleShowCheckbox(7, 'Plug-in hybri')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -209,7 +209,7 @@
         <input
           type="checkbox"
           v-model="isCheckedPetElect"
-          @click="toggleShowCheckbox(3)"
+          @click="toggleShowCheckbox(8, 'Hybrid (petrol/electric)')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -237,7 +237,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLPG"
-          @click="toggleShowCheckbox(4)"
+          @click="toggleShowCheckbox(9, 'LPG')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -265,7 +265,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEthan"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(10, 'Ethanol (FFV, E85, etc.)')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -296,64 +296,76 @@
   </div>
 </template>
 <script>
-import { ref } from "vue";
+import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
 
 export default {
-  setup() {
-    const activeTab = ref("tab-1");
-    const showTab1 = ref(true);
-    const showTab2 = ref(false);
-    const isCheckedDiesel = ref(false);
-    const isCheckedDisElect = ref(false);
-    const isCheckedGas = ref(false);
-    const isCheckedOther = ref(false);
-    const isCheckedPetrol = ref(false);
-    const isCheckedElectro = ref(false);
-    const isCheckedHydro = ref(false);
-    const isCheckedHydbrid = ref(false);
-    const isCheckedPetElect = ref(false);
-    const isCheckedLPG = ref(false);
-    const isCheckedEthan = ref(false);
-    const toggleShowCheckbox = (index) => {
-      showTab1.value = index === 0; 
-      showTab2.value = index !== 0; 
-      for (let i = 0; i < isCheckedDiesel.length; i++) {
-        if (i !== index) {
-          isCheckedDiesel[i] = false;
-        }
-      }
-      isCheckedDiesel[index] = true;
-    };
-
+  data() {
     return {
-      isCheckedGas,
-      isCheckedPetrol,
-      isCheckedElectro,
-      isCheckedHydro,
-      isCheckedDisElect,
-      isCheckedHydbrid,
-      isCheckedDiesel,
-      isCheckedOther,
-      isCheckedPetElect,
-      isCheckedLPG,
-      isCheckedEthan,
-      activeTab,
-			showTab1,
-			showTab2,
-      toggleShowCheckbox,
+      isCheckedDiesel: false,
+      isCheckedDisElect: false,
+      isCheckedGas: false,
+      isCheckedOther: false,
+      isCheckedPetrol: false,
+      isCheckedElectro: false,
+      isCheckedHydro: false,
+      isCheckedHydbrid: false,
+      isCheckedPetElect: false,
+      isCheckedLPG: false,
+      isCheckedEthan: false,
+      showTab1: true,
+      showTab2: false,
+      activeTab: "tab-1",
+			selectedFuel: []
     };
   },
-  data() {
-    return {};
+  methods: {
+		fetchData() {
+      http
+        .get("/cars/count", {
+          fuel_type: this.selectedFuel,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error);
+        });
+    },
+		toggleShowCheckbox(index, fuelName) {
+			this.showTab1 = index === 0;
+      this.showTab2 = index !== 0;
+      const isChecked = !this.selectedFuel.includes(fuelName);
+      if (isChecked) {
+        this.selectedFuel.push(fuelName);
+      } else {
+        const fuelIndex = this.selectedFuel.indexOf(fuelName);
+        if (fuelIndex !== -1) {
+          this.selectedFuel.splice(fuelIndex, 1);
+        }
+      }
+      console.log("selectedCars изменен:", this.selectedFuel	)
+			this.fetchData()
+    },
+    // toggleShowCheckbox(index) {
+    // 
+    //   for (let i = 0; i < this.isCheckedDiesel.length; i++) {
+    //     if (i !== index) {
+    //       this.$set(this.isCheckedDiesel, i, false);
+    //     } else {
+    //       this.$set(this.isCheckedDiesel, i, true);
+    //     }
+    //   }
+    // },
   },
   components: { PowerComponentTechnic, RangeComponentTechnic },
 };
 </script>
 <style scoped>
 select {
-  scrollbar-width: none; 
+  scrollbar-width: none;
   -ms-overflow-style: none;
 }
 .custom-checkbox input[type="checkbox"] {

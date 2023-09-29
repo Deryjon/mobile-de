@@ -2,7 +2,7 @@
   <v-container class="w-[1120px]">
     <PathLink>Car list</PathLink>
     <div class="sections">
-      <YourAccount />
+      <YourAccount />	
     </div>
   </v-container>
 </template>
@@ -16,20 +16,9 @@ export default {
     PathLink,
     YourAccount
   },
-  created() {
-    // После успешной аутентификации
-
-  
-
-// Проверка, что значение существует и строго равно "false"
-const isLoggedIn = localStorage.getItem("logged-in");
-if (isLoggedIn === "false") {
-  // Перенаправление на страницу "home"
-  this.$router.push({ name: "home" });
-}
-
-  }
 };
 </script>
 
-<style></style>
+<style>
+
+</style>

@@ -9,6 +9,10 @@ import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfileP
 import About from "../views/AboutPage/AboutPage.vue"
 import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 import CarList from "../views/CarListPage/CarListPage.vue"
+import EditPage from "../views/EditAdPage/EditAdCarPage.vue"
+import NewsPage from "../views/NewsPage/NewsPage.vue"
+import ContactPage from "../views/ContactPage/Contact.vue"
+import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -56,6 +60,26 @@ const router = createRouter({
       path: '/car-list',
       name: 'car-list',
       component: CarList
+    },
+		{
+      path: "/edit/ad/:id",
+      name: "edit-ad",
+      component: EditPage,
+    },
+		{
+      path: "/news",
+      name: "news",
+      component: NewsPage,
+    },
+		{
+      path: "/contact",
+      name: "contact",
+      component: ContactPage,
+    },
+		{
+      path: "/car/:id",
+      name: "car-single",
+      component: CarSinglePage,
     },
 		{
       path: '/:catchAll(.*)',

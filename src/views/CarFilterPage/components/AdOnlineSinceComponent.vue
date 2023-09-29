@@ -17,7 +17,7 @@
       <label for="driver-airbag">
         <input
           type="radio"
-          id="driver-airbag"
+          
           v-model="selectedAdOnline"
           :class="{
             'bg-transparent': selectedAdOnline !== 'OneDay',
@@ -30,7 +30,7 @@
       <label for="front-airbag" @click="selectOnlineSince('ThreeDay')">
         <input
           type="radio"
-          id="front-airbag"
+         
           v-model="selectedAdOnline"
           :class="{
             'bg-transparent': selectedAdOnline !== 'ThreeDay',
@@ -43,7 +43,7 @@
       <label for="side-airbag" @click="selectOnlineSince('SevenDay')">
         <input
           type="radio"
-          id="side-airbag"
+          
           v-model="selectedAdOnline"
           :class="{
             'bg-transparent': selectedAdOnline !== 'SevenDay',
@@ -52,10 +52,10 @@
         />
         <span class="ml-[10px] text-[14px]">7 days</span>
       </label>
-      <label for="more-airbag" @click="selectOnlineSince('FourteenDay')">
+      <label  @click="selectOnlineSince('FourteenDay')">
         <input
           type="radio"
-          id="more-airbag"
+          
           v-model="selectedAdOnline"
           :class="{
             'bg-transparent': selectedAdOnline !== 'FourteenDay',
@@ -68,13 +68,31 @@
   </div>
 </template>
 <script>
+import http from '../../../axios.config';
 export default {
   data() {
     return {
       selectedAdOnline: "AnyOffer",
     };
   },
+	watch: {
+    selectedAdOnline(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+  },
   methods: {
+		fetchData() {
+      http
+        .get("/cars/count", {
+          days: this.selectedAdOnline,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
     selectOnlineSince(condition) {
       this.selectedAdOnline = condition;
     },

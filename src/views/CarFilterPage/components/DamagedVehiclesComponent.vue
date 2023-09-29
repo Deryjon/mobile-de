@@ -4,10 +4,11 @@
       <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
       <select
         class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-      >
-        <option value="14600" selected>Any</option>
-        <option value="">Do not show</option>
-        <option value="">Only show</option>
+     v-model="damageVehicle"
+				>
+        <option value="any" selected>Any</option>
+        <option value="not">Do not show</option>
+        <option value="only">Only show</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
     </div>
@@ -15,10 +16,11 @@
       <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
       <select
         class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-      >
-        <option value="14600" selected>Any</option>
-        <option value="">Do not show</option>
-        <option value="">Only show</option>
+    v-model="exportCommercial"
+				>
+        <option value="any" selected>Any</option>
+        <option value="not">Do not show</option>
+        <option value="only">Only show</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
     </div>
@@ -26,7 +28,8 @@
       <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
       <select
         class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-      >
+     v-model="approveUsed"
+				>
         <option value="">Please select</option>
         <option value="Any">Any approved label</option>
         <option value="ASTON_MARTIN">Aston Martin Timeless</option>
@@ -61,5 +64,45 @@
   </div>
 </template>
 <script>
-export default {};
+import http from '../../../axios.config';
+export default {
+	data(){
+return{
+	damageVehicle: "any",
+  exportCommercial: "any",
+  approveUsed: "",
+}
+	},
+	watch:{
+		damageVehicle(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		exportCommercial(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+		approveUsed(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+      }
+    },
+	},
+	methods:{
+		fetchData() {
+      http
+        .get("/cars/count", {
+          car_power_from: this.damageVehicle,
+          car_power_up_to: this.exportCommercial,
+          car_cubic_capacity_from: this.approveUsed,
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+        });
+    },
+	}
+};
 </script>
