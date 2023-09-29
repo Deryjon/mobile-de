@@ -27,7 +27,7 @@
         </div>
       </div>
 
-      <div class="relative">
+      <div class="relative efw">
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
