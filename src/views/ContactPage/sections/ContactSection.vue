@@ -1,71 +1,52 @@
 <template>
-    <div class="contact-page">
+  <div class="contact-page">
+    <div class="container">
+      <div class="content">
+        <div class="StatusDate"></div>
+        <!-- Status Date-->
+        <div class="breadcrumbs flex items-center text-gray-500 text-sm"></div>
+        <!-- breadcrumbs -->
+        <div class="headerLabel">Contact</div>
+        <div class="ContentDesc">
+          Есть ли у вас дополнительные вопросы или вы предпочитаете обсудить
+          свои опасения по телефону? Тогда вы найдете здесь всю необходимую
+          информацию!
+        </div>
+        <div class="contentImg">
+          <img
+            src="https://images.prismic.io/shacarlacca/NWQ1Yjc5ZWItYTUxOC00ZDAwLTk5NjMtMzE4MzgyZmJhZWY3__10.jpg?auto=compress%2Cformat&rect=0%2C0%2C1600%2C900&w=1920&ar=1600%3A900"
+          />
+        </div>
+        <div class="ContentDesc">
+          Здесь указаны номера наших служб поддержки клиентов и время их работы.
+          Если вы предпочитаете написать сообщение, просто заполните контактную
+          форму.
+        </div>
+        <div class="contactff">
+          <div class="FFCARD">
+            <di class="FFICON">
+              <i class="fas fa-phone"></i>
+            </di>
 
-        <div class="container ">
+            <div class="FFHeader">030 81097-601</div>
 
+            <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
 
-            <div class="content">
-                <div class="StatusDate">
-                    
-                </div> <!-- Status Date-->
-                <div class="breadcrumbs flex items-center text-gray-500 text-sm">
-                    
-                </div> <!-- breadcrumbs -->
-                <div class="headerLabel">
-                    Contact
-                </div>
-                <div class="ContentDesc">
-                    Есть ли у вас дополнительные вопросы или вы предпочитаете обсудить свои опасения по телефону? Тогда вы найдете здесь всю необходимую информацию!
-                </div>
-                <div class="contentImg">
-                    <img src="https://images.prismic.io/shacarlacca/NWQ1Yjc5ZWItYTUxOC00ZDAwLTk5NjMtMzE4MzgyZmJhZWY3__10.jpg?auto=compress%2Cformat&rect=0%2C0%2C1600%2C900&w=1920&ar=1600%3A900">
-                </div>
-                <div class="ContentDesc">
-                    Здесь указаны номера наших служб поддержки клиентов и время их работы. Если вы предпочитаете написать сообщение, просто заполните контактную форму. 
-                </div>
-                <div class="contactff">
-                    <div class="FFCARD">
-
-                        <di class="FFICON"> 
-                            <i class="fas fa-phone"></i>
-                        </di>
-
-                        <div class="FFHeader">
-                            030 81097-601
-                        </div>
-
-                        <div class="FFDesc">
-                            С понедельника по пятницу с 8:00 до 18:00.
-                        </div>
-
-                        <div class="FFButton">
-                            <a>
-                                <button type="button">
-                                    <span> Обратиться </span>
-                                </button>
-                            </a>
-                        </div>
-
-                    </div>
-                </div> 
-
-            </div> <!-- content -->
-
-
-
-            
-        </div> <!-- /container -->
-
-
-
-
-    </div> <!-- /contact-page -->
-
-
-
-
-
-
+            <div class="FFButton">
+              <a>
+                <button type="button">
+                  <span> Обратиться </span>
+                </button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- content -->
+    </div>
+    <!-- /container -->
+  </div>
+  <!-- /contact-page -->
 </template>
 
 <script>
@@ -75,198 +56,154 @@ export default {
 </script>
 
 <style scoped>
-
 .container {
-    margin: 16px;
-    border-radius: 8px;
-    justify-content: center;
-    align-content: center;
-    display: flex;
+  margin: 16px;
+  border-radius: 8px;
+  justify-content: center;
+  align-content: center;
+  display: flex;
 }
 
-
 .content {
-    margin: 36px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  margin: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .headerLabel {
-    font-size: 32px;
-    line-height: 40px;
-    font-weight: 600;
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 600;
 }
-
 
 .ContentDesc {
-    max-width: 645px;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
-    padding-top: 16px;
-    padding-bottom: 16px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
-
 .contentImg {
-    border-radius: 12px;
+  border-radius: 12px;
 }
 
 .contentImg img {
-    max-width: 900px;
-    max-height: 500px;
+  max-width: 100%;
+  max-height: 100%;
 }
 /* CARDS */
 
-
-
 .contactff {
-position: relative;
-display: flex;
-width: 100%;
-height: 150px;
-margin-top: 40px;
-border: 1px solid #ccc;
-border-radius: 4px;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 0;
 }
 
 .FFCARD {
-position: relative;
-display: flex;
-width: 100%;
-height: 100%;
-justify-content: center;
-align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
 }
 
 .FFICON {
-position: absolute;
-width: 48px;
-height: 48px;
-left: 50%;
-top: 50%;
-transform: translate(-50%, -50%);
-border-radius: 50%;
-background-color: #fff;
-border: 1px solid #ccc;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 36px;
+  color: #007bff;
+}
+
+.FFInfo {
+  text-align: center;
 }
 
 .FFHeader {
-position: relative;
-font-size: 24px;
-font-weight: bold;
-margin-bottom: 4px;
-}
-
-.FFDesc {
-position: relative;
-font-size: 16px;
-margin-bottom: 16px;
+  margin: 2px;
+  padding: 8px;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .FFButton {
-position: relative;
-margin-bottom: 20px;
+  padding: 8px;
+  margin-left: auto;
 }
 
-.FButton button {
-position: relative;
-display: inline-block;
-padding: 8px 16px;
-font-size: 16px;
-line-height: 1.5;
-text-align: center;
-border: 1px solid #ccc;
-border-radius: 4px;
-background-color: #fff;
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+.FFButton button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
 }
 
-.FButton button:hover {
-background-color: #ff8040;
+.FFICON,
+.FFInfo,
+.FFButton {
+  flex: 1;
 }
-
-.FButton button:active {
-transform: translateY(2px);
-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-}
-
 
 @media (max-width: 768px) {
-    .FFCARD {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
+  .container {
+    margin: 8px;
+  }
 
-    .FFICON {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    }
+  .content {
+    margin: 16px;
+  }
 
-    .FFHeader {
-    position: relative;
-    font-size: 20px;
-    }
+  .headerLabel {
+    font-size: 24px;
+    line-height: 32px;
+  }
 
-    .FFDesc {
-    position: relative;
+  .ContentDesc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .contentImg img {
+    max-width: 100%;
+  }
+
+  .FFCARD {
+    width: auto;
+    flex: 1 0 100%;
+  }
+
+  .FFICON {
+    font-size: 24px;
+  }
+
+  .FFHeader {
     font-size: 16px;
-    }
+  }
 
-    .FFButton {
-    position: relative;
-    margin-bottom: 20px;
-    }
-
-    .FButton button {
+  .FFButton button {
     padding: 8px 16px;
-    font-size: 16px;
-    }
+    font-size: 14px;
+  }
 }
 
-@media (max-width: 480px) {
-    .FFCARD {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    }
+@media (max-width: 576px) {
+  .contentImg {
+    display: none;
+  }
 
-    .FFICON {
-    position: relative;
-    left: auto;
-    top: auto;
-    transform: none;
-    }
-
-    .FFHeader {
-    position: relative;
+  .headerLabel {
     font-size: 18px;
-    }
+    line-height: 24px;
+  }
 
-    .FFDesc {
-    position: relative;
-    font-size: 16px;
-    }
-
-    .FFButton {
-    position: relative;
-    margin-bottom: 20px;
-    }
-
-    .FButton button {
-    padding: 8px 16px;
-    font-size: 16px;
-    }
+  .ContentDesc {
+    font-size: 12px;
+    line-height: 16px;
+  }
 }
-
 </style>
