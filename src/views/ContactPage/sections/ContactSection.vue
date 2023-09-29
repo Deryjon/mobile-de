@@ -1,6 +1,6 @@
 <template>
-  <div class="contact-page">
-    <div class="container">
+  <div class=" ">
+    <v-container class="container w-[1180px]">
       <div class="content">
         <div class="StatusDate"></div>
         <!-- Status Date-->
@@ -43,7 +43,7 @@
         </div>
       </div>
       <!-- content -->
-    </div>
+    </v-container>
     <!-- /container -->
   </div>
   <!-- /contact-page -->
@@ -56,13 +56,6 @@ export default {
 </script>
 
 <style scoped>
-.container {
-  margin: 16px;
-  border-radius: 8px;
-  justify-content: center;
-  align-content: center;
-  display: flex;
-}
 
 .content {
   margin: 36px;
