@@ -1,13 +1,13 @@
 <template>
   <section class="basic-filter mt-[200px]">
-    <v-container>
+    <v-container class="w-[1140px]">
       <PathLink>My New Motorbike </PathLink>
 
       <FilterTitle>Detailsuche: Pkw - neu oder gebraycht</FilterTitle>
       <FilterBtn class="ml-auto" />
 
       <div
-        class="relative filter xl:h-[1150px] lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[1500px] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter   md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
@@ -50,8 +50,8 @@
             <input
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="e. g. Brutale 1090, R 1200 …"
-              
-            />
+
+                      />
           </div>
         </div>
 				<VehicleTypeComponent/>

@@ -844,7 +844,7 @@
 <script>
 import axios from "axios";
 import { ref } from "vue";
-import http from "@/axios.config";
+import http from "../../../axios.config";
 export default {
   setup() {
     const isCheckedHistory = ref(false);

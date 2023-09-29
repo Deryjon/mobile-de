@@ -43,7 +43,6 @@
       </div>
 
       <div class="w-[200px] hover:bg-gray-300 border-r border-b ">
-
         <img
           alt="Agricultural"
           data-nimg="1"
@@ -101,4 +100,5 @@
 <script>
 export default {};
 </script>
+
 <style scoped></style>

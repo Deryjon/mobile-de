@@ -27,15 +27,16 @@
         </div>
       </div>
 
-      <div class="relative">
+      <div class="relative efw">
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
-        />
-      </div>
+          
+        >
+             </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
@@ -48,7 +49,7 @@
             v-model="inputValue"
             @focus="openDropdown"
             @input="filterOptions"
-            @blur="closeDropdown"
+            @blur="openDropdown"
           />
 
           <div
@@ -214,7 +215,7 @@
             v-model="inputKilometer"
             @focus="openKilmeterDropdown"
             @input="filterOptions"
-            @blur="closeKilometerDropdown"
+            @blur="openKilmeterDropdown"
           />
 
           <div

@@ -104,7 +104,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">Power</p>
-            <p class="font-bold">96 kW (131 Hp)</p>
+            <p class="font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
           </div>
         </div>
         <div class="power flex w-[186px]">
@@ -386,7 +386,7 @@
               width="32"
               height="32"
               viewBox="0 0 32 29"
-              focusable="false"
+              focusabfle="false"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -491,7 +491,7 @@
       </div>
     </div>
     <div
-      class="right fixed right-[210px] bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
+      class="right  right-[210px] bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
     >
       <div class="car-name flex gap-[5px] text-[20px] font-bold">
         <p class="car-mark">Peugeout</p>
@@ -593,6 +593,7 @@ export default {
       isOpen: false,
       cars: [],
       contactUser: false,
+		  horsepower: 100,
     };
   },
   methods: {
@@ -621,6 +622,17 @@ export default {
   created() {
     this.fetchAds();
   },
+	computed: {
+    powerInkW() {
+      // Конвертируем лошадинные силы в кВт
+      return (this.horsepower * 0.7457).toFixed(2);
+    },
+    powerInHp() {
+      // Оставляем значение лошадинных сил без изменений
+      return this.horsepower;
+    },
+  },
+
 };
 </script>
 <style scoped>
