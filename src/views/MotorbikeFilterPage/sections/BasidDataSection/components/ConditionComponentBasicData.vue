@@ -2,7 +2,7 @@
   <div class="condition p-[20px] mt-[20px]">
     <h3 class="text-[14px]">Condition</h3>
     <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[30px] mt-[10px] mb-[10px]">
-      <label for="condition-any" @click="selectCondition('Any')">
+      <label for="any-1" @click="selectCondition('Any')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -14,23 +14,22 @@
         />
         <span class="ml-[10px] text-[14px] ">Any</span>
       </label>
-      <label for="condition-any">
+      <label for="new"  @click="selectCondition('New')"	>
         <input
           type="radio"
-          id="condition-any"
+
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'New',
             'bg-orange': selectedCondition === 'New',
           }"
-          @click="selectCondition('New')"
+         
         />
         <span class="ml-[10px] text-[14px]">New</span>
       </label>
-      <label for="condition-any" @click="selectCondition('Used')">
+      <label for="used" @click="selectCondition('Used')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Used',
