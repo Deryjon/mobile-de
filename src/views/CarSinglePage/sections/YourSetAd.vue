@@ -3,7 +3,7 @@
     <div class="left flex flex-col gap-[20px] w-[700px] rounded-[4px]">
       <div class="img h-[500px]">
         <img
-          src="../../../assets/images/slider-3.jpg"
+          :src="car.car_images_url"
           class="w-full h-full object-cover"
           alt=""
         />
@@ -30,7 +30,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">Mileage</p>
-            <p class="font-bold">10 km</p>
+            <p class="font-bold">{{ car.car_mileage }} km</p>
           </div>
         </div>
         <div class="registration flex w-[186px] gap-[5px]">
@@ -61,7 +61,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">First Registration</p>
-            <p class="font-bold">04/2023</p>
+            <p class="font-bold">{{ car.car_firt_date_year }}</p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
@@ -145,7 +145,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">Gearbox</p>
-            <p class="font-bold">Automatic transmission</p>
+            <p class="font-bold">{{ car.car_transmission }}</p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
@@ -181,7 +181,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">Previous Owners</p>
-            <p class="font-bold">1</p>
+            <p class="font-bold">{{ car.car_previous_owners }}</p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
@@ -212,7 +212,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">Fuel</p>
-            <p class="font-bold">Petrol</p>
+            <p class="font-bold">{{ car.car_fuel_type }}</p>
           </div>
         </div>
       </div>
@@ -222,30 +222,67 @@
         <div class="td-box mt-[20px] flex flex-col gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Category</p>
-            <p class="w-[288px] text-[14px]">Saloon, Pre-Registration</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Availability</p>
-            <p class="w-[288px] text-[14px]">Now</p>
+            <p class="w-[288px] text-[14px]">
+              {{ car.car_body }}, {{ car.car_type }}
+            </p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Origin</p>
-            <p class="w-[288px] text-[14px]">German edition</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_programme }}</p>
           </div>
           <div class="mileage flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Mileage</p>
-            <p class="w-[288px] text-[14px]">German edition</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_mileage }} km</p>
           </div>
           <div class="cubic flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Cubic Capacity</p>
-            <p class="w-[288px] text-[14px]">1,199 ccm</p>
+            <p class="w-[288px] text-[14px]">
+              {{ car.car_cubic_capacity }} ccm
+            </p>
           </div>
           <div class="power flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Power</p>
-            <p class="w-[288px] text-[14px]">96 kW (131 Hp)</p>
+            <p class="w-[288px] text-[14px]">
+              {{ powerInkW }} kW ({{ powerInHp }} Hp)
+            </p>
           </div>
-          <div class="btn show-more mx-auto cursor-pointer">
-            <p class="show text-[#e04b00] text-[14px] underline">Show all</p>
+          <div class="power flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Fuel</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_fuel_type }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Number of Seats</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_number_seats }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Door Count</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_number_door }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Gearbox</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_transmission }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Emission Class</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_emission_class }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Emissions Sticker</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_emissions_sticker }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">
+              First Registration
+            </p>
+            <p class="w-[288px] text-[14px]">{{ car.car_firt_date_year }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">HU</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_hu_valid_until }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Colour</p>
+            <p class="w-[288px] text-[14px]">{{ car.car_exterior_colour }}</p>
           </div>
         </div>
       </div>
@@ -282,22 +319,7 @@
         <div
           class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[14px]"
         >
-          <P class="title">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Voluptatibus eum modi, ab rem fugiat commodi. Quia eos, fugit a
-            cumque nesciunt ut fuga facilis illo saepe adipisci quo fugiat ab
-            assumenda nemo, qui maiores dolor. Nulla voluptas veritatis quaerat
-            magnam fugiat? Amet, alias. Provident amet nulla vel odio
-            exercitationem animi porro, beatae accusantium, impedit quidem
-            doloremque? Nemo fugit impedit quas, nihil culpa quae porro quo
-            minus beatae. Blanditiis, ad doloribus? Quo repudiandae quia esse
-            deleniti accusantium accusamus corporis similique a!
-          </P>
-        </div>
-        <div class="btn show-more w-[8%] mx-auto cursor-pointer">
-          <p class="show text-[#e04b00] mt-[20px] text-[14px] underline">
-            Show all
-          </p>
+          <P class="title"> {{ car.car_description }} </P>
         </div>
       </div>
       <div class="description bor p-[20px]">
@@ -463,25 +485,23 @@
       <div class="description bor p-[20px]">
         <p class="title font-semibold">Dealer</p>
         <div class="line mt-[10px]"></div>
-        
-				<div class="profile-img w-[200px]">
-					<img src="../../../assets/images/family.jpg" alt="">
-				</div>
+
+        <div class="profile-img w-[200px]">
+          <img src="../../../assets/images/family.jpg" alt="" />
+        </div>
         <div class="name">
-					<p class="name text-[14px] font-semibold">Abuto Bierschneider Aalen GmbH</p>
-				</div>
+          <p class="name text-[14px] font-semibold">
+            Abuto Bierschneider Aalen GmbH
+          </p>
+        </div>
         <div class="since mt-[10px]">
-					<p class="since text-[14px]">With mobile.de since Jul 10, 2020
-
-					</p>
-				</div>
+          <p class="since text-[14px]">
+            With mobile.de since: {{ formattedDate }}
+          </p>
+        </div>
         <div class="phone mt-[10px]">
-					<p class="phone text-[14px]">Phone: +49 (0)7361 804599768
-
-
-
-					</p>
-				</div>
+          <p class="phone text-[14px]">Phone: {{ car.user_phone }}</p>
+        </div>
         <div class="line mt-[10px]"></div>
 
         <p class="show mt-[20px] text-[12px]">
@@ -491,28 +511,28 @@
       </div>
     </div>
     <div
-      class="right  right-[210px] bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
+      class="right right-[210px] bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
     >
       <div class="car-name flex gap-[5px] text-[20px] font-bold">
-        <p class="car-mark">Peugeout</p>
-        <p class="car-model">408</p>
+        <p class="car-mark">{{ car.car_make }}</p>
+        <p class="car-model">{{ car.car_model }}</p>
       </div>
-      <div class="car-name flex gap-[5px] text-[16px] mt-[5px]">
+      <!-- <div class="car-name flex gap-[5px] text-[16px] mt-[5px]">
         <p class="car-mark">PureTech 130 EAT8 Allure Pack</p>
-      </div>
+      </div> -->
       <div class="price flex gap-[5px] text-[16px] mt-[5px]">
         €
-        <p class="car-price">37,950</p>
+        <p class="car-price">{{ car.car_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
       <div class="name-seller mt-[20px]">
-        <p class="name">Autohaus Schetter G</p>
+        <p class="name">{{ car.car_vendor }}</p>
       </div>
       <div class="name-seller">
         <p class="name">DE-33602 Bielefeld</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">Phone: +998 94 612 08 44</p>
+        <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
       <button
         class="complete bg-[#e04b00] w-full py-[12px] rounded-[8px] text-[#fff] font-bold flex items-center gap-[5px] px-[32%] mt-[20px]"
@@ -583,6 +603,7 @@
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
+import { format } from "date-fns";
 import http from "../../../axios.config";
 export default {
   data() {
@@ -591,9 +612,12 @@ export default {
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
-      cars: [],
+      car: [],
+      user: [],
       contactUser: false,
-		  horsepower: 100,
+      horsepower: "",
+      userCreatedAt: null,
+      formattedDate: "",
     };
   },
   methods: {
@@ -602,9 +626,20 @@ export default {
     },
     fetchAds() {
       this.userI = localStorage.getItem("u-i");
-      http.get(`/user/cars/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.cars = res.data.data;
-        console.log(this.cars);
+      http.get(`/car/${this.carId}`).then((res) => {
+        this.car = res.data.data;
+        this.horsepower = this.car.car_power;
+        console.log(this.car);
+      });
+    },
+    fetchUser() {
+      http.get(`/users?id=${this.userI}`).then((res) => {
+        this.user = res.data.data;
+        this.userCreatedAt = this.user.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
+        console.log(this.formattedDate);
+        console.log(this.user);
       });
     },
     goToSinglePageAd() {
@@ -620,9 +655,12 @@ export default {
     MyAdCarsTab,
   },
   created() {
+    this.userI = localStorage.getItem("u-i");
+    this.carId = this.$route.params.id;
     this.fetchAds();
+    this.fetchUser();
   },
-	computed: {
+  computed: {
     powerInkW() {
       // Конвертируем лошадинные силы в кВт
       return (this.horsepower * 0.7457).toFixed(2);
@@ -632,7 +670,6 @@ export default {
       return this.horsepower;
     },
   },
-
 };
 </script>
 <style scoped>

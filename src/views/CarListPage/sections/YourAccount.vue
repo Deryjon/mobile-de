@@ -4,64 +4,64 @@
       class="w-full settings relative  bg-[#0000001f]  p-[40px]">
 			<div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-     
+     v-for="car in cars"
       class="card bor flex justify-between w-full h-[320px]  p-[20px] cursor-pointer "
-			@click="goToSinglePageAd(1)"
+			@click="goToSinglePageAd(car.car_id)"
     >
       <div class="img w-[400px] h-[260px] bor"></div>
       <div class="texts w-[520px]  h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            <!-- {{ car.car_make }} -->
+            {{ car.car_make }}
           </div>
           <div class="model">
-            <!-- {{ car.car_model }} -->
+            {{ car.car_model }}
           </div>
           <div class="variant">
-            <!-- {{ car.car_variant }} -->
+            {{ car.car_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            <!-- {{ car.car_firt_date_year }} -->
+            {{ car.car_firt_date_year }}
           </div>
           •
           <div class="mileage">
-						<!-- {{ car.car_mileage }}  -->
+						{{ car.car_mileage }} 
 						km</div>
           •
           <div class="power">
-						<!-- {{ car.car_power }} -->
+						{{ car.car_power }}
 						 Hp</div>
         </div>
         <div class="car-body flex gap-[5px] text-[14px]">
           <div class="car-body">
-            <!-- {{ car.car_body }} -->
+            {{ car.car_body }}
           </div>
           •
           <div class="fuel">
-            <!-- {{ car.car_fuel_type }} -->
+            {{ car.car_fuel_type }}
           </div>
           •
           <div class="transmission">
-            <!-- {{ car.car_transmission }} -->
+            {{ car.car_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            <!-- {{ car.car_hu_valid_until }} -->
+            {{ car.car_hu_valid_until }}
           </div>
         </div>
         <div class="car-body flex gap-[5px] text-[14px]">
           <div class="car-body">
-            <!-- {{ car.car_number_door }} -->
+            {{ car.car_number_door }}
           </div>
           Doors
         </div>
       </div>
 			<div class="price text-[18px] font-semibold">
 				<p class="price">
-					<!-- €{{ car.car_price }} -->
+					€{{ car.car_price }}
 				</p>
 				<div class="flex gap-[10px] justify-end mt-[200px]">
 					<div class="">
@@ -70,10 +70,10 @@
 							<svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z" fill="currentColor"></path></svg>
 							Contact
 						</button>
-						<div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
+						<!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
 <p>+998946120844</p>
 <p>lonewolf@gmail.com</p>
-						</div>
+						</div> -->
 					</div>
         <button
           @click="addAdBasicCars"
