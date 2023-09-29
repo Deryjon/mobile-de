@@ -34,20 +34,9 @@
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig"
-          :disabled="isModelSelectDisabled"
+          
         >
-          <option value="14600">Beliebig</option>
-          <option
-            v-for="model in models"
-            :key="model"
-            :value="model.car_model_name"
-            class=""
-          >
-            {{ model.car_model_name }}
-          </option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-      </div>
+             </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
@@ -60,7 +49,7 @@
             v-model="inputValue"
             @focus="openDropdown"
             @input="filterOptions"
-            @blur="closeDropdown"
+            @blur="openDropdown"
           />
 
           <div
@@ -226,7 +215,7 @@
             v-model="inputKilometer"
             @focus="openKilmeterDropdown"
             @input="filterOptions"
-            @blur="closeKilometerDropdown"
+            @blur="openKilmeterDropdown"
           />
 
           <div

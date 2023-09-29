@@ -50,12 +50,8 @@
             <input
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="e. g. Brutale 1090, R 1200 …"
-<<<<<<< HEAD
-              :disabled="isModelSelectDisabled"
-=======
-              
->>>>>>> main
-            />
+
+                      />
           </div>
         </div>
 				<VehicleTypeComponent/>
