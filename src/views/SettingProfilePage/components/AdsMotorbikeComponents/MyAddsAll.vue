@@ -153,12 +153,12 @@ export default {
       this.$router.push({ name: "edit-ad-motobike", params: { id: motorbikeId } });
     },
     deleteAdMotorbike(motorbikeId) {
-			console.log(motorbikeId);
       http
         .delete(`/motorcycles/delete`, {
           data: { motorcycle_id: parseInt(motorbikeId) },
         })
         .then((response) => {
+					console.log(response);
           // Обработка успешного удаления
          
           // Выполните здесь необходимые действия после успешного удаления
