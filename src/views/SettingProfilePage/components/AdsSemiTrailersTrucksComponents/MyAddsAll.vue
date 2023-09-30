@@ -1,66 +1,66 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="semitrailer in semitrailers"
-      :key="semitrailer.semitrailer_id"
-      :data-semitrailer-id="semitrailer.id"
-      class="semitrailerd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      v-for="semitruck in semitrucks"
+      :key="semitruck.semitruck_id"
+      :data-semitruck-id="semitruck.id"
+      class="semitruckd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="semitrailer.semitrailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="semitruck.semitruck_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ semitrailer.semitrailer_make }}
+            {{ semitruck.semitruck_make }}
           </div>
           <div class="model">
-            {{ semitrailer.semitrailer_model }}
+            {{ semitruck.semitruck_model }}
           </div>
           <div class="variant">
-            {{ semitrailer.semitrailer_variant }}
+            {{ semitruck.semitruck_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ semitrailer.semitrailer_firt_date_year }}
+            {{ semitruck.semitruck_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ semitrailer.semitrailer_mileage }} km</div>
+          <div class="mileage">{{ semitruck.semitruck_mileage }} km</div>
           •
-          <div class="power">{{ semitrailer.semitrailer_power }} Hp</div>
+          <div class="power">{{ semitruck.semitruck_power }} Hp</div>
         </div>
-        <div class="semitrailer-body flex gap-[5px] text-[14px]">
-          <div class="semitrailer-body">
-            {{ semitrailer.semitrailer_body }}
+        <div class="semitruck-body flex gap-[5px] text-[14px]">
+          <div class="semitruck-body">
+            {{ semitruck.semitruck_body }}
           </div>
           •
           <div class="fuel">
-            {{ semitrailer.semitrailer_fuel_type }}
+            {{ semitruck.semitruck_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ semitrailer.semitrailer_transmission }}
+            {{ semitruck.semitruck_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ semitrailer.semitrailer_hu_valid_until }}
+            {{ semitruck.semitruck_hu_valid_until }}
           </div>
         </div>
-        <div class="semitrailer-body flex gap-[5px] text-[14px]">
-          <div class="semitrailer-body">
-            {{ semitrailer.semitrailer_number_door }}
+        <div class="semitruck-body flex gap-[5px] text-[14px]">
+          <div class="semitruck-body">
+            {{ semitruck.semitruck_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ semitrailer.semitrailer_price }}</p>
+        <p class="price">€{{ semitruck.semitruck_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdsemitrailer(semitrailer.semitrailer_id)"
+            @click="deleteAdsemitruck(semitruck.semitruck_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdsemitrailer(semitrailer.semitrailer_id)"
+            @click="editAdsemitruck(semitruck.semitruck_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -103,37 +103,37 @@ export default {
   data() {
     return {
       userI: "",
-      semitrailers: [],
+      semitrucks: [],
     };
   },
 
   methods: {
     fetchAds() {
-      http.get(`/user/semitrailers/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.semitrailers = res.data.data;
-        console.log(this.semitrailers);
+      http.get(`/user/semitrucks/${this.userI}?limit=100&offset=0`).then((res) => {
+        this.semitrucks = res.data.data;
+        console.log(this.semitrucks);
       });
     },
-    editAdsemitrailer(semitrailerId) {
-      this.$router.push({ name: "edit-ad", params: { id: semitrailerId } });
+    editAdsemitruck(semitruckId) {
+      this.$router.push({ name: "edit-ad", params: { id: semitruckId } });
     },
-    deleteAdsemitrailer(semitrailerId) {
-      // Отправляем запрос DELETE на сервер с указанием semitrailerId
-      console.log(`Объявление с ID ${semitrailerId} удалено.`);
+    deleteAdsemitruck(semitruckId) {
+      // Отправляем запрос DELETE на сервер с указанием semitruckId
+      console.log(`Объявление с ID ${semitruckId} удалено.`);
       http
-        .delete(`/semitrailer/delete`, {
-          data: { semitrailer_id: parseInt(semitrailerId) },
+        .delete(`/semitruck/delete`, {
+          data: { semitruck_id: parseInt(semitruckId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${semitrailerId} удалено.`);
+          console.log(`Объявление с ID ${semitruckId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${semitrailerId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${semitruckId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },

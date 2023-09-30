@@ -138,13 +138,13 @@ export default {
         this.motorcycles = res.data.data;
       });
     },
-    editAdCar(carId) {
-      this.$router.push({ name: "edit-ad", params: { id: carId } });
+    editAdCar(motorbikeId) {
+      this.$router.push({ name: "edit-ad-motorbike", params: { id: motorbikeId } });
     },
-    deleteAdCar(carId) {
+    deleteAdMotorbike(motorbikeId) {
       http
-        .delete(`/mototrcycles/delete`, {
-          data: { motorcycle_id: parseInt(carId) },
+        .delete(`/motorcycles/delete`, {
+          data: { motorcycle_id: parseInt(motorbikeId) },
         })
         .then((response) => {
           // Обработка успешного удаления

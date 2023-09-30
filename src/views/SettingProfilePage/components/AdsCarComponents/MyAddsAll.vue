@@ -142,24 +142,18 @@ export default {
       this.$router.push({ name: "edit-ad", params: { id: carId } });
     },
     deleteAdCar(carId) {
-      http
-        .delete(`/car/delete`, {
-          data: { car_id: parseInt(carId) },
-        })
-        .then((response) => {
-          // Обработка успешного удаления
-         
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-        
-          // Выполните здесь необходимые действия при ошибке
-        });
-				this.dialog = false;
-    },
+  console.log('Deleting car with ID:', carId);
+  http
+    .delete(`/car/delete`, {
+      data: { car_id: parseInt(carId) },
+    })
+    .then((response) => {
+			this.fetchAds();
+
+    });
+  this.dialog = false;
+},
+
   },
   created() {
     this.userI = localStorage.getItem("u-i");
