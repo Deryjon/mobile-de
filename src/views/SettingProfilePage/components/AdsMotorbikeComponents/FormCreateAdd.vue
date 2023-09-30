@@ -1889,10 +1889,10 @@ export default {
       formData.append("motorcycle_make", this.selectedMark);
       formData.append("motorcycle_model", this.selectedModel);
       formData.append("motorcycle_condition", this.selectedCondition);
-      formData.append("motorcycle_type", this.selectedType);
+      formData.append("motorcycle_type", this.selectedMotorbike);
       formData.append("motorcycle_vide_link", this.selectedMotorbike);
       formData.append("motorcycle_price", parseInt(this.price));
-      formData.append("motorcycle_firt_date", parseInt(this.inputValue));
+      formData.append("motorcycle_firt_date", this.inputValue);
       formData.append("motorcycle_firt_date_year", parseInt(this.inputValue));
       formData.append("motorcycle_mileage", parseInt(this.inputKilometer));
       formData.append("motorcycle_power", parseInt(this.power));
@@ -1913,7 +1913,7 @@ export default {
       formData.append("motorcycle_vendor", this.selectedVendor);
       formData.append("motorcycle_history", this.isCheckedHistory);
       formData.append("motorcycle_damaged", this.damageVehicle);
-      formData.append("motorcycle_number_owners", this.preOwners);
+      formData.append("motorcycle_number_owners", parseInt(this.preOwners));
       formData.append("motorcycle_approved_used_programme", this.approveUsed);
       formData.append("motorcycle_dealer_rating", 4);
       formData.append("user_id", this.userI);
