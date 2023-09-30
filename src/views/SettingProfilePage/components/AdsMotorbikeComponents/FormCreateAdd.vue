@@ -97,6 +97,344 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
       </div>
+			<div class="mt-[30px] ">
+    <h3 class="text-[16px]">Vehicle type</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[25px] mt-[20px] ">
+      <!-- cabrio -->
+      <label
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0 pb-[20px]"
+      >
+        <input
+          type="radio"
+          :class="{
+                'bg-transparent': selectedMotorbike !== 'Chopper/Cruiser',
+                'bg-orange': selectedMotorbike === 'Chopper/Cruiser',
+              }"
+              @click="selectMotorbike('Chopper/Cruiser')"
+        />
+        
+        Chopper/Cruiser
+      </label>
+      <label
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+          :class="{
+                'bg-transparent': selectedMotorbike !== ' Motor-assisted Bicycle/Small Moped',
+                'bg-orange': selectedMotorbike === ' Motor-assisted Bicycle/Small Moped',
+              }"
+              @click="selectMotorbike(' Motor-assisted Bicycle/Small Moped')"
+        />
+        
+        Motor-assisted Bicycle/Small Moped
+      </label>
+      <label
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== ' Racing',
+                'bg-orange': selectedMotorbike === ' Racing',
+              }"
+              @click="selectMotorbike(' Racing')"
+        />
+        
+        Racing
+      </label>
+      <label
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== ' Streetfighter',
+                'bg-orange': selectedMotorbike === ' Streetfighter',
+              }"
+              @click="selectMotorbike(' Streetfighter')"
+        />
+        
+        Streetfighter
+      </label>
+      <label
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+          :class="{
+                'bg-transparent': selectedMotorbike !== ' Combination/Sidecar',
+                'bg-orange': selectedMotorbike === ' Combination/Sidecar',
+              }"
+              @click="selectMotorbike(' Combination/Sidecar')"
+        />
+        
+        Combination/Sidecar
+      </label>
+      <label
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+          :class="{
+                'bg-transparent': selectedMotorbike !== 'Motorcycle',
+                'bg-orange': selectedMotorbike === 'Motorcycle',
+              }"
+              @click="selectMotorbike('Motorcycle')"
+        />
+        
+        Motorcycle
+      </label>
+      <!-- estate -->
+      <label
+        class="custom-checkbox flex gap-4 text-[14px] items-center h-10  p-0 pb-4"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Rally/Cross',
+                'bg-orange': selectedMotorbike === 'Rally/Cross',
+              }"
+              @click="selectMotorbike('Rally/Cross')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-[14px]">Rally/Cross </span>
+      </label>
+
+      <!-- saloon -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0 w-[200px] pb-4"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Super Moto',
+                'bg-orange': selectedMotorbike === 'Super Moto',
+              }"
+              @click="selectMotorbike('Super Moto')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+
+        
+
+        <span class="text-[14px]">Super Moto</span>
+      </label>
+      <!-- small -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+        	:class="{
+                'bg-transparent': selectedMotorbike !== 'Dirt Bike',
+                'bg-orange': selectedMotorbike === 'Dirt Bike',
+              }"
+              @click="selectMotorbike('Dirt Bike')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+
+        
+
+        <span class="text-[14px]">Dirt Bike</span>
+      </label>
+      <!-- sports -->
+      <label
+        class="custom-checkbox flex gap-3 items-center h-10 p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Naked Bike',
+                'bg-orange': selectedMotorbike === 'Naked Bike',
+              }"
+              @click="selectMotorbike('Naked Bike')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+
+        
+
+        <span class="text-[14px]">Naked Bike</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Scooter',
+                'bg-orange': selectedMotorbike === 'Scooter',
+              }"
+              @click="selectMotorbike('Scooter')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Scooter</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Tourer',
+                'bg-orange': selectedMotorbike === 'Tourer',
+              }"
+              @click="selectMotorbike('Tourer')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Tourer</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Enduro/Touring Enduro',
+                'bg-orange': selectedMotorbike === 'Enduro/Touring Enduro',
+              }"
+              @click="selectMotorbike('Enduro/Touring Enduro')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Enduro/Touring Enduro
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Pocketbike',
+                'bg-orange': selectedMotorbike === 'Pocketbike',
+              }"
+              @click="selectMotorbike('Pocketbike')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Pocketbike
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Sports/Super Sports Bike',
+                'bg-orange': selectedMotorbike === 'Sports/Super Sports Bike',
+              }"
+              @click="selectMotorbike('Sports/Super Sports Bike')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Sports/Super Sports Bike
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Trike',
+                'bg-orange': selectedMotorbike === 'Trike',
+              }"
+              @click="selectMotorbike('Trike')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Trike
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Lightweight Motorcycle/Motorbike',
+                'bg-orange': selectedMotorbike === 'Lightweight Motorcycle/Motorbike',
+              }"
+              @click="selectMotorbike('Lightweight Motorcycle/Motorbike')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Lightweight Motorcycle/Motorbike
+
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Quad',
+                'bg-orange': selectedMotorbike === 'Quad',
+              }"
+              @click="selectMotorbike('Quad')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Quad
+
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Sport Touring Motorcycles',
+                'bg-orange': selectedMotorbike === 'Sport Touring Motorcycles',
+              }"
+              @click="selectMotorbike('Sport Touring Motorcycles')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Sport Touring Motorcycles
+
+
+</span>
+      </label>
+      <!-- off-road -->
+      <label
+        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+      >
+        <input
+          type="radio"
+					:class="{
+                'bg-transparent': selectedMotorbike !== 'Other',
+                'bg-orange': selectedMotorbike === 'Other',
+              }"
+              @click="selectMotorbike('Other')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        
+        <span class="text-sm">Other
+
+
+</span>
+      </label>
+    </div>
+  </div>
+  <div class="tab-content">
+    <div class="tab-1"></div>
+  </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
         <div
@@ -140,79 +478,8 @@
             <span class="ml-[10px] text-[14px]">Used</span>
           </label>
         </div>
-        <div
-          class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]"
-        >
-          <label
-            class="gap-2 flex items-center h-10 w-[140px] pb-[23px]"
-            :class="{ 'opacity-20': isRadioNewSelected }"
-          >
-            <input
-              :disabled="isRadioNewSelected"
-              type="radio"
-              v-model="selectedType"
-              :class="{
-                'bg-transparent': selectedType !== 'Pre-Registration',
-                'bg-orange': selectedType === 'Pre-Registration',
-              }"
-              @click="selectType('Pre-Registration')"
-            />
-
-            <span class="text-sm">Pre-Registration</span>
-          </label>
-          <label
-            class="gap-2 flex items-center h-10 w-[130px] pb-[23px]"
-            :class="{ 'opacity-20': isRadioNewSelected }"
-          >
-            <input
-              :disabled="isRadioNewSelected"
-              type="radio"
-              v-model="selectedType"
-              :class="{
-                'bg-transparent': selectedType !== 'Employees Car',
-                'bg-orange': selectedType === 'Employees Car',
-              }"
-              @click="selectType('Employees Car')"
-            />
-
-            <span class="text-sm">Employee's Car</span>
-          </label>
-          <label
-            class="gap-2 flex items-center h-10 w-[130px] pb-[23px]"
-            :class="{ 'opacity-20': isRadioNewSelected }"
-          >
-            <input
-              :disabled="isRadioNewSelected"
-              type="radio"
-              v-model="selectedType"
-              :class="{
-                'bg-transparent': selectedType !== 'Classic Vehicle',
-                'bg-orange': selectedType === 'Classic Vehicle',
-              }"
-              @click="selectType('Classic Vehicle')"
-            />
-
-            <span class="text-sm">Classic Vehicle</span>
-          </label>
-          <label
-            class="gap-2 flex items-center h-10 w-[190px] pb-[23px]"
-            :class="{ 'opacity-20': isRadioNewSelected }"
-          >
-            <input
-              :disabled="isRadioNewSelected"
-              type="radio"
-              v-model="selectedType"
-              :class="{
-                'bg-transparent': selectedType !== 'Demonstration Vehicle',
-                'bg-orange': selectedType === 'Demonstration Vehicle',
-              }"
-              @click="selectType('Demonstration Vehicle')"
-            />
-
-            <span class="text-sm">Demonstration Vehicle</span>
-          </label>
         </div>
-      </div>
+        
       <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
