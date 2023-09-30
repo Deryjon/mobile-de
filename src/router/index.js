@@ -10,6 +10,7 @@ import About from "../views/AboutPage/AboutPage.vue"
 import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 import CarList from "../views/CarListPage/CarListPage.vue"
 import EditPage from "../views/EditAdPage/EditAdCarPage.vue"
+import EditMotrobikePage from "../views/EditMotorbikeAdPage/EditAdMotorbikePage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
@@ -65,6 +66,11 @@ const router = createRouter({
       path: "/edit/ad/:id",
       name: "edit-ad",
       component: EditPage,
+    },
+		{
+      path: "/edit/ad-motorbike/:id",
+      name: "edit-ad-motobike",
+      component: EditMotrobikePage,
     },
 		{
       path: "/news",

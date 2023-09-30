@@ -139,7 +139,7 @@ export default {
       });
     },
     editAdCar(motorbikeId) {
-      this.$router.push({ name: "edit-ad", params: { id: motorbikeId } });
+      this.$router.push({ name: "edit-ad-motorbike", params: { id: motorbikeId } });
     },
     deleteAdMotorbike(motorbikeId) {
       http
