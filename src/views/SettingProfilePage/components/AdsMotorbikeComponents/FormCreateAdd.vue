@@ -1524,7 +1524,7 @@ export default {
       isCheckedClassic: false,
       isCheckedDemon: false,
       isRadioNewSelected: false,
-      selectedExteriorColour: "",
+      selectedExteriorColour: "Blue",
       selectedTrailer: "",
       selectedParking: "",
       selectedModel: "",
@@ -1633,7 +1633,7 @@ export default {
       formData.append("motorcycle_radius", parseInt(this.radius));
       formData.append("motorcycle_fuel_type", this.selectedFuel);
       formData.append("motorcycle_driving_mode", this.selectedFuel);
-      formData.append("motorcycle_transmission", this.transmission);
+      formData.append("motorcycle_transmission", this.selectedTransmision);
       formData.append("motorcycle_cubic_capacity", parseInt(this.cubic));
       formData.append(
         "motorcycle_exterior_colour",
