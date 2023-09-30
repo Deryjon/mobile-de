@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="coach in coachs"
+      v-for="coach in coaches"
       :key="coach.coach_id"
       :data-coach-id="coach.id"
       class="coachd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
@@ -103,15 +103,15 @@ export default {
   data() {
     return {
       userI: "",
-      coachs: [],
+      coaches: [],
     };
   },
 
   methods: {
     fetchAds() {
-      http.get(`/user/coachs/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.coachs = res.data.data;
-        console.log(this.coachs);
+      http.get(`/user/coaches/${this.userI}?limit=100&offset=0`).then((res) => {
+        this.coaches = res.data.data;
+        console.log(this.coaches);
       });
     },
     editAdcoach(coachId) {

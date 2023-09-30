@@ -1,66 +1,66 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="car in cars"
-      :key="car.car_id"
-      :data-car-id="car.id"
-      class="card bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      v-for="construction in constructions"
+      :key="construction.construction_id"
+      :data-construction-id="construction.id"
+      class="constructiond bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="car.car_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="construction.construction_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ car.car_make }}
+            {{ construction.construction_make }}
           </div>
           <div class="model">
-            {{ car.car_model }}
+            {{ construction.construction_model }}
           </div>
           <div class="variant">
-            {{ car.car_variant }}
+            {{ construction.construction_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ car.car_firt_date_year }}
+            {{ construction.construction_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ car.car_mileage }} km</div>
+          <div class="mileage">{{ construction.construction_mileage }} km</div>
           •
-          <div class="power">{{ car.car_power }} Hp</div>
+          <div class="power">{{ construction.construction_power }} Hp</div>
         </div>
-        <div class="car-body flex gap-[5px] text-[14px]">
-          <div class="car-body">
-            {{ car.car_body }}
+        <div class="construction-body flex gap-[5px] text-[14px]">
+          <div class="construction-body">
+            {{ construction.construction_body }}
           </div>
           •
           <div class="fuel">
-            {{ car.car_fuel_type }}
+            {{ construction.construction_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ car.car_transmission }}
+            {{ construction.construction_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ car.car_hu_valid_until }}
+            {{ construction.construction_hu_valid_until }}
           </div>
         </div>
-        <div class="car-body flex gap-[5px] text-[14px]">
-          <div class="car-body">
-            {{ car.car_number_door }}
+        <div class="construction-body flex gap-[5px] text-[14px]">
+          <div class="construction-body">
+            {{ construction.construction_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ car.car_price }}</p>
+        <p class="price">€{{ construction.construction_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdCar(car.car_id)"
+            @click="deleteAdconstruction(construction.construction_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdCar(car.car_id)"
+            @click="editAdconstruction(construction.construction_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -103,37 +103,37 @@ export default {
   data() {
     return {
       userI: "",
-      cars: [],
+      constructions: [],
     };
   },
 
   methods: {
     fetchAds() {
-      http.get(`/user/cars/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.cars = res.data.data;
-        console.log(this.cars);
+      http.get(`/user/constructions/${this.userI}?limit=100&offset=0`).then((res) => {
+        this.constructions = res.data.data;
+        console.log(this.constructions);
       });
     },
-    editAdCar(carId) {
-      this.$router.push({ name: "edit-ad", params: { id: carId } });
+    editAdconstruction(constructionId) {
+      this.$router.push({ name: "edit-ad", params: { id: constructionId } });
     },
-    deleteAdCar(carId) {
-      // Отправляем запрос DELETE на сервер с указанием carId
-      console.log(`Объявление с ID ${carId} удалено.`);
+    deleteAdconstruction(constructionId) {
+      // Отправляем запрос DELETE на сервер с указанием constructionId
+      console.log(`Объявление с ID ${constructionId} удалено.`);
       http
-        .delete(`/car/delete`, {
-          data: { car_id: parseInt(carId) },
+        .delete(`/construction/delete`, {
+          data: { construction_id: parseInt(constructionId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${carId} удалено.`);
+          console.log(`Объявление с ID ${constructionId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${carId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${constructionId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },

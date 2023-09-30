@@ -1,66 +1,66 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="motorcycle in motorcycles"
-      :key="motorcycle.motorcycle_id"
-      :data-motorcycle-id="motorcycle.id"
-      class="motorcycled bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      v-for="forklift in forklifts"
+      :key="forklift.forklift_id"
+      :data-forklift-id="forklift.id"
+      class="forkliftd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="motorcycle.motorcycle_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="forklift.forklift_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ motorcycle.motorcycle_make }}
+            {{ forklift.forklift_make }}
           </div>
           <div class="model">
-            {{ motorcycle.motorcycle_model }}
+            {{ forklift.forklift_model }}
           </div>
           <div class="variant">
-            {{ motorcycle.motorcycle_variant }}
+            {{ forklift.forklift_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ motorcycle.motorcycle_firt_date_year }}
+            {{ forklift.forklift_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ motorcycle.motorcycle_mileage }} km</div>
+          <div class="mileage">{{ forklift.forklift_mileage }} km</div>
           •
-          <div class="power">{{ motorcycle.motorcycle_power }} Hp</div>
+          <div class="power">{{ forklift.forklift_power }} Hp</div>
         </div>
-        <div class="motorcycle-body flex gap-[5px] text-[14px]">
-          <div class="motorcycle-body">
-            {{ motorcycle.motorcycle_body }}
+        <div class="forklift-body flex gap-[5px] text-[14px]">
+          <div class="forklift-body">
+            {{ forklift.forklift_body }}
           </div>
           •
           <div class="fuel">
-            {{ motorcycle.motorcycle_fuel_type }}
+            {{ forklift.forklift_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ motorcycle.motorcycle_transmission }}
+            {{ forklift.forklift_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ motorcycle.motorcycle_hu_valid_until }}
+            {{ forklift.forklift_hu_valid_until }}
           </div>
         </div>
-        <div class="motorcycle-body flex gap-[5px] text-[14px]">
-          <div class="motorcycle-body">
-            {{ motorcycle.motorcycle_number_door }}
+        <div class="forklift-body flex gap-[5px] text-[14px]">
+          <div class="forklift-body">
+            {{ forklift.forklift_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ motorcycle.motorcycle_price }}</p>
+        <p class="price">€{{ forklift.forklift_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdmotorcycle(motorcycle.motorcycle_id)"
+            @click="deleteAdforklift(forklift.forklift_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdmotorcycle(motorcycle.motorcycle_id)"
+            @click="editAdforklift(forklift.forklift_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -103,37 +103,37 @@ export default {
   data() {
     return {
       userI: "",
-      motorcycles: [],
+      forklifts: [],
     };
   },
 
   methods: {
     fetchAds() {
-      http.get(`/user/motorcycles/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.motorcycles = res.data.data;
-        console.log(this.motorcycles);
+      http.get(`/user/forklifts/${this.userI}?limit=100&offset=0`).then((res) => {
+        this.forklifts = res.data.data;
+        console.log(this.forklifts);
       });
     },
-    editAdmotorcycle(motorcycleId) {
-      this.$router.push({ name: "edit-ad", params: { id: motorcycleId } });
+    editAdforklift(forkliftId) {
+      this.$router.push({ name: "edit-ad", params: { id: forkliftId } });
     },
-    deleteAdmotorcycle(motorcycleId) {
-      // Отправляем запрос DELETE на сервер с указанием motorcycleId
-      console.log(`Объявление с ID ${motorcycleId} удалено.`);
+    deleteAdforklift(forkliftId) {
+      // Отправляем запрос DELETE на сервер с указанием forkliftId
+      console.log(`Объявление с ID ${forkliftId} удалено.`);
       http
-        .delete(`/motorcycle/delete`, {
-          data: { motorcycle_id: parseInt(motorcycleId) },
+        .delete(`/forklift/delete`, {
+          data: { forklift_id: parseInt(forkliftId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${motorcycleId} удалено.`);
+          console.log(`Объявление с ID ${forkliftId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${motorcycleId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${forkliftId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },
