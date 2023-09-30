@@ -293,7 +293,7 @@
       	<div class="" v-show="isActive('tab-4')">
         <MyAdMotorCycleTab/> 
       </div>
-      	<!-- <div class="" v-show="isActive('tab-5')">
+      	<div class="" v-show="isActive('tab-5')">
         <MyAdMotorhomesTab/> 
       </div>
       	<div class="" v-show="isActive('tab-6')">
@@ -322,7 +322,7 @@
       </div>
       	<div class="" v-show="isActive('tab-14')">
         <MyAdForkliftTab/> 
-      </div> -->
+      </div>
     </section>
   </v-container>
 </template>
