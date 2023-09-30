@@ -123,7 +123,7 @@
             @click="selectCar('Cabrio / Roadster')"
           />
           <img
-            src="../../../assets/icons/cabriolet-icon.svg"
+            src="../../../../assets/icons/cabriolet-icon.svg"
             alt=""
             class="w-[90px] pt-[20px]"
           />
@@ -143,7 +143,7 @@
             }"
           />
           <img
-            src="../../../assets/icons/estate-car-icon.svg"
+            src="../../../../assets/icons/estate-car-icon.svg"
             alt=""
             class="w-24 pt-[20px]"
           />
@@ -166,7 +166,7 @@
           />
 
           <img
-            src="../../../assets/icons/saloon-car-icon.svg"
+            src="../../../../assets/icons/saloon-car-icon.svg"
             alt=""
             class="w-24 pt-[20px]"
           />
@@ -188,7 +188,7 @@
           />
 
           <img
-            src="../../../assets/icons/small-car-icon.svg"
+            src="../../../../assets/icons/small-car-icon.svg"
             alt=""
             class="w-[75px] pt-[10px]"
           />
@@ -210,7 +210,7 @@
           />
 
           <img
-            src="../../../assets/icons/sports-car-icon.svg"
+            src="../../../../assets/icons/sports-car-icon.svg"
             alt=""
             class="w-28 pt-[18px]"
           />
@@ -232,7 +232,7 @@
           />
 
           <img
-            src="../../../assets/icons/car-minibus-icon.svg"
+            src="../../../../assets/icons/car-minibus-icon.svg"
             alt=""
             class="w-[70px] pt-[8px]"
           />
@@ -256,7 +256,7 @@
           />
 
           <img
-            src="../../../assets/icons/car-suv-icon.svg"
+            src="../../../../assets/icons/car-suv-icon.svg"
             alt=""
             class="w-20 pt-[18px]"
           />
