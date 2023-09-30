@@ -1855,6 +1855,7 @@ export default {
       combinedNumber: "",
       selectedTransmision: "",
       selectedMaterial: "",
+			selectedMotorbike: "",
       options: [],
     };
   },
@@ -1889,7 +1890,7 @@ export default {
       formData.append("motorcycle_model", this.selectedModel);
       formData.append("motorcycle_condition", this.selectedCondition);
       formData.append("motorcycle_type", this.selectedType);
-      formData.append("motorcycle_vide_link", this.linkVideo);
+      formData.append("motorcycle_vide_link", this.selectedMotorbike);
       formData.append("motorcycle_price", parseInt(this.price));
       formData.append("motorcycle_firt_date", parseInt(this.inputValue));
       formData.append("motorcycle_firt_date_year", parseInt(this.inputValue));
@@ -1985,6 +1986,9 @@ export default {
     },
     selectType(condition) {
       this.selectedType = condition;
+    },
+    selectMotorbike(condition) {
+      this.selectedMotorbike = condition;
     },
     selectTransmision(condition) {
       this.selectedTransmision = condition;
