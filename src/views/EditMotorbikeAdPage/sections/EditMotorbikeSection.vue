@@ -1929,7 +1929,7 @@
         <div class="flex gap-[30px] justify-end">
           <button
             class="bg-red-500 rounded-[8px] p-[10px]"
-            @click="cancelAdCar"
+            @click="cancelAdMotorcycle"
           >
             Cancel
           </button>
@@ -2206,9 +2206,9 @@ this.descriptionText = this.dataAd.motorcycle_description
       console.log(responseData);
     });
 },
-cancelAdmotorcycle(){
+cancelAdMotorcycle(){
 	const store = useTabsStore();
-      store.setActiveTab("tab-3"); 
+      store.setActiveTab("tab-4"); 
      this.$router.push({name: "profile-settings"})
 },
 

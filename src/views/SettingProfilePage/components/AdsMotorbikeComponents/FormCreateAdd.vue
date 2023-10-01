@@ -1150,27 +1150,27 @@
           <input
             type="radio"
             id="condition-any"
-            v-model="selectedCondition"
+            v-model="selectedConditioning"
             :class="{
-              'bg-transparent': selectedCondition !== 'Hp',
-              'bg-orange': selectedCondition === 'Hp',
+              'bg-transparent': selectedConditioning !== 'Hp',
+              'bg-orange': selectedConditioning === 'Hp',
             }"
-            @click="selectCondition('Hp')"
+            @click="selectAirConditioning('Hp')"
           />
           <span class="ml-[10px]">Hp</span>
         </label>
         <label
           for="condition-any"
-          @click="selectCondition('kW')"
+          @click="selectAirConditioning('kW')"
           class="mt-[30px]"
         >
           <input
             type="radio"
             id="condition-any"
-            v-model="selectedCondition"
+            v-model="selectedConditioning"
             :class="{
-              'bg-transparent': selectedCondition !== 'kW',
-              'bg-orange': selectedCondition === 'kW',
+              'bg-transparent': selectedConditioning !== 'kW',
+              'bg-orange': selectedConditioning === 'kW',
             }"
           />
           <span class="ml-[10px]">kW</span>
