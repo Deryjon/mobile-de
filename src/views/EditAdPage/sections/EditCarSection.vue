@@ -3001,7 +3001,7 @@ export default {
   },
   methods: {
 		fetchAdCar(){
-http.get(`https://api.behad.uz/api/v1/car/${this.carId}`).then((res) => {
+http.get(`/car/${this.carId}`).then((res) => {
 	this.dataAd = res.data.data
 this.linkVideo = this.dataAd.car_description
 this.selectedMark = this.dataAd.car_make

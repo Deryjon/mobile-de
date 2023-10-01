@@ -152,7 +152,7 @@ export default {
     editAdCar(motorbikeId) {
       this.$router.push({ name: "edit-ad-motobike", params: { id: motorbikeId } });
     },
-    deleteAdMotorbike(motorbikeId) {
+    deleteAdMotorbike(motorbikeId) {	
       http
         .delete(`/motorcycles/delete`, {
           data: { motorcycle_id: parseInt(motorbikeId) },

@@ -1791,7 +1791,7 @@ export default {
       isCheckedClassic: false,
       isCheckedDemon: false,
       isRadioNewSelected: false,
-      selectedExteriorColour: "Blue",
+      selectedExteriorColour: "",
       selectedTrailer: "",
       selectedParking: "",
       selectedModel: "",
