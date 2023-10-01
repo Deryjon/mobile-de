@@ -1145,27 +1145,27 @@
           <input
             type="radio"
             id="condition-any"
-            v-model="selectedPower"
+            v-model="selecPower"
             :class="{
-              'bg-transparent': selectedPower !== 'Hp',
-              'bg-orange': selectedPower === 'Hp',
+              'bg-transparent': selecPower !== 'Hp',
+              'bg-orange': selecPower === 'Hp',
             }"
-            @click="selectPower('Hp')"
+            @click="selectPow('Hp')"
           />
           <span class="ml-[10px]">Hp</span>
         </label>
         <label
           for="condition-any"
-          @click="selectPower('kW')"
+          @click="selectPow('kW')"
           class="mt-[30px]"
         >
           <input
             type="radio"
             id="condition-any"
-            v-model="selectedPower"
+            v-model="selecPower"
             :class="{
-              'bg-transparent': selectedPower !== 'kW',
-              'bg-orange': selectedPower === 'kW',
+              'bg-transparent': selecPower !== 'kW',
+              'bg-orange': selecPower === 'kW',
             }"
           />
           <span class="ml-[10px]">kW</span>
@@ -1933,7 +1933,7 @@
           >
             Cancel
           </button>
-          <button @click="editAddCars" class="bg-blue-500 rounded-[8px] p-[10px]">
+          <button @click="editAddMotorcycles" class="bg-blue-500 rounded-[8px] p-[10px]">
             Edit Add
           </button>
         </div>
@@ -1988,6 +1988,7 @@ export default {
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
+      selectedMotorbike: "",
       selectedCruise: "Any",
       descriptionText: "",
       seatsOpen: false,
@@ -2069,6 +2070,7 @@ export default {
       power: [],
 			selectedType: "",
       selectedFiles: [],
+      selecPower: "",
       userI: "",
       inputVariant: "",
       activeTab: "buy",
@@ -2132,7 +2134,7 @@ this.descriptionText = this.dataAd.motorcycle_description
     async showTab2() {
       this.activeTab = "sell";
     },
-    editAddmotorcycles() {
+    editAddMotorcycles() {
   // Create a new FormData object
   const formData = new FormData();
 	for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -2143,22 +2145,13 @@ this.descriptionText = this.dataAd.motorcycle_description
   formData.append('user_id', this.userI);
   formData.append('motorcycle_make', this.selectedMark);	
   formData.append('motorcycle_model', this.selectedModel);
-  formData.append('motorcycle_variant', this.inputVariant);
-  formData.append('motorcycle_body', this.selectedmotorcycle);
-  formData.append('motorcycle_number_seats', this.numberSeats);
-  formData.append('motorcycle_number_door', parseInt(this.numDoor));
-  formData.append('motorcycle_silding_door', this.slidingDoor);
   formData.append('motorcycle_condition', this.selectedCondition);
-  formData.append('motorcycle_type', this.selectedType);
-  formData.append('motorcycle_payment_type', this.activeTab);
+  formData.append('motorcycle_type', this.selectedMotorbike);
   formData.append('motorcycle_price', parseInt(this.price));
-  formData.append('motorcycle_firt_date', parseInt(this.inputValue));
+  formData.append('motorcycle_firt_date', this.inputValue);
   formData.append('motorcycle_firt_date_year', parseInt(this.inputValue));
   formData.append('motorcycle_mileage', parseInt(this.inputKilometer));
-  formData.append('motorcycle_hu_valid_until', this.huValid);
-  formData.append('motorcycle_previous_owners', parseInt(this.preOwners));
-  formData.append('motorcycle_full_service_history', this.isCheckedHistory);
-  formData.append('motorcycle_roadworthy', this.isCheckedRoad);
+  formData.append('motorcycle_number_owners', parseInt(this.preOwners));
   formData.append('motorcycle_country', this.selectedCountry);
   formData.append('motorcycle_city_zipcode', this.zipCode);
   formData.append('motorcycle_radius', parseInt(this.radius));
@@ -2170,38 +2163,23 @@ this.descriptionText = this.dataAd.motorcycle_description
   formData.append('motorcycle_power', parseInt(this.power));
   formData.append('motorcycle_cubic_capacity', parseInt(this.cubic));
   formData.append('motorcycle_transmission', this.selectedTransmision);
-  formData.append('motorcycle_fuel_consumption', parseInt(this.consumptionFuel));
-  formData.append('motorcycle_emissions_sticker', this.stickerEmission);
-  formData.append('motorcycle_emission_class', this.classEmision);
   formData.append('motorcycle_exterior_colour', this.selectedExteriorColour);
-  formData.append('motorcycle_trailer_coupling', this.selectedTrailer);
-  formData.append('motorcycle_parking_sensors', this.selectedParking);
-  formData.append('motorcycle_cruise_control', this.selectedCruise);
   formData.append('others', this.selectedOthers);
-  formData.append('motorcycle_interior_colour', this.selectedInteriorColour);
-  formData.append('motorcycle_interior_material', this.selectedInteriorColour);
-  formData.append('motorcycle_airbags', this.selectedAirbag);
-  formData.append('motorcycle_air_conditioning', this.selectedConditioning);
-  formData.append('extras', this.extras);
   formData.append('motorcycle_vendor', this.selectedVendor);
   formData.append('motorcycle_discount_offers', this.isCheckedDiscount); // You have two lines for this, remove one as needed
   formData.append('motorcycle_non_smoker', this.isCheckedNon);
-  formData.append('motorcycle_taxi', this.isCheckedTaxi);
   formData.append('motorcycle_vat', this.isCheckedVAT);
   formData.append('motorcycle_warranty', this.isCheckedWarranty);
   formData.append('motorcycle_environmental_bonus', this.isCheckedEnvironmental);
   formData.append('motorcycle_damaged', this.damageVehicle);
-  formData.append('motorcycle_commercial', this.exportCommercial);
   formData.append('motorcycle_programme', this.approveUsed);
   formData.append('motorcycle_description', this.descriptionText);
-
-  // Send the FormData object as the request body
   http
-    .put("/motorcycle/update", formData)
+    .put("/motorcycles/update", formData)
     .then((response) => {
 			const store = useTabsStore();
-      store.setActiveTab("tab-3"); 
-     this.$router.push({name: "profile-settings"})
+    //   store.setActiveTab("tab-3"); 
+    //  this.$router.push({name: "profile-settings"})
       const responseData = response;
       console.log(responseData);
     });
@@ -2413,6 +2391,9 @@ cancelAdMotorcycle(){
     selectFuel(option) {
       this.selectedFuel = option;
     },
+    selectPow(option) {
+      this.selecPower = option;
+    },
     closeKilometerDropdown() {
       this.isOpenKilometer = false;
     },
@@ -2546,6 +2527,10 @@ cancelAdMotorcycle(){
     selectCubic(option) {
       this.cubic = option;
       this.isOpenCubic = false;
+    },
+    selectMotorbike(option) {
+      this.selectedMotorbike = option;
+      
     },
     closeCubicDropdown() {
       this.isOpenCubic = false;
