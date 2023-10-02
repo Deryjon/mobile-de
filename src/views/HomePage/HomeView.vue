@@ -6,6 +6,7 @@
 		<MagazinSection/>
 		<FinanceSection/>
 		<CarModelsSection/>
+		
   </main>
 </template>
 
