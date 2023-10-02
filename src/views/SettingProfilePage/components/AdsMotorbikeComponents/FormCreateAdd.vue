@@ -76,25 +76,15 @@
           <h2 class="text-sm lg:text-[14px] mt-2">
             {{ $t("message.selects.model") }}
           </h2>
-          <select
+          <input
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             :disabled="isModelSelectDisabled"
             v-model="selectedModel"
-          >
-            <option :value="selectedModel" selected>
-              {{ selectedModel }}
-            </option>
-            <option
-              v-for="model in models"
-              :key="model"
-              :value="model.car_model_name"
-              class=""
-            >
-              {{ model.car_model_name }}
-            </option>
-            <option class="M4">M4</option>
-          </select>
-          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+						type="text"
+          />
+        
+       
+         
         </div>
       </div>
 			<div class="mt-[30px] ">
@@ -1704,7 +1694,7 @@
         <div class="flex gap-[30px] justify-end">
           <button
             class="bg-red-500 rounded-[8px] p-[10px]"
-            @click="cancelAdCar"
+            @click="handleCancelButtonClick"
           >
             Cancel
           </button>
@@ -1925,6 +1915,7 @@ export default {
       http.post("/motorcycles/add", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
+				this.handleCancelButtonClick()
         // localStorage.setItem("car_id", responseData.motorcycle_id);
         console.log(responseData);
       });
