@@ -76,7 +76,7 @@
           </button> -->
 
 					
-					<v-dialog v-model="dialog" width="200px" >
+					<v-dialog v-model="dialog" width="200px"  content-class="custom-dialog-content">
               <template v-slot:activator="{ props }">
                 <button
                   class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
@@ -153,21 +153,27 @@ export default {
       this.$router.push({ name: "edit-ad-motobike", params: { id: motorbikeId } });
     },
     deleteAdMotorbike(motorbikeId) {	
-      http
-        .delete(`/motorcycles/delete`, {
-          data: { motorcycle_id: parseInt(motorbikeId) },
-        })
-        .then((response) => {
-					console.log(response);
-          // Обработка успешного удаления
-         
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        
-				this.dialog = false;
-    },
+  http
+    .delete(`/motorcycles/delete`, {
+      data: { motorcycle_id: parseInt(motorbikeId) },
+    })
+    .then((response) => {
+      console.log(response);
+      // Обработка успешного удаления
+      
+      // Выполните здесь необходимые действия после успешного удаления
+      // Например, можно вызвать метод fetchAds() для обновления списка объявлений
+      this.fetchAds();
+      
+      // Закройте диалоговое окно только после успешного удаления
+      this.dialog = false;
+    })
+    .catch((error) => {
+      // Обработка ошибок при удалении, если необходимо
+      console.error(error);
+    });
+},
+
   },
   created() {
     this.userI = localStorage.getItem("u-i");
