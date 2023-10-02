@@ -2178,8 +2178,8 @@ this.descriptionText = this.dataAd.motorcycle_description
     .put("/motorcycles/update", formData)
     .then((response) => {
 			const store = useTabsStore();
-    //   store.setActiveTab("tab-3"); 
-    //  this.$router.push({name: "profile-settings"})
+      store.setActiveTab("tab-4"); 
+     this.$router.push({name: "profile-settings"})
       const responseData = response;
       console.log(responseData);
     });

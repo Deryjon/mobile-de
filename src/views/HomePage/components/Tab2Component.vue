@@ -468,7 +468,9 @@
               <img src="../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn />
+					<FilterBtn :to="{ name: 'motorbike-filter' }">
+						{{ $t("message.filter.btn") }}
+					</FilterBtn>
         </div>
       </div>
     </div>
