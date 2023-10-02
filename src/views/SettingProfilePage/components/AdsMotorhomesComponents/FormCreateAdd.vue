@@ -2197,57 +2197,31 @@
       </div>
       <div class="flex items-center gap-[50px]">
         <div class="relative mt-2 w-[200px]">
-          <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
-          <select
-            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="damageVehicle"
+          <h2 class="text-[10px] lg:text-[14px]"></h2>
+					<label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
           >
-            <option value="any" selected>Any</option>
-            <option value="not">Do not show</option>
-            <option value="only">Only show</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="relative mt-2 w-[200px]">
-          <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
-          <select
-            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="approveUsed"
-          >
-            <option value="">Please select</option>
-            <option value="Any">Any approved label</option>
-            <option value="ASTON_MARTIN">Aston Martin Timeless</option>
-            <option value="BMW">BMW Premium Selection</option>
-            <option value="BENTLEY">Certified by Bentley</option>
-            <option value="DS_CERTIFIED">DS Certified</option>
-            <option value="FERRARI">Ferrari Approved</option>
-            <option value="HYUNDAI_PROMISE">Hyundai Promise</option>
-            <option value="JAGUAR">Jaguar APPROVED</option>
-            <option value="KIA_ZERTIFIZIERTE_GEBRAUCHTWAGEN">
-              Kia Zertifizierte Gebrauchtwagen
-            </option>
-            <option value="LANDROVER">Land Rover APPROVED</option>
-            <option value="MASERATI">Maserati Approved</option>
-            <option value="MERCEDES_TRANSPORTER">
-              Mercedes-Benz Junge Sterne Transporter
-            </option>
-            <option value="MINI">MINI Gebrauchtwagen Next</option>
-            <option value="NISSAN">Nissan Intelligent Choice</option>
-            <option value="PORSCHE">Porsche Approved</option>
-            <option value="SEAT">SEAT "Das Weltauto"</option>
-            <option value="LAMBORGHINI">
-              Selezione Lamborghini Certified Pre-Owned
-            </option>
-            <option value="SKODA">ŠKODA Plus</option>
-            <option value="SPOTICAR">SPOTICAR</option>
-            <option value="VW_TRADEPORT">Volkswagen TradePort</option>
-            <option value="VOLVO">VOLVO SELEKT</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
-          ></span>
+            <input
+              type="checkbox"
+              v-model="isCheckedDamaged"
+              @click="toggleShowCheckboxAds(0)"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedDamaged"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+            Damaged Vehicles
+          </label>
         </div>
       </div>
       <div class="">
@@ -2380,6 +2354,7 @@ export default {
       isCheckedABS: false,
       isCheckedEmergency: false,
       isCheckedCentral: false,
+      isCheckedDamaged: false,
       isCheckedSpeed: false,
       isCheckedAdaptive: false,
       isCheckedTyre: false,
@@ -2458,7 +2433,7 @@ export default {
       formData.append("motor_home_model", this.selectedModel);
       formData.append("motor_home_condition", this.selectedCondition);
       formData.append("types", this.selectedMotorbike);
-      formData.append("motor_home_video_link", this.selectedMotorbike);
+      formData.append("motor_home_video_link", this.linkVideo);
       formData.append("motor_home_price", parseInt(this.price));
       formData.append("motor_home_firt_date", this.inputValue);
       formData.append("motor_home_firt_date_year", parseInt(this.inputValue));
@@ -2490,8 +2465,8 @@ export default {
       formData.append("motor_home_discount_offers", this.isCheckedDiscount);
       formData.append("motor_home_vendor", this.selectedVendor);
       formData.append("motor_home_full_service_history", this.isCheckedHistory);
-      formData.append("motor_home_damaged", this.damageVehicle);
-      formData.append("motor_home_damage_by_hail", this.damageVehicle);
+      formData.append("motor_home_damaged", this.isCheckedDamaged);
+      formData.append("motor_home_damage_by_hail", this.isCheckedDamaged);
       formData.append("motor_home_warranty", this.isCheckedWarranty);
       formData.append("motor_home_new_hu", this.huValid);
       formData.append("motor_home_renting_possible", this.huValid);
@@ -2502,7 +2477,7 @@ export default {
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      http.post("/motorcycles/add", formData).then((response) => {
+      http.post("/motorhomes/add", formData).then((response) => {
         console.log(response);
         const responseData = response.data.data;
         this.handleCancelButtonClick();
