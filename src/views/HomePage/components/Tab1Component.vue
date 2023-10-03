@@ -9,7 +9,7 @@
           @change="fetchCondition()"
           v-model="selectedCondition"
         >
-          <option value="14600">Any</option>
+          <option value="" selected>Any</option>
           <option class="">New</option>
           <option class="">Used</option>
           <option class="">Rental</option>
@@ -27,7 +27,7 @@
           placeholder="Beliebig"
           v-model="selectedDriving"
         >
-          <option value="14600">Any</option>
+          <option value="" selected>Any</option>
           <option class="">Left side</option>
           <option class="">Right side</option>
         </select>
@@ -47,7 +47,7 @@
             v-model="selectedMark"
             @change="fetchModels()"
           >
-            <option value="14600" selected>Beliebig</option>
+            <option value="" selected>Beliebig</option>
             <optgroup>
               <option
                 v-for="make in makes"
@@ -398,7 +398,7 @@ export default {
       activeTab: "sell",
       cityName: "",
       makes: [],
-      selectedMark: "14600",
+      selectedMark: "",
       models: [],
       modelYears: [],
       years: "",
@@ -410,73 +410,94 @@ export default {
       inputPrice: "",
       options: [],
       filteredOptions: [],
-      selectedModel: "14600",
-      selectedDriving: "14600",
-      selectedCondition: "14600",
+      selectedModel: "",
+      selectedDriving: "",
+      selectedCondition: "",
     };
   },
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
   },
   methods: {
+		postData(){
+			localStorage.setItem('carData', JSON.stringify({
+      car_make: this.selectedMark,
+      car_model: this.selectedModel,
+      car_condition: this.selectedCondition,
+      car_firt_date_year_from: this.inputValue,
+      car_mileage_from: this.inputKilometer,
+      car_payment_type: this.activeTab,
+      car_price_from: this.inputPrice,
+      car_city_zipcode: this.cityName,
+      car_silding_door: this.selectedDriving
+    }));
+		},
     fetchData() {
+		
       http
         .post("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_condition: this.selectedModel,
-          car_firt_date_year_from: this.inputValue,
-          car_mileage_from: this.inputKilometer,
-          car_payment_type: this.activeTab,
-          car_price_from: this.inputPrice,
-          car_city_zipcode: this.cityName,
-          car_condition: this.selectedCondition,
-          car_condition: this.selectedCondition,
-          car_silding_door: this.selectedDriving,
+					car_make: this.selectedMark,
+      car_model: this.selectedModel,
+      car_condition: this.selectedCondition,
+      car_firt_date_year_from: this.inputValue,
+      car_mileage_from: this.inputKilometer,
+      car_payment_type: this.activeTab,
+      car_price_from: this.inputPrice,
+      car_city_zipcode: this.cityName,
+      car_silding_door: this.selectedDriving
         })
         .then((response) => {
           const data = response.data;
