@@ -140,27 +140,37 @@ export default {
       isOpen: false,
       cars: [],
       contactUser: false,
-      fetchData: {},
+      fetchData: JSON.parse(localStorage.getItem("carData")),
     };
   },
   methods: {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
+	// 	{
+  //   car_make: this.fetchData.car_make,
+  //   car_model: this.fetchData.car_model,
+  //   car_condition: this.fetchData.car_condition,
+  //   car_firt_date_year_from: this.fetchData.car_firt_date_year,
+  //   car_mileage_from: this.fetchData.car_mileage,
+  //   car_payment_type: this.fetchData.car_payment_type,
+  //   car_price_from: this.fetchData.car_price,
+  //   car_city_zipcode: this.fetchData.car_city_zipcode,
+  //   car_silding_door: this.fetchData.car_silding_door
+  // }
     fetchAds() {
-      http.post(`/cars/list?limit=100&offset=0`, this.fetchData).then((res) => {
-        this.cars = res.data.data;
-        console.log(this.cars);
-				console.log(this.fetchData);
-      });
-    },
+  http.post(`/cars/list?limit=100&offset=0`, this.fetchData).then((res) => {
+    this.cars = res.data.data;
+    console.log(this.cars);
+    console.log(this.fetchData.car_make);
+  });
+},
     goToSinglePageAd(carId) {
       this.$router.push({ name: "car-single", params: { id: carId } });
     },
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
-    this.fetchData = localStorage.getItem("carData");
   },
   components: {
     SettingsTab,

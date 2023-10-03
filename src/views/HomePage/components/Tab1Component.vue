@@ -74,7 +74,7 @@
           @change="postModels"
           v-model="selectedModel"
         >
-          <option value="14600">Beliebig</option>
+          <option value="">Beliebig</option>
           <option
             v-for="model in models"
             :key="model"
