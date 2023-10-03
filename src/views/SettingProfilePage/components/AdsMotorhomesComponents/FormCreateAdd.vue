@@ -2314,6 +2314,7 @@ export default {
       isCheckedFromThree: false,
       isCheckedfromFour: false,
       isCheckedFive: false,
+      rentingPossible: true,
       rating: [],
       numDoor: "",
       slidingDoor: "",
@@ -2345,7 +2346,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: false,
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
@@ -2454,9 +2455,9 @@ export default {
       formData.append("interior_features", this.selectedFeat);
       formData.append("motor_home_vat", this.isCheckedVAT);
       formData.append("motor_home_length", this.selectedLength);
-      formData.append("motor_home_gvw", this.selectedGvw);
-      formData.append("motor_home_number_of_bunks", this.selectedNumberBunks);
-      formData.append("motor_home_axles", this.selectedAxles);
+      formData.append("motor_home_gvw", parseInt(this.selectedGvw));
+      formData.append("motor_home_number_of_bunks", parseInt(this.selectedNumberBunks));
+      formData.append("motor_home_axles", parseInt(this.selectedAxles));
       formData.append("motor_home_trailer_coupling", this.selectedTrailer);
       formData.append("motor_home_cruise_control", this.selectedCruise);
       formData.append("motor_home_radio", this.selectedRadio);
@@ -2468,8 +2469,9 @@ export default {
       formData.append("motor_home_damaged", this.isCheckedDamaged);
       formData.append("motor_home_damage_by_hail", this.isCheckedDamaged);
       formData.append("motor_home_warranty", this.isCheckedWarranty);
-      formData.append("motor_home_new_hu", this.huValid);
-      formData.append("motor_home_renting_possible", this.huValid);
+      formData.append("motor_home_new_hu", this.isCheckedWarranty);
+      formData.append("motor_home_renting_possible", this.isCheckedWarranty);
+      formData.append("motor_home_numbrt_of_owner", 4);
       formData.append("motor_home_dealer_rating", 4);
       formData.append("user_id", this.userI);
       formData.append(
