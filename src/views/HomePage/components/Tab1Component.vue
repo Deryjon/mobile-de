@@ -376,7 +376,7 @@
             </div>
           </div>
           <FilterBtn :to="{ name: 'car-filter' }">
-						{{ $t("message.filter.btn") }}
+						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
 					</FilterBtn>
         </div>
       </div>
@@ -390,6 +390,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 export default {
   data() {
     return {
+			count: "",
       selectedMake: "",
       selectedPrice: "",
       selectedYear: "",
@@ -501,6 +502,7 @@ export default {
         })
         .then((response) => {
           const data = response.data.data;
+					this.count = data.count
           console.log(data.count);
 
         });
@@ -664,6 +666,8 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
+		this.postData()
+		this.fetchData()
   },
   computed: {
     isModelSelectDisabled() {
