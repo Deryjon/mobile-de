@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdmotorhome(motorhome.motor_home_id)"
+            @click="editAdMotorhome(motorhome.motor_home_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -114,8 +114,8 @@ export default {
         console.log(this.motorhomes);
       });
     },
-    editAdmotorhome(motorhomeId) {
-      this.$router.push({ name: "edit-ad", params: { id: motorhomeId } });
+    editAdMotorhome(motorhomeId) {
+      this.$router.push({ name: "edit-ad-motorhomes", params: { id: motorhomeId } });
     },
     deleteAdMotorhome(motorhomeId) {
       // Отправляем запрос DELETE на сервер с указанием motorhomeId

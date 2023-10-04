@@ -500,8 +500,9 @@ export default {
       car_silding_door: this.selectedDriving
         })
         .then((response) => {
-          const data = response.data;
-          console.log(data);
+          const data = response.data.data;
+          console.log(data.count);
+
         });
     },
     showTab1() {
