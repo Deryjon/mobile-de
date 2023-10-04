@@ -339,7 +339,7 @@
               <img src="../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn :to="{ name: 'motorbike-filter' }">
+          <FilterBtn  @click="goMotorbikeList">
 						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
 					</FilterBtn>
         </div>
@@ -571,9 +571,9 @@ export default {
       }
     },
     openPriceDropdown() {
-      this.isOpenPrice = true;
+      this.isOpenPrice = false;
       this.filteredOptions = this.options;
-      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+      document.addEventListener("click", this.closePriceDropdown);
     },
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".price");
@@ -585,7 +585,7 @@ export default {
         );
       }
     },
-    selectOption(option) {
+    selectOption() {
       this.inputValue = option;
       localStorage.setItem("reg-year", this.inputValue);
       this.isOpen = false;
@@ -609,11 +609,15 @@ export default {
     closePriceDropdown() {
       this.isOpenKilometer = false;
     },
+		goMotorbikeList(){
+			 	this.$router.push({ name: "motorbike-list" });
+
+		}
   },
   components: { FilterBtn },
   mounted() {
     http
-      .get("/car/marks")
+      .get("/car/moto")
       .then((response) => {
         const data = response.data.data;
         if (data) {

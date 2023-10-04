@@ -9,6 +9,7 @@ import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfileP
 import About from "../views/AboutPage/AboutPage.vue"
 import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 import CarList from "../views/CarListPage/CarListPage.vue"
+import MotorbikeList from "../views/MotorbikeListPage/MotorbikeListPage.vue"
 import EditPage from "../views/EditAdPage/EditAdCarPage.vue"
 import EditMotrobikePage from "../views/EditMotorbikeAdPage/EditAdMotorbikePage.vue"
 import EditMotorhomesPage from "../views/EditMotorhomesPage/EditAdMotorhomesPage.vue"
@@ -62,6 +63,11 @@ const router = createRouter({
       path: '/car-list',
       name: 'car-list',
       component: CarList
+    },
+		{
+      path: '/motorbike-list',
+      name: 'motorbike-list',
+      component: MotorbikeList
     },
 		{
       path: "/edit/ad/:id",

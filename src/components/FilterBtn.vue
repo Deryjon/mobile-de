@@ -27,9 +27,9 @@
 
 export default {
 	methods:{
-		goCarList(){
-			this.$router.push({ name: "car-list" });
-		}
+		// goCarList(){
+		// 	this.$router.push({ name: "car-list" });
+		// }
 	}
 }
 </script>

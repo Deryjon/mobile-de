@@ -375,7 +375,7 @@
               <img src="../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn :to="{ name: 'car-filter' }">
+          <FilterBtn :to="{ name: 'car-filter' }" @click="goCarList">
 						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
 					</FilterBtn>
         </div>
@@ -473,6 +473,10 @@ export default {
     },
   },
   methods: {
+		goCarList(){
+		 	this.$router.push({ name: "car-list" });
+
+		},
 		postData(){
 			localStorage.setItem('carData', JSON.stringify({
       car_make: this.selectedMark,
