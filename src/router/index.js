@@ -10,6 +10,7 @@ import About from "../views/AboutPage/AboutPage.vue"
 import NotFound from "../views/NotFoundPage/NotFound404Page.vue"
 import CarList from "../views/CarListPage/CarListPage.vue"
 import MotorbikeList from "../views/MotorbikeListPage/MotorbikeListPage.vue"
+import MotorhomeList from "../views/MotorhomeListPage/MotorhomeListPage.vue"
 import EditPage from "../views/EditAdPage/EditAdCarPage.vue"
 import EditMotrobikePage from "../views/EditMotorbikeAdPage/EditAdMotorbikePage.vue"
 import EditMotorhomesPage from "../views/EditMotorhomesPage/EditAdMotorhomesPage.vue"
@@ -17,6 +18,7 @@ import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
 import MotorbikeSinglePage from "../views/MotorbikeSinglePage/MotorbikeSinglePage.vue"
+import MotorhomeSinglePage from "../views/MotorhomeSinglePage/MotorhomeSinglePage.vue"
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
@@ -71,6 +73,11 @@ const router = createRouter({
       component: MotorbikeList
     },
 		{
+      path: '/motorhome-list',
+      name: 'motorhome-list',
+      component: MotorhomeList
+    },
+		{
       path: "/edit/ad/:id",
       name: "edit-ad",
       component: EditPage,
@@ -104,6 +111,11 @@ const router = createRouter({
       path: "/motorbike/:id",
       name: "motorcycle-single",
       component: MotorbikeSinglePage,
+    },
+		{
+      path: "/motorhome/:id",
+      name: "motorhome-single",
+      component: MotorhomeSinglePage,
     },
 		{
       path: '/:catchAll(.*)',
