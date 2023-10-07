@@ -7,7 +7,7 @@
           ref="fileInput"
           accept="image/*"
           multiple
-          style="display: none"
+          style="display: none"	
           @change="handleFileChange"
         />
         <button

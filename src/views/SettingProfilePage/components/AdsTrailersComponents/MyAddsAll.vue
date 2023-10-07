@@ -121,8 +121,8 @@ export default {
       // Отправляем запрос DELETE на сервер с указанием trailerId
       console.log(`Объявление с ID ${trailerId} удалено.`);
       http
-        .delete(`/trailer/delete`, {
-          data: { trailer_id: parseInt(trailerId) },
+        .delete(`/trailers/delete`, {
+          data: { id: parseInt(trailerId) },
         })
         .then((response) => {
           // Обработка успешного удаления
