@@ -1,66 +1,65 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="construction in constructions"
-      :key="construction.construction_id"
-      :data-construction-id="construction.id"
-      class="constructiond bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      v-for="agricultural in agriculturals"
+      :key="agricultural.machine_id"
+      class="agriculturald bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="construction.construction_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="agricultural.machine_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ construction.construction_make }}
+            {{ agricultural.machine_make }}
           </div>
           <div class="model">
-            {{ construction.construction_model }}
+            {{ agricultural.machine_model }}
           </div>
           <div class="variant">
-            {{ construction.construction_variant }}
+            {{ agricultural.machine_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ construction.construction_firt_date_year }}
+            {{ agricultural.machine_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ construction.construction_mileage }} km</div>
+          <div class="mileage">{{ agricultural.machine_mileage }} km</div>
           •
-          <div class="power">{{ construction.construction_power }} Hp</div>
+          <div class="power">{{ agricultural.machine_power }} Hp</div>
         </div>
-        <div class="construction-body flex gap-[5px] text-[14px]">
-          <div class="construction-body">
-            {{ construction.construction_body }}
+        <div class="agricultural-body flex gap-[5px] text-[14px]">
+          <div class="agricultural-body">
+            {{ agricultural.machine_body }}
           </div>
           •
           <div class="fuel">
-            {{ construction.construction_fuel_type }}
+            {{ agricultural.machine_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ construction.construction_transmission }}
+            {{ agricultural.machine_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ construction.construction_hu_valid_until }}
+            {{ agricultural.machine_hu_valid_until }}
           </div>
         </div>
-        <div class="construction-body flex gap-[5px] text-[14px]">
-          <div class="construction-body">
-            {{ construction.construction_number_door }}
+        <div class="agricultural-body flex gap-[5px] text-[14px]">
+          <div class="agricultural-body">
+            {{ agricultural.machine_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ construction.construction_price }}</p>
+        <p class="price">€{{ agricultural.machine_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdconstruction(construction.construction_id)"
+            @click="deleteAdagricultural(agricultural.machine_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +75,7 @@
           </button>
 
           <button
-            @click="editAdconstruction(construction.construction_id)"
+            @click="editAdagricultural(agricultural.machine_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -103,37 +102,37 @@ export default {
   data() {
     return {
       userI: "",
-      constructions: [],
+      agriculturals: [],
     };
   },
 
   methods: {
     fetchAds() {
       http.get(`/user/constructions/${this.userI}?limit=100&offset=0`).then((res) => {
-        this.constructions = res.data.data;
-        console.log(this.constructions);
+        this.agriculturals = res.data.data;
+        console.log(this.agriculturals);
       });
     },
-    editAdconstruction(constructionId) {
-      this.$router.push({ name: "edit-ad", params: { id: constructionId } });
+    editAdagricultural(agriculturalId) {
+      this.$router.push({ name: "edit-ad", params: { id: agriculturalId } });
     },
-    deleteAdconstruction(constructionId) {
-      // Отправляем запрос DELETE на сервер с указанием constructionId
-      console.log(`Объявление с ID ${constructionId} удалено.`);
+    deleteAdagricultural(agriculturalId) {
+      // Отправляем запрос DELETE на сервер с указанием agriculturalId
+      console.log(`Объявление с ID ${agriculturalId} удалено.`);
       http
-        .delete(`/construction/delete`, {
-          data: { construction_id: parseInt(constructionId) },
+        .delete(`/constructions/delete`, {
+          data: { id: parseInt(agriculturalId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${constructionId} удалено.`);
+          console.log(`Объявление с ID ${agriculturalId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${constructionId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${agriculturalId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },
