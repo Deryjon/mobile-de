@@ -1880,7 +1880,7 @@
             Cancel
           </button>
           <button
-            @click="addAdMotorbike"
+            @click="addAdVans"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
             Create Add
@@ -1964,8 +1964,10 @@ export default {
       isRadioNewSelected: false,
       selectedExteriorColour: "",
       selectedTrailer: "",
+      selectedDriving: "",
       selectedParking: "",
       selectedModel: "",
+      selectedCategory: "",
       price: "",
       selectedYear: "",
       selectedFuel: "",
@@ -2003,6 +2005,8 @@ export default {
       isCheckedOther: false,
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
+      selectedAxles: "",
+      selectedWheelFormula: "",
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -2027,6 +2031,8 @@ export default {
       selectedTransmision: "",
       selectedMaterial: "",
 			selectedMotorbike: "",
+			selectedGvw: "",
+			selectedHydraulic: "",
       options: [],
     };
   },
@@ -2047,56 +2053,68 @@ export default {
     showTab1() {
       this.activeTab = "buy";
     },
-    async showTab2() {
+     showTab2() {
       this.activeTab = "sell";
     },
-    addAdMotorbike() {
+    addAdVans() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("motorcycle_make", this.selectedMark);
-      formData.append("motorcycle_model", this.selectedModel);
-      formData.append("motorcycle_condition", this.selectedCondition);
-      formData.append("motorcycle_type", this.selectedMotorbike);
-      formData.append("motorcycle_vide_link", this.selectedMotorbike);
-      formData.append("motorcycle_price", parseInt(this.price));
-      formData.append("motorcycle_firt_date", this.inputValue);
-      formData.append("motorcycle_firt_date_year", parseInt(this.inputValue));
-      formData.append("motorcycle_mileage", parseInt(this.inputKilometer));
-      formData.append("motorcycle_power", parseInt(this.power));
-      formData.append("motorcycle_country", this.selectedCountry);
-      formData.append("motorcycle_city_zipcode", this.zipCode);
-      formData.append("motorcycle_radius", parseInt(this.radius));
-      formData.append("motorcycle_fuel_type", this.selectedFuel);
-      formData.append("motorcycle_driving_mode", this.selectedFuel);
-      formData.append("motorcycle_transmission", this.selectedTransmision);
-      formData.append("motorcycle_cubic_capacity", parseInt(this.cubic));
+      formData.append("van_make", this.selectedMark);
+      formData.append("van_model", this.selectedModel);
+      formData.append("van_condition", this.selectedCondition);
+      formData.append("van_category", this.selectedCategory);
+      formData.append("van_video_link", this.linkVideo);
+      formData.append("van_price", parseInt(this.price));
+      formData.append("van_price_type", this.activeTab);
+      formData.append("van_firt_date", this.inputValue);
+      formData.append("van_firt_date_year", parseInt(this.inputValue));
+      formData.append("van_kilometre", parseInt(this.inputKilometer));
+      formData.append("van_power", parseInt(this.power));
+      formData.append("van_country", this.selectedCountry);
+      formData.append("van_city_zipcode", this.zipCode);
+      formData.append("van_radius", parseInt(this.radius));
+      formData.append("van_fuel_type", this.selectedFuel);
+      formData.append("van_transmission", this.selectedTransmision);
+      formData.append("van_emission_class", this.classEmision);
+      formData.append("van_emissions_sticker", this.stickerEmission);
       formData.append(
-        "motorcycle_exterior_colour",
-        this.selectedExteriorColour
+        "features",
+        this.others
       );
-      formData.append("others", this.selectedOthers);
-      formData.append("motorcycle_vat", this.isCheckedVAT);
-      formData.append("motorcycle_discount_offers", this.isCheckedDiscount);
-      formData.append("motorcycle_vendor", this.selectedVendor);
-      formData.append("motorcycle_history", this.isCheckedHistory);
-      formData.append("motorcycle_damaged", this.damageVehicle);
-      formData.append("motorcycle_number_owners", parseInt(this.preOwners));
-      formData.append("motorcycle_approved_used_programme", this.approveUsed);
-      formData.append("motorcycle_dealer_rating", 4);
+      formData.append("van_air_conditioning", this.selectedAirConditioning);
+      formData.append("van_axles", this.selectedAxles);
+      formData.append("van_wheel_formula", this.selectedWheelFormula);
+      formData.append("van_gvw", this.selectedGvw);
+      formData.append("van_hydraulic_installation", this.selectedHydraulic);
+      formData.append("van_trailer_coupling_fix", this.selectedTrailer);
+      formData.append("van_cruise_control", this.selectedCruise);
+      formData.append("van_driving_cab", this.selectedDriving);
+      formData.append("van_vat", this.isCheckedVAT);
+      formData.append("van_discount_offers", this.isCheckedDiscount);
+      formData.append("van_dealer_rating", this.isCheckedDiscount);
+      formData.append("interior_features", this.others);
+      formData.append("van_exterior_colour", this.selectedExteriorColour);
+      formData.append("van_vendor", this.selectedVendor);
+      formData.append("van_full_service_history", this.isCheckedHistory);
+      formData.append("van_damaged", this.damageVehicle);
+      formData.append("van_municipal", this.selectedMunicipal);
+      formData.append("van_new_hu", this.approveUsed);
+      formData.append("van_renting_possible", this.approveUsed);
+      formData.append("van_dealer_rating", 4);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      http.post("/motorcycles/add", formData).then((response) => {
+      http.post("/vans/add", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
+				// this.handleCancelButtonClick()
         // localStorage.setItem("car_id", responseData.motorcycle_id);
         console.log(responseData);
       });
@@ -2421,10 +2439,10 @@ export default {
         );
       }
     },
-    handleCancelButtonClick() {
-      // Создаем событие и отправляем его вверх по иерархии
-      this.$emit("cancel-create-add");
-    },
+    // handleCancelButtonClick() {
+    //   // Создаем событие и отправляем его вверх по иерархии
+    //   this.$emit("cancel-create-add");
+    // },
   },
   mounted() {
     this.selectedMark = localStorage.getItem("mark");
