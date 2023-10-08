@@ -59,9 +59,9 @@
                 <option
                   v-for="make in makes"
                   :key="make"
-                  :value="make.car_make_name"
+                  :value="make.semi_trailer_truck_make_name"
                 >
-                  {{ make.car_make_name }}
+                  {{ make.semi_trailer_truck_make_name }}
                 </option>
                 <option value="other">other</option>
               </optgroup>
@@ -2454,7 +2454,7 @@ export default {
     this.userPre = localStorage.getItem("u-pre");
 
     http
-      .get("/car/marks")
+      .get("/semitruck/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
