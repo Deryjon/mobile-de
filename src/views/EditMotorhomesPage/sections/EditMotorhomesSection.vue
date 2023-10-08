@@ -59,9 +59,9 @@
                 <option
                   v-for="make in makes"
                   :key="make"
-                  :value="make.car_make_name"
+                  :value="make.motor_home_make_name"
                 >
-                  {{ make.car_make_name }}
+                  {{ make.motor_home_make_name }}
                 </option>
                 <option value="other">other</option>
               </optgroup>
@@ -2872,7 +2872,7 @@ cancelAdMotorcycle(){
     this.userPre = localStorage.getItem("u-pre");
 
     http
-		.get("/car/marks")
+		.get("/motorhome/marks")
 		.then((response) => {
 			const data = response.data.data;
 			if (data) {

@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.car_make_name"
+                :value="make.motor_home_make_name"
               >
-                {{ make.car_make_name }}
+                {{ make.motor_home_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -495,7 +495,7 @@ export default {
         .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
           // Получаем данные из ответа
-          const data = response.data.data;
+          const data = response.data;
           if (data) {
             this.models = data;
             console.log(this.models);
@@ -605,7 +605,7 @@ export default {
   components: { FilterBtn },
   mounted() {
     http
-      .get("/car/moto")
+      .get("/motorhome/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {

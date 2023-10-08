@@ -3,7 +3,7 @@ import HomeView from '../views/HomePage/HomeView.vue'
 import LogView from "../views/LogoutPage/LogView.vue"
 import CarFilter from "../views/CarFilterPage/CarFilterView.vue"
 import MotorbikeFilter from "../views/MotorbikeFilterPage/MotorbikeFilterView.vue"
-import VansFilter from "../views/VansFilterPage/VansFilterView.vue"
+import MotorhomesFilter from "../views/MotorhomesFilterPage/MotorhomesFilterView.vue"
 import SettingProfile from "../views/SettingProfilePage/SettingsProfilePage.vue"
 import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfilePage.vue"
 import About from "../views/AboutPage/AboutPage.vue"
@@ -43,9 +43,9 @@ const router = createRouter({
       component: MotorbikeFilter
     },
 		{
-      path: '/vans-filter',
+      path: '/motorhomes-filter',
       name: 'vans-filter',
-      component: VansFilter
+      component: MotorhomesFilter
     },
 		{
       path: '/my-profile',

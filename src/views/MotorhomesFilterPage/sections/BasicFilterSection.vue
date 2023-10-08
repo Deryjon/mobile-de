@@ -28,9 +28,9 @@
                   <option
                     v-for="make in makes"
                     :key="make"
-                    :value="make.car_make_name"
+                    :value="make.motor_home_make_name"
                   >
-                    {{ make.car_make_name }}
+                    {{ make.motor_home_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
@@ -112,7 +112,7 @@ export default {
 					car_payment_type: this.activeTab
         })
         .then((response) => {
-          const data = response.data;
+          const data = response.data.data;
           console.log(data);
         });
     },
@@ -210,7 +210,7 @@ export default {
     this.selectedMark = localStorage.getItem("mark");
 
     http
-      .get("/car/marks")
+      .get("/motorhome/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {

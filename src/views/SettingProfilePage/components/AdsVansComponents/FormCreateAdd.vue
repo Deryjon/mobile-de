@@ -2007,6 +2007,7 @@ export default {
       selectedAirbag: "AnyExterior",
       selectedAxles: "",
       selectedWheelFormula: "",
+      selectedMunicipal: false,
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -2083,27 +2084,27 @@ export default {
       formData.append("van_emissions_sticker", this.stickerEmission);
       formData.append(
         "features",
-        this.others
+        this.selectedOthers
       );
-      formData.append("van_air_conditioning", this.selectedAirConditioning);
+      formData.append("van_air_conditioning", this.selectedConditioning);
       formData.append("van_axles", this.selectedAxles);
       formData.append("van_wheel_formula", this.selectedWheelFormula);
-      formData.append("van_gvw", this.selectedGvw);
+      formData.append("van_gvw", parseInt(this.selectedGvw));
       formData.append("van_hydraulic_installation", this.selectedHydraulic);
-      formData.append("van_trailer_coupling_fix", this.selectedTrailer);
+      formData.append("van_trailer_coupling_fix", false);
       formData.append("van_cruise_control", this.selectedCruise);
       formData.append("van_driving_cab", this.selectedDriving);
       formData.append("van_vat", this.isCheckedVAT);
       formData.append("van_discount_offers", this.isCheckedDiscount);
       formData.append("van_dealer_rating", this.isCheckedDiscount);
-      formData.append("interior_features", this.others);
+      formData.append("interior_features", this.selectedOthers);
       formData.append("van_exterior_colour", this.selectedExteriorColour);
       formData.append("van_vendor", this.selectedVendor);
       formData.append("van_full_service_history", this.isCheckedHistory);
-      formData.append("van_damaged", this.damageVehicle);
-      formData.append("van_municipal", this.selectedMunicipal);
-      formData.append("van_new_hu", this.approveUsed);
-      formData.append("van_renting_possible", this.approveUsed);
+      formData.append("van_damaged", false);
+      formData.append("van_municipal", false);
+      formData.append("van_new_hu", false);
+      formData.append("van_renting_possible", false);
       formData.append("van_dealer_rating", 4);
       formData.append("user_id", this.userI);
       formData.append(
@@ -2114,7 +2115,7 @@ export default {
       http.post("/vans/add", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				// this.handleCancelButtonClick()
+				this.handleCancelButtonClick()
         // localStorage.setItem("car_id", responseData.motorcycle_id);
         console.log(responseData);
       });
@@ -2439,10 +2440,10 @@ export default {
         );
       }
     },
-    // handleCancelButtonClick() {
-    //   // Создаем событие и отправляем его вверх по иерархии
-    //   this.$emit("cancel-create-add");
-    // },
+    handleCancelButtonClick() {
+      // Создаем событие и отправляем его вверх по иерархии
+      this.$emit("cancel-create-add");
+    },
   },
   mounted() {
     this.selectedMark = localStorage.getItem("mark");

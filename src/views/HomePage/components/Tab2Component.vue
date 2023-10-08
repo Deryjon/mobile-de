@@ -9,16 +9,16 @@
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-            @change="fetchModels()"
+           
           >
             <option value="" selected>Beliebig</option>
             <optgroup>
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.car_make_name"
+                :value="make.motorcycle_make_name"
               >
-                {{ make.car_make_name }}
+                {{ make.motorcycle_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -606,9 +606,10 @@ export default {
   components: { FilterBtn },
   mounted() {
     http
-      .get("/car/moto")
+      .get("/motorcycle/marks")
       .then((response) => {
         const data = response.data.data;
+				console.log(response);
         if (data) {
           this.makes = data;
         } else {
