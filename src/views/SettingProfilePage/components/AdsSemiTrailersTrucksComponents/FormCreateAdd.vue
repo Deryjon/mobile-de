@@ -2029,6 +2029,7 @@ export default {
       userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
+      selectedMunicipal: false,
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
@@ -2085,25 +2086,24 @@ export default {
         "features",
         this.selectedOthers
       );
-      formData.append("truck_air_conditioning", this.selectedAirConditioning);
-      formData.append("truck_axles", this.selectedAxles);
+      formData.append("truck_air_conditioning", this.selectedConditioning);
+      formData.append("truck_axles", parseInt(this.selectedAxles));
       formData.append("truck_wheel_formula", this.selectedWheelFormula);
-      formData.append("truck_gvw", this.selectedGvw);
+      formData.append("truck_gvw", parseInt(this.selectedGvw));
       formData.append("truck_hydraulic_installation", this.selectedHydraulic);
-      formData.append("truck_trailer_coupling_fix", this.selectedTrailer);
+      formData.append("truck_trailer_coupling_fix", false);
       formData.append("truck_cruise_control", this.selectedCruise);
       formData.append("truck_driving_cab", this.selectedDriving);
       formData.append("truck_vat", this.isCheckedVAT);
       formData.append("truck_discount_offers", this.isCheckedDiscount);
-      formData.append("truck_dealer_rating", this.isCheckedDiscount);
       formData.append("interior_features", this.selectedOthers);
       formData.append("truck_exterior_colour", this.selectedExteriorColour);
       formData.append("truck_vendor", this.selectedVendor);
       formData.append("truck_full_service_history", this.isCheckedHistory);
-      formData.append("truck_damaged", this.damageVehicle);
-      formData.append("truck_municipal", this.selectedMunicipal);
-      formData.append("truck_new_hu", this.approveUsed);
-      formData.append("truck_renting_possible", this.approveUsed);
+      formData.append("truck_damaged", false);
+      formData.append("truck_municipal", false);
+      formData.append("truck_new_hu", false);
+      formData.append("truck_renting_possible", false);
       formData.append("truck_dealer_rating", 4);
       formData.append("user_id", this.userI);
       formData.append(
@@ -2114,8 +2114,7 @@ export default {
       http.post("/semitruck/add", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				// this.handleCancelButtonClick()
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
+				this.handleCancelButtonClick()
         console.log(responseData);
       });
     },
@@ -2439,10 +2438,10 @@ export default {
         );
       }
     },
-    // handleCancelButtonClick() {
-    //   // Создаем событие и отправляем его вверх по иерархии
-    //   this.$emit("cancel-create-add");
-    // },
+    handleCancelButtonClick() {
+      // Создаем событие и отправляем его вверх по иерархии
+      this.$emit("cancel-create-add");
+    },
   },
   mounted() {
     this.selectedMark = localStorage.getItem("mark");

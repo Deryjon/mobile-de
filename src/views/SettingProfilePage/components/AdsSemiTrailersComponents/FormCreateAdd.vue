@@ -1760,7 +1760,7 @@ export default {
       http.post("/semitrailer/add", formData).then((response) => {
         console.log(response);
         const responseData = response.data.data;
-        // this.handleCancelButtonClick();
+        this.handleCancelButtonClick();
         // localStorage.setItem("car_id", responseData.motorcycle_id);
         console.log(responseData);
       });
