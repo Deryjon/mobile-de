@@ -1487,7 +1487,7 @@
             Cancel
           </button>
           <button
-            @click="addAdVans"
+            @click="addAdVehicle"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
             Create Add
@@ -1665,49 +1665,55 @@ export default {
      showTab2() {
       this.activeTab = "sell";
     },
-    addAdVans() {
+    addAdVehicle() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("machine_make", this.selectedMark);
-      formData.append("machine_model", this.selectedModel);
-      formData.append("machine_condition", this.selectedCondition);
-      formData.append("machine_category", this.selectedCategory);
-      formData.append("machine_video_link", this.linkVideo);
-      formData.append("machine_price", parseInt(this.price));
-      formData.append("machine_price_type", this.activeTab);
-      formData.append("machine_firt_date", this.inputValue);
-      formData.append("machine_construction_year", parseInt(this.inputValue));
-      formData.append("machine_operating_hours", parseInt(this.inputKilometer));
-      formData.append("machine_country", this.selectedCountry);
-      formData.append("machine_city_zipcode", this.zipCode);
-      formData.append("machine_radius", parseInt(this.radius));
-      formData.append("safety", this.classEmision);
-      formData.append("machine_emissions_sticker", this.stickerEmission);
+      formData.append("vehicle_make", this.selectedMark);
+      formData.append("vehicle_model", this.selectedModel);
+      formData.append("vehicle_condition", this.selectedCondition);
+      formData.append("vehicle_category", this.selectedCategory);
+      formData.append("vehicle_video_link", this.linkVideo);
+      formData.append("vehicle_price", parseInt(this.price));
+      formData.append("vehicle_price_type", this.activeTab);
+      formData.append("vehicle_power", 100);
+      formData.append("vehicle_firt_date", this.inputValue);
+      formData.append("vehicle_construction_year", parseInt(this.inputValue));
+      formData.append("vehicle_operating_hours", parseInt(this.inputKilometer));
+      formData.append("vehicle_country", this.selectedCountry);
+      formData.append("vehicle_city_zipcode", this.zipCode);
+      formData.append("vehicle_radius", parseInt(this.radius));
+      formData.append("security", this.selectedOthers);
+      formData.append("vehicle_air_conditioning", this.selectedConditioning);
+      formData.append("vehicle_emissions_sticker", this.stickerEmission);
       formData.append(
         "features",
         this.selectedOthers
       );
-      formData.append("machine_road_licence", false);
-      formData.append("machine_vat", this.isCheckedVAT);
-      formData.append("machine_discount_offers", this.isCheckedDiscount);
-      formData.append("machine_vendor", this.selectedVendor);
-      formData.append("machine_full_service_history", this.isCheckedHistory);
-      formData.append("machine_damaged", false);
-      formData.append("machine_municipal", false);
-      formData.append("machine_new_hu", false);
-      formData.append("machine_renting_possible", false);
-      formData.append("machine_dealer_rating", 4);
+      formData.append(
+        "interior_features",
+        this.selectedOthers
+      );
+      formData.append("vehicle_vat", this.isCheckedVAT);
+      formData.append("vehicle_discount_offers", this.isCheckedDiscount);
+      formData.append("vehicle_vendor", this.selectedVendor);
+      formData.append("vehicle_full_service_history", this.isCheckedHistory);
+      formData.append("vehicle_damaged", false);
+      formData.append("vehicle_municipal", false);
+      formData.append("vehicle_new_hu", false);
+      formData.append("vehicle_renting_possible", false);
+      formData.append("vehicle_dealer_rating", 4);
+      formData.append("vehicle_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      http.post("/constructions/add", formData).then((response) => {
+      http.post("/agriculturals/add", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
 				this.handleCancelButtonClick()

@@ -3,7 +3,6 @@
     <div
       v-for="agricultural in agriculturals"
       :key="agricultural.vehicle_id"
-      :data-agricultural-id="vehicle.id"
       class="agriculturald bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
@@ -121,8 +120,8 @@ export default {
       // Отправляем запрос DELETE на сервер с указанием agriculturalId
       console.log(`Объявление с ID ${agriculturalId} удалено.`);
       http
-        .delete(`/agricultural/delete`, {
-          data: { agricultural_id: parseInt(agriculturalId) },
+        .delete(`/agriculturals/delete`, {
+          data: { id: parseInt(agriculturalId) },
         })
         .then((response) => {
           // Обработка успешного удаления
