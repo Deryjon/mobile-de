@@ -199,7 +199,7 @@
           </div>
           <div class="tab-panel" v-show="isActive('tab-4')">
             <div class="for-example">
-              <Tab4Components class="mt-[100px] sm:mt-[120px] lg:mt-[20px]" />
+              <Tab4Components class="mt-[100px] sm:mt-[120px] lg:mt-[25px]" />
             </div>
           </div>
         </div>
