@@ -427,26 +427,26 @@ export default {
   },
   methods: {
 		postData(){
-			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+			localStorage.setItem('truckData', JSON.stringify({
+      truck_make: this.selectedMark,
+      truck_model: this.selectedModel,
+      truck_firt_date_year_from: this.inputValue,
+      truck_mileage_from: this.inputKilometer,
+      truck_payment_type: this.activeTab,
+      truck_price_from: this.inputPrice,
+      truck_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
         .post("/trucks/count", {
-					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+					truck_make: this.selectedMark,
+      truck_model: this.selectedModel,
+      truck_firt_date_year_from: this.inputValue,
+      truck_mileage_from: this.inputKilometer,
+      truck_payment_type: this.activeTab,
+      truck_price_from: this.inputPrice,
+      truck_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
