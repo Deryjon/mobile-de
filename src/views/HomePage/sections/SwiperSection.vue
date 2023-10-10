@@ -5,8 +5,8 @@
         <img
           v-for="(image, index) in images"
           :key="index"
-          :src="image.src"
-          :alt="image.alt"
+          :src="image.slider_image_url"
+          :alt="image.slider_title"
           :class="{ 'slider-item': true, active: activeIndex === index }"
         />
       </div>
@@ -24,17 +24,19 @@
 </template>
 
 <script>
+import http from "../../../axios.config"
 export default {
   data() {
     return {
       activeIndex: 0,
-      images: [
-        { src: 'https://gaadiwaadi.com/wp-content/uploads/2020/01/Changan-CS75-Plus-7-1280x720.jpg', alt: '' },
-        { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-dashboard-view-246796.jpg', alt: '' },
-        { src: 'https://imgcdn.zigwheels.ph/large/gallery/exterior/138/3010/changan-cs75-plus-rear-angle-view-222963.jpg', alt: '' },
-        { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-rd-row-seat-417889.jpg', alt: '' },
-        // ... add other image objects here
-      ],
+			images: [],
+      // images: [
+      //   { src: 'https://gaadiwaadi.com/wp-content/uploads/2020/01/Changan-CS75-Plus-7-1280x720.jpg', alt: '' },
+      //   { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-dashboard-view-246796.jpg', alt: '' },
+      //   { src: 'https://imgcdn.zigwheels.ph/large/gallery/exterior/138/3010/changan-cs75-plus-rear-angle-view-222963.jpg', alt: '' },
+      //   { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-rd-row-seat-417889.jpg', alt: '' },
+      //   // ... add other image objects here
+      // ],
       intervalId: null,
     };
   },
@@ -57,6 +59,11 @@ export default {
     },
   },
   mounted() {
+		http.get('/slider/list?limit=10&offset=0').then((res) => {
+			this.images = res.data.data
+
+			console.log(responseData);
+		})
     this.intervalId = setInterval(() => {
       this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
