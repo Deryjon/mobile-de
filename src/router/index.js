@@ -4,6 +4,7 @@ import LogView from "../views/LogoutPage/LogView.vue"
 import CarFilter from "../views/CarFilterPage/CarFilterView.vue"
 import MotorbikeFilter from "../views/MotorbikeFilterPage/MotorbikeFilterView.vue"
 import MotorhomesFilter from "../views/MotorhomesFilterPage/MotorhomesFilterView.vue"
+import TrucksFilterPage from "../views/TrucksFilterPage/TrucksFilterView.vue"
 import SettingProfile from "../views/SettingProfilePage/SettingsProfilePage.vue"
 import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfilePage.vue"
 import About from "../views/AboutPage/AboutPage.vue"
@@ -46,6 +47,51 @@ const router = createRouter({
       path: '/motorhomes-filter',
       name: 'vans-filter',
       component: MotorhomesFilter
+    },
+		{
+      path: '/trucks-filter',
+      name: 'trucks-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/trailer-filter',
+      name: 'trailer-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/van-filter',
+      name: 'van-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/semitruck-filter',
+      name: 'semitruck-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/semitrailer-filter',
+      name: 'semitrailer-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/coache-filter',
+      name: 'coache-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/agricultural-filter',
+      name: 'agricultural-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/machine-filter',
+      name: 'machine-filter',
+      component: TrucksFilterPage
+    },
+		{
+      path: '/forklift-filter',
+      name: 'forklift-filter',
+      component: TrucksFilterPage
     },
 		{
       path: '/my-profile',

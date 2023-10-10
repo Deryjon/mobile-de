@@ -61,8 +61,6 @@ export default {
   mounted() {
 		http.get('/slider/list?limit=10&offset=0').then((res) => {
 			this.images = res.data.data
-
-			console.log(responseData);
 		})
     this.intervalId = setInterval(() => {
       this.images[this.activeIndex].active = false;
