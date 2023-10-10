@@ -342,7 +342,7 @@ import MyAdCoachesTab from "../components/AdsCoachesComponents/MyAdCoachesTab.vu
 import MyAdAgriculturalTab from "../components/AdsAgriculturalVehicleComponents/MyAdAgriculturalTab.vue";
 import MyAdConstructionTab from "../components/AdsConstructionMachinesComponents/MyAdConstructionsTab.vue";
 import MyAdForkliftTab from "../components/AdsForkliftTrucksComponents/MyAdForkliftTruckTab.vue";
-export default {
+export default {	
   data() {
     return {
 			 
@@ -357,7 +357,7 @@ export default {
 	computed: {
     activeTab() {
       const store = useTabsStore();
-      this.activeTab = store.activeTab; // Получите значение activeTab из хранилища
+      this.activeTab = store.activeTab; 
     },
   },
   methods: {

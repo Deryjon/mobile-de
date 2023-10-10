@@ -219,6 +219,7 @@ import MoreFilterBtn from "../../../components/MoreFilterBtn.vue";
 import MotorbikeFilterBtn  from "../../../components/MotorbikeFilterBtn.vue";
 import VansFilterBtn  from "../../../components/VansFilterBtn.vue";
 import { useDarkModeStore } from "../../../store/dark-mode";
+import { useActiveTab4 } from "../../../store/activeTab4Component";
 import { ref, watch, computed } from "vue";
 export default {
   setup() {
@@ -237,8 +238,10 @@ export default {
       { immediate: true }
     );
     const activeTab = ref("tab-1");
+		const store = useActiveTab4()
     const setActive = (tab) => {
       activeTab.value = tab;
+			store.setActiveDiv(1)
     };
     const isActive = (tab) => {
       return activeTab.value === tab;
@@ -258,6 +261,9 @@ export default {
       toggleDarkMode,
       isDarkMode,
     };
+  },
+	methods: {
+		
   },
   components: {
     Tab1Component,
