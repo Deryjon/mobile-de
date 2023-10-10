@@ -439,7 +439,7 @@ export default {
 		},
     fetchData() {
       http
-        .post("/coache/count", {
+        .post("/trucks/count", {
 					motor_home_make: this.selectedMark,
       motor_home_model: this.selectedModel,
       motor_home_firt_date_year_from: this.inputValue,
@@ -605,7 +605,7 @@ export default {
   components: { FilterBtn },
   mounted() {
     http
-      .get("/coache/marks")
+      .get("/motorhome/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {

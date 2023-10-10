@@ -3,7 +3,7 @@ import { defineStore } from 'pinia';
 
 export const useActiveTab4 = defineStore('ActiveTab4', {
   state: () => ({	
-    activeDiv: 1, 
+    activeDiv: '1', 
   }),
   actions: {
     setActiveDiv(value) {

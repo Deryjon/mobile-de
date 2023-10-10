@@ -241,7 +241,7 @@ export default {
 		const store = useActiveTab4()
     const setActive = (tab) => {
       activeTab.value = tab;
-			store.setActiveDiv(1)
+			store.setActiveDiv('1')
     };
     const isActive = (tab) => {
       return activeTab.value === tab;
