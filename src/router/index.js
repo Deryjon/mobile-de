@@ -5,6 +5,14 @@ import CarFilter from "../views/CarFilterPage/CarFilterView.vue"
 import MotorbikeFilter from "../views/MotorbikeFilterPage/MotorbikeFilterView.vue"
 import MotorhomesFilter from "../views/MotorhomesFilterPage/MotorhomesFilterView.vue"
 import TrucksFilterPage from "../views/TrucksFilterPage/TrucksFilterView.vue"
+import TrailerFilterPage from "../views/TrailerFilterPage/TrailerFilterView.vue"
+import VanFilterPage from "../views/VansFilterPage/VansFilterView.vue"
+import SemiTrucksFilterPage from "../views/SemiTrucksFilterPage/SemitrucksFilterView.vue"
+import SemiTrailerFilterPage from "../views/SemiTrailerFilterPage/TrailerFilterView.vue"
+import CoachesFilterPage from "../views/CoachesFilterPage/CoachesFilterView.vue"
+import AgriculturalsFilterPage from "../views/AgriculturalsFilterPage/AgriculturalFilterView.vue"
+import MachinesFilterPage from "../views/MachinesFilterPage/MachinesFilterView.vue"
+import ForkliftsFilterPage from "../views/ForkliftsFilterPage/ForkliftsFilterView.vue"
 import SettingProfile from "../views/SettingProfilePage/SettingsProfilePage.vue"
 import CompanySettings from "../views/CompanyProfilePage/CompanySettingsProfilePage.vue"
 import About from "../views/AboutPage/AboutPage.vue"
@@ -56,42 +64,42 @@ const router = createRouter({
 		{
       path: '/trailer-filter',
       name: 'trailer-filter',
-      component: TrucksFilterPage
+      component: TrailerFilterPage
     },
 		{
       path: '/van-filter',
       name: 'van-filter',
-      component: TrucksFilterPage
+      component: VanFilterPage
     },
 		{
       path: '/semitruck-filter',
       name: 'semitruck-filter',
-      component: TrucksFilterPage
+      component: SemiTrucksFilterPage
     },
 		{
       path: '/semitrailer-filter',
       name: 'semitrailer-filter',
-      component: TrucksFilterPage
+      component: SemiTrailerFilterPage
     },
 		{
       path: '/coache-filter',
       name: 'coache-filter',
-      component: TrucksFilterPage
+      component: CoachesFilterPage
     },
 		{
       path: '/agricultural-filter',
       name: 'agricultural-filter',
-      component: TrucksFilterPage
+      component: AgriculturalsFilterPage
     },
 		{
       path: '/machine-filter',
       name: 'machine-filter',
-      component: TrucksFilterPage
+      component: MachinesFilterPage
     },
 		{
       path: '/forklift-filter',
       name: 'forklift-filter',
-      component: TrucksFilterPage
+      component: ForkliftsFilterPage
     },
 		{
       path: '/my-profile',

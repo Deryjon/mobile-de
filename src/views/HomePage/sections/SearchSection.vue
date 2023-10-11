@@ -208,6 +208,14 @@
       <MotorbikeFilterBtn v-show="isActive('tab-2')" />
       <VansFilterBtn v-show="isActive('tab-3')" />
       <FilterAllBtn v-if="store.activeDiv === '2'" @click="goTruckFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '3'" @click="goTrailerFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '4'" @click="goVanFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '5'" @click="goSemitruckFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '6'" @click="goSemitrailerFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '7'" @click="goCoacheFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '8'" @click="goVehicleFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '9'" @click="goMachineFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '10'" @click="goForkliftFilter"/>
     </v-container>
   </section>
 </template>
