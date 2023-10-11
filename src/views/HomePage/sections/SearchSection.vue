@@ -272,10 +272,48 @@ export default {
       isDarkMode,
     };
   },
+	data(){
+		return{
+store: useActiveTab4()
+		}
+	},
 	methods:{
 		goTruckFilter(){
 			this.$router.push({ name: "trucks-filter" });
-		}
+			 this.store.setActiveDiv("1");
+		},
+		goTrailerFilter(){
+			this.$router.push({ name: "trailer-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goVanFilter(){
+			this.$router.push({ name: "van-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goSemitruckFilter(){
+			this.$router.push({ name: "semitruck-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goSemitrailerFilter(){
+			this.$router.push({ name: "semitrailer-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goCoacheFilter(){
+			this.$router.push({ name: "coache-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goVehicleFilter(){
+			this.$router.push({ name: "agricultural-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goMachineFilter(){
+			this.$router.push({ name: "machine-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goForkliftFilter(){
+			this.$router.push({ name: "forklift-filter" });
+			 this.store.setActiveDiv("1");
+		},
 	},
   data() {
     return {

@@ -68,7 +68,7 @@ import PathLink from "../../../ui/PathLink.vue";
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
-import FilterBtn from "../../../components/FilterBtn.vue";
+import FilterBtn from "../../../components/FilterAllBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
