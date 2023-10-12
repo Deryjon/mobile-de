@@ -33,7 +33,7 @@
             class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
           ></span>
         </div>
-				<div class="marke_select_div relative w-[200px]">
+				<div class="marke_select_div relativeЁ w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
