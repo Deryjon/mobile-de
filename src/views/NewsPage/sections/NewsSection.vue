@@ -20,15 +20,6 @@
       </div>
     </div>
 
-    <div class="line h-[20px] border-none">
-      <i class="fa-solid fa-chevron-left fa-bounce"></i>
-      <h3>#B2B</h3>
-      <h3>#B2C</h3>
-      <h3>#Electro</h3>
-      <h3>#Gebrauchtwagen</h3>
-      <i class="fa-solid fa-chevron-right fa-bounce"></i>
-    </div>
-
     <div class="flex flex-wrap justify-between gap-[20px] mt-[30px]">
       <div class="card">
         <img
