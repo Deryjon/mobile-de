@@ -141,8 +141,27 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div> -->
+			<div class="">
+      <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+      <div class="Kaufen_div mt-[10px]">
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab1"
+          :class="{ 'active-Kaufen': activeTab === 'buy' }"
+        >
+          {{ $t("message.btn.buy") }}
+        </button>
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab2"
+          :class="{ 'active-Kaufen': activeTab === 'sell' }"
+        >
+          {{ $t("message.btn.sell") }}
+        </button>
+      </div>
     </div>
-    <div class="line mt-[30px]"></div>
+    </div>
+    <!-- <div class="line mt-[30px]"></div> -->
     <div
       class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
     >
@@ -295,11 +314,7 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div> -->
-    </div>
-    <div
-      class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
-    >
-      <div class="kilometer dropdown-container">
+			<div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
@@ -415,7 +430,7 @@
               class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
             ></span>
           </div>
-        </div>
+    </div>	
         <ul
           v-if="isOpenKilometerTo"
           class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
@@ -535,60 +550,7 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-      <label
-        class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHistory"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHistory"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-sm p]b-[20px">Full Service History</span>
-      </label>
-      <label
-        class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRoad"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRoad"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-sm">Roadworthy</span>
-      </label>
+      
     </div>
     <!-- country -->
     <div
@@ -839,6 +801,42 @@
         </div>
       </div> -->
     </div>
+		<div class="flex items-center gap-[80px]">
+			<div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">
+            Permissible Gross Vehicle Weight (GVW)
+          </h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedGvw"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+				<div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Axles</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedAxles"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+		</div>
   </div>
 </template>
 <script>
@@ -869,6 +867,7 @@ export default {
       selectedRadius: "",
       selectedtoYear: "",
       years: "",
+      activeTab: "",
       yearsTo: "",
       modelYears: [],
       filteredOptions: [],
@@ -1180,6 +1179,12 @@ export default {
       this.radius = this.selectedRadius;
       this.selectedRadius = this.selectedYear;
     },
+		showTab1() {
+      this.activeTab = "buy";
+    },
+    async showTab2() {
+      this.activeTab = "sell";
+    },
 
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -1282,5 +1287,14 @@ select::-webkit-scrollbar {
 
 .dropdown-options li:hover {
   background-color: #f0f0f0;
+}
+
+.Kaufen:hover {
+  box-shadow: 0 0 2px 1px #eaccb4;
+}
+.active-Kaufen {
+  background-color: #fffaf6;
+  border: 1px solid #eaccb4;
+  color: #000;
 }
 </style>
