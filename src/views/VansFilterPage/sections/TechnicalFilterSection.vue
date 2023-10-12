@@ -7,7 +7,9 @@
         <h3 class="basic-title text-[25px] font-semibold">Engine</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
         <CarFilterComponentTechnical />    
+				<PowerComponent/>
 				<OthersComponentExterior/>   
+				
       </div>
     </v-container>
   </section>
