@@ -104,7 +104,7 @@
           führt Online-Kauf ein
           <br />
           <br />
-          2.Neu r TV-Spot: mobile.de zeigt, was Leasing alles kann
+          2.Neuer TV-Spot: mobile.de zeigt, was Leasing alles kann
           <br />
           3.Florian Baur übernimmt ad interim die Rolle des Chief Sales Officer
           bei mobile.de
