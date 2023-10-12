@@ -141,8 +141,27 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div> -->
+			<div class="">
+      <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+      <div class="Kaufen_div mt-[10px]">
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab1"
+          :class="{ 'active-Kaufen': activeTab === 'buy' }"
+        >
+          {{ $t("message.btn.buy") }}
+        </button>
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab2"
+          :class="{ 'active-Kaufen': activeTab === 'sell' }"
+        >
+          {{ $t("message.btn.sell") }}
+        </button>
+      </div>
     </div>
-    <div class="line mt-[30px]"></div>
+    </div>
+    <!-- <div class="line mt-[30px]"></div> -->
     <div
       class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
     >
@@ -295,11 +314,7 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div> -->
-    </div>
-    <div
-      class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
-    >
-      <div class="kilometer dropdown-container">
+			<div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
@@ -415,7 +430,7 @@
               class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
             ></span>
           </div>
-        </div>
+    </div>	
         <ul
           v-if="isOpenKilometerTo"
           class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
@@ -869,6 +884,7 @@ export default {
       selectedRadius: "",
       selectedtoYear: "",
       years: "",
+      activeTab: "",
       yearsTo: "",
       modelYears: [],
       filteredOptions: [],
@@ -1180,6 +1196,12 @@ export default {
       this.radius = this.selectedRadius;
       this.selectedRadius = this.selectedYear;
     },
+		showTab1() {
+      this.activeTab = "buy";
+    },
+    async showTab2() {
+      this.activeTab = "sell";
+    },
 
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -1282,5 +1304,14 @@ select::-webkit-scrollbar {
 
 .dropdown-options li:hover {
   background-color: #f0f0f0;
+}
+
+.Kaufen:hover {
+  box-shadow: 0 0 2px 1px #eaccb4;
+}
+.active-Kaufen {
+  background-color: #fffaf6;
+  border: 1px solid #eaccb4;
+  color: #000;
 }
 </style>
