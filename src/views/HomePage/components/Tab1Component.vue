@@ -9,7 +9,7 @@
           @change="fetchCondition()"
           v-model="selectedCondition"
         >
-          <option value="14600">Any</option>
+          <option value="" selected>Any</option>
           <option class="">New</option>
           <option class="">Used</option>
           <option class="">Rental</option>
@@ -27,7 +27,7 @@
           placeholder="Beliebig"
           v-model="selectedDriving"
         >
-          <option value="14600">Any</option>
+          <option value="" selected>Any</option>
           <option class="">Left side</option>
           <option class="">Right side</option>
         </select>
@@ -47,7 +47,7 @@
             v-model="selectedMark"
             @change="fetchModels()"
           >
-            <option value="14600" selected>Beliebig</option>
+            <option value="" selected>Beliebig</option>
             <optgroup>
               <option
                 v-for="make in makes"
@@ -74,7 +74,7 @@
           @change="postModels"
           v-model="selectedModel"
         >
-          <option value="14600">Beliebig</option>
+          <option value="">Beliebig</option>
           <option
             v-for="model in models"
             :key="model"
@@ -375,7 +375,9 @@
               <img src="../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn />
+          <FilterBtn :to="{ name: 'car-filter' }" @click="goCarList">
+						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
+					</FilterBtn>
         </div>
       </div>
     </div>
@@ -388,6 +390,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 export default {
   data() {
     return {
+			count: "",
       selectedMake: "",
       selectedPrice: "",
       selectedYear: "",
@@ -396,7 +399,7 @@ export default {
       activeTab: "sell",
       cityName: "",
       makes: [],
-      selectedMark: "14600",
+      selectedMark: "",
       models: [],
       modelYears: [],
       years: "",
@@ -408,77 +411,104 @@ export default {
       inputPrice: "",
       options: [],
       filteredOptions: [],
-      selectedModel: "14600",
-      selectedDriving: "14600",
-      selectedCondition: "14600",
+      selectedModel: "",
+      selectedDriving: "",
+      selectedCondition: "",
     };
   },
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.postData();
         this.fetchData();
       }
     },
   },
   methods: {
+		goCarList(){
+		 	this.$router.push({ name: "car-list" });
+
+		},
+		postData(){
+			localStorage.setItem('carData', JSON.stringify({
+      car_make: this.selectedMark,
+      car_model: this.selectedModel,
+      car_condition: this.selectedCondition,
+      car_firt_date_year_from: this.inputValue,
+      car_mileage_from: this.inputKilometer,
+      car_payment_type: this.activeTab,
+      car_price_from: this.inputPrice,
+      car_city_zipcode: this.cityName,
+      car_silding_door: this.selectedDriving
+    }));
+		},
     fetchData() {
+		
       http
         .post("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_condition: this.selectedModel,
-          car_firt_date_year_from: this.inputValue,
-          car_mileage_from: this.inputKilometer,
-          car_payment_type: this.activeTab,
-          car_price_from: this.inputPrice,
-          car_city_zipcode: this.cityName,
-          car_condition: this.selectedCondition,
-          car_condition: this.selectedCondition,
-          car_silding_door: this.selectedDriving,
+					car_make: this.selectedMark,
+      car_model: this.selectedModel,
+      car_condition: this.selectedCondition,
+      car_firt_date_year_from: this.inputValue,
+      car_mileage_from: this.inputKilometer,
+      car_payment_type: this.activeTab,
+      car_price_from: this.inputPrice,
+      car_city_zipcode: this.cityName,
+      car_silding_door: this.selectedDriving
         })
         .then((response) => {
-          const data = response.data;
-          console.log(data);
+          const data = response.data.data;
+					this.count = data.count
+          console.log(data.count);
+
         });
     },
     showTab1() {
@@ -640,6 +670,8 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
+		this.postData()
+		this.fetchData()
   },
   computed: {
     isModelSelectDisabled() {

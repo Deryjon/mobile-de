@@ -2,65 +2,65 @@
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
       v-for="motorhome in motorhomes"
-      :key="motorhome.motorhome_id"
-      :data-motorhome-id="motorhome.id"
+      :key="motorhome.motor_home_id"
+      :data-motorhome-id="motor_home_id"
       class="motorhomed bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="motorhome.motorhome_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="motorhome.motor_home_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ motorhome.motorhome_make }}
+            {{ motorhome.motor_home_make }}
           </div>
           <div class="model">
-            {{ motorhome.motorhome_model }}
+            {{ motorhome.motor_home_model }}
           </div>
           <div class="variant">
-            {{ motorhome.motorhome_variant }}
+            {{ motorhome.motor_home_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ motorhome.motorhome_firt_date_year }}
+            {{ motorhome.motor_home_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ motorhome.motorhome_mileage }} km</div>
+          <div class="mileage">{{ motorhome.motor_home_mileage }} km</div>
           •
-          <div class="power">{{ motorhome.motorhome_power }} Hp</div>
+          <div class="power">{{ motorhome.motor_home_power }} Hp</div>
         </div>
         <div class="motorhome-body flex gap-[5px] text-[14px]">
           <div class="motorhome-body">
-            {{ motorhome.motorhome_body }}
+            {{ motorhome.motor_home_body }}
           </div>
           •
           <div class="fuel">
-            {{ motorhome.motorhome_fuel_type }}
+            {{ motorhome.motor_home_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ motorhome.motorhome_transmission }}
+            {{ motorhome.motor_home_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ motorhome.motorhome_hu_valid_until }}
+            {{ motorhome.motor_home_hu_valid_until }}
           </div>
         </div>
         <div class="motorhome-body flex gap-[5px] text-[14px]">
           <div class="motorhome-body">
-            {{ motorhome.motorhome_number_door }}
+            {{ motorhome.motor_home_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ motorhome.motorhome_price }}</p>
+        <p class="price">€{{ motorhome.motor_home_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdmotorhome(motorhome.motorhome_id)"
+            @click="deleteAdMotorhome(motorhome.motor_home_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdmotorhome(motorhome.motorhome_id)"
+            @click="editAdMotorhome(motorhome.motor_home_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -114,15 +114,15 @@ export default {
         console.log(this.motorhomes);
       });
     },
-    editAdmotorhome(motorhomeId) {
-      this.$router.push({ name: "edit-ad", params: { id: motorhomeId } });
+    editAdMotorhome(motorhomeId) {
+      this.$router.push({ name: "edit-ad-motorhomes", params: { id: motorhomeId } });
     },
-    deleteAdmotorhome(motorhomeId) {
+    deleteAdMotorhome(motorhomeId) {
       // Отправляем запрос DELETE на сервер с указанием motorhomeId
       console.log(`Объявление с ID ${motorhomeId} удалено.`);
       http
-        .delete(`/motorhome/delete`, {
-          data: { motorhome_id: parseInt(motorhomeId) },
+        .delete(`/motorhomes/delete`, {
+          data: { id: parseInt(motorhomeId) },
         })
         .then((response) => {
           // Обработка успешного удаления

@@ -30,9 +30,9 @@
                   <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.car_make_name"
+                :value="make.motorcycle_make_name"
               >
-                {{ make.car_make_name }}
+                {{ make.motorcycle_make_name }}
               </option>
 									<option value="other">other</option>
                 </optgroup>
@@ -67,9 +67,32 @@ import FilterBtn from "../../../../components/FilterBtn.vue";
 import ConditionComponentBasic from "./components/ConditionComponentBasicData.vue";
 import VehicleTypeComponent from "./components/VehicleTypeComponent.vue";
 import PowerComponent from "./components/PowerComponent.vue";
+import http from "../../../../axios.config";
 export default {
+	data(){
+		return{
+			makes: []
+		}
+	},
   components: { PathLink, FilterTitle, FilterBtn, ConditionComponentBasic, VehicleTypeComponent, PowerComponent },
+	mounted(){
+		http
+      .get("/motorcycle/marks")
+      .then((response) => {
+        const data = response.data.data;
+				console.log(response);
+        if (data) {
+          this.makes = data;
+        } else {
+          console.error("Некорректный формат ответа API.");
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error.message);
+      });
+	}
 };
+
 </script>
 <style scoped></style>
 <style>

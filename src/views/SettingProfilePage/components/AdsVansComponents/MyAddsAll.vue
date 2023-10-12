@@ -121,8 +121,8 @@ export default {
       // Отправляем запрос DELETE на сервер с указанием vanId
       console.log(`Объявление с ID ${vanId} удалено.`);
       http
-        .delete(`/van/delete`, {
-          data: { van_id: parseInt(vanId) },
+        .delete(`/vans/delete`, {
+          data: { id: parseInt(vanId) },
         })
         .then((response) => {
           // Обработка успешного удаления

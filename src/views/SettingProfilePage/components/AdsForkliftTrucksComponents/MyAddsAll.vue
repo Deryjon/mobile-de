@@ -121,8 +121,8 @@ export default {
       // Отправляем запрос DELETE на сервер с указанием forkliftId
       console.log(`Объявление с ID ${forkliftId} удалено.`);
       http
-        .delete(`/forklift/delete`, {
-          data: { forklift_id: parseInt(forkliftId) },
+        .delete(`/forklifts/delete`, {
+          data: { id: parseInt(forkliftId) },
         })
         .then((response) => {
           // Обработка успешного удаления

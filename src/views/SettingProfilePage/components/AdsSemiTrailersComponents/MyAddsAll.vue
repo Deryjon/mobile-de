@@ -7,40 +7,40 @@
       class="semitrailerd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="semitrailer.semitrailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="semitrailer.trailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ semitrailer.semitrailer_make }}
+            {{ semitrailer.trailer_make }}
           </div>
           <div class="model">
-            {{ semitrailer.semitrailer_model }}
+            {{ semitrailer.trailer_model }}
           </div>
           <div class="variant">
-            {{ semitrailer.semitrailer_variant }}
+            {{ semitrailer.trailer_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ semitrailer.semitrailer_firt_date_year }}
+            {{ semitrailer.trailer_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ semitrailer.semitrailer_mileage }} km</div>
+          <div class="mileage">{{ semitrailer.trailer_mileage }} km</div>
           •
-          <div class="power">{{ semitrailer.semitrailer_power }} Hp</div>
+          <div class="power">{{ semitrailer.trailer_power }} Hp</div>
         </div>
         <div class="semitrailer-body flex gap-[5px] text-[14px]">
           <div class="semitrailer-body">
-            {{ semitrailer.semitrailer_body }}
+            {{ semitrailer.trailer_body }}
           </div>
           •
           <div class="fuel">
-            {{ semitrailer.semitrailer_fuel_type }}
+            {{ semitrailer.trailer_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ semitrailer.semitrailer_transmission }}
+            {{ semitrailer.trailer_transmission }}
           </div>
           •
           <div class="hu">
@@ -50,17 +50,17 @@
         </div>
         <div class="semitrailer-body flex gap-[5px] text-[14px]">
           <div class="semitrailer-body">
-            {{ semitrailer.semitrailer_number_door }}
+            {{ semitrailer.trailer_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ semitrailer.semitrailer_price }}</p>
+        <p class="price">€{{ semitrailer.trailer_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdsemitrailer(semitrailer.semitrailer_id)"
+            @click="deleteAdsemitrailer(semitrailer.trailer_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdsemitrailer(semitrailer.semitrailer_id)"
+            @click="editAdsemitrailer(semitrailer.trailer_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -122,7 +122,7 @@ export default {
       console.log(`Объявление с ID ${semitrailerId} удалено.`);
       http
         .delete(`/semitrailer/delete`, {
-          data: { semitrailer_id: parseInt(semitrailerId) },
+          data: { id: parseInt(semitrailerId) },
         })
         .then((response) => {
           // Обработка успешного удаления

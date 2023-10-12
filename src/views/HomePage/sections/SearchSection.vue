@@ -2,7 +2,7 @@
   <section class="search">
     <v-container class="max-w-[1120px]">
       <div
-        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1120px] bg-[#0000001f] h-[650px] lg:h-[240px]  flex"
+        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1120px] bg-[#0000001f] h-[650px] lg:h-[240px] flex"
       >
         <div class="tabs h-full">
           <div class="nav-tabs flex lg:flex-col mt-[-0.01px]">
@@ -79,7 +79,7 @@
               </svg>
             </div>
           </div>
-					
+
           <!-- <div
             class="filter-btns lg:hidden h-[44px] sm:h-[57px] lg:h-[60px] flex items-start"
 						v-show="isActive('tab-1')"
@@ -181,11 +181,11 @@
             {{ $t("message.filter.classic") }}
           </button>
         </div> -->
-        <div
-          class="tab-content  absolute left-[60px] sm:left-[100px]"
-        >
+        <div class="tab-content absolute left-[60px] sm:left-[100px]">
           <div class="tab-panel" v-show="isActive('tab-1')">
-            <Tab1Component class="absolute top-[110px] lg:top-[0px] sm:mt-[120px] lg:mt-[10px]" />
+            <Tab1Component
+              class="absolute top-[110px] lg:top-[0px] sm:mt-[120px] lg:mt-[10px]"
+            />
           </div>
           <div class="tab-panel" v-show="isActive('tab-2')">
             <div class="for-example">
@@ -199,14 +199,23 @@
           </div>
           <div class="tab-panel" v-show="isActive('tab-4')">
             <div class="for-example">
-              <Tab4Components class="mt-[100px] sm:mt-[120px] lg:mt-[50px]" />
+              <Tab4Components class="mt-[100px] sm:mt-[120px] lg:mt-[25px]" />
             </div>
           </div>
         </div>
       </div>
       <MoreFilterBtn v-show="isActive('tab-1')" />
-			<MotorbikeFilterBtn v-show="isActive('tab-2')"/>
-			<VansFilterBtn v-show="isActive('tab-3')"/>
+      <MotorbikeFilterBtn v-show="isActive('tab-2')" />
+      <VansFilterBtn v-show="isActive('tab-3')" />
+      <FilterAllBtn v-if="store.activeDiv === '2'" @click="goTruckFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '3'" @click="goTrailerFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '4'" @click="goVanFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '5'" @click="goSemitruckFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '6'" @click="goSemitrailerFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '7'" @click="goCoacheFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '8'" @click="goVehicleFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '9'" @click="goMachineFilter"/>
+      <FilterAllBtn v-if="store.activeDiv === '10'" @click="goForkliftFilter"/>
     </v-container>
   </section>
 </template>
@@ -216,9 +225,11 @@ import Tab2Component from "../components/Tab2Component.vue";
 import Tab3Component from "../components/Tab3Component.vue";
 import Tab4Components from "../components/Tab4Components.vue";
 import MoreFilterBtn from "../../../components/MoreFilterBtn.vue";
-import MotorbikeFilterBtn  from "../../../components/MotorbikeFilterBtn.vue";
-import VansFilterBtn  from "../../../components/VansFilterBtn.vue";
+import MotorbikeFilterBtn from "../../../components/MotorbikeFilterBtn.vue";
+import VansFilterBtn from "../../../components/VansFilterBtn.vue";
+import FilterAllBtn from "../../../components/FilterAllBtn.vue";
 import { useDarkModeStore } from "../../../store/dark-mode";
+import { useActiveTab4 } from "../../../store/activeTab4Component";
 import { ref, watch, computed } from "vue";
 export default {
   setup() {
@@ -237,14 +248,16 @@ export default {
       { immediate: true }
     );
     const activeTab = ref("tab-1");
+    const store = useActiveTab4();
     const setActive = (tab) => {
       activeTab.value = tab;
+      store.setActiveDiv("1");
     };
     const isActive = (tab) => {
       return activeTab.value === tab;
     };
     const activeFilterTab = ref("tab-1");
-    const setActiveFilter = (tab) => {	
+    const setActiveFilter = (tab) => {
       activeFilterTab.value = tab;
     };
     const isActiveFilter = (tab) => {
@@ -259,14 +272,63 @@ export default {
       isDarkMode,
     };
   },
+	data(){
+		return{
+store: useActiveTab4()
+		}
+	},
+	methods:{
+		goTruckFilter(){
+			this.$router.push({ name: "trucks-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goTrailerFilter(){
+			this.$router.push({ name: "trailer-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goVanFilter(){
+			this.$router.push({ name: "van-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goSemitruckFilter(){
+			this.$router.push({ name: "semitruck-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goSemitrailerFilter(){
+			this.$router.push({ name: "semitrailer-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goCoacheFilter(){
+			this.$router.push({ name: "coache-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goVehicleFilter(){
+			this.$router.push({ name: "agricultural-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goMachineFilter(){
+			this.$router.push({ name: "machine-filter" });
+			 this.store.setActiveDiv("1");
+		},
+		goForkliftFilter(){
+			this.$router.push({ name: "forklift-filter" });
+			 this.store.setActiveDiv("1");
+		},
+	},
+  data() {
+    return {
+      store: useActiveTab4(),
+    };
+  },
   components: {
     Tab1Component,
     Tab2Component,
     Tab3Component,
     Tab4Components,
     MoreFilterBtn,
-		MotorbikeFilterBtn,
-		VansFilterBtn
+    MotorbikeFilterBtn,
+    VansFilterBtn,
+		FilterAllBtn
   },
 };
 </script>

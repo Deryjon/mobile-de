@@ -2,65 +2,64 @@
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
       v-for="semitruck in semitrucks"
-      :key="semitruck.semitruck_id"
-      :data-semitruck-id="semitruck.id"
+      :key="semitruck.truck_id"
       class="semitruckd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="semitruck.semitruck_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="semitruck.truck_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ semitruck.semitruck_make }}
+            {{ semitruck.truck_make }}
           </div>
           <div class="model">
-            {{ semitruck.semitruck_model }}
+            {{ semitruck.truck_model }}
           </div>
           <div class="variant">
-            {{ semitruck.semitruck_variant }}
+            {{ semitruck.truck_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ semitruck.semitruck_firt_date_year }}
+            {{ semitruck.truck_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ semitruck.semitruck_mileage }} km</div>
+          <div class="mileage">{{ semitruck.truck_mileage }} km</div>
           •
-          <div class="power">{{ semitruck.semitruck_power }} Hp</div>
+          <div class="power">{{ semitruck.truck_power }} Hp</div>
         </div>
         <div class="semitruck-body flex gap-[5px] text-[14px]">
           <div class="semitruck-body">
-            {{ semitruck.semitruck_body }}
+            {{ semitruck.truck_body }}
           </div>
           •
           <div class="fuel">
-            {{ semitruck.semitruck_fuel_type }}
+            {{ semitruck.truck_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ semitruck.semitruck_transmission }}
+            {{ semitruck.truck_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ semitruck.semitruck_hu_valid_until }}
+            {{ semitruck.truck_hu_valid_until }}
           </div>
         </div>
         <div class="semitruck-body flex gap-[5px] text-[14px]">
           <div class="semitruck-body">
-            {{ semitruck.semitruck_number_door }}
+            {{ semitruck.truck_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ semitruck.semitruck_price }}</p>
+        <p class="price">€{{ semitruck.truck_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdsemitruck(semitruck.semitruck_id)"
+            @click="deleteAdsemitruck(semitruck.truck_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +75,7 @@
           </button>
 
           <button
-            @click="editAdsemitruck(semitruck.semitruck_id)"
+            @click="editAdsemitruck(semitruck.truck_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -122,7 +121,7 @@ export default {
       console.log(`Объявление с ID ${semitruckId} удалено.`);
       http
         .delete(`/semitruck/delete`, {
-          data: { semitruck_id: parseInt(semitruckId) },
+          data: { id: parseInt(semitruckId) },
         })
         .then((response) => {
           // Обработка успешного удаления

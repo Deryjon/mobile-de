@@ -20,19 +20,16 @@
       ></path>
     </svg>
 
-    <p class="text-white text-[18px] lg:text-[16px]">1000</p>
-    <h3 class="text-white text-[18px] lg:text-[16px]">
-      {{ $t("message.results.result") }}
-    </h3>
+    <slot></slot>
   </div>
 </template>
 <script>
 
 export default {
 	methods:{
-		goCarList(){
-			this.$router.push({ name: "car-list" });
-		}
+		// goCarList(){
+		// 	this.$router.push({ name: "car-list" });
+		// }
 	}
 }
 </script>

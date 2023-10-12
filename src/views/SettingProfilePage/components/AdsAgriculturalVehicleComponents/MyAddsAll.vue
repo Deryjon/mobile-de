@@ -2,65 +2,64 @@
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
       v-for="agricultural in agriculturals"
-      :key="agricultural.agricultural_id"
-      :data-agricultural-id="agricultural.id"
+      :key="agricultural.vehicle_id"
       class="agriculturald bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="agricultural.agricultural_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="agricultural.vehicle_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ agricultural.agricultural_make }}
+            {{ agricultural.vehicle_make }}
           </div>
           <div class="model">
-            {{ agricultural.agricultural_model }}
+            {{ agricultural.vehicle_model }}
           </div>
           <div class="variant">
-            {{ agricultural.agricultural_variant }}
+            {{ agricultural.vehicle_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ agricultural.agricultural_firt_date_year }}
+            {{ agricultural.vehicle_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ agricultural.agricultural_mileage }} km</div>
+          <div class="mileage">{{ agricultural.vehicle_mileage }} km</div>
           •
-          <div class="power">{{ agricultural.agricultural_power }} Hp</div>
+          <div class="power">{{ agricultural.vehicle_power }} Hp</div>
         </div>
         <div class="agricultural-body flex gap-[5px] text-[14px]">
           <div class="agricultural-body">
-            {{ agricultural.agricultural_body }}
+            {{ agricultural.vehicle_body }}
           </div>
           •
           <div class="fuel">
-            {{ agricultural.agricultural_fuel_type }}
+            {{ agricultural.vehicle_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ agricultural.agricultural_transmission }}
+            {{ agricultural.vehicle_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ agricultural.agricultural_hu_valid_until }}
+            {{ agricultural.vehicle_hu_valid_until }}
           </div>
         </div>
         <div class="agricultural-body flex gap-[5px] text-[14px]">
           <div class="agricultural-body">
-            {{ agricultural.agricultural_number_door }}
+            {{ agricultural.vehicle_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ agricultural.agricultural_price }}</p>
+        <p class="price">€{{ agricultural.vehicle_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdagricultural(agricultural.agricultural_id)"
+            @click="deleteAdagricultural(agricultural.vehicle_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +75,7 @@
           </button>
 
           <button
-            @click="editAdagricultural(agricultural.agricultural_id)"
+            @click="editAdagricultural(agricultural.vehicle_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -121,8 +120,8 @@ export default {
       // Отправляем запрос DELETE на сервер с указанием agriculturalId
       console.log(`Объявление с ID ${agriculturalId} удалено.`);
       http
-        .delete(`/agricultural/delete`, {
-          data: { agricultural_id: parseInt(agriculturalId) },
+        .delete(`/agriculturals/delete`, {
+          data: { id: parseInt(agriculturalId) },
         })
         .then((response) => {
           // Обработка успешного удаления

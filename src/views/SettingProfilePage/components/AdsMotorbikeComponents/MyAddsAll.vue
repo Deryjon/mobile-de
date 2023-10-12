@@ -75,17 +75,28 @@
             Delete
           </button> -->
 
-					<v-dialog v-model="dialog" width="200px">
+					
+					<v-dialog v-model="dialog" width="200px"  content-class="custom-dialog-content">
               <template v-slot:activator="{ props }">
                 <button
                   class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
                   v-bind="props"
                 >
+								<svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+            >
+            Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
+              <path
+                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
+              />
+            </svg>
                   Delete
                 </button>
               </template>
 
-              <v-card>
+              <v-card >
                 <v-card-text class="mx-auto"> Are you sure? </v-card-text>
                 <div class="flex items-center w-[120px] mx-auto">
                   <v-card-actions>
@@ -94,7 +105,7 @@
                     >
                   </v-card-actions>
                   <v-card-actions>
-                    <v-btn color="success" block @click="deleteAdCar(motorcycle.motorcycle_id)">Yes</v-btn>
+                    <v-btn color="success" block @click="deleteAdMotorbike(motorcycle.motorcycle_id)">Yes</v-btn>
                   </v-card-actions>
                 </div>
               </v-card>
@@ -139,27 +150,30 @@ export default {
       });
     },
     editAdCar(motorbikeId) {
-      this.$router.push({ name: "edit-ad-motorbike", params: { id: motorbikeId } });
+      this.$router.push({ name: "edit-ad-motobike", params: { id: motorbikeId } });
     },
-    deleteAdMotorbike(motorbikeId) {
-      http
-        .delete(`/motorcycles/delete`, {
-          data: { motorcycle_id: parseInt(motorbikeId) },
-        })
-        .then((response) => {
-          // Обработка успешного удаления
-         
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-        
-          // Выполните здесь необходимые действия при ошибке
-        });
-				this.dialog = false;
-    },
+    deleteAdMotorbike(motorbikeId) {	
+  http
+    .delete(`/motorcycles/delete`, {
+      data: { motorcycle_id: parseInt(motorbikeId) },
+    })
+    .then((response) => {
+      console.log(response);
+      // Обработка успешного удаления
+      
+      // Выполните здесь необходимые действия после успешного удаления
+      // Например, можно вызвать метод fetchAds() для обновления списка объявлений
+      this.fetchAds();
+      
+      // Закройте диалоговое окно только после успешного удаления
+      this.dialog = false;
+    })
+    .catch((error) => {
+      // Обработка ошибок при удалении, если необходимо
+      console.error(error);
+    });
+},
+
   },
   created() {
     this.userI = localStorage.getItem("u-i");
