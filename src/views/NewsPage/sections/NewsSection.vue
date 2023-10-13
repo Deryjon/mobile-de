@@ -1,25 +1,6 @@
+<script></script>
 <template>
-  <v-container class="max-w-[1120px]">
-    <div class="wrapper items-center justify-center">
-      <div class="slider-image w-[1100px]">
-        <div class="slider-content">
-          <div class="extra container">
-            <h6 class="title">4. September 2023</h6>
-            <h3 class="subtitle">
-              Autobarometer: Erste Preisrückgänge, Standtage auf Höhenflügen
-            </h3>
-            <p class="text">
-              Kleinmachnow/Berlin, 12. September 2023 – Waschechte Stars lassen
-              sich gerne mal vom Privatchauffeur von A nach B kutschieren –
-              aber...
-            </p>
-
-            <button>Weitless</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
+  <!-- <v-container class="max-w-[1120px]">
     <div class="flex flex-wrap justify-between gap-[20px] mt-[30px]">
       <div class="card">
         <img
@@ -114,11 +95,20 @@
         </p>
       </div>
     </div>
-  </v-container>
+  </v-container> -->
+
+  <div class="container mx-auto grid grid-cols-3 gap-4">
+    <div class="card" v-for="item in data" :key="item.id">
+      <img src="" alt="" class="card__img" />
+      <title class="card__title"></title>
+      <p class="card__text"></p>
+    </div>
+  </div>
 </template>
 <script></script>
-<style scoped>
-.wrapper .slider-image {
+<style scooped></style>
+<!-- <style scoped>
+/* .wrapper .slider-image {
   background: url(https://newsroom.mobile.de/wp-content/uploads/2023/09/nggallery_import/Mob-Ret_23009_Promi-Autos_neu-1024x250.png);
   padding: 20px;
   background-repeat: no-repeat;
@@ -335,5 +325,5 @@
 
 #scrollToTopButton:hover {
   background-color: rgb(187, 183, 183);
-}
-</style>
+} */
+</style> -->
