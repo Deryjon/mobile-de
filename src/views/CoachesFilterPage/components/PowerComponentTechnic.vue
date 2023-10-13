@@ -85,7 +85,6 @@
         </label>
       </div>
     </div>
-		<
     <!-- valid -->
     <div
       class="valid-until mt-[30px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]"

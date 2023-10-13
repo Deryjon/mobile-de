@@ -23,6 +23,7 @@ import MotorhomeList from "../views/MotorhomeListPage/MotorhomeListPage.vue"
 import EditPage from "../views/EditAdPage/EditAdCarPage.vue"
 import EditMotrobikePage from "../views/EditMotorbikeAdPage/EditAdMotorbikePage.vue"
 import EditMotorhomesPage from "../views/EditMotorhomesPage/EditAdMotorhomesPage.vue"
+import EditTrucksPage from "../views/EditTrucksPage/EditAdTrucksPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
@@ -145,6 +146,11 @@ const router = createRouter({
       path: "/edit/ad-motorhomes/:id",
       name: "edit-ad-motorhomes",
       component: EditMotorhomesPage,
+    },
+		{
+      path: "/edit/ad-trucks/:id",
+      name: "edit-ad-trucks",
+      component: EditTrucksPage,
     },
 		{
       path: "/news",
