@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdvan(van.van_id)"
+            @click="editAdVans(van.van_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
@@ -108,14 +108,14 @@ export default {
   },
 
   methods: {
-    fetchAds() {
-      http.get(`/user/vans/${this.userI}?limit=100&offset=0`).then((res) => {
+    async fetchAds() {
+    await  http.get(`/user/vans/${this.userI}?limit=100&offset=0`).then((res) => {
         this.vans = res.data.data;
         console.log(this.vans);
       });
     },
-    editAdvan(vanId) {
-      this.$router.push({ name: "edit-ad", params: { id: vanId } });
+    editAd(vanId) {
+      this.$router.push({ name: "edit-ad-vans", params: { id: vanId } });
     },
     deleteAdvan(vanId) {
       // Отправляем запрос DELETE на сервер с указанием vanId
