@@ -1,5 +1,5 @@
 <template>
-  	<div class="">
+ <div class="">
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -43,7 +43,47 @@
           v-model="linkVideo"
         />
       </div>
-      <div class="mark w-[200px]">
+      <div class="flex gap-[20px] mt-[30px]">
+        <div class="mark">
+          <div class="relative mt-2">
+            <h2 class="text-sm lg:text-[14px]">
+              {{ $t("message.selects.mark") }}
+            </h2>
+            <select
+              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+              v-model="selectedMark"
+              @change="fetchModels()"
+            >
+              <option value="14600" selected>Beliebig</option>
+              <optgroup>
+                <option
+                  v-for="make in makes"
+                  :key="make"
+                  :value="make.trailer_make_name"
+                >
+                  {{ make.trailer_make_name }}
+                </option>
+                <option value="other">other</option>
+              </optgroup>
+            </select>
+            <span
+              class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
+            ></span>
+          </div>
+        </div>
+
+        <div class="relative">
+          <h2 class="text-sm lg:text-[14px] mt-2">
+            {{ $t("message.selects.model") }}
+          </h2>
+          <input
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            :disabled="isModelSelectDisabled"
+            v-model="selectedModel"
+            type="text"
+          />
+        </div>
+				<div class="mark w-[200px]">
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">Category</h2>
           <select
@@ -102,46 +142,6 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
-        <div class="mark">
-          <div class="relative mt-2">
-            <h2 class="text-sm lg:text-[14px]">
-              {{ $t("message.selects.mark") }}
-            </h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedMark"
-              @change="fetchModels()"
-            >
-              <option value="14600" selected>Beliebig</option>
-              <optgroup>
-                <option
-                  v-for="make in makes"
-                  :key="make"
-                  :value="make.trailer_make_name"
-                >
-                  {{ make.trailer_make_name }}
-                </option>
-                <option value="other">other</option>
-              </optgroup>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-            ></span>
-          </div>
-        </div>
-
-        <div class="relative">
-          <h2 class="text-sm lg:text-[14px] mt-2">
-            {{ $t("message.selects.model") }}
-          </h2>
-          <input
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            :disabled="isModelSelectDisabled"
-            v-model="selectedModel"
-            type="text"
-          />
-        </div>
       </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
@@ -1031,122 +1031,8 @@
         </label>
       </div>
       </div>
-      <div class="flex gap-[40px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">New HU valid</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="stickerEmission"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="classEmision"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-      </div>
-      <div class="mt-[30px]">
-        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
-          <!-- cabrio -->
-          <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Awning')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Awning',
-                'bg-orange': selectedFeat === 'Awning',
-              }"
-            />
-
-            Awning
-          </label>
-          <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Disabled accesible')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Disabled accesible',
-                'bg-orange': selectedFeat === 'Disabled accesible',
-              }"
-            />
-
-            Disabled accesible
-          </label>
-          <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Rear Garage')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Rear Garage',
-                'bg-orange': selectedFeat === 'Rear Garage',
-              }"
-            />
-
-            Rear Garage
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Solar Energy System')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Solar Energy System',
-                'bg-orange': selectedFeat === 'Solar Energy System',
-              }"
-            />
-
-            Solar Energy System
-          </label>
-        </div>
-      </div>
+      
       <div class="flex flex-wrap gap-x-[40px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Vehicle Length</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedLength"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">
             Permissible Gross Vehicle Weight (GVW)
@@ -1166,42 +1052,10 @@
           ></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Number of Bunks</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedNumberBunks"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Axles</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedAxles"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Radio</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedRadio"
           >
             <option value="any" selected>Any</option>
             <option value="1">Up to 1</option>
@@ -1540,11 +1394,11 @@
             Cancel
           </button>
           <button
-            @click="addAdTrucks
+            @click="editAddTrailer
 			"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
-            Create Add
+            Edit Add
           </button>
         </div>
       </div>
@@ -1610,19 +1464,14 @@ export default {
       isCheckedFromThree: false,
       isCheckedfromFour: false,
       isCheckedFive: false,
-      rentingPossible: true,
       rating: [],
       numDoor: "",
       slidingDoor: "",
       isOpenKilometer: "",
-      selectedGvw: "",
-      selectedNumberBunks: "",
-      selectedAxles: "",
-      selectedRadio: "",
       inputKilometer: "",
       radius: "",
       isOpenCubic: false,
-      isOpenSecurity: false,
+      isOpenPower: false,
       isCheckedRegister: false,
       isCheckedEmploy: false,
       isCheckedClassic: false,
@@ -1630,10 +1479,10 @@ export default {
       isRadioNewSelected: false,
       selectedExteriorColour: "",
       selectedTrailer: "",
+      selectedDriving: "",
       selectedParking: "",
       selectedModel: "",
-      selectedFeat: "",
-      selectedLength: "",
+      selectedCategory: "",
       price: "",
       selectedYear: "",
       selectedFuel: "",
@@ -1642,7 +1491,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: false,
+      huValid: "14600",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
@@ -1651,12 +1500,12 @@ export default {
       isCheckedABS: false,
       isCheckedEmergency: false,
       isCheckedCentral: false,
-      isCheckedDamaged: false,
       isCheckedSpeed: false,
       isCheckedAdaptive: false,
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
+      isCheckedTrailerCoupling: false,
       selectedOthers: [],
       isCheckedBeige: false,
       isCheckedBrown: false,
@@ -1672,7 +1521,8 @@ export default {
       isCheckedOther: false,
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
-      selectedCategory: "",
+      selectedAxles: "",
+      selectedWheelFormula: "",
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -1680,10 +1530,13 @@ export default {
       isCheckedAmbient: false,
       isCheckedTyre: false,
       isCheckedInduction: false,
+      isCheckedMunicipal: false,
+      isCheckedRenting: false,
+      isCheckedDamaged: false,
       isCheckedSki: false,
       extras: [],
       others: [],
-      security: [],
+      power: [],
       selectedType: "",
       selectedFiles: [],
       userI: "",
@@ -1695,8 +1548,11 @@ export default {
       userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
+      selectedMunicipal: false,
       selectedMaterial: "",
-      selectedMotorbike: "",
+			selectedMotorbike: "",
+			selectedGvw: "",
+			selectedHydraulic: "",
       options: [],
     };
   },
@@ -1704,6 +1560,51 @@ export default {
     createAdd: Boolean, // Определите тип данных в соответствии с вашими требованиями
   },
   methods: {
+		async	fetchAdCar(){
+await http.get(`/trailers/${this.trailerkId}`).then((res) => {
+	this.dataAd = res.data.data
+this.linkVideo = this.dataAd.trailer_video_link
+this.selectedMark = this.dataAd.trailer_make
+this.selectedModel = this.dataAd.trailer_model
+this.selectedCategory = this.dataAd.trailer_category
+this.selectedMotorbike = this.dataAd.trailer_type
+this.selectedCondition = this.dataAd.trailer_condition
+this.price = this.dataAd.trailer_price
+this.inputValue = this.dataAd.trailer_firt_date_year
+this.inputKilometer = this.dataAd.trailer_kilometre
+this.preOwners = this.dataAd.trailer_number_owners
+this.selectedCountry = this.dataAd.trailer_country
+this.zipCode = this.dataAd.trailer_city_zipcode
+this.radius = this.dataAd.trailer_radius
+this.selectedFuel = this.dataAd.trailer_fuel_type
+this.power = this.dataAd.trailer_power
+this.cubic = this.dataAd.trailer_cubic_capacity
+this.selectedConditioning = this.dataAd.trailer_air_conditioning
+this.selectedTransmision = this.dataAd.trailer_transmission
+this.selectedExteriorColour = this.dataAd.trailer_exterior_colour
+this.selectedCruise = this.dataAd.trailer_cruise_control
+this.selectedTrailer = this.dataAd.trailer_trailer_coupling
+this.selectedOthers = this.dataAd.feailerres
+ this.stickerEmission = this.dataAd.trailer_emissions_sticker
+this.classEmision = this.dataAd.trailer_emission_class
+this.selectedGvw = this.dataAd.trailer_gvw
+this.selectedLength = this.dataAd.trailer_length
+this.selectedWheelFormula = this.dataAd.trailer_wheel_formula
+this.selectedHydraulic = this.dataAd.trailer_hydraulic_installation
+this.selectedAxles = this.dataAd.trailer_axles
+this.cubic = this.dataAd.trailer_load_capacity
+this.selectedParking = this.dataAd.trailer_parking_sensors
+this.selectedInteriorColour = this.dataAd.trailer_interior_colour
+this.selectedVendor = this.dataAd.trailer_vendor
+this.isCheckedDiscount = this.dataAd.trailer_discount_offers
+this.isCheckedNon = this.dataAd.trailer_non_smoker
+this.isCheckedTaxi = this.dataAd.trailer_taxi
+this.isCheckedVAT = this.dataAd.trailer_vat
+this.isCheckedWarranty = this.dataAd.trailer_warranty
+this.approveUsed = this.dataAd.trailer_programme
+this.descriptionText = this.dataAd.trailer_describtion
+})
+		},
     closeDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".years");
       if (!dropdownElement.contains(event.target)) {
@@ -1717,52 +1618,58 @@ export default {
     showTab1() {
       this.activeTab = "buy";
     },
-    async showTab2() {
+     showTab2() {
       this.activeTab = "sell";
     },
-    addAdTrucks() {
+    async editAddTrailer() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("trailer_make,", this.selectedMark);
+      formData.append("id", this.trailerkId);
+      formData.append("trailer_make", this.selectedMark);
       formData.append("trailer_model", this.selectedModel);
       formData.append("trailer_condition", this.selectedCondition);
       formData.append("trailer_category", this.selectedCategory);
       formData.append("trailer_video_link", this.linkVideo);
+      formData.append("trailer_price", parseInt(this.price));
+      formData.append("trailer_price_type", this.activeTab);
       formData.append("trailer_firt_date", this.inputValue);
       formData.append("trailer_firt_date_year", parseInt(this.inputValue));
-      formData.append("trailer_price", parseInt(this.price));
-      formData.append("trailer_price_type", "sell");
-      formData.append("trailer_kilometre", parseInt(this.inputKilometer));
-      formData.append("trailer_security", this.extras);
       formData.append("trailer_country", this.selectedCountry);
       formData.append("trailer_city_zipcode", this.zipCode);
       formData.append("trailer_radius", parseInt(this.radius));
       formData.append("trailer_load_capacity", parseInt(this.cubic));
-      formData.append("features", this.selectedOthers);
-      formData.append("trailer_vat", this.isCheckedVAT);
-      formData.append("trailer_gvw", parseInt(this.selectedGvw));
+      formData.append(
+        "features",
+        this.selectedOthers
+      );
       formData.append("trailer_axles", parseInt(this.selectedAxles));
+      formData.append("trailer_gvw", parseInt(this.selectedGvw));
+      formData.append("trailer_vat", this.isCheckedVAT);
       formData.append("trailer_discount_offers", this.isCheckedDiscount);
       formData.append("trailer_vendor", this.selectedVendor);
-      formData.append("trailer_new_hu", this.isCheckedWarranty);
-      formData.append("trailer_renting_possible", this.isCheckedWarranty);
+      formData.append("trailer_full_service_history", this.isCheckedHistory);
+      formData.append("trailer_damaged", this.isCheckedDamaged);
+      formData.append("trailer_municipal", this.isCheckedMunicipal);
+      formData.append("trailer_new_hu", this.isCheckedEnvironmental);
+      formData.append("trailer_renting_possible", this.isCheckedRenting);
       formData.append("trailer_dealer_rating", 4);
+      formData.append("trailer_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      http.post("/trailers/add", formData).then((response) => {
-        console.log(response);
+      await http.put("/trailers/update", formData).then((response) => {
+				console.log(response);
         const responseData = response.data.data;
-        this.handleCancelButtonClick();
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
-        console.log(responseData);
+				const store = useTabsStore();
+      store.setActiveTab("tab-7"); 
+     this.$router.push({name: "profile-settings"})
       });
     },
     openFileInput() {
@@ -1990,7 +1897,7 @@ export default {
       }
     },
 
-    fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
@@ -2000,7 +1907,7 @@ export default {
       const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
-      http
+     await http
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
@@ -2049,9 +1956,6 @@ export default {
       this.cubic = option;
       this.isOpenCubic = false;
     },
-    selectFeat(option) {
-      this.selectedFeat = option;
-    },
     closeCubicDropdown() {
       this.isOpenCubic = false;
     },
@@ -2066,28 +1970,43 @@ export default {
       }
     },
     //
-    openSecurityDropdown() {
-      this.isOpenSecurity = true;
+    openPowerDropdown() {
+      this.isOpenPower = true;
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closePowerDropdownOnClickOutside);
     },
-    selectSecurity(option) {
-      this.security = option;
-      this.isOpenSecurity = false;
+    selectPower(option) {
+      this.power = option;
+      this.isOpenPower = false;
     },
     closePowerDropdown() {
-      this.isOpenSecurity = false;
+      this.isOpenPower = false;
     },
     closePowerDropdownOnClickOutside(event) {
-      const dropdownElement = this.$el.querySelector(".security");
+      const dropdownElement = this.$el.querySelector(".power");
       if (!dropdownElement.contains(event.target)) {
-        this.isOpenSecurity = false;
+        this.isOpenPower = false;
         document.removeEventListener(
           "click",
           this.closePowerDropdownOnClickOutside
         );
       }
     },
+	async	fetchMarks(){
+		await	http
+      .get("/trailer/marks")
+      .then((response) => {
+        const data = response.data.data;
+        if (data) {
+          this.makes = data;
+        } else {
+          console.error("Некорректный формат ответа API.");
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error.message);
+      });
+		},
     handleCancelButtonClick() {
       // Создаем событие и отправляем его вверх по иерархии
       this.$emit("cancel-create-add");
@@ -2101,21 +2020,10 @@ export default {
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-
-    http
-      .get("/trailer/marks")
-      .then((response) => {
-        const data = response.data.data;
-        if (data) {
-          this.makes = data;
-        } else {
-          console.error("Некорректный формат ответа API.");
-        }
-      })
-      .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error.message);
-      });
+		this.trailerkId = this.$route.params.id;
+   this.fetchMarks()
     this.fetchModelYears();
+		this.fetchAdCar()
   },
 };
 </script>
