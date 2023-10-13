@@ -59,9 +59,9 @@
                 <option
                   v-for="make in makes"
                   :key="make"
-                  :value="make.van_make_name"
+                  :value="make.truck_make_name"
                 >
-                  {{ make.van_make_name }}
+                  {{ make.truck_make_name }}
                 </option>
                 <option value="other">other</option>
               </optgroup>
@@ -1960,48 +1960,48 @@ export default {
   },
   methods: {
 		async	fetchAdCar(){
-await http.get(`/vans/${this.truckId}`).then((res) => {
+await http.get(`/trucks/${this.truckId}`).then((res) => {
 	this.dataAd = res.data.data
-this.linkVideo = this.dataAd.van_video_link
-this.selectedMark = this.dataAd.van_make
-this.selectedModel = this.dataAd.van_model
-this.selectedCategory = this.dataAd.van_category
-this.selectedMotorbike = this.dataAd.van_type
-this.selectedCondition = this.dataAd.van_condition
-this.price = this.dataAd.van_price
-this.inputValue = this.dataAd.van_firt_date_year
-this.inputKilometer = this.dataAd.van_kilometre
-this.preOwners = this.dataAd.van_number_owners
-this.selectedCountry = this.dataAd.van_country
-this.zipCode = this.dataAd.van_city_zipcode
-this.radius = this.dataAd.van_radius
-this.selectedFuel = this.dataAd.van_fuel_type
-this.power = this.dataAd.van_power
-this.cubic = this.dataAd.van_cubic_capacity
-this.selectedConditioning = this.dataAd.van_air_conditioning
-this.selectedTransmision = this.dataAd.van_transmission
-this.selectedExteriorColour = this.dataAd.van_exterior_colour
-this.selectedCruise = this.dataAd.van_cruise_control
-this.selectedTrailer = this.dataAd.van_trailer_coupling
-this.selectedOthers = this.dataAd.vanres
- this.stickerEmission = this.dataAd.van_emissions_sticker
-this.classEmision = this.dataAd.van_emission_class
-this.selectedGvw = this.dataAd.van_gvw
-this.selectedLength = this.dataAd.van_length
-this.selectedWheelFormula = this.dataAd.van_wheel_formula
-this.selectedHydraulic = this.dataAd.van_hydraulic_installation
-this.selectedAxles = this.dataAd.van_axles
-this.selectedDriving = this.dataAd.van_radio
-this.selectedParking = this.dataAd.van_parking_sensors
-this.selectedInteriorColour = this.dataAd.van_interior_colour
-this.selectedVendor = this.dataAd.van_vendor
-this.isCheckedDiscount = this.dataAd.van_discount_offers
-this.isCheckedNon = this.dataAd.van_non_smoker
-this.isCheckedTaxi = this.dataAd.van_taxi
-this.isCheckedVAT = this.dataAd.van_vat
-this.isCheckedWarranty = this.dataAd.van_warranty
-this.approveUsed = this.dataAd.van_programme
-this.descriptionText = this.dataAd.van_describtion
+this.linkVideo = this.dataAd.truck_video_link
+this.selectedMark = this.dataAd.truck_make
+this.selectedModel = this.dataAd.truck_model
+this.selectedCategory = this.dataAd.truck_category
+this.selectedMotorbike = this.dataAd.truck_type
+this.selectedCondition = this.dataAd.truck_condition
+this.price = this.dataAd.truck_price
+this.inputValue = this.dataAd.truck_firt_date_year
+this.inputKilometer = this.dataAd.truck_kilometre
+this.preOwners = this.dataAd.truck_number_owners
+this.selectedCountry = this.dataAd.truck_country
+this.zipCode = this.dataAd.truck_city_zipcode
+this.radius = this.dataAd.truck_radius
+this.selectedFuel = this.dataAd.truck_fuel_type
+this.power = this.dataAd.truck_power
+this.cubic = this.dataAd.truck_cubic_capacity
+this.selectedConditioning = this.dataAd.truck_air_conditioning
+this.selectedTransmision = this.dataAd.truck_transmission
+this.selectedExteriorColour = this.dataAd.truck_exterior_colour
+this.selectedCruise = this.dataAd.truck_cruise_control
+this.selectedTrailer = this.dataAd.truck_trailer_coupling
+this.selectedOthers = this.dataAd.features
+ this.stickerEmission = this.dataAd.truck_emissions_sticker
+this.classEmision = this.dataAd.truck_emission_class
+this.selectedGvw = this.dataAd.truck_gvw
+this.selectedLength = this.dataAd.truck_length
+this.selectedWheelFormula = this.dataAd.truck_wheel_formula
+this.selectedHydraulic = this.dataAd.truck_hydraulic_installation
+this.selectedAxles = this.dataAd.truck_axles
+this.selectedDriving = this.dataAd.truck_radio
+this.selectedParking = this.dataAd.truck_parking_sensors
+this.selectedInteriorColour = this.dataAd.truck_interior_colour
+this.selectedVendor = this.dataAd.truck_vendor
+this.isCheckedDiscount = this.dataAd.truck_discount_offers
+this.isCheckedNon = this.dataAd.truck_non_smoker
+this.isCheckedTaxi = this.dataAd.truck_taxi
+this.isCheckedVAT = this.dataAd.truck_vat
+this.isCheckedWarranty = this.dataAd.truck_warranty
+this.approveUsed = this.dataAd.truck_programme
+this.descriptionText = this.dataAd.truck_describtion
 })
 		},
     closeDropdownOnClickOutside(event) {
@@ -2027,60 +2027,60 @@ this.descriptionText = this.dataAd.van_describtion
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("id", this.vanId);
-      formData.append("van_make", this.selectedMark);
-      formData.append("van_model", this.selectedModel);
-      formData.append("van_condition", this.selectedCondition);
-      formData.append("van_category", this.selectedCategory);
-      formData.append("van_video_link", this.linkVideo);
-      formData.append("van_price", parseInt(this.price));
-      formData.append("van_price_type", this.activeTab);
-      formData.append("van_firt_date", this.inputValue);
-      formData.append("van_firt_date_year", parseInt(this.inputValue));
-      formData.append("van_kilometre", parseInt(this.inputKilometer));
-      formData.append("van_power", parseInt(this.power));
-      formData.append("van_country", this.selectedCountry);
-      formData.append("van_city_zipcode", this.zipCode);
-      formData.append("van_radius", parseInt(this.radius));
-      formData.append("van_fuel_type", this.selectedFuel);
-      formData.append("van_transmission", this.selectedTransmision);
-      formData.append("van_emission_class", this.classEmision);
-      formData.append("van_emissions_sticker", this.stickerEmission);
+      formData.append("id", this.semiTruckId);
+      formData.append("truck_make", this.selectedMark);
+      formData.append("truck_model", this.selectedModel);
+      formData.append("truck_condition", this.selectedCondition);
+      formData.append("truck_category", this.selectedCategory);
+      formData.append("truck_video_link", this.linkVideo);
+      formData.append("truck_price", parseInt(this.price));
+      formData.append("truck_price_type", this.activeTab);
+      formData.append("truck_firt_date", this.inputValue);
+      formData.append("truck_firt_date_year", parseInt(this.inputValue));
+      formData.append("truck_kilometre", parseInt(this.inputKilometer));
+      formData.append("truck_power", parseInt(this.power));
+      formData.append("truck_country", this.selectedCountry);
+      formData.append("truck_city_zipcode", this.zipCode);
+      formData.append("truck_radius", parseInt(this.radius));
+      formData.append("truck_fuel_type", this.selectedFuel);
+      formData.append("truck_transmission", this.selectedTransmision);
+      formData.append("truck_emission_class", this.classEmision);
+      formData.append("truck_emissions_sticker", this.stickerEmission);
       formData.append(
         "features",
         this.selectedOthers
       );
-      formData.append("van_air_conditioning", this.selectedConditioning);
-      formData.append("van_axles", parseInt(this.selectedAxles));
-      formData.append("van_wheel_formula", this.selectedWheelFormula);
-      formData.append("van_gvw", parseInt(this.selectedGvw));
-      formData.append("van_hydraulic_installation", this.selectedHydraulic);
-      formData.append("van_trailer_coupling_fix", this.isCheckedTrailerCoupling);
-      formData.append("van_cruise_control", this.selectedCruise);
-      formData.append("van_driving_cab", this.selectedDriving);
-      formData.append("van_vat", this.isCheckedVAT);
-      formData.append("van_discount_offers", this.isCheckedDiscount);
+      formData.append("truck_air_conditioning", this.selectedConditioning);
+      formData.append("truck_axles", parseInt(this.selectedAxles));
+      formData.append("truck_wheel_formula", this.selectedWheelFormula);
+      formData.append("truck_gvw", parseInt(this.selectedGvw));
+      formData.append("truck_hydraulic_installation", this.selectedHydraulic);
+      formData.append("truck_trailer_coupling_fix", this.isCheckedTrailerCoupling);
+      formData.append("truck_cruise_control", this.selectedCruise);
+      formData.append("truck_driving_cab", this.selectedDriving);
+      formData.append("truck_vat", this.isCheckedVAT);
+      formData.append("truck_discount_offers", this.isCheckedDiscount);
       formData.append("interior_features", this.selectedOthers);
-      formData.append("van_exterior_colour", this.selectedExteriorColour);
-      formData.append("van_vendor", this.selectedVendor);
-      formData.append("van_full_service_history", this.isCheckedHistory);
-      formData.append("van_damaged", this.isCheckedDamaged);
-      formData.append("van_municipal", this.isCheckedMunicipal);
-      formData.append("van_new_hu", this.isCheckedEnvironmental);
-      formData.append("van_renting_possible", this.isCheckedRenting);
-      formData.append("van_dealer_rating", 4);
-      formData.append("van_describtion", this.descriptionText);
+      formData.append("truck_exterior_colour", this.selectedExteriorColour);
+      formData.append("truck_vendor", this.selectedVendor);
+      formData.append("truck_full_service_history", this.isCheckedHistory);
+      formData.append("truck_damaged", this.isCheckedDamaged);
+      formData.append("truck_municipal", this.isCheckedMunicipal);
+      formData.append("truck_new_hu", this.isCheckedEnvironmental);
+      formData.append("truck_renting_possible", this.isCheckedRenting);
+      formData.append("truck_dealer_rating", 4);
+      formData.append("truck_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      await http.put("/vans/update", formData).then((response) => {
+      await http.put("/semitrucks/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
 				const store = useTabsStore();
-      store.setActiveTab("tab-7"); 
+      store.setActiveTab("tab-8"); 
      this.$router.push({name: "profile-settings"})
       });
     },
@@ -2406,7 +2406,7 @@ this.descriptionText = this.dataAd.van_describtion
     },
 	async	fetchMarks(){
 		await	http
-      .get("/van/marks")
+      .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -2432,7 +2432,7 @@ this.descriptionText = this.dataAd.van_describtion
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-		this.vanfId = this.$route.params.id;
+		this.semiTruckId = this.$route.params.id;
    this.fetchMarks()
     this.fetchModelYears();
 		this.fetchAdCar()
