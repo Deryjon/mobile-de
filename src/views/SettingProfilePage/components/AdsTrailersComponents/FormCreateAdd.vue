@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+  	<div class="">
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input

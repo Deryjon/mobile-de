@@ -1981,7 +1981,7 @@ export default {
      showTab2() {
       this.activeTab = "sell";
     },
-    addAdVans() {
+    async addAdVans() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -2031,7 +2031,7 @@ export default {
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      http.post("/coaches/add", formData).then((response) => {
+     await http.post("/coaches/add", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
 				// this.handleCancelButtonClick()
@@ -2264,7 +2264,7 @@ export default {
       }
     },
 
-    fetchModels() {
+   async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
@@ -2274,7 +2274,7 @@ export default {
       const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
-      http
+    await  http
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
@@ -2359,6 +2359,21 @@ export default {
         );
       }
     },
+		async fetchCarsMake(){
+			await http
+      .get("/van/marks")
+      .then((response) => {
+        const data = response.data.data;
+        if (data) {
+          this.makes = data;
+        } else {
+          console.error("Некорректный формат ответа API.");
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error.message);
+      });
+		},
     handleCancelButtonClick() {
       // Создаем событие и отправляем его вверх по иерархии
       this.$emit("cancel-create-add");
@@ -2373,19 +2388,7 @@ export default {
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
 
-    http
-      .get("/van/marks")
-      .then((response) => {
-        const data = response.data.data;
-        if (data) {
-          this.makes = data;
-        } else {
-          console.error("Некорректный формат ответа API.");
-        }
-      })
-      .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error.message);
-      });
+    this.fetchCarsMake()
     this.fetchModelYears();
   },
 };
