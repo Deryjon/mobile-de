@@ -1,22 +1,20 @@
-<script></script>
 <template>
-  <!-- <v-container class="max-w-[1120px]">
-    <div class="flex flex-wrap justify-between gap-[20px] mt-[30px]">
-      <div class="card">
+ <v-container class="max-w-[1120px]">
+    <div class="flex flex-wrap justify-between mt-[30px]">
+      <div class="card" v-for="item in newsData">
         <img
-          src="https://newsroom.mobile.de/wp-content/uploads/2023/09/nggallery_import/2_Polizei_Auto-321x176.jpg"
+          :src="item.news_image_url"
           alt="Image 1"
         />
         <h2>25. September 2023</h2>
-        <h3>Schneller inseriert als die Polizei erlaubt: ...</h3>
+        <h3>{{item.news_title}}</h3>
         <p>
-          Kleinmachnow/Berlin, 25. September 2023 – “Police Academy”-Fans
-          aufgepasst: Auf ...
+          {{item.news_desc}}
         </p>
         <button>Weitless</button>
       </div>
 
-      <div class="card">
+      <!-- <div class="card">
         <img
           src="https://newsroom.mobile.de/wp-content/uploads/2023/09/nggallery_import/Mob-Ret_23009_Promi-Autos_neu-321x176.png"
           alt="Image 2"
@@ -28,9 +26,9 @@
           gerne mal vom ...
         </p>
         <button>Weitless</button>
-      </div>
+      </div> -->
 
-      <div class="additional-card">
+      <!-- <div class="additional-card">
         <h1>Meistgelesene Artikel</h1>
         <br />
         <p>
@@ -93,22 +91,32 @@
           <br />
           4.Autobarometer: Mehr Wachstum im Gebrauchtwagenmarkt
         </p>
-      </div>
+      </div> -->
     </div>
-  </v-container> -->
-
-  <div class="container mx-auto grid grid-cols-3 gap-4">
-    <div class="card" v-for="item in data" :key="item.id">
-      <img src="" alt="" class="card__img" />
-      <title class="card__title"></title>
-      <p class="card__text"></p>
-    </div>
-  </div>
-</template>
-<script></script>
-<style scooped></style>
-<!-- <style scoped>
-/* .wrapper .slider-image {
+  </v-container></template>
+<script>
+import http from "../../../axios.config";
+export default {
+  data() {
+    return {
+      newsData: {},
+    };
+  },
+  methods: {
+    async fetchNews() {
+      await http.get("/news/list?limit=9&offset=0&lang=en").then((res) => {
+        this.newsData = res.data.data;
+        console.log(this.newsData);
+      });
+    },
+  },
+  mounted() {
+    this.fetchNews();
+  },
+};
+</script>
+<style scoped>
+ .wrapper .slider-image {
   background: url(https://newsroom.mobile.de/wp-content/uploads/2023/09/nggallery_import/Mob-Ret_23009_Promi-Autos_neu-1024x250.png);
   padding: 20px;
   background-repeat: no-repeat;
@@ -325,5 +333,5 @@
 
 #scrollToTopButton:hover {
   background-color: rgb(187, 183, 183);
-} */
-</style> -->
+}
+</style> 
