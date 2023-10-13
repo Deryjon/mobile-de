@@ -1,6 +1,5 @@
 <template>
   <div class="pl-[20px]">
-    
     <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-x-[100px]">
       <div
@@ -86,11 +85,11 @@
         </label>
       </div>
     </div>
+		<
     <!-- valid -->
     <div
-      class="valid-until mt-[30px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
+      class="valid-until mt-[30px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]"
     >
-      
       <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
         <select
@@ -161,7 +160,7 @@ export default {
       isCheckedParticulate: false,
       isCheckedManual: false,
       isCheckedSemi: false,
-			selectedTransmision: [],
+      selectedTransmision: [],
     };
   },
   watch: {
@@ -202,7 +201,7 @@ export default {
     },
   },
   methods: {
-		toggleShowCheckbox(index, transName) {
+    toggleShowCheckbox(index, transName) {
       const isChecked = !this.selectedTransmision.includes(transName);
       if (isChecked) {
         this.selectedTransmision.push(transName);
@@ -212,8 +211,8 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+      console.log("selectedtranss изменен:", this.selectedTransmision);
+      this.fetchData();
     },
     fetchData() {
       http
