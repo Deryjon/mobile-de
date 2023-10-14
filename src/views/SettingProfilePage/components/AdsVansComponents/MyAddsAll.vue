@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdVans(van.van_id)"
+            @click="editAd(van.van_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg

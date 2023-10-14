@@ -1951,8 +1951,9 @@ export default {
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
-			selectedHydraulic: "",
+			vanId: "",
       options: [],
+
     };
   },
   props: {
@@ -1960,7 +1961,7 @@ export default {
   },
   methods: {
 		async	fetchAdCar(){
-await http.get(`/vans/${this.truckId}`).then((res) => {
+await http.get(`/vans/${this.vanId}`).then((res) => {
 	this.dataAd = res.data.data
 this.linkVideo = this.dataAd.van_video_link
 this.selectedMark = this.dataAd.van_make
@@ -2432,7 +2433,7 @@ this.descriptionText = this.dataAd.van_describtion
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-		this.vanfId = this.$route.params.id;
+		this.vanId = this.$route.params.id;
    this.fetchMarks()
     this.fetchModelYears();
 		this.fetchAdCar()
