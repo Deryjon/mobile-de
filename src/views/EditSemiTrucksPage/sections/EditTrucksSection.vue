@@ -62,7 +62,7 @@
                   :value="make.truck_make_name"
                 >
                   {{ make.truck_make_name }}
-                </option>
+                </option>	
                 <option value="other">other</option>
               </optgroup>
             </select>
@@ -1575,7 +1575,38 @@
             class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
           ></span>
         </div>
-        
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Municipal</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedMunicipal"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedDriving"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
       </div>
     </div>
     </div>
@@ -1656,7 +1687,7 @@
           >
             <input
               type="checkbox"
-              v-model="isCheckedRenting"
+              v-model="isCheckedNon"
               @click="toggleShowCheckboxAds(0)"
             />
             <svg
@@ -1668,12 +1699,12 @@
             >
               <!-- Insert your SVG arrow icon here -->
               <path
-                v-if="isCheckedRenting"
+                v-if="isCheckedNon"
                 fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-           Renting Possible
+            Non-smoker vehicle
           </label>
           <label
             class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -1692,12 +1723,12 @@
             >
               <!-- Insert your SVG arrow icon here -->
               <path
-                v-if="isCheckedTrailerCoupling"
+                v-if="isCheckedTaxi"
                 fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Trailer Coupling
+            Taxi
           </label>
           <label
             class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -1771,6 +1802,61 @@
             </svg>
            HU valid
           </label>
+        </div>
+      </div>
+      <div class="flex items-center gap-[50px]">
+        <div class="relative mt-2 w-[200px]">
+          <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
+          <select
+            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="damageVehicle"
+          >
+            <option value="any" selected>Any</option>
+            <option value="not">Do not show</option>
+            <option value="only">Only show</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="relative mt-2 w-[200px]">
+          <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
+          <select
+            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="approveUsed"
+          >
+            <option value="">Please select</option>
+            <option value="Any">Any approved label</option>
+            <option value="ASTON_MARTIN">Aston Martin Timeless</option>
+            <option value="BMW">BMW Premium Selection</option>
+            <option value="BENTLEY">Certified by Bentley</option>
+            <option value="DS_CERTIFIED">DS Certified</option>
+            <option value="FERRARI">Ferrari Approved</option>
+            <option value="HYUNDAI_PROMISE">Hyundai Promise</option>
+            <option value="JAGUAR">Jaguar APPROVED</option>
+            <option value="KIA_ZERTIFIZIERTE_GEBRAUCHTWAGEN">
+              Kia Zertifizierte Gebrauchtwagen
+            </option>
+            <option value="LANDROVER">Land Rover APPROVED</option>
+            <option value="MASERATI">Maserati Approved</option>
+            <option value="MERCEDES_TRANSPORTER">
+              Mercedes-Benz Junge Sterne Transporter
+            </option>
+            <option value="MINI">MINI Gebrauchtwagen Next</option>
+            <option value="NISSAN">Nissan Intelligent Choice</option>
+            <option value="PORSCHE">Porsche Approved</option>
+            <option value="SEAT">SEAT "Das Weltauto"</option>
+            <option value="LAMBORGHINI">
+              Selezione Lamborghini Certified Pre-Owned
+            </option>
+            <option value="SKODA">ŠKODA Plus</option>
+            <option value="SPOTICAR">SPOTICAR</option>
+            <option value="VW_TRADEPORT">Volkswagen TradePort</option>
+            <option value="VOLVO">VOLVO SELEKT</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+          ></span>
         </div>
       </div>
       <div class="">
@@ -1905,7 +1991,7 @@ export default {
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
       isCheckedTrailerCoupling: false,
-      selectedOthers: [],
+      selectedOthers: ["ABS"],
       isCheckedBeige: false,
       isCheckedBrown: false,
       isCheckedGrey: false,
@@ -1940,6 +2026,7 @@ export default {
       selectedFiles: [],
       userI: "",
       inputVariant: "",
+      truckId: "",
       activeTab: "buy",
       linkVideo: "",
       userPhone: "",
@@ -1960,7 +2047,7 @@ export default {
   },
   methods: {
 		async	fetchAdCar(){
-await http.get(`/trucks/${this.truckId}`).then((res) => {
+await http.get(`/semitruck/${this.truckId}`).then((res) => {
 	this.dataAd = res.data.data
 this.linkVideo = this.dataAd.truck_video_link
 this.selectedMark = this.dataAd.truck_make
@@ -1983,7 +2070,7 @@ this.selectedTransmision = this.dataAd.truck_transmission
 this.selectedExteriorColour = this.dataAd.truck_exterior_colour
 this.selectedCruise = this.dataAd.truck_cruise_control
 this.selectedTrailer = this.dataAd.truck_trailer_coupling
-this.selectedOthers = this.dataAd.features
+this.selectedOthers = this.dataAd.interior_features
  this.stickerEmission = this.dataAd.truck_emissions_sticker
 this.classEmision = this.dataAd.truck_emission_class
 this.selectedGvw = this.dataAd.truck_gvw
@@ -1991,7 +2078,7 @@ this.selectedLength = this.dataAd.truck_length
 this.selectedWheelFormula = this.dataAd.truck_wheel_formula
 this.selectedHydraulic = this.dataAd.truck_hydraulic_installation
 this.selectedAxles = this.dataAd.truck_axles
-this.selectedDriving = this.dataAd.truck_radio
+this.selectedDriving = this.dataAd.truck_driving_cab
 this.selectedParking = this.dataAd.truck_parking_sensors
 this.selectedInteriorColour = this.dataAd.truck_interior_colour
 this.selectedVendor = this.dataAd.truck_vendor
@@ -2027,7 +2114,7 @@ this.descriptionText = this.dataAd.truck_describtion
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("id", this.semiTruckId);
+      formData.append("truck_id", this.truckId);
       formData.append("truck_make", this.selectedMark);
       formData.append("truck_model", this.selectedModel);
       formData.append("truck_condition", this.selectedCondition);
@@ -2076,12 +2163,12 @@ this.descriptionText = this.dataAd.truck_describtion
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      await http.put("/semitrucks/update", formData).then((response) => {
+      await http.put("/semitruck/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				const store = useTabsStore();
-      store.setActiveTab("tab-8"); 
-     this.$router.push({name: "profile-settings"})
+			// 	const store = useTabsStore();
+      // store.setActiveTab("tab-9"); 
+    //  this.$router.push({name: "profile-settings"})
       });
     },
     openFileInput() {
@@ -2432,7 +2519,7 @@ this.descriptionText = this.dataAd.truck_describtion
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-		this.semiTruckId = this.$route.params.id;
+		this.truckId = this.$route.params.id;
    this.fetchMarks()
     this.fetchModelYears();
 		this.fetchAdCar()

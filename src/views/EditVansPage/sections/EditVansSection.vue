@@ -2081,7 +2081,7 @@ this.descriptionText = this.dataAd.van_describtion
 				console.log(response);
         const responseData = response.data.data;
 				const store = useTabsStore();
-      store.setActiveTab("tab-7"); 
+      store.setActiveTab("tab-8"); 
      this.$router.push({name: "profile-settings"})
       });
     },
