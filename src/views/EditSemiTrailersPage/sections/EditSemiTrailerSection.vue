@@ -1561,7 +1561,7 @@ export default {
   },
   methods: {
 		async	fetchAdCar(){
-await http.get(`/semitrailers/${this.trailerkId}`).then((res) => {
+await http.get(`/semitrailer/${this.trailerId}`).then((res) => {
 	this.dataAd = res.data.data
 this.linkVideo = this.dataAd.trailer_video_link
 this.selectedMark = this.dataAd.trailer_make
@@ -1628,7 +1628,7 @@ this.descriptionText = this.dataAd.trailer_describtion
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("id", this.trailerkId);
+      formData.append("id", this.trailerId);
       formData.append("trailer_make", this.selectedMark);
       formData.append("trailer_model", this.selectedModel);
       formData.append("trailer_condition", this.selectedCondition);
@@ -1643,8 +1643,12 @@ this.descriptionText = this.dataAd.trailer_describtion
       formData.append("trailer_radius", parseInt(this.radius));
       formData.append("trailer_load_capacity", parseInt(this.cubic));
       formData.append(
-        "features",
-        this.selectedOthers
+        "trailer_features",
+        this.extras
+      );
+      formData.append(
+        "security",
+        this.extras
       );
       formData.append("trailer_axles", parseInt(this.selectedAxles));
       formData.append("trailer_gvw", parseInt(this.selectedGvw));
@@ -1652,7 +1656,6 @@ this.descriptionText = this.dataAd.trailer_describtion
       formData.append("trailer_discount_offers", this.isCheckedDiscount);
       formData.append("trailer_vendor", this.selectedVendor);
       formData.append("trailer_full_service_history", this.isCheckedHistory);
-      formData.append("trailer_damaged", this.isCheckedDamaged);
       formData.append("trailer_municipal", this.isCheckedMunicipal);
       formData.append("trailer_new_hu", this.isCheckedEnvironmental);
       formData.append("trailer_renting_possible", this.isCheckedRenting);
@@ -1664,7 +1667,7 @@ this.descriptionText = this.dataAd.trailer_describtion
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-      await http.put("/semitrailers/update", formData).then((response) => {
+      await http.put("/semitrailer/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
 				const store = useTabsStore();
@@ -1867,17 +1870,22 @@ this.descriptionText = this.dataAd.trailer_describtion
         }
       }
     },
-    toggleShowCheckboxOthers(index, otherName) {
-      const isChecked = !this.selectedOthers.includes(otherName);
-      if (isChecked) {
-        this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
-      } else {
-        const carIndex = this.selectedOthers.indexOf(otherName);
-        if (carIndex !== -1) {
-          this.selectedOthers.splice(carIndex, 1); // Удаляем otherName из массива
-        }
-      }
-    },
+		toggleShowCheckboxOthers(index, otherName) {
+  const isChecked = !this.selectedOthers.includes(otherName);
+
+  if (isChecked) {
+    this.selectedOthers.push(otherName); // Добавляем otherName в массив, если он не выбран
+  } else {
+    const otherIndex = this.selectedOthers.indexOf(otherName);
+
+    if (otherIndex !== -1) {
+      this.selectedOthers.splice(otherIndex, 1); // Удаляем otherName из массива, если он уже выбран
+    }
+  }
+
+  console.log(this.selectedOthers);
+}
+,
     openSeatsDropdown() {
       this.seatsOpen = true;
       document.addEventListener("click", this.closeSeatsDropdownOnClickOutside);
@@ -2020,7 +2028,7 @@ this.descriptionText = this.dataAd.trailer_describtion
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-		this.trailerkId = this.$route.params.id;
+		this.trailerId = this.$route.params.id;
    this.fetchMarks()
     this.fetchModelYears();
 		this.fetchAdCar()
