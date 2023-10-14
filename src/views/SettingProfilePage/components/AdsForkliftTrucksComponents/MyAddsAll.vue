@@ -115,7 +115,7 @@ export default {
       });
     },
     editAdforklift(forkliftId) {
-      this.$router.push({ name: "edit-ad", params: { id: forkliftId } });
+      this.$router.push({ name: "edit-ad-forklift", params: { id: forkliftId } });
     },
     deleteAdforklift(forkliftId) {
       // Отправляем запрос DELETE на сервер с указанием forkliftId
