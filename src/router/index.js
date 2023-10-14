@@ -27,6 +27,7 @@ import EditTrucksPage from "../views/EditTrucksPage/EditAdTrucksPage.vue"
 import EditAdTrailerPage from "../views/EditTrailersPage/EditAdTrailerPage.vue"
 import EditVansPage from "../views/EditVansPage/EditAdVansPage.vue"
 import EditSemiTrucksPage from "../views/EditSemiTrucksPage/EditAdSemiTrucksPage.vue"
+import EditSemiTrailersPage from "../views/EditSemiTrailersPage/EditAdSemiTrailerPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
@@ -169,6 +170,11 @@ const router = createRouter({
       path: "/edit/ad-semitruck/:id",
       name: "edit-ad-semitruck",
       component: EditSemiTrucksPage,
+    },
+		{
+      path: "/edit/ad-semitrailer/:id",
+      name: "edit-ad-semitrailer",
+      component: EditSemiTrailersPage,
     },
 		{
       path: "/news",
