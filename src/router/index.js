@@ -28,6 +28,7 @@ import EditAdTrailerPage from "../views/EditTrailersPage/EditAdTrailerPage.vue"
 import EditVansPage from "../views/EditVansPage/EditAdVansPage.vue"
 import EditSemiTrucksPage from "../views/EditSemiTrucksPage/EditAdSemiTrucksPage.vue"
 import EditSemiTrailersPage from "../views/EditSemiTrailersPage/EditAdSemiTrailerPage.vue"
+import EditAgriculturalsPage from "../views/EditAgriculturalsPage/EditAdAgriculturalsPage.vue"
 import EditCoachesPage from "../views/EditCoachesPage/EditAdCoachesPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
@@ -181,6 +182,11 @@ const router = createRouter({
       path: "/edit/ad-coache/:id",
       name: "edit-ad-coache",
       component: EditCoachesPage,
+    },
+		{
+      path: "/edit/ad-agricultural/:id",
+      name: "edit-ad-agricultural",
+      component: EditAgriculturalsPage,
     },
 		{
       path: "/news",

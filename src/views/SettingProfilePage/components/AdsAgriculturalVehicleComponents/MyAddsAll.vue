@@ -114,7 +114,7 @@ export default {
       });
     },
     editAdagricultural(agriculturalId) {
-      this.$router.push({ name: "edit-ad", params: { id: agriculturalId } });
+      this.$router.push({ name: "edit-ad-agricultural", params: { id: agriculturalId } });
     },
     deleteAdagricultural(agriculturalId) {
       // Отправляем запрос DELETE на сервер с указанием agriculturalId
