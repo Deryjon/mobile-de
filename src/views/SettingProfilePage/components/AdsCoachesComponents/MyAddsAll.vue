@@ -115,7 +115,7 @@ export default {
       });
     },
     editAdcoach(coachId) {
-      this.$router.push({ name: "edit-ad", params: { id: coachId } });
+      this.$router.push({ name: "edit-ad-coache", params: { id: coachId } });
     },
     deleteAdcoach(coachId) {
       // Отправляем запрос DELETE на сервер с указанием coachId

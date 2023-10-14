@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+ <div class="">
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -536,324 +536,8 @@
     </div>
     <div class="fuel-add">
       <div class="mt-[10px]">
-        <h3 class="text-[16px]">Fuel Type</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
-          <!-- cabrio -->
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Diesel',
-                'bg-orange': selectedFuel === 'Diesel',
-              }"
-              @click="selectFuel('Diesel')"
-            />
-
-            Diesel
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
-                'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
-              }"
-              @click="selectFuel('Hybrid (diesel/electric)')"
-            />
-
-            Hybrid (diesel/electric)
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Natural Gas',
-                'bg-orange': selectedFuel === 'Natural Gas',
-              }"
-              @click="selectFuel('Natural Gas')"
-            />
-
-            Natural Gas
-          </label>
-          <label
-            class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Other',
-                'bg-orange': selectedFuel === 'Other',
-              }"
-              @click="selectFuel('Other')"
-            />
-
-            Other
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Petrol',
-                'bg-orange': selectedFuel === 'Petrol',
-              }"
-              @click="selectFuel('Petrol')"
-            />
-
-            Petrol
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Electric',
-                'bg-orange': selectedFuel === 'Electric',
-              }"
-              @click="selectFuel('Electric')"
-            />
-
-            Electric
-          </label>
-          <!-- estate -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Hydrogen',
-                'bg-orange': selectedFuel === 'Hydrogen',
-              }"
-              @click="selectFuel('Hydrogen')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Hydrogen</span>
-          </label>
-
-          <!-- saloon -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Plug-in hybrid',
-                'bg-orange': selectedFuel === 'Plug-in hybrid',
-              }"
-              @click="selectFuel('Plug-in hybrid')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Plug-in hybrid</span>
-          </label>
-          <!-- small -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Hybrid (petrol/electric)',
-                'bg-orange': selectedFuel === 'Hybrid (petrol/electric)',
-              }"
-              @click="selectFuel('Hybrid (petrol/electric)')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Hybrid (petrol/electric)</span>
-          </label>
-          <!-- sports -->
-          <label
-            class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'LPG',
-                'bg-orange': selectedFuel === 'LPG',
-              }"
-              @click="selectFuel('LPG')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">LPG</span>
-          </label>
-          <!-- off-road -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Ethanol (FFV, E85, etc.)',
-                'bg-orange': selectedFuel === 'Ethanol (FFV, E85, etc.)',
-              }"
-              @click="selectFuel('Ethanol (FFV, E85, etc.)')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Ethanol (FFV, E85, etc.)</span>
-          </label>
-        </div>
-      </div>
-      <div
-        class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[30px]"
-      >
-        <div class="power dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="power"
-              @focus="openPowerDropdown"
-              @input="filterOptions"
-              @blur="openPowerDropdown"
-            />
-
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openPowerDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div>
-          <ul
-            v-if="isOpenPower"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-          >
-            <li @click="selectPower('34')" data-key="34">34</li>
-            <li @click="selectPower('50')" data-key="50">50</li>
-            <li @click="selectPower('60')" data-key="60">60</li>
-            <li @click="selectPower('75')" data-key="75">75</li>
-            <li @click="selectPower('90')" data-key="90">90</li>
-            <li @click="selectPower('101')" data-key="101">101</li>
-            <li @click="selectPower('118')" data-key="118">118</li>
-            <li @click="selectPower('131')" data-key="131">131</li>
-            <li @click="selectPower('150')" data-key="150">150</li>
-            <li @click="selectPower('200')" data-key="200">200</li>
-            <li @click="selectPower('252')" data-key="252">252</li>
-            <li @click="selectPower('303')" data-key="303">303</li>
-            <li @click="selectPower('358')" data-key="358">358</li>
-            <li @click="selectPower('402')" data-key="402">402</li>
-            <li @click="selectPower('454')" data-key="454">454</li>
-          </ul>
-        </div>
-        <label for="condition-any" class="mt-[30px]">
-          <input
-            type="radio"
-            id="condition-any"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Hp',
-              'bg-orange': selectedConditioning === 'Hp',
-            }"
-            @click="selectAirConditioning('Hp')"
-          />
-          <span class="ml-[10px]">Hp</span>
-        </label>
-        <label
-          for="condition-any"
-          @click="selectAirConditioning('kW')"
-          class="mt-[30px]"
-        >
-          <input
-            type="radio"
-            id="condition-any"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'kW',
-              'bg-orange': selectedConditioning === 'kW',
-            }"
-          />
-          <span class="ml-[10px]">kW</span>
-        </label>
-      </div>
-
-      <div class="flex gap-[40px] lg:gap-[100px]">
-        <div
-          class="
-			"
-        >
-          <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-          <label
-            class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[210px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedTransmision"
-              :class="{
-                'bg-transparent':
-                  selectedTransmision !== 'Automatic transmissio',
-                'bg-orange': selectedTransmision === 'Automatic transmissio',
-              }"
-              @click="selectTransmision('Automatic transmissio')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Automatic transmission</span>
-          </label>
-        </div>
-        <div class="mt-[43px] lg:mt-[84px]">
-          <label
-            class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedTransmision"
-              :class="{
-                'bg-transparent': selectedTransmision !== 'Semi-automatic',
-                'bg-orange': selectedTransmision === 'Semi-automatic',
-              }"
-              @click="selectTransmision('Semi-automatic')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Semi-automatic</span>
-          </label>
-        </div>
-        <div class="mt-[43px] lg:mt-[84px]">
-          <label
-            class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedTransmision"
-              :class="{
-                'bg-transparent': selectedTransmision !== 'Manual gearbox',
-                'bg-orange': selectedTransmision === 'Manual gearbox',
-              }"
-              @click="selectTransmision('Manual gearbox')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Manual gearbox </span>
-          </label>
-        </div>
+     
+        
       </div>
 <div class="flex gap-[30px]" >
 	<div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
@@ -1803,10 +1487,10 @@
             Cancel
           </button>
           <button
-            @click="addAdVans"
+            @click="editAddAgricultural"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
-            Create Add
+            Edit Add
           </button>
         </div>
       </div>
@@ -1913,6 +1597,7 @@ export default {
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
+      isCheckedTrailerCoupling: false,
       selectedOthers: [],
       isCheckedBeige: false,
       isCheckedBrown: false,
@@ -1929,9 +1614,7 @@ export default {
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
       selectedAxles: "",
-      numberSeats: "",
       selectedWheelFormula: "",
-      selectedMunicipal: false,
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -1939,6 +1622,9 @@ export default {
       isCheckedAmbient: false,
       isCheckedTyre: false,
       isCheckedInduction: false,
+      isCheckedMunicipal: false,
+      isCheckedRenting: false,
+      isCheckedDamaged: false,
       isCheckedSki: false,
       extras: [],
       others: [],
@@ -1954,17 +1640,64 @@ export default {
       userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
+      selectedMunicipal: false,
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
-			selectedHydraulic: "",
+			fokrliftId: "",
       options: [],
+
     };
   },
   props: {
     createAdd: Boolean, // Определите тип данных в соответствии с вашими требованиями
   },
   methods: {
+		async	fetchAdCar(){
+await http.get(`/forklifts/${this.fokrliftId}`).then((res) => {
+	this.dataAd = res.data.data
+this.linkVideo = this.dataAd.forklift_video_link
+this.selectedMark = this.dataAd.forklift_make
+this.selectedModel = this.dataAd.forklift_model
+this.selectedCategory = this.dataAd.forklift_category
+this.selectedMotorbike = this.dataAd.forklift_type
+this.selectedCondition = this.dataAd.forklift_condition
+this.price = this.dataAd.forklift_price
+this.inputValue = this.dataAd.forklift_construction_year
+this.inputKilometer = this.dataAd.forklift_operating_hours
+this.preOwners = this.dataAd.forklift_number_owners
+this.selectedCountry = this.dataAd.forklift_country
+this.zipCode = this.dataAd.forklift_city_zipcode
+this.radius = this.dataAd.forklift_radius
+this.selectedFuel = this.dataAd.forklift_fuel_type
+this.power = this.dataAd.forklift_power
+this.cubic = this.dataAd.forklift_cubic_capacity
+this.selectedConditioning = this.dataAd.forklift_air_conditioning
+this.selectedTransmision = this.dataAd.forklift_transmission
+this.selectedExteriorColour = this.dataAd.forklift_exterior_colour
+this.selectedCruise = this.dataAd.forklift_cruise_control
+this.selectedTrailer = this.dataAd.forklift_trailer_coupling
+this.selectedOthers = this.dataAd.forkliftres
+ this.stickerEmission = this.dataAd.forklift_emissions_sticker
+this.classEmision = this.dataAd.forklift_emission_class
+this.selectedGvw = this.dataAd.forklift_gvw
+this.selectedLength = this.dataAd.forklift_length
+this.selectedWheelFormula = this.dataAd.forklift_wheel_formula
+this.selectedHydraulic = this.dataAd.forklift_hydraulic_installation
+this.selectedAxles = this.dataAd.forklift_axles
+this.selectedDriving = this.dataAd.forklift_radio
+this.selectedParking = this.dataAd.forklift_parking_sensors
+this.selectedInteriorColour = this.dataAd.forklift_interior_colour
+this.selectedVendor = this.dataAd.forklift_vendor
+this.isCheckedDiscount = this.dataAd.forklift_discount_offers
+this.isCheckedNon = this.dataAd.forklift_non_smoker
+this.isCheckedTaxi = this.dataAd.forklift_taxi
+this.isCheckedVAT = this.dataAd.forklift_vat
+this.isCheckedWarranty = this.dataAd.forklift_warranty
+this.approveUsed = this.dataAd.forklift_programme
+this.descriptionText = this.dataAd.forklift_describtion
+})
+		},
     closeDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".years");
       if (!dropdownElement.contains(event.target)) {
@@ -1981,62 +1714,62 @@ export default {
      showTab2() {
       this.activeTab = "sell";
     },
-    async addAdVans() {
+    async editAddAgricultural() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("coache_make", this.selectedMark);
-      formData.append("coache_model", this.selectedModel);
-      formData.append("coache_condition", this.selectedCondition);
-      formData.append("coache_category", this.selectedCategory);
-      formData.append("coache_video_link", this.linkVideo);
-      formData.append("coache_price", parseInt(this.price));
-      formData.append("coache_price_type", this.activeTab);
-      formData.append("coache_firt_date", this.inputValue);
-      formData.append("coache_firt_date_year", parseInt(this.inputValue));
-      formData.append("coache_kilometre", parseInt(this.inputKilometer));
-      formData.append("coache_power", parseInt(this.power));
-      formData.append("coache_country", this.selectedCountry);
-      formData.append("coache_city_zipcode", this.zipCode);
-      formData.append("coache_radius", parseInt(this.radius));
-      formData.append("coache_fuel_type", this.selectedFuel);
-      formData.append("coache_transmission", this.selectedTransmision);
-      formData.append("coache_emission_class", this.classEmision);
-      formData.append("coache_emissions_sticker", this.stickerEmission);
+      formData.append("id", this.fokrliftId);
+      formData.append("forklift_make", this.selectedMark);
+      formData.append("forklift_model", this.selectedModel);
+      formData.append("forklift_condition", this.selectedCondition);
+      formData.append("forklift_category", this.selectedCategory);
+      formData.append("forklift_video_link", this.linkVideo);
+      formData.append("forklift_price", parseInt(this.price));
+      formData.append("forklift_price_type", this.activeTab);
+      formData.append("forklift_firt_date", this.inputValue);
+      formData.append("forklift_firt_date_year", parseInt(this.inputValue));
+      formData.append("forklift_kilometre", parseInt(this.inputKilometer));
+      formData.append("forklift_power", parseInt(this.power));
+      formData.append("forklift_country", this.selectedCountry);
+      formData.append("forklift_city_zipcode", this.zipCode);
+      formData.append("forklift_radius", parseInt(this.radius));
+      formData.append("forklift_fuel_type", this.selectedFuel);
+      formData.append("forklift_transmission", this.selectedTransmision);
+      formData.append("forklift_emissions_sticker", this.stickerEmission);
       formData.append(
         "features",
         this.selectedOthers
       );
-      formData.append("coache_air_conditioning", this.selectedConditioning);
-      formData.append("coache_number_of_seats", parseInt(this.numberSeats));
-      formData.append("coache_trailer_coupling_fix", false);
-      formData.append("coache_cruise_control", this.selectedCruise);
-      formData.append("coache_vat", this.isCheckedVAT);
-      formData.append("coache_discount_offers", this.isCheckedDiscount);
-      formData.append("interior_features", this.selectedOthers);
-      formData.append("coache_exterior_colour", this.selectedExteriorColour);
-      formData.append("coache_vendor", this.selectedVendor);
-      formData.append("coache_full_service_history", this.isCheckedHistory);
-      formData.append("coache_damaged", false);
-      formData.append("coache_municipal", false);
-      formData.append("coache_new_hu", false);
-      formData.append("coache_renting_possible", false);
-      formData.append("coache_dealer_rating", 4);
+      formData.append("forklift_air_conditioning", this.selectedConditioning);
+      formData.append("forklift_cruise_control", this.selectedCruise);
+      formData.append("forklift_driving_cab", this.selectedDriving);
+      formData.append("forklift_vat", this.isCheckedVAT);
+      formData.append("forklift_discount_offers", this.isCheckedDiscount);
+      formData.append("forklifterior_features", this.selectedOthers);
+      formData.append("forklift_exterior_colour", this.selectedExteriorColour);
+      formData.append("forklift_vendor", this.selectedVendor);
+      formData.append("forklift_full_service_history", this.isCheckedHistory);
+      formData.append("forklift_damaged", this.isCheckedDamaged);
+      formData.append("forklift_municipal", this.isCheckedMunicipal);
+      formData.append("forklift_new_hu", this.isCheckedEnvironmental);
+      formData.append("forklift_renting_possible", this.isCheckedRenting);
+      formData.append("forklift_dealer_rating", 4);
+      formData.append("forklift_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-     await http.post("/coaches/add", formData).then((response) => {
+      await http.put("/forklifts/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
-        console.log(responseData);
+				const store = useTabsStore();
+      store.setActiveTab("tab-14"); 
+     this.$router.push({name: "profile-settings"})
       });
     },
     openFileInput() {
@@ -2264,7 +1997,7 @@ export default {
       }
     },
 
-   async fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
@@ -2274,7 +2007,7 @@ export default {
       const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
-    await  http
+     await http
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
@@ -2359,8 +2092,8 @@ export default {
         );
       }
     },
-		async fetchCarsMake(){
-			await http
+	async	fetchMarks(){
+		await	http
       .get("/van/marks")
       .then((response) => {
         const data = response.data.data;
@@ -2387,9 +2120,10 @@ export default {
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-
-    this.fetchCarsMake()
+		this.fokrliftId = this.$route.params.id;
+   this.fetchMarks()
     this.fetchModelYears();
+		this.fetchAdCar()
   },
 };
 </script>

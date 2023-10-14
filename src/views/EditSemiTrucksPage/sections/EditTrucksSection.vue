@@ -59,10 +59,10 @@
                 <option
                   v-for="make in makes"
                   :key="make"
-                  :value="make.van_make_name"
+                  :value="make.truck_make_name"
                 >
-                  {{ make.van_make_name }}
-                </option>
+                  {{ make.truck_make_name }}
+                </option>	
                 <option value="other">other</option>
               </optgroup>
             </select>
@@ -1493,42 +1493,119 @@
         </div>
       </div>
 			<div class="flex flex-wrap gap-x-[40px]">
-        <div class="seats dropdown-container mt-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="numberSeats"
-              @focus="openSeatsDropdown"
-              @blur="openSeatsDropdown"
-            />
-
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openSeatsDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div>
-          <ul
-            v-if="seatsOpen"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Axles</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedAxles"
           >
-            <ul>
-              <li key="2" @click="selectNumberSeats('2')">2</li>
-              <li key="3" @click="selectNumberSeats('3')">3</li>
-              <li key="4" @click="selectNumberSeats('4')">4</li>
-              <li key="5" @click="selectNumberSeats('5')">5</li>
-              <li key="6" @click="selectNumberSeats('6')">6</li>
-              <li key="7" @click="selectNumberSeats('7')">7</li>
-              <li key="8" @click="selectNumberSeats('8')">8</li>
-              <li key="9" @click="selectNumberSeats('9')">9</li>
-            </ul>
-          </ul>
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <spanw
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></spanw>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">
+            Permissible Gross Vehicle Weight (GVW)
+          </h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedGvw"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Wheel Formula</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedWheelFormula"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Hydraulic Installation</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedHydraulic"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="classEmision"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Municipal</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedMunicipal"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedDriving"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
         </div>
       </div>
     </div>
@@ -1803,10 +1880,10 @@
             Cancel
           </button>
           <button
-            @click="addAdVans"
+            @click="editAddTrucks"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
-            Create Add
+            Edit Add
           </button>
         </div>
       </div>
@@ -1913,7 +1990,8 @@ export default {
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
-      selectedOthers: [],
+      isCheckedTrailerCoupling: false,
+      selectedOthers: ["ABS"],
       isCheckedBeige: false,
       isCheckedBrown: false,
       isCheckedGrey: false,
@@ -1929,9 +2007,7 @@ export default {
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
       selectedAxles: "",
-      numberSeats: "",
       selectedWheelFormula: "",
-      selectedMunicipal: false,
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -1939,6 +2015,9 @@ export default {
       isCheckedAmbient: false,
       isCheckedTyre: false,
       isCheckedInduction: false,
+      isCheckedMunicipal: false,
+      isCheckedRenting: false,
+      isCheckedDamaged: false,
       isCheckedSki: false,
       extras: [],
       others: [],
@@ -1947,6 +2026,7 @@ export default {
       selectedFiles: [],
       userI: "",
       inputVariant: "",
+      truckId: "",
       activeTab: "buy",
       linkVideo: "",
       userPhone: "",
@@ -1954,6 +2034,7 @@ export default {
       userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
+      selectedMunicipal: false,
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
@@ -1965,6 +2046,51 @@ export default {
     createAdd: Boolean, // Определите тип данных в соответствии с вашими требованиями
   },
   methods: {
+		async	fetchAdCar(){
+await http.get(`/semitruck/${this.truckId}`).then((res) => {
+	this.dataAd = res.data.data
+this.linkVideo = this.dataAd.truck_video_link
+this.selectedMark = this.dataAd.truck_make
+this.selectedModel = this.dataAd.truck_model
+this.selectedCategory = this.dataAd.truck_category
+this.selectedMotorbike = this.dataAd.truck_type
+this.selectedCondition = this.dataAd.truck_condition
+this.price = this.dataAd.truck_price
+this.inputValue = this.dataAd.truck_firt_date_year
+this.inputKilometer = this.dataAd.truck_kilometre
+this.preOwners = this.dataAd.truck_number_owners
+this.selectedCountry = this.dataAd.truck_country
+this.zipCode = this.dataAd.truck_city_zipcode
+this.radius = this.dataAd.truck_radius
+this.selectedFuel = this.dataAd.truck_fuel_type
+this.power = this.dataAd.truck_power
+this.cubic = this.dataAd.truck_cubic_capacity
+this.selectedConditioning = this.dataAd.truck_air_conditioning
+this.selectedTransmision = this.dataAd.truck_transmission
+this.selectedExteriorColour = this.dataAd.truck_exterior_colour
+this.selectedCruise = this.dataAd.truck_cruise_control
+this.selectedTrailer = this.dataAd.truck_trailer_coupling
+this.selectedOthers = this.dataAd.interior_features
+ this.stickerEmission = this.dataAd.truck_emissions_sticker
+this.classEmision = this.dataAd.truck_emission_class
+this.selectedGvw = this.dataAd.truck_gvw
+this.selectedLength = this.dataAd.truck_length
+this.selectedWheelFormula = this.dataAd.truck_wheel_formula
+this.selectedHydraulic = this.dataAd.truck_hydraulic_installation
+this.selectedAxles = this.dataAd.truck_axles
+this.selectedDriving = this.dataAd.truck_driving_cab
+this.selectedParking = this.dataAd.truck_parking_sensors
+this.selectedInteriorColour = this.dataAd.truck_interior_colour
+this.selectedVendor = this.dataAd.truck_vendor
+this.isCheckedDiscount = this.dataAd.truck_discount_offers
+this.isCheckedNon = this.dataAd.truck_non_smoker
+this.isCheckedTaxi = this.dataAd.truck_taxi
+this.isCheckedVAT = this.dataAd.truck_vat
+this.isCheckedWarranty = this.dataAd.truck_warranty
+this.approveUsed = this.dataAd.truck_programme
+this.descriptionText = this.dataAd.truck_describtion
+})
+		},
     closeDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".years");
       if (!dropdownElement.contains(event.target)) {
@@ -1981,62 +2107,68 @@ export default {
      showTab2() {
       this.activeTab = "sell";
     },
-    async addAdVans() {
+    async editAddTrucks() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("coache_make", this.selectedMark);
-      formData.append("coache_model", this.selectedModel);
-      formData.append("coache_condition", this.selectedCondition);
-      formData.append("coache_category", this.selectedCategory);
-      formData.append("coache_video_link", this.linkVideo);
-      formData.append("coache_price", parseInt(this.price));
-      formData.append("coache_price_type", this.activeTab);
-      formData.append("coache_firt_date", this.inputValue);
-      formData.append("coache_firt_date_year", parseInt(this.inputValue));
-      formData.append("coache_kilometre", parseInt(this.inputKilometer));
-      formData.append("coache_power", parseInt(this.power));
-      formData.append("coache_country", this.selectedCountry);
-      formData.append("coache_city_zipcode", this.zipCode);
-      formData.append("coache_radius", parseInt(this.radius));
-      formData.append("coache_fuel_type", this.selectedFuel);
-      formData.append("coache_transmission", this.selectedTransmision);
-      formData.append("coache_emission_class", this.classEmision);
-      formData.append("coache_emissions_sticker", this.stickerEmission);
+      formData.append("truck_id", this.truckId);
+      formData.append("truck_make", this.selectedMark);
+      formData.append("truck_model", this.selectedModel);
+      formData.append("truck_condition", this.selectedCondition);
+      formData.append("truck_category", this.selectedCategory);
+      formData.append("truck_video_link", this.linkVideo);
+      formData.append("truck_price", parseInt(this.price));
+      formData.append("truck_price_type", this.activeTab);
+      formData.append("truck_firt_date", this.inputValue);
+      formData.append("truck_firt_date_year", parseInt(this.inputValue));
+      formData.append("truck_kilometre", parseInt(this.inputKilometer));
+      formData.append("truck_power", parseInt(this.power));
+      formData.append("truck_country", this.selectedCountry);
+      formData.append("truck_city_zipcode", this.zipCode);
+      formData.append("truck_radius", parseInt(this.radius));
+      formData.append("truck_fuel_type", this.selectedFuel);
+      formData.append("truck_transmission", this.selectedTransmision);
+      formData.append("truck_emission_class", this.classEmision);
+      formData.append("truck_emissions_sticker", this.stickerEmission);
       formData.append(
         "features",
         this.selectedOthers
       );
-      formData.append("coache_air_conditioning", this.selectedConditioning);
-      formData.append("coache_number_of_seats", parseInt(this.numberSeats));
-      formData.append("coache_trailer_coupling_fix", false);
-      formData.append("coache_cruise_control", this.selectedCruise);
-      formData.append("coache_vat", this.isCheckedVAT);
-      formData.append("coache_discount_offers", this.isCheckedDiscount);
+      formData.append("truck_air_conditioning", this.selectedConditioning);
+      formData.append("truck_axles", parseInt(this.selectedAxles));
+      formData.append("truck_wheel_formula", this.selectedWheelFormula);
+      formData.append("truck_gvw", parseInt(this.selectedGvw));
+      formData.append("truck_hydraulic_installation", this.selectedHydraulic);
+      formData.append("truck_trailer_coupling_fix", this.isCheckedTrailerCoupling);
+      formData.append("truck_cruise_control", this.selectedCruise);
+      formData.append("truck_driving_cab", this.selectedDriving);
+      formData.append("truck_vat", this.isCheckedVAT);
+      formData.append("truck_discount_offers", this.isCheckedDiscount);
       formData.append("interior_features", this.selectedOthers);
-      formData.append("coache_exterior_colour", this.selectedExteriorColour);
-      formData.append("coache_vendor", this.selectedVendor);
-      formData.append("coache_full_service_history", this.isCheckedHistory);
-      formData.append("coache_damaged", false);
-      formData.append("coache_municipal", false);
-      formData.append("coache_new_hu", false);
-      formData.append("coache_renting_possible", false);
-      formData.append("coache_dealer_rating", 4);
+      formData.append("truck_exterior_colour", this.selectedExteriorColour);
+      formData.append("truck_vendor", this.selectedVendor);
+      formData.append("truck_full_service_history", this.isCheckedHistory);
+      formData.append("truck_damaged", this.isCheckedDamaged);
+      formData.append("truck_municipal", this.isCheckedMunicipal);
+      formData.append("truck_new_hu", this.isCheckedEnvironmental);
+      formData.append("truck_renting_possible", this.isCheckedRenting);
+      formData.append("truck_dealer_rating", 4);
+      formData.append("truck_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-     await http.post("/coaches/add", formData).then((response) => {
+      await http.put("/semitruck/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
-        console.log(responseData);
+			// 	const store = useTabsStore();
+      // store.setActiveTab("tab-9"); 
+    //  this.$router.push({name: "profile-settings"})
       });
     },
     openFileInput() {
@@ -2264,7 +2396,7 @@ export default {
       }
     },
 
-   async fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
@@ -2274,7 +2406,7 @@ export default {
       const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
-    await  http
+     await http
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
@@ -2359,9 +2491,9 @@ export default {
         );
       }
     },
-		async fetchCarsMake(){
-			await http
-      .get("/van/marks")
+	async	fetchMarks(){
+		await	http
+      .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -2387,9 +2519,10 @@ export default {
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-
-    this.fetchCarsMake()
+		this.truckId = this.$route.params.id;
+   this.fetchMarks()
     this.fetchModelYears();
+		this.fetchAdCar()
   },
 };
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="">
+ <div class="">
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -59,9 +59,9 @@
                 <option
                   v-for="make in makes"
                   :key="make"
-                  :value="make.van_make_name"
+                  :value="make.trailer_make_name"
                 >
-                  {{ make.van_make_name }}
+                  {{ make.trailer_make_name }}
                 </option>
                 <option value="other">other</option>
               </optgroup>
@@ -80,34 +80,69 @@
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             :disabled="isModelSelectDisabled"
             v-model="selectedModel"
-						type="text"
+            type="text"
           />
-        
-       
-         
         </div>
-        <div class="relative">
-          <h2 class="text-sm lg:text-[14px] mt-2">
-            Category
-          </h2>
+				<div class="mark w-[200px]">
+        <div class="relative mt-2">
+          <h2 class="text-sm lg:text-[14px]">Category</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCategory"
-						type="text"
+            @change="fetchModels()"
           >
-					<option value="" data-track-as="any">Any</option><option value="BeveragesTruck">Beverage</option><option value="BoxTruck">Box</option><option value="BreakdownTruck">Breakdown truck</option><option value="CarCarrierTruck">Car carrier</option><option value="CementMixerTruck">Cement mixer</option><option value="ChassisTruck">Chassis</option><option value="ConcretePump">Concrete Pump</option><option value="DumperTruck">Dumper truck</option><option value="MilkTankTruck">Food Carrier</option><option value="GrainTruck">Grain Truck</option><option value="HorsesTruck">Horses</option><option value="HydraulicWorkPlatformTruck">Hydraulic work platform</option><option value="JumboTruck">Jumbo Truck</option><option value="SkipLorryTruck">Mining truck</option><option value="RefrigeratorBodyTruck">Refrigerator body</option><option value="RefuseTruck">Refuse truck</option><option value="RollOffTipperTruck">Roll-off tipper</option><option value="StakeBodyTruck">Stake body</option><option value="StakeBodyAndTarpaulinTruck">Stake body and tarpaulin</option><option value="SwapChassisTruck">Swap chassis</option><option value="SweepingMachineTruck">Sweeping machine</option><option value="TankBodiesTruck">Tank truck</option><option value="Over7500_ThreeSidedTipper">Three-sided Tipper</option><option value="TimberCarrierTruck">Timber carrier</option><option value="TipperTruck">Tipper</option><option value="TrafficConstructionTruck">Traffic construction</option><option value="TruckMountedCraneTruck">Truck-mounted crane</option><option value="VacuumAndPressureVehicleTruck">Vacuum and pressure vehicle</option><option value="OtherTruckOver7500">Other trucks over 7.5 t</option>
-				</select>
-        
-				<span
-              class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-            ></span>
-         
+            <option value="14600" selected>Beliebig</option>
+            <optgroup>
+              <option value="" data-track-as="any">Any</option>
+              <option value="BeveragesTruck">Beverage</option>
+              <option value="BoxTruck">Box</option>
+              <option value="BreakdownTruck">Breakdown truck</option>
+              <option value="CarCarrierTruck">Car carrier</option>
+              <option value="CementMixerTruck">Cement mixer</option>
+              <option value="ChassisTruck">Chassis</option>
+              <option value="ConcretePump">Concrete Pump</option>
+              <option value="DumperTruck">Dumper truck</option>
+              <option value="MilkTankTruck">Food Carrier</option>
+              <option value="GrainTruck">Grain Truck</option>
+              <option value="HorsesTruck">Horses</option>
+              <option value="HydraulicWorkPlatformTruck">
+                Hydraulic work platform
+              </option>
+              <option value="JumboTruck">Jumbo Truck</option>
+              <option value="SkipLorryTruck">Mining truck</option>
+              <option value="RefrigeratorBodyTruck">Refrigerator body</option>
+              <option value="RefuseTruck">Refuse truck</option>
+              <option value="RollOffTipperTruck">Roll-off tipper</option>
+              <option value="StakeBodyTruck">Stake body</option>
+              <option value="StakeBodyAndTarpaulinTruck">
+                Stake body and tarpaulin
+              </option>
+              <option value="SwapChassisTruck">Swap chassis</option>
+              <option value="SweepingMachineTruck">Sweeping machine</option>
+              <option value="TankBodiesTruck">Tank truck</option>
+              <option value="Over7500_ThreeSidedTipper">
+                Three-sided Tipper
+              </option>
+              <option value="TimberCarrierTruck">Timber carrier</option>
+              <option value="TipperTruck">Tipper</option>
+              <option value="TrafficConstructionTruck">
+                Traffic construction
+              </option>
+              <option value="TruckMountedCraneTruck">
+                Truck-mounted crane
+              </option>
+              <option value="VacuumAndPressureVehicleTruck">
+                Vacuum and pressure vehicle
+              </option>
+              <option value="OtherTruckOver7500">
+                Other trucks over 7.5 t
+              </option>
+            </optgroup>
+          </select>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
       </div>
-		
-  <div class="tab-content">
-    <div class="tab-1"></div>
-  </div>
+      </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
         <div
@@ -151,8 +186,8 @@
             <span class="ml-[10px] text-[14px]">Used</span>
           </label>
         </div>
-        </div>
-        
+      </div>
+
       <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
@@ -400,11 +435,6 @@
         </div>
       </div>
       <div
-        class="valid-until mt-[10px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]"
-      >
-       
-      </div>
-      <div
         class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]"
       >
         <div class="relative mt-2">
@@ -534,593 +564,73 @@
         </div>
       </div>
     </div>
-    <div class="fuel-add">
-      <div class="mt-[10px]">
-        <h3 class="text-[16px]">Fuel Type</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
-          <!-- cabrio -->
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Diesel',
-                'bg-orange': selectedFuel === 'Diesel',
-              }"
-              @click="selectFuel('Diesel')"
-            />
-
-            Diesel
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
-                'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
-              }"
-              @click="selectFuel('Hybrid (diesel/electric)')"
-            />
-
-            Hybrid (diesel/electric)
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Natural Gas',
-                'bg-orange': selectedFuel === 'Natural Gas',
-              }"
-              @click="selectFuel('Natural Gas')"
-            />
-
-            Natural Gas
-          </label>
-          <label
-            class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Other',
-                'bg-orange': selectedFuel === 'Other',
-              }"
-              @click="selectFuel('Other')"
-            />
-
-            Other
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Petrol',
-                'bg-orange': selectedFuel === 'Petrol',
-              }"
-              @click="selectFuel('Petrol')"
-            />
-
-            Petrol
-          </label>
-          <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Electric',
-                'bg-orange': selectedFuel === 'Electric',
-              }"
-              @click="selectFuel('Electric')"
-            />
-
-            Electric
-          </label>
-          <!-- estate -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Hydrogen',
-                'bg-orange': selectedFuel === 'Hydrogen',
-              }"
-              @click="selectFuel('Hydrogen')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Hydrogen</span>
-          </label>
-
-          <!-- saloon -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Plug-in hybrid',
-                'bg-orange': selectedFuel === 'Plug-in hybrid',
-              }"
-              @click="selectFuel('Plug-in hybrid')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Plug-in hybrid</span>
-          </label>
-          <!-- small -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Hybrid (petrol/electric)',
-                'bg-orange': selectedFuel === 'Hybrid (petrol/electric)',
-              }"
-              @click="selectFuel('Hybrid (petrol/electric)')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Hybrid (petrol/electric)</span>
-          </label>
-          <!-- sports -->
-          <label
-            class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'LPG',
-                'bg-orange': selectedFuel === 'LPG',
-              }"
-              @click="selectFuel('LPG')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">LPG</span>
-          </label>
-          <!-- off-road -->
-          <label
-            class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedFuel"
-              :class="{
-                'bg-transparent': selectedFuel !== 'Ethanol (FFV, E85, etc.)',
-                'bg-orange': selectedFuel === 'Ethanol (FFV, E85, etc.)',
-              }"
-              @click="selectFuel('Ethanol (FFV, E85, etc.)')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Ethanol (FFV, E85, etc.)</span>
-          </label>
-        </div>
+    <div class="lg:mt-[-10px] xl:mt-[30px]">
+      <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+      <div class="Kaufen_div mt-[10px]">
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab1"
+          :class="{ 'active-Kaufen': activeTab === 'buy' }"
+        >
+          {{ $t("message.btn.buy") }}
+        </button>
+        <button
+          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+          @click="showTab2"
+          :class="{ 'active-Kaufen': activeTab === 'sell' }"
+        >
+          {{ $t("message.btn.sell") }}
+        </button>
       </div>
+    </div>
+    <div class="fuel-add">
       <div
         class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[30px]"
       >
-        <div class="power dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="power"
-              @focus="openPowerDropdown"
-              @input="filterOptions"
-              @blur="openPowerDropdown"
-            />
+        <div class="">
+          <h2 class="text-sm lg:text-[14px] mt-2">Load capacity</h2>
+          <div class="cubic dropdown-container ">
+            <div class="input-container flex relative mt-[10px]">
+              <input
+                type="from"
+                class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                placeholder="from"
+                v-model="cubic"
+                @focus="openCubicDropdown"
+                @input="filterOptions"
+                @blur="openCubicDropdown"
+              />
 
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openPowerDropdown"
+              <div
+                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+                @click="openCubicDropdown"
+              >
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+                ></span>
+              </div>
+            </div>	
+            <ul
+              v-if="isOpenCubic"
+              class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
             >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
+              <li @click="selectCubic('any')" data-key="">Any</li>
+              <li @click="selectCubic('1000')" data-key="1000">1,000 cm³</li>
+              <li @click="selectCubic('1200')" data-key="1200">1,200 cm³</li>
+              <li @click="selectCubic('1400')" data-key="1400">1,400 cm³</li>
+              <li @click="selectCubic('1600')" data-key="1600">1,600 cm³</li>
+              <li @click="selectCubic('1800')" data-key="1800">1,800 cm³</li>
+              <li @click="selectCubic('2000')" data-key="2000">2,000 cm³</li>
+              <li @click="selectCubic('2600')" data-key="2600">2,600 cm³</li>
+              <li @click="selectCubic('3000')" data-key="3000">3,000 cm³</li>
+              <li @click="selectCubic('5000')" data-key="5000">5,000 cm³</li>
+              <li @click="selectCubic('7500')" data-key="7500">7,500 cm³</li>
+              <li @click="selectCubic('8000')" data-key="8000">8,000 cm³</li>
+              <li @click="selectCubic('9000')" data-key="9000">9,000 cm³</li>
+            </ul>
           </div>
-          <ul
-            v-if="isOpenPower"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-          >
-            <li @click="selectPower('34')" data-key="34">34</li>
-            <li @click="selectPower('50')" data-key="50">50</li>
-            <li @click="selectPower('60')" data-key="60">60</li>
-            <li @click="selectPower('75')" data-key="75">75</li>
-            <li @click="selectPower('90')" data-key="90">90</li>
-            <li @click="selectPower('101')" data-key="101">101</li>
-            <li @click="selectPower('118')" data-key="118">118</li>
-            <li @click="selectPower('131')" data-key="131">131</li>
-            <li @click="selectPower('150')" data-key="150">150</li>
-            <li @click="selectPower('200')" data-key="200">200</li>
-            <li @click="selectPower('252')" data-key="252">252</li>
-            <li @click="selectPower('303')" data-key="303">303</li>
-            <li @click="selectPower('358')" data-key="358">358</li>
-            <li @click="selectPower('402')" data-key="402">402</li>
-            <li @click="selectPower('454')" data-key="454">454</li>
-          </ul>
-        </div>
-        <label for="condition-any" class="mt-[30px]">
-          <input
-            type="radio"
-            id="condition-any"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Hp',
-              'bg-orange': selectedConditioning === 'Hp',
-            }"
-            @click="selectAirConditioning('Hp')"
-          />
-          <span class="ml-[10px]">Hp</span>
-        </label>
-        <label
-          for="condition-any"
-          @click="selectAirConditioning('kW')"
-          class="mt-[30px]"
-        >
-          <input
-            type="radio"
-            id="condition-any"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'kW',
-              'bg-orange': selectedConditioning === 'kW',
-            }"
-          />
-          <span class="ml-[10px]">kW</span>
-        </label>
-      </div>
-
-      <div class="flex gap-[40px] lg:gap-[100px]">
-        <div
-          class="
-			"
-        >
-          <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-          <label
-            class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[210px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedTransmision"
-              :class="{
-                'bg-transparent':
-                  selectedTransmision !== 'Automatic transmissio',
-                'bg-orange': selectedTransmision === 'Automatic transmissio',
-              }"
-              @click="selectTransmision('Automatic transmissio')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Automatic transmission</span>
-          </label>
-        </div>
-        <div class="mt-[43px] lg:mt-[84px]">
-          <label
-            class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedTransmision"
-              :class="{
-                'bg-transparent': selectedTransmision !== 'Semi-automatic',
-                'bg-orange': selectedTransmision === 'Semi-automatic',
-              }"
-              @click="selectTransmision('Semi-automatic')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Semi-automatic</span>
-          </label>
-        </div>
-        <div class="mt-[43px] lg:mt-[84px]">
-          <label
-            class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]"
-          >
-            <input
-              type="radio"
-              v-model="selectedTransmision"
-              :class="{
-                'bg-transparent': selectedTransmision !== 'Manual gearbox',
-                'bg-orange': selectedTransmision === 'Manual gearbox',
-              }"
-              @click="selectTransmision('Manual gearbox')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Manual gearbox </span>
-          </label>
         </div>
       </div>
-<div class="flex gap-[30px]" >
-	<div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="stickerEmission"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="classEmision"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-</div>
-			<div class="mt-[30px]">
-        <h3 class="text-[16px]">Exterior Colour</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
-          
-          <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Beige',
-                'bg-orange': selectedExteriorColour === 'Beige',
-              }"
-              @click="selectExteriorColour('Beige')"
-            />
-
-            Beige
-          </label>
-          <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Brown',
-                'bg-orange': selectedExteriorColour === 'Brown',
-              }"
-              @click="selectExteriorColour('Brown')"
-            />
-
-            Brown
-          </label>
-          <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Gold',
-                'bg-orange': selectedExteriorColour === 'Gold',
-              }"
-              @click="selectExteriorColour('Gold')"
-            />
-
-            Gold
-          </label>
-          <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Green',
-                'bg-orange': selectedExteriorColour === 'Green',
-              }"
-              @click="selectExteriorColour('Green')"
-            />
-
-            Green
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Red',
-                'bg-orange': selectedExteriorColour === 'Red',
-              }"
-              @click="selectExteriorColour('Red')"
-            />
-
-            Red
-          </label>
-          <label
-            class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Silver',
-                'bg-orange': selectedExteriorColour === 'Silver',
-              }"
-              @click="selectExteriorColour('Silver')"
-            />
-
-            Silver
-          </label>
-          <label
-            class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4 p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'White',
-                'bg-orange': selectedExteriorColour === 'White',
-              }"
-              @click="selectExteriorColour('White')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">White</span>
-          </label> 
-          <label
-            class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4 p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Blue',
-                'bg-orange': selectedExteriorColour === 'Blue',
-              }"
-              @click="selectExteriorColour('Blue')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Blue</span>
-          </label>
-         
-          <label
-            class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Yellow',
-                'bg-orange': selectedExteriorColour === 'Yellow',
-              }"
-              @click="selectExteriorColour('Yellow')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Yellow</span>
-          </label>
-     
-          <label
-            class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Grey',
-                'bg-orange': selectedExteriorColour === 'Grey',
-              }"
-              @click="selectExteriorColour('Grey')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-[14px]">Grey</span>
-          </label>
-       
-          <label
-            class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Orange',
-                'bg-orange': selectedExteriorColour === 'Orange',
-              }"
-              @click="selectExteriorColour('Orange')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Orange</span>
-          </label>
-          
-          <label
-            class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Black',
-                'bg-orange': selectedExteriorColour === 'Black',
-              }"
-              @click="selectExteriorColour('Black')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Black</span>
-          </label>
-          
-          <label
-            class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Purple',
-                'bg-orange': selectedExteriorColour === 'Purple',
-              }"
-              @click="selectExteriorColour('Purple')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Purple</span>
-          </label>
-          
-          <label
-            class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
-          >
-            <input
-              type="radio"
-              v-model="selectedExteriorColour"
-              :class="{
-                'bg-transparent': selectedExteriorColour !== 'Metallic',
-                'bg-orange': selectedExteriorColour === 'Metallic',
-              }"
-              @click="selectExteriorColour('Metallic')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
-            />
-
-            <span class="text-sm">Metallic</span>
-          </label>
-        </div>
-      </div>
-      
-      
       <div class="mt-[30px]">
         <h3>Features</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
@@ -1319,219 +829,326 @@
           </label>
         </div>
       </div>
-			<div class="condition mt-[40px]">
-      <h3 class="text-[16px]">Air conditioning</h3>
+			<div class="mt-[10px]">
+      <h3 class="text-[16px]">Extras</h3>
       <div
-        class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]"
+        class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]"
       >
-        <label class="w-[250px]" for="manual">
-          <input
-            type="radio"
-            id="manual"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Manual',
-              'bg-orange': selectedConditioning === 'Manual',
-            }"
-            @click="selectAirConditioning('Manual')"
-          />
-          <span class="ml-[10px] text-[14px]"
-            >Manual or automatic climatisation
-          </span>
-        </label>
+        <!-- cabrio -->
         <label
-          class="w-[250px]"
-          for="auto-climat"
-         
+          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
         >
           <input
-            type="radio"
-            id="auto-climat"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat',
-              'bg-orange': selectedConditioning === 'Auto-Climat',
-            }"
-						 @click="selectAirConditioning('Auto-Climat')"
+            type="checkbox"
+            v-model="isCheckedAlarmSystem"
+            @click="toggleShowCheckboxExtras(0, 'Alarm System')"
           />
-          <span class="ml-[10px] text-[14px]"
-            >Automatic climatisation, 2 zones
-          </span>
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedAlarmSystem"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Alarm System
         </label>
-
         <label
-          class="w-[250px]"
-          for="auto2"
-          
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
         >
           <input
-            type="radio"
-            id="auto2"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat2',
-              'bg-orange': selectedConditioning === 'Auto-Climat2',
-            }"
-						@click="selectAirConditioning('Auto-Climat2')"
+            type="checkbox"
+            v-model="isCheckedDisable"
+            @click="toggleShowCheckboxExtras(1, 'Disabled accessible')"
           />
-          <span class="ml-[10px] text-[14px]"
-            >Automatic climatisation, 4 zones</span
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
           >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedDisable"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Disabled accessible
         </label>
-        <label class="w-[200px]" >
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
           <input
-            type="radio"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'NoClimat',
-              'bg-orange': selectedConditioning === 'NoClimat',
-            }"
-						@click="selectAirConditioning('NoClimat')"
+            type="checkbox"
+            v-model="isCheckedHeated"
+            @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
           />
-          <span class="ml-[10px] text-[14px]">No climatisation</span>
-        </label>
-        <label class="w-[200px]" >
-          <input
-            type="radio"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'AutoClimat',
-              'bg-orange': selectedConditioning === 'AutoClimat',
-            }"
-						@click="selectAirConditioning('AutoClimat')"
-          />
-          <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
-        </label>
-        <label class="w-[250px]" >
-          <input
-            type="radio"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat3',
-              'bg-orange': selectedConditioning === 'Auto-Climat3',
-            }"
-						@click="selectAirConditioning('Auto-Climat3')"
-          />
-          <span class="ml-[10px] text-[14px]"
-            >Automatic climatisation, 3 zones
-          </span>
-        </label>
-      </div>
-			<div class="text-[16px] condition mt-[20px]">
-        <h3>Trailer coupling</h3>
-        <div class="text-[14px] radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedTrailer"
-              :class="{
-                'bg-transparent': selectedTrailer !== 'Fix',
-                'bg-orange': selectedTrailer === 'Fix',
-              }"
-              @click="selectTrailer('Fix')"
-            />
-            <span class="ml-[10px]">Fix, detachable or swiveling</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedTrailer"
-              :class="{
-                'bg-transparent': selectedTrailer !== 'Detachable',
-                'bg-orange': selectedTrailer === 'Detachable',
-              }"
-              @click="selectTrailer('Detachable')"
-            />
-            <span class="ml-[10px]">Detachable or swiveling </span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedTrailer"
-              :class="{
-                'bg-transparent': selectedTrailer !== 'Swiveling',
-                'bg-orange': selectedTrailer === 'Swiveling',
-              }"
-              @click="selectTrailer('Swiveling')"
-            />
-            <span class="ml-[10px]">Swiveling</span>
-          </label>
-        </div>
-      </div>
-			<div class="condition mt-[20px]">
-        <h3 class="text-[16px]">Cruise control</h3>
-        <div class="text-[14px] radios-type flex gap-[30px] mt-[10px]">
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedCruise"
-              :class="{
-                'bg-transparent': selectedCruise !== 'Cruise',
-                'bg-orange': selectedCruise === 'Cruise',
-              }"
-              @click="selectCruise('Cruise')"
-            />
-            <span class="ml-[10px]">Cruise control </span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="condition-adap"
-              v-model="selectedCruise"
-              :class="{
-                'bg-transparent': selectedCruise !== 'Adaptive',
-                'bg-orange': selectedCruise === 'Adaptive',
-              }"
-              @click="selectCruise('Adaptive')"
-            />
-            <span class="ml-[10px]">Adaptive Cruise Control</span>
-          </label>
-        </div>
-      </div>
-			<div class="flex flex-wrap gap-x-[40px]">
-        <div class="seats dropdown-container mt-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="numberSeats"
-              @focus="openSeatsDropdown"
-              @blur="openSeatsDropdown"
-            />
-
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openSeatsDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div>
-          <ul
-            v-if="seatsOpen"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
           >
-            <ul>
-              <li key="2" @click="selectNumberSeats('2')">2</li>
-              <li key="3" @click="selectNumberSeats('3')">3</li>
-              <li key="4" @click="selectNumberSeats('4')">4</li>
-              <li key="5" @click="selectNumberSeats('5')">5</li>
-              <li key="6" @click="selectNumberSeats('6')">6</li>
-              <li key="7" @click="selectNumberSeats('7')">7</li>
-              <li key="8" @click="selectNumberSeats('8')">8</li>
-              <li key="9" @click="selectNumberSeats('9')">9</li>
-            </ul>
-          </ul>
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedHeated"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Heated steering whee
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedSeat"
+            @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedSeat"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Seat ventilation
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedAmbient"
+            @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedAmbient"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Ambient lighting
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedElectric"
+            @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedElectric"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Electric backseat adjustment
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedInduction"
+            @click="
+              toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
+            "
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedInduction"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Induction charging for smartphones
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+        >
+          <input
+            type="checkbox"
+            v-model="isCheckedSki"
+            @click="toggleShowCheckboxExtras(7, 'Ski bag')"
+          />
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedSki"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Ski bag
+        </label>
+      </div>
+      </div>
+      
+      <div class="flex flex-wrap gap-x-[40px]">
+        <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">
+            Permissible Gross Vehicle Weight (GVW)
+          </h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedGvw"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Axles</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedAxles"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
         </div>
       </div>
     </div>
+    <div class="mt-[30px]">
+      <h3>Parking sensors</h3>
+      <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+        <!-- cabrio -->
+        <label
+          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Rear')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Rear',
+              'bg-orange': selectedParking === 'Rear',
+            }"
+          />
+
+          Rear
+        </label>
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Front')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Front',
+              'bg-orange': selectedParking === 'Front',
+            }"
+          />
+
+          Front
+        </label>
+        <label
+          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Camera')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Camera',
+              'bg-orange': selectedParking === 'Camera',
+            }"
+          />
+
+          Camera
+        </label>
+        <label
+          class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('360° camera')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== '360° camera',
+              'bg-orange': selectedParking === '360° camera',
+            }"
+          />
+
+          360° camera
+        </label>
+        <label
+          class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
+        >
+          <input
+            @click="selectParking('Self-steering systems')"
+            type="radio"
+            v-model="selectedParking"
+            :class="{
+              'bg-transparent': selectedParking !== 'Self-steering systems',
+              'bg-orange': selectedParking === 'Self-steering systems',
+            }"
+          />
+
+          Self-steering systems
+        </label>
+      </div>
     </div>
     <div class="interior">
       <div class="condition mt-[30px]">
@@ -1723,63 +1340,37 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-           HU valid
+            With environmental bonus
           </label>
         </div>
       </div>
       <div class="flex items-center gap-[50px]">
         <div class="relative mt-2 w-[200px]">
-          <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
-          <select
-            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="damageVehicle"
+          <h2 class="text-[10px] lg:text-[14px]"></h2>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
           >
-            <option value="any" selected>Any</option>
-            <option value="not">Do not show</option>
-            <option value="only">Only show</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="relative mt-2 w-[200px]">
-          <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
-          <select
-            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="approveUsed"
-          >
-            <option value="">Please select</option>
-            <option value="Any">Any approved label</option>
-            <option value="ASTON_MARTIN">Aston Martin Timeless</option>
-            <option value="BMW">BMW Premium Selection</option>
-            <option value="BENTLEY">Certified by Bentley</option>
-            <option value="DS_CERTIFIED">DS Certified</option>
-            <option value="FERRARI">Ferrari Approved</option>
-            <option value="HYUNDAI_PROMISE">Hyundai Promise</option>
-            <option value="JAGUAR">Jaguar APPROVED</option>
-            <option value="KIA_ZERTIFIZIERTE_GEBRAUCHTWAGEN">
-              Kia Zertifizierte Gebrauchtwagen
-            </option>
-            <option value="LANDROVER">Land Rover APPROVED</option>
-            <option value="MASERATI">Maserati Approved</option>
-            <option value="MERCEDES_TRANSPORTER">
-              Mercedes-Benz Junge Sterne Transporter
-            </option>
-            <option value="MINI">MINI Gebrauchtwagen Next</option>
-            <option value="NISSAN">Nissan Intelligent Choice</option>
-            <option value="PORSCHE">Porsche Approved</option>
-            <option value="SEAT">SEAT "Das Weltauto"</option>
-            <option value="LAMBORGHINI">
-              Selezione Lamborghini Certified Pre-Owned
-            </option>
-            <option value="SKODA">ŠKODA Plus</option>
-            <option value="SPOTICAR">SPOTICAR</option>
-            <option value="VW_TRADEPORT">Volkswagen TradePort</option>
-            <option value="VOLVO">VOLVO SELEKT</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
-          ></span>
+            <input
+              type="checkbox"
+              v-model="isCheckedDamaged"
+              @click="toggleShowCheckboxAds(0)"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedDamaged"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+            Damaged Vehicles
+          </label>
         </div>
       </div>
       <div class="">
@@ -1803,10 +1394,11 @@
             Cancel
           </button>
           <button
-            @click="addAdVans"
+            @click="editAddTrailer
+			"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
-            Create Add
+            Edit Add
           </button>
         </div>
       </div>
@@ -1913,6 +1505,7 @@ export default {
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
+      isCheckedTrailerCoupling: false,
       selectedOthers: [],
       isCheckedBeige: false,
       isCheckedBrown: false,
@@ -1929,9 +1522,7 @@ export default {
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
       selectedAxles: "",
-      numberSeats: "",
       selectedWheelFormula: "",
-      selectedMunicipal: false,
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -1939,6 +1530,9 @@ export default {
       isCheckedAmbient: false,
       isCheckedTyre: false,
       isCheckedInduction: false,
+      isCheckedMunicipal: false,
+      isCheckedRenting: false,
+      isCheckedDamaged: false,
       isCheckedSki: false,
       extras: [],
       others: [],
@@ -1954,6 +1548,7 @@ export default {
       userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
+      selectedMunicipal: false,
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
@@ -1965,6 +1560,51 @@ export default {
     createAdd: Boolean, // Определите тип данных в соответствии с вашими требованиями
   },
   methods: {
+		async	fetchAdCar(){
+await http.get(`/semitrailer/${this.trailerId}`).then((res) => {
+	this.dataAd = res.data.data
+this.linkVideo = this.dataAd.trailer_video_link
+this.selectedMark = this.dataAd.trailer_make
+this.selectedModel = this.dataAd.trailer_model
+this.selectedCategory = this.dataAd.trailer_category
+this.selectedMotorbike = this.dataAd.trailer_type
+this.selectedCondition = this.dataAd.trailer_condition
+this.price = this.dataAd.trailer_price
+this.inputValue = this.dataAd.trailer_firt_date_year
+this.inputKilometer = this.dataAd.trailer_kilometre
+this.preOwners = this.dataAd.trailer_number_owners
+this.selectedCountry = this.dataAd.trailer_country
+this.zipCode = this.dataAd.trailer_city_zipcode
+this.radius = this.dataAd.trailer_radius
+this.selectedFuel = this.dataAd.trailer_fuel_type
+this.power = this.dataAd.trailer_power
+this.cubic = this.dataAd.trailer_cubic_capacity
+this.selectedConditioning = this.dataAd.trailer_air_conditioning
+this.selectedTransmision = this.dataAd.trailer_transmission
+this.selectedExteriorColour = this.dataAd.trailer_exterior_colour
+this.selectedCruise = this.dataAd.trailer_cruise_control
+this.selectedTrailer = this.dataAd.trailer_trailer_coupling
+this.selectedOthers = this.dataAd.feailerres
+ this.stickerEmission = this.dataAd.trailer_emissions_sticker
+this.classEmision = this.dataAd.trailer_emission_class
+this.selectedGvw = this.dataAd.trailer_gvw
+this.selectedLength = this.dataAd.trailer_length
+this.selectedWheelFormula = this.dataAd.trailer_wheel_formula
+this.selectedHydraulic = this.dataAd.trailer_hydraulic_installation
+this.selectedAxles = this.dataAd.trailer_axles
+this.cubic = this.dataAd.trailer_load_capacity
+this.selectedParking = this.dataAd.trailer_parking_sensors
+this.selectedInteriorColour = this.dataAd.trailer_interior_colour
+this.selectedVendor = this.dataAd.trailer_vendor
+this.isCheckedDiscount = this.dataAd.trailer_discount_offers
+this.isCheckedNon = this.dataAd.trailer_non_smoker
+this.isCheckedTaxi = this.dataAd.trailer_taxi
+this.isCheckedVAT = this.dataAd.trailer_vat
+this.isCheckedWarranty = this.dataAd.trailer_warranty
+this.approveUsed = this.dataAd.trailer_programme
+this.descriptionText = this.dataAd.trailer_describtion
+})
+		},
     closeDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".years");
       if (!dropdownElement.contains(event.target)) {
@@ -1981,62 +1621,58 @@ export default {
      showTab2() {
       this.activeTab = "sell";
     },
-    async addAdVans() {
+    async editAddTrailer() {
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("coache_make", this.selectedMark);
-      formData.append("coache_model", this.selectedModel);
-      formData.append("coache_condition", this.selectedCondition);
-      formData.append("coache_category", this.selectedCategory);
-      formData.append("coache_video_link", this.linkVideo);
-      formData.append("coache_price", parseInt(this.price));
-      formData.append("coache_price_type", this.activeTab);
-      formData.append("coache_firt_date", this.inputValue);
-      formData.append("coache_firt_date_year", parseInt(this.inputValue));
-      formData.append("coache_kilometre", parseInt(this.inputKilometer));
-      formData.append("coache_power", parseInt(this.power));
-      formData.append("coache_country", this.selectedCountry);
-      formData.append("coache_city_zipcode", this.zipCode);
-      formData.append("coache_radius", parseInt(this.radius));
-      formData.append("coache_fuel_type", this.selectedFuel);
-      formData.append("coache_transmission", this.selectedTransmision);
-      formData.append("coache_emission_class", this.classEmision);
-      formData.append("coache_emissions_sticker", this.stickerEmission);
+      formData.append("id", this.trailerId);
+      formData.append("trailer_make", this.selectedMark);
+      formData.append("trailer_model", this.selectedModel);
+      formData.append("trailer_condition", this.selectedCondition);
+      formData.append("trailer_category", this.selectedCategory);
+      formData.append("trailer_video_link", this.linkVideo);
+      formData.append("trailer_price", parseInt(this.price));
+      formData.append("trailer_price_type", this.activeTab);
+      formData.append("trailer_firt_date", this.inputValue);
+      formData.append("trailer_firt_date_year", parseInt(this.inputValue));
+      formData.append("trailer_country", this.selectedCountry);
+      formData.append("trailer_city_zipcode", this.zipCode);
+      formData.append("trailer_radius", parseInt(this.radius));
+      formData.append("trailer_load_capacity", parseInt(this.cubic));
       formData.append(
-        "features",
-        this.selectedOthers
+        "trailer_features",
+        this.extras
       );
-      formData.append("coache_air_conditioning", this.selectedConditioning);
-      formData.append("coache_number_of_seats", parseInt(this.numberSeats));
-      formData.append("coache_trailer_coupling_fix", false);
-      formData.append("coache_cruise_control", this.selectedCruise);
-      formData.append("coache_vat", this.isCheckedVAT);
-      formData.append("coache_discount_offers", this.isCheckedDiscount);
-      formData.append("interior_features", this.selectedOthers);
-      formData.append("coache_exterior_colour", this.selectedExteriorColour);
-      formData.append("coache_vendor", this.selectedVendor);
-      formData.append("coache_full_service_history", this.isCheckedHistory);
-      formData.append("coache_damaged", false);
-      formData.append("coache_municipal", false);
-      formData.append("coache_new_hu", false);
-      formData.append("coache_renting_possible", false);
-      formData.append("coache_dealer_rating", 4);
+      formData.append(
+        "security",
+        this.extras
+      );
+      formData.append("trailer_axles", parseInt(this.selectedAxles));
+      formData.append("trailer_gvw", parseInt(this.selectedGvw));
+      formData.append("trailer_vat", this.isCheckedVAT);
+      formData.append("trailer_discount_offers", this.isCheckedDiscount);
+      formData.append("trailer_vendor", this.selectedVendor);
+      formData.append("trailer_full_service_history", this.isCheckedHistory);
+      formData.append("trailer_municipal", this.isCheckedMunicipal);
+      formData.append("trailer_new_hu", this.isCheckedEnvironmental);
+      formData.append("trailer_renting_possible", this.isCheckedRenting);
+      formData.append("trailer_dealer_rating", 4);
+      formData.append("trailer_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
         `${this.userCodeNumber}${this.userPre}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
-     await http.post("/coaches/add", formData).then((response) => {
+      await http.put("/semitrailer/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
-        console.log(responseData);
+				const store = useTabsStore();
+      store.setActiveTab("tab-10"); 
+     this.$router.push({name: "profile-settings"})
       });
     },
     openFileInput() {
@@ -2234,17 +1870,22 @@ export default {
         }
       }
     },
-    toggleShowCheckboxOthers(index, otherName) {
-      const isChecked = !this.selectedOthers.includes(otherName);
-      if (isChecked) {
-        this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
-      } else {
-        const carIndex = this.selectedOthers.indexOf(otherName);
-        if (carIndex !== -1) {
-          this.selectedOthers.splice(carIndex, 1); // Удаляем otherName из массива
-        }
-      }
-    },
+		toggleShowCheckboxOthers(index, otherName) {
+  const isChecked = !this.selectedOthers.includes(otherName);
+
+  if (isChecked) {
+    this.selectedOthers.push(otherName); // Добавляем otherName в массив, если он не выбран
+  } else {
+    const otherIndex = this.selectedOthers.indexOf(otherName);
+
+    if (otherIndex !== -1) {
+      this.selectedOthers.splice(otherIndex, 1); // Удаляем otherName из массива, если он уже выбран
+    }
+  }
+
+  console.log(this.selectedOthers);
+}
+,
     openSeatsDropdown() {
       this.seatsOpen = true;
       document.addEventListener("click", this.closeSeatsDropdownOnClickOutside);
@@ -2264,7 +1905,7 @@ export default {
       }
     },
 
-   async fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
@@ -2274,7 +1915,7 @@ export default {
       const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
-    await  http
+     await http
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
@@ -2359,9 +2000,9 @@ export default {
         );
       }
     },
-		async fetchCarsMake(){
-			await http
-      .get("/van/marks")
+	async	fetchMarks(){
+		await	http
+      .get("/trailer/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -2387,9 +2028,10 @@ export default {
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
-
-    this.fetchCarsMake()
+		this.trailerId = this.$route.params.id;
+   this.fetchMarks()
     this.fetchModelYears();
+		this.fetchAdCar()
   },
 };
 </script>

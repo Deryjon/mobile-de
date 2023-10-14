@@ -25,6 +25,13 @@ import EditMotrobikePage from "../views/EditMotorbikeAdPage/EditAdMotorbikePage.
 import EditMotorhomesPage from "../views/EditMotorhomesPage/EditAdMotorhomesPage.vue"
 import EditTrucksPage from "../views/EditTrucksPage/EditAdTrucksPage.vue"
 import EditAdTrailerPage from "../views/EditTrailersPage/EditAdTrailerPage.vue"
+import EditVansPage from "../views/EditVansPage/EditAdVansPage.vue"
+import EditSemiTrucksPage from "../views/EditSemiTrucksPage/EditAdSemiTrucksPage.vue"
+import EditSemiTrailersPage from "../views/EditSemiTrailersPage/EditAdSemiTrailerPage.vue"
+import EditAgriculturalsPage from "../views/EditAgriculturalsPage/EditAdAgriculturalsPage.vue"
+import EditConstructionsPage from "../views/EditConstructionsPage/EditAdConstructionsPage.vue"
+import EditForkliftsPage from "../views/EditForkliftsPage/EditAdForkliftsPage.vue"
+import EditCoachesPage from "../views/EditCoachesPage/EditAdCoachesPage.vue"
 import NewsPage from "../views/NewsPage/NewsPage.vue"
 import ContactPage from "../views/ContactPage/Contact.vue"
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue"
@@ -157,6 +164,41 @@ const router = createRouter({
       path: "/edit/ad-trailers/:id",
       name: "edit-ad-trailers",
       component: EditAdTrailerPage,
+    },
+		{
+      path: "/edit/ad-vans/:id",
+      name: "edit-ad-vans",
+      component: EditVansPage,
+    },
+		{
+      path: "/edit/ad-semitruck/:id",
+      name: "edit-ad-semitruck",
+      component: EditSemiTrucksPage,
+    },
+		{
+      path: "/edit/ad-semitrailer/:id",
+      name: "edit-ad-semitrailer",
+      component: EditSemiTrailersPage,
+    },
+		{
+      path: "/edit/ad-coache/:id",
+      name: "edit-ad-coache",
+      component: EditCoachesPage,
+    },
+		{
+      path: "/edit/ad-agricultural/:id",
+      name: "edit-ad-agricultural",
+      component: EditAgriculturalsPage,
+    },
+		{
+      path: "/edit/ad-construction/:id",
+      name: "edit-ad-construction",
+      component: EditConstructionsPage,
+    },
+		{
+      path: "/edit/ad-forklift/:id",
+      name: "edit-ad-forklift",
+      component: EditForkliftsPage,
     },
 		{
       path: "/news",
