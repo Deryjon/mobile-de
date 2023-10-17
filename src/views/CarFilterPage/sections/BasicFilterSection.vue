@@ -3,7 +3,7 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" @click="goMotorbikeList">
+      <FilterBtn class="ml-auto" @click="goCarList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -22,7 +22,7 @@
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"	
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
@@ -194,6 +194,10 @@ export default {
           this.count = data.count;
         });
     },
+		goCarList(){
+		 	this.$router.push({ name: "car-list" });
+
+		},
     fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
