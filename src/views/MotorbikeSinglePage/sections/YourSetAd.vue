@@ -603,7 +603,7 @@
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
-import { format } from "date-fns";
+// import { format } from "date-fns";
 import http from "../../../axios.config";
 export default {
   data() {
@@ -636,10 +636,10 @@ export default {
       http.get(`/users?id=${this.userI}`).then((res) => {
         this.user = res.data.data;
         this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
-        console.log(this.formattedDate);
-        console.log(this.user);
+        // const date = new Date(this.userCreatedAt);
+        // this.formattedDate = format(date, " MMM d yyyy");
+        // console.log(this.formattedDate);
+        // console.log(this.user);
       });
     },
     goToSinglePageAd() {
