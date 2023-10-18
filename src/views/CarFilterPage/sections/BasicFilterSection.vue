@@ -3,7 +3,7 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" @click="goCarList">
+      <FilterBtn class="ml-auto" @click="goMotorbikeList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -22,7 +22,7 @@
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"	
+                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
@@ -121,6 +121,7 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
+import {useCarStore} from "@/store/carDataStore"
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
@@ -154,35 +155,30 @@ export default {
       carData: localStorage.getItem("carData"),
     };
   },
-	watch: {
-    selectedMark(newValue, oldValue) {
+	watch:{
+		selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
+				this.updateCarData()
         this.fetchData();
-				this.postData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
+        this.updateCarData()
         this.fetchData();
-				this.postData();
       }
     },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData();
-      }
-    },
-  },
+	},
   methods: {
-		postData(){
-			localStorage.setItem('carData', JSON.stringify({
-      car_make: this.selectedMark,
-      car_model: this.selectedModel,
-      car_variant: this.inputVariant,
-      
-    }));
-		},
+		updateCarData() {
+      const carStore = useCarStore();
+      const newCarData = {
+				car_make: this.selectedMark,
+          car_model: this.selectedModel,
+          car_variant: this.inputVariant,
+      };
+      carStore.updateCarData(newCarData);
+    },
     fetchData() {
       http
         .post("/cars/count", {
@@ -194,22 +190,18 @@ export default {
           this.count = data.count;
         });
     },
-		goCarList(){
-		 	this.$router.push({ name: "car-list" });
-
-		},
-    fetchModels() {
+   async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
 
       // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
+      ;
 
       // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
+     await http
+        .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
           // Получаем данные из ответа
           const data = response.data.data;
@@ -306,9 +298,6 @@ export default {
       });
   },
   }
-
-  
-
 </script>
 
 <style scoped>

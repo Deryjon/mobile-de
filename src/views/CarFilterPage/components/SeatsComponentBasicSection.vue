@@ -1,7 +1,7 @@
 <template>
   <div
     class="salon-filter flex flex-wrap gap-x-[20px] lg:gap-x-[60px] items-center pl-[20px] xl:p-[20px]"
-		>
+  >
     <!-- seats -->
     <div class="seats dropdown-container">
       <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
@@ -142,8 +142,8 @@
       <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
       <select
         class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
-      v-model="numDoor"
-				>
+        v-model="numDoor"
+      >
         <option value="">Any</option>
         <option value="2/3">2/3</option>
         <option value="3/5">3/5</option>
@@ -156,18 +156,18 @@
       <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
       <select
         class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
-     v-model="slidingDoor"
-				>
-				<option value="14600">Any</option>
-          <option class="Left">Left side</option>
-          <option class="Right">Right side</option>
+        v-model="slidingDoor"
+      >
+        <option value="14600">Any</option>
+        <option class="Left">Left side</option>
+        <option class="Right">Right side</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>
   </div>
 </template>
 <script>
-import http from '../../../axios.config';
+import http from "../../../axios.config";
 export default {
   data() {
     return {
@@ -175,85 +175,105 @@ export default {
       numberSeatsTo: "",
       seatsOpen: false,
       seatsToOpen: false,
-			numDoor: "",
-			slidingDoor: ""
+      numDoor: "",
+      slidingDoor: "",
     };
   },
-	watch:{
-		numberSeats(newValue, oldValue) {
+  watch: {
+    numberSeats(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.postData()
       }
     },
-		numDoor(newValue, oldValue) {
+    numDoor(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.postData()
       }
     },
-		slidingDoor(newValue, oldValue) {
+    slidingDoor(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.postData();
       }
     },
-	},
+  },
   methods: {
-		fetchData() {
+    fetchData() {
       http
         .get("/cars/count", {
           car_number_seats: this.numberSeats,
           car_number_door: this.numDoor,
           car_silding_door: this.slidingDoor,
-          // car_payment_type: this.activeTab,
-          // car_price_from: this.inputPrice,
-          // car_city_zipcode: this.cityName,
-          // car_condition: this.selectedCondition,
-          // car_condition: this.selectedCondition,
-          // car_silding_door: this.selectedDriving,
         })
         .then((response) => {
           const data = response.data;
           console.log(data);
         });
     },
-		openSeatsDropdown() {
-    this.seatsOpen = true;
-    document.addEventListener('click', this.closeSeatsDropdownOnClickOutside);
-  },
-  closeSeatsDropdownOnClickOutside(event) {
-    const dropdownElement = this.$el.querySelector('.seats');
-    if (!dropdownElement.contains(event.target)) {
+    postData() {
+      const carDataString = localStorage.getItem("carData");
+      const carData = JSON.parse(carDataString);
+      carData.car_number_seats = parseInt(this.numberSeats); 
+      carData.car_number_door = this.numDoor; 
+      carData.car_silding_door = this.slidingDoor; 
+      localStorage.setItem("carData", JSON.stringify(carData));
+    },
+    openSeatsDropdown() {
+      this.seatsOpen = true;
+      document.addEventListener("click", this.closeSeatsDropdownOnClickOutside);
+    },
+    closeSeatsDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".seats");
+      if (!dropdownElement.contains(event.target)) {
+        this.seatsOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeSeatsDropdownOnClickOutside
+        );
+      }
+    },
+    selectNumberSeats(option) {
+      this.numberSeats = option;
       this.seatsOpen = false;
-      document.removeEventListener('click', this.closeSeatsDropdownOnClickOutside);
-    }
-  },
-  selectNumberSeats(option) {
-    this.numberSeats = option;
-    this.seatsOpen = false;
-  },
-  closeSeatsDropdown() {
-    this.seatsOpen = false;
-    document.removeEventListener('click', this.closeSeatsDropdownOnClickOutside);
-  },
-  openSeatsToDropdown() {
-    this.seatsToOpen = true;
-    document.addEventListener('click', this.closeSeatsToDropdownOnClickOutside);
-  },
-  closeSeatsToDropdownOnClickOutside(event) {
-    const dropdownElement = this.$el.querySelector('.seats-to');
-    if (!dropdownElement.contains(event.target)) {
+    },
+    closeSeatsDropdown() {
+      this.seatsOpen = false;
+      document.removeEventListener(
+        "click",
+        this.closeSeatsDropdownOnClickOutside
+      );
+    },
+    openSeatsToDropdown() {
+      this.seatsToOpen = true;
+      document.addEventListener(
+        "click",
+        this.closeSeatsToDropdownOnClickOutside
+      );
+    },
+    closeSeatsToDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".seats-to");
+      if (!dropdownElement.contains(event.target)) {
+        this.seatsToOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeSeatsToDropdownOnClickOutside
+        );
+      }
+    },
+    selectNumberSeatsTo(option) {
+      this.numberSeatsTo = option;
       this.seatsToOpen = false;
-      document.removeEventListener('click', this.closeSeatsToDropdownOnClickOutside);
-    }
+    },
+    closeSeatsToDropdown() {
+      this.seatsToOpen = false;
+      document.removeEventListener(
+        "click",
+        this.closeSeatsToDropdownOnClickOutside
+      );
+    },
   },
-  selectNumberSeatsTo(option) {
-    this.numberSeatsTo = option;
-    this.seatsToOpen = false;
-  },
-  closeSeatsToDropdown() {
-    this.seatsToOpen = false;
-    document.removeEventListener('click', this.closeSeatsToDropdownOnClickOutside);
-  },
-	  },
 };
 </script>
 <style scoped>

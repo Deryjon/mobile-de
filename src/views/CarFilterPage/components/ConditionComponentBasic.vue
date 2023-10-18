@@ -175,30 +175,22 @@ export default {
       isCheckedEmploy: false,
       isCheckedClassic: false,
       isCheckedDemon: false,
-			type: []
+      type: [],
     };
   },
   setup() {},
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        const carDataString = localStorage.getItem("carData");
+        const carData = JSON.parse(carDataString);
+        carData.car_condition = this.selectedCondition;
+        localStorage.setItem("carData", JSON.stringify(carData));
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_condition: this.selectedCondition,
-					type: this.type
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
-    },
-		toggleShowCheckbox(index, typeName) {
+    toggleShowCheckbox(index, typeName) {
       const isChecked = !this.type.includes(typeName);
       if (isChecked) {
         this.type.push(typeName);
@@ -208,8 +200,10 @@ export default {
           this.type.splice(typeIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.type)
-			this.fetchData()
+      const carDataString = localStorage.getItem("carData");
+      const carData = JSON.parse(carDataString);
+      carData.type = this.type;
+      localStorage.setItem("carData", JSON.stringify(carData));
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

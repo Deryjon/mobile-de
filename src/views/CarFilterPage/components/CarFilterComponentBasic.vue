@@ -257,27 +257,8 @@ export default {
           this.selectedCars.splice(carIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedCars)
-			this.fetchData()
+      this.fetchData();
     },
-  },
-  watch: {
-    // selectedCars(new, old) {
-    //   if (new !== old) {
-    //     http
-    //       .get("/cars/count", {
-    //         body: this.selectedCars,
-    //       })
-    //       .then((response) => {
-    //         const data = response.data;
-    //         console.log(data);
-    //       })
-    //       .catch((error) => {
-    //         console.error("Ошибка при выполнении запроса:", error);
-    //       });
-    //     console.log(123);
-    //   }
-    // },
   },
 };
 </script>

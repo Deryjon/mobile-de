@@ -1,38 +1,71 @@
-import { defineStore } from 'pinia';
+import { defineStore } from 'pinia'
 
-export const useTabsStore = defineStore('tabsStore', {
+export const useCarStore = defineStore('car', {
   state: () => ({
-    activeTab: 'tab-2', // Инициализируйте переменную значением по умолчанию
-    carData: [], // Ваши данные о машине
-    filter: {
-      car_make: '',
-      car_model: '',
-      car_condition: '',
-      car_firt_date_year_from: '',
-      car_mileage_from: '',
-      car_payment_type: '',
-      car_price_from: '',
-      car_city_zipcode: '',
-      car_silding_door: '',
-    },
+    carData: {
+			car_make: "",
+			car_mode: "",
+			car_description: "",
+			car_variant: "",
+			body: [],
+			car_number_seats: null,
+			car_number_door: "",
+			car_silding_door: "",
+			car_condition: "",
+			type: "",
+			car_payment_type: "",
+			car_price_from: "",
+			car_price_up_to: "",
+			car_firt_date_year_from: "",
+			car_firt_date_year_up_to: "",
+			car_mileage_from: "",
+			car_mileage_up_to: "",
+			car_hu_valid_until: "",
+			car_previous_owners: "",
+			car_full_service_history: "",
+			car_roadworthy: "",
+			car_country: "",
+			car_city_zipcode: "",
+			car_radius: "",
+			fuel_type: "",
+			car_power_from: "",
+			car_power_up_to: "",
+			car_cubic_capacity_from: "",
+			car_cubic_capacity_to: "",
+			transmission: "",
+			car_fuel_consumption: "",
+			car_emissions_sticker: "",
+			car_emission_class: "",
+			exterior_colour: "",
+			car_trailer_coupling: "",
+			parking_sensors: "",
+			car_cruise_control: "",
+			interior_colour: "",
+			interior_material: "",
+			car_airbags: "",
+			car_air_conditioning: "",
+			extras: "",
+			others: "",
+			car_vendor: "",
+			car_dealer_rating: "",
+			car_discount_offers: "",
+			car_non_smoker: "",
+			car_taxi: "",
+			car_vat: "",
+			car_warranty: "",
+			car_environmental_bonus: "",
+			car_damaged: "",
+			car_commercial: "",
+			car_programme: "",
+			video: "",
+			picture: "",
+			days: "",
+    }
   }),
-
   actions: {
-    setActiveTab(tab) {
-      this.activeTab = tab;
-      console.log(tab);
-    },
-    updateCarData(data) {
-      this.carData = data;
-    },
-    updateFilter(newFilter) {
-      this.filter = { ...this.filter, ...newFilter };
-    },
-  },
-
-  getters: {
-    totalAds() {
-      return this.carData.count;
-    },
-  },
-});
+    updateCarData(newCarData) {
+      this.carData = newCarData;
+			console.log(this.carData);
+    }
+  }
+})
