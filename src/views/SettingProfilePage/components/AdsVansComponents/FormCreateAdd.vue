@@ -1560,38 +1560,6 @@
           ></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="classEmision"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Municipal</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMunicipal"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1656,10 +1624,10 @@
         </div>
       </div>
       <div class="mt-[30px]">
-        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+        <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[10px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
             <input
               type="checkbox"
@@ -1683,7 +1651,7 @@
             Discount offers
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
             <input
               type="checkbox"
@@ -1704,10 +1672,10 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Non-smoker vehicle
+            Municipal
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
             <input
               type="checkbox"
@@ -1728,10 +1696,10 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Taxi
+            Damaged
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
             <input
               type="checkbox"
@@ -1755,7 +1723,7 @@
             VAT reclaimable
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
             <input
               type="checkbox"
@@ -1779,7 +1747,7 @@
             Warranty
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
             <input
               type="checkbox"
@@ -1802,61 +1770,54 @@
             </svg>
            HU valid
           </label>
-        </div>
-      </div>
-      <div class="flex items-center gap-[50px]">
-        <div class="relative mt-2 w-[200px]">
-          <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
-          <select
-            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="damageVehicle"
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
-            <option value="any" selected>Any</option>
-            <option value="not">Do not show</option>
-            <option value="only">Only show</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="relative mt-2 w-[200px]">
-          <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
-          <select
-            class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="approveUsed"
+            <input
+              type="checkbox"
+              v-model="isCheckedRenting"
+              @click="toggleShowCheckboxAds(0)"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedRenting"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+           Renting possible
+          </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[150px] items-center h-[40px] pb-[20px]"
           >
-            <option value="">Please select</option>
-            <option value="Any">Any approved label</option>
-            <option value="ASTON_MARTIN">Aston Martin Timeless</option>
-            <option value="BMW">BMW Premium Selection</option>
-            <option value="BENTLEY">Certified by Bentley</option>
-            <option value="DS_CERTIFIED">DS Certified</option>
-            <option value="FERRARI">Ferrari Approved</option>
-            <option value="HYUNDAI_PROMISE">Hyundai Promise</option>
-            <option value="JAGUAR">Jaguar APPROVED</option>
-            <option value="KIA_ZERTIFIZIERTE_GEBRAUCHTWAGEN">
-              Kia Zertifizierte Gebrauchtwagen
-            </option>
-            <option value="LANDROVER">Land Rover APPROVED</option>
-            <option value="MASERATI">Maserati Approved</option>
-            <option value="MERCEDES_TRANSPORTER">
-              Mercedes-Benz Junge Sterne Transporter
-            </option>
-            <option value="MINI">MINI Gebrauchtwagen Next</option>
-            <option value="NISSAN">Nissan Intelligent Choice</option>
-            <option value="PORSCHE">Porsche Approved</option>
-            <option value="SEAT">SEAT "Das Weltauto"</option>
-            <option value="LAMBORGHINI">
-              Selezione Lamborghini Certified Pre-Owned
-            </option>
-            <option value="SKODA">ŠKODA Plus</option>
-            <option value="SPOTICAR">SPOTICAR</option>
-            <option value="VW_TRADEPORT">Volkswagen TradePort</option>
-            <option value="VOLVO">VOLVO SELEKT</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
-          ></span>
+            <input
+              type="checkbox"
+              v-model="isCheckedCouplingFix"
+              @click="toggleShowCheckboxAds(0)"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedCouplingFix"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+           Coupling Fix
+          </label>
         </div>
       </div>
       <div class="">
@@ -1906,6 +1867,7 @@ export default {
     const isCheckedVAT = ref(false);
     const isCheckedWarranty = ref(false);
     const isCheckedEnvironmental = ref(false);
+    const isCheckedRenting = ref(false);
     const toggleShowCheckboxAds = (index) => {
       for (let i = 0; i < isCheckedAdsImg.length; i++) {
         if (i !== index) {
@@ -1925,6 +1887,7 @@ export default {
       isCheckedWarranty,
       isCheckedEnvironmental,
       toggleShowCheckboxAds,
+			isCheckedRenting
     };
   },
   data() {
@@ -2016,6 +1979,7 @@ export default {
       isCheckedTyre: false,
       isCheckedInduction: false,
       isCheckedSki: false,
+      isCheckedCouplingFix: false,
       extras: [],
       others: [],
       power: [],
@@ -2091,7 +2055,7 @@ export default {
       formData.append("van_wheel_formula", this.selectedWheelFormula);
       formData.append("van_gvw", parseInt(this.selectedGvw));
       formData.append("van_hydraulic_installation", this.selectedHydraulic);
-      formData.append("van_trailer_coupling_fix", false);
+      formData.append("van_trailer_coupling_fix", this.isCheckedCouplingFix);
       formData.append("van_cruise_control", this.selectedCruise);
       formData.append("van_driving_cab", this.selectedDriving);
       formData.append("van_vat", this.isCheckedVAT);
@@ -2101,10 +2065,10 @@ export default {
       formData.append("van_exterior_colour", this.selectedExteriorColour);
       formData.append("van_vendor", this.selectedVendor);
       formData.append("van_full_service_history", this.isCheckedHistory);
-      formData.append("van_damaged", false);
-      formData.append("van_municipal", false);
-      formData.append("van_new_hu", false);
-      formData.append("van_renting_possible", false);
+      formData.append("van_damaged", this.isCheckedTaxi);
+      formData.append("van_municipal", this.isCheckedNon);
+      formData.append("van_new_hu", this.isCheckedEnvironmental);
+      formData.append("van_renting_possible", this.isCheckedRenting);
       formData.append("van_dealer_rating", 4);
       formData.append("user_id", this.userI);
       formData.append(

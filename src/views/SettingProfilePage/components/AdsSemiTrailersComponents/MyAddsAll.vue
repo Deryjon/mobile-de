@@ -115,7 +115,7 @@ export default {
       });
     },
     editAdsemitrailer(semitrailerId) {
-      this.$router.push({ name: "edit-ad", params: { id: semitrailerId } });
+      this.$router.push({ name: "edit-ad-semitrailer", params: { id: semitrailerId } });
     },
     deleteAdsemitrailer(semitrailerId) {
       // Отправляем запрос DELETE на сервер с указанием semitrailerId

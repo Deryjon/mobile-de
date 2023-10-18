@@ -1,7 +1,7 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-      <PathLink>Truck Filter</PathLink>
+      <PathLink>Van Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" />
       <div
@@ -52,7 +52,7 @@
            />
                         </div>
         </div>
-        <CarFilterComponentBasic />
+        <!-- <CarFilterComponentBasic /> -->
         <div class="tab-content lg:mt-[-10px] xl:mt-[0px]">
           <div class="buy">
             <PaymentTab1Component />

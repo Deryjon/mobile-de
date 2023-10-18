@@ -114,7 +114,7 @@ export default {
       });
     },
     editAdsemitruck(semitruckId) {
-      this.$router.push({ name: "edit-ad", params: { id: semitruckId } });
+      this.$router.push({ name: "edit-ad-semitruck", params: { id: semitruckId } });
     },
     deleteAdsemitruck(semitruckId) {
       // Отправляем запрос DELETE на сервер с указанием semitruckId

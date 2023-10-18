@@ -2400,8 +2400,8 @@ export default {
     };
   },
   methods: {
-		fetchAdCar(){
-http.get(`/motorhomes/${this.motorcycleId}`).then((res) => {
+	async	fetchAdCar(){
+await http.get(`/motorhomes/${this.motorcycleId}`).then((res) => {
 	this.dataAd = res.data.data
 this.linkVideo = this.dataAd.motor_home_video_link
 this.selectedMark = this.dataAd.motor_home_make
