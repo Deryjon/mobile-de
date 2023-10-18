@@ -7,7 +7,7 @@
 		:class="{  'justify-between lg:gap-[20px] max-w-[1150px]': hasToken,
       'justify-between lg:gap-[10px] max-w-[1145px]': !hasToken,  }"
 		>
-      <HeaderLogo class="mt-[15px]" />
+      <HeaderLogo class="" />
 
       <div class="actions flex h-[50px] items-center gap-[100px] lg:gap-[8px]">
         <HeaderActions class="hidden lg:flex" />

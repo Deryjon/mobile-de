@@ -1,10 +1,10 @@
 <template>
   <div class="header-logo flex items-center w-[200px] h-[70px] cursor-pointer" @click="goHome()">
-    <div class="logo lg:ml-0 w-[80px] lg:w-[80px] h-[45px] lg:h-[54px] mb-3">
+    <div class="logo lg:ml-0 w-[80px] lg:w-[80px] h-[45px] lg:h-[54px] ">
       <img src="../../../assets/images/logo.png" alt="header-logo" />
     </div>
     <p
-      class="text-[28px] font-extrabold pt-6 title"
+      class="text-[28px] font-extrabold mt-[50px] title"
       :class="{ 'text-black' : isDarkMode, 'text-black' : !isDarkMode }"
     >
       SellCenter
