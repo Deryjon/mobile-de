@@ -38,7 +38,7 @@ export const useCarStore = defineStore('car', {
 			car_emission_class: "",
 			exterior_colour: "",
 			car_trailer_coupling: "",
-			parking_sensors: "",
+			parking_sensors: [],
 			car_cruise_control: "",
 			interior_colour: "",
 			interior_material: "",

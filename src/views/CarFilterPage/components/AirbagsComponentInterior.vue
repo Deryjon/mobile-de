@@ -14,23 +14,20 @@
         />
         <span class="ml-[2px] xl:ml-[10px] text-[14px]">Any</span>
       </label>
-      <label for="driver-airbag">
+      <label for="driver-airbag" @click="selectAirbag('Driver')">
         <input
           type="radio"
-          id="driver-airbag"
           v-model="selectedAirbag"
           :class="{
             'bg-transparent': selectedAirbag !== 'Driver',
             'bg-orange': selectedAirbag === 'Driver',
           }"
-          @click="selectAirbag('Driver')"
         />
         <span class="ml-[2px] xl:ml-[10px] text-[14px]">Driver Airbag </span>
       </label>
       <label for="front-airbag" @click="selectAirbag('Front')">
         <input
           type="radio"
-          id="front-airbag"
           v-model="selectedAirbag"
           :class="{
             'bg-transparent': selectedAirbag !== 'Front',
@@ -43,7 +40,6 @@
       <label for="side-airbag" @click="selectAirbag('FrontAndSide')">
         <input
           type="radio"
-          id="side-airbag"
           v-model="selectedAirbag"
           :class="{
             'bg-transparent': selectedAirbag !== 'FrontAndSide',
@@ -57,7 +53,6 @@
       <label for="more-airbag" @click="selectAirbag('FrontAndSideMore')">
         <input
           type="radio"
-          id="more-airbag"
           v-model="selectedAirbag"
           :class="{
             'bg-transparent': selectedAirbag !== 'FrontAndSideMore',
@@ -73,6 +68,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {
     return {
@@ -82,20 +78,16 @@ export default {
   watch: {
     selectedAirbag(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCarData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_airbags: this.selectedAirbag,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.car_airbags = this.selectedAirbag;
+      carStore.updateCarData();
     },
     selectAirbag(condition) {
       this.selectedAirbag = condition;
