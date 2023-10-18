@@ -1,5 +1,6 @@
 <template>
   <div class="body">
+    <span></span>
     <button @click="$router.push('/news')" class="back-button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
