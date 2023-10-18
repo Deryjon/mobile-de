@@ -167,8 +167,6 @@ export default {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
-
-      // URL API для запроса моделей с указанием выбранной марки
       const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
