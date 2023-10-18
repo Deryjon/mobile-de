@@ -370,6 +370,9 @@
       </label>
     </div>
   </div>
+	<TrailerCoupling/>
+	<CruiseControlComponentExterior/>
+	<AirConditioningComponent/>
   
 </template>
 <script>
@@ -379,6 +382,7 @@ import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 import ExtrasComponent from "./ExtrasComponent.vue";
+import AirConditioningComponent from "./AirConditioningComponent.vue";
 
 export default {
   data() {
@@ -433,7 +437,8 @@ export default {
     ParkingResorComponentExterior,
     CruiseControlComponentExterior,
     OthersComponentExterior,
-    ExtrasComponent
+    ExtrasComponent,
+		AirConditioningComponent
 },
 };
 </script>

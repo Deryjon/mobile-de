@@ -288,7 +288,7 @@
   </div>
   <div class="tab-content">
     <div class="tab-1" v-show="showTab1">
-      <PowerComponentTechnic />
+      <!-- <PowerComponentTechnic /> -->
     </div>
   </div>
 </template>

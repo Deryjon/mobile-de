@@ -115,7 +115,7 @@ export default {
       });
     },
     editAdtrailer(trailerId) {
-      this.$router.push({ name: "edit-ad", params: { id: trailerId } });
+      this.$router.push({ name: "edit-ad-trailers", params: { id: trailerId } });
     },
     deleteAdtrailer(trailerId) {
       // Отправляем запрос DELETE на сервер с указанием trailerId
