@@ -865,7 +865,7 @@ export default {
     return {
       price: "",
       radius: "",
-      priceTo: "",
+      priceTo: null,
       selectedYear: "",
       selectedRadius: "",
       selectedtoYear: "",
@@ -883,9 +883,9 @@ export default {
       selectedPrice: "",
       selectedPriceTo: "",
       inputValue: "",
-      huValid: "14600",
-      preOwners: "any",
-      selectedCountry: "14600",
+      huValid: "",
+      preOwners: "",
+      selectedCountry: "",
       zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
@@ -965,19 +965,19 @@ export default {
     updateCarData() {
       const carStore = useCarStore();
       const carData = carStore.carData;
-      carData.car_price_from = this.price;
-      carData.car_price_up_to = this.priceTo;
+      carData.car_price_from = parseInt(this.price);
+      carData.car_price_up_to = parseInt(this.priceTo);
       carData.car_firt_date_year_from = this.inputValue;
       carData.car_firt_date_year_up_to = this.yearsTo;
-      carData.car_mileage_from = this.inputKilometer;
-      carData.car_mileage_up_to = this.killometresTo;
+      carData.car_mileage_from = parseInt(this.inputKilometer);
+      carData.car_mileage_up_to = parseInt(this.killometresTo);
       carData.car_hu_valid_until = this.huValid;
       carData.car_previous_owners = this.preOwners;
       carData.car_full_service_history = this.isCheckedHistory;
       carData.car_roadworthy = this.isCheckedRoad;
       carData.car_country = this.selectedCountry;
       carData.car_city_zipcode = this.zipCode;
-      carData.car_radius = this.radius;
+      carData.car_radius = parseInt(this.radius);
 
       carStore.updateCarData();
     },

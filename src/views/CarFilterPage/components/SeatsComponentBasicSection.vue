@@ -29,7 +29,7 @@
         class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
       >
         <ul>
-          <li key="any" @click="selectNumberSeats('Any')">Any</li>
+          <li key="" @click="selectNumberSeats('Any')">Any</li>
           <li key="2" @click="selectNumberSeats('2')">2</li>
           <li key="3" @click="selectNumberSeats('3')">3</li>
           <li key="4" @click="selectNumberSeats('4')">4</li>
@@ -41,38 +41,6 @@
         </ul>
       </ul>
     </div>
-    <!-- <div class="seats">
-      <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
-      <div class="marke_select_div relative mt-[10px]">
-        <input
-          placeholder="from"
-          class="mark_input mark-select text-[14px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-          type="number"
-          pattern="\d*"
-          v-model="numberSeats"
-        />
-        <select
-          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-          v-model="selectedNumberSeats"
-          @change="updateSelectNumberSeats"
-        >
-          <option value="any">Any</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-          <option value="6">6</option>
-          <option value="7">7</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-        </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-        ></span>
-      </div>
-    </div> -->
-
-    <!-- seats -->
     <div class="seats-to dropdown-container">
       <div class="input-container flex relative mt-[35px]">
         <input
@@ -98,7 +66,7 @@
         class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
       >
         <ul>
-          <li key="any" @click="selectNumberSeatsTo('Any')">Any</li>
+          <li key="" @click="selectNumberSeatsTo('Any')">Any</li>
           <li key="2" @click="selectNumberSeatsTo('2')">2</li>
           <li key="3" @click="selectNumberSeatsTo('3')">3</li>
           <li key="4" @click="selectNumberSeatsTo('4')">4</li>
@@ -110,34 +78,6 @@
         </ul>
       </ul>
     </div>
-    <!-- <div class="marke_select_div relative mt-[35px]">
-      <input
-        placeholder="to"
-        class="mark_input mark-select text-[14px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-        type="number"
-        pattern="\d*"
-        v-model="numberSeatsTo"
-      />
-      <select
-        class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-        v-model="selectedNumberSeatsTo"
-        @change="updateSelectNumberSeatsTo"
-      >
-        <option value="any">Any</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-      </select>
-      <span
-        class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-      ></span>
-    </div> -->
-    <!-- doors -->
     <div class="seats relative mt-2">
       <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
       <select
@@ -151,14 +91,13 @@
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>
-    <!-- sliding-door -->
     <div class="seats relative mt-2">
       <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
       <select
         class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
         v-model="slidingDoor"
       >
-        <option value="14600">Any</option>
+        <option value="" selected>Any</option>
         <option class="Left">Left side</option>
         <option class="Right">Right side</option>
       </select>
@@ -183,41 +122,26 @@ export default {
   watch: {
     numberSeats(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData()
+        this.updateCarData();
       }
     },
     numDoor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData()
+        this.updateCarData();
       }
     },
     slidingDoor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData();
+        this.updateCarData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_number_seats: this.numberSeats,
-          car_number_door: this.numDoor,
-          car_silding_door: this.slidingDoor,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
-    },
-    postData() {
- const carStore = useCarStore()
-      carStore.carData.car_number_seats = parseInt(this.numberSeats); 
-      carStore.carData.car_number_door = this.numDoor; 
-      carStore.carData.car_silding_door = this.slidingDoor; 
+    updateCarData() {
+      const carStore = useCarStore();
+      carStore.carData.car_number_seats = this.numberSeats;
+      carStore.carData.car_number_door = this.numDoor;
+      carStore.carData.car_sliding_door = this.slidingDoor;
       carStore.updateCarData();
     },
     openSeatsDropdown() {

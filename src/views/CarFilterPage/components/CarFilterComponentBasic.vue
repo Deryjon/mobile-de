@@ -240,19 +240,6 @@ export default {
       carStore.carData.body = this.selectedCars
       carStore.updateCarData();
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedCars,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
-    },
     toggleShowCheckbox(index, carName) {
       const isChecked = !this.selectedCars.includes(carName);
       if (isChecked) {
@@ -264,7 +251,6 @@ export default {
         }
       }
 			this.updateCarData()
-      this.fetchData();
     },
   },
 };

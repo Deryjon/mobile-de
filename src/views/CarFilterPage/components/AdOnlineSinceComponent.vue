@@ -69,6 +69,7 @@
 </template>
 <script>
 import http from '../../../axios.config';
+import {useCarStore} from "@/store/carDataStore"
 export default {
   data() {
     return {
@@ -78,20 +79,16 @@ export default {
 	watch: {
     selectedAdOnline(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCarData();
       }
     },
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          days: this.selectedAdOnline,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+		updateCarData() {
+			const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.days = this.selectedAdOnline;
+      carStore.updateCarData();
     },
     selectOnlineSince(condition) {
       this.selectedAdOnline = condition;

@@ -53,6 +53,7 @@
               :disabled="isModelSelectDisabled"
               v-model="selectedModel"
             >
+              <option value="" selected>Beliebig</option>
               <option :value="selectedModel" selected>
                 {{ selectedModel }}
               </option>
@@ -121,7 +122,7 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
-import {useCarStore} from "@/store/carDataStore"
+import { useCarStore } from "@/store/carDataStore";
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
@@ -136,6 +137,7 @@ export default {
   },
   data() {
     return {
+      carStore: useCarStore(),
       makes: [],
       models: [],
       selectedMark: "",
@@ -151,67 +153,50 @@ export default {
       count: "",
       modeltoYears: [],
       killometres: "",
-      selectedModel: localStorage.getItem("mark-model"),
-      carData: localStorage.getItem("carData"),
+      selectedModel: "",
     };
   },
-	watch:{
-		selectedMark(newValue, oldValue) {
+  watch: {
+    selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-				this.updateCarData()
-        this.fetchData();
+        this.updateCarData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateCarData()
-        this.fetchData();
+        this.updateCarData();
       }
     },
     inputVariant(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateCarData()
-        this.fetchData();
+        this.updateCarData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateCarData()
-        this.fetchData();
+        this.updateCarData();
       }
     },
-	},
+    count(newValue) {},
+  },
   methods: {
-		updateCarData() {
+    updateCarData() {
       const carStore = useCarStore();
-      carStore.carData.car_make = this.selectedMark
-      carStore.carData.car_model = this.selectedModel
-      carStore.carData.car_variant = this.inputVariant
-      carStore.carData.car_payment_type = this.activeTab
+      carStore.carData.car_make = this.selectedMark;
+      carStore.carData.car_model = this.selectedModel;
+      carStore.carData.car_variant = this.inputVariant;
+      carStore.carData.car_payment_type = this.activeTab;
       carStore.updateCarData();
     },
-    fetchData() {
-      http
-        .post("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-        })
-        .then((response) => {
-          const data = response.data.data;
-          this.count = data.count;
-        });
-    },
-   async fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
 
       // URL API для запроса моделей с указанием выбранной марки
-      ;
-
       // Выполняем GET-запрос к API с помощью Axios
-     await http
+      await http
         .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
           // Получаем данные из ответа
@@ -292,8 +277,7 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
-
+    this.count = this.carStore.count;
     http
       .get("/car/marks")
       .then((response) => {
@@ -308,7 +292,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  }
+};
 </script>
 
 <style scoped>
