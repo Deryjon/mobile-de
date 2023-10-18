@@ -326,19 +326,7 @@ export default {
       carStore.carData.fuel_type = this.selectedFuel
       carStore.updateCarData();
     },
-		fetchData() {
-      http
-        .get("/cars/count", {
-          fuel_type: this.selectedFuel,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
-    },
+	
 		toggleShowCheckbox(index, fuelName) {
 			this.showTab1 = index === 0;
       this.showTab2 = index !== 0;
@@ -351,7 +339,6 @@ export default {
           this.selectedFuel.splice(fuelIndex, 1);
         }
       }
-			this.fetchData()
 			this.updateCarData()
     },
     // toggleShowCheckbox(index) {
