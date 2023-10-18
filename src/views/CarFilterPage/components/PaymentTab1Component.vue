@@ -845,6 +845,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
+import {useCarStore} from "@/store/carDataStore"
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -897,70 +898,103 @@ export default {
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     yearsTo(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     killometresTo(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     huValid(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     preOwners(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     isCheckedHistory(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     isCheckedRoad(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     selectedCountry(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     zipCode(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
     radius(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
   },
   methods: {
+		updateCarData() { 
+  const carStore = useCarStore();
+  const carData = carStore.carData; 
+  carData.car_price_from = this.price;
+  carData.car_price_up_to = this.priceTo;
+  carData.car_firt_date_year_from = this.inputValue;
+  carData.car_firt_date_year_up_to = this.yearsTo;
+  carData.car_mileage_from = this.inputKilometer;
+  carData.car_mileage_up_to = this.killometresTo;
+  carData.car_hu_valid_until = this.huValid;
+  carData.car_previous_owners = this.preOwners;
+  carData.car_full_service_history = this.isCheckedHistory;
+  carData.car_roadworthy = this.isCheckedRoad;
+  carData.car_country = this.selectedCountry;
+  carData.car_city_zipcode = this.zipCode;
+  carData.car_radius = this.radius;
+
+  carStore.updateCarData();
+}
+,
     fetchData() {
       http
         .get("/cars/count", {

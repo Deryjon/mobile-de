@@ -168,16 +168,27 @@ export default {
         this.fetchData();
       }
     },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateCarData()
+        this.fetchData();
+      }
+    },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateCarData()
+        this.fetchData();
+      }
+    },
 	},
   methods: {
 		updateCarData() {
       const carStore = useCarStore();
-      const newCarData = {
-				car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_variant: this.inputVariant,
-      };
-      carStore.updateCarData(newCarData);
+      carStore.carData.car_make = this.selectedMark
+      carStore.carData.car_model = this.selectedModel
+      carStore.carData.car_variant = this.inputVariant
+      carStore.carData.car_payment_type = this.activeTab
+      carStore.updateCarData();
     },
     fetchData() {
       http

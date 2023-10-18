@@ -168,6 +168,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {
     return {
@@ -213,12 +214,11 @@ export default {
         });
     },
     postData() {
-      const carDataString = localStorage.getItem("carData");
-      const carData = JSON.parse(carDataString);
-      carData.car_number_seats = parseInt(this.numberSeats); 
-      carData.car_number_door = this.numDoor; 
-      carData.car_silding_door = this.slidingDoor; 
-      localStorage.setItem("carData", JSON.stringify(carData));
+ const carStore = useCarStore()
+      carStore.carData.car_number_seats = parseInt(this.numberSeats); 
+      carStore.carData.car_number_door = this.numDoor; 
+      carStore.carData.car_silding_door = this.slidingDoor; 
+      carStore.updateCarData();
     },
     openSeatsDropdown() {
       this.seatsOpen = true;

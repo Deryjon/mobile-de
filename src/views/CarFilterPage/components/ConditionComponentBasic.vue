@@ -162,6 +162,7 @@
   </div>
 </template>
 <script>
+import {useCarStore} from "@/store/carDataStore"
 import http from "../../../axios.config";
 export default {
   data() {
@@ -182,11 +183,9 @@ export default {
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        const carDataString = localStorage.getItem("carData");
-        const carData = JSON.parse(carDataString);
-        carData.car_condition = this.selectedCondition;
-        localStorage.setItem("carData", JSON.stringify(carData));
-      }
+				const carStore = useCarStore();
+        carStore.carData.car_condition = this.selectedCondition;
+				carStore.updateCarData();      }
     },
   },
   methods: {
@@ -200,10 +199,9 @@ export default {
           this.type.splice(typeIndex, 1);
         }
       }
-      const carDataString = localStorage.getItem("carData");
-      const carData = JSON.parse(carDataString);
-      carData.type = this.type;
-      localStorage.setItem("carData", JSON.stringify(carData));
+			const carStore = useCarStore();
+        carStore.carData.type = this.type;
+				carStore.updateCarData();      
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

@@ -299,7 +299,7 @@
 import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
-
+import {useCarStore} from "@/store/carDataStore"
 export default {
   data() {
     return {
@@ -321,6 +321,11 @@ export default {
     };
   },
   methods: {
+		updateCarData() {
+      const carStore = useCarStore();
+      carStore.carData.fuel_type = this.selectedFuel
+      carStore.updateCarData();
+    },
 		fetchData() {
       http
         .get("/cars/count", {
@@ -346,8 +351,8 @@ export default {
           this.selectedFuel.splice(fuelIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedFuel	)
 			this.fetchData()
+			this.updateCarData()
     },
     // toggleShowCheckbox(index) {
     // 

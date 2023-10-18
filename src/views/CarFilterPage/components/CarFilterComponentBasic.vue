@@ -220,6 +220,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import {useCarStore} from '@/store/carDataStore'
 export default {
   data() {
     return {
@@ -234,6 +235,11 @@ export default {
     };
   },
   methods: {
+		updateCarData() {
+      const carStore = useCarStore();
+      carStore.carData.body = this.selectedCars
+      carStore.updateCarData();
+    },
     fetchData() {
       http
         .get("/cars/count", {
@@ -257,6 +263,7 @@ export default {
           this.selectedCars.splice(carIndex, 1);
         }
       }
+			this.updateCarData()
       this.fetchData();
     },
   },

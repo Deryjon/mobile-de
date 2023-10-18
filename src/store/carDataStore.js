@@ -12,7 +12,7 @@ export const useCarStore = defineStore('car', {
 			car_number_door: "",
 			car_silding_door: "",
 			car_condition: "",
-			type: "",
+			type: [],
 			car_payment_type: "",
 			car_price_from: "",
 			car_price_up_to: "",
@@ -63,8 +63,7 @@ export const useCarStore = defineStore('car', {
     }
   }),
   actions: {
-    updateCarData(newCarData) {
-      this.carData = newCarData;
+    updateCarData() {
 			console.log(this.carData);
     }
   }
