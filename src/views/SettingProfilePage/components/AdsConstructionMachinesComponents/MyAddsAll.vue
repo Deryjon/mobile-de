@@ -113,26 +113,26 @@ export default {
         console.log(this.agriculturals);
       });
     },
-    editAdagricultural(agriculturalId) {
-      this.$router.push({ name: "edit-ad", params: { id: agriculturalId } });
+    editAdagricultural(constructionId) {
+      this.$router.push({ name: "edit-ad-construction", params: { id: constructionId } });
     },
-    deleteAdagricultural(agriculturalId) {
-      // Отправляем запрос DELETE на сервер с указанием agriculturalId
-      console.log(`Объявление с ID ${agriculturalId} удалено.`);
+    deleteAdagricultural(constructionId) {
+      // Отправляем запрос DELETE на сервер с указанием constructionId
+      console.log(`Объявление с ID ${constructionId} удалено.`);
       http
         .delete(`/constructions/delete`, {
-          data: { id: parseInt(agriculturalId) },
+          data: { id: parseInt(constructionId) },
         })
         .then((response) => {
           // Обработка успешного удаления
-          console.log(`Объявление с ID ${agriculturalId} удалено.`);
+          console.log(`Объявление с ID ${constructionId} удалено.`);
           // Выполните здесь необходимые действия после успешного удаления
           // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${agriculturalId}:`, error);
+          console.error(`Ошибка при удалении объявления с ID ${constructionId}:`, error);
           // Выполните здесь необходимые действия при ошибке
         });
     },

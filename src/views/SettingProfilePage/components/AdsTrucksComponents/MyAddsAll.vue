@@ -115,7 +115,7 @@ export default {
       });
     },
     editAdtruck(truckId) {
-      this.$router.push({ name: "edit-ad", params: { id: truckId } });
+      this.$router.push({ name: "edit-ad-trucks", params: { id: truckId } });
     },
     deleteAdtruck(truckId) {
       // Отправляем запрос DELETE на сервер с указанием truckId
