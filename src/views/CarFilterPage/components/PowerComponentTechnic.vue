@@ -416,30 +416,6 @@
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
         ></span>
       </div>
-      <label class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]">
-        <input
-          type="checkbox"
-          v-model="isCheckedParticulate"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedParticulate"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-sm">Particulate filter </span>
-      </label>
     </div>
   </div>
 </template>
@@ -485,40 +461,60 @@ export default {
     power(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
     powerTo(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				updateCarData()
       }
     },
   },
   methods: {
+		updateCarData() {
+      const carStore = useCarStore();
+			const carData = carStore.carData; 
+      carData.car_power_from = this.power;
+      carData.car_power_up_to = this.powerTo;
+      carData.car_cubic_capacity_from = this.cubic;
+      carData.car_cubic_capacity_to = this.cubicTo;
+      carData.transmission = this.selectedTransmision;
+      carData.car_fuel_consumption = this.consumptionFuel;
+      carData.car_emissions_sticker = this.stickerEmission;
+      carData.car_emission_class = this.classEmision;
+      carStore.updateCarData();
+    },
 		toggleShowCheckbox(index, transName) {
       const isChecked = !this.selectedTransmision.includes(transName);
       if (isChecked) {
@@ -529,7 +525,6 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
 			this.fetchData()
     },
     fetchData() {
@@ -539,7 +534,7 @@ export default {
           car_power_up_to: this.powerTo,
           car_cubic_capacity_from: this.cubic,
           car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
+          transmission: this.selectedTransmision,
           car_fuel_consumption: this.consumptionFuel,
           car_emissions_sticker: this.stickerEmission,
           car_emission_class: this.classEmision,
