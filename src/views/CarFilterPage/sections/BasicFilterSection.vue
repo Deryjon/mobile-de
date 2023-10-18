@@ -3,7 +3,11 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
+      <FilterBtn class="ml-auto" @click="goCarList">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
       <div
         class="relative filter xl:h-[1600px] lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[1500px] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
@@ -18,11 +22,11 @@
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"	
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
-                <option value="14600" selected>Beliebig</option>
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option
                     v-for="make in makes"
@@ -71,7 +75,7 @@
               <input
                 class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 placeholder="e.g. GTI..."
-								v-model="inputVariant"
+                v-model="inputVariant"
               />
             </div>
           </div>
@@ -133,7 +137,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -142,26 +146,58 @@ export default {
       selectedtoYear: "",
       years: "",
       modelYears: [],
-			inputVariant: "",
+      inputVariant: "",
+      count: "",
       modeltoYears: [],
       killometres: "",
       selectedModel: localStorage.getItem("mark-model"),
+      carData: localStorage.getItem("carData"),
     };
   },
+	watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+				this.postData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+				this.postData();
+      }
+    },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.fetchData();
+				this.postData();
+      }
+    },
+  },
   methods: {
+		postData(){
+			localStorage.setItem('carData', JSON.stringify({
+      car_make: this.selectedMark,
+      car_model: this.selectedModel,
+      car_variant: this.inputVariant,
+      
+    }));
+		},
     fetchData() {
       http
-        .get("/cars/count", {
+        .post("/cars/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
-					car_variant: this.inputVariant,
-					car_payment_type: this.activeTab
         })
         .then((response) => {
-          const data = response.data;
-          console.log(data);
+          const data = response.data.data;
+          this.count = data.count;
         });
     },
+		goCarList(){
+		 	this.$router.push({ name: "car-list" });
+
+		},
     fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
@@ -269,29 +305,10 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-		activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-  },
-};
+  }
+
+  
+
 </script>
 
 <style scoped>

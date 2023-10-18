@@ -344,7 +344,7 @@ export default {};
 	gap: 20px	;
   flex-wrap: wrap;
   background-color: rgb(243, 241, 241);
-	width: 1120px;
+	max-width: 1120px;
 	padding: 20px;
 }
 
@@ -354,7 +354,7 @@ export default {};
 }
 
 .Automarken .container .wrapper {
-	width: 1000px;
+	max-width: 1000px;
   display: flex;
   align-items: center;
 justify-content: space-between;
@@ -380,7 +380,7 @@ justify-content: space-between;
 .pre-wrapper2 .wrapper2 {
   display: flex;
 	justify-content: space-between;
-width: 1000px;
+max-width: 1000px;
 }
 
 .pre-wrapper2 .wrapper2 .car-model li {

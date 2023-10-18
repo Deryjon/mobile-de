@@ -138,7 +138,7 @@ export default {
       isOpen: false,
       motorhomes: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("motorcycleData")),
+      fetchData: JSON.parse(localStorage.getItem("motorhomeData")),
     };
   },
   methods: {
