@@ -1,8 +1,57 @@
 <template>
   <div class="pl-[20px]">
-    
+   <div class="flex flex-wrap gap-[80px]">
+		<div class="marke_select_div relative  w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Wheel Formula</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedWheelFormula"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+        <div class="marke_select_div relative  w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Hydraulic Installation</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedHydraulic"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+				<div class="marke_select_div relativeЁ w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
+          <select
+            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedDriving"
+          >
+            <option value="any" selected>Any</option>
+            <option value="1">Up to 1</option>
+            <option value="2">Up to 2</option>
+            <option value="3">Up to 3</option>
+            <option value="4">Up to 4</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          ></span>
+        </div>
+	 </div>
     <!-- transmision -->
-    <div class="flex gap-[40px] lg:gap-x-[100px]">
+    <div class="flex gap-[40px] lg:gap-x-[100px] mt-[20px]">
       <div
         class="
 			"

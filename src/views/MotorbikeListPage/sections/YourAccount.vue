@@ -138,7 +138,7 @@ export default {
       isOpen: false,
       motorcycles: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("motorcycleData")),
+      fetchData: JSON.parse(localStorage.getItem("motorbikeData")),
     };
   },
   methods: {
@@ -149,7 +149,6 @@ export default {
   http.post(`/motorcycles/list?limit=100&offset=0`, this.fetchData).then((res) => {
     this.motorcycles = res.data.data;
     console.log(this.motorcycles);
-    console.log(this.fetchData.motorcycle_make);
   });
 },
     goToSinglePageAd(motorcycleId) {

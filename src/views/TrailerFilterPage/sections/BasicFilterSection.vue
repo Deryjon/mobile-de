@@ -1,9 +1,13 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-      <PathLink>Truck Filter</PathLink>
+      <PathLink>Trailer Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
+      <FilterBtn @click="goMotorhomeList" class="ml-auto">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
       <div
         class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
@@ -28,9 +32,9 @@
                   <option
                     v-for="make in makes"
                     :key="make"
-                    :value="make.motor_home_make_name"
+                    :value="make.truck_make_name"
                   >
-                    {{ make.motor_home_make_name }}
+                    {{ make.truck_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
@@ -41,7 +45,7 @@
             </div>
           </div>
 
-          <div class="relative">
+          <div class="rela tive">
             <h2 class="text-sm lg:text-[14px] mt-2">
               {{ $t("message.selects.model") }}
             </h2>
@@ -51,7 +55,7 @@
               v-model="selectedModel"
             />
           </div>
-					<div class="relative">
+          <div class="relative">
             <h2 class="text-sm lg:text-[14px] mt-2">Category</h2>
             <select
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -60,22 +64,22 @@
               <option value="" data-track-as="any">Any</option>
               <option value="BeveragesTruck">Beverage</option>
               <option value="BoxTruck">Box</option>
-              <option value="BreakdownTruck">Breakdown truck</option>
+              <option value="BreakdownTruck">Breakdown trailer</option>
               <option value="CarCarrierTruck">Car carrier</option>
               <option value="CementMixerTruck">Cement mixer</option>
               <option value="ChassisTruck">Chassis</option>
               <option value="ConcretePump">Concrete Pump</option>
-              <option value="DumperTruck">Dumper truck</option>
+              <option value="DumperTruck">Dumper trailer</option>
               <option value="MilkTankTruck">Food Carrier</option>
-              <option value="GrainTruck">Grain Truck</option>
+              <option value="GrainTruck">Grain trailer</option>
               <option value="HorsesTruck">Horses</option>
               <option value="HydraulicWorkPlatformTruck">
                 Hydraulic work platform
               </option>
-              <option value="JumboTruck">Jumbo Truck</option>
-              <option value="SkipLorryTruck">Mining truck</option>
+              <option value="JumboTruck">Jumbo trailer</option>
+              <option value="SkipLorryTruck">Mining trailer</option>
               <option value="RefrigeratorBodyTruck">Refrigerator body</option>
-              <option value="RefuseTruck">Refuse truck</option>
+              <option value="RefuseTruck">Refuse trailer</option>
               <option value="RollOffTipperTruck">Roll-off tipper</option>
               <option value="StakeBodyTruck">Stake body</option>
               <option value="StakeBodyAndTarpaulinTruck">
@@ -83,7 +87,7 @@
               </option>
               <option value="SwapChassisTruck">Swap chassis</option>
               <option value="SweepingMachineTruck">Sweeping machine</option>
-              <option value="TankBodiesTruck">Tank truck</option>
+              <option value="TankBodiesTruck">Tank trailer</option>
               <option value="Over7500_ThreeSidedTipper">
                 Three-sided Tipper
               </option>
@@ -93,7 +97,7 @@
                 Traffic construction
               </option>
               <option value="TruckMountedCraneTruck">
-                Truck-mounted crane
+                trailer-mounted crane
               </option>
               <option value="VacuumAndPressureVehicleTruck">
                 Vacuum and pressure vehicle
@@ -107,7 +111,6 @@
             ></span>
           </div>
         </div>
-        <!-- <CarFilterComponentBasic /> -->
         <div class="tab-content lg:mt-[-10px] xl:mt-[0px]">
           <div class="buy">
             <PaymentTab1Component />
@@ -123,7 +126,7 @@ import PathLink from "../../../ui/PathLink.vue";
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
-import FilterBtn from "../../../components/FilterAllBtn.vue";
+import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
@@ -154,13 +157,14 @@ export default {
       inputVariant: "",
       modeltoYears: [],
       killometres: "",
+      count: "",
       selectedModel: localStorage.getItem("mark-model"),
     };
   },
   methods: {
     fetchData() {
       http
-        .get("/cars/count", {
+        .get("/trucks/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
           car_variant: this.inputVariant,
@@ -168,36 +172,8 @@ export default {
         })
         .then((response) => {
           const data = response.data.data;
+          this.count = data.count;
           console.log(data);
-        });
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
-      }
-
-      // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
-
-      // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
         });
     },
     fetchModelYears() {
@@ -265,7 +241,7 @@ export default {
     this.selectedMark = localStorage.getItem("mark");
 
     http
-      .get("/motorhome/marks")
+      .get("/trailer/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {

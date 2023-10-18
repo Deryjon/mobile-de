@@ -1,11 +1,15 @@
 <template>
   <BasicFilterSection />
 	<TechnicalFilterSection/>
-	<ExteriorFilterSection/>
+	<!-- <ExteriorFilterSection/> -->
 	<OfferDetailsSection/>
 	<v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
 
-		<FilterBtn class="ml-auto" />
+		<FilterBtn @click="goMotorhomeList" class="ml-auto">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
 	</v-container>
 </template>
 <script>

@@ -1,7 +1,7 @@
 <template>
 	<div class="tab-content">
     <div class="tab-1">
-      <ParkingResorComponentExterior />
+      <!-- <ParkingResorComponentExterior /> -->
       <ExtrasComponent/>
     </div>
   </div>

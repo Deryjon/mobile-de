@@ -4,12 +4,12 @@
     :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
   >
     <v-container class="flex z-50 items-center  " 
-		:class="{  'gap-[20px] max-w-[1150px]': hasToken,
-      'gap-[10px] max-w-[1145px]': !hasToken,  }"
+		:class="{  'justify-between lg:gap-[20px] max-w-[1150px]': hasToken,
+      'justify-between lg:gap-[10px] max-w-[1145px]': !hasToken,  }"
 		>
       <HeaderLogo class="mt-[15px]" />
 
-      <div class="actions flex h-[50px] items-center gap-[8px]">
+      <div class="actions flex h-[50px] items-center gap-[100px] lg:gap-[8px]">
         <HeaderActions class="hidden lg:flex" />
         <HeaderMenuAction @openMenu="toggleMenu" />
         <HeaderSwitcherTheme class="mt-[40px] hidden lg:flex" />
