@@ -87,6 +87,9 @@ export default {
   font-weight: 700;
   margin-bottom: 15px;
 }
+.text {
+  margin-bottom: 30px;
+}
 
 .back-button {
   display: flex;
