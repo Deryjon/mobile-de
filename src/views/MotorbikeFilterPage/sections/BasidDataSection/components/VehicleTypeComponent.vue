@@ -525,36 +525,59 @@
   </div>
 </template>
 <script>
-	import { ref } from "vue";
-import {useMotorbikeStore} from '@/store/motorbikeDataStore'
-	export default {
-data(){
-return{
-	isCheckedChopperCruis: false,
-			isCheckedMotorBicycle: false,
-			isCheckedRacing: false,
-			isCheckedStreetFight: false,
-			isCheckedCombinationSide: false,
-			isCheckedMotorcycle: false,
-			isCheckedRally: false,
-			isCheckedSuperMoto: false,
-			isCheckedDirtBike: false,
-			isCheckedNikedBike: false,
-			isCheckedScooter: false,
-			isCheckedTourer: false,
-			isCheckedEnduroTouring: false,
-			isCheckedPocketbike: false,
-			isCheckedSportsBike: false,
-			isCheckedTrike: false,
-			isCheckedLightWeight: false,
-			isCheckedQuad: false,
-			isCheckedSportTouring: false,
-			isCheckedOther: false,
-			selectedVehicleType: [],
-}
-},
-components: {},
-		},
+import { ref } from "vue";
+import { useMotorbikeStore } from "@/store/motorbikeDataStore";
+export default {
+  data() {
+    return {
+      isCheckedChopperCruis: false,
+      isCheckedMotorBicycle: false,
+      isCheckedRacing: false,
+      isCheckedStreetFight: false,
+      isCheckedCombinationSide: false,
+      isCheckedMotorcycle: false,
+      isCheckedRally: false,
+      isCheckedSuperMoto: false,
+      isCheckedDirtBike: false,
+      isCheckedNikedBike: false,
+      isCheckedScooter: false,
+      isCheckedTourer: false,
+      isCheckedEnduroTouring: false,
+      isCheckedPocketbike: false,
+      isCheckedSportsBike: false,
+      isCheckedTrike: false,
+      isCheckedLightWeight: false,
+      isCheckedQuad: false,
+      isCheckedSportTouring: false,
+      isCheckedOther: false,
+      selectedVehicleType: [],
+    };
+  },
+  methods: {
+    updateMotorbikeData() {
+      const motorbikeStore = useMotorbikeStore();
+      motorbikeStore.motorcycleData.type = this.selectedVehicleType;
+      motorbikeStore.updateMotorbikeData();
+    },
+
+    toggleShowCheckbox(index, fuelName) {
+      this.showTab1 = index === 0;
+      this.showTab2 = index !== 0;
+      const isChecked = !this.selectedVehicleType.includes(fuelName);
+      if (isChecked) {
+        this.selectedVehicleType.push(fuelName);
+      } else {
+        const fuelIndex = this.selectedVehicleType.indexOf(fuelName);
+        if (fuelIndex !== -1) {
+          this.selectedVehicleType.splice(fuelIndex, 1);
+        }
+      }
+			console.log(this.selectedVehicleType);
+      this.updateMotorbikeData();
+    },
+  },
+  components: {},
+};
 </script>
 <style scoped>
 select {
