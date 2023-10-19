@@ -1,5 +1,6 @@
 <template>
   <div class="body">
+    <span></span>
     <button @click="$router.push('/news')" class="back-button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -85,6 +86,9 @@ export default {
   font-size: 22px;
   font-weight: 700;
   margin-bottom: 15px;
+}
+.text {
+  margin-bottom: 30px;
 }
 
 .back-button {
