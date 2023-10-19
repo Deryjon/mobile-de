@@ -125,6 +125,7 @@ import axios from "axios";
 import { useCarStore } from "@/store/carDataStore";
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
+import { watch, ref } from "vue";
 export default {
   components: {
     PathLink,
@@ -135,9 +136,12 @@ export default {
     ConditionComponent,
     PaymentTab1Component,
   },
+	setup() {
+    const carStore = useCarStore();
+  },
   data() {
     return {
-      carStore: useCarStore(),
+      carStore: useCarStore(),		
       makes: [],
       models: [],
       selectedMark: "",
@@ -177,7 +181,9 @@ export default {
         this.updateCarData();
       }
     },
-    count(newValue) {},
+		'carStore.count': function (newCount, oldCount) {
+      this.count = newCount;
+    }
   },
   methods: {
     updateCarData() {
@@ -276,6 +282,7 @@ export default {
       }
     },
   },
+
   mounted() {
     this.count = this.carStore.count;
     http

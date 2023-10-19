@@ -61,14 +61,15 @@ export const useCarStore = defineStore('car', {
 			// picture: "",
 			// days: "",
     },
-		count: null
+		count: ""
   }),
   actions: {
     async updateCarData() {
 			await	http
 				.post('/cars/count', this.carData)
 				.then(response => {
-					// this.count = response.data.data.count
+					this.count = response.data.data.count
+					console.log(response.data.data.count);
 				})
 			
     },
