@@ -21,7 +21,7 @@
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in newsData" :key="item.news_id">
         <img :src="item.news_image_url" alt="Image 1" />
-        <p>25. September 2023</p>
+        <p class="date">{{ formatDate(item.news_create_at) }}</p>
         <h1 class="card__title">
           {{
             item.news_title.length > 45
@@ -75,12 +75,12 @@ export default {
     async fetchNews() {
       await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=en`).then((res) => {
         this.newsData = res.data.data;
-        this.isLastPage = res.data.data.length <= this.limit;
+        this.isLastPage = res.data.data.length >= this.limit;
         console.log(this.newsData);
       });
     },
     nextPage() { 
-      if (!this.isLastPage) { // Add this check
+      if (this.isLastPage) { // Add this check
         this.offset += this.limit;
         this.fetchNews();
       }
@@ -97,6 +97,16 @@ export default {
     prevImage() {
       this.currentImage =
         (this.currentImage - 1 + this.images.length) % this.images.length;
+    },
+    formatDate(dateString) {
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
     },
   },
   mounted() {
