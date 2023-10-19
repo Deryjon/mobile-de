@@ -57,7 +57,7 @@
           v-model="isCheckedRegister"
           @click="toggleShowCheckbox(0, 'Pre-Registration')"
         />
-        <svg
+        <svg	
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
           height="1em"
