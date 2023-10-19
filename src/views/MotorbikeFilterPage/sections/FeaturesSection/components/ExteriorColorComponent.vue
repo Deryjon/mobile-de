@@ -367,6 +367,7 @@
 </template>
 <script>
 import http from "@/axios.config";
+import {useMotorbikeStore} from "@/store/motorbikeDataStore"
 export default {
   data() {
     return {
@@ -398,21 +399,13 @@ export default {
           this.selectedColors.splice(colorIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedColors)
-			this.fetchData()
+      
+			this.updateMotorbikeData()
     },
-		fetchData() {
-      http
-        .get("/cars/count", {
-          exterior_colour: this.selectedColors,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateMotorbikeData() {
+      const motorbikeStore = useMotorbikeStore();
+      motorbikeStore.motorcycleData.exterior_colour = this.selectedColors;
+      motorbikeStore.updateMotorbikeData();
     },
 	},
   components: {

@@ -200,6 +200,7 @@
 </template>
 <script>
 import http from "@/axios.config";
+import {useMotorbikeStore} from "@/store/motorbikeDataStore"
 export default {
   data() {
     return {
@@ -215,19 +216,6 @@ export default {
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedOthers,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
-    },
     toggleShowCheckbox(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
       if (isChecked) {
@@ -238,8 +226,13 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      console.log("selectedOthers изменен:", this.selectedOthers);
-      this.fetchData();
+      
+      this.updateMotorbikeData();
+    },
+		updateMotorbikeData() {
+      const motorbikeStore = useMotorbikeStore();
+      motorbikeStore.motorcycleData.others = this.selectedOthers;
+      motorbikeStore.updateMotorbikeData();
     },
   },
 };
