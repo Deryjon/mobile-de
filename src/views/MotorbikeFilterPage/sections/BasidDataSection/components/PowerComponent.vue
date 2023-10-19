@@ -964,16 +964,17 @@ export default {
   methods: {
     updateMotorbikeData() {
       const motorbikeStoreStore = useMotorbikeStore();
-      (motorbikeStoreStore.motorcycleData.motorcycle_price_from = this.price),
-        // (motorbikeStoreStore.motorcycleData.motorcycle_price_to = this.priceTo),
-        (motorbikeStoreStore.motorcycleData.motorcycle_firt_date_year_from =
-          this.inputValue),
-        (motorbikeStoreStore.motorcycleData.motorcycle_firt_date_year_to =
-          this.yearsTo),
-        (motorbikeStoreStore.motorcycleData.motorcycle_mileage_from =
-          this.inputKilometer);
+      motorbikeStoreStore.motorcycleData.motorcycle_price_from = this.price,
+        motorbikeStoreStore.motorcycleData.motorcycle_firt_date_year_from =
+          this.inputValue,
+        motorbikeStoreStore.motorcycleData.motorcycle_firt_date_year_to =
+          this.yearsTo,
+        motorbikeStoreStore.motorcycleData.motorcycle_mileage_from =
+          this.inputKilometer;
       motorbikeStoreStore.motorcycleData.motorcycle_mileage_to =
         this.killometresTo;
+      motorbikeStoreStore.motorcycleData.motorcycle_radius =
+        this.radius;
       motorbikeStoreStore.updateMotorbikeData();
     },
     openRadiusDropdown() {

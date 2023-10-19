@@ -561,8 +561,6 @@ export default {
     },
 
     toggleShowCheckbox(index, fuelName) {
-      this.showTab1 = index === 0;
-      this.showTab2 = index !== 0;
       const isChecked = !this.selectedVehicleType.includes(fuelName);
       if (isChecked) {
         this.selectedVehicleType.push(fuelName);
@@ -572,7 +570,6 @@ export default {
           this.selectedVehicleType.splice(fuelIndex, 1);
         }
       }
-			console.log(this.selectedVehicleType);
       this.updateMotorbikeData();
     },
   },
