@@ -13,11 +13,11 @@
 </template>
 
 <script>
+import axios from 'axios';
 import PathLink from "../../../ui/PathLink.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import PowerComponent from "../components/PowerComponentTechnic.vue";
-import axios from 'axios';
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
@@ -27,7 +27,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedMake: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
