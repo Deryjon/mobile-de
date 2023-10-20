@@ -26,7 +26,6 @@
        <button class="btn_prev" @click="prevPage"><svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" 
         viewBox="0 0 24 24"><path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z"/></svg> 
         </button>
-        <p class="page_numbers">Page {{ offset/limit + 1 }} of {{ Math.ceil(totalCount/limit) }}</p>
         <button class="btn_next" @click="nextPage"><svg xmlns="http://www.w3.org/2000/svg" width="40"     
           height="40"   viewBox="0 0 24 24"><path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
           4.6Z"/></svg>
@@ -54,7 +53,6 @@ export default {
         async fetchNews() {
             await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=en`).then((res) => {
                 this.newsData = res.data.data;
-                this.totalCount = res.data.totalCount;
                 this.isLastPage = res.data.data.length >= this.limit;
                 console.log(this.newsData);
             });
@@ -195,9 +193,7 @@ export default {
 .btn_box{
   width: 100%;
   display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-  border-top: none;
+  justify-content: flex-end;
 }
 .btn_prev{
   width: 50px;
@@ -207,6 +203,8 @@ export default {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-right: 5px;
+  margin-top: 10px;
 }
 .btn_next{
   width: 50px;
@@ -216,5 +214,7 @@ export default {
   align-items: center;
   justify-content: center;
   color: #fff;
+  margin-top: 10px;
+
 }
 </style>
