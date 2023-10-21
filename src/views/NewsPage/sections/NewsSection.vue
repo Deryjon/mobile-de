@@ -193,7 +193,7 @@ export default {
 .btn_box{
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 .btn_prev{
   width: 50px;
