@@ -296,7 +296,7 @@
 import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
-
+import { useTruckStore } from "../../../store/truckDataStore";
 export default {
   data() {
     return {
@@ -318,22 +318,13 @@ export default {
     };
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          fuel_type: this.selectedFuel,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateTruckData() {
+      const truckStore = useTruckStore();
+      (truckStore.truckData.fuel_type =
+        this.selectedFuel),
+        truckStore.updateTruckData();
     },
 		toggleShowCheckbox(index, fuelName) {
-			this.showTab1 = index === 0;
-      this.showTab2 = index !== 0;
       const isChecked = !this.selectedFuel.includes(fuelName);
       if (isChecked) {
         this.selectedFuel.push(fuelName);
@@ -344,18 +335,8 @@ export default {
         }
       }
       console.log("selectedCars изменен:", this.selectedFuel	)
-			this.fetchData()
+			this.updateTruckData()
     },
-    // toggleShowCheckbox(index) {
-    // 
-    //   for (let i = 0; i < this.isCheckedDiesel.length; i++) {
-    //     if (i !== index) {
-    //       this.$set(this.isCheckedDiesel, i, false);
-    //     } else {
-    //       this.$set(this.isCheckedDiesel, i, true);
-    //     }
-    //   }
-    // },
   },
   components: { PowerComponentTechnic, RangeComponentTechnic },
 };
