@@ -46,7 +46,6 @@
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
 import { useTruckStore } from "@/store/truckDataStore";
 export default {
   data() {

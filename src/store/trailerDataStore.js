@@ -1,16 +1,17 @@
 import { defineStore } from 'pinia'
 import http from "../axios.config"
-export const useTruckStore = defineStore('truck', {
+export const useTrailerStore = defineStore('trailer', {
   state: () => ({
-    truckData: {
-			truck: "",
+    trailerData: {
+			trailer: "",
+			
     },
 		count: ""
   }),
   actions: {
-    async updateTruckData() {
+    async updateTrailerData() {
 			await	http
-				.post('/trucks/count', this.truckData)
+				.post('/trailers/count', this.trailerData)
 				.then(response => {
 					this.count = response.data.data.count
 					console.log(response.data.data.count);
