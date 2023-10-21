@@ -5,14 +5,11 @@
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" />
       <div
-        class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
-      >
+        class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]">
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
-				<ConditionComponent/>
-        <div
-          class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]"
-        >
+        <ConditionComponent />
+        <div class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]">
           <div class="mark">
             <div class="relative mt-2">
               <h2 class="text-sm lg:text-[14px]">
@@ -20,24 +17,16 @@
               </h2>
               <select
                 class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                v-model="selectedMark"
-                @change="fetchModels()"
-              >
+                v-model="selectedMark" @change="fetchModels()">
                 <option value="14600" selected>Beliebig</option>
                 <optgroup>
-                  <option
-                    v-for="make in makes"
-                    :key="make"
-                    :value="make.motor_home_make_name"
-                  >
+                  <option v-for="make in makes" :key="make" :value="make.motor_home_make_name">
                     {{ make.motor_home_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
               </select>
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-              ></span>
+              <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
             </div>
           </div>
 
@@ -47,10 +36,60 @@
             </h2>
             <input
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-             type="text"
-              v-model="selectedModel"
-           />
-                        </div>
+              type="text" v-model="selectedModel" />
+          </div>
+          <div class="relative">
+            <h2 class="text-sm lg:text-[14px] mt-2">Category</h2>
+            <select
+              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              v-model="selectedCategory">
+              <option value="" data-track-as="any">Any</option>
+              <option value="BeveragesTruck">Beverage</option>
+              <option value="BoxTruck">Box</option>
+              <option value="BreakdownTruck">Breakdown truck</option>
+              <option value="CarCarrierTruck">Car carrier</option>
+              <option value="CementMixerTruck">Cement mixer</option>
+              <option value="ChassisTruck">Chassis</option>
+              <option value="ConcretePump">Concrete Pump</option>
+              <option value="DumperTruck">Dumper truck</option>
+              <option value="MilkTankTruck">Food Carrier</option>
+              <option value="GrainTruck">Grain Truck</option>
+              <option value="HorsesTruck">Horses</option>
+              <option value="HydraulicWorkPlatformTruck">
+                Hydraulic work platform
+              </option>
+              <option value="JumboTruck">Jumbo Truck</option>
+              <option value="SkipLorryTruck">Mining truck</option>
+              <option value="RefrigeratorBodyTruck">Refrigerator body</option>
+              <option value="RefuseTruck">Refuse truck</option>
+              <option value="RollOffTipperTruck">Roll-off tipper</option>
+              <option value="StakeBodyTruck">Stake body</option>
+              <option value="StakeBodyAndTarpaulinTruck">
+                Stake body and tarpaulin
+              </option>
+              <option value="SwapChassisTruck">Swap chassis</option>
+              <option value="SweepingMachineTruck">Sweeping machine</option>
+              <option value="TankBodiesTruck">Tank truck</option>
+              <option value="Over7500_ThreeSidedTipper">
+                Three-sided Tipper
+              </option>
+              <option value="TimberCarrierTruck">Timber carrier</option>
+              <option value="TipperTruck">Tipper</option>
+              <option value="TrafficConstructionTruck">
+                Traffic construction
+              </option>
+              <option value="TruckMountedCraneTruck">
+                Truck-mounted crane
+              </option>
+              <option value="VacuumAndPressureVehicleTruck">
+                Vacuum and pressure vehicle
+              </option>
+              <option value="OtherTruckOver7500">
+                Other trucks over 7.5 t
+              </option>
+            </select>
+            <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+          </div>
         </div>
         <!-- <CarFilterComponentBasic /> -->
         <div class="tab-content lg:mt-[-10px] xl:mt-[0px]">
@@ -72,6 +111,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
+import { useVanStore } from "../../../store/vanDataStore";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
   components: {
@@ -96,25 +136,54 @@ export default {
       selectedtoYear: "",
       years: "",
       modelYears: [],
-			inputVariant: "",
+      inputVariant: "",
+      selectedCategory: "",
       modeltoYears: [],
       killometres: "",
       selectedModel: localStorage.getItem("mark-model"),
     };
   },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateVanData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateVanData();
+      }
+    },
+    selectedCategory(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateVanData();
+      }
+    },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateVanData();
+      }
+    },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateVanData();
+      }
+    },
+  },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-					car_variant: this.inputVariant,
-					car_payment_type: this.activeTab
-        })
-        .then((response) => {
-          const data = response.data.data;
-          console.log(data);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.van_condition =
+        this.selectedCondition),
+      (vanStore.vanData.van_condition =
+        this.selectedCondition),
+        (vanStore.vanData.van_category =
+          this.selectedCategory),
+        (vanStore.vanData.van_make =
+          this.selectedMark),
+        (vanStore.vanData.van_model =
+          this.selectedModel),
+        vanStore.updateVanData();
     },
     fetchModels() {
       if (!this.selectedMark) {
@@ -223,34 +292,13 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-		activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-  },
 };
 </script>
 
 <style scoped>
 .mark-input2 {
-  max-height: 35px; /* Измените значение по вашему усмотрению */
+  max-height: 35px;
+  /* Измените значение по вашему усмотрению */
   overflow-y: hidden;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -258,33 +306,42 @@ export default {
 
 /* Добавьте прокрутку при необходимости */
 .mark-input2::-webkit-scrollbar {
-  width: 3px; /* Ширина полосы прокрутки */
+  width: 3px;
+  /* Ширина полосы прокрутки */
 }
 
 .mark-input2::-webkit-scrollbar-thumb {
-  background-color: #888; /* Цвет полосы прокрутки */
-  border-radius: 2.5px; /* Закругление полосы прокрутки */
+  background-color: #888;
+  /* Цвет полосы прокрутки */
+  border-radius: 2.5px;
+  /* Закругление полосы прокрутки */
 }
+
 select:-webkit-scrollbar {
   /*For WebKit Browsers*/
   width: 0;
   height: 0;
 }
+
 .line {
   border: 1px solid grey;
   height: 1px;
 }
+
 .Kaufen:hover {
   box-shadow: 0 0 2px 1px #eaccb4;
 }
+
 .active-Kaufen {
   background-color: #fffaf6;
   border: 1px solid #eaccb4;
   color: #000;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;
