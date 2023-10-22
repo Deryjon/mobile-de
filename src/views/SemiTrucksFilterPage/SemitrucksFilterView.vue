@@ -5,7 +5,11 @@
 	<OfferDetailsSection/>
 	<v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
 
-		<FilterBtn class="ml-auto" />
+		<FilterBtn class="ml-auto">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
 	</v-container>
 </template>
 <script>
@@ -14,8 +18,19 @@ import ExteriorFilterSection from "./sections/ExteriorFilterSection.vue";
 import OfferDetailsSection from "./sections/OfferDetailsSection.vue";
 import TechnicalFilterSection from "./sections/TechnicalFilterSection.vue";
 import FilterBtn from "../../components/FilterBtn.vue";
-
+import { useSemiTruckStore } from "../../store/semitruckDataStore";
 export default {
+	data() {
+	  return {
+		semitruckStore: useSemiTruckStore(),
+		count: "",
+	  };
+	},
+	watch: {
+	  "semitruckStore.count": function (newCount, oldCount) {
+		this.count = newCount;
+	  },
+	},
   components: { BasicFilterSection, TechnicalFilterSection, ExteriorFilterSection, OfferDetailsSection, FilterBtn },
 };
 </script>

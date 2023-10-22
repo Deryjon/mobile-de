@@ -296,7 +296,7 @@
 import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
-
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -318,22 +318,13 @@ export default {
     };
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          fuel_type: this.selectedFuel,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      (semitruckStore.semitruckData.fuel_type =
+        this.selectedFuel),
+        semitruckStore.updateSemiTruckData();
     },
 		toggleShowCheckbox(index, fuelName) {
-			this.showTab1 = index === 0;
-      this.showTab2 = index !== 0;
       const isChecked = !this.selectedFuel.includes(fuelName);
       if (isChecked) {
         this.selectedFuel.push(fuelName);
@@ -343,19 +334,8 @@ export default {
           this.selectedFuel.splice(fuelIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedFuel	)
-			this.fetchData()
+			this.updateSemiTruckData()
     },
-    // toggleShowCheckbox(index) {
-    // 
-    //   for (let i = 0; i < this.isCheckedDiesel.length; i++) {
-    //     if (i !== index) {
-    //       this.$set(this.isCheckedDiesel, i, false);
-    //     } else {
-    //       this.$set(this.isCheckedDiesel, i, true);
-    //     }
-    //   }
-    // },
   },
   components: { PowerComponentTechnic, RangeComponentTechnic },
 };

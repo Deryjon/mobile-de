@@ -332,6 +332,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import { useTruckStore } from "../../../store/truckDataStore";
 export default {
   data() {
     return {
@@ -350,25 +351,18 @@ export default {
 	watch: {
     selectedVendor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
   },
   methods: {
-		fetchData() {
-			http
-				.get("/cars/count", {
-					car_vendor: this.selectedVendor,
-					car_dealer_rating: this.rating
-				})
-				.then((response) => {
-					const data = response.data;
-					console.log(data);
-				})
-				.catch((error) => {
-					console.error("Ошибка при выполнении запроса:", error);
-				});
-		},
+    updateTruckData() {
+      const truckStore = useTruckStore();
+      const truckData = truckStore.truckData;
+      truckData.truck_vendor = this.selectedVendor;
+      truckData.truck_dealer_rating = this.rating;
+      truckStore.updateTruckData();
+    },
 		toggleShowCheckbox(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
       if (isChecked) {
@@ -379,8 +373,7 @@ export default {
           this.rating.splice(carIndex, 1);
         }
       }
-      console.log("rating изменен:", this.rating)
-			this.fetchData()
+			this.updateTruckData()
     },
     selectVendor(condition) {
       this.selectedVendor = condition;

@@ -7,7 +7,7 @@ import MotorhomesFilter from "../views/MotorhomesFilterPage/MotorhomesFilterView
 import TrucksFilterPage from "../views/TrucksFilterPage/TrucksFilterView.vue"
 import TrailerFilterPage from "../views/TrailerFilterPage/TrailerFilterView.vue"
 import VanFilterPage from "../views/VansFilterPage/VansFilterView.vue"
-import SemiTrucksFilterPage from "../views/SemiTrucksFilterPage/SemitrucksFilterView.vue"
+import SemiTrucksFilterPage from "../views/SemiTrucksFilterPage/SemiTrucksFilterView.vue"
 import SemiTrailerFilterPage from "../views/SemiTrailerFilterPage/TrailerFilterView.vue"
 import CoachesFilterPage from "../views/CoachesFilterPage/CoachesFilterView.vue"
 import AgriculturalsFilterPage from "../views/AgriculturalsFilterPage/AgriculturalFilterView.vue"
