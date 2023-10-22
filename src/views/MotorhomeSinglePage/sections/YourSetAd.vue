@@ -635,11 +635,11 @@ export default {
     fetchUser() {
       http.get(`/users?id=${this.userI}`).then((res) => {
         this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
-        console.log(this.formattedDate);
-        console.log(this.user);
+        // this.userCreatedAt = this.user.user_create_at;
+        // const date = new Date(this.userCreatedAt);
+        // this.formattedDate = format(date, " MMM d yyyy");
+        // console.log(this.formattedDate);
+        // console.log(this.user);
       });
     },
     goToSinglePageAd() {
