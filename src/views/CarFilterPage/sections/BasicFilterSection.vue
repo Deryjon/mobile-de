@@ -199,10 +199,7 @@ export default {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
-
-      // URL API для запроса моделей с указанием выбранной марки
-      // Выполняем GET-запрос к API с помощью Axios
-      await http
+       await http
         .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
           // Получаем данные из ответа
