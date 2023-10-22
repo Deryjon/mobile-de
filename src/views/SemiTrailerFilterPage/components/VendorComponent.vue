@@ -2,10 +2,9 @@
   <div class="condition p-[20px]">
     <h3 class="text-[16px]">Vendor</h3>
     <div class="radios-type flex gap-[40px] mt-[20px]">
-      <label for="vendor-any" @click="selectVendor('Any')">
+      <label for="vendor-trailer" @click="selectVendor('Any')">
         <input
           type="radio"
-          id="vendor-any"
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Any',
@@ -15,10 +14,9 @@
         />
         <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label for="vendor-private">
+      <label for="vendor-trailer-priv">
         <input
           type="radio"
-          id="vendor-private"
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Private',
@@ -28,10 +26,10 @@
         />
         <span class="ml-[10px] text-[14px]">Private seller</span>
       </label>
-      <label for="vendor-dealer" @click="selectVendor('Dealer')">
+      <label for="vendor-dealer-trailer" @click="selectVendor('Dealer')">
         <input
           type="radio"
-          id="vendor-dealer"
+     
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Dealer',
@@ -43,7 +41,6 @@
       <label for="vendor-dealer" @click="selectVendor('Company')">
         <input
           type="radio"
-          id="vendor-dealer"
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Company',
@@ -331,7 +328,7 @@
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
+import { useSemiTrailerStore } from '../../../store/semitrailerDataStore';
 export default {
   data() {
     return {
@@ -350,25 +347,19 @@ export default {
 	watch: {
     selectedVendor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
   },
   methods: {
-		fetchData() {
-			http
-				.get("/cars/count", {
-					car_vendor: this.selectedVendor,
-					car_dealer_rating: this.rating
-				})
-				.then((response) => {
-					const data = response.data;
-					console.log(data);
-				})
-				.catch((error) => {
-					console.error("Ошибка при выполнении запроса:", error);
-				});
-		},
+		updateSemiTrailerData() {
+      const semitrailerStore = useSemiTrailerStore();
+      (semitrailerStore.semitrailerData.trailer_vendor =
+        this.selectedVendor),
+      (semitrailerStore.semitrailerData.trailer_rating =
+        this.rating),
+        semitrailerStore.updateSemiTrailerData();
+    },
 		toggleShowCheckbox(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
       if (isChecked) {
@@ -379,8 +370,7 @@ export default {
           this.rating.splice(carIndex, 1);
         }
       }
-      console.log("rating изменен:", this.rating)
-			this.fetchData()
+			this.updateSemiTrailerData()
     },
     selectVendor(condition) {
       this.selectedVendor = condition;

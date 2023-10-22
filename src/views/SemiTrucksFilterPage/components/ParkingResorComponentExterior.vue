@@ -362,7 +362,7 @@ export default {
       const semitruckData = semitruckStore.semitruckData;
       // semitruckData.truck_air_conditioning = this.airConditioning;
       // semitruckData.truck_axles = this.axles;
-      semitruckData.wheel_formula = par seInt(this.numberBunk);
+      semitruckData.wheel_formula = parseInt(this.numberBunk);
       semitruckData.truck_gvw_from = this.lengthGVW;
       semitruckData.truck_gvw_to = this.lengthGVWTo;
       semitruckData.truck_hydraulic_installation = this.radio;
