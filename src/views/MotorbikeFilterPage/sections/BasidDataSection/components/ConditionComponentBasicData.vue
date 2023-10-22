@@ -1,7 +1,9 @@
 <template>
   <div class="condition p-[20px] mt-[20px]">
     <h3 class="text-[14px]">Condition</h3>
-    <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[30px] mt-[10px] mb-[10px]">
+    <div
+      class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[30px] mt-[10px] mb-[10px]"
+    >
       <label for="any-1" @click="selectCondition('Any')">
         <input
           type="radio"
@@ -12,18 +14,16 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px] text-[14px] ">Any</span>
+        <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label for="new"  @click="selectCondition('New')"	>
+      <label for="new" @click="selectCondition('New')">
         <input
           type="radio"
-
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'New',
             'bg-orange': selectedCondition === 'New',
           }"
-         
         />
         <span class="ml-[10px] text-[14px]">New</span>
       </label>
@@ -39,11 +39,11 @@
         <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
-
   </div>
 </template>
 <script>
 import { ref } from "vue";
+import { useMotorbikeStore } from "@/store/motorbikeDataStore";
 export default {
   data() {
     return {
@@ -59,6 +59,7 @@ export default {
     const isCheckedEmploy = ref(false);
     const isCheckedClassic = ref(false);
     const isCheckedDemon = ref(false);
+    const motorbikeStore = useMotorbikeStore();
 
     const toggleShowCheckbox = (index) => {
       isCheckedRegister[index] = !isCheckedRegister[index];
@@ -72,7 +73,19 @@ export default {
       toggleShowCheckbox,
     };
   },
+	watch: {
+    selectedCondition(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateMotorbikeData();
+      }
+    },
+  },
   methods: {
+		updateMotorbikeData() {
+      const motorcycleStore = useMotorbikeStore();
+      motorcycleStore.motorcycleData.motorcycle_condition = this.selectedCondition;
+      motorcycleStore.updateMotorbikeData();
+    },
     toggleAnySelection() {
       // Обработчик клика на "Any"
       if (this.isAnySelected) {
@@ -105,7 +118,8 @@ export default {
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
-      if (condition === "New") {		1
+      if (condition === "New") {
+        1;
         this.isRadioNewSelected = true;
         this.isCheckedRegister = false;
         this.isCheckedEmploy = false;

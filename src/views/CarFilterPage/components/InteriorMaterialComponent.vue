@@ -151,6 +151,7 @@
   </div>
 </template>
 <script>
+import { useCarStore } from "@/store/carDataStore";
 import http from '../../../axios.config';
 export default {
   data() {
@@ -165,18 +166,11 @@ export default {
     };
   },
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          interior_material: this.selectedMaterial,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+	  updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.interior_material = this.selectedMaterial;
+      carStore.updateCarData();
     },
     toggleShowCheckbox(index, materialName) {
       const isChecked = !this.selectedMaterial.includes(materialName);
@@ -188,8 +182,7 @@ export default {
           this.selectedMaterial.splice(carIndex, 1);
         }
       }
-      console.log("selectedMaterial изменен:", this.selectedMaterial)
-			this.fetchData()
+    this.updateCarData()
     },
 	}
 };

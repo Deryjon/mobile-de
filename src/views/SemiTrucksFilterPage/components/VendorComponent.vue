@@ -332,6 +332,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -350,25 +351,18 @@ export default {
 	watch: {
     selectedVendor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
   },
   methods: {
-		fetchData() {
-			http
-				.get("/cars/count", {
-					car_vendor: this.selectedVendor,
-					car_dealer_rating: this.rating
-				})
-				.then((response) => {
-					const data = response.data;
-					console.log(data);
-				})
-				.catch((error) => {
-					console.error("Ошибка при выполнении запроса:", error);
-				});
-		},
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      semitruckData.truck_vendor = this.selectedVendor;
+      semitruckData.truck_dealer_rating = this.rating;
+      semitruckStore.updateSemiTruckData();
+    },
 		toggleShowCheckbox(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
       if (isChecked) {
@@ -379,8 +373,7 @@ export default {
           this.rating.splice(carIndex, 1);
         }
       }
-      console.log("rating изменен:", this.rating)
-			this.fetchData()
+			this.updateSemiTruckData()
     },
     selectVendor(condition) {
       this.selectedVendor = condition;

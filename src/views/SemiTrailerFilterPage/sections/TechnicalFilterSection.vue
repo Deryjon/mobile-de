@@ -4,9 +4,10 @@
       <div
         class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[5px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Engine</h3>
+        <h3 class="basic-title text-[25px] font-semibold">Features</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
-        <CarFilterComponentTechnical />    
+        <!-- <CarFilterComponentTechnical />     -->
+        <ParkingResorComponentExterior/>
 				<OthersComponentExterior/>   
       </div>
     </v-container>
@@ -24,6 +25,7 @@ import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 import CarFilterComponentTechnical from "../components/CarFilterComponentTechnical.vue";
 import OthersComponentExterior from "../components/OthersComponentExterior.vue";
+import ParkingResorComponentExterior from "../components/ParkingResorComponentExterior.vue";
 export default {
   data() {
     return {
@@ -53,7 +55,8 @@ export default {
     ConditionComponent,
     PaymentTab1Component,
     CarFilterComponentTechnical,
-    OthersComponentExterior
+    OthersComponentExterior,
+    ParkingResorComponentExterior
 },
   methods: {
     updateSelect() {

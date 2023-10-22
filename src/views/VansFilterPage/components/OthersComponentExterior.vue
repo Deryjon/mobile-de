@@ -1,7 +1,7 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3>Features</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+    <h3>Security</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[0px] mt-[10px]">
       <!-- cabrio -->
       <label
         class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -49,157 +49,62 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Emergency brake assist
+        EBS
       </label>
-      <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedCentral"
-          @click="toggleShowCheckbox(2, 'Keyless central locking')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
         >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedCentral"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          <input
+            type="checkbox"
+            v-model="isCheckedFourwheelDrive"
+            @click="toggleShowCheckbox(1, 'Four wheel drive')"
           />
-        </svg>
-        Keyless central locking
-      </label>
-      <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSpeed"
-          @click="toggleShowCheckbox(3, '	Speed limit control system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedFourwheelDrive"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Four wheel drive
+        </label>
+        <label
+          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
         >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSpeed"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          <input
+            type="checkbox"
+            v-model="isCheckedPowerAss"
+            @click="toggleShowCheckbox(1, 'Power Assisted Steering')"
           />
-        </svg>
-        Speed limit control system
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAdaptive"
-          @click="toggleShowCheckbox(4, 'Adaptive cornering lights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAdaptive"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Adaptive cornering lights
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTyre"
-          @click="toggleShowCheckbox(5, 'Emergency tyre')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTyre"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Emergency tyre
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLastChanges"
-          @click="toggleShowCheckbox(6, 'Lane change assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLastChanges"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Lane change assist
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportsPackage"
-          @click="toggleShowCheckbox(7, 'Sports package')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportsPackage"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Sports package
-      </label>
+          <svg
+            class="icon"
+            xmlns="http://www.w3.org/2000/svg"
+            height="1em"
+            viewBox="0 0 448 512"
+            width="1em"
+          >
+            <!-- Insert your SVG arrow icon here -->
+            <path
+              v-if="isCheckedPowerAss"
+              fill="#ffffff"
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+            />
+          </svg>
+          Power Assisted Steering
+        </label>
     </div>
   </div>
 </template>
 <script>
 import http from "../../../axios.config";
+import { useVanStore } from "../../../store/vanDataStore";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 export default {
   data() {
@@ -212,22 +117,17 @@ export default {
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
+      isCheckedFourwheelDrive: false,
+      isCheckedPowerAss: false,
       selectedOthers: [],
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedOthers,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.security =
+        this.selectedOthers),
+        vanStore.updateVanData();
     },
     toggleShowCheckbox(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
@@ -239,8 +139,7 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      console.log("selectedOthers изменен:", this.selectedOthers);
-      this.fetchData();
+      this.updateVanData();
     },
   },
   components: { TrailerCoupling },

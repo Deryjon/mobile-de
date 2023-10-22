@@ -32,9 +32,9 @@
                   <option
                     v-for="make in makes"
                     :key="make"
-                    :value="make.truck_make_name"
+                    :value="make.trailer_make_name"
                   >
-                    {{ make.truck_make_name }}
+                    {{ make.trailer_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
@@ -130,6 +130,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
+import { useTrailerStore } from "../../../store/trailerDataStore";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
   components: {
@@ -145,7 +146,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -158,23 +159,49 @@ export default {
       modeltoYears: [],
       killometres: "",
       count: "",
-      selectedModel: localStorage.getItem("mark-model"),
+      selectedModel: "",
+      selectedCategory: "",
     };
   },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateTrailerData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateTrailerData();
+      }
+    },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateTrailerData();
+      }
+    },
+    selectedCategory(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateTrailerData();
+      }
+    },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateTrailerData();
+      }
+    },
+  },
   methods: {
-    fetchData() {
-      http
-        .get("/trucks/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_variant: this.inputVariant,
-          car_payment_type: this.activeTab,
-        })
-        .then((response) => {
-          const data = response.data.data;
-          this.count = data.count;
-          console.log(data);
-        });
+    updateTrailerData() {
+      const trailerStore = useTrailerStore();
+      (trailerStore.trailerData.trailer_category =
+        this.selectedCategory),
+      (trailerStore.trailerData.trailer_make =
+        this.selectedMark),
+      (trailerStore.trailerData.trailer_model =
+        this.selectedModel),
+      (trailerStore.trailerData.trailer_model =
+        this.selectedModel),
+        trailerStore.updateTrailerData();
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -254,28 +281,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-  },
+
 };
 </script>
 

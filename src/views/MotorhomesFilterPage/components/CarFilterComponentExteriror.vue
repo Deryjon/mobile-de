@@ -1,8 +1,8 @@
 <template>
 	<div class="tab-content">
     <div class="tab-1">
-      <ParkingResorComponentExterior />
-      <ExtrasComponent/>
+       <ParkingResorComponentExterior />
+      <ExtrasComponent/> 
     </div>
   </div>
   <div class="mt-[10px] p-[20px]">
@@ -379,7 +379,7 @@ import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 import ExtrasComponent from "./ExtrasComponent.vue";
-
+import {useMotorhomeStore} from "@/store/motorhomeDataStore"
 export default {
   data() {
     return {
@@ -401,6 +401,12 @@ export default {
     };
   },
 	methods:{
+    updateMotorhomeData() {
+      const motorhomeStore = useMotorhomeStore();
+      const motorhomeData = motorhomeStore.motorhomeData;
+      motorhomeData.exterior_colour = this.selectedColors;
+      motorhomeStore.updateMotorhomeData();
+    },
 		toggleShowCheckbox(index, colorName) {
       const isChecked = !this.selectedColors.includes(colorName);
       if (isChecked) {
@@ -411,22 +417,9 @@ export default {
           this.selectedColors.splice(colorIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedColors)
-			this.fetchData()
+			this.updateMotorhomeData()
     },
-		fetchData() {
-      http
-        .get("/cars/count", {
-          exterior_colour: this.selectedColors,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
-    },
+		
 	},
   components: {
     TrailerCoupling,

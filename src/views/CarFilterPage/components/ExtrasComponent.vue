@@ -153,7 +153,9 @@
         <input
           type="checkbox"
           v-model="isCheckedInduction"
-          @click="toggleShowCheckboxExtras(6, 'Induction charging for smartphones')"
+          @click="
+            toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
+          "
         />
         <svg
           class="icon"
@@ -200,8 +202,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
-import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-
+import {useCarStore} from "@/store/carDataStore"
 export default {
   data() {
     return {
@@ -214,22 +215,15 @@ export default {
       isCheckedInduction: false,
       isCheckedSki: false,
       isCheckedElectric: false,
-			extras: []
+      extras: [],
     };
   },
-	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          extras: this.extras,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+  methods: {
+    updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.extras = this.extras;
+      carStore.updateCarData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
@@ -241,11 +235,11 @@ export default {
           this.extras.splice(carIndex, 1);
         }
       }
-      console.log("extras изменен:", this.extras)
-			this.fetchData()
+      console.log("extras изменен:", this.extras);
+      this.updateCarData();
     },
-	},
-  components: { TrailerCoupling },
+  },
+  components: {  },
 };
 </script>
 <style scoped>
