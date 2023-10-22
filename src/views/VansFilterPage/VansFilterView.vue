@@ -1,11 +1,15 @@
 <template>
-  <BasicFilterSection />
-	<TechnicalFilterSection/>
-	<ExteriorFilterSection/>
-	<OfferDetailsSection/>
+	<BasicFilterSection />
+	<TechnicalFilterSection />
+	<ExteriorFilterSection />
+	<OfferDetailsSection />
 	<v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
 
-		<FilterBtn class="ml-auto" />
+		<FilterBtn class="ml-auto" @click="goMotorbikeList">
+			<p class="text-white text-[18px] lg:text-[16px]">
+				{{ this.count }} {{ $t("message.results.result") }}
+			</p>
+		</FilterBtn>
 	</v-container>
 </template>
 <script>
@@ -14,9 +18,24 @@ import ExteriorFilterSection from "./sections/ExteriorFilterSection.vue";
 import OfferDetailsSection from "./sections/OfferDetailsSection.vue";
 import TechnicalFilterSection from "./sections/TechnicalFilterSection.vue";
 import FilterBtn from "../../components/FilterBtn.vue";
-
+import { useVanStore } from "@/store/vanDataStore";
 export default {
-  components: { BasicFilterSection, TechnicalFilterSection, ExteriorFilterSection, OfferDetailsSection, FilterBtn },
+	data() {
+		return {
+			vanStore: useVanStore(),
+			count: "",
+		};
+	},
+	watch: {
+		"vanStore.count": function (newCount, oldCount) {
+			this.count = newCount;
+		},
+	},
+mounted(){
+	this.count = this.vanStore.count;
+
+},
+	components: { BasicFilterSection, TechnicalFilterSection, ExteriorFilterSection, OfferDetailsSection, FilterBtn },
 };
 </script>
 <style scoped></style>

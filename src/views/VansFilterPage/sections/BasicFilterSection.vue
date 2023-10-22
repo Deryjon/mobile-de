@@ -3,7 +3,11 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>Van Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
+      <FilterBtn class="ml-auto">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
       <div
         class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]">
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
@@ -18,10 +22,10 @@
               <select
                 class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark" @change="fetchModels()">
-                <option value="14600" selected>Beliebig</option>
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option v-for="make in makes" :key="make" :value="make.motor_home_make_name">
-                    {{ make.motor_home_make_name }}
+                    {{ make.van_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
@@ -125,9 +129,10 @@ export default {
   },
   data() {
     return {
+      vanStore: useVanStore(),		
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -135,12 +140,13 @@ export default {
       selectedYear: "",
       selectedtoYear: "",
       years: "",
+      count: "",
       modelYears: [],
       inputVariant: "",
       selectedCategory: "",
       modeltoYears: [],
       killometres: "",
-      selectedModel: localStorage.getItem("mark-model"),
+      selectedModel: "",
     };
   },
   watch: {
@@ -169,14 +175,15 @@ export default {
         this.updateVanData();
       }
     },
+    'vanStore.count': function (newCount, oldCount) {
+      this.count = newCount;
+    }
   },
   methods: {
     updateVanData() {
       const vanStore = useVanStore();
-      (vanStore.vanData.van_condition =
-        this.selectedCondition),
-      (vanStore.vanData.van_condition =
-        this.selectedCondition),
+        (vanStore.vanData.van_condition =
+          this.selectedCondition),
         (vanStore.vanData.van_category =
           this.selectedCategory),
         (vanStore.vanData.van_make =
@@ -184,35 +191,6 @@ export default {
         (vanStore.vanData.van_model =
           this.selectedModel),
         vanStore.updateVanData();
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
-      }
-
-      // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
-
-      // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -276,10 +254,10 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.vanStore.count;
 
     http
-      .get("/motorhome/marks")
+      .get("/van/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
