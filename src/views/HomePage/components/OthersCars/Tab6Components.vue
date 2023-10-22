@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.trailer_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.trailer_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -328,7 +328,7 @@
               <img src="@/assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn  @click="goMotorhomeList">
+          <FilterBtn  @click="goTrailerList">
 						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
 					</FilterBtn>
         </div>
@@ -427,26 +427,26 @@ export default {
   },
   methods: {
 		postData(){
-			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+			localStorage.setItem('trailerData', JSON.stringify({
+      trailer_make: this.selectedMark,
+      trailer_model: this.selectedModel,
+      trailer_firt_date_year_from: this.inputValue,
+      trailer_mileage_from: this.inputKilometer,
+      trailer_payment_type: this.activeTab,
+      trailer_price_from: this.inputPrice,
+      trailer_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
-        .post("/trailer/count", {
-					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+        .post("/trailers/count", {
+					trailer_make: this.selectedMark,
+      trailer_model: this.selectedModel,
+      trailer_firt_date_year_from: this.inputValue,
+      trailer_mileage_from: this.inputKilometer,
+      trailer_payment_type: this.activeTab,
+      trailer_price_from: this.inputPrice,
+      trailer_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -597,8 +597,8 @@ export default {
     closePriceDropdown() {
       this.isOpenKilometer = false;
     },
-		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+		goTrailerList(){
+			 	this.$router.push({ name: "trailer-list" });
 
 		}
   },
