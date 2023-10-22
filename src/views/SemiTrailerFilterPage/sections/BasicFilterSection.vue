@@ -1,7 +1,7 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-      <PathLink>Trailer Filter</PathLink>
+      <PathLink>SemiTrailer Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn   class="ml-auto">
         <p class="text-white text-[18px] lg:text-[16px]">
