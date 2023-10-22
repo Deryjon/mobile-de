@@ -257,7 +257,7 @@
   </div>
 </template>
 <script>
-import { useTruckStore } from '../../../store/truckDataStore';
+import { useSemiTruckStore } from '../../../store/semitruckDataStore';
 export default {
   data() {
     return {
@@ -292,84 +292,84 @@ export default {
   watch: {
     axles(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     drivinCab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     radio(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     parking(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     cruiseControl(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     airConditioning(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     trailerCoupling(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     lengthGVW(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     lengthGVWTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     numberBunks(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
     numberBunksTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
   },
   methods: {
-    updateTruckData() {
-      const truckStore = useTruckStore();
-      const truckData = truckStore.truckData;
-      // truckData.truck_air_conditioning = this.airConditioning;
-      // truckData.truck_axles = this.axles;
-      truckData.wheel_formula = parseInt(this.numberBunk);
-      truckData.truck_gvw_from = this.lengthGVW;
-      truckData.truck_gvw_to = this.lengthGVWTo;
-      truckData.truck_hydraulic_installation = this.radio;
-      truckData.truck_trailer_coupling_fix = this.trailerCoupling;
-      truckData.truck_cruise_control = this.cruiseControl;
-      truckData.truck_driving_cab = this.drivinCab;
-      truckStore.updateTruckData();
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      // semitruckData.truck_air_conditioning = this.airConditioning;
+      // semitruckData.truck_axles = this.axles;
+      semitruckData.wheel_formula = par seInt(this.numberBunk);
+      semitruckData.truck_gvw_from = this.lengthGVW;
+      semitruckData.truck_gvw_to = this.lengthGVWTo;
+      semitruckData.truck_hydraulic_installation = this.radio;
+      semitruckData.truck_trailer_coupling_fix = this.trailerCoupling;
+      semitruckData.truck_cruise_control = this.cruiseControl;
+      semitruckData.truck_driving_cab = this.drivinCab;
+      semitruckStore.updateSemiTruckData();
     },
     toggleShowCheckbox(index, parkingName) {
       const isChecked = !this.selectedParking.includes(parkingName);

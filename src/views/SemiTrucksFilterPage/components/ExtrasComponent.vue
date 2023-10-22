@@ -200,7 +200,7 @@
 </template>
 <script>
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-import { useTruckStore } from "../../../store/truckDataStore";
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -217,11 +217,11 @@ export default {
     };
   },
 	methods:{
-		updateTruckData() {
-      const truckStore = useTruckStore();
-      const truckData = truckStore.truckData;
-      truckData.interior_features = this.extras;
-      truckStore.updateTruckData();
+		updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      semitruckData.interior_features = this.extras;
+      semitruckStore.updateSemiTruckData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
@@ -233,7 +233,7 @@ export default {
           this.extras.splice(carIndex, 1);
         }
       }
-			this.updateTruckData()
+			this.updateSemiTruckData()
     },
 	},
   components: { TrailerCoupling },

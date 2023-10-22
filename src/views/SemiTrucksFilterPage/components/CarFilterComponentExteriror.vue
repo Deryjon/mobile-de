@@ -379,7 +379,7 @@ import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 import ExtrasComponent from "./ExtrasComponent.vue";
-import { useTruckStore } from "../../../store/truckDataStore";
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -412,13 +412,13 @@ export default {
         }
       }
      
-			this.updateTruckData()
+			this.updateSemiTruckData()
     },
-    updateTruckData() {
-      const truckStore = useTruckStore();
-      const truckData = truckStore.truckData;
-      truckData.exterior_colour = this.selectedColors;
-      truckStore.updateTruckData();
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      semitruckData.exterior_colour = this.selectedColors;
+      semitruckStore.updateSemiTruckData();
     },
 	},
   components: {

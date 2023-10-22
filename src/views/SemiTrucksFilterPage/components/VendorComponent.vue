@@ -332,7 +332,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
-import { useTruckStore } from "../../../store/truckDataStore";
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -351,17 +351,17 @@ export default {
 	watch: {
     selectedVendor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.updateTruckData();
+        this.updateSemiTruckData();
       }
     },
   },
   methods: {
-    updateTruckData() {
-      const truckStore = useTruckStore();
-      const truckData = truckStore.truckData;
-      truckData.truck_vendor = this.selectedVendor;
-      truckData.truck_dealer_rating = this.rating;
-      truckStore.updateTruckData();
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      semitruckData.truck_vendor = this.selectedVendor;
+      semitruckData.truck_dealer_rating = this.rating;
+      semitruckStore.updateSemiTruckData();
     },
 		toggleShowCheckbox(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
@@ -373,7 +373,7 @@ export default {
           this.rating.splice(carIndex, 1);
         }
       }
-			this.updateTruckData()
+			this.updateSemiTruckData()
     },
     selectVendor(condition) {
       this.selectedVendor = condition;
