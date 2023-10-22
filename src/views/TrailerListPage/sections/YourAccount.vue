@@ -7,7 +7,7 @@
           class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
           @click="goToSinglePageAd(trailer.trailer_id)"
         >
-				<div class="img w-[350px] h-[260px]">
+				<div class="img w-[350px] h-[260px] m-0">
 
           <img class="w-[100%] h-full" :src="trailer.trailer_images_url"/>
 				</div>

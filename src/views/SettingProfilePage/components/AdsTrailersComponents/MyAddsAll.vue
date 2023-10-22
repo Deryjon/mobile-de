@@ -6,10 +6,10 @@
       :data-trailer-id="trailer.id"
       class="trailerd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px]">
+      <div class="img w-[500px]  h-[200px] m-0">
         <img :src="trailer.trailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
-      <div class="texts w-[520px] h-[260px]">
+      <div class="texts w-[520px] h-[260px] ml-[20px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
             {{ trailer.trailer_make }}
