@@ -5,7 +5,7 @@
 	<OfferDetailsSection />
 	<v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
 
-		<FilterBtn class="ml-auto" @click="goMotorbikeList">
+		<FilterBtn class="ml-auto" @click="goVanList">
 			<p class="text-white text-[18px] lg:text-[16px]">
 				{{ this.count }} {{ $t("message.results.result") }}
 			</p>
@@ -30,6 +30,11 @@ export default {
 		"vanStore.count": function (newCount, oldCount) {
 			this.count = newCount;
 		},
+	},
+	methods:{
+		goVanList(){
+			this.$router.push({name: "van-list"})
+		}
 	},
 mounted(){
 	this.count = this.vanStore.count;

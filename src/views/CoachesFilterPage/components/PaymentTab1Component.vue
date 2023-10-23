@@ -469,95 +469,6 @@
         ></span>
       </div> -->
     </div>
-    <!-- valid -->
-    <div
-      class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
-    >
-      <div class="relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
-        <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="huValid"
-        >
-          <option value="14600" selected>Any</option>
-          <option value="new">New</option>
-          <option value="18">18</option>
-          <option value="12">12</option>
-          <option value="9">9</option>
-          <option value="6">6</option>
-          <option value="3">3</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-      </div>
-      <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
-        <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="preOwners"
-        >
-          <option value="any" selected>Any</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-      </div>
-      <label
-        class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHistory"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHistory"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-sm p]b-[20px">Full Service History</span>
-      </label>
-      <label
-        class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRoad"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRoad"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-
-        <span class="text-sm">Roadworthy</span>
-      </label>
-    </div>
     <!-- country -->
     <div
       class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
@@ -813,6 +724,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useCoacheStore } from "../../../store/coacheDataStore";
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -850,9 +762,9 @@ export default {
       selectedPrice: "",
       selectedPriceTo: "",
       inputValue: "",
-      huValid: "14600",
-      preOwners: "any",
-      selectedCountry: "14600",
+      huValid: "",
+      preOwners: "",
+      selectedCountry: "",
 			zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
@@ -864,92 +776,92 @@ export default {
   watch: {
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     yearsTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     killometresTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     huValid(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     preOwners(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     isCheckedHistory(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     isCheckedRoad(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     selectedCountry(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     zipCode(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
     radius(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_price_from: this.price,
-          car_price_up_to: this.priceTo,
-          car_firt_date_year_from: this.inputValue,
-          car_firt_date_year_up_to: this.yearsTo,
-          car_mileage_from: this.inputKilometer,
-          car_mileage_up_to: this.killometresTo,
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: this.preOwners,
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: this.radius,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.coache_price_from =
+        parseInt(this.price)),
+      (coacheStore.coacheData.coache_price_to =
+        parseInt(this.priceTo)),
+      (coacheStore.coacheData.coache_firt_date_year_from =
+        parseInt(this.inputValue)),
+      (coacheStore.coacheData.coache_firt_date_year_to =
+        parseInt(this.yearsTo)),
+      (coacheStore.coacheData.coache_kilometre_from =
+        parseInt(this.inputKilometer)),
+      (coacheStore.coacheData.coache_kilometre_to =
+        parseInt(this.killometresTo)),
+      (coacheStore.coacheData.coache_country =
+        this.selectedCountry),
+      (coacheStore.coacheData.coache_city_zipcode =
+        this.zipCode),
+      (coacheStore.coacheData.coache_radius =
+        this.radius),
+        coacheStore.updateCoacheData();
     },
     openRadiusDropdown() {
       this.isOpenRadius = true;

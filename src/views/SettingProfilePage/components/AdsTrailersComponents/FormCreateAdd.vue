@@ -110,10 +110,8 @@
             </h2>
             <select
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedMark"
-              @change="fetchModels()"
-            >
-              <option value="14600" selected>Beliebig</option>
+              v-model="selectedMark"            >
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option
                   v-for="make in makes"
@@ -1592,7 +1590,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -1992,7 +1990,7 @@ export default {
 
     fetchModels() {
       if (!this.selectedMark) {
-        this.isModelSelectDisabled = true; // Disable the model select
+        this.isModelSelectDisabled = true; // Dis able the model select
         return;
       }
 

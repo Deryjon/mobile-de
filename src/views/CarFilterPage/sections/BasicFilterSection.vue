@@ -3,7 +3,7 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" @click="goMotorbikeList">
+      <FilterBtn class="ml-auto" @click="goCarList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -278,6 +278,9 @@ export default {
         this.isRadioNewSelected = false;
       }
     },
+    goCarList(){
+      this.$router.push({name: 'car-list'})
+    }
   },
 
   mounted() {

@@ -3,7 +3,7 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>Trailer Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn @click="goMotorhomeList" class="ml-auto">
+      <FilterBtn @click="goTrailerList" class="ml-auto">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -145,6 +145,7 @@ export default {
   data() {
     return {
       makes: [],
+      trailerStore: useTrailerStore(),
       models: [],
       selectedMark: "",
       selectedPrice: "",
@@ -189,8 +190,14 @@ export default {
         this.updateTrailerData();
       }
     },
+    "trailerStore.count": function (newCount, oldCount) {
+      this.count = newCount;
+  },
   },
   methods: {
+    goTrailerList() {
+			this.$router.push({ name: "trailer-list" })
+		},
     updateTrailerData() {
       const trailerStore = useTrailerStore();
       (trailerStore.trailerData.trailer_category =
@@ -265,7 +272,7 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.trailerStore.count;
 
     http
       .get("/trailer/marks")
@@ -282,7 +289,7 @@ export default {
       });
   },
 
-};
+}
 </script>
 
 <style scoped>

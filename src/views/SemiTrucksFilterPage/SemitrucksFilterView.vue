@@ -5,7 +5,7 @@
 	<OfferDetailsSection/>
 	<v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
 
-		<FilterBtn class="ml-auto">
+		<FilterBtn class="ml-auto" @click="goSemiTruck">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -25,6 +25,11 @@ export default {
 		semitruckStore: useSemiTruckStore(),
 		count: "",
 	  };
+	},
+	methods:{
+		goSemiTruck(){
+			this.$router.push({name: "semitruck-list"})
+		}
 	},
 	watch: {
 	  "semitruckStore.count": function (newCount, oldCount) {

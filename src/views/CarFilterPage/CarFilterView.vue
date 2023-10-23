@@ -5,7 +5,7 @@
   <InteriorFilterSection />
   <OfferDetailsSection />
   <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-    <FilterBtn class="ml-auto" @click="goMotorbikeList">
+    <FilterBtn class="ml-auto" @click="goCarList">
       <p class="text-white text-[18px] lg:text-[16px]">
         {{ this.count }} {{ $t("message.results.result") }}
       </p>
@@ -29,6 +29,11 @@ export default {
       carStore: useCarStore(),
       count: "",
     };
+  },
+  methods:{
+    goCarList(){
+      this.$router.push({name: 'car-list'})
+    }
   },
   watch: {
     "carStore.count": function (newCount, oldCount) {
