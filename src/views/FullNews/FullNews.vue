@@ -1,6 +1,6 @@
 <template>
-  <div class="body">
-    <span></span>
+  <TheLoader v-if="isLoading" />
+  <div class="body" v-else>
     <button @click="$router.push('/news')" class="back-button">
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -29,21 +29,29 @@
 <script>
 import { useRoute } from "vue-router";
 import http from "@/axios.config";
+import TheLoader from "../../components/TheLoader.vue";
 export default {
   data() {
     return {
       newsData: {},
+      isLoading: false,
       id: useRoute().params.id,
     };
   },
   methods: {
     async fetchNews() {
-      await http
-        .get(`https://slash.sellcenter.uz/api/v1/news/${this.id}`)
-        .then((res) => {
-          this.newsData = res.data.data;
-          console.log(this.newsData);
-        });
+      this.isLoading = true;
+      try {
+        const res = await http.get(
+          `https://slash.sellcenter.uz/api/v1/news/${this.id}`
+        );
+        this.newsData = res.data.data;
+        console.log(this.newsData);
+      } catch (error) {
+        console.error(error);
+      } finally {
+        this.isLoading = false;
+      }
     },
     formatDate(dateString) {
       const date = new Date(dateString);
@@ -52,13 +60,13 @@ export default {
       const year = date.getUTCFullYear();
       const hours = date.getUTCHours().toString().padStart(2, "0");
       const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-
       return `${day}-${month}-${year} ${hours}:${minutes} `;
     },
   },
   mounted() {
     this.fetchNews();
   },
+  components: { TheLoader },
 };
 </script>
 <style>

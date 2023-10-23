@@ -1,6 +1,9 @@
 <template>
-  <v-container class="max-w-[1120px]">
-    <SwiperSection/>
+  <TheLoader v-if="isLoading"/>
+  <v-container class="max-w-[1120px]" v-else>
+    <div class="swiper_wrapper">
+    <SwiperSection class="swiper"/>
+  </div>
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in newsData" :key="item.news_id">
         <img :src="item.news_image_url" alt="Image 1" />
@@ -34,10 +37,10 @@
   </v-container>
 </template>
 
-
 <script>
 import http from "../../../axios.config";
 import SwiperSection from "../../HomePage/sections/SwiperSection.vue";
+import TheLoader from "../../../components/TheLoader.vue"
 
 export default {
     data() {
@@ -47,15 +50,22 @@ export default {
             offset: 0,
             limit: 9,
             isLastPage: false,
+            isLoading: false,
         };
     },
     methods: {
         async fetchNews() {
-            await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=en`).then((res) => {
+            this.isLoading = true;
+            try {
+                const res = await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=en`);
                 this.newsData = res.data.data;
                 this.isLastPage = res.data.data.length >= this.limit;
                 console.log(this.newsData);
-            });
+            } catch (error) {
+                console.error(error);
+            } finally {
+                this.isLoading = false;
+            }
         },
         
         nextPage() {
@@ -81,9 +91,9 @@ export default {
         },
     },
     mounted() {
-        this.fetchNews();;
+     this.fetchNews();
     },
-    components: { SwiperSection }
+    components: { SwiperSection, TheLoader }
 };
 </script>
 <style scoped>
@@ -122,7 +132,7 @@ export default {
   margin-top: 10px;
 }
 
-.card .btn {
+.btn {
   width: 80px;
   margin-top: 10px;
   background-color: rgb(190, 125, 4);
@@ -176,5 +186,35 @@ export default {
   color: #fff;
   margin-top: 10px;
 
+}
+
+.swiper_wrapper{
+  width: 100%;
+  overflow-x: hidden;
+  transform: translateX(-10px);
+}
+
+
+/* responsive */
+@media(max-width:1000px) {
+  .card_box{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: center;
+  border: 1px solid black;
+}
+}
+@media(max-width:680px) {
+  .swiper_wrapper{
+    display: none;
+  }
+  .card_box{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  justify-items: center;
+  border: 1px solid black;
+}
 }
 </style>

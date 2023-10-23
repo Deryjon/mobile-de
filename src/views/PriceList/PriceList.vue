@@ -2,13 +2,17 @@
 import axios from "axios";
 import { onMounted, ref } from "vue";
 import SwiperSection from "../HomePage/sections/SwiperSection.vue";
+import TheLoader from "../../components/TheLoader.vue";
 
 const data = ref([]);
 const isLastPage = ref(false);
+const isLoading = ref(false);
 const offset = ref(0);
 const limit = ref(9);
 
 async function fetchData() {
+  isLoading.value = true;
+
   try {
     const res = await axios.get(
       `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=en`
@@ -18,6 +22,8 @@ async function fetchData() {
     console.log(data.value);
   } catch (error) {
     console.error(error);
+  } finally {
+    isLoading.value = false;
   }
 }
 
@@ -43,8 +49,11 @@ function formatPrice(price) {
 onMounted(fetchData);
 </script>
 <template>
-  <v-container class="max-w-[1120px]">
-    <SwiperSection />
+  <TheLoader v-if="isLoading" />
+  <v-container class="max-w-[1120px]" v-else>
+    <div class="swiper_wrapper">
+      <SwiperSection />
+    </div>
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in data" :key="item.price_item_id">
         <h1 class="card__title">
@@ -91,6 +100,11 @@ onMounted(fetchData);
   </v-container>
 </template>
 <style scoped>
+.swiper_wrapper {
+  width: 100%;
+  overflow-x: hidden;
+  transform: translateX(-10px);
+}
 .card_box {
   margin-top: 20px;
   display: grid;
@@ -165,5 +179,28 @@ onMounted(fetchData);
   justify-content: center;
   color: #fff;
   margin-top: 10px;
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+  .card_box {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    border: 1px solid black;
+  }
+}
+@media (max-width: 680px) {
+  .swiper_wrapper {
+    display: none;
+  }
+  .card_box {
+    margin-top: 12px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-items: center;
+    border: 1px solid black;
+  }
 }
 </style>
