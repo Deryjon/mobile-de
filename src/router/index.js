@@ -7,7 +7,7 @@ import MotorhomesFilter from "../views/MotorhomesFilterPage/MotorhomesFilterView
 import TrucksFilterPage from "../views/TrucksFilterPage/TrucksFilterView.vue";
 import TrailerFilterPage from "../views/TrailerFilterPage/TrailerFilterView.vue";
 import VanFilterPage from "../views/VansFilterPage/VansFilterView.vue";
-import SemiTrucksFilterPage from "../views/SemiTrucksFilterPage/SemiTrucksFilterView.vue";
+import SemiTrucksFilterPage from "../views/SemiTrucksFilterPage/SemitrucksFilterView.vue";
 import SemiTrailerFilterPage from "../views/SemiTrailerFilterPage/TrailerFilterView.vue";
 import CoachesFilterPage from "../views/CoachesFilterPage/CoachesFilterView.vue";
 import AgriculturalsFilterPage from "../views/AgriculturalsFilterPage/AgriculturalFilterView.vue";
@@ -47,6 +47,7 @@ import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue";
 import MotorbikeSinglePage from "../views/MotorbikeSinglePage/MotorbikeSinglePage.vue";
 import MotorhomeSinglePage from "../views/MotorhomeSinglePage/MotorhomeSinglePage.vue";
 import FullNews from "../views/FullNews/FullNews.vue";
+import PriceList from "../views/PriceList/PriceList.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -289,6 +290,11 @@ const router = createRouter({
       path: "/fullnews/:id",
       name: "full-news",
       component: FullNews,
+    },
+    {
+      path: "/pricelist",
+      name: "price-list",
+      component: PriceList,
     },
   ],
 });
