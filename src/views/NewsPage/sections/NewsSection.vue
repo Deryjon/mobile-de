@@ -59,7 +59,7 @@ export default {
         },
         
         nextPage() {
-            if (this.isLastPage) { // Add this check
+            if (this.isLastPage) {
                 this.offset += this.limit;
                 this.fetchNews();
             }
@@ -150,46 +150,6 @@ export default {
   overflow-y: hidden;
 }
 
-.image-slider img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.5s;
-}
-
-.slide-enter {
-  transform: translateX(100%);
-}
-.slide-leave-to {
-  transform: translateX(-100%);
-}
-.images {
-  position: relative;
-}
-
-.dots {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-}
-
-.dot {
-  height: 15px;
-  width: 15px;
-  margin: 0 5px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-}
-
-.dot.active {
-  background-color: #717171;
-}
 .btn_box{
   width: 100%;
   display: flex;

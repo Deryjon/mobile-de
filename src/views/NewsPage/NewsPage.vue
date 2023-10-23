@@ -1,19 +1,15 @@
 <template>
   <div class="">
-    <NewsSection/>
+    <NewsSection />
   </div>
 </template>
 
 <script>
-import NewsSection from './sections/NewsSection.vue';
+import NewsSection from "./sections/NewsSection.vue";
 
 export default {
   components: {
-    NewsSection
+    NewsSection,
   },
-}
+};
 </script>
-
-<style scoped>
-
-</style>
