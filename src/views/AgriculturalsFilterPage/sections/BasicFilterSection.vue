@@ -3,7 +3,11 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>Truck Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
+      <FilterBtn class="ml-auto" @click="goMotorhomeList">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
       <div
         class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
@@ -23,7 +27,7 @@
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
-                <option value="14600" selected>Beliebig</option>
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option
                     v-for="make in makes"
@@ -87,7 +91,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -99,23 +103,26 @@ export default {
 			inputVariant: "",
       modeltoYears: [],
       killometres: "",
-      selectedModel: localStorage.getItem("mark-model"),
+      selectedModel: "",
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-					car_variant: this.inputVariant,
-					car_payment_type: this.activeTab
-        })
-        .then((response) => {
-          const data = response.data.data;
-          console.log(data);
-        });
-    },
+    data() {
+		return {
+			vehicleStore: useVehicleStore(),
+			count: "",
+		};
+	},
+	methods: {
+		goMotorhomeList() {
+			this.$router.push({ name: "agricultural-list" })
+		}
+	},
+	watch: {
+		"vehicleStore.count": function (newCount, oldCount) {
+			this.count = newCount;
+		},
+	},
     fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select

@@ -1,6 +1,6 @@
 <template>
   <v-container class="w-[1120px]">
-    <PathLink>Coache list</PathLink>
+    <PathLink>Agricultural Vehicle list</PathLink>
     <div class="sections">
       <YourAccount />	
     </div>

@@ -117,7 +117,7 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/vehicles/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      http.post(`/agriculturals/list?limit=100&offset=0`, this.fetchData).then((res) => {
         this.vehicles = res.data.data;
         console.log(this.vehicles);
         console.log(this.fetchData.motorcycle_make);
