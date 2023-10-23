@@ -1,15 +1,19 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-      <PathLink>My New Vans</PathLink>
+      <PathLink>Motorhome Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
+      <FilterBtn class="ml-auto" @click="goMotorhomeList">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
       <div
-        class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
-				<ConditionComponent/>
+        <ConditionComponent />
         <div
           class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]"
         >
@@ -47,10 +51,10 @@
             </h2>
             <input
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-             type="text"
+              type="text"
               v-model="selectedModel"
-           />
-                        </div>
+            />
+          </div>
         </div>
         <CarFilterComponentBasic />
         <div class="tab-content lg:mt-[-10px] xl:mt-[0px]">
@@ -73,6 +77,8 @@ import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
+import { useMotorhomeStore } from "@/store/motorhomeDataStore";
+
 export default {
   components: {
     PathLink,
@@ -85,9 +91,10 @@ export default {
   },
   data() {
     return {
+			motorhomeStore: useMotorhomeStore(),
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -95,26 +102,37 @@ export default {
       selectedYear: "",
       selectedtoYear: "",
       years: "",
+      count: "",
       modelYears: [],
-			inputVariant: "",
+      inputVariant: "",
       modeltoYears: [],
       killometres: "",
       selectedModel: localStorage.getItem("mark-model"),
     };
   },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateMotorhomeData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateMotorhomeData();
+      }
+    },
+    "motorhomeStore.count": function (newCount, oldCount) {
+      this.count = newCount;
+    },
+  },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-					car_variant: this.inputVariant,
-					car_payment_type: this.activeTab
-        })
-        .then((response) => {
-          const data = response.data.data;
-          console.log(data);
-        });
+    goMotorhomeList(){
+      this.$router.push({name: "motorhome-list"})
+    },
+    updateMotorhomeData() {
+      const motorhomeStore = useMotorhomeStore();
+      (motorhomeStore.motorhomeData.motor_home_make = this.selectedMark),
+        (motorhomeStore.motorhomeData.motor_home_model = this.selectedModel),        motorhomeStore.updateMotorhomeData();
     },
     fetchModels() {
       if (!this.selectedMark) {
@@ -207,7 +225,7 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.motorhomeStore.count;
 
     http
       .get("/motorhome/marks")
@@ -222,28 +240,6 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-  },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-		activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
   },
 };
 </script>

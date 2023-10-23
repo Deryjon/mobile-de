@@ -86,49 +86,12 @@
         </label>
       </div>
     </div>
-    <!-- valid -->
-    <div
-      class="valid-until mt-[30px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
-    >
-      
-      <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
-        <select
-          class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="stickerEmission"
-        >
-          <option value="any" selected>Any</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
-        </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-        ></span>
-      </div>
-      <div class="marke_select_div relative mt-[20px] lg:mt-7 w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
-        <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="classEmision"
-        >
-          <option value="any" selected>Any</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
-        </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-        ></span>
-      </div>
-    </div>
   </div>
 </template>
 <script>
 import axios from "axios";
 import http from "../../../axios.config";
+import { useForkliftStore } from "../../../store/forkliftDataStore";
 export default {
   data() {
     return {
@@ -167,37 +130,37 @@ export default {
   watch: {
     power(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
     powerTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateForkliftData();
       }
     },
   },
@@ -212,25 +175,13 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+			this.updateForkliftData()
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.power,
-          car_power_up_to: this.powerTo,
-          car_cubic_capacity_from: this.cubic,
-          car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
-          car_fuel_consumption: this.consumptionFuel,
-          car_emissions_sticker: this.stickerEmission,
-          car_emission_class: this.classEmision,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateForkliftData() {
+      const forkliftStore = useForkliftStore();
+      (forkliftStore.forkliftData.transmission =
+        this.selectedTransmision),
+        forkliftStore.updateForkliftData();
     },
     openCubicToDropdown() {
       this.isOpenCubicTo = true;

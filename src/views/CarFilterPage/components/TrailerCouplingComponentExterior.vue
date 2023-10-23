@@ -1,8 +1,10 @@
 <template>
   <div class="condition p-[20px]">
     <h3>Trailer coupling</h3>
-    <div class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
-      <label for="condition-any" @click="selectCondition('AnyTrai')">
+    <div
+      class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px] text-[14px]"
+    >
+      <label for="trai" @click="selectCondition('AnyTrai')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -14,23 +16,20 @@
         />
         <span class="ml-[10px]">Any</span>
       </label>
-      <label for="condition-any">
+      <label for="fix" @click="selectCondition('Fix')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Fix',
             'bg-orange': selectedCondition === 'Fix',
           }"
-          @click="selectCondition('Fix')"
         />
         <span class="ml-[10px]">Fix, detachable or swiveling</span>
       </label>
-      <label for="condition-any" @click="selectCondition('Detachable')">
+      <label for="deta" @click="selectCondition('Detachable')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Detachable',
@@ -39,10 +38,9 @@
         />
         <span class="ml-[10px]">Detachable or swiveling </span>
       </label>
-      <label for="condition-any" @click="selectCondition('Swiveling')">
+      <label for="swiveling" @click="selectCondition('Swiveling')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Swiveling',
@@ -55,25 +53,34 @@
   </div>
 </template>
 <script>
-import http from '../../../axios.config';
+import http from "../../../axios.config";
+import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {
     return {
       selectedCondition: "AnyTrai",
     };
   },
-	watch:{
-		selectedCondition(newValue, oldValue) {
+  watch: {
+    selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.fetchData();
+				this.updateCarData()
       }
     },
-	},
+  },
   methods: {
+    updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.car_trailer_coupling = this.selectedCondition;
+
+      carStore.updateCarData();
+    },
     selectCondition(condition) {
       this.selectedCondition = condition;
     },
-		fetchData() {
+    fetchData() {
       http
         .get("/cars/count", {
           car_trailer_coupling: this.selectedCondition,

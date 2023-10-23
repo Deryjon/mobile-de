@@ -2,7 +2,6 @@
   <div class="mt-[10px] p-[20px]">
     <h3>Interior Colour</h3>
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
-      <!-- cabrio -->
       <label
         class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
       >
@@ -136,6 +135,7 @@
 <script>
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {
     return {
@@ -148,18 +148,11 @@ export default {
     };
   },
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          interior_colour: this.selectedColor,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.interior_colour = this.selectedColor;
+      carStore.updateCarData();
     },
 		toggleShowCheckbox(index, colorName) {
       const isChecked = !this.selectedColor.includes(colorName);
@@ -171,8 +164,8 @@ export default {
           this.selectedColor.splice(carIndex, 1);
         }
       }
-      console.log("selectedColor изменен:", this.selectedColor)
-			this.fetchData()
+			this.updateCarData()
+
     },
 	}
 };

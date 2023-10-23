@@ -379,7 +379,7 @@ import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
-
+import {useCarStore} from "@/store/carDataStore"
 export default {
   data() {
     return {
@@ -401,6 +401,13 @@ export default {
     };
   },
 	methods:{
+		updateCarData() { 
+  const carStore = useCarStore();
+  const carData = carStore.carData; 
+  carData.exterior_colour = this.selectedColors;
+
+  carStore.updateCarData();
+},
 		toggleShowCheckbox(index, colorName) {
       const isChecked = !this.selectedColors.includes(colorName);
       if (isChecked) {
@@ -411,7 +418,7 @@ export default {
           this.selectedColors.splice(colorIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedColors)
+this.updateCarData()
 			this.fetchData()
     },
 		fetchData() {

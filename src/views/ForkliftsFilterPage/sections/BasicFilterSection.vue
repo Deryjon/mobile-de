@@ -1,18 +1,19 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-      <PathLink>Truck Filter</PathLink>
+      <PathLink>Van Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn class="ml-auto" />
+      <FilterBtn class="ml-auto" @click="goMotorbikeList">
+        <p class="text-white text-[18px] lg:text-[16px]">
+          {{ this.count }} {{ $t("message.results.result") }}
+        </p>
+      </FilterBtn>
       <div
-        class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
-      >
+        class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]">
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
-				<ConditionComponent/>
-        <div
-          class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]"
-        >
+        <ConditionComponent />
+        <div class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]">
           <div class="mark">
             <div class="relative mt-2">
               <h2 class="text-sm lg:text-[14px]">
@@ -20,24 +21,16 @@
               </h2>
               <select
                 class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                v-model="selectedMark"
-                @change="fetchModels()"
-              >
-                <option value="14600" selected>Beliebig</option>
+                v-model="selectedMark" @change="fetchModels()">
+                <option value="" selected>Beliebig</option>
                 <optgroup>
-                  <option
-                    v-for="make in makes"
-                    :key="make"
-                    :value="make.motor_home_make_name"
-                  >
-                    {{ make.motor_home_make_name }}
+                  <option v-for="make in makes" :key="make" :value="make.forklift_make_name">
+                    {{ make.forklift_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
               </select>
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
-              ></span>
+              <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
             </div>
           </div>
 
@@ -47,12 +40,62 @@
             </h2>
             <input
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-             type="text"
-              v-model="selectedModel"
-           />
-                        </div>
+              type="text" v-model="selectedModel" />
+          </div>
+          <div class="relative">
+            <h2 class="text-sm lg:text-[14px] mt-2">Category</h2>
+            <select
+              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              v-model="selectedCategory">
+              <option value="" data-track-as="any">Any</option>
+              <option value="BeveragesTruck">Beverage</option>
+              <option value="BoxTruck">Box</option>
+              <option value="BreakdownTruck">Breakdown truck</option>
+              <option value="CarCarrierTruck">Car carrier</option>
+              <option value="CementMixerTruck">Cement mixer</option>
+              <option value="ChassisTruck">Chassis</option>
+              <option value="ConcretePump">Concrete Pump</option>
+              <option value="DumperTruck">Dumper truck</option>
+              <option value="MilkTankTruck">Food Carrier</option>
+              <option value="GrainTruck">Grain Truck</option>
+              <option value="HorsesTruck">Horses</option>
+              <option value="HydraulicWorkPlatformTruck">
+                Hydraulic work platform
+              </option>
+              <option value="JumboTruck">Jumbo Truck</option>
+              <option value="SkipLorryTruck">Mining truck</option>
+              <option value="RefrigeratorBodyTruck">Refrigerator body</option>
+              <option value="RefuseTruck">Refuse truck</option>
+              <option value="RollOffTipperTruck">Roll-off tipper</option>
+              <option value="StakeBodyTruck">Stake body</option>
+              <option value="StakeBodyAndTarpaulinTruck">
+                Stake body and tarpaulin
+              </option>
+              <option value="SwapChassisTruck">Swap chassis</option>
+              <option value="SweepingMachineTruck">Sweeping machine</option>
+              <option value="TankBodiesTruck">Tank truck</option>
+              <option value="Over7500_ThreeSidedTipper">
+                Three-sided Tipper
+              </option>
+              <option value="TimberCarrierTruck">Timber carrier</option>
+              <option value="TipperTruck">Tipper</option>
+              <option value="TrafficConstructionTruck">
+                Traffic construction
+              </option>
+              <option value="TruckMountedCraneTruck">
+                Truck-mounted crane
+              </option>
+              <option value="VacuumAndPressureVehicleTruck">
+                Vacuum and pressure vehicle
+              </option>
+              <option value="OtherTruckOver7500">
+                Other trucks over 7.5 t
+              </option>
+            </select>
+            <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+          </div>
         </div>
-        <CarFilterComponentBasic />
+        <!-- <CarFilterComponentBasic /> -->
         <div class="tab-content lg:mt-[-10px] xl:mt-[0px]">
           <div class="buy">
             <PaymentTab1Component />
@@ -72,6 +115,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
+import { useForkliftStore } from "../../../store/forkliftDataStore";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
   components: {
@@ -85,9 +129,10 @@ export default {
   },
   data() {
     return {
+      forkliftStore: useForkliftStore(),		
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -95,55 +140,59 @@ export default {
       selectedYear: "",
       selectedtoYear: "",
       years: "",
+      count: "",
       modelYears: [],
-			inputVariant: "",
+      inputVariant: "",
+      selectedCategory: "",
       modeltoYears: [],
       killometres: "",
-      selectedModel: localStorage.getItem("mark-model"),
+      selectedModel: "",
     };
   },
-  methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-					car_variant: this.inputVariant,
-					car_payment_type: this.activeTab
-        })
-        .then((response) => {
-          const data = response.data.data;
-          console.log(data);
-        });
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateForkliftData();
       }
-
-      // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
-
-      // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateForkliftData();
+      }
+    },
+    selectedCategory(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateForkliftData();
+      }
+    },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateForkliftData();
+      }
+    },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateForkliftData();
+      }
+    },
+    'forkliftStore.count': function (newCount, oldCount) {
+      this.count = newCount;
+    }
+  },
+  methods: {
+    updateForkliftData() {
+      const forkliftStore = useForkliftStore();
+      (forkliftStore.forkliftData.forklift_condition =
+        this.selectedCondition),
+      (forkliftStore.forkliftData.forklift_condition =
+        this.selectedCondition),
+        (forkliftStore.forkliftData.forklift_category =
+          this.selectedCategory),
+        (forkliftStore.forkliftData.forklift_make =
+          this.selectedMark),
+        (forkliftStore.forkliftData.forklift_model =
+          this.selectedModel),
+        forkliftStore.updateForkliftData();
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -207,10 +256,8 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
-
     http
-      .get("/motorhome/marks")
+      .get("/forklift/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -223,34 +270,13 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-		activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-  },
 };
 </script>
 
 <style scoped>
 .mark-input2 {
-  max-height: 35px; /* Измените значение по вашему усмотрению */
+  max-height: 35px;
+  /* Измените значение по вашему усмотрению */
   overflow-y: hidden;
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
@@ -258,33 +284,42 @@ export default {
 
 /* Добавьте прокрутку при необходимости */
 .mark-input2::-webkit-scrollbar {
-  width: 3px; /* Ширина полосы прокрутки */
+  width: 3px;
+  /* Ширина полосы прокрутки */
 }
 
 .mark-input2::-webkit-scrollbar-thumb {
-  background-color: #888; /* Цвет полосы прокрутки */
-  border-radius: 2.5px; /* Закругление полосы прокрутки */
+  background-color: #888;
+  /* Цвет полосы прокрутки */
+  border-radius: 2.5px;
+  /* Закругление полосы прокрутки */
 }
+
 select:-webkit-scrollbar {
   /*For WebKit Browsers*/
   width: 0;
   height: 0;
 }
+
 .line {
   border: 1px solid grey;
   height: 1px;
 }
+
 .Kaufen:hover {
   box-shadow: 0 0 2px 1px #eaccb4;
 }
+
 .active-Kaufen {
   background-color: #fffaf6;
   border: 1px solid #eaccb4;
   color: #000;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;

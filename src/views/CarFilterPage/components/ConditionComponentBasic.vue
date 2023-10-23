@@ -57,7 +57,7 @@
           v-model="isCheckedRegister"
           @click="toggleShowCheckbox(0, 'Pre-Registration')"
         />
-        <svg
+        <svg	
           class="icon"
           xmlns="http://www.w3.org/2000/svg"
           height="1em"
@@ -162,6 +162,7 @@
   </div>
 </template>
 <script>
+import {useCarStore} from "@/store/carDataStore"
 import http from "../../../axios.config";
 export default {
   data() {
@@ -175,30 +176,20 @@ export default {
       isCheckedEmploy: false,
       isCheckedClassic: false,
       isCheckedDemon: false,
-			type: []
+      type: [],
     };
   },
   setup() {},
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-      }
+				const carStore = useCarStore();
+        carStore.carData.car_condition = this.selectedCondition;
+				carStore.updateCarData();      }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_condition: this.selectedCondition,
-					type: this.type
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
-    },
-		toggleShowCheckbox(index, typeName) {
+    toggleShowCheckbox(index, typeName) {
       const isChecked = !this.type.includes(typeName);
       if (isChecked) {
         this.type.push(typeName);
@@ -208,8 +199,9 @@ export default {
           this.type.splice(typeIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.type)
-			this.fetchData()
+			const carStore = useCarStore();
+        carStore.carData.type = this.type;
+				carStore.updateCarData();      
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

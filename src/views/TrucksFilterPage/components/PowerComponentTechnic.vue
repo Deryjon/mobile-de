@@ -1,7 +1,5 @@
 <template>
   <div class="pl-[20px]">
-    
-    <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-x-[100px]">
       <div
         class="
@@ -129,6 +127,7 @@
 <script>
 import axios from "axios";
 import http from "../../../axios.config";
+import { useTruckStore } from "../../../store/truckDataStore";
 export default {
   data() {
     return {
@@ -167,37 +166,37 @@ export default {
   watch: {
     power(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     powerTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
   },
@@ -212,25 +211,17 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+			this.updateTruckData()
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.power,
-          car_power_up_to: this.powerTo,
-          car_cubic_capacity_from: this.cubic,
-          car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
-          car_fuel_consumption: this.consumptionFuel,
-          car_emissions_sticker: this.stickerEmission,
-          car_emission_class: this.classEmision,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateTruckData() {
+      const truckStore = useTruckStore();
+      (truckStore.truckData.transmission =
+        this.selectedTransmision),
+      (truckStore.truckData.truck_emission_class =
+        this.classEmision),
+      (truckStore.truckData.truck_emissions_sticker =
+        this.stickerEmission),
+        truckStore.updateTruckData();
     },
     openCubicToDropdown() {
       this.isOpenCubicTo = true;

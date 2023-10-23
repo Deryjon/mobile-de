@@ -1,9 +1,9 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
-      <PathLink>Trailer Filter</PathLink>
+      <PathLink>SemiTrailer Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn @click="goMotorhomeList" class="ml-auto">
+      <FilterBtn   class="ml-auto" @click="goSemitrailerList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -32,9 +32,9 @@
                   <option
                     v-for="make in makes"
                     :key="make"
-                    :value="make.truck_make_name"
+                    :value="make.trailer_make_name"
                   >
-                    {{ make.truck_make_name }}
+                    {{ make.trailer_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
@@ -130,6 +130,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
+import { useSemiTrailerStore } from "../../../store/semitrailerDataStore";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
   components: {
@@ -145,7 +146,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",
@@ -158,23 +159,52 @@ export default {
       modeltoYears: [],
       killometres: "",
       count: "",
-      selectedModel: localStorage.getItem("mark-model"),
+      selectedModel: "",
+      selectedCategory: "",
     };
   },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateSemiTrailerData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateSemiTrailerData();
+      }
+    },
+    inputVariant(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateSemiTrailerData();
+      }
+    },
+    selectedCategory(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateSemiTrailerData();
+      }
+    },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateSemiTrailerData();
+      }
+    },
+  },
   methods: {
-    fetchData() {
-      http
-        .get("/trucks/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_variant: this.inputVariant,
-          car_payment_type: this.activeTab,
-        })
-        .then((response) => {
-          const data = response.data.data;
-          this.count = data.count;
-          console.log(data);
-        });
+    goSemitrailerList(){
+this.$router.push({name: "semitrailer-list"})
+    },
+    updateSemiTrailerData() {
+      const semitrailerStore = useSemiTrailerStore();
+      (semitrailerStore.semitrailerData.trailer_category =
+        this.selectedCategory),
+      (semitrailerStore.semitrailerData.trailer_make =
+        this.selectedMark),
+      (semitrailerStore.semitrailerData.trailer_model =
+        this.selectedModel),
+      (semitrailerStore.semitrailerData.trailer_model =
+        this.selectedModel),
+        semitrailerStore.updateSemiTrailerData();
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -254,28 +284,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-  },
+
 };
 </script>
 

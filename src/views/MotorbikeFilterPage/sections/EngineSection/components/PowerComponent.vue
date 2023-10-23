@@ -7,12 +7,12 @@
      
    
     <!-- transmision -->
+		<h3 class="">Transmission</h3>
     <div class="flex gap-[40px] lg:gap-x-[100px]">
       <div
         class="
 			"
       >
-        <h3 class="">Transmission</h3>
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input
             type="checkbox"
@@ -187,6 +187,7 @@
 <script>
 import axios from "axios";
 import http from "@/axios.config";
+import {useMotorbikeStore} from "@/store/motorbikeDataStore"
 export default {
   data() {
     return {
@@ -225,37 +226,37 @@ export default {
   watch: {
     power(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
     powerTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorbikeData();
       }
     },
   },
@@ -270,25 +271,12 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+			this.updateMotorbikeData()
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.power,
-          car_power_up_to: this.powerTo,
-          car_cubic_capacity_from: this.cubic,
-          car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
-          car_fuel_consumption: this.consumptionFuel,
-          car_emissions_sticker: this.stickerEmission,
-          car_emission_class: this.classEmision,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+		updateMotorbikeData() {
+      const motorbikeStore = useMotorbikeStore();
+      motorbikeStore.motorcycleData.transmission = this.selectedTransmision;
+      motorbikeStore.updateMotorbikeData();
     },
     openCubicToDropdown() {
       this.isOpenCubicTo = true;

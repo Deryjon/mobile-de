@@ -813,6 +813,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useTruckStore } from "../../../store/truckDataStore";
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -850,9 +851,9 @@ export default {
       selectedPrice: "",
       selectedPriceTo: "",
       inputValue: "",
-      huValid: "14600",
-      preOwners: "any",
-      selectedCountry: "14600",
+      huValid: "",
+      preOwners: "",
+      selectedCountry: "",
 			zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
@@ -864,92 +865,92 @@ export default {
   watch: {
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     yearsTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     killometresTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     huValid(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     preOwners(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     isCheckedHistory(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     isCheckedRoad(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     selectedCountry(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     zipCode(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
     radius(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateTruckData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_price_from: this.price,
-          car_price_up_to: this.priceTo,
-          car_firt_date_year_from: this.inputValue,
-          car_firt_date_year_up_to: this.yearsTo,
-          car_mileage_from: this.inputKilometer,
-          car_mileage_up_to: this.killometresTo,
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: this.preOwners,
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: this.radius,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateTruckData() {
+      const truckStore = useTruckStore();
+      (truckStore.truckData.truck_price_from =
+        parseInt(this.price)),
+      (truckStore.truckData.truck_price_to =
+        parseInt(this.priceTo)),
+      (truckStore.truckData.truck_firt_date_year_from =
+        parseInt(this.inputValue)),
+      (truckStore.truckData.truck_firt_date_year_to =
+        parseInt(this.yearsTo)),
+      (truckStore.truckData.truck_kilometre_from =
+        parseInt(this.inputKilometer)),
+      (truckStore.truckData.truck_kilometre_to =
+        parseInt(this.killometresTo)),
+      (truckStore.truckData.truck_country =
+        this.selectedCountry),
+      (truckStore.truckData.zipcode =
+        this.zipCode),
+      (truckStore.truckData.radius =
+        this.radius),
+        truckStore.updateTruckData();
     },
     openRadiusDropdown() {
       this.isOpenRadius = true;

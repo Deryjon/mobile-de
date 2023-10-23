@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.agricultural_vehicle_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.agricultural_vehicle_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -428,25 +428,25 @@ export default {
   methods: {
 		postData(){
 			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+      vehicle_make: this.selectedMark,
+      vehicle_model: this.selectedModel,
+      vehicle_firt_date_year_from: this.inputValue,
+      vehicle_mileage_from: this.inputKilometer,
+      vehicle_payment_type: this.activeTab,
+      vehicle_price_from: this.inputPrice,
+      vehicle_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
-        .post("/agricultural/count", {
+        .post("/agriculturals/count", {
 					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+      vehicle_model: this.selectedModel,
+      vehicle_firt_date_year_from: this.inputValue,
+      vehicle_mileage_from: this.inputKilometer,
+      vehicle_payment_type: this.activeTab,
+      vehicle_price_from: this.inputPrice,
+      vehicle_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -598,7 +598,7 @@ export default {
       this.isOpenKilometer = false;
     },
 		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+			 	this.$router.push({ name: "agricultural-list" });
 
 		}
   },

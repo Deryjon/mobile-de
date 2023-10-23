@@ -1,6 +1,5 @@
 <template>
   <main>
-		<link rel="icon" href="./assets/images/logo.png">
 		<HeaderLayoutVue/>
     <RouterView />
 		<FooterLayout/>

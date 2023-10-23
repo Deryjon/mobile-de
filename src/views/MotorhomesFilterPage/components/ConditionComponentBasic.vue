@@ -2,7 +2,7 @@
   <div class="condition p-[20px]">
     <h3 class="text-[16px]">Type and condition</h3>
     <div
-      class="radios-type flex flex-wrap gap-x-[0px] lg:gap-x-[100px] mt-[10px] "
+      class="radios-type flex flex-wrap gap-x-[0px] lg:gap-x-[100px] mt-[10px]"
     >
       <label>
         <input
@@ -42,11 +42,11 @@
         <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
-    
   </div>
 </template>
 <script>
 import http from "../../../axios.config";
+import { useMotorhomeStore } from "@/store/motorhomeDataStore";
 export default {
   data() {
     return {
@@ -59,30 +59,24 @@ export default {
       isCheckedEmploy: false,
       isCheckedClassic: false,
       isCheckedDemon: false,
-			type: []
+      type: [],
     };
   },
-  setup() {},
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_condition: this.selectedCondition,
-					type: this.type
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateMotorhomeData() {
+      const motorhomeStore = useMotorhomeStore();
+      (motorhomeStore.motorhomeData.motor_home_condition =
+        this.selectedCondition),
+        motorhomeStore.updateMotorhomeData();
     },
-		toggleShowCheckbox(index, typeName) {
+    toggleShowCheckbox(index, typeName) {
       const isChecked = !this.type.includes(typeName);
       if (isChecked) {
         this.type.push(typeName);
@@ -92,8 +86,8 @@ export default {
           this.type.splice(typeIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.type)
-			this.fetchData()
+
+      this.updateMotorhomeData();
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

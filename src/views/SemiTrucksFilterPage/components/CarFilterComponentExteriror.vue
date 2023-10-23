@@ -1,7 +1,7 @@
 <template>
 	<div class="tab-content">
     <div class="tab-1">
-      <!-- <ParkingResorComponentExterior /> -->
+      <ParkingResorComponentExterior />
       <ExtrasComponent/>
     </div>
   </div>
@@ -379,7 +379,7 @@ import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 import ExtrasComponent from "./ExtrasComponent.vue";
-
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -411,21 +411,14 @@ export default {
           this.selectedColors.splice(colorIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedColors)
-			this.fetchData()
+     
+			this.updateSemiTruckData()
     },
-		fetchData() {
-      http
-        .get("/cars/count", {
-          exterior_colour: this.selectedColors,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      semitruckData.exterior_colour = this.selectedColors;
+      semitruckStore.updateSemiTruckData();
     },
 	},
   components: {

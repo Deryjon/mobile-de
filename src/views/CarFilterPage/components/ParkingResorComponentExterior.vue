@@ -128,7 +128,8 @@
 </template>
 <script>
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-import http from '../../../axios.config'
+import http from "../../../axios.config";
+import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {
     return {
@@ -137,22 +138,15 @@ export default {
       isCheckedCamera: false,
       isChecked360: false,
       isCheckedSelf: false,
-			selectedParking: []
+      selectedParking: [],
     };
   },
-	methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          parking_sensors: this.selectedParking,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+  methods: {
+    updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.parking_sensors = this.selectedParking;
+      carStore.updateCarData();
     },
     toggleShowCheckbox(index, parkingName) {
       const isChecked = !this.selectedParking.includes(parkingName);
@@ -164,8 +158,7 @@ export default {
           this.selectedParking.splice(index, 1);
         }
       }
-      console.log("selectedParking изменен:", this.selectedParking)
-			this.fetchData()
+      this.updateCarData();
     },
   },
   components: { TrailerCoupling },

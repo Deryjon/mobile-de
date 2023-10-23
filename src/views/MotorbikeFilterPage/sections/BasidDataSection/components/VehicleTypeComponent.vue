@@ -9,7 +9,7 @@
         <input
           type="checkbox"
           v-model="isCheckedChopperCruis"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Chopper/Cruiser')"
         />
         <svg
           class="icon"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedMotorBicycle"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Motor-assisted Bicycle/Small Moped')"
         />
         <svg
           class="icon"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRacing"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(3, 'Racing')"
         />
         <svg
           class="icon"
@@ -81,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedStreetFight"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(4, 'Streetfighter')"
         />
         <svg
           class="icon"
@@ -105,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedCombinationSide"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(5, 'Combination/Sidecar')"
         />
         <svg
           class="icon"
@@ -129,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedMotorcycle"
-          @click="toggleShowCheckbox(1)"
+          @click="toggleShowCheckbox(6, 'Motorcycle')"
         />
         <svg
           class="icon"
@@ -154,7 +154,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRally"
-          @click="toggleShowCheckbox(1)"
+          @click="toggleShowCheckbox(7, 'Rally/Cross')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -171,7 +171,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-[14px]">Rally/Cross </span>
+        <span class="text-[14px]">Rally/Cross</span>
       </label>
 
       <!-- saloon -->
@@ -181,7 +181,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSuperMoto"
-          @click="toggleShowCheckbox(2)"
+          @click="toggleShowCheckbox(8, 'Super Moto')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -209,7 +209,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDirtBike"
-          @click="toggleShowCheckbox(3)"
+          @click="toggleShowCheckbox(9, 'Dirt Bike')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -237,7 +237,7 @@
         <input
           type="checkbox"
           v-model="isCheckedNikedBike"
-          @click="toggleShowCheckbox(4)"
+          @click="toggleShowCheckbox(10, 'Naked Bike')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -265,7 +265,7 @@
         <input
           type="checkbox"
           v-model="isCheckedScooter"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(11, 'Scooter')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -291,7 +291,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTourer"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(12, 'Tourer')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -317,7 +317,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEnduroTouring"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(13, 'Enduro/Touring Enduro')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -334,8 +334,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Enduro/Touring Enduro
-</span>
+        <span class="text-sm">Enduro/Touring Enduro </span>
       </label>
       <!-- off-road -->
       <label
@@ -344,7 +343,7 @@
         <input
           type="checkbox"
           v-model="isCheckedPocketbike"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(14, 'Pocketbike')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -361,8 +360,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Pocketbike
-</span>
+        <span class="text-sm">Pocketbike </span>
       </label>
       <!-- off-road -->
       <label
@@ -371,7 +369,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSportsBike"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(15, 'Sports/Super Sports Bike')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -388,8 +386,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Sports/Super Sports Bike
-</span>
+        <span class="text-sm">Sports/Super Sports Bike </span>
       </label>
       <!-- off-road -->
       <label
@@ -398,7 +395,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTrike"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(16, 'Trike')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -415,8 +412,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Trike
-</span>
+        <span class="text-sm">Trike </span>
       </label>
       <!-- off-road -->
       <label
@@ -425,7 +421,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLightWeight"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(17, 'Lightweight Motorcycle/Motorbike')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -442,9 +438,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Lightweight Motorcycle/Motorbike
-
-</span>
+        <span class="text-sm">Lightweight Motorcycle/Motorbike </span>
       </label>
       <!-- off-road -->
       <label
@@ -453,7 +447,7 @@
         <input
           type="checkbox"
           v-model="isCheckedQuad"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(18, 'Quad')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -470,9 +464,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Quad
-
-</span>
+        <span class="text-sm">Quad </span>
       </label>
       <!-- off-road -->
       <label
@@ -481,7 +473,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSportTouring"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(19, 'Sport Touring Motorcycles')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -498,10 +490,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Sport Touring Motorcycles
-
-
-</span>
+        <span class="text-sm">Sport Touring Motorcycles </span>
       </label>
       <!-- off-road -->
       <label
@@ -510,7 +499,7 @@
         <input
           type="checkbox"
           v-model="isCheckedOther"
-          @click="toggleShowCheckbox(5)"
+          @click="toggleShowCheckbox(20, 'Other')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
         <svg
@@ -527,10 +516,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Other
-
-
-</span>
+        <span class="text-sm">Other </span>
       </label>
     </div>
   </div>
@@ -540,64 +526,52 @@
 </template>
 <script>
 import { ref } from "vue";
-
+import { useMotorbikeStore } from "@/store/motorbikeDataStore";
 export default {
-  setup() {
-    const isCheckedChopperCruis = ref(false);
-    const isCheckedMotorBicycle = ref(false);
-    const isCheckedRacing = ref(false);
-    const isCheckedStreetFight = ref(false);
-    const isCheckedCombinationSide = ref(false);
-    const isCheckedMotorcycle = ref(false);
-    const isCheckedRally = ref(false);
-    const isCheckedSuperMoto = ref(false);
-    const isCheckedDirtBike = ref(false);
-    const isCheckedNikedBike = ref(false);
-    const isCheckedScooter = ref(false);
-    const isCheckedTourer = ref(false);
-    const isCheckedEnduroTouring = ref(false);
-    const isCheckedPocketbike = ref(false);
-    const isCheckedSportsBike = ref(false);
-    const isCheckedTrike = ref(false);
-    const isCheckedLightWeight = ref(false);
-    const isCheckedQuad = ref(false);
-    const isCheckedSportTouring = ref(false);
-    const isCheckedOther = ref(false);
-    const toggleShowCheckbox = (index) => {
-      for (let i = 0; i < isCheckedChopperCruis.length; i++) {
-        if (i !== index) {
-          isCheckedChopperCruis[i] = false;
-        }
-      }
-      isCheckedChopperCruis[index] = true;
-    };
-
+  data() {
     return {
-      isCheckedRacing,
-      isCheckedCombinationSide,
-      isCheckedMotorcycle,
-      isCheckedRally,
-      isCheckedMotorBicycle,
-      isCheckedSuperMoto,
-      isCheckedChopperCruis,
-      isCheckedStreetFight,
-      isCheckedDirtBike,
-      isCheckedNikedBike,
-      isCheckedScooter,
-      isCheckedTourer,
-      isCheckedEnduroTouring,
-      isCheckedPocketbike,
-      isCheckedSportsBike,
-      isCheckedTrike,
-      isCheckedLightWeight,
-      isCheckedQuad,
-      isCheckedSportTouring,
-      isCheckedOther,
-      toggleShowCheckbox,
+      isCheckedChopperCruis: false,
+      isCheckedMotorBicycle: false,
+      isCheckedRacing: false,
+      isCheckedStreetFight: false,
+      isCheckedCombinationSide: false,
+      isCheckedMotorcycle: false,
+      isCheckedRally: false,
+      isCheckedSuperMoto: false,
+      isCheckedDirtBike: false,
+      isCheckedNikedBike: false,
+      isCheckedScooter: false,
+      isCheckedTourer: false,
+      isCheckedEnduroTouring: false,
+      isCheckedPocketbike: false,
+      isCheckedSportsBike: false,
+      isCheckedTrike: false,
+      isCheckedLightWeight: false,
+      isCheckedQuad: false,
+      isCheckedSportTouring: false,
+      isCheckedOther: false,
+      selectedVehicleType: [],
     };
   },
-  data() {
-    return {};
+  methods: {
+    updateMotorbikeData() {
+      const motorbikeStore = useMotorbikeStore();
+      motorbikeStore.motorcycleData.type = this.selectedVehicleType;
+      motorbikeStore.updateMotorbikeData();
+    },
+
+    toggleShowCheckbox(index, fuelName) {
+      const isChecked = !this.selectedVehicleType.includes(fuelName);
+      if (isChecked) {
+        this.selectedVehicleType.push(fuelName);
+      } else {
+        const fuelIndex = this.selectedVehicleType.indexOf(fuelName);
+        if (fuelIndex !== -1) {
+          this.selectedVehicleType.splice(fuelIndex, 1);
+        }
+      }
+      this.updateMotorbikeData();
+    },
   },
   components: {},
 };

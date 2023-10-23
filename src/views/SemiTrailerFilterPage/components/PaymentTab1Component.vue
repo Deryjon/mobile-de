@@ -46,34 +46,7 @@
           </ul>
         </ul>
       </div>
-      <!-- <div class="price">
-        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
-        <div class="marke_select_div relative mt-[10px]">
-          <input
-            placeholder="from"
-            class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-            type="number" 
-            pattern="\d*"
-            v-model="price"
-          />
-          <select
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            v-model="selectedPrice"
-            @change="updateSelectPrice"
-          >
-            <option value="50">50 € mtl</option>
-            <option value="100">100 € mtl</option>
-            <option value="150">150 € mtl</option>
-            <option value="200">200 € mtl</option>
-            <option value="250">250 € mtl</option>
-            <option value="300">300 € mtl</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-          ></span>
-        </div>
-      </div> -->
-      <div class="price-to dropdown-container mt-[27px]">
+			<div class="price-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
@@ -117,6 +90,34 @@
           </ul>
         </ul>
       </div>
+      <!-- <div class="price">
+        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+        <div class="marke_select_div relative mt-[10px]">
+          <input
+            placeholder="from"
+            class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            type="number" 
+            pattern="\d*"
+            v-model="price"
+          />
+          <select
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            v-model="selectedPrice"
+            @change="updateSelectPrice"
+          >
+            <option value="50">50 € mtl</option>
+            <option value="100">100 € mtl</option>
+            <option value="150">150 € mtl</option>
+            <option value="200">200 € mtl</option>
+            <option value="250">250 € mtl</option>
+            <option value="300">300 € mtl</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+          ></span>
+        </div>
+      </div> -->
+      
       <!-- <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
@@ -141,31 +142,7 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div> -->
-			<div class="">
-      <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
-      <div class="Kaufen_div mt-[10px]">
-        <button
-          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-          @click="showTab1"
-          :class="{ 'active-Kaufen': activeTab === 'buy' }"
-        >
-          {{ $t("message.btn.buy") }}
-        </button>
-        <button
-          class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-          @click="showTab2"
-          :class="{ 'active-Kaufen': activeTab === 'sell' }"
-        >
-          {{ $t("message.btn.sell") }}
-        </button>
-      </div>
-    </div>
-    </div>
-    <!-- <div class="line mt-[30px]"></div> -->
-    <div
-      class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
-    >
-      <div class="years dropdown-container">
+			<div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
@@ -286,35 +263,11 @@
         </ul>
       </div>
 
-      <!-- <div class="relative mt-[35px]">
-        <input
-          placeholder="to"
-          class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
-          type="number"
-          pattern="\d*"
-          v-model="yearsTo"
-        />
-        <select
-          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-          v-model="selectedtoYear"
-          @change="updateSelectYearTo"
-        >
-          <option v-for="year in modelYears" :key="year" :value="year">
-            {{ year }}
-          </option>
-          <option value="1985">1985</option>
-          <option value="1980">1980</option>
-          <option value="1975">1975</option>
-          <option value="1970">1970</option>
-          <option value="1965">1965</option>
-          <option value="1960">1960</option>
-          <option value="1900">1900</option>
-        </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-        ></span>
-      </div> -->
-			<div class="kilometer dropdown-container">
+    </div>
+    <div
+      class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
+    >
+      <div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
@@ -430,7 +383,7 @@
               class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
             ></span>
           </div>
-    </div>	
+        </div>
         <ul
           v-if="isOpenKilometerTo"
           class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
@@ -515,42 +468,6 @@
           class="arrow w-[7px] h-[7px] absolute top-[14px] right-[7px] lg:right-[6px] xl:left-[185px] lg:top-[13px]"
         ></span>
       </div> -->
-    </div>
-    <!-- valid -->
-    <div
-      class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
-    >
-      <div class="relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
-        <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="huValid"
-        >
-          <option value="14600" selected>Any</option>
-          <option value="new">New</option>
-          <option value="18">18</option>
-          <option value="12">12</option>
-          <option value="9">9</option>
-          <option value="6">6</option>
-          <option value="3">3</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-      </div>
-      <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
-        <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="preOwners"
-        >
-          <option value="any" selected>Any</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
-      </div>
-      
     </div>
     <!-- country -->
     <div
@@ -801,48 +718,13 @@
         </div>
       </div> -->
     </div>
-		<div class="flex items-center gap-[80px]">
-			<div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">
-            Permissible Gross Vehicle Weight (GVW)
-          </h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedGvw"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-				<div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Axles</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedAxles"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-		</div>
   </div>
 </template>
 <script>
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useSemiTrailerStore } from "../../../store/semitrailerDataStore";
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -867,7 +749,6 @@ export default {
       selectedRadius: "",
       selectedtoYear: "",
       years: "",
-      activeTab: "",
       yearsTo: "",
       modelYears: [],
       filteredOptions: [],
@@ -881,9 +762,9 @@ export default {
       selectedPrice: "",
       selectedPriceTo: "",
       inputValue: "",
-      huValid: "14600",
-      preOwners: "any",
-      selectedCountry: "14600",
+      huValid: "",
+      preOwners: "",
+      selectedCountry: "",
 			zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
@@ -895,92 +776,92 @@ export default {
   watch: {
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     yearsTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     killometresTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     huValid(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     preOwners(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     isCheckedHistory(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     isCheckedRoad(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     selectedCountry(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     zipCode(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
     radius(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTrailerData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_price_from: this.price,
-          car_price_up_to: this.priceTo,
-          car_firt_date_year_from: this.inputValue,
-          car_firt_date_year_up_to: this.yearsTo,
-          car_mileage_from: this.inputKilometer,
-          car_mileage_up_to: this.killometresTo,
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: this.preOwners,
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: this.radius,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateSemiTrailerData() {
+      const semitrailerStore = useSemiTrailerStore();
+      (semitrailerStore.semitrailerData.trailer_price_from =
+        parseInt(this.price)),
+      (semitrailerStore.semitrailerData.trailer_price_to =
+        parseInt(this.priceTo)),
+      (semitrailerStore.semitrailerData.trailer_firt_date_year_from =
+        parseInt(this.inputValue)),
+      (semitrailerStore.semitrailerData.trailer_firt_date_year_to =
+        parseInt(this.yearsTo)),
+      (semitrailerStore.semitrailerData.trailer_kilometre_from =
+        parseInt(this.inputKilometer)),
+      (semitrailerStore.semitrailerData.trailer_kilometre_to =
+        parseInt(this.killometresTo)),
+      (semitrailerStore.semitrailerData.trailer_country =
+        this.selectedCountry),
+      (semitrailerStore.semitrailerData.trailer_city_zipcode =
+        this.zipCode),
+      (semitrailerStore.semitrailerData.trailer_radius =
+        this.radius),
+        semitrailerStore.updateSemiTrailerData();
     },
     openRadiusDropdown() {
       this.isOpenRadius = true;
@@ -1179,12 +1060,6 @@ export default {
       this.radius = this.selectedRadius;
       this.selectedRadius = this.selectedYear;
     },
-		showTab1() {
-      this.activeTab = "buy";
-    },
-    async showTab2() {
-      this.activeTab = "sell";
-    },
 
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -1287,14 +1162,5 @@ select::-webkit-scrollbar {
 
 .dropdown-options li:hover {
   background-color: #f0f0f0;
-}
-
-.Kaufen:hover {
-  box-shadow: 0 0 2px 1px #eaccb4;
-}
-.active-Kaufen {
-  background-color: #fffaf6;
-  border: 1px solid #eaccb4;
-  color: #000;
 }
 </style>

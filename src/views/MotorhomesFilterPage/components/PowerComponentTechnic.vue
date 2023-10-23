@@ -1,7 +1,6 @@
 <template>
   <div class="pl-[20px]">
     
-    <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-x-[100px]">
       <div
         class="

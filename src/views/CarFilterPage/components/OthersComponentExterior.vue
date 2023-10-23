@@ -200,7 +200,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
-import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {
     return {
@@ -216,18 +216,11 @@ export default {
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedOthers,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateCarData() {
+      const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.others = this.selectedOthers;
+      carStore.updateCarData();
     },
     toggleShowCheckbox(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
@@ -239,11 +232,10 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      console.log("selectedOthers изменен:", this.selectedOthers);
-      this.fetchData();
+      this.updateCarData();
     },
   },
-  components: { TrailerCoupling },
+  components: {},
 };
 </script>
 <style scoped>

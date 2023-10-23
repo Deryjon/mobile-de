@@ -4,7 +4,7 @@
     <div class="radios-type flex flex-wrap gap-x-[60px] gap-y-[10px] mt-[20px]">
       <label class="w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
         <input
-          id="air-any"
+         
           type="radio"
           v-model="selectedCondition"
           :class="{
@@ -15,16 +15,16 @@
         />
         <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label class="w-[200px]" for="manual">
+      <label class="w-[200px]" for="manual" @click="selectAirbag('Manual')">
         <input
           type="radio"
-          id="manual"
+         
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Manual',
             'bg-orange': selectedCondition === 'Manual',
           }"
-          @click="selectAirbag('Manual')"
+          
         />
         <span class="ml-[10px] text-[14px]"
           >Manual or automatic climatisation
@@ -37,7 +37,7 @@
       >
         <input
           type="radio"
-          id="auto-climat"
+        
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Auto-Climat',
@@ -56,7 +56,7 @@
       >
         <input
           type="radio"
-          id="auto2"
+   
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Auto-Climat2',
@@ -67,7 +67,7 @@
           >Automatic climatisation, 4 zones</span
         >
       </label>
-      <label class="w-[200px]" @click="selectAirbag('NoClimat')">
+      <label for='noclimat' class="w-[200px]" @click="selectAirbag('NoClimat')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -78,7 +78,7 @@
         />
         <span class="ml-[10px] text-[14px]">No climatisation</span>
       </label>
-      <label class="w-[200px]" @click="selectAirbag('AutoClimat')">
+      <label class="w-[200px]" for="autoclimat" @click="selectAirbag('AutoClimat')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -89,7 +89,7 @@
         />
         <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
       </label>
-      <label class="w-[200px]" @click="selectAirbag('Auto-Climat3')">
+      <label class="w-[200px]" for="climat4" @click="selectAirbag('Auto-Climat3')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -108,6 +108,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import {useCarStore} from "@/store/carDataStore"
 export default {
   data() {
     return {
@@ -117,20 +118,16 @@ export default {
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCarData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_air_conditioning: this.selectedCondition,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateCarData() {
+			const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.car_air_conditioning = this.selectCondition;
+      carStore.updateCarData();
     },
     selectAirbag(condition) {
       this.selectedCondition = condition;

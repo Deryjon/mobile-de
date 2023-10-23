@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3 class="text-[16px]">Extras</h3>
+    <h3 class="text-[16px]">Interior features</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -199,9 +199,8 @@
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
-
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -218,18 +217,11 @@ export default {
     };
   },
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          extras: this.extras,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      const semitruckData = semitruckStore.semitruckData;
+      semitruckData.interior_features = this.extras;
+      semitruckStore.updateSemiTruckData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
@@ -241,8 +233,7 @@ export default {
           this.extras.splice(carIndex, 1);
         }
       }
-      console.log("extras изменен:", this.extras)
-			this.fetchData()
+			this.updateSemiTruckData()
     },
 	},
   components: { TrailerCoupling },

@@ -22,7 +22,7 @@
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"	
+                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
@@ -53,6 +53,7 @@
               :disabled="isModelSelectDisabled"
               v-model="selectedModel"
             >
+              <option value="" selected>Beliebig</option>
               <option :value="selectedModel" selected>
                 {{ selectedModel }}
               </option>
@@ -121,8 +122,10 @@ import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
+import { useCarStore } from "@/store/carDataStore";
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
+import { watch, ref } from "vue";
 export default {
   components: {
     PathLink,
@@ -133,8 +136,12 @@ export default {
     ConditionComponent,
     PaymentTab1Component,
   },
+	setup() {
+    const carStore = useCarStore();
+  },
   data() {
     return {
+      carStore: useCarStore(),		
       makes: [],
       models: [],
       selectedMark: "",
@@ -150,64 +157,50 @@ export default {
       count: "",
       modeltoYears: [],
       killometres: "",
-      selectedModel: localStorage.getItem("mark-model"),
-      carData: localStorage.getItem("carData"),
+      selectedModel: "",
     };
   },
-	watch: {
+  watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData();
+        this.updateCarData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData();
+        this.updateCarData();
       }
     },
     inputVariant(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
-				this.postData();
+        this.updateCarData();
       }
     },
+    activeTab(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateCarData();
+      }
+    },
+		'carStore.count': function (newCount, oldCount) {
+      this.count = newCount;
+    }
   },
   methods: {
-		postData(){
-			localStorage.setItem('carData', JSON.stringify({
-      car_make: this.selectedMark,
-      car_model: this.selectedModel,
-      car_variant: this.inputVariant,
-      
-    }));
-		},
-    fetchData() {
-      http
-        .post("/cars/count", {
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-        })
-        .then((response) => {
-          const data = response.data.data;
-          this.count = data.count;
-        });
+    updateCarData() {
+      const carStore = useCarStore();
+      carStore.carData.car_make = this.selectedMark;
+      carStore.carData.car_model = this.selectedModel;
+      carStore.carData.car_variant = this.inputVariant;
+      carStore.carData.car_payment_type = this.activeTab;
+      carStore.updateCarData();
     },
-		goCarList(){
-		 	this.$router.push({ name: "car-list" });
-
-		},
-    fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
-
-      // Выполняем GET-запрос к API с помощью Axios
-      axios
-        .get(apiUrl)
+       await http
+        .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
           // Получаем данные из ответа
           const data = response.data.data;
@@ -285,10 +278,13 @@ export default {
         this.isRadioNewSelected = false;
       }
     },
+    goCarList(){
+      this.$router.push({name: 'car-list'})
+    }
   },
-  mounted() {
-    this.selectedMark = localStorage.getItem("mark");
 
+  mounted() {
+    this.count = this.carStore.count;
     http
       .get("/car/marks")
       .then((response) => {
@@ -303,10 +299,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
   },
-  }
-
-  
-
+};
 </script>
 
 <style scoped>

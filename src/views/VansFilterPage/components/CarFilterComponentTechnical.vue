@@ -286,17 +286,12 @@
       </label>
     </div>
   </div>
-  <div class="tab-content">
-    <div class="tab-1" v-show="showTab1">
-      <PowerComponentTechnic />
-    </div>
-  </div>
 </template>
 <script>
 import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
-
+import { useVanStore } from "../../../store/vanDataStore";
 export default {
   data() {
     return {
@@ -318,18 +313,11 @@ export default {
     };
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          fuel_type: this.selectedFuel,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.fuel_type =
+        this.selectedFuel),
+        vanStore.updateVanData();
     },
 		toggleShowCheckbox(index, fuelName) {
 			this.showTab1 = index === 0;
@@ -343,8 +331,7 @@ export default {
           this.selectedFuel.splice(fuelIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedFuel	)
-			this.fetchData()
+			this.updateVanData()
     },
     // toggleShowCheckbox(index) {
     // 

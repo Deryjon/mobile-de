@@ -183,7 +183,37 @@
         alt=""
         class="w-20 pt-[18px]"
       />
-      <span class="text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
+      <span class="text-sm"> Off-road Vehicle / Pickup Truck</span>
+    </label>
+    <label
+      class="custom-checkbox flex gap-4 items-center h-10 w-[230px] pb-[23px]"
+    >
+      <input
+        type="checkbox"
+        v-model="isCheckedSUV"
+        @click="toggleShowCheckbox(5, 'SUV / Off-road Vehicle / Pickup Truck')"
+        class="form-checkbox h-5 w-5 text-indigo-600"
+      />
+      <svg
+        class="icon"
+        xmlns="http://www.w3.org/2000/svg"
+        height="1em"
+        viewBox="0 0 448 512"
+        width="1em"
+      >
+        <!-- Insert your SVG arrow icon here -->
+        <path
+          v-if="isCheckedSUV"
+          fill="#FFFFFF"
+          d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+        />
+      </svg>
+      <img
+        src="https://images.app.goo.gl/BYNByt9WxLUcXZQ26"
+        alt=""
+        class="w-20 pt-[18px]"
+      />
+      <span class="text-sm">SUV</span>
     </label>
     <!-- off-road -->
     <label
@@ -220,6 +250,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import {useCarStore} from '@/store/carDataStore'
 export default {
   data() {
     return {
@@ -234,18 +265,10 @@ export default {
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedCars,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateCarData() {
+      const carStore = useCarStore();
+      carStore.carData.body = this.selectedCars
+      carStore.updateCarData();
     },
     toggleShowCheckbox(index, carName) {
       const isChecked = !this.selectedCars.includes(carName);
@@ -257,27 +280,8 @@ export default {
           this.selectedCars.splice(carIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedCars)
-			this.fetchData()
+			this.updateCarData()
     },
-  },
-  watch: {
-    // selectedCars(new, old) {
-    //   if (new !== old) {
-    //     http
-    //       .get("/cars/count", {
-    //         body: this.selectedCars,
-    //       })
-    //       .then((response) => {
-    //         const data = response.data;
-    //         console.log(data);
-    //       })
-    //       .catch((error) => {
-    //         console.error("Ошибка при выполнении запроса:", error);
-    //       });
-    //     console.log(123);
-    //   }
-    // },
   },
 };
 </script>

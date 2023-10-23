@@ -296,7 +296,7 @@
 import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
-
+import { useMotorhomeStore } from "@/store/motorhomeDataStore";
 export default {
   data() {
     return {
@@ -314,26 +314,17 @@ export default {
       showTab1: true,
       showTab2: false,
       activeTab: "tab-1",
-			selectedFuel: []
+      selectedFuel: [],
     };
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          fuel_type: this.selectedFuel,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateMotorhomeData() {
+      const motorhomeStore = useMotorhomeStore();
+      const motorhomeData = motorhomeStore.motorhomeData;
+      motorhomeData.fuel_type = this.selectedFuel;
+      motorhomeStore.updateMotorhomeData();
     },
-		toggleShowCheckbox(index, fuelName) {
-			this.showTab1 = index === 0;
-      this.showTab2 = index !== 0;
+    toggleShowCheckbox(index, fuelName) {
       const isChecked = !this.selectedFuel.includes(fuelName);
       if (isChecked) {
         this.selectedFuel.push(fuelName);
@@ -343,19 +334,8 @@ export default {
           this.selectedFuel.splice(fuelIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedFuel	)
-			this.fetchData()
+      this.updateMotorhomeData();
     },
-    // toggleShowCheckbox(index) {
-    // 
-    //   for (let i = 0; i < this.isCheckedDiesel.length; i++) {
-    //     if (i !== index) {
-    //       this.$set(this.isCheckedDiesel, i, false);
-    //     } else {
-    //       this.$set(this.isCheckedDiesel, i, true);
-    //     }
-    //   }
-    // },
   },
   components: { PowerComponentTechnic, RangeComponentTechnic },
 };
