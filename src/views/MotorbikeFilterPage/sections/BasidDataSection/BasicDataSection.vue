@@ -4,7 +4,7 @@
       <PathLink>My New Motorbike </PathLink>
 
       <FilterTitle>Detailsuche: Pkw - neu oder gebraycht</FilterTitle>
-      <FilterBtn class="ml-auto" >
+      <FilterBtn class="ml-auto" @click="goMotorbikeList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -98,6 +98,9 @@ export default {
     },
   },
   methods: {
+    goMotorbikeList() {
+      this.$router.push({ name: "motorbike-list" })
+    },
     updateMotorbikeData() {
       const motorcycleStore = useMotorbikeStore();
       motorcycleStore.motorcycleData.motorcycle_make = this.selectedMark;

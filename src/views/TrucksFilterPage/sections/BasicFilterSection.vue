@@ -3,7 +3,7 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>Truck Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn @click="goMotorhomeList" class="ml-auto">
+      <FilterBtn @click="goTruckList" class="ml-auto">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -129,6 +129,7 @@ export default {
   data() {
     return {
       makes: [],
+      truckStore: useTruckStore(),
       models: [],
       selectedMark: "14600",
       selectedPrice: "",
@@ -168,16 +169,22 @@ export default {
         this.updateTruckData();
       }
     },
+    "truckStore.count": function (newCount, oldCount) {
+      this.count = newCount;
+    },
   },
   methods: {
+    goTruckList() {
+      this.$router.push({ name: "truck-list" })
+    },
     updateTruckData() {
       const truckStore = useTruckStore();
       (truckStore.truckData.truck_make =
         this.selectedMark),
-      (truckStore.truckData.truck_model =
-        this.selectedModel),
-      (truckStore.truckData.truck_category =
-        this.selectedCategory),
+        (truckStore.truckData.truck_model =
+          this.selectedModel),
+        (truckStore.truckData.truck_category =
+          this.selectedCategory),
         truckStore.updateTruckData();
     },
     fetchModelYears() {
@@ -242,7 +249,7 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.truckStore.count
 
     http
       .get("/truck/marks")

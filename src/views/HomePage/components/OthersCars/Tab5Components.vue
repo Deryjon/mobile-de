@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.truck_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.truck_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -598,14 +598,14 @@ export default {
       this.isOpenKilometer = false;
     },
 		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+			 	this.$router.push({ name: "truck-list" });
 
 		}
   },
   components: { FilterBtn },
   mounted() {
     http
-      .get("/motorhome/marks")
+      .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
