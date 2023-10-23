@@ -3,7 +3,7 @@
     <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
       <PathLink>SemiTrailer Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
-      <FilterBtn   class="ml-auto">
+      <FilterBtn   class="ml-auto" @click="goSemitrailerList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
@@ -191,6 +191,9 @@ export default {
     },
   },
   methods: {
+    goSemitrailerList(){
+this.$router.push({name: "semitrailer-list"})
+    },
     updateSemiTrailerData() {
       const semitrailerStore = useSemiTrailerStore();
       (semitrailerStore.semitrailerData.trailer_category =

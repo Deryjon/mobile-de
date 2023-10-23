@@ -268,7 +268,7 @@
               <img src="@/assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn @click="goMotorhomeList">
+          <FilterBtn @click="goSemitruckList">
             <p class="text-white text-[18px] lg:text-[16px]">{{ this.count }} {{ $t("message.results.result") }}</p>
           </FilterBtn>
         </div>
@@ -367,7 +367,7 @@ export default {
   },
   methods: {
     postData() {
-      localStorage.setItem('motorhomeData', JSON.stringify({
+      localStorage.setItem('semitruckData', JSON.stringify({
         truck_model: this.selectedModel,
         truck_make: this.selectedMark,
         truck_firt_date_year_from: this.inputValue,
@@ -537,15 +537,15 @@ export default {
     closePriceDropdown() {
       this.isOpenKilometer = false;
     },
-    goMotorhomeList() {
-      this.$router.push({ name: "motorhome-list" });
+    goSemitruckList() {
+      this.$router.push({ name: "semitruck-list" });
 
     }
   },
   components: { FilterBtn },
   mounted() {
     http
-      .get("/semitruck/marks")
+      .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {

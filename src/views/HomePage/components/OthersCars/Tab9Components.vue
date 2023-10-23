@@ -9,16 +9,15 @@
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-            @change="fetchModels()"
           >
             <option value="" selected>Beliebig</option>
             <optgroup>
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.trailer_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.trailer_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -427,31 +426,31 @@ export default {
   },
   methods: {
 		postData(){
-			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+			localStorage.setItem('semitrailerData', JSON.stringify({
+      trailer_make: this.selectedMark,
+      trailer_model: this.selectedModel,
+      trailer_firt_date_year_from: this.inputValue,
+      trailer_mileage_from: this.inputKilometer,
+      trailer_payment_type: this.activeTab,
+      trailer_price_from: this.inputPrice,
+      trailer_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
-        .post("/semitrailer/count", {
-					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+        .post("/semitrailers/count", {
+					trailer_make: this.selectedMark,
+      trailer_model: this.selectedModel,
+        trailer_firt_date_year_from: this.inputValue,
+        trailer_mileage_from: this.inputKilometer,
+        trailer_payment_type: this.activeTab,
+        trailer_price_from: this.inputPrice,
+        trailer_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
 					this.count = data.count
-          console.log(data.count);
+          console.log(data);
 
         });
     },
@@ -483,32 +482,6 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.models = [];
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
-      }
-      localStorage.setItem("mark", this.selectedMark);
-      http
-        .get(`/car/model?mark_id=${this.selectedMark}`)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
     },
     postModels() {
       localStorage.setItem("mark-model", this.selectedModel);
@@ -598,14 +571,14 @@ export default {
       this.isOpenKilometer = false;
     },
 		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+			 	this.$router.push({ name: "semitrailer-list" });
 
 		}
   },
   components: { FilterBtn },
   mounted() {
     http
-      .get("/semitrailer/marks")
+      .get("/trailer/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -623,7 +596,7 @@ export default {
   },
   computed: {
     isModelSelectDisabled() {
-      return this.selectedMark === "14600"; // "Beliebig" value
+      return this.selectedMark === ""; // "Beliebig" value
     },
     filteredItems() {
       return this.items.filter((item) =>

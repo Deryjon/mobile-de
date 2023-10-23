@@ -332,6 +332,8 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import { useCoacheStore } from "../../../store/coacheDataStore";
+
 export default {
   data() {
     return {
@@ -350,25 +352,19 @@ export default {
 	watch: {
     selectedVendor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
-  },
+  },  
   methods: {
-		fetchData() {
-			http
-				.get("/cars/count", {
-					car_vendor: this.selectedVendor,
-					car_dealer_rating: this.rating
-				})
-				.then((response) => {
-					const data = response.data;
-					console.log(data);
-				})
-				.catch((error) => {
-					console.error("Ошибка при выполнении запроса:", error);
-				});
-		},
+    updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.coache_vendor =
+        this.selectedVendor),
+      (coacheStore.coacheData.coache_dealer_rating =
+        this.rating),
+        coacheStore.updateCoacheData();
+    },
 		toggleShowCheckbox(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
       if (isChecked) {
@@ -380,7 +376,7 @@ export default {
         }
       }
       console.log("rating изменен:", this.rating)
-			this.fetchData()
+			this.updateCoacheData()
     },
     selectVendor(condition) {
       this.selectedVendor = condition;

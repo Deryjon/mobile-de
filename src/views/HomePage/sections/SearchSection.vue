@@ -179,39 +179,39 @@ store: useActiveTab4()
 	methods:{
 		goTruckFilter(){
 			this.$router.push({ name: "trucks-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goTrailerFilter(){
 			this.$router.push({ name: "trailer-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goVanFilter(){
 			this.$router.push({ name: "van-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goSemitruckFilter(){
 			this.$router.push({ name: "semitruck-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goSemitrailerFilter(){
 			this.$router.push({ name: "semitrailer-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goCoacheFilter(){
 			this.$router.push({ name: "coache-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goVehicleFilter(){
 			this.$router.push({ name: "agricultural-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goMachineFilter(){
 			this.$router.push({ name: "machine-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goForkliftFilter(){
 			this.$router.push({ name: "forklift-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 	},
   data() {

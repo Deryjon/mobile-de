@@ -2,9 +2,9 @@
   <div class="condition p-[20px]">
     <h3 class="text-[16px]">Type and condition</h3>
     <div
-      class="radios-type flex flex-wrap gap-x-[0px] lg:gap-x-[100px] mt-[10px] "
+      class="radios-type flex flex-wrap gap-x-[0px] lg:gap-x-[100px] mt-[10px]"
     >
-      <label>
+      <label for="any-cond" @click="selectCondition('Any')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -13,11 +13,11 @@
             'bg-orange': selectedCondition === 'Any',
           }"
           class="ml-10px"
-          @click="selectCondition('Any')"
+          
         />
         <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label>
+      <label for="new-cond"  @click="selectCondition('New')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -25,28 +25,28 @@
             'bg-transparent': selectedCondition !== 'New',
             'bg-orange': selectedCondition === 'New',
           }"
-          @click="selectCondition('New')"
+         
         />
         <span class="ml-[10px] text-[14px]">New</span>
       </label>
-      <label>
+      <label for="used-cond" @click="selectCondition('Used')">
         <input
           type="radio"
+       
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Used',
             'bg-orange': selectedCondition === 'Used',
           }"
-          @click="selectCondition('Used')"
+          
         />
         <span class="ml-[10px] text-[14px]">Used</span>
       </label>
     </div>
-    
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
+import { useCoacheStore } from "@/store/coacheDataStore";
 export default {
   data() {
     return {
@@ -59,30 +59,24 @@ export default {
       isCheckedEmploy: false,
       isCheckedClassic: false,
       isCheckedDemon: false,
-			type: []
+      type: [],
     };
   },
-  setup() {},
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCoacheData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_condition: this.selectedCondition,
-					type: this.type
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.coache_condition =
+        this.selectedCondition),
+        coacheStore.updateCoacheData();
     },
-		toggleShowCheckbox(index, typeName) {
+    toggleShowCheckbox(index, typeName) {
       const isChecked = !this.type.includes(typeName);
       if (isChecked) {
         this.type.push(typeName);
@@ -92,8 +86,8 @@ export default {
           this.type.splice(typeIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.type)
-			this.fetchData()
+
+      this.updateCoacheData();
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

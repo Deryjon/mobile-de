@@ -16,9 +16,9 @@
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.coache_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.coache_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -428,25 +428,25 @@ export default {
   methods: {
 		postData(){
 			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+      coache_make: this.selectedMark,
+      coache_model: this.selectedModel,
+      coache_firt_date_year_from: this.inputValue,
+      coache_mileage_from: this.inputKilometer,
+      coache_payment_type: this.activeTab,
+      coache_price_from: this.inputPrice,
+      coache_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
-        .post("/trucks/count", {
-					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+        .post("/coaches/count", {
+					coache_make: this.selectedMark,
+      coache_model: this.selectedModel,
+      coache_firt_date_year_from: this.inputValue,
+      coache_mileage_from: this.inputKilometer,
+      coache_payment_type: this.activeTab,
+      coache_price_from: this.inputPrice,
+      coache_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -598,14 +598,14 @@ export default {
       this.isOpenKilometer = false;
     },
 		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+			 	this.$router.push({ name: "coache-list" });
 
 		}
   },
   components: { FilterBtn },
   mounted() {
     http
-      .get("/motorhome/marks")
+      .get("/coache/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
