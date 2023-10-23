@@ -20,6 +20,15 @@ import NotFound from "../views/NotFoundPage/NotFound404Page.vue";
 import CarList from "../views/CarListPage/CarListPage.vue";
 import MotorbikeList from "../views/MotorbikeListPage/MotorbikeListPage.vue";
 import MotorhomeList from "../views/MotorhomeListPage/MotorhomeListPage.vue";
+import TruckList from "../views/TruckListPage/TruckListPage.vue";
+import TrailerList from "../views/TrailerListPage/TrailerListPage.vue";
+import VanList from "../views/VanListPage/VanListPage.vue";
+import SemitrailerList from "../views/SemiTrailerListPage/TrailerListPage.vue";
+import SemitruckList from "../views/SemiTruckListPage/TruckListPage.vue";
+import CoacheList from "../views/CoacheListPage/CoacheListPage.vue";
+import AgriculturalList from "../views/AgruculturalsListPage/AgriculturalsListPage.vue";
+import MachineList from "../views/MachineListPage/MachineListPage.vue";
+import ForkliftList from "../views/ForkliftListPage/ForkliftListPage.vue";
 import EditPage from "../views/EditAdPage/EditAdCarPage.vue";
 import EditMotrobikePage from "../views/EditMotorbikeAdPage/EditAdMotorbikePage.vue";
 import EditMotorhomesPage from "../views/EditMotorhomesPage/EditAdMotorhomesPage.vue";
@@ -142,6 +151,51 @@ const router = createRouter({
       path: "/motorhome-list",
       name: "motorhome-list",
       component: MotorhomeList,
+    },
+    {
+      path: "/truck-list",
+      name: "truck-list",
+      component: TruckList,
+    },
+    {
+      path: "/trailer-list",
+      name: "trailer-list",
+      component: TrailerList,
+    },
+    {
+      path: "/van-list",
+      name: "van-list",
+      component: VanList,
+    },
+    {
+      path: "/semitrailer-list",
+      name: "semitrailer-list",
+      component: SemitrailerList,
+    },
+    {
+      path: "/semitruck-list",
+      name: "semitruck-list",
+      component: SemitruckList,
+    },
+    {
+      path: "/coache-list",
+      name: "coache-list",
+      component: CoacheList,
+    },
+    {
+      path: "/agricultural-list",
+      name: "agricultural-list",
+      component: AgriculturalList,
+    },
+    {
+      path: "/construction-list",
+      name: "construction-list",
+      component: MachineList,
+    },
+    {
+      path: "/forklift-list",
+      name: "forklift-list",
+      component: ForkliftList,
     },
     {
       path: "/edit/ad/:id",

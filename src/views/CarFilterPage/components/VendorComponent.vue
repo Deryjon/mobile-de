@@ -5,7 +5,6 @@
       <label for="vendor-any" @click="selectVendor('Any')">
         <input
           type="radio"
-          id="vendor-any"
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Any',
@@ -31,7 +30,7 @@
       <label for="vendor-dealer" @click="selectVendor('Dealer')">
         <input
           type="radio"
-          id="vendor-dealer"
+      
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Dealer',
@@ -40,10 +39,10 @@
         />
         <span class="ml-[10px] text-[14px]">Dealer </span>
       </label>
-      <label for="vendor-dealer" @click="selectVendor('Company')">
+      <label for="vendor-company" @click="selectVendor('Company')">
         <input
           type="radio"
-          id="vendor-dealer"
+          
           v-model="selectedVendor"
           :class="{
             'bg-transparent': selectedVendor !== 'Company',
@@ -332,6 +331,7 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import {useCarStore} from "@/store/carDataStore"
 export default {
   data() {
     return {
@@ -350,24 +350,18 @@ export default {
 	watch: {
     selectedVendor(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateCarData();
       }
     },
   },
   methods: {
-		fetchData() {
-			http
-				.get("/cars/count", {
-					car_vendor: this.selectedVendor,
-					car_dealer_rating: this.rating
-				})
-				.then((response) => {
-					const data = response.data;
-					console.log(data);
-				})
-				.catch((error) => {
-					console.error("Ошибка при выполнении запроса:", error);
-				});
+		updateCarData() {
+			const carStore = useCarStore();
+      const carData = carStore.carData;
+      carData.car_vendor = this.selectedVendor;
+      carData.car_dealer_rating = this.rating;
+      carStore.updateCarData();
+
 		},
 		toggleShowCheckbox(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
@@ -379,8 +373,7 @@ export default {
           this.rating.splice(carIndex, 1);
         }
       }
-      console.log("rating изменен:", this.rating)
-			this.fetchData()
+this.updateCarData()
     },
     selectVendor(condition) {
       this.selectedVendor = condition;

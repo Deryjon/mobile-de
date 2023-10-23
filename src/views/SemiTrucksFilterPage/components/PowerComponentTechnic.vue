@@ -1,7 +1,5 @@
 <template>
   <div class="pl-[20px]">
-    
-    <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-x-[100px]">
       <div
         class="
@@ -129,6 +127,7 @@
 <script>
 import axios from "axios";
 import http from "../../../axios.config";
+import { useSemiTruckStore } from "../../../store/semitruckDataStore";
 export default {
   data() {
     return {
@@ -167,37 +166,37 @@ export default {
   watch: {
     power(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
     powerTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateSemiTruckData();
       }
     },
   },
@@ -212,25 +211,17 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+			this.updateSemiTruckData()
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.power,
-          car_power_up_to: this.powerTo,
-          car_cubic_capacity_from: this.cubic,
-          car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
-          car_fuel_consumption: this.consumptionFuel,
-          car_emissions_sticker: this.stickerEmission,
-          car_emission_class: this.classEmision,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateSemiTruckData() {
+      const semitruckStore = useSemiTruckStore();
+      (semitruckStore.semitruckData.transmission =
+        this.selectedTransmision),
+      (semitruckStore.semitruckData.truck_emission_class =
+        this.classEmision),
+      (semitruckStore.semitruckData.truck_emissions_sticker =
+        this.stickerEmission),
+        semitruckStore.updateSemiTruckData();
     },
     openCubicToDropdown() {
       this.isOpenCubicTo = true;

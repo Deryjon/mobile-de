@@ -9,16 +9,15 @@
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-            @change="fetchModels()"
           >
             <option value="" selected>Beliebig</option>
             <optgroup>
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.van_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.van_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -427,26 +426,26 @@ export default {
   },
   methods: {
 		postData(){
-			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+			localStorage.setItem('vanData', JSON.stringify({
+    van_make: this.selectedMark,
+    van_model: this.selectedModel,
+    van_firt_date_year_from: this.inputValue,
+    van_mileage_from: this.inputKilometer,
+    van_payment_type: this.activeTab,
+    van_price_from: this.inputPrice,
+    van_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
-        .post("/van/count", {
-					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+        .post("/vans/count", {
+				van_make: this.selectedMark,
+      van_model: this.selectedModel,
+    van_firt_date_year_from: this.inputValue,
+    van_mileage_from: this.inputKilometer,
+    van_payment_type: this.activeTab,
+    van_price_from: this.inputPrice,
+    van_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -598,7 +597,7 @@ export default {
       this.isOpenKilometer = false;
     },
 		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+			 	this.$router.push({ name: "van-list" });
 
 		}
   },
@@ -623,7 +622,7 @@ export default {
   },
   computed: {
     isModelSelectDisabled() {
-      return this.selectedMark === "14600"; // "Beliebig" value
+      return this.selectedMark === ""; // "Beliebig" value
     },
     filteredItems() {
       return this.items.filter((item) =>

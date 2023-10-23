@@ -1,57 +1,7 @@
 <template>
   <div class="pl-[20px]">
-   <div class="flex flex-wrap gap-[80px]">
-		<div class="marke_select_div relative  w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Wheel Formula</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedWheelFormula"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative  w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Hydraulic Installation</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedHydraulic"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-				<div class="marke_select_div relativeЁ w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedDriving"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-	 </div>
     <!-- transmision -->
-    <div class="flex gap-[40px] lg:gap-x-[100px] mt-[20px]">
+    <div class="flex gap-[40px] lg:gap-x-[100px] ">
       <div
         class="
 			"
@@ -137,7 +87,7 @@
     </div>
     <!-- valid -->
     <div
-      class="valid-until mt-[30px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
+      class="valid-until mt-[20px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
     >
       
       <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
@@ -177,7 +127,7 @@
 </template>
 <script>
 import axios from "axios";
-import http from "../../../axios.config";
+import { useVanStore } from "../../../store/vanDataStore";
 export default {
   data() {
     return {
@@ -216,37 +166,37 @@ export default {
   watch: {
     power(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
     powerTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
   },
@@ -261,25 +211,17 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+			this.updateVanData()
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.power,
-          car_power_up_to: this.powerTo,
-          car_cubic_capacity_from: this.cubic,
-          car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
-          car_fuel_consumption: this.consumptionFuel,
-          car_emissions_sticker: this.stickerEmission,
-          car_emission_class: this.classEmision,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.transmission =
+        this.selectedTransmision),
+      (vanStore.vanData.van_emission_class =
+        this.classEmision),
+      (vanStore.vanData.van_emissions_sticker =
+        this.stickerEmission),
+        vanStore.updateVanData();
     },
     openCubicToDropdown() {
       this.isOpenCubicTo = true;

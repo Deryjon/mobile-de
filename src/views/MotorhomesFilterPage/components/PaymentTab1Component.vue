@@ -594,7 +594,7 @@
     <div
       class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
     >
-		<div class="relative mt-2">
+      <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -681,7 +681,7 @@
           class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="text"
           pattern="\d*"
-					v-model="zipCode"
+          v-model="zipCode"
         />
       </div>
       <!-- <div class="relative mt-2">
@@ -845,6 +845,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useMotorhomeStore } from "@/store/motorhomeDataStore";
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -864,7 +865,7 @@ export default {
     return {
       price: "",
       radius: "",
-      priceTo: "",
+      priceTo: null,
       selectedYear: "",
       selectedRadius: "",
       selectedtoYear: "",
@@ -872,7 +873,7 @@ export default {
       yearsTo: "",
       modelYears: [],
       filteredOptions: [],
-      killometres: "",
+      killometres: "",	
       inputKilometer: "",
       killometresTo: "",
       isOpenKilometer: false,
@@ -882,10 +883,10 @@ export default {
       selectedPrice: "",
       selectedPriceTo: "",
       inputValue: "",
-      huValid: "14600",
-      preOwners: "any",
-      selectedCountry: "14600",
-			zipCode: "",
+      huValid: "",
+      preOwners: "",
+      selectedCountry: "",
+      zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
       priceToOpen: false,
@@ -896,92 +897,89 @@ export default {
   watch: {
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     yearsTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     killometresTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     huValid(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     preOwners(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     isCheckedHistory(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     isCheckedRoad(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     selectedCountry(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     zipCode(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     radius(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_price_from: this.price,
-          car_price_up_to: this.priceTo,
-          car_firt_date_year_from: this.inputValue,
-          car_firt_date_year_up_to: this.yearsTo,
-          car_mileage_from: this.inputKilometer,
-          car_mileage_up_to: this.killometresTo,
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: this.preOwners,
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: this.radius,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateMotorhomeData() {
+      const motorhomeStore = useMotorhomeStore();
+      const motorhomeData = motorhomeStore.motorhomeData;
+      motorhomeData.motor_home_price_from = parseInt(this.price);
+      motorhomeData.motor_home_price_up_to = parseInt(this.priceTo);
+      motorhomeData.motor_home_firt_date_year_from = this.inputValue;
+      motorhomeData.motor_home_firt_date_year_up_to = this.yearsTo;
+      motorhomeData.motor_home_mileage_from = parseInt(this.inputKilometer);
+      motorhomeData.motor_home_mileage_up_to = parseInt(this.killometresTo);
+      motorhomeData.motor_home_hu_valid_until = this.huValid;
+      motorhomeData.motor_home_previous_owners = this.preOwners;
+      motorhomeData.motor_home_full_service_history = this.isCheckedHistory;
+      motorhomeData.motor_home_roadworthy = this.isCheckedRoad;
+      motorhomeData.motor_home_country = this.selectedCountry;
+      motorhomeData.motor_home_city_zipcode = this.zipCode;
+      motorhomeData.motor_home_radius = parseInt(this.radius);
+
+      motorhomeStore.updateMotorhomeData();
     },
     openRadiusDropdown() {
       this.isOpenRadius = true;

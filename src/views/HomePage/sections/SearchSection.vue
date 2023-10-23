@@ -79,108 +79,7 @@
               </svg>
             </div>
           </div>
-
-          <!-- <div
-            class="filter-btns lg:hidden h-[44px] sm:h-[57px] lg:h-[60px] flex items-start"
-						v-show="isActive('tab-1')"
-          >
-            <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-              @click="setActiveFilter('tab-1')"
-            :class="{ activefilter: isActiveFilter('tab-1') }"
-							>
-              {{ $t("message.filter.new") }}
-            </button>
-            <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] lg:px-[15px] hover:bg-[#beb5b5]"
-              @click="setActiveFilter('tab-2')"
-            :class="{ activefilter: isActiveFilter('tab-2') }"
-							>
-              {{ $t("message.filter.used") }}
-            </button>
-            <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[45px] sm:w-[75px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-              @click="setActiveFilter('tab-3')"
-            :class="{ activefilter: isActiveFilter('tab-3') }"
-							>
-              {{ $t("message.filter.rent") }}
-            </button>
-            <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full w-[55px] sm:w-[94.5px] text-[10px] sm:text-[12px] sm:py-[21.5px] lg:py-[15.5px] sm:px-[0.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-              @click="setActiveFilter('tab-4')"
-            :class="{ activefilter: isActiveFilter('tab-4') }"
-							>
-              {{ $t("message.filter.crash") }}
-            </button>
-            <select
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full px-[2px] text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] w-[110px] sm:w-[133.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5] cursor-pointer"
-            >
-              <option value="">{{ $t("message.side.title") }}</option>
-              <option value="">{{ $t("message.side.left") }}</option>
-              <option value="">{{ $t("message.side.right") }}</option>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[68px] sm:right-[102px] top-[77px] sm:top-[83px]"
-            ></span>
-            <button
-              class="filter-btn bg-[#d3d3d3] py-[12px] h-full text-[10px] sm:text-[12px] sm:py-[17.1px] lg:py-[17.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
-              @click="setActiveFilter('tab-5')"
-            :class="{ activefilter: isActiveFilter('tab-5') }"
-							>
-              {{ $t("message.filter.classic") }}
-            </button>
-          </div> -->
         </div>
-
-        <!-- <div class="filter-btns hidden lg:flex h-[30px] lg:h-[60px]"   v-show="isActive('tab-1')">
-          <button
-            class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-            @click="setActiveFilter('tab-1')"
-            :class="{ activefilter: isActiveFilter('tab-1') }"
-          >
-            {{ $t("message.filter.new") }}
-          </button>
-          <button
-            class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[14px] sm:px-[11.3px] lg:px-[3px] lg:w-[85px] hover:bg-[#beb5b5]"
-            @click="setActiveFilter('tab-2')"
-            :class="{ activefilter: isActiveFilter('tab-2') }"
-          >
-            {{ $t("message.filter.used") }}
-          </button>
-          <button
-            class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[20px] hover:bg-[#beb5b5]"
-            @click="setActiveFilter('tab-3')"
-            :class="{ activefilter: isActiveFilter('tab-3') }"
-          >
-            {{ $t("message.filter.rent") }}
-          </button>
-          <button
-            class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[11.3px] lg:px-[15px] hover:bg-[#beb5b5]"
-            @click="setActiveFilter('tab-4')"
-            :class="{ activefilter: isActiveFilter('tab-4') }"
-          >
-            {{ $t("message.filter.crash") }}
-          </button>
-          <div class="relative">
-            <select
-              class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[17.5px] sm:px-[11.3px] lg:px-[10px] hover:bg-[#beb5b5] cursor-pointer"
-            >
-              <option value="">{{ $t("message.side.title") }}</option>
-              <option value="">{{ $t("message.side.left") }}</option>
-              <option value="">{{ $t("message.side.right") }}</option>
-            </select>
-            <span
-              class="arrow w-[7px] h-[7px] absolute lg:right-[10px] xl:right-[10px] top-[25px]"
-            ></span>
-          </div>
-          <button
-            class="filter-btn bg-[#d3d3d3] sm:py-[17.1px] lg:py-[6.5px] sm:px-[12px] lg:px-[20px] hover:bg-[#beb5b5]"
-            @click="setActiveFilter('tab-5')"
-            :class="{ activefilter: isActiveFilter('tab-5') }"
-          >
-            {{ $t("message.filter.classic") }}
-          </button>
-        </div> -->
         <div class="tab-content absolute left-[60px] sm:left-[100px]">
           <div class="tab-panel" v-show="isActive('tab-1')">
             <Tab1Component
@@ -280,39 +179,39 @@ store: useActiveTab4()
 	methods:{
 		goTruckFilter(){
 			this.$router.push({ name: "trucks-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goTrailerFilter(){
 			this.$router.push({ name: "trailer-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goVanFilter(){
 			this.$router.push({ name: "van-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goSemitruckFilter(){
 			this.$router.push({ name: "semitruck-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goSemitrailerFilter(){
 			this.$router.push({ name: "semitrailer-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goCoacheFilter(){
 			this.$router.push({ name: "coache-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goVehicleFilter(){
 			this.$router.push({ name: "agricultural-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goMachineFilter(){
 			this.$router.push({ name: "machine-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 		goForkliftFilter(){
 			this.$router.push({ name: "forklift-filter" });
-			 this.store.setActiveDiv("1");
+			 this.store.setActiveDiv("");
 		},
 	},
   data() {

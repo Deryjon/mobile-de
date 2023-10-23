@@ -199,7 +199,7 @@
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
+import { useTruckStore } from "../../../store/truckDataStore";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 export default {
   data() {
@@ -216,18 +216,11 @@ export default {
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedOthers,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateTruckData() {
+      const truckStore = useTruckStore();
+      (truckStore.truckData.features =
+        this.selectedOthers),
+        truckStore.updateTruckData();
     },
     toggleShowCheckbox(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
@@ -239,8 +232,8 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      console.log("selectedOthers изменен:", this.selectedOthers);
-      this.fetchData();
+     
+      this.updateTruckData();
     },
   },
   components: { TrailerCoupling },

@@ -1,15 +1,15 @@
 <template>
-  <div class=" p-[20px]">
+  <div class="p-[20px]">
     <h3 class="text-[16px]">Driving Mode</h3>
     <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px]  pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedShaftDrive"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(0, 'Shaft drive')"
         />
         <svg
           class="icon"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedChainDrive"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(1, 'Chain drive')"
         />
         <svg
           class="icon"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedBeltDrive"
-          @click="toggleShowCheckbox(0)"
+          @click="toggleShowCheckbox(2, 'Belt drive')"
         />
         <svg
           class="icon"
@@ -83,65 +83,36 @@
 </template>
 <script>
 import { ref } from "vue";
-
+import { useMotorbikeStore } from "@/store/motorbikeDataStore";
 export default {
-  setup() {
-    const isCheckedShaftDrive = ref(false);
-    const isCheckedChainDrive = ref(false);
-    const isCheckedBeltDrive = ref(false);
-    const isCheckedStreetFight = ref(false);
-    const isCheckedCombinationSide = ref(false);
-    const isCheckedMotorcycle = ref(false);
-    const isCheckedRally = ref(false);
-    const isCheckedSuperMoto = ref(false);
-    const isCheckedDirtBike = ref(false);
-    const isCheckedNikedBike = ref(false);
-    const isCheckedScooter = ref(false);
-    const isCheckedTourer = ref(false);
-    const isCheckedEnduroTouring = ref(false);
-    const isCheckedPocketbike = ref(false);
-    const isCheckedSportsBike = ref(false);
-    const isCheckedTrike = ref(false);
-    const isCheckedLightWeight = ref(false);
-    const isCheckedQuad = ref(false);
-    const isCheckedSportTouring = ref(false);
-    const isCheckedOther = ref(false);
-    const toggleShowCheckbox = (index) => {
-      for (let i = 0; i < isCheckedShaftDrive.length; i++) {
-        if (i !== index) {
-          isCheckedShaftDrive[i] = false;
+  data() {
+    return {
+      isCheckedShaftDrive: false,
+      isCheckedChainDrive: false,
+      isCheckedBeltDrive: false,
+			selectedDrive: []
+    };
+  },
+	methods:{
+		updateMotorbikeData() {
+      const motorbikeStore = useMotorbikeStore();
+      motorbikeStore.motorcycleData.driving_mode = this.selectedVehicleType;
+      motorbikeStore.updateMotorbikeData();
+    },
+		toggleShowCheckbox(index, fuelName) {
+      const isChecked = !this.selectedDrive.includes(fuelName);
+      if (isChecked) {
+        this.selectedDrive.push(fuelName);
+      } else {
+        const fuelIndex = this.selectedDrive.indexOf(fuelName);
+        if (fuelIndex !== -1) {
+          this.selectedDrive.splice(fuelIndex, 1);
         }
       }
-      isCheckedShaftDrive[index] = true;
-    };
-
-    return {
-      isCheckedBeltDrive,
-      isCheckedCombinationSide,
-      isCheckedMotorcycle,
-      isCheckedRally,
-      isCheckedChainDrive,
-      isCheckedSuperMoto,
-      isCheckedShaftDrive,
-      isCheckedStreetFight,
-      isCheckedDirtBike,
-      isCheckedNikedBike,
-      isCheckedScooter,
-      isCheckedTourer,
-      isCheckedEnduroTouring,
-      isCheckedPocketbike,
-      isCheckedSportsBike,
-      isCheckedTrike,
-      isCheckedLightWeight,
-      isCheckedQuad,
-      isCheckedSportTouring,
-      isCheckedOther,
-      toggleShowCheckbox,
-    };
-  },
-  data() {
-    return {};
-  },
+			console.log(this.selectedDrive);
+      this.updateMotorbikeData();
+    },
+	},
   components: {},
 };
 </script>
