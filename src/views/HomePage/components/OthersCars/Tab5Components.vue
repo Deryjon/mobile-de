@@ -340,9 +340,11 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
+import {useTruckStore} from "../../../../store/truckDataStore"
 export default {
   data() {
     return {
+      truckStore: useTruckStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -372,88 +374,80 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
+    },
+    "truckStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('truckData', JSON.stringify({
-      truck_make: this.selectedMark,
-      truck_model: this.selectedModel,
-      truck_firt_date_year_from: this.inputValue,
-      truck_mileage_from: this.inputKilometer,
-      truck_payment_type: this.activeTab,
-      truck_price_from: this.inputPrice,
-      truck_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-      http
-        .post("/trucks/count", {
-					truck_make: this.selectedMark,
-      truck_model: this.selectedModel,
-      truck_firt_date_year_from: this.inputValue,
-      truck_mileage_from: this.inputKilometer,
-      truck_payment_type: this.activeTab,
-      truck_price_from: this.inputPrice,
-      truck_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+    updateTruckData() {
+      const truckStore = useTruckStore();
+        (truckStore.truckData.truck_make =
+          this.selectedMark),
+        (truckStore.truckData.truck_model =
+          this.selectedModel),
+        (truckStore.truckData.truck_firt_date_year_from =
+          this.inputValue),
+        (truckStore.truckData.truck_mileage_from =
+          this.inputKilometer),
+        (truckStore.truckData.truck_payment_type =
+          this.activeTab),
+        (truckStore.truckData.truck_price_from =
+          this.inputPrice),
+        (truckStore.truckData.truck_city_zipcode =
+          this.cityName),
+        truckStore.updateTruckData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -618,8 +612,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+		this.updateTruckData()
   },
   computed: {
     isModelSelectDisabled() {

@@ -339,9 +339,12 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
+import {useVanStore} from "../../../../store/vanDataStore"
+
 export default {
   data() {
     return {
+      vanStore: useVanStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -371,88 +374,71 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateVanData()
       }
+    },
+    "vanStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('vanData', JSON.stringify({
-    van_make: this.selectedMark,
-    van_model: this.selectedModel,
-    van_firt_date_year_from: this.inputValue,
-    van_mileage_from: this.inputKilometer,
-    van_payment_type: this.activeTab,
-    van_price_from: this.inputPrice,
-    van_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-      http
-        .post("/vans/count", {
-				van_make: this.selectedMark,
-      van_model: this.selectedModel,
-    van_firt_date_year_from: this.inputValue,
-    van_mileage_from: this.inputKilometer,
-    van_payment_type: this.activeTab,
-    van_price_from: this.inputPrice,
-    van_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+        (vanStore.vanData.van_make =
+          this.selectedMark),
+        (vanStore.vanData.van_model =
+          this.selectedModel),
+        (vanStore.vanData.van_firt_date_year_from =
+          this.inputValue),
+        (vanStore.vanData.van_kilometre_from =
+          this.inputKilometer),
+        (vanStore.vanData.van_payment_type =
+          this.activeTab),
+        (vanStore.vanData.van_price_from =
+          this.inputPrice),
+        (vanStore.vanData.zipcode =
+          this.cityName),
+        vanStore.updateVanData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -482,32 +468,6 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.models = [];
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
-      }
-      localStorage.setItem("mark", this.selectedMark);
-      http
-        .get(`/car/model?mark_id=${this.selectedMark}`)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
     },
     postModels() {
       localStorage.setItem("mark-model", this.selectedModel);
@@ -616,9 +576,8 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-    this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+    this.fetchModelYears(); 
+    this.updateVanData()
   },
   computed: {
     isModelSelectDisabled() {

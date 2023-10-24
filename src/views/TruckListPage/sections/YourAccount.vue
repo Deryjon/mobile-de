@@ -96,17 +96,17 @@
 <script>
 
 import http from "../../../axios.config";
-import {useTruckStore} from "../../../store/truckDataStore"
- export default {
+import { useTruckStore } from "../../../store/truckDataStore"
+export default {
   data() {
     return {
+      truckStore: useTruckStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       trucks: [],
       contactUser: false,
-      truckStore: useTruckStore()
     };
   },
   methods: {
@@ -114,9 +114,10 @@ import {useTruckStore} from "../../../store/truckDataStore"
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/trucks/list?limit=100&offset=0`, this.truckStore.truckData).then((res) => {
+      const truckData = this.truckStore.truckData
+      http.post(`/trucks/list?limit=100&offset=0`, truckData).then((res) => {
         this.trucks = res.data.data;
-        
+
       });
     },
   },

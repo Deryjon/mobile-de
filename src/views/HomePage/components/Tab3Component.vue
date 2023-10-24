@@ -536,11 +536,6 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-    // this.postData()
-    // this.fetchData()
-    this.updateMotorhomeData()
-  },
-  created(){
     this.updateMotorhomeData()
   },
   computed: {

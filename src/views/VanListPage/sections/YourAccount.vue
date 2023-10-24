@@ -100,16 +100,18 @@
 <script>
 
 import http from "../../../axios.config";
+import { useVanStore } from "../../../store/vanDataStore"
 export default {
   data() {
     return {
+      vanStore: useVanStore(),
       userEmail: "",
       userI: "",
-      activeTab: "tab-2",
+      activeTab: "tab-2", 
       isOpen: false,
       vans: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("vanData")),
+
     };
   },
   methods: {
@@ -117,10 +119,9 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/vans/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const vanData = this.vanStore.vanData
+      http.post(`/vans/list?limit=100&offset=0`, vanData).then((res) => {
         this.vans = res.data.data;
-        console.log(this.vans);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
   },

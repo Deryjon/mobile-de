@@ -545,9 +545,6 @@ export default {
 
     this.updateMotorbikeData()
   },
-  created() {
-    this.updateMotorbikeData()
-  },
   computed: {
     isModelSelectDisabled() {
       return this.selectedMark === "14600"; // "Beliebig" value

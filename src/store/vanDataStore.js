@@ -3,7 +3,7 @@ import http from "../axios.config"
 export const useVanStore = defineStore('van', {
   state: () => ({
     vanData: {
-			van: "",
+			
     },
 		count: ""
   }),

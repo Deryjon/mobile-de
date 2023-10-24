@@ -340,9 +340,11 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
+import {useTrailerStore} from "../../../../store/trailerDataStore"
 export default {
   data() {
     return {
+      trailerStore: useTrailerStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -372,88 +374,71 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateTrailerData()
       }
+    },
+    "trailerStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('trailerData', JSON.stringify({
-      trailer_make: this.selectedMark,
-      trailer_model: this.selectedModel,
-      trailer_firt_date_year_from: this.inputValue,
-      trailer_mileage_from: this.inputKilometer,
-      trailer_payment_type: this.activeTab,
-      trailer_price_from: this.inputPrice,
-      trailer_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-      http
-        .post("/trailers/count", {
-					trailer_make: this.selectedMark,
-      trailer_model: this.selectedModel,
-      trailer_firt_date_year_from: this.inputValue,
-      trailer_mileage_from: this.inputKilometer,
-      trailer_payment_type: this.activeTab,
-      trailer_price_from: this.inputPrice,
-      trailer_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+    updateTrailerData() {
+      const trailerStore = useTrailerStore();
+        (trailerStore.trailerData.trailer_make =
+          this.selectedMark),
+        (trailerStore.trailerData.trailer_model =
+          this.selectedModel),
+        (trailerStore.trailerData.trailer_firt_date_year_from =
+          this.inputValue),
+        (trailerStore.trailerData.trailer_mileage_from =
+          this.inputKilometer),
+        (trailerStore.trailerData.trailer_payment_type =
+          this.activeTab),
+        (trailerStore.trailerData.trailer_price_from =
+          this.inputPrice),
+        (trailerStore.trailerData.trailer_city_zipcode =
+          this.cityName),
+        trailerStore.updateTrailerData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -618,8 +603,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+    this.updateTrailerData();
   },
   computed: {
     isModelSelectDisabled() {
