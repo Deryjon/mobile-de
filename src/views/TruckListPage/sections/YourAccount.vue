@@ -75,10 +75,6 @@
                   </svg>
                   Contact
                 </button>
-                <!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
-<p>+998946120844</p>
-<p>lonewolf@gmail.com</p>
-						</div> -->
               </div>
               <button @click="addAdBasicmotorcycles"
                 class="bg-transparent bor rounded-[4px] text-[14px] p-[8px] px-[20px] text-[#08829a] flex items-center gap-[5px]">
@@ -100,7 +96,8 @@
 <script>
 
 import http from "../../../axios.config";
-export default {
+import {useTruckStore} from "../../../store/truckDataStore"
+ export default {
   data() {
     return {
       userEmail: "",
@@ -109,7 +106,7 @@ export default {
       isOpen: false,
       trucks: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("trailerData")),
+      truckStore: useTruckStore()
     };
   },
   methods: {
@@ -117,10 +114,9 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/trucks/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      http.post(`/trucks/list?limit=100&offset=0`, this.truckStore.truckData).then((res) => {
         this.trucks = res.data.data;
-        console.log(this.trucks);
-        console.log(this.fetchData.motorcycle_make);
+        
       });
     },
   },

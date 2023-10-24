@@ -611,6 +611,9 @@ export default {
     // this.postData()
     this.updateCarData()
   },
+  created(){
+    this.updateCarData()
+  },
   computed: {
     isModelSelectDisabled() {
       return this.selectedMark === "14600"; // "Beliebig" value

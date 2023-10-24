@@ -129,27 +129,27 @@
 <script>
 
 import http from "../../../axios.config";
+import {useMotorhomeStore} from "../../../store/motorhomeDataStore"
 export default {
   data() {
     return {
+      motorhomeStore: useMotorhomeStore(),
+
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       motorhomes: [],
-      contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("motorhomeData")),
-    };
+      contactUser: false,    };
   },
   methods: {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-  http.post(`/motorhomes/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const motorhomeData = this.motorhomeStore.motorhomeData
+  http.post(`/motorhomes/list?limit=100&offset=0`, motorhomeData).then((res) => {
     this.motorhomes = res.data.data;
-    console.log(this.motorhomes);
-    console.log(this.fetchData.motorcycle_make);
   });
 },
     goToSinglePageAd(motorcycleId) {
