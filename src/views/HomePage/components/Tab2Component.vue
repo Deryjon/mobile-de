@@ -435,7 +435,7 @@ export default {
       motorcycleStore.motorcycleData.motorcycle_mileage_from = this.inputKilometer;
       motorcycleStore.motorcycleData.motorcycle_payment_type = this.activeTab;
       motorcycleStore.motorcycleData.motorcycle_price_from = this.inputPrice;
-      motorcycleStore.motorcycleData.motorcycle_city_zipcode = this.cityName;
+      motorcycleStore.motorcycleData.motorcycle_city_zipcode = this.cityNamem ;
       motorcycleStore.updateMotorbikeData();
     },
     showTab1() {
