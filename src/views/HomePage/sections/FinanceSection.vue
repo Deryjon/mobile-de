@@ -1,9 +1,9 @@
 <template>
-  <v-container class="max-w-[1120px]">
+  <v-container class="w-[1120px]">
     <div class="magazine-bmw">
       <div class="row sections-2">
         <div class="col-xl-5">
-          <h2 class="head text-[#000]">mobile.de Magazin</h2>
+          <h2 class="head text-[#000]">SellCenter Magazin</h2>
         </div>
       </div>
 

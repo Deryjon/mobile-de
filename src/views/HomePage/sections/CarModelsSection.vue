@@ -1,6 +1,6 @@
 <template>
   <section class="rental-section">
-    <v-container class="max-w-[1120px]">
+    <v-container class="w-[1120px]">
       <div class="Automarken">
         <div class="container">
           <h3 class="title">
@@ -344,7 +344,7 @@ export default {};
 	gap: 20px	;
   flex-wrap: wrap;
   background-color: rgb(243, 241, 241);
-	max-width: 1120px;
+	width: 1120px;
 	padding: 20px;
 }
 
