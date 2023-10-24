@@ -9,16 +9,16 @@
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-            @change="fetchModels()"
+           
           >
             <option value="" selected>Beliebig</option>
             <optgroup>
               <option
                 v-for="make in makes"
                 :key="make"
-                :value="make.motor_home_make_name"
+                :value="make.forklift_make_name"
               >
-                {{ make.motor_home_make_name }}
+                {{ make.forklift_make_name }}
               </option>
               <option value="other">other</option>
             </optgroup>
@@ -428,25 +428,25 @@ export default {
   methods: {
 		postData(){
 			localStorage.setItem('motorhomeData', JSON.stringify({
-      motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+      forklift_make: this.selectedMark,
+      forklift_model: this.selectedModel,
+      forklift_firt_date_year_from: this.inputValue,
+      forklift_mileage_from: this.inputKilometer,
+      forklift_payment_type: this.activeTab,
+      forklift_price_from: this.inputPrice,
+      forklift_city_zipcode: this.cityName,
     }));
 		},
     fetchData() {
       http
-        .post("/forklift/count", {
-					motor_home_make: this.selectedMark,
-      motor_home_model: this.selectedModel,
-      motor_home_firt_date_year_from: this.inputValue,
-      motor_home_mileage_from: this.inputKilometer,
-      motor_home_payment_type: this.activeTab,
-      motor_home_price_from: this.inputPrice,
-      motor_home_city_zipcode: this.cityName,
+        .post("/forklifts/count", {
+					forklift_make: this.selectedMark,
+      forklift_model: this.selectedModel,
+      forklift_firt_date_year_from: this.inputValue,
+      forklift_mileage_from: this.inputKilometer,
+      forklift_payment_type: this.activeTab,
+      forklift_price_from: this.inputPrice,
+      forklift_city_zipcode: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -483,32 +483,6 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.models = [];
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
-      }
-      localStorage.setItem("mark", this.selectedMark);
-      http
-        .get(`/car/model?mark_id=${this.selectedMark}`)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
     },
     postModels() {
       localStorage.setItem("mark-model", this.selectedModel);
@@ -598,7 +572,7 @@ export default {
       this.isOpenKilometer = false;
     },
 		goMotorhomeList(){
-			 	this.$router.push({ name: "motorhome-list" });
+			 	this.$router.push({ name: "forklift-list" });
 
 		}
   },
@@ -622,9 +596,6 @@ export default {
 		this.fetchData()
   },
   computed: {
-    isModelSelectDisabled() {
-      return this.selectedMark === "14600"; // "Beliebig" value
-    },
     filteredItems() {
       return this.items.filter((item) =>
         item.name.toLowerCase().includes(this.searchText.toLowerCase())

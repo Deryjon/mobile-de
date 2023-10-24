@@ -440,7 +440,7 @@ export default {
     fetchData() {
       http
         .post("/agriculturals/count", {
-					motor_home_make: this.selectedMark,
+					vehicle_make: this.selectedMark,
       vehicle_model: this.selectedModel,
       vehicle_firt_date_year_from: this.inputValue,
       vehicle_mileage_from: this.inputKilometer,
