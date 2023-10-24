@@ -131,16 +131,17 @@ import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
 import http from "../../../axios.config";
+import {useCarStore} from "../../../store/carDataStore"
 export default {
   data() {
     return {
+      carStore: useCarStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       cars: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("carData")),
     };
   },
   methods: {
@@ -159,7 +160,8 @@ export default {
   //   car_silding_door: this.fetchData.car_silding_door
   // }
     fetchAds() {
-  http.post(`/cars/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const carData = this.carStore.carData
+  http.post(`/cars/list?limit=100&offset=0`, carData).then((res) => {
     this.cars = res.data.data;
     console.log(this.cars);
     console.log(this.fetchData.car_make);

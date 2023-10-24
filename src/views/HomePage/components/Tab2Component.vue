@@ -340,9 +340,11 @@
 import http from "../../../axios.config";
 import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
+import {useMotorbikeStore} from "../../../store/motorbikeDataStore"
 export default {
   data() {
     return {
+      motorbikeStore: useMotorbikeStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -372,89 +374,69 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateMotorbikeData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateMotorbikeData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateMotorbikeData()
       }
     },
     inputKilometer(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      if (newValue !== oldValue) {  
+        this.updateMotorbikeData()
       }
     },
     activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      if (newValue !== oldValue) {  
+        this.updateMotorbikeData()
       }
     },
     inputPrice(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      if (newValue !== oldValue) {  
+        this.updateMotorbikeData()
       }
     },
     cityName(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      if (newValue !== oldValue) {  
+        this.updateMotorbikeData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateMotorbikeData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateMotorbikeData()
       }
+    },
+    "motorbikeStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('motorbikeData', JSON.stringify({
-      motorcycle_make: this.selectedMark,
-      motorcycle_model: this.selectedModel,
-      motorcycle_firt_date_year_from: this.inputValue,
-      motorcycle_mileage_from: this.inputKilometer,
-      motorcycle_payment_type: this.activeTab,
-      motorcycle_price_from: this.inputPrice,
-      motorcycle_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-		
-      http
-        .post("/motorcycles/count", {
-					motorcycle_make: this.selectedMark,
-      motorcycle_model: this.selectedModel,
-      motorcycle_firt_date_year_from: this.inputValue,
-      motorcycle_mileage_from: this.inputKilometer,
-      motorcycle_payment_type: this.activeTab,
-      motorcycle_price_from: this.inputPrice,
-      motorcycle_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+		updateMotorbikeData() {
+      const motorcycleStore = useMotorbikeStore();
+      motorcycleStore.motorcycleData.motorcycle_make = this.selectedMark;
+      motorcycleStore.motorcycleData.motorcycle_model = this.selectedModel;
+      motorcycleStore.motorcycleData.motorcycle_firt_date_year = this.inputValue;
+      motorcycleStore.motorcycleData.motorcycle_mileage_from = this.inputKilometer;
+      motorcycleStore.motorcycleData.motorcycle_payment_type = this.activeTab;
+      motorcycleStore.motorcycleData.motorcycle_price_from = this.inputPrice;
+      motorcycleStore.motorcycleData.motorcycle_city_zipcode = this.cityName;
+      motorcycleStore.updateMotorbikeData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -620,9 +602,8 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
-  },
+	
+this.updateMotorbikeData()  },
   computed: {
     isModelSelectDisabled() {
       return this.selectedMark === "14600"; // "Beliebig" value

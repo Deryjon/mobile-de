@@ -129,16 +129,17 @@
 <script>
 
 import http from "../../../axios.config";
+import {useMotorbikeStore} from "../../../store/motorbikeDataStore"
 export default {
   data() {
     return {
+      motorbikeStore: useMotorbikeStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       motorcycles: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("motorbikeData")),
     };
   },
   methods: {
@@ -146,7 +147,8 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-  http.post(`/motorcycles/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const motorbikeData = this.motorbikeStore.motorcycleData
+  http.post(`/motorcycles/list?limit=100&offset=0`, motorbikeData).then((res) => {
     this.motorcycles = res.data.data;
     console.log(this.motorcycles);
   });

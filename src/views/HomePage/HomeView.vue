@@ -41,8 +41,13 @@ methods:{
       this.isLoading = newValue;
     }
 },
+created(){
+
+  setTimeout(() => {
+      this.isLoading = false; 
+    }, 1000);
+},
 mounted() {
-  this.isLoading = false;  
 	if (localStorage.getItem("u-com") == null) {
       localStorage.setItem("u-com", false);
     } else if (localStorage.getItem("logged-in") == null){

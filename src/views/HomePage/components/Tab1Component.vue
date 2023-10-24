@@ -5,10 +5,7 @@
         <h2 class="text-sm lg:text-[14px] mt-2">Condition</h2>
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig"
-          @change="fetchCondition()"
-          v-model="selectedCondition"
-        >
+          placeholder="Beliebig" @change="fetchCondition()" v-model="selectedCondition">
           <option value="" selected>Any</option>
           <option class="">New</option>
           <option class="">Used</option>
@@ -16,24 +13,18 @@
           <option class="">Crash Car</option>
           <option class="">Classic</option>
         </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"
-        ></span>
+        <span class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"></span>
       </div>
       <div class="relative">
         <h2 class="text-sm lg:text-[14px] mt-2">Driving site</h2>
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig"
-          v-model="selectedDriving"
-        >
+          placeholder="Beliebig" v-model="selectedDriving">
           <option value="" selected>Any</option>
           <option class="">Left side</option>
           <option class="">Right side</option>
         </select>
-        <span
-          class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"
-        ></span>
+        <span class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"></span>
       </div>
     </div>
     <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[80px]">
@@ -44,16 +35,10 @@
           </h2>
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMark"
-            @change="fetchModels()"
-          >
+            v-model="selectedMark" @change="fetchModels()">
             <option value="" selected>Beliebig</option>
             <optgroup>
-              <option
-                v-for="make in makes"
-                :key="make"
-                :value="make.car_make_name"
-              >
+              <option v-for="make in makes" :key="make" :value="make.car_make_name">
                 {{ make.car_make_name }}
               </option>
               <option value="other">other</option>
@@ -69,18 +54,9 @@
         </h2>
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig"
-          :disabled="isModelSelectDisabled"
-          @change="postModels"
-          v-model="selectedModel"
-        >
+          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel">
           <option value="">Beliebig</option>
-          <option
-            v-for="model in models"
-            :key="model"
-            :value="model.car_model_name"
-            class=""
-          >
+          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
             {{ model.car_model_name }}
           </option>
           <option value="other" class="">Others</option>
@@ -92,125 +68,108 @@
           {{ $t("message.selects.registration") }}
         </h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputValue"
-            @focus="openDropdown"
-            @input="filterOptions"
-            @blur="openDropdown"
-          />
+            placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions" @blur="openDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpen"
-          class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
-        >
-          <li
-            v-for="option in filteredOptions"
-            :key="option"
-            @click="selectOption(option)"
-            class=""
-          >
+        <ul v-if="isOpen" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
+          <li v-for="option in filteredOptions" :key="option" @click="selectOption(option)" class="">
             {{ option }}
           </li>
-						<li @click="selectOption('1989')">1989</li>
-						<li @click="selectOption('1988')">1988</li>
-						<li @click="selectOption('1987')">1987</li>
-						<li @click="selectOption('1986')">1986</li>
-						<li @click="selectOption('1985')">1985</li>
-						<li @click="selectOption('1984')">1984</li>
-						<li @click="selectOption('1983')">1983</li>
-						<li @click="selectOption('1982')">1982</li>
-						<li @click="selectOption('1981')">1981</li>
-						<li @click="selectOption('1980')">1980</li>
-						<li @click="selectOption('1979')">1979</li>
-						<li @click="selectOption('1978')">1978</li>
-						<li @click="selectOption('1977')">1977</li>
-						<li @click="selectOption('1976')">1976</li>
-						<li @click="selectOption('1975')">1975</li>
-						<li @click="selectOption('1974')">1974</li>
-						<li @click="selectOption('1973')">1973</li>
-						<li @click="selectOption('1972')">1972</li>
-						<li @click="selectOption('1971')">1971</li>
-						<li @click="selectOption('1970')">1970</li>
-						<li @click="selectOption('1969')">1969</li>
-						<li @click="selectOption('1968')">1968</li>
-						<li @click="selectOption('1967')">1967</li>
-						<li @click="selectOption('1966')">1966</li>
-						<li @click="selectOption('1965')">1965</li>
-						<li @click="selectOption('1964')">1964</li>
-						<li @click="selectOption('1963')">1963</li>
-						<li @click="selectOption('1962')">1962</li>
-						<li @click="selectOption('1961')">1961</li>
-						<li @click="selectOption('1960')">1960</li>
-						<li @click="selectOption('1959')">1959</li>
-						<li @click="selectOption('1958')">1958</li>
-						<li @click="selectOption('1957')">1957</li>
-						<li @click="selectOption('1956')">1956</li>
-						<li @click="selectOption('1955')">1955</li>
-						<li @click="selectOption('1954')">1954</li>
-						<li @click="selectOption('1953')">1953</li>
-						<li @click="selectOption('1952')">1952</li>
-						<li @click="selectOption('1951')">1951</li>
-						<li @click="selectOption('1950')">1950</li>
-						<li @click="selectOption('1949')">1949</li>
-						<li @click="selectOption('1948')">1948</li>
-						<li @click="selectOption('1947')">1947</li>
-						<li @click="selectOption('1946')">1946</li>
-						<li @click="selectOption('1945')">1945</li>
-						<li @click="selectOption('1944')">1944</li>
-						<li @click="selectOption('1943')">1943</li>
-						<li @click="selectOption('1942')">1942</li>
-						<li @click="selectOption('1941')">1941</li>
-						<li @click="selectOption('1939')">1939</li>
-						<li @click="selectOption('1938')">1938</li>
-						<li @click="selectOption('1937')">1937</li>
-						<li @click="selectOption('1936')">1936</li>
-						<li @click="selectOption('1935')">1935</li>
-						<li @click="selectOption('1934')">1934</li>
-						<li @click="selectOption('1933')">1933</li>
-						<li @click="selectOption('1932')">1932</li>
-						<li @click="selectOption('1931')">1931</li>
-						<li @click="selectOption('1930')">1930</li>
-						<li @click="selectOption('1929')">1929</li>
-						<li @click="selectOption('1928')">1928</li>
-						<li @click="selectOption('1927')">1927</li>
-						<li @click="selectOption('1926')">1926</li>
-						<li @click="selectOption('1925')">1925</li>
-						<li @click="selectOption('1924')">1924</li>
-						<li @click="selectOption('1923')">1923</li>
-						<li @click="selectOption('1922')">1922</li>
-						<li @click="selectOption('1921')">1921</li>
-						<li @click="selectOption('1920')">1920</li>
-						<li @click="selectOption('1919')">1919</li>
-						<li @click="selectOption('1918')">1918</li>
-						<li @click="selectOption('1917')">1917</li>
-						<li @click="selectOption('1916')">1916</li>
-						<li @click="selectOption('1915')">1915</li>
-						<li @click="selectOption('1914')">1914</li>
-						<li @click="selectOption('1913')">1913</li>
-						<li @click="selectOption('1912')">1912</li>
-						<li @click="selectOption('1911')">1911</li>
-						<li @click="selectOption('1910')">1910</li>
-						<li @click="selectOption('1909')">1909</li>
-						<li @click="selectOption('1908')">1908</li>
-						<li @click="selectOption('1907')">1907</li>
-						<li @click="selectOption('1906')">1906</li>
-						<li @click="selectOption('1905')">1905</li>
-						<li @click="selectOption('1904')">1904</li>
-						<li @click="selectOption('1903')">1903</li>
-						<li @click="selectOption('1902')">1902</li>
-						<li @click="selectOption('1901')">1901</li>
+          <li @click="selectOption('1989')">1989</li>
+          <li @click="selectOption('1988')">1988</li>
+          <li @click="selectOption('1987')">1987</li>
+          <li @click="selectOption('1986')">1986</li>
+          <li @click="selectOption('1985')">1985</li>
+          <li @click="selectOption('1984')">1984</li>
+          <li @click="selectOption('1983')">1983</li>
+          <li @click="selectOption('1982')">1982</li>
+          <li @click="selectOption('1981')">1981</li>
+          <li @click="selectOption('1980')">1980</li>
+          <li @click="selectOption('1979')">1979</li>
+          <li @click="selectOption('1978')">1978</li>
+          <li @click="selectOption('1977')">1977</li>
+          <li @click="selectOption('1976')">1976</li>
+          <li @click="selectOption('1975')">1975</li>
+          <li @click="selectOption('1974')">1974</li>
+          <li @click="selectOption('1973')">1973</li>
+          <li @click="selectOption('1972')">1972</li>
+          <li @click="selectOption('1971')">1971</li>
+          <li @click="selectOption('1970')">1970</li>
+          <li @click="selectOption('1969')">1969</li>
+          <li @click="selectOption('1968')">1968</li>
+          <li @click="selectOption('1967')">1967</li>
+          <li @click="selectOption('1966')">1966</li>
+          <li @click="selectOption('1965')">1965</li>
+          <li @click="selectOption('1964')">1964</li>
+          <li @click="selectOption('1963')">1963</li>
+          <li @click="selectOption('1962')">1962</li>
+          <li @click="selectOption('1961')">1961</li>
+          <li @click="selectOption('1960')">1960</li>
+          <li @click="selectOption('1959')">1959</li>
+          <li @click="selectOption('1958')">1958</li>
+          <li @click="selectOption('1957')">1957</li>
+          <li @click="selectOption('1956')">1956</li>
+          <li @click="selectOption('1955')">1955</li>
+          <li @click="selectOption('1954')">1954</li>
+          <li @click="selectOption('1953')">1953</li>
+          <li @click="selectOption('1952')">1952</li>
+          <li @click="selectOption('1951')">1951</li>
+          <li @click="selectOption('1950')">1950</li>
+          <li @click="selectOption('1949')">1949</li>
+          <li @click="selectOption('1948')">1948</li>
+          <li @click="selectOption('1947')">1947</li>
+          <li @click="selectOption('1946')">1946</li>
+          <li @click="selectOption('1945')">1945</li>
+          <li @click="selectOption('1944')">1944</li>
+          <li @click="selectOption('1943')">1943</li>
+          <li @click="selectOption('1942')">1942</li>
+          <li @click="selectOption('1941')">1941</li>
+          <li @click="selectOption('1939')">1939</li>
+          <li @click="selectOption('1938')">1938</li>
+          <li @click="selectOption('1937')">1937</li>
+          <li @click="selectOption('1936')">1936</li>
+          <li @click="selectOption('1935')">1935</li>
+          <li @click="selectOption('1934')">1934</li>
+          <li @click="selectOption('1933')">1933</li>
+          <li @click="selectOption('1932')">1932</li>
+          <li @click="selectOption('1931')">1931</li>
+          <li @click="selectOption('1930')">1930</li>
+          <li @click="selectOption('1929')">1929</li>
+          <li @click="selectOption('1928')">1928</li>
+          <li @click="selectOption('1927')">1927</li>
+          <li @click="selectOption('1926')">1926</li>
+          <li @click="selectOption('1925')">1925</li>
+          <li @click="selectOption('1924')">1924</li>
+          <li @click="selectOption('1923')">1923</li>
+          <li @click="selectOption('1922')">1922</li>
+          <li @click="selectOption('1921')">1921</li>
+          <li @click="selectOption('1920')">1920</li>
+          <li @click="selectOption('1919')">1919</li>
+          <li @click="selectOption('1918')">1918</li>
+          <li @click="selectOption('1917')">1917</li>
+          <li @click="selectOption('1916')">1916</li>
+          <li @click="selectOption('1915')">1915</li>
+          <li @click="selectOption('1914')">1914</li>
+          <li @click="selectOption('1913')">1913</li>
+          <li @click="selectOption('1912')">1912</li>
+          <li @click="selectOption('1911')">1911</li>
+          <li @click="selectOption('1910')">1910</li>
+          <li @click="selectOption('1909')">1909</li>
+          <li @click="selectOption('1908')">1908</li>
+          <li @click="selectOption('1907')">1907</li>
+          <li @click="selectOption('1906')">1906</li>
+          <li @click="selectOption('1905')">1905</li>
+          <li @click="selectOption('1904')">1904</li>
+          <li @click="selectOption('1903')">1903</li>
+          <li @click="selectOption('1902')">1902</li>
+          <li @click="selectOption('1901')">1901</li>
         </ul>
       </div>
       <div class="kilometer dropdown-container">
@@ -218,29 +177,18 @@
           {{ $t("message.selects.kilometr") }}
         </h2>
         <div class="kilometers input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputKilometer"
-            @focus="openKilmeterDropdown"
-            @input="filterOptions"
-            @blur="openKilmeterDropdown"
-          />
+            placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
+            @blur="openKilmeterDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openKilmeterDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openKilmeterDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenKilometer"
-          class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenKilometer" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
           <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometer('10000')">10.000 km</li>
           <li data-key="20000" @click="selectKilometer('20000')">20.000 km</li>
@@ -269,26 +217,18 @@
         </ul>
       </div>
     </div>
-    <div
-      class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]"
-    >
+    <div class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]">
       <div>
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.ad") }}
         </h2>
         <div class="Kaufen_div lg:flex text-[14px]">
-          <button
-            class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-            @click="showTab1"
-            :class="{ 'active-Kaufen': activeTab === 'sell' }"
-          >
+          <button class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab1" :class="{ 'active-Kaufen': activeTab === 'sell' }">
             {{ $t("message.btn.sell") }}
           </button>
-          <button
-            class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-            @click="showTab2"
-            :class="{ 'active-Kaufen': activeTab === 'buy' }"
-          >
+          <button class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab2" :class="{ 'active-Kaufen': activeTab === 'buy' }">
             {{ $t("message.btn.buy") }}
           </button>
         </div>
@@ -298,29 +238,19 @@
           <div class="price dropdown-container">
             <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
             <div class="input-container flex relative mt-[10px]">
-              <input
-                type="from"
+              <input type="from"
                 class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-                placeholder="from"
-                v-model="inputPrice"
-                @focus="openPriceDropdown"
-                @input="filterOptions"
-                @blur="closePriceDropdown"
-              />
+                placeholder="from" v-model="inputPrice" @focus="openPriceDropdown" @input="filterOptions"
+                @blur="closePriceDropdown" />
 
               <div
                 class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-                @click="openPriceDropdown"
-              >
+                @click="openPriceDropdown">
                 <span
-                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-                ></span>
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
               </div>
             </div>
-            <ul
-              v-if="isOpenPrice"
-              class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
-            >
+            <ul v-if="isOpenPrice" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
               <li data-key="500" @click="selectPrice('500')">500 €</li>
               <li data-key="1000" @click="selectPrice('1000')">1,000 €</li>
               <li data-key="1500" @click="selectPrice('1500')">1,500 €</li>
@@ -364,20 +294,16 @@
             </h2>
             <input
               class="mark_input_zip text-[12px] mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-              type="text"
-              placeholder="Beliebig"
-              v-model="cityName"
-            />
+              type="text" placeholder="Beliebig" v-model="cityName" />
             <div
               class="icon absolute top-[30px] sm:left-[330px] lg:top-[43px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
-              @click="getLocation()"
-            >
+              @click="getLocation()">
               <img src="../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
           <FilterBtn :to="{ name: 'car-filter' }" @click="goCarList">
-						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
-					</FilterBtn>
+            <p class="text-white text-[18px] lg:text-[16px]">{{ this.count }} {{ $t("message.results.result") }}</p>
+          </FilterBtn>
         </div>
       </div>
     </div>
@@ -387,10 +313,15 @@
 import http from "../../../axios.config";
 import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
+import { useCarStore } from "../../../store/carDataStore"
 export default {
+  setup() {
+    const carStore = useCarStore();
+  },
   data() {
     return {
-			count: "",
+      carStore: useCarStore(),
+      count: "",
       selectedMake: "",
       selectedPrice: "",
       selectedYear: "",
@@ -419,98 +350,105 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        // this.postData();
+        this.updateCarData();
       }
     },
+    'carStore.count': function (newCount, oldCount) {
+      this.count = newCount;
+    }
   },
   methods: {
-		goCarList(){
-		 	this.$router.push({ name: "car-list" });
+    goCarList() {
+      this.$router.push({ name: "car-list" });
 
-		},
-		postData(){
-			localStorage.setItem('carData', JSON.stringify({
-      car_make: this.selectedMark,
-      car_model: this.selectedModel,
-      car_condition: this.selectedCondition,
-      car_firt_date_year_from: this.inputValue,
-      car_mileage_from: this.inputKilometer,
-      car_payment_type: this.activeTab,
-      car_price_from: this.inputPrice,
-      car_city_zipcode: this.cityName,
-      car_silding_door: this.selectedDriving
-    }));
-		},
-    fetchData() {
-		
-      http
-        .post("/cars/count", {
-					car_make: this.selectedMark,
-      car_model: this.selectedModel,
-      car_condition: this.selectedCondition,
-      car_firt_date_year_from: this.inputValue,
-      car_mileage_from: this.inputKilometer,
-      car_payment_type: this.activeTab,
-      car_price_from: this.inputPrice,
-      car_city_zipcode: this.cityName,
-      car_silding_door: this.selectedDriving
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
     },
+    // postData() {
+    //   localStorage.setItem('carData', JSON.stringify({
+
+    //   }));
+
+    updateCarData() {
+      const carStore = useCarStore();
+      carStore.carData.car_make = this.selectedMark;
+      carStore.carData.car_model = this.selectedModel;
+      carStore.carData.car_condition = this.selectedCondition;
+      carStore.carData.car_mileage_from = this.inputKilometer;
+      carStore.carData.car_silding_door = this.selectedDriving;
+      carStore.carData.car_city_zipcode = this.cityName;
+      carStore.carData.car_variant = this.inputVariant;
+      carStore.carData.car_payment_type = this.activeTab;
+      carStore.updateCarData();
+    },
+    // updateCarData() {
+
+    //   http
+    //     .post("/cars/count", {
+    //       car_make: this.selectedMark,
+    //       car_model: this.selectedModel,
+    //       car_condition: this.selectedCondition,
+    //       car_firt_date_year_from: this.inputValue,
+    //       car_mileage_from: this.inputKilometer,
+    //       car_payment_type: this.activeTab,
+    //       car_price_from: this.inputPrice,
+    //       car_city_zipcode: this.cityName,
+    //       car_silding_door: this.selectedDriving
+    //     })
+    //     .then((response) => {
+    //       const data = response.data.data;
+    //       this.count = data.count
+    //       console.log(data.count);
+
+    //     });
+    // },
     showTab1() {
       this.activeTab = "sell";
     },
@@ -635,7 +573,7 @@ export default {
       this.isOpen = false;
     },
     selectKilometer(option) {
-      this.inputKilometer	 = option;
+      this.inputKilometer = option;
       this.isOpenKilometer = false;
       localStorage.setItem("kilometer", this.inputKilometer);
     },
@@ -670,8 +608,8 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+    // this.postData()
+    this.updateCarData()
   },
   computed: {
     isModelSelectDisabled() {
@@ -690,6 +628,7 @@ export default {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;
@@ -697,17 +636,21 @@ export default {
   transform: rotate(135deg);
   pointer-events: none;
 }
+
 .Kaufen:hover {
   box-shadow: 0 0 2px 1px #eaccb4;
 }
+
 .active-Kaufen {
   background-color: #fffaf6;
   border: 1px solid #eaccb4;
   color: #000;
 }
+
 select:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
 }
+
 input:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
 }
@@ -716,12 +659,15 @@ select:focus {
   outline: none;
   box-shadow: 0 0 2px 1px #6a6acc;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
 }
+
 select::-webkit-scrollbar {
   width: 0;
 }
@@ -730,9 +676,11 @@ select::-webkit-scrollbar {
 ::-webkit-scrollbar {
   width: 0;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 .dropdown-container {
   position: relative;
   display: inline-block;
