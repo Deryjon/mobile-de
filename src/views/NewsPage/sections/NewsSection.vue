@@ -4,6 +4,7 @@
     <div class="swiper_wrapper">
     <SwiperSection class="swiper"/>
   </div>
+  <PathLink>News</PathLink>
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in newsData" :key="item.news_id">
         <img :src="item.news_image_url" alt="Image 1" />
@@ -41,6 +42,7 @@
 import http from "../../../axios.config";
 import SwiperSection from "../../HomePage/sections/SwiperSection.vue";
 import TheLoader from "../../../components/TheLoader.vue"
+import PathLink from "../../../ui/PathLink.vue";
 
 export default {
     data() {
@@ -93,7 +95,7 @@ export default {
     mounted() {
      this.fetchNews();
     },
-    components: { SwiperSection, TheLoader }
+    components: { SwiperSection, TheLoader, PathLink }
 };
 </script>
 <style scoped>

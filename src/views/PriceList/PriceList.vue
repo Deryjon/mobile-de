@@ -3,6 +3,7 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import SwiperSection from "../HomePage/sections/SwiperSection.vue";
 import TheLoader from "../../components/TheLoader.vue";
+import PathLink from "../../ui/PathLink.vue";
 
 const data = ref([]);
 const isLastPage = ref(false);
@@ -54,6 +55,7 @@ onMounted(fetchData);
     <div class="swiper_wrapper">
       <SwiperSection />
     </div>
+    <PathLink>PriceList</PathLink>
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in data" :key="item.price_item_id">
         <h1 class="card__title">
