@@ -344,6 +344,7 @@ import {useVehicleStore} from "../../../../store/agriculturalDataStore"
 export default { 
   data() {
     return {
+      store: useActiveTab4(),
     vehicleStore: useVehicleStore(),
 			count: "",
       selectedMake: "",
@@ -584,6 +585,7 @@ export default {
     },
 		goMotorhomeList(){
 			 	this.$router.push({ name: "agricultural-list" });
+         this.store.setActiveDiv("");
 
 		}
   },

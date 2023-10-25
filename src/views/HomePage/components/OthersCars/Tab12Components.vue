@@ -284,6 +284,7 @@ import {useMachineStore} from "../../../../store/machineDataStore"
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       machineStore: useMachineStore(),
       count: "",
       selectedMake: "",
@@ -524,6 +525,7 @@ export default {
     },
     goMotorhomeList() {
       this.$router.push({ name: "construction-list" });
+      this.store.setActiveDiv("");
 
     }
   },

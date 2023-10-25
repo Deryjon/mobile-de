@@ -341,9 +341,11 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import { useCoacheStore } from "../../../../store/coacheDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       coacheStore: useCoacheStore(),
 			count: "",
       selectedMake: "",
@@ -584,7 +586,7 @@ export default {
     },  
 		goMotorhomeList(){
 			 	this.$router.push({ name: "coache-list" });
-
+         this.store.setActiveDiv("");
 		}
   },
   components: { FilterBtn },

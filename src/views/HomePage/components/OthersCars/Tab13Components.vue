@@ -524,6 +524,7 @@ export default {
     },
     goMotorhomeList() {
       this.$router.push({ name: "forklift-list" });
+      this.store.setActiveDiv("");
 
     }
   },

@@ -281,10 +281,11 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import { useSemiTruckStore } from "../../../../store/semitruckDataStore";
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default {
   data() {
     return {
-      
+      store: useActiveTab4(),
       semitruckStore: useSemiTruckStore(),
       count: "",
       selectedMake: "",
@@ -317,63 +318,63 @@ export default {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
         // this.postData();
         // this.fetchData();
-     this.updateSemiTruckData()
+        this.updateSemiTruckData()
       }
     },
     "semitruckStore.count": function (newCount, oldCount) {
@@ -383,8 +384,8 @@ export default {
   methods: {
     updateSemiTruckData() {
       const truckStore = useSemiTruckStore();
-        (truckStore.semitruckData.truck_make =
-          this.selectedMark),
+      (truckStore.semitruckData.truck_make =
+        this.selectedMark),
         (truckStore.semitruckData.truck_model =
           this.selectedModel),
         (truckStore.semitruckData.truck_firt_date_year_from =
@@ -543,7 +544,7 @@ export default {
     },
     goSemitruckList() {
       this.$router.push({ name: "semitruck-list" });
-
+      this.store.setActiveDiv("");
     }
   },
   components: { FilterBtn },
@@ -562,7 +563,7 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-    
+
     this.updateSemiTruckData()
   },
   computed: {

@@ -341,9 +341,12 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import {useTrailerStore} from "../../../../store/trailerDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
+
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       trailerStore: useTrailerStore(),
 			count: "",
       selectedMake: "",
@@ -584,6 +587,7 @@ export default {
     },
 		goTrailerList(){
 			 	this.$router.push({ name: "trailer-list" });
+         this.store.setActiveDiv("");
 
 		}
   },

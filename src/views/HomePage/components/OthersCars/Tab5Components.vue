@@ -341,9 +341,11 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import {useTruckStore} from "../../../../store/truckDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       truckStore: useTruckStore(),
 			count: "",
       selectedMake: "",
@@ -593,7 +595,7 @@ export default {
     },
 		goMotorhomeList(){
 			 	this.$router.push({ name: "truck-list" });
-
+         this.store.setActiveDiv("");
 		}
   },
   components: { FilterBtn },

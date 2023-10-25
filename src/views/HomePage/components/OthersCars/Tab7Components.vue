@@ -340,10 +340,12 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import {useVanStore} from "../../../../store/vanDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       vanStore: useVanStore(),
 			count: "",
       selectedMake: "",
@@ -558,6 +560,7 @@ export default {
     },
 		goMotorhomeList(){
 			 	this.$router.push({ name: "van-list" });
+         this.store.setActiveDiv("");
 
 		}
   },

@@ -281,9 +281,11 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import { useSemiTrailerStore } from "../../../../store/semitrailerDataStore";
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       semitrailerStore: useSemiTrailerStore(),
       count: "",
       selectedMake: "",
@@ -495,6 +497,7 @@ export default {
     },
     goMotorhomeList() {
       this.$router.push({ name: "semitrailer-list" });
+      this.store.setActiveDiv("");
 
     }
   },
