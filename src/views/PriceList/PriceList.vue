@@ -46,22 +46,26 @@ function formatPrice(price) {
   return amount;
 }
 async function goPayment(item) {
+  if (item.price_item_price === 0) {
+    console.log("Price is 0, no payment needed.");
+    return; // Ничего не делаем, так как платеж не требуется.
+  }
+
   isLoading.value = true;
   try {
     const res = await http.post(
-      `/pay`, {
-      "items": [
-        {
-
-          "price_item_title": item.price_item_title,
-          "price_item_price": item.price_item_price,
-
-        }
-      ]
-    }
+      `/pay`,
+      {
+        "items": [
+          {
+            "price_item_title": item.price_item_title,
+            "price_item_price": item.price_item_price,
+          }
+        ]
+      }
     );
 
-    window.location.href = res.data.url
+    window.location.href = res.data.url;
     console.log(res);
   } catch (error) {
     console.error(error);
