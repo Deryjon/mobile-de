@@ -9,7 +9,7 @@ export const useMachineStore = defineStore('construction', {
 		count: ""
   }),
   actions: {
-    async updateMotorhomeData() {
+    async updateMachineData() {
 			await	http
 				.post('/constructions/count', this.machineData)
 				.then(response => {

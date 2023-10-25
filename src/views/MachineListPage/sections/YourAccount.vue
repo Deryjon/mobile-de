@@ -2,7 +2,8 @@
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
-        <div v-for="machine in machines" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
+        <div v-for="machine in machines"
+          class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
           @click="goToSinglePageAd(machine.machine_id)">
           <div class="img w-[350px] h-[260px] m-0">
 
@@ -100,7 +101,7 @@
 <script>
 
 import http from "../../../axios.config";
-import {useMachineStore} from "../../../store/machineDataStore"
+import { useMachineStore } from "../../../store/machineDataStore"
 export default {
   data() {
     return {
@@ -111,7 +112,7 @@ export default {
       isOpen: false,
       machines: [],
       contactUser: false,
-      
+
     };
   },
   methods: {
@@ -119,10 +120,10 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/constructions/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const machineData = this.machineStore.machineData
+      http.post(`/constructions/list?limit=100&offset=0`, machineData).then((res) => {
         this.machines = res.data.data;
         console.log(this.machines);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
   },

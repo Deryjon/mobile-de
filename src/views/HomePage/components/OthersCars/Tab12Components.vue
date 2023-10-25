@@ -280,9 +280,11 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
+import {useMachineStore} from "../../../../store/machineDataStore"
 export default {
   data() {
     return {
+      machineStore: useMachineStore(),
       count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -312,86 +314,71 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMachineData()
       }
+    },
+    "machineStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-    postData() {
-      localStorage.setItem('machineData', JSON.stringify({
-        machine_make: this.selectedMark,
-        machine_model: this.selectedModel,
-        machine_construction_year_from: this.inputValue,
-        machine_operating_hours_from: this.inputKilometer,
-        machine_price_from: this.inputPrice,
-        zipcode: this.cityName,
-      }));
-    },
-    fetchData() {
-      http
-        .post("/constructions/count", {
-          machine_make: this.selectedMark,
-          machine_model: this.selectedModel,
-          machine_construction_year_from: this.inputValue,
-          machine_operating_hours_from: this.inputKilometer,
-          machine_price_from: this.inputPrice,
-          zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-          this.count = data.count
-          console.log(data.count);
-
-        });
+    updateMachineData() {
+      const machineStore = useMachineStore();
+      (machineStore.machineData.machine_make =
+        this.selectedMark),
+        (machineStore.machineData.machine_model =
+          this.selectedModel),
+        (machineStore.machineData.machine_firt_date_year_from =
+          this.inputValue),
+        (machineStore.machineData.machine_mileage_from =
+          this.inputKilometer),
+        (machineStore.machineData.machine_payment_type =
+          this.activeTab),
+        (machineStore.machineData.machine_price_from =
+          this.inputPrice),
+        (machineStore.machineData.machine_city_zipcode =
+          this.cityName),
+        machineStore.updateMachineData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -536,7 +523,7 @@ export default {
       this.isOpenKilometer = false;
     },
     goMotorhomeList() {
-      this.$router.push({ name: "motorhome-list" });
+      this.$router.push({ name: "construction-list" });
 
     }
   },
@@ -556,8 +543,8 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-    this.postData()
-    this.fetchData()
+    this.updateMachineData()
+   
   },
   computed: {
     isModelSelectDisabled() {
