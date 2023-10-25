@@ -100,16 +100,18 @@
 <script>
 
 import http from "../../../axios.config";
+import {useSemiTruckStore} from "../../../store/semitruckDataStore"
 export default {
   data() {
     return {
+      semitruckStore: useSemiTruckStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       trucks: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("semitrailerData")),
+      
     };
   },
   methods: {
@@ -117,10 +119,10 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/semitrucks/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const semitruckData = this.semitruckStore.semitruckData
+      http.post(`/semitrucks/list?limit=100&offset=0`, semitruckData).then((res) => {
         this.trucks = res.data.data;
-        console.log(this.trucks);
-        console.log(this.fetchData.motorcycle_make);
+
       });
     },
   },
