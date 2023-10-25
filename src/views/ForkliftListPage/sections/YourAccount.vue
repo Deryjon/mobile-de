@@ -100,16 +100,17 @@
 <script>
 
 import http from "../../../axios.config";
+import { useForkliftStore } from "../../../store/forkliftDataStore";
 export default {
   data() {
     return {
+      forkliftStore: useForkliftStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       forklifts: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
     };
   },
   methods: {
@@ -117,10 +118,9 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/forklifts/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const forkliftData = this.forkliftStore.forkliftData
+      http.post(`/forklifts/list?limit=100&offset=0`, forkliftData).then((res) => {
         this.forklifts = res.data.data;
-        console.log(this.forklifts);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
   },
