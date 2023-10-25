@@ -3,7 +3,7 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import SwiperSection from "../HomePage/sections/SwiperSection.vue";
 import TheLoader from "../../components/TheLoader.vue";
-
+import http from "../../axios.config";
 const data = ref([]);
 const isLastPage = ref(false);
 const isLoading = ref(false);
@@ -14,8 +14,8 @@ async function fetchData() {
   isLoading.value = true;
 
   try {
-    const res = await axios.get(
-      `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=en`
+    const res = await http.get(
+      `/price/list?limit=${limit.value}&offset=${offset.value}&lang=en`
     );
     data.value = res.data.data;
     isLastPage.value = res.data.data.length < limit.value;
@@ -45,6 +45,30 @@ function formatPrice(price) {
   const amount = (price / 100).toFixed(2);
   return amount;
 }
+async function goPayment() {
+  isLoading.value = true;
+  try {
+    const res = await http.post(
+      `/pay`, {
+      "items": [
+        {
+
+          "price_item_title": "TOP",
+          "price_item_price": 1499,
+
+        }
+      ]
+    }
+    );
+
+    window.location.href = res.data.url
+    console.log(res);
+  } catch (error) {
+    console.error(error);
+  } finally {
+    isLoading.value = false;
+  }
+}
 
 onMounted(fetchData);
 </script>
@@ -64,36 +88,20 @@ onMounted(fetchData);
         </p>
         <div class="price">{{ formatPrice(item.price_item_price) }}</div>
         <div class="btn">
-          <button>Try now</button>
+          <button @click="goPayment">Try now</button>
         </div>
       </div>
     </div>
     <div class="btn_box">
       <button class="btn_prev" @click="prevPage">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+          <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
         </svg>
       </button>
       <button class="btn_next" @click="nextPage">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          viewBox="0 0 24 24"
-        >
-          <path
-            fill="currentColor"
-            d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
-          4.6Z"
-          />
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+          <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
+          4.6Z" />
         </svg>
       </button>
     </div>
@@ -105,6 +113,7 @@ onMounted(fetchData);
   overflow-x: hidden;
   transform: translateX(-10px);
 }
+
 .card_box {
   margin-top: 20px;
   display: grid;
@@ -112,6 +121,7 @@ onMounted(fetchData);
   justify-items: center;
   border: 1px solid black;
 }
+
 .card {
   width: 250px;
   border: 1px solid #ccc;
@@ -159,6 +169,7 @@ onMounted(fetchData);
   display: flex;
   justify-content: center;
 }
+
 .btn_prev {
   width: 50px;
   height: 50px;
@@ -170,6 +181,7 @@ onMounted(fetchData);
   margin-right: 5px;
   margin-top: 10px;
 }
+
 .btn_next {
   width: 50px;
   height: 50px;
@@ -191,10 +203,12 @@ onMounted(fetchData);
     border: 1px solid black;
   }
 }
+
 @media (max-width: 680px) {
   .swiper_wrapper {
     display: none;
   }
+
   .card_box {
     margin-top: 12px;
     display: grid;
