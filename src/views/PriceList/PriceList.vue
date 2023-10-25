@@ -45,7 +45,7 @@ function formatPrice(price) {
   const amount = (price / 100).toFixed(2);
   return amount;
 }
-async function goPayment() {
+async function goPayment(item) {
   isLoading.value = true;
   try {
     const res = await http.post(
@@ -53,8 +53,8 @@ async function goPayment() {
       "items": [
         {
 
-          "price_item_title": "TOP",
-          "price_item_price": 1499,
+          "price_item_title": item.price_item_title,
+          "price_item_price": item.price_item_price,
 
         }
       ]
@@ -88,7 +88,7 @@ onMounted(fetchData);
         </p>
         <div class="price">{{ formatPrice(item.price_item_price) }}</div>
         <div class="btn">
-          <button @click="goPayment">Try now</button>
+          <button @click="goPayment(item)">Try now</button>
         </div>
       </div>
     </div>
