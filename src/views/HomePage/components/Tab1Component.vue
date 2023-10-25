@@ -350,55 +350,55 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        // this.postData();
+
         this.updateCarData();
       }
     },
@@ -411,11 +411,6 @@ export default {
       this.$router.push({ name: "car-list" });
 
     },
-    // postData() {
-    //   localStorage.setItem('carData', JSON.stringify({
-
-    //   }));
-
     updateCarData() {
       const carStore = useCarStore();
       carStore.carData.car_make = this.selectedMark;
@@ -428,27 +423,6 @@ export default {
       carStore.carData.car_payment_type = this.activeTab;
       carStore.updateCarData();
     },
-    // updateCarData() {
-
-    //   http
-    //     .post("/cars/count", {
-    //       car_make: this.selectedMark,
-    //       car_model: this.selectedModel,
-    //       car_condition: this.selectedCondition,
-    //       car_firt_date_year_from: this.inputValue,
-    //       car_mileage_from: this.inputKilometer,
-    //       car_payment_type: this.activeTab,
-    //       car_price_from: this.inputPrice,
-    //       car_city_zipcode: this.cityName,
-    //       car_silding_door: this.selectedDriving
-    //     })
-    //     .then((response) => {
-    //       const data = response.data.data;
-    //       this.count = data.count
-    //       console.log(data.count);
-
-    //     });
-    // },
     showTab1() {
       this.activeTab = "sell";
     },
@@ -594,6 +568,7 @@ export default {
   },
   components: { FilterBtn },
   mounted() {
+    this.count = this.carStore.count
     http
       .get("/car/marks")
       .then((response) => {
@@ -608,8 +583,13 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-    // this.postData()
+        this.updateCarData()
+  },
+  created(){
     this.updateCarData()
+    this.count = this.carStore.count
+
+
   },
   computed: {
     isModelSelectDisabled() {
