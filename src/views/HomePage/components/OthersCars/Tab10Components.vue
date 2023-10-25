@@ -596,7 +596,7 @@ export default {
     },
     closePriceDropdown() {
       this.isOpenKilometer = false;
-    },
+    },  
 		goMotorhomeList(){
 			 	this.$router.push({ name: "coache-list" });
 

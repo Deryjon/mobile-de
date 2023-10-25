@@ -129,16 +129,18 @@
 <script>
 
 import http from "../../../axios.config";
+import {useSemiTrailerStore} from "../../../store/semitrailerDataStore"
+
 export default {
   data() {
     return {
+      semitrailerStore: useSemiTrailerStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       trailers: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("trailerData")),
     };
   },
   methods: {
@@ -146,10 +148,9 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-  http.post(`/trailers/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const semitrailerData = this.semitrailerStore.semitrailerData
+  http.post(`/semitrailers/list?limit=100&offset=0`, semitrailerData).then((res) => {
     this.trailers = res.data.data;
-    console.log(this.trailers);
-    console.log(this.fetchData.motorcycle_make);
   });
 },
     goToSinglePageAd(motorcycleId) {
