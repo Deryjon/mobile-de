@@ -283,10 +283,6 @@ const router = createRouter({
       component: MotorhomeSinglePage,
     },
     {
-      path: "/:catchAll(.*)",
-      component: NotFound,
-    },
-    {
       path: "/fullnews/:id",
       name: "full-news",
       component: FullNews,
@@ -295,6 +291,10 @@ const router = createRouter({
       path: "/pricelist",
       name: "price-list",
       component: PriceList,
+    },
+    {
+      path: "/:catchAll(.*)",
+      component: NotFound,
     },
   ],
 });
