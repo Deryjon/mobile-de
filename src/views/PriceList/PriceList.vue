@@ -10,13 +10,14 @@ const isLastPage = ref(false);
 const isLoading = ref(false);
 const offset = ref(0);
 const limit = ref(9);
+const lang = localStorage.getItem("lang");
 
 async function fetchData() {
   isLoading.value = true;
 
   try {
     const res = await axios.get(
-      `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=en`
+      `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=${lang}`
     );
     data.value = res.data.data;
     isLastPage.value = res.data.data.length < limit.value;
@@ -66,7 +67,7 @@ onMounted(fetchData);
         </p>
         <div class="price">{{ formatPrice(item.price_item_price) }}</div>
         <div class="btn">
-          <button>Try now</button>
+          <button>{{ $t("message.btn.try") }}</button>
         </div>
       </div>
     </div>

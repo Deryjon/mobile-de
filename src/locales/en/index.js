@@ -20,25 +20,26 @@ export default {
     btn: {
       sell: "Sell",
       buy: "Buy",
+      continue: "Continue",
+      try: "Try now",
     },
     filter: {
       new: "New",
-			used: "Used",
-			rent: "Rent",
-			crash: "Crash car",
-			classic: "Classic",
-			btn: "Filter"
+      used: "Used",
+      rent: "Rent",
+      crash: "Crash car",
+      classic: "Classic",
+      btn: "Filter",
     },
-		side:{
-			title: "Driving Side",
-			left: "Left hand drive",
-			right: "Right hand drive"
-		},
-		register:{
-			title: "Create your sellcenter account!",
-			email: "E-Mail address",
-			password: "E-Mail address"
-		}
-		
-  }
+    side: {
+      title: "Driving Side",
+      left: "Left hand drive",
+      right: "Right hand drive",
+    },
+    register: {
+      title: "Create your sellcenter account!",
+      email: "E-Mail address",
+      password: "E-Mail address",
+    },
+  },
 };

@@ -14,25 +14,27 @@ export default {
       zip: "Miasto lub kod pocztowy",
       price: "Cena do",
     },
-		results:{
-			result: "wyniki"
-		},
-		btn:{
-			sell: 'Sprzedać',
-			buy: 'Kupić'
-		},
-		filter: {
-      new: "Nowy",
-			used: "Używany",
-			rent: "Wynajem",
-			crash: "Wypadek",
-			classic: "Klasyczne",
-			btn: "Filtr",
+    results: {
+      result: "wyniki",
     },
-		side:{
-			title: "Strona kierowcy",
-			left: "Kierownica po lewej stronie",
-			right: "Kierownica po prawej stronie"
-		}
+    btn: {
+      sell: "Sprzedać",
+      buy: "Kupić",
+      continue: "Więcej",
+      try: "Spróbuj teraz",
+    },
+    filter: {
+      new: "Nowy",
+      used: "Używany",
+      rent: "Wynajem",
+      crash: "Wypadek",
+      classic: "Klasyczne",
+      btn: "Filtr",
+    },
+    side: {
+      title: "Strona kierowcy",
+      left: "Kierownica po lewej stronie",
+      right: "Kierownica po prawej stronie",
+    },
   },
 };

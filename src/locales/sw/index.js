@@ -10,29 +10,31 @@ export default {
       model: "Modell",
       kilometr: "Miltal",
       ad: "Typ av annons1d",
-			registration: "Anmälan från",
-			zip: "Stad eller postnummer",
+      registration: "Anmälan från",
+      zip: "Stad eller postnummer",
       price: "Pris upp till",
     },
-		results:{
-			result: "resultat"
-		},
-		btn:{
-			sell: 'Sälja',
-			buy: 'Köpa '
-		},
-		filter: {
-      new: "Ny",
-			used: "Använd",
-			rent: "Hyra",
-			crash: "Krocka",
-			classic: "Klassiska",
-			btn: "Filtrera"
+    results: {
+      result: "resultat",
     },
-		side:{
-			title: "Förarsidan",
-			left: "Vänsterstyrd",
-			right: "Högerstyrd"
-		}
+    btn: {
+      sell: "Sälja",
+      buy: "Köpa ",
+      continue: "Läs mer",
+      try: "Prova nu",
+    },
+    filter: {
+      new: "Ny",
+      used: "Använd",
+      rent: "Hyra",
+      crash: "Krocka",
+      classic: "Klassiska",
+      btn: "Filtrera",
+    },
+    side: {
+      title: "Förarsidan",
+      left: "Vänsterstyrd",
+      right: "Högerstyrd",
+    },
   },
 };

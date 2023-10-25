@@ -1,6 +1,6 @@
 <template>
-  <div class="actions gap-[10px] items-center ">
-    <div class="language dropdown-container ">
+  <div class="actions gap-[10px] items-center">
+    <div class="language dropdown-container">
       <div class="input-container flex relative mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -680,7 +680,6 @@ export default defineComponent({
       localStorage.setItem("name", "Language");
     }
     this.language = localStorage.getItem("lang");
-   
   },
   created() {},
 });
@@ -737,7 +736,7 @@ select:focus {
 
 .dropdown-options {
   position: absolute;
-	bottom: 35px;
+  bottom: 35px;
   z-index: 1;
   list-style: none;
   padding: 0;

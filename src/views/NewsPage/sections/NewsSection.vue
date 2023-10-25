@@ -22,7 +22,7 @@
     
         </p>
         <div class="btn">
-          <router-link :to="`/fullnews/${item.news_id}`" class="">Weitless</router-link>
+          <router-link :to="`/fullnews/${item.news_id}`" >{{ $t("message.btn.continue") }}</router-link>
         </div>
       </div>
     </div>
@@ -53,13 +53,14 @@ export default {
             limit: 9,
             isLastPage: false,
             isLoading: false,
+            lang: localStorage.getItem('lang')
         };
     },
     methods: {
         async fetchNews() {
             this.isLoading = true;
             try {
-                const res = await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=en`);
+                const res = await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=${this.lang}`);
                 this.newsData = res.data.data;
                 this.isLastPage = res.data.data.length >= this.limit;
                 console.log(this.newsData);
