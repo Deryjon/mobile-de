@@ -11,7 +11,7 @@
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ coache.coache_make_name }}
+                {{ coache.coache_make }}
               </div>
               <div class="model">
                 {{ coache.coache_model }}
@@ -100,16 +100,18 @@
 <script>
 
 import http from "../../../axios.config";
+import {useCoacheStore} from "../../../store/coacheDataStore"
+
 export default {
   data() {
     return {
+      coacheStore: useCoacheStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       coaches: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
     };
   },
   methods: {
@@ -117,10 +119,10 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/coaches/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const coacheData = this.coacheStore.coacheData
+      http.post(`/coaches/list?limit=100&offset=0`, coacheData).then((res) => {
         this.coaches = res.data.data;
         console.log(this.coaches);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
   },

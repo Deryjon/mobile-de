@@ -340,9 +340,11 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
+import { useCoacheStore } from "../../../../store/coacheDataStore"
 export default {
   data() {
     return {
+      coacheStore: useCoacheStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -372,90 +374,73 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateCoacheData()
       }
+    },
+    "coacheStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('motorhomeData', JSON.stringify({
-      coache_make: this.selectedMark,
-      coache_model: this.selectedModel,
-      coache_firt_date_year_from: this.inputValue,
-      coache_mileage_from: this.inputKilometer,
-      coache_payment_type: this.activeTab,
-      coache_price_from: this.inputPrice,
-      coache_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-      http
-        .post("/coaches/count", {
-					coache_make: this.selectedMark,
-      coache_model: this.selectedModel,
-      coache_firt_date_year_from: this.inputValue,
-      coache_mileage_from: this.inputKilometer,
-      coache_payment_type: this.activeTab,
-      coache_price_from: this.inputPrice,
-      coache_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+		updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.coache_make =
+        this.selectedMark),
+        (coacheStore.coacheData.coache_model =
+          this.selectedModel),
+        (coacheStore.coacheData.coache_firt_date_year_from =
+          this.inputValue),
+        (coacheStore.coacheData.coache_mileage_from =
+          this.inputKilometer),
+        (coacheStore.coacheData.coache_payment_type =
+          this.activeTab),
+        (coacheStore.coacheData.coache_price_from =
+          this.inputPrice),
+        (coacheStore.coacheData.coache_city_zipcode =
+          this.cityName),
+        coacheStore.updateCoacheData();
     },
-    showTab1() {
+   async  showTab1() {
       this.activeTab = "sell";
     },
     async showTab2() {
@@ -618,9 +603,15 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+		
+		this.updateCoacheData()
+    this.count = this.coacheStore.count
+
   },
+  created(){
+    this.updateCoacheData()
+    this.count = this.coacheStore.count
+    },
   computed: {
     isModelSelectDisabled() {
       return this.selectedMark === "14600"; // "Beliebig" value

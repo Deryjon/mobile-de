@@ -100,16 +100,17 @@
 <script>
 
 import http from "../../../axios.config";
+import {useVehicleStore} from "../../../store/agriculturalDataStore"
 export default {
   data() {
     return {
+      vehicleStore: useVehicleStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       vehicles: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
     };
   },
   methods: {
@@ -117,10 +118,10 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/agriculturals/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const vehicleData = this.vehicleStore.vehicleData
+      http.post(`/agriculturals/list?limit=100&offset=0`, vehicleData).then((res) => {
         this.vehicles = res.data.data;
-        console.log(this.vehicles);
-        console.log(this.fetchData.motorcycle_make);
+        
       });
     },
   },
