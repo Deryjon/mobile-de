@@ -100,16 +100,18 @@
 <script>
 
 import http from "../../../axios.config";
+import {useMachineStore} from "../../../store/machineDataStore"
 export default {
   data() {
     return {
+      machineStore: useMachineStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       machines: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
+      
     };
   },
   methods: {
