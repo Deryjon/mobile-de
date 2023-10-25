@@ -281,9 +281,11 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import {useForkliftStore} from "../../../../store/forkliftDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default {
   data() {
     return {
+      store: useActiveTab4(),
       forkliftStore: useForkliftStore(),
       count: "",
       selectedMake: "",

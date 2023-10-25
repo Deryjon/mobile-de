@@ -341,6 +341,7 @@ import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
 import {useVehicleStore} from "../../../../store/agriculturalDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default { 
   data() {
     return {
