@@ -528,11 +528,9 @@ export default {
       this.$router.push({ name: "construction-list" });
       this.store.setActiveDiv("");
 
-    }
-  },
-  components: { FilterBtn },
-  mounted() {
-    http
+    },
+    fetchMarks(){
+      http
       .get("/construction/marks")
       .then((response) => {
         const data = response.data.data;
@@ -545,7 +543,18 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+   this.count  = this.machineStore.count
     this.fetchModelYears();
+    this.fetchMarks();
+    this.updateMachineData()
+   
+  },
+  created() {
+   this.count  = this.machineStore.count
     this.updateMachineData()
    
   },

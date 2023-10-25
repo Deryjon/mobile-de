@@ -545,25 +545,32 @@ export default {
     goSemitruckList() {
       this.$router.push({ name: "semitruck-list" });
       this.store.setActiveDiv("");
+    },
+    fetchMarks() {
+      http
+        .get("/truck/marks")
+        .then((response) => {
+          const data = response.data.data;
+          if (data) {
+            this.makes = data;
+          } else {
+            console.error("Некорректный формат ответа API.");
+          }
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error.message);
+        });
     }
   },
   components: { FilterBtn },
   mounted() {
-    http
-      .get("/truck/marks")
-      .then((response) => {
-        const data = response.data.data;
-        if (data) {
-          this.makes = data;
-        } else {
-          console.error("Некорректный формат ответа API.");
-        }
-      })
-      .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error.message);
-      });
+    this.count = this.semitruckStore.count
     this.fetchModelYears();
-
+    this.fetchMarks()
+    this.updateSemiTruckData()
+  },
+  created() {
+    this.count = this.semitruckStore.count
     this.updateSemiTruckData()
   },
   computed: {

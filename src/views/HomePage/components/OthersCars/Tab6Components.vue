@@ -589,11 +589,9 @@ export default {
 			 	this.$router.push({ name: "trailer-list" });
          this.store.setActiveDiv("");
 
-		}
-  },
-  components: { FilterBtn },
-  mounted() {
-    http
+		},
+    fetchMarks(){
+      http
       .get("/trailer/marks")
       .then((response) => {
         const data = response.data.data;
@@ -606,12 +604,21 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-    this.fetchModelYears();
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+    this.count = this.trailerStore.count
+    this.fetchMarks();
+    this.updateTrailerData();
+  },
+  created() {
+    this.count = this.trailerStore.count
     this.updateTrailerData();
   },
   computed: {
     isModelSelectDisabled() {
-      return this.selectedMark === "14600"; // "Beliebig" value
+      return this.selectedMark === "14600"; 
     },
     filteredItems() {
       return this.items.filter((item) =>

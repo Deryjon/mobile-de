@@ -562,11 +562,9 @@ export default {
 			 	this.$router.push({ name: "van-list" });
          this.store.setActiveDiv("");
 
-		}
-  },
-  components: { FilterBtn },
-  mounted() {
-    http
+		},
+    fetchMarks(){
+      http
       .get("/van/marks")
       .then((response) => {
         const data = response.data.data;
@@ -579,8 +577,17 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-    this.fetchModelYears(); 
-    this.updateVanData()
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+    this.count = this.vanStore.count
+    this.fetchMarks();
+    this.updateVanData();
+  },
+  created() {
+    this.count = this.vanStore.count
+    this.updateVanData();
   },
   computed: {
     isModelSelectDisabled() {

@@ -27,8 +27,7 @@
         </h2>
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" v-model="selectedModel"
-          type="text" />
+          placeholder="Beliebig" :disabled="isModelSelectDisabled" v-model="selectedModel" type="text" />
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -499,24 +498,32 @@ export default {
       this.$router.push({ name: "semitrailer-list" });
       this.store.setActiveDiv("");
 
+    },
+    fetchMarks() {
+      http
+        .get("/trailer/marks")
+        .then((response) => {
+          const data = response.data.data;
+          if (data) {
+            this.makes = data;
+          } else {
+            console.error("Некорректный формат ответа API.");
+          }
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error.message);
+        });
     }
   },
   components: { FilterBtn },
   mounted() {
-    http
-      .get("/trailer/marks")
-      .then((response) => {
-        const data = response.data.data;
-        if (data) {
-          this.makes = data;
-        } else {
-          console.error("Некорректный формат ответа API.");
-        }
-      })
-      .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error.message);
-      });
+    this.count = this.semitrailerStore.count
     this.fetchModelYears();
+    this.fetchMarks();
+    this.updateSemiTrailerData()
+  },
+  mounted() {
+    this.count = this.semitrailerStore.count
     this.updateSemiTrailerData()
   },
   computed: {

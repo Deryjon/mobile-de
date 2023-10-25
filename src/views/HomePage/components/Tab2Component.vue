@@ -523,11 +523,9 @@ export default {
     goMotorbikeList() {
       this.$router.push({ name: "motorbike-list" });
 
-    }
-  },
-  components: { FilterBtn },
-  mounted() {
-    http
+    },
+    fetchMarks(){
+      http
       .get("/motorcycle/marks")
       .then((response) => {
         const data = response.data.data;
@@ -541,9 +539,22 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+    this.count = this.motorbikeStore.count
+
+   this.fetchMarks()
     this.fetchModelYears();
 
     this.updateMotorbikeData()
+  },
+  created(){
+    this.updateMotorbikeData()
+    this.count = this.motorbikeStore.count
+
+
   },
   computed: {
     isModelSelectDisabled() {

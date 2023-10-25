@@ -596,11 +596,9 @@ export default {
 		goMotorhomeList(){
 			 	this.$router.push({ name: "truck-list" });
          this.store.setActiveDiv("");
-		}
-  },
-  components: { FilterBtn },
-  mounted() {
-    http
+		},
+    fetchMark(){
+      http
       .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
@@ -613,7 +611,16 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+    this.count = this.truckStore.count
     this.fetchModelYears();
+		this.updateTruckData()
+  },
+  created() {
+    this.count = this.truckStore.count
 		this.updateTruckData()
   },
   computed: {

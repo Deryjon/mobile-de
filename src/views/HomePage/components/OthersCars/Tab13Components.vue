@@ -532,8 +532,9 @@ export default {
   },
   components: { FilterBtn },
   mounted() {
+    this.count = this.forkliftStore.count
     http
-      .get("/construction/marks")
+      .get("/forklift/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -546,8 +547,13 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
+        this.updateForkliftData()
+  },
+  created(){
     this.updateForkliftData()
-   
+    this.count = this.forkliftStore.count
+
+
   },
   computed: {
     isModelSelectDisabled() {
