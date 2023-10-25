@@ -2966,7 +2966,7 @@ export default {
     };
   },
 	props: {
-    createAdd: Boolean, // Определите тип данных в соответствии с вашими требованиями
+    createAdd: Boolean, 
   },
   methods: {
     closeDropdownOnClickOutside(event) {

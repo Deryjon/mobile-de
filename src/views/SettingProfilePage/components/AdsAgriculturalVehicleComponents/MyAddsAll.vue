@@ -5,7 +5,7 @@
       :key="agricultural.vehicle_id"
       class="agriculturald bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px]">
+      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
         <img :src="agricultural.vehicle_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
