@@ -6,7 +6,7 @@ export const useMotorbikeStore = defineStore('motorcycle', {
 			motorcycle_make: "",
 			motorcycle_model: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateMotorbikeData() {

@@ -6,7 +6,7 @@ export const useMachineStore = defineStore('construction', {
 			machine_make: "",
 			machine_model: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateMachineData() {

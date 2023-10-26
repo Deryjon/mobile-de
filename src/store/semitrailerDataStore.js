@@ -5,7 +5,7 @@ export const useSemiTrailerStore = defineStore('semitrailer', {
     semitrailerData: {
 			truck: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateSemiTrailerData() {

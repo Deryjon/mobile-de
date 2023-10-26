@@ -61,7 +61,7 @@ export const useCarStore = defineStore('car', {
 			// picture: "",
 			// days: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateCarData() {

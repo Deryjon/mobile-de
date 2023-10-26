@@ -5,7 +5,7 @@ export const useVanStore = defineStore('van', {
     vanData: {
 			
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateVanData() {

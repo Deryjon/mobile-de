@@ -5,7 +5,7 @@ export const useForkliftStore = defineStore('forklift', {
     forkliftData: {
 			forklift: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateForkliftData() {

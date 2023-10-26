@@ -6,7 +6,7 @@ export const useTrailerStore = defineStore('trailer', {
 			trailer: "",
 			
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateTrailerData() {

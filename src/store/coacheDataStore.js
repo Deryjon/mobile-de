@@ -5,7 +5,7 @@ export const useCoacheStore = defineStore('coache', {
     coacheData: {
       
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateCoacheData() {
