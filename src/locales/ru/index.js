@@ -6,6 +6,7 @@ export default {
       contact: "Контакт",
     },
     selects: {
+      condition: "Состояние",
       mark: "Марка",
       model: "Модель",
       kilometr: "Пробег",
@@ -24,6 +25,7 @@ export default {
       try: "Попробовать сейчас",
     },
     filter: {
+      any: "Любой",
       new: "Новый",
       used: "Б/у",
       rent: "Аренда",

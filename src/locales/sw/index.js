@@ -6,6 +6,7 @@ export default {
       contact: "Kontakt",
     },
     selects: {
+      condition: "Villkor",
       mark: "Mark",
       model: "Modell",
       kilometr: "Miltal",
@@ -24,6 +25,7 @@ export default {
       try: "Prova nu",
     },
     filter: {
+      any: "Någon",
       new: "Ny",
       used: "Använd",
       rent: "Hyra",

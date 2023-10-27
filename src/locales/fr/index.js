@@ -6,6 +6,7 @@ export default {
       contact: "Contact",
     },
     selects: {
+      condition: "Condition",
       mark: "Marquer",
       model: "Modèle",
       kilometr: "Kilométrage",
@@ -24,6 +25,7 @@ export default {
       try: "Essayer",
     },
     filter: {
+      any: "Tous",
       new: "Nouveau",
       used: "Utilisé",
       rent: "Louer",
