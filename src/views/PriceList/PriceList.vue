@@ -65,7 +65,7 @@ async function goPayment(item) {
       }
     );
     localStorage.setItem("price-pay", item.price_item_price);
-    // window.location.href = res.data.url;
+    window.location.href = res.data.url;
     console.log(res);
   } catch (error) {
     console.error(error);
