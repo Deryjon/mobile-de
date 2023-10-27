@@ -48,7 +48,7 @@ function formatPrice(price) {
 async function goPayment(item) {
   if (item.price_item_price === 0) {
     console.log("Price is 0, no payment needed.");
-    return; // Ничего не делаем, так как платеж не требуется.
+    return; 
   }
 
   isLoading.value = true;
@@ -64,8 +64,8 @@ async function goPayment(item) {
         ]
       }
     );
-
-    window.location.href = res.data.url;
+    localStorage.setItem("price-pay", item.price_item_price);
+    // window.location.href = res.data.url;
     console.log(res);
   } catch (error) {
     console.error(error);

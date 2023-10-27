@@ -1,7 +1,7 @@
 <template>
     <main>
-<AfterPaymentPage/>
-<!-- <AfterFailedPaymentPage class="mt-[10px]"/> -->
+<!-- <AfterPaymentPage/> -->
+<AfterFailedPaymentPage class="mt-[10px]"/>
     </main>
 </template>
 <script>

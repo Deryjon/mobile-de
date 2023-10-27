@@ -49,6 +49,7 @@ import MotorhomeSinglePage from "../views/MotorhomeSinglePage/MotorhomeSinglePag
 import FullNews from "../views/FullNews/FullNews.vue";
 import PriceList from "../views/PriceList/PriceList.vue";
 import AfterPaymentPage from "../views/AfterPaymentPage/AfterPaymentPage.vue";
+import AfterFailedPaymentPage from "../views/AfterPaymentFailedPage/AfterPaymentPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -294,9 +295,14 @@ const router = createRouter({
       component: PriceList,
     },
     {
-      path: "/pay-check",
-      name: "after-pay",
+      path: "/success-pay",
+      name: "success-pay",
       component: AfterPaymentPage,
+    },
+    {
+      path: "/failed-pay",
+      name: "failed-pay",
+      component: AfterFailedPaymentPage,
     },
     {
       path: "/:catchAll(.*)",
