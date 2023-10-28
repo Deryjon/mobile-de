@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <TheLoader v-if="isLoading"/>
+  <div class="" v-else>
     <div class="basic-add" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
@@ -1225,7 +1226,7 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "../../../axios.config";
 import { useTabsStore } from '../../../store/storeAd';
-
+import TheLoader from "../../../components/TheLoader.vue"
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -1257,9 +1258,13 @@ export default {
       toggleShowCheckboxAds,
     };
   },
+  components:{
+    TheLoader
+  },
   data() {
     return {
       basicAdd: true,
+      isLoading: true,
       makes: [],
       models: [],
       selectedMark: "14600",
@@ -1395,6 +1400,7 @@ export default {
         this.isCheckedWarranty = this.dataAd.motorcycle_warranty
         this.approveUsed = this.dataAd.motorcycle_programme
         this.descriptionText = this.dataAd.motorcycle_description
+        this.isLoading = false
       })
     },
     closeDropdownOnClickOutside(event) {

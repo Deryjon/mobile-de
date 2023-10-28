@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <TheLoader v-if="isLoading"/>
+  <div class="" v-else>
     <div class="basic-add" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
@@ -1693,7 +1694,7 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "../../../axios.config";
 import { useTabsStore } from '../../../store/storeAd';
-
+import TheLoader from "../../../components/TheLoader.vue"
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -1724,6 +1725,9 @@ export default {
       isCheckedEnvironmental,
       toggleShowCheckboxAds,
     };
+  },
+  components:{
+    TheLoader
   },
   data() {
     return {
@@ -1812,6 +1816,7 @@ export default {
       isCheckedTyre: false,
       isCheckedInduction: false,
       isCheckedSki: false,
+      isLoading: true,
       extras: [],
       others: [],
       power: [],
@@ -1884,6 +1889,7 @@ export default {
         this.exportCommercial = this.dataAd.car_commercial
         this.approveUsed = this.dataAd.car_programme
         this.descriptionText = this.dataAd.car_description
+        this.isLoading = false
       })
     },
     closeDropdownOnClickOutside(event) {
