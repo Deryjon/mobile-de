@@ -1969,7 +1969,7 @@ export default {
         .put("/car/update", formData)
         .then((response) => {
           const store = useTabsStore();
-          // store.setActiveTab("tab-cv 3" 
+          store.setActiveTab("tab-3")
           const responseData = response;
           console.log(responseData);
         });
