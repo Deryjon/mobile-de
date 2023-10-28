@@ -33,7 +33,7 @@
             <select
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
               v-model="selectedMark" @change="fetchModels()">
-              <option value="14600" selected>Beliebig</option>
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option v-for="make in makes" :key="make" :value="make.car_make_name">
                   {{ make.car_make_name }}
@@ -537,7 +537,7 @@
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry">
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -1056,17 +1056,17 @@
         <div class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
           <label>
             <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-              'bg-transparent': selectedTrailer !== 'Fix',
-              'bg-orange': selectedTrailer === 'Fix',
-            }" @click="selectTrailer('Fix')" />
+              'bg-transparent': selectedTrailer !== 'Fix, detachable or swiveling',
+              'bg-orange': selectedTrailer === 'Fix, detachable or swiveling',
+            }" @click="selectTrailer('Fix, detachable or swiveling')" />
             <span class="ml-[10px]">Fix, detachable or swiveling</span>
           </label>
           <label>
             <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-              'bg-transparent': selectedTrailer !== 'Detachable',
-              'bg-orange': selectedTrailer === 'Detachable',
-            }" @click="selectTrailer('Detachable')" />
-            <span class="ml-[10px]">Detachable or swiveling </span>
+              'bg-transparent': selectedTrailer !== 'Detachable or swiveling',
+              'bg-orange': selectedTrailer === 'Detachable or swiveling',
+            }" @click="selectTrailer('Detachable or swiveling')" />
+            <span class="ml-[10px]">Detachable or swiveling</span>
           </label>
           <label>
             <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
@@ -1086,7 +1086,6 @@
               'bg-transparent': selectedParking !== 'Rear',
               'bg-orange': selectedParking === 'Rear',
             }" />
-
             Rear
           </label>
           <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
@@ -1128,16 +1127,16 @@
         <div class="radios-type flex gap-[30px] mt-[10px]">
           <label>
             <input type="radio" id="condition-any" v-model="selectedCruise" :class="{
-              'bg-transparent': selectedCruise !== 'Cruise',
-              'bg-orange': selectedCruise === 'Cruise',
-            }" @click="selectCruise('Cruise')" />
-            <span class="ml-[10px]">Cruise control </span>
+              'bg-transparent': selectedCruise !== 'Cruise control',
+              'bg-orange': selectedCruise === 'Cruise control',
+            }" @click="selectCruise('Cruise control')" />
+            <span class="ml-[10px]">Cruise control</span>
           </label>
           <label>
             <input type="radio" id="condition-adap" v-model="selectedCruise" :class="{
-              'bg-transparent': selectedCruise !== 'Adaptive',
-              'bg-orange': selectedCruise === 'Adaptive',
-            }" @click="selectCruise('Adaptive')" />
+              'bg-transparent': selectedCruise !== 'Adaptive Cruise Control',
+              'bg-orange': selectedCruise === 'Adaptive Cruise Control',
+            }" @click="selectCruise('Adaptive Cruise Control')" />
             <span class="ml-[10px]">Adaptive Cruise Control</span>
           </label>
         </div>
@@ -1349,33 +1348,33 @@
         <div class="radios-type flex flex-wrap gap-[30px] mt-[10px] xl:mt-[20px]">
           <label for="driver-airbag">
             <input type="radio" id="driver-airbag" v-model="selectedAirbag" :class="{
-              'bg-transparent': selectedAirbag !== 'Driver',
-              'bg-orange': selectedAirbag === 'Driver',
-            }" @click="selectAirbag('Driver')" />
+              'bg-transparent': selectedAirbag !== 'Driver Airbag',
+              'bg-orange': selectedAirbag === 'Driver Airbag',
+            }" @click="selectAirbag('Driver Airbag')" />
             <span class="ml-[2px] xl:ml-[10px] text-[14px]">Driver Airbag
             </span>
           </label>
           <label for="front-airbag">
             <input type="radio" id="front-airbag" v-model="selectedAirbag" :class="{
-              'bg-transparent': selectedAirbag !== 'Front',
-              'bg-orange': selectedAirbag === 'Front',
-            }" @click="selectAirbag('Front')" />
+              'bg-transparent': selectedAirbag !== 'Front Airbags',
+              'bg-orange': selectedAirbag === 'Front Airbags',
+            }" @click="selectAirbag('Front Airbags')" />
             <span class="ml-[2px] xl:ml-[10px] text-[14px]">Front Airbags</span>
           </label>
 
           <label for="side-airbag">
             <input type="radio" id="side-airbag" v-model="selectedAirbag" :class="{
-              'bg-transparent': selectedAirbag !== 'FrontAndSide',
-              'bg-orange': selectedAirbag === 'FrontAndSide',
-            }" @click="selectAirbag('FrontAndSide')" />
+              'bg-transparent': selectedAirbag !== 'Front and Side Airbags',
+              'bg-orange': selectedAirbag === 'Front and Side Airbags',
+            }" @click="selectAirbag('Front and Side Airbags')" />
             <span class="ml-[2px] xl:ml-[10px] text-[14px]">Front and Side Airbags
             </span>
           </label>
           <label for="more-airbag">
             <input type="radio" id="more-airbag" v-model="selectedAirbag" :class="{
-              'bg-transparent': selectedAirbag !== 'FrontAndSideMore',
-              'bg-orange': selectedAirbag === 'FrontAndSideMore',
-            }" @click="selectAirbag('FrontAndSideMore')" />
+              'bg-transparent': selectedAirbag !== 'Front and Side and More Airbags',
+              'bg-orange': selectedAirbag === 'Front and Side and More Airbags',
+            }" @click="selectAirbag('Front and Side and More Airbags')" />
             <span class="ml-[2px] xl:ml-[10px] text-[14px]">Front and Side and More Airbags
             </span>
           </label>
@@ -1386,48 +1385,48 @@
         <div class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]">
           <label class="w-[250px]" for="manual">
             <input type="radio" id="manual" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Manual',
-              'bg-orange': selectedConditioning === 'Manual',
-            }" @click="selectAirConditioning('Manual')" />
+              'bg-transparent': selectedConditioning !== 'Manual or automatic climatisation',
+              'bg-orange': selectedConditioning === 'Manual or automatic climatisation',
+            }" @click="selectAirConditioning('Manual or automatic climatisation')" />
             <span class="ml-[10px] text-[14px]">Manual or automatic climatisation
             </span>
           </label>
           <label class="w-[250px]" for="auto-climat">
             <input type="radio" id="auto-climat" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat',
-              'bg-orange': selectedConditioning === 'Auto-Climat',
-            }" @click="selectAirConditioning('Auto-Climat')" />
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 2 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 2 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 2 zones')" />
             <span class="ml-[10px] text-[14px]">Automatic climatisation, 2 zones
             </span>
           </label>
 
           <label class="w-[250px]" for="auto2">
             <input type="radio" id="auto2" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat2',
-              'bg-orange': selectedConditioning === 'Auto-Climat2',
-            }" @click="selectAirConditioning('Auto-Climat2')" />
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 4 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 4 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 4 zones')" />
             <span class="ml-[10px] text-[14px]">Automatic climatisation, 4 zones</span>
           </label>
           <label class="w-[200px]">
             <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'NoClimat',
-              'bg-orange': selectedConditioning === 'NoClimat',
-            }" @click="selectAirConditioning('NoClimat')" />
+              'bg-transparent': selectedConditioning !== 'No climatisation',
+              'bg-orange': selectedConditioning === 'No climatisation',
+            }" @click="selectAirConditioning('No climatisation')" />
             <span class="ml-[10px] text-[14px]">No climatisation</span>
           </label>
           <label class="w-[200px]">
             <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'AutoClimat',
-              'bg-orange': selectedConditioning === 'AutoClimat',
-            }" @click="selectAirConditioning('AutoClimat')" />
+              'bg-transparent': selectedConditioning !== 'Automatic air conditioning',
+              'bg-orange': selectedConditioning === 'Automatic air conditioning',
+            }" @click="selectAirConditioning('Automatic air conditioning')" />
             <span class="ml-[10px] text-[14px]">Automatic air conditioning
             </span>
           </label>
           <label class="w-[250px]">
             <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat3',
-              'bg-orange': selectedConditioning === 'Auto-Climat3',
-            }" @click="selectAirConditioning('Auto-Climat3')" />
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 3 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 3 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 3 zones')" />
             <span class="ml-[10px] text-[14px]">Automatic climatisation, 3 zones
             </span>
           </label>
@@ -1731,7 +1730,7 @@ export default {
       basicAdd: true,
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCar: "",
       selectedCondition: "Any",
       selectedConditioning: "",
@@ -1775,7 +1774,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
@@ -1789,6 +1788,7 @@ export default {
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
+      isCheckedElectric: false,
       selectedOthers: [],
       isCheckedBeige: false,
       isCheckedBrown: false,
@@ -1907,7 +1907,7 @@ export default {
       const formData = new FormData();
       for (let i = 0; i < this.selectedFiles.length; i++) {
 
-        formData.append("photos", this.selectedFiles[i]); // Используйте 'photos[]' для отправки массива файлов
+        formData.append("photos", this.selectedFiles[i]); 
       }
       formData.append('car_id', this.carId);
       formData.append('user_id', this.userI);
@@ -1965,7 +1965,6 @@ export default {
       formData.append('car_programme', this.approveUsed);
       formData.append('car_description', this.descriptionText);
 
-      // Send the FormData object as the request body
       http
         .put("/car/update", formData)
         .then((response) => {
