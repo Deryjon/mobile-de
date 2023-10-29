@@ -1,66 +1,66 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
     <div
-      v-for="coach in coaches"
-      :key="coach.coach_id"
-      :data-coach-id="coach.id"
+      v-for="coache in coaches"
+      :key="coache.coach_id"
+      :data-coache-id="coache.id"
       class="coachd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
       <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
-        <img :src="coach.coache_images_url[0]" alt="" class="object-cover w-full h-full"/>
+        <img :src="coache.coache_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
-            {{ coach.coache_make }}
+            {{ coache.coache_make }}
           </div>
           <div class="model">
-            {{ coach.coache_model }}
+            {{ coache.coache_model }}
           </div>
           <div class="variant">
-            {{ coach.coache_variant }}
+            {{ coache.coache_variant }}
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
-            {{ coach.coache_firt_date_year }}
+            {{ coache.coache_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ coach.coache_mileage }} km</div>
+          <div class="mileage">{{ coache.coache_mileage }} km</div>
           •
-          <div class="power">{{ coach.coache_power }} Hp</div>
+          <div class="power">{{ coache.coache_power }} Hp</div>
         </div>
-        <div class="coach-body flex gap-[5px] text-[14px]">
-          <div class="coach-body">
-            {{ coach.coache_body }}
+        <div class="coache-body flex gap-[5px] text-[14px]">
+          <div class="coache-body">
+            {{ coache.coache_body }}
           </div>
           •
           <div class="fuel">
-            {{ coach.coache_fuel_type }}
+            {{ coache.coache_fuel_type }}
           </div>
           •
           <div class="transmission">
-            {{ coach.coache_transmission }}
+            {{ coache.coache_transmission }}
           </div>
           •
           <div class="hu">
             HU
-            {{ coach.coache_hu_valid_until }}
+            {{ coache.coache_hu_valid_until }}
           </div>
         </div>
-        <div class="coach-body flex gap-[5px] text-[14px]">
-          <div class="coach-body">
-            {{ coach.coache_number_door }}
+        <div class="coache-body flex gap-[5px] text-[14px]">
+          <div class="coache-body">
+            {{ coache.coache_number_door }}
           </div>
           Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ coach.coache_price }}</p>
+        <p class="price">€{{ coache.coache_price }}</p>
         <div class="flex gap-[10px] justify-end mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdcoach(coach.coache_id)"
+            @click="deleteAdcoach(coache.coache_id)"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -76,7 +76,7 @@
           </button>
 
           <button
-            @click="editAdcoach(coach.coache_id)"
+            @click="editAdcoach(coache.coache_id)"
             class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
           >
             <svg
