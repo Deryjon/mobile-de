@@ -5,6 +5,23 @@ export default {
       login: "Zaloguj się lub zarejestruj",
       contact: "Kontakt",
     },
+    title: {
+      popular:
+        "Popularne marki samochodów i nie tylko na naszej giełdzie samochodowej",
+      other: "Inne marki samochodów",
+      asia: "Marki samochodów z Azji",
+      dealership: "Salony samochodowe w pobliżu",
+      berlin: "Salony samochodowe w Berlinie",
+      frankfurt: "Salony samochodowe w Frankfurt",
+      cologne: "Salony samochodowe w Cologne",
+      hamburg: "Salony samochodowe w Hamburg",
+      munich: "Salony samochodowe w Munich",
+      popular2: "Popularny",
+      online: "Kup samochód online",
+      contract: "Umowa kupna samochodu",
+      usedCar: "Leasing samochodów używanych",
+      clicked: "Kliknięte. Kupiłem. Dostarczone.",
+    },
     selects: {
       condition: "Stan",
       mark: "Ocena",
@@ -14,6 +31,7 @@ export default {
       registration: "Rejestracyjny",
       zip: "Miasto lub kod pocztowy",
       price: "Cena do",
+      priceFrom: "Cena od",
     },
     results: {
       result: "wyniki",

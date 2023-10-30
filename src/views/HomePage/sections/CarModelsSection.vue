@@ -4,7 +4,7 @@
       <div class="Automarken">
         <div class="container">
           <h3 class="title">
-            Beliebte Automarken und mehr auf unserem Fahrzeugmarkt
+            {{ $t("message.title.popular") }}
           </h3>
 
           <div class="wrapper">
@@ -205,7 +205,7 @@
             <!-- lists -->
             <h5 class="car-names">
               <ul class="car-model">
-                <h3 class="car-class-name">Weitere Automarken</h3>
+                <h3 class="car-class-name">{{ $t("message.title.other") }}</h3>
                 <li>
                   <a href="https://www.mobile.de/auto/citroen/marke/"
                     >Citroen</a
@@ -233,7 +233,7 @@
             <!-- lists -->
             <h5 class="car-names">
               <ul class="car-model">
-                <h3 class="car-class-name">Automarken aus Asien</h3>
+                <h3 class="car-class-name">{{ $t("message.title.asia") }}</h3>
                 <li>
                   <a href="https://www.mobile.de/auto/hyundai/marke/"
                     >Hyundai</a
@@ -259,34 +259,37 @@
             <!-- lists -->
             <h5 class="car-names">
               <ul class="car-model">
-                <h3 class="car-class-name">Autohäuser in der Nähe</h3>
+                <h3 class="car-class-name">
+                  {{ $t("message.title.dealership") }}
+                </h3>
                 <li>
-                  <a href="https://home.mobile.de/regional/berlin/berlin.0.html"
-                    >Autohäuser in Berlin</a
+                  <a
+                    href="https://home.mobile.de/regional/berlin/berlin.0.html"
+                    >{{ $t("message.title.berlin") }}</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://home.mobile.de/regional/hessen/frankfurt.0.html"
-                    >Autohäuser in Frankfurt</a
+                    >{{ $t("message.title.frankfurt") }}</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://home.mobile.de/regional/nordrhein-westfalen/k%C3%B6ln.0.html"
-                    >Autohäuser in Köln</a
+                    >{{ $t("message.title.cologne") }}</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://home.mobile.de/regional/hamburg/hamburg.0.html"
-                    >Autohäuser in Hamburg</a
+                    >{{ $t("message.title.hamburg") }}</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://home.mobile.de/regional/bayern/m%C3%BCnchen.0.html"
-                    >Autohäuser in München</a
+                    >{{ $t("message.title.munich") }}</a
                   >
                 </li>
               </ul>
@@ -295,21 +298,24 @@
             <!-- lists -->
             <h5 class="car-names">
               <ul class="car-model">
-                <h3 class="car-class-name">Beliebt</h3>
+                <h3 class="car-class-name">
+                  {{ $t("message.title.popular2") }}
+                </h3>
                 <li>
-                  <a href="https://www.mobile.de/onlinekauf/"
-                    >Auto online kaufen</a
+                  <a href="https://www.mobile.de/onlinekauf/">
+                    {{ $t("message.title.online") }}</a
                   >
                 </li>
                 <li>
                   <a
                     href="https://www.mobile.de/magazin/artikel/muster-kaufvertrag-autokauf-autoverkauf-8516"
-                    >Kaufvertrag für's Auto</a
+                  >
+                    {{ $t("message.title.contract") }}</a
                   >
                 </li>
                 <li>
                   <a href="https://www.mobile.de/leasing/gebrauchtwagen/"
-                    >Gebrauchtwagen Leasing
+                    >{{ $t("message.title.usedCar") }}
                   </a>
                 </li>
                 <li>
@@ -341,23 +347,22 @@ export default {};
 .Automarken {
   align-items: center;
   display: flex;
-	gap: 20px	;
+  gap: 20px;
   flex-wrap: wrap;
   background-color: rgb(243, 241, 241);
-	max-width: 1120px;
-	padding: 20px;
+  max-width: 1120px;
+  padding: 20px;
 }
-
 
 .Automarken .container .title {
   color: black;
 }
 
 .Automarken .container .wrapper {
-	max-width: 1000px;
+  max-width: 1000px;
   display: flex;
   align-items: center;
-justify-content: space-between;
+  justify-content: space-between;
 }
 
 .Automarken .container .wrapper .car-model li {
@@ -379,8 +384,8 @@ justify-content: space-between;
 
 .pre-wrapper2 .wrapper2 {
   display: flex;
-	justify-content: space-between;
-max-width: 1000px;
+  justify-content: space-between;
+  max-width: 1000px;
 }
 
 .pre-wrapper2 .wrapper2 .car-model li {

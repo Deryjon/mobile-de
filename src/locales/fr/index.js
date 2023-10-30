@@ -5,6 +5,23 @@ export default {
       login: "Connexion ou Inscription",
       contact: "Contact",
     },
+    title: {
+      popular:
+        "Marques automobiles populaires et plus encore sur notre marché automobile",
+      other: "Autres marques automobiles",
+      asia: "Marques automobiles d'Asie",
+      dealership: "Concessionnaires automobiles dans les environs",
+      berlin: "Concessionnaires automobiles à Berlin",
+      frankfurt: "Concessionnaires automobiles à Frankfurt",
+      cologne: "Concessionnaires automobiles à Cologne",
+      hamburg: "Concessionnaires automobiles à Hamburg",
+      munich: "Concessionnaires automobiles à Munich",
+      popular2: "Populaire",
+      online: "Acheter une voiture en ligne",
+      contract: "Contrat d'achat de voiture",
+      usedCar: "Leasing de voitures d'occasion",
+      clicked: "Cliqué. Acheté. Livré.",
+    },
     selects: {
       condition: "Condition",
       mark: "Marquer",
@@ -14,6 +31,7 @@ export default {
       registration: "Formulaire d'inscription",
       zip: "Ville ou code postal",
       price: "Prix ​​jusqu'à",
+      priceFrom: "Prix de",
     },
     results: {
       result: "résultats",
