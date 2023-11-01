@@ -26,7 +26,7 @@
               </div>
               •
               <div class="mileage">
-                {{ coache.coache_mileage }}
+                {{ coache.coache_kilometre }}
                 km
               </div>
               •
@@ -37,7 +37,7 @@
             </div>
             <div class="coache-coachey flex gap-[5px] text-[14px]">
               <div class="coache-coachey">
-                {{ coache.coache_body }}
+                {{ coache.coache_category }}
               </div>
               •
               <div class="fuel">
@@ -48,17 +48,12 @@
                 {{ coache.coache_transmission }}
               </div>
               •
-              <div class="hu">
-                HU
-                {{ coache.coache_hu_valid_until }}
-              </div>
-            </div>
-            <div class="coache-body flex gap-[5px] text-[14px]">
+              
               <div class="coache-body">
-                {{ coache.coache_number_door }}
+                {{ coache.coache_number_of_seats }}
+                Seats
               </div>
-              Doors
-            </div>
+            </div>  
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ coache.coache_price }}</p>
@@ -125,6 +120,10 @@ export default {
         console.log(this.coaches);
       });
     },
+    goToSinglePageAd(coacheId){
+      this.$router.push({ name: "coache-single", params: { id: coacheId } });
+
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");

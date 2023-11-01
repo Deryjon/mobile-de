@@ -17,43 +17,36 @@
           <div class="model">
             {{ coache.coache_model }}
           </div>
-          <div class="variant">
-            {{ coache.coache_variant }}
-          </div>
+         
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
             {{ coache.coache_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ coache.coache_mileage }} km</div>
+          <div class="mileage">{{ coache.coache_kilometre }} km</div>
           •
           <div class="power">{{ coache.coache_power }} Hp</div>
         </div>
-        <div class="coache-body flex gap-[5px] text-[14px]">
-          <div class="coache-body">
-            {{ coache.coache_body }}
-          </div>
-          •
-          <div class="fuel">
-            {{ coache.coache_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ coache.coache_transmission }}
-          </div>
-          •
-          <div class="hu">
-            HU
-            {{ coache.coache_hu_valid_until }}
-          </div>
-        </div>
-        <div class="coache-body flex gap-[5px] text-[14px]">
-          <div class="coache-body">
-            {{ coache.coache_number_door }}
-          </div>
-          Doors
-        </div>
+        <div class="coache-coachey flex flex-wrap gap-[5px] text-[14px]">
+              <div class="coache-coachey">
+                {{ coache.coache_category }}
+              </div>
+              •
+              <div class="fuel">
+                {{ coache.coache_fuel_type }}
+              </div>
+              •
+              <div class="transmission">
+                {{ coache.coache_transmission }}
+              </div>
+              •
+              
+              <div class="coache-body">
+                {{ coache.coache_number_of_seats }}
+                Seats
+              </div>
+            </div>  
       </div>
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ coache.coache_price }}</p>

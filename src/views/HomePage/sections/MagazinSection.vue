@@ -1,6 +1,6 @@
 <template>
   <v-container class="max-w-[1120px] ">
-    <div class="magazine-bmw bg-[#f5f5f5]  w-[1120px] p-[20px]">
+    <div class="magazine-bmw bg-[#f5f5f5]   xl:w-[1120px] p-[20px]">
       <div class="">
         <h2 class="">SellCenter Magazin</h2>
       </div>
@@ -62,7 +62,7 @@
     </div>
 
     <!--  -->
-    <div class="wrapper flex justify-between mt-[20px] w-[1120px]">
+    <div class="wrapper flex justify-between mt-[20px] w-full xl:w-[1120px]">
       <div class="sect-2">
         <img class="tablet-man" src="../../../assets/images/tablet-man.jpg" alt="" />
         <div class="">

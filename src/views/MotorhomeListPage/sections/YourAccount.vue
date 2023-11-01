@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="motorhome in motorhomes"
@@ -36,30 +37,24 @@
                 Hp
               </div>
             </div>
-            <div class="motorhome-body flex gap-[5px] text-[14px]">
-              <div class="motorhome-body">
-                {{ motorhome.motor_home_body }}
-              </div>
-              •
-              <div class="fuel">
-                {{ motorhome.motor_home_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ motorhome.motor_home_transmission }}
-              </div>
-              •
-              <div class="hu">
-                HU
-                {{ motorhome.motor_home_hu_valid_until }}
-              </div>
-            </div>
-            <div class="motorhome-body flex gap-[5px] text-[14px]">
-              <div class="motorhome-body">
-                {{ motorhome.motor_home_number_door }}
-              </div>
-              Doors
-            </div>
+            <div class="motorhome-body flex flex-wrap gap-x-[5px] text-[14px]">
+          <div class="motorhome-body">
+            {{ motorhome.motor_home_type }}
+          </div>
+          •
+          <div class="motorhome-body">
+            {{ motorhome.motor_home_number_of_bunks }}
+            Bunks
+          </div>
+          <div class="fuel">
+            {{ motorhome.motor_home_fuel_type }}
+          </div>
+          •
+          <div class="transmission">
+            {{ motorhome.motor_home_transmission }}
+          </div>
+
+        </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ motorhome.motor_home_price }}</p>
@@ -101,12 +96,13 @@
 <script>
 
 import http from "../../../axios.config";
+import TheLoader from "../../../components/TheLoader.vue";
 import { useMotorhomeStore } from "../../../store/motorhomeDataStore"
 export default {
   data() {
     return {
       motorhomeStore: useMotorhomeStore(),
-
+isLoading: true,
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
@@ -123,6 +119,7 @@ export default {
       const motorhomeData = this.motorhomeStore.motorhomeData
       http.post(`/motorhomes/list?limit=100&offset=0`, motorhomeData).then((res) => {
         this.motorhomes = res.data.data;
+        this.isLoading = false
       });
     },
     goToSinglePageAd(motorcycleId) {
@@ -133,7 +130,8 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-  },
+    TheLoader
+},
   created() {
     this.fetchAds();
   },

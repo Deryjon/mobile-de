@@ -25,35 +25,28 @@
           <div class="year">
             {{ semitrailer.trailer_firt_date_year }}
           </div>
-          •
-          <div class="mileage">{{ semitrailer.trailer_mileage }} km</div>
-          •
-          <div class="power">{{ semitrailer.trailer_power }} Hp</div>
         </div>
-        <div class="semitrailer-body flex gap-[5px] text-[14px]">
-          <div class="semitrailer-body">
-            {{ semitrailer.trailer_body }}
-          </div>
-          •
-          <div class="fuel">
-            {{ semitrailer.trailer_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ semitrailer.trailer_transmission }}
-          </div>
-          •
-          <div class="hu">
-            HU
-            {{ semitrailer.semitrailer_hu_valid_until }}
-          </div>
-        </div>
-        <div class="semitrailer-body flex gap-[5px] text-[14px]">
-          <div class="semitrailer-body">
-            {{ semitrailer.trailer_number_door }}
-          </div>
-          Doors
-        </div>
+        <div class="trailer-body flex flex-wrap gap-x-[5px] text-[14px]">
+              <div class="trailer-body">
+                {{ semitrailer.trailer_category }}
+              </div>
+              •
+              <div class="fuel">
+                {{ semitrailer.trailer_gvw }}
+                GVW
+              </div>
+              •
+              <div class="transmission">
+                {{ semitrailer.trailer_load_capacity }}
+                capacity
+              </div>
+              •
+              <div class="hu">
+                
+                {{ semitrailer.trailer_axles }}
+                axles
+              </div>
+            </div>
       </div>
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ semitrailer.trailer_price }}</p>

@@ -7,14 +7,14 @@
           class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
           @click="goToSinglePageAd(trailer.trailer_id)"
         >
-				<div class="img w-[350px] h-[260px] m-0">
+				<div class="img w-[350px]  h-[260px] m-0">
 
-          <img class="w-[100%] h-full" :src="trailer.trailer_images_url"/>
+          <img class="w-[100%] object-cover h-full" :src="trailer.trailer_images_url"/>
 				</div>
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ trailer.trailer_make_name}}
+                {{ trailer.trailer_make}}
               </div>
               <div class="model">
                 {{ trailer.trailer_model }}
@@ -27,40 +27,27 @@
               <div class="year">
                 {{ trailer.trailer_firt_date_year }}
               </div>
-              •
-              <div class="mileage">
-                {{ trailer.trailer_mileage }}
-                km
-              </div>
-              •
-              <div class="power">
-                {{ trailer.trailer_power }}
-                Hp
-              </div>
             </div>
             <div class="trailer-body flex gap-[5px] text-[14px]">
               <div class="trailer-body">
-                {{ trailer.trailer_body }}
+                {{ trailer.trailer_category }}
               </div>
               •
               <div class="fuel">
-                {{ trailer.trailer_fuel_type }}
+                {{ trailer.trailer_gvw }}
+                GVW
               </div>
               •
               <div class="transmission">
-                {{ trailer.trailer_transmission }}
+                {{ trailer.trailer_load_capacity }}
+                capacity
               </div>
               •
               <div class="hu">
-                HU
-                {{ trailer.trailer_hu_valid_until }}
+                
+                {{ trailer.trailer_axles }}
+                axles
               </div>
-            </div>
-            <div class="trailer-body flex gap-[5px] text-[14px]">
-              <div class="trailer-body">
-                {{ trailer.trailer_number_door }}
-              </div>
-              Doors
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -154,7 +141,7 @@ export default {
   });
 },
     goToSinglePageAd(motorcycleId) {
-      this.$router.push({ name: "trailer-single", params: { id: motorcycleId } });
+      this.$router.push({ name: "semitrailer-single", params: { id: motorcycleId } });
     },
   },
   mounted() {

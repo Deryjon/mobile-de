@@ -11,7 +11,7 @@
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ vehicle.vehicle_make_name }}
+                {{ vehicle.vehicle_make }}
               </div>
               <div class="model">
                 {{ vehicle.vehicle_model }}
@@ -22,12 +22,7 @@
             </div>
             <div class="date-km flex gap-[5px]">
               <div class="year">
-                {{ vehicle.vehicle_firt_date_year }}
-              </div>
-              •
-              <div class="mileage">
-                {{ vehicle.vehicle_mileage }}
-                km
+                {{ vehicle.vehicle_firt_date }}
               </div>
               •
               <div class="power">
@@ -37,27 +32,14 @@
             </div>
             <div class="vehicle-coachey flex gap-[5px] text-[14px]">
               <div class="vehicle-coachey">
-                {{ vehicle.vehicle_body }}
-              </div>
-              •
-              <div class="fuel">
-                {{ vehicle.vehicle_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ vehicle.vehicle_transmission }}
+                {{ vehicle.vehicle_category }}
               </div>
               •
               <div class="hu">
-                HU
-                {{ vehicle.vehicle_hu_valid_until }}
+                
+                {{ vehicle.vehicle_operating_hours }}
+                hours
               </div>
-            </div>
-            <div class="vehicle-body flex gap-[5px] text-[14px]">
-              <div class="vehicle-body">
-                {{ vehicle.vehicle_number_door }}
-              </div>
-              Doors
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -124,6 +106,10 @@ export default {
         
       });
     },
+    goToSinglePageAd(agriculturald){
+      this.$router.push({ name: "agricultural-single", params: { id: agriculturald } });
+
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");

@@ -25,34 +25,28 @@
             {{ semitruck.truck_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ semitruck.truck_mileage }} km</div>
+          <div class="mileage">{{ semitruck.truck_kilometre }} km</div>
           •
           <div class="power">{{ semitruck.truck_power }} Hp</div>
         </div>
-        <div class="semitruck-body flex gap-[5px] text-[14px]">
-          <div class="semitruck-body">
-            {{ semitruck.truck_body }}
-          </div>
-          •
-          <div class="fuel">
-            {{ semitruck.truck_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ semitruck.truck_transmission }}
-          </div>
-          •
-          <div class="hu">
-            HU
-            {{ semitruck.truck_hu_valid_until }}
-          </div>
-        </div>
-        <div class="semitruck-body flex gap-[5px] text-[14px]">
-          <div class="semitruck-body">
-            {{ semitruck.truck_number_door }}
-          </div>
-          Doors
-        </div>
+        <div class="truck-body flex flex-wrap gap-[5px] text-[14px]">
+              <div class="truck-body">
+                {{ semitruck.truck_category }}
+              </div>
+              •
+              <div class="fuel">
+                {{ semitruck.truck_fuel_type }}
+              </div>
+              •
+              <div class="transmission">
+                {{ semitruck.truck_transmission }}
+              </div>
+              •
+              <div class="semitruck-body">
+                {{ semitruck.truck_gvw }}
+                GVW
+              </div>
+            </div>
       </div>
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ semitruck.truck_price }}</p>

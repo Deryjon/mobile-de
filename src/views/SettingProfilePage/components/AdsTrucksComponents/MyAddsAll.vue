@@ -26,13 +26,13 @@
             {{ truck.truck_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ truck.truck_mileage }} km</div>
+          <div class="mileage">{{ truck.truck_kilometre }} km</div>
           •
           <div class="power">{{ truck.truck_power }} Hp</div>
         </div>
-        <div class="truck-body flex gap-[5px] text-[14px]">
+        <div class="truck-body flex flex-wrap gap-x-[5px] text-[14px]">
           <div class="truck-body">
-            {{ truck.truck_body }}
+            {{ truck.truck_category }}
           </div>
           •
           <div class="fuel">
@@ -44,15 +44,14 @@
           </div>
           •
           <div class="hu">
-            HU
-            {{ truck.truck_hu_valid_until }}
+            {{ truck.truck_hydraulic_installation }}
+            Hydraulic
           </div>
-        </div>
-        <div class="truck-body flex gap-[5px] text-[14px]">
+          •
           <div class="truck-body">
-            {{ truck.truck_number_door }}
+            {{ truck.truck_gvw }}
+            GVW
           </div>
-          Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">

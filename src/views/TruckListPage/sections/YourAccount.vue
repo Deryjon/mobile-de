@@ -35,30 +35,29 @@
                 Hp
               </div>
             </div>
-            <div class="truck-body flex gap-[5px] text-[14px]">
-              <div class="truck-body">
-                {{ truck.truck_body }}
-              </div>
-              •
-              <div class="fuel">
-                {{ truck.truck_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ truck.truck_transmission }}
-              </div>
-              •
-              <div class="hu">
-                HU
-                {{ truck.truck_hu_valid_until }}
-              </div>
-            </div>
-            <div class="truck-body flex gap-[5px] text-[14px]">
-              <div class="truck-body">
-                {{ truck.truck_number_door }}
-              </div>
-              Doors
-            </div>
+            <div class="truck-body flex flex-wrap gap-x-[5px] text-[14px]">
+          <div class="truck-body">
+            {{ truck.truck_category }}
+          </div>
+          •
+          <div class="fuel">
+            {{ truck.truck_fuel_type }}
+          </div>
+          •
+          <div class="transmission">
+            {{ truck.truck_transmission }}
+          </div>
+          •
+          <div class="hu">
+            {{ truck.truck_hydraulic_installation }}
+            Hydraulic
+          </div>
+          •
+          <div class="truck-body">
+            {{ truck.truck_gvw }}
+            GVW
+          </div>
+        </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ truck.truck_price }}</p>
@@ -119,6 +118,9 @@ export default {
         this.trucks = res.data.data;
 
       });
+    },
+    goToSinglePageAd(truckId){
+      this.$router.push({ name: "truck-single", params: { id: truckId } });
     },
   },
   mounted() {

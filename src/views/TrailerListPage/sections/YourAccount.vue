@@ -1,20 +1,19 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
-        <div
-          v-for="trailer in trailers"
+        <div v-for="trailer in trailers"
           class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
-          @click="goToSinglePageAd(trailer.trailer_id)"
-        >
-				<div class="img w-[350px] h-[260px] m-0">
+          @click="goToSinglePageAd(trailer.trailer_id)">
+          <div class="img w-[350px] h-[260px] m-0">
 
-          <img class="w-[100%] h-full" :src="trailer.trailer_images_url"/>
-				</div>
+            <img class="w-[100%] object-cover h-full" :src="trailer.trailer_images_url" />
+          </div>
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ trailer.trailer_make_name}}
+                {{ trailer.trailer_make_name }}
               </div>
               <div class="model">
                 {{ trailer.trailer_model }}
@@ -23,44 +22,25 @@
                 {{ trailer.trailer_variant }}
               </div>
             </div>
-            <div class="date-km flex gap-[5px]">
+            <div class="date-km text-[15px] flex flex-wrap gap-x-[20px]">
               <div class="year">
                 {{ trailer.trailer_firt_date_year }}
               </div>
               •
-              <div class="mileage">
-                {{ trailer.trailer_mileage }}
-                km
-              </div>
-              •
-              <div class="power">
-                {{ trailer.trailer_power }}
-                Hp
-              </div>
-            </div>
-            <div class="trailer-body flex gap-[5px] text-[14px]">
+
               <div class="trailer-body">
-                {{ trailer.trailer_body }}
+                {{ trailer.trailer_category }}
               </div>
-              •
+              • 
               <div class="fuel">
-                {{ trailer.trailer_fuel_type }}
+                {{ trailer.trailer_axles }}
+                Axles
               </div>
               •
-              <div class="transmission">
-                {{ trailer.trailer_transmission }}
-              </div>
-              •
-              <div class="hu">
-                HU
-                {{ trailer.trailer_hu_valid_until }}
-              </div>
-            </div>
-            <div class="trailer-body flex gap-[5px] text-[14px]">
               <div class="trailer-body">
-                {{ trailer.trailer_number_door }}
+                {{ trailer.trailer_gvw }}
+                GVW
               </div>
-              Doors
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -69,25 +49,12 @@
               <div class="">
                 <button
                   class="flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white"
-                  @click="contactAd"
-                  v-if="!contactUser"
-                >
-                  <svg
-                    class="nQao3 hcDLf YgmFC"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    focusable="false"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                  @click="contactAd" v-if="!contactUser">
+                  <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false"
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                      fill="currentColor"
-                    ></path>
+                      fill="currentColor"></path>
                   </svg>
                   Contact
                 </button>
@@ -96,26 +63,13 @@
 <p>lonewolf@gmail.com</p>
 						</div> -->
               </div>
-              <button
-                @click="addAdBasicmotorcycles"
-                class="bg-transparent bor rounded-[4px] text-[14px] p-[8px] px-[20px] text-[#08829a] flex items-center gap-[5px]"
-              >
-                <svg
-                  class="nQao3 hcDLf YgmFC"
-                  width="16"
-                  height="16"
-                  viewBox="0 0 24 24"
-                  focusable="false"
-                  aria-hidden="true"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
+              <button @click="addAdBasicmotorcycles"
+                class="bg-transparent bor rounded-[4px] text-[14px] p-[8px] px-[20px] text-[#08829a] flex items-center gap-[5px]">
+                <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false"
+                  aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+                  <path fill-rule="evenodd" clip-rule="evenodd"
                     d="M5 1h14a1 1 0 011 1v20.191a.5.5 0 01-.724.447L12 19l-7.276 3.638A.5.5 0 014 22.191V2a1 1 0 011-1zm4 4v10h2v-3h2c3 0 3-2 3-3.5S16 5 13 5H9zm2 2h2c1 0 1 1 1 1.5s0 1.5-1 1.5h-2V7z"
-                    fill="currentColor"
-                  ></path>
+                    fill="currentColor"></path>
                 </svg>
                 Park
               </button>
@@ -129,7 +83,8 @@
 <script>
 
 import http from "../../../axios.config";
-import {useTrailerStore} from "../../../store/trailerDataStore"
+import TheLoader from "../../../components/TheLoader.vue";
+import { useTrailerStore } from "../../../store/trailerDataStore"
 export default {
   data() {
     return {
@@ -138,9 +93,10 @@ export default {
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
+      isLoading: true,
       trailers: [],
       contactUser: false,
-      
+
     };
   },
   methods: {
@@ -149,10 +105,11 @@ export default {
     },
     fetchAds() {
       const trailerData = this.trailerStore.trailerData
-  http.post(`/trailers/list?limit=100&offset=0`, trailerData).then((res) => {
-    this.trailers = res.data.data;
-  });
-},
+      http.post(`/trailers/list?limit=100&offset=0`, trailerData).then((res) => {
+        this.trailers = res.data.data;
+        this.isLoading = false
+      });
+    },
     goToSinglePageAd(motorcycleId) {
       this.$router.push({ name: "trailer-single", params: { id: motorcycleId } });
     },
@@ -161,7 +118,8 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-  },
+    TheLoader
+},
   created() {
     this.fetchAds();
   },
@@ -172,6 +130,7 @@ export default {
 .bor {
   border: 1px solid #000;
 }
+
 .product-image {
   width: 200px;
   height: auto;
@@ -236,6 +195,7 @@ export default {
   padding-right: 12px;
   margin-bottom: 4px;
 }
+
 .price {
   font-weight: bold;
   font-size: 1.3em;
