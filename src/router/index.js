@@ -54,6 +54,7 @@ import SemitrailerSinglePage from "../views/SemitrailerSinglePage/SemitrailerSin
 import CoacheSinglePage from "../views/CoacheSinglePage/CoacheSinglePage.vue";
 import AgriculturalSinglePage from "../views/AgriculturalSinglePage/AgriculturalSinglePage.vue";
 import ConstructionSinglePage from "../views/ConstructionSinglePage/ConstructionSinglePage.vue";
+import ForkliftSinglePage from "../views/ForkliftSinglePage/ForkliftSinglePage.vue";
 import FullNews from "../views/FullNews/FullNews.vue";
 import PriceList from "../views/PriceList/PriceList.vue";
 import AfterPaymentPage from "../views/AfterPaymentPage/AfterPaymentPage.vue";
@@ -332,6 +333,11 @@ const router = createRouter({
       name: "constructions-single",
       component: ConstructionSinglePage,
     },
+      {
+        path: "/forklift/:id",
+        name: "forklift-single",
+        component: ForkliftSinglePage,
+      },
     {
       path: "/fullnews/:id",
       name: "full-news",

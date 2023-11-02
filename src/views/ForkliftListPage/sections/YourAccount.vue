@@ -11,7 +11,7 @@
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ forklift.forklift_make_name }}
+                {{ forklift.forklift_make }}
               </div>
               <div class="model">
                 {{ forklift.forklift_model }}
@@ -22,12 +22,12 @@
             </div>
             <div class="date-km flex gap-[5px]">
               <div class="year">
-                {{ forklift.forklift_firt_date_year }}
+                {{ forklift.forklift_firt_date }}
               </div>
               •
               <div class="mileage">
-                {{ forklift.forklift_mileage }}
-                km
+                {{ forklift.forklift_operating_hours }}
+                hours
               </div>
               •
               <div class="power">
@@ -37,7 +37,7 @@
             </div>
             <div class="forklift-coachey flex gap-[5px] text-[14px]">
               <div class="forklift-coachey">
-                {{ forklift.forklift_body }}
+                {{ forklift.forklift_category }}
               </div>
               •
               <div class="fuel">
@@ -47,18 +47,7 @@
               <div class="transmission">
                 {{ forklift.forklift_transmission }}
               </div>
-              •
-              <div class="hu">
-                HU
-                {{ forklift.forklift_hu_valid_until }}
-              </div>
-            </div>
-            <div class="forklift-body flex gap-[5px] text-[14px]">
-              <div class="forklift-body">
-                {{ forklift.forklift_number_door }}
-              </div>
-              Doors
-            </div>
+          </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ forklift.forklift_price }}</p>
@@ -123,6 +112,10 @@ export default {
         this.forklifts = res.data.data;
       });
     },
+    goToSinglePageAd(forkliftId){
+      this.$router.push({ name: "forklift-single", params: { id: forkliftId } });
+
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
