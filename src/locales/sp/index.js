@@ -20,6 +20,21 @@ export default {
       contract: "Contrato de compra de coche",
       usedCar: "Arrendamiento financiero de vehículos usados",
       clicked: "Pulsado. Comprado. Entregado.",
+      magazin: "Revista SellCenter",
+      electro: "Electromovilidad",
+      ecars: "Los mejores e-cars de segunda mano",
+      best: "La mejor lista",
+      oomph: "Coches eléctricos",
+      powered:
+        "Las alternativas eléctricas pueden incluso hacer felices a los verdaderos aficionados a los coches.",
+      editorial: "De la redacción",
+      range: "Los coches eléctricos con mayor autonomía",
+      toretto: `Los coches de carreras de Dominic Toretto y los de sus oponentes.`,
+    },
+    text: {
+      about: `Eléctricos, sostenibles y a buen precio: siete sólidos
+      que puedes comprar de segunda mano. Descubre también
+      qué debes buscar en un coche eléctrico usado.`,
     },
     selects: {
       condition: "Condición",

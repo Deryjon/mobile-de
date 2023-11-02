@@ -20,6 +20,21 @@ export default {
       contract: "Autokaufvertrag",
       usedCar: "Gebrauchtwagen Leasing",
       clicked: "Geklickt. Gekauft. Geliefert.",
+      magazin: "SellCenter Magazin",
+      electro: "Elektromobilität",
+      ecars: "Die besten gebrauchten E-Autos",
+      best: "Beste Liste",
+      oomph: "E-Autos mit Schwung",
+      powered:
+        "Elektrisch betriebene Alternativen können sogar echte Autofans glücklich machen.",
+      editorial: "Von der Redaktion",
+      range: "Die E-Autos mit der größten Reichweite",
+      toretto: `Die Rennwagen von Dominic Toretto und die Karren seiner Gegner.`,
+    },
+    text: {
+      about: `Elektrisch, nachhaltig und preiswert: sieben solide
+      die Sie gebraucht kaufen können. Finden Sie außerdem heraus,
+      worauf Sie bei einem gebrauchten Elektroauto achten sollten.`,
     },
     selects: {
       condition: "Zustand",

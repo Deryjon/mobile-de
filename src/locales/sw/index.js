@@ -20,6 +20,22 @@ export default {
       contract: "Avtal om köp av bil",
       usedCar: "Leasing av begagnade fordon",
       clicked: "Klickad. Köpt. Levererad.",
+      magazin: "Magasinet SellCenter",
+      electro: "Elektromobilitet",
+      ecars: "De bästa begagnade elbilarna",
+      best: "Bästa listan",
+      oomph: "Elbilar med kraft",
+      powered:
+        "Eldrivna alternativ kan till och med göra riktiga bilfans glada.",
+      editorial: "Från redaktionen",
+      range: "Elbilarna med den längsta räckvidden",
+      toretto: `Dominic Torettos tävlingsbilar och hans motståndares kärror.
+      motståndare.`,
+    },
+    text: {
+      about: `Elektriskt, hållbart och prisvärt: sju solida produkter
+      som du kan köpa begagnade. Ta också reda på
+      vad du bör titta efter i en begagnad elbil.`,
     },
     selects: {
       condition: "Villkor",

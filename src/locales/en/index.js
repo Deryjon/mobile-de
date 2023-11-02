@@ -20,6 +20,22 @@ export default {
       contract: "Car purchase contract",
       usedCar: "Used car leasing",
       clicked: "Clicked. Bought. Delivered.",
+      magazin: "SellCenter Magazin",
+      electro: "Electromobility",
+      ecars: "The best used e-cars",
+      best: "Best list",
+      oomph: "E-cars with oomph",
+      powered:
+        "Electrically powered alternatives can even make real car fans happy.",
+      editorial: "From the editorial office",
+      range: "The e-cars with the longest range",
+      toretto: `Dominic Toretto's road racing cars and the carts of his
+      opponents.`,
+    },
+    text: {
+      about: `Electric, sustainable and reasonably priced: seven solid you
+      can buy second-hand. Also find out, what you should look out
+      for in a used electric car.`,
     },
     selects: {
       condition: "Condition",

@@ -21,6 +21,21 @@ export default {
       contract: "Umowa kupna samochodu",
       usedCar: "Leasing samochodów używanych",
       clicked: "Kliknięte. Kupiłem. Dostarczone.",
+      magazin: "SellCenter Magazin",
+      electro: "Elektromobilność",
+      ecars: "Najlepsze używane samochody elektryczne",
+      best: "Najlepsza lista",
+      oomph: "Samochody elektryczne z rozmachem",
+      powered:
+        "Alternatywy z napędem elektrycznym mogą nawet uszczęśliwić prawdziwych fanów motoryzacji.",
+      editorial: "Od redakcji",
+      range: "Samochody elektryczne o największym zasięgu",
+      toretto: `Samochody wyścigowe Dominica Toretto i wozy jego przeciwników.`,
+    },
+    text: {
+      about: `Elektryczne, ekologiczne i w rozsądnej cenie: siedem solidnych
+      które można kupić z drugiej ręki. Dowiedz się również,
+      na co należy zwrócić uwagę przy zakupie używanego samochodu elektrycznego.`,
     },
     selects: {
       condition: "Stan",

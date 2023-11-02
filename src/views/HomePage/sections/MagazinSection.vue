@@ -2,120 +2,113 @@
   <v-container class="max-w-[1120px] h-[650px]">
     <div class="header max-w-[1120px]">
       <div class="container">
-    
-          <div class="magazine-bmw max-w-[1120px]">
-            <div class="row head-bottom">
-              <h2 class="head">SellCenter Magazin</h2>
-            </div>
-            <div class="row">
-              <div class="col-xl-4 col-lg-4 mini-bmw">
-                <img
-                  class="bmw"
-                  src="../../../assets/images/mini-bwm.jpg"
-                  alt=""
-                />
-                <div class="auto">
-                  <a
-                    class="links"
-                    href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
-                    >Elektromobilität</a
-                  >
-                  <h2 class="sell">Die besten gebrauchten E-Autos</h2>
-                  <p>
-                    Elektrisch, nachhaltig und günstig im Preis: Sieben solide
-                    Stromer, die Du gebraucht kaufen kannst. Erfahre außerdem,
-                    worauf Du beim gebrauchten Elektroauto achten solltest.
-                  </p>
-                </div>
-              </div>
-
-              <div class="col-lg-2">
-                <img
-                  class="mini mb-[10px]"
-                  src="../../../assets/images/red-car.jpg"
-                  alt=""
-                />
-
-                <img
-                  class="mini-car mb-[20px]"
-                  src="../../../assets/images/grey.jpg"
-                  alt=""
-                />
-
-                <img
-                  class="mini-car"
-                  src="../../../assets/images/telephone.jpg"
-                  alt=""
-                />
-              </div>
-
-              <div class="col-lg-4">
-                <a class="links" href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
-                  >Bestenlist</a
-                >
-                <h2 class="sell">E-Autos mit Wumms</h2>
-                <p class="text-[14px]">
-                  Elektrisch angetriebene Alternativen können sogar echte
-                  Autofans glücklich machen.
-                </p>
-                <div class="grey-car">
-                  <a
-                    class="links"
-                    href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
-                    >Aus der Redaktion
-                  </a>
-                  <h2 class="sell">Die E-Autos mit der größten Reichweite</h2>
-                  <p class="text-[14px]">
-                    Dominic Torettos Straßenrennwagen und die Karren seiner
-                    Gegner.
-                  </p>
-                </div>
-                <div class="telephone">
-                  <a
-                    class="links"
-                    href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
-                    >Ratgeber</a
-                  >
-                  <h2 class="sell">Kaufen oder lieber Leasen?</h2>
-                  <p class="text-[14px]">
-                    Erfahre mehr über Vor- und Nachteile der
-                    Finanzierungsoptionen und welche Kosten Dich erwarten.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div class="magazine-bmw max-w-[1120px]">
+          <div class="row head-bottom">
+            <h2 class="head">{{ $t("message.title.magazin") }}</h2>
           </div>
-          <div class="wrapper flex justify-between mt-[20px] w-[1120px]" >
-            <div class="sect-2"> 
+          <div class="row">
+            <div class="col-xl-4 col-lg-4 mini-bmw">
               <img
-                class="tablet-man"
-                src="../../../assets/images/tablet-man.jpg"
+                class="bmw"
+                src="../../../assets/images/mini-bwm.jpg"
                 alt=""
               />
-              <div class="">
-                <h2>Financing made easy</h2>
-                <p>Online financing in just a few minutes.</p>
-
-                <button class="button">Discover more</button>
+              <div class="auto">
+                <a
+                  class="links"
+                  href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
+                  >{{ $t("message.title.electro") }}</a
+                >
+                <h2 class="sell">{{ $t("message.title.ecars") }}</h2>
+                <p>
+                  {{ $t("message.text.about") }}
+                </p>
               </div>
             </div>
 
-            <div class="sect-2">
+            <div class="col-lg-2">
               <img
-                class="tablet-man"
-                src="../../../assets/images/car-men.jpg"
+                class="mini mb-[10px]"
+                src="../../../assets/images/red-car.jpg"
                 alt=""
               />
-              <div class="">
-                <h2>Financing made easy</h2>
-                <p>Online financing in just a few minutes.</p>
 
-                <button class="button">Discover more</button>
+              <img
+                class="mini-car mb-[20px]"
+                src="../../../assets/images/grey.jpg"
+                alt=""
+              />
+
+              <img
+                class="mini-car"
+                src="../../../assets/images/telephone.jpg"
+                alt=""
+              />
+            </div>
+
+            <div class="col-lg-4">
+              <a
+                class="links"
+                href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
+                >{{ $t("message.title.best") }}</a
+              >
+              <h2 class="sell">{{ $t("message.title.oomph") }}</h2>
+              <p class="text-[14px]">
+                {{ $t("message.title.powered") }}
+              </p>
+              <div class="grey-car">
+                <a class="links" href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
+                  >{{ $t("message.title.editorial") }}
+                </a>
+                <h2 class="sell">{{ $t("message.title.range") }}</h2>
+                <p class="text-[14px]">
+                  {{ $t("message.title.toretto") }}
+                </p>
+              </div>
+              <div class="telephone">
+                <a class="links" href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
+                  >Ratgeber</a
+                >
+                <h2 class="sell">Kaufen oder lieber Leasen?</h2>
+                <p class="text-[14px]">
+                  Erfahre mehr über Vor- und Nachteile der Finanzierungsoptionen
+                  und welche Kosten Dich erwarten.
+                </p>
               </div>
             </div>
           </div>
         </div>
+        <div class="wrapper flex justify-between mt-[20px] w-[1120px]">
+          <div class="sect-2">
+            <img
+              class="tablet-man"
+              src="../../../assets/images/tablet-man.jpg"
+              alt=""
+            />
+            <div class="">
+              <h2>Financing made easy</h2>
+              <p>Online financing in just a few minutes.</p>
+
+              <button class="button">Discover more</button>
+            </div>
+          </div>
+
+          <div class="sect-2">
+            <img
+              class="tablet-man"
+              src="../../../assets/images/car-men.jpg"
+              alt=""
+            />
+            <div class="">
+              <h2>Financing made easy</h2>
+              <p>Online financing in just a few minutes.</p>
+
+              <button class="button">Discover more</button>
+            </div>
+          </div>
+        </div>
       </div>
+    </div>
   </v-container>
 </template>
 <script></script>
@@ -404,7 +397,7 @@ select {
 }
 
 .header {
-	width: 1120px;
+  width: 1120px;
   height: 945px;
   margin: 0 auto;
 }
@@ -476,8 +469,8 @@ select {
 .telephone {
   margin-top: 30px;
 }
-.wrapper{
-	width: 1200px;
+.wrapper {
+  width: 1200px;
 }
 .sect-2 {
   display: flex;
@@ -495,8 +488,6 @@ select {
 .sec-02 {
   width: 590px;
 }
-
-
 
 .button {
   width: 120px;

@@ -21,6 +21,21 @@ export default {
       contract: "Contrat d'achat de voiture",
       usedCar: "Leasing de voitures d'occasion",
       clicked: "Cliqué. Acheté. Livré.",
+      magazin: "Magazine SellCenter",
+      electro: "Electromobilité",
+      ecars: "Les meilleures voitures électriques d'occasion",
+      best: "Meilleure liste",
+      oomph: "Des voitures électriques qui ont de l'allure",
+      powered:
+        "Les alternatives électriques peuvent même faire le bonheur des vrais amateurs de voitures.",
+      editorial: "De la rédaction",
+      range: "Les voitures électriques avec la plus grande autonomie",
+      toretto: `Les voitures de course de Dominic Toretto et les charrettes de ses adversaires.`,
+    },
+    text: {
+      about: `Électrique, durable et à prix raisonnable : sept produits solides que vous pouvez acheter d'occasion.
+      que vous pouvez acheter d'occasion. Découvrez également
+      ce que vous devez rechercher dans une voiture électrique d'occasion.`,
     },
     selects: {
       condition: "Condition",
