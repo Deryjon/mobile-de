@@ -37,7 +37,7 @@
               •
               <div class="hu">
                 
-                {{ vehicle.vehicle_operating_hours }}
+                {{ vehicle.machine_operating_hours }}
                 hours
               </div>
             </div>
@@ -107,7 +107,7 @@ export default {
       });
     },
     goToSinglePageAd(agriculturald){
-      this.$router.push({ name: "agricultural-single", params: { id: agriculturald } });
+      this.$router.push({ name: "machine-single", params: { id: agriculturald } });
 
     }
   },

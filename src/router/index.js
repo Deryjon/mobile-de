@@ -53,6 +53,7 @@ import SemitruckSinglePage from "../views/SemitruckSinglePage/SemitruckSinglePag
 import SemitrailerSinglePage from "../views/SemitrailerSinglePage/SemitrailerSinglePage.vue";
 import CoacheSinglePage from "../views/CoacheSinglePage/CoacheSinglePage.vue";
 import AgriculturalSinglePage from "../views/AgriculturalSinglePage/AgriculturalSinglePage.vue";
+import ConstructionSinglePage from "../views/ConstructionSinglePage/ConstructionSinglePage.vue";
 import FullNews from "../views/FullNews/FullNews.vue";
 import PriceList from "../views/PriceList/PriceList.vue";
 import AfterPaymentPage from "../views/AfterPaymentPage/AfterPaymentPage.vue";
@@ -325,6 +326,11 @@ const router = createRouter({
       path: "/agricultural/:id",
       name: "agricultural-single",
       component: AgriculturalSinglePage,
+    },
+    {
+      path: "/constructions/:id",
+      name: "constructions-single",
+      component: ConstructionSinglePage,
     },
     {
       path: "/fullnews/:id",

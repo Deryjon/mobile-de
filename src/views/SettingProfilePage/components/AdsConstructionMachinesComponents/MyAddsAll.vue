@@ -21,38 +21,12 @@
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
-          <div class="year">
-            {{ agricultural.machine_firt_date_year }}
-          </div>
-          •
-          <div class="mileage">{{ agricultural.machine_mileage }} km</div>
-          •
-          <div class="power">{{ agricultural.machine_power }} Hp</div>
-        </div>
-        <div class="agricultural-body flex gap-[5px] text-[14px]">
-          <div class="agricultural-body">
-            {{ agricultural.machine_body }}
-          </div>
-          •
-          <div class="fuel">
-            {{ agricultural.machine_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ agricultural.machine_transmission }}
-          </div>
-          •
-          <div class="hu">
-            HU
-            {{ agricultural.machine_hu_valid_until }}
-          </div>
-        </div>
-        <div class="agricultural-body flex gap-[5px] text-[14px]">
-          <div class="agricultural-body">
-            {{ agricultural.machine_number_door }}
-          </div>
-          Doors
-        </div>
+              <div class="year">
+                {{ agricultural.machine_operating_hours }}
+                hours
+              </div>
+            
+            </div>
       </div>
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ agricultural.machine_price }}</p>

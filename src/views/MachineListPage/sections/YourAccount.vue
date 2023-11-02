@@ -7,12 +7,12 @@
           @click="goToSinglePageAd(machine.machine_id)">
           <div class="img w-[350px] h-[260px] m-0">
 
-            <img class="w-[100%] h-full" :src="machine.machine_images_url" />
+            <img class="w-[100%] h-full object-cover" :src="machine.machine_images_url" />
           </div>
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ machine.machine_make_name }}
+                {{ machine.machine_make }}
               </div>
               <div class="model">
                 {{ machine.machine_model }}
@@ -23,42 +23,10 @@
             </div>
             <div class="date-km flex gap-[5px]">
               <div class="year">
-                {{ machine.machine_firt_date_year }}
+                {{ machine.machine_operating_hours }}
+                hours
               </div>
-              •
-              <div class="mileage">
-                {{ machine.machine_mileage }}
-                km
-              </div>
-              •
-              <div class="power">
-                {{ machine.machine_power }}
-                Hp
-              </div>
-            </div>
-            <div class="machine-coachey flex gap-[5px] text-[14px]">
-              <div class="machine-coachey">
-                {{ machine.machine_body }}
-              </div>
-              •
-              <div class="fuel">
-                {{ machine.machine_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ machine.machine_transmission }}
-              </div>
-              •
-              <div class="hu">
-                HU
-                {{ machine.machine_hu_valid_until }}
-              </div>
-            </div>
-            <div class="machine-body flex gap-[5px] text-[14px]">
-              <div class="machine-body">
-                {{ machine.machine_number_door }}
-              </div>
-              Doors
+            
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -126,6 +94,10 @@ export default {
         console.log(this.machines);
       });
     },
+    goToSinglePageAd(agriculturald){
+      this.$router.push({ name: "constructions-single", params: { id: agriculturald } });
+5
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
