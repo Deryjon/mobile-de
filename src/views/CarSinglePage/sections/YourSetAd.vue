@@ -433,7 +433,7 @@ export default {
       contactUser: false,
       horsepower: "",
       isScrolled: false,
-    scrollThresholdReached: false, 
+      scrollThresholdReached: false,
       userCreatedAt: null,
       formattedDate: "",
     };
@@ -447,7 +447,7 @@ export default {
       http.get(`/car/${this.carId}`).then((res) => {
         this.car = res.data.data;
         this.horsepower = this.car.car_power;
-        console.log(this.car);
+
       });
     },
     fetchUser() {
@@ -464,25 +464,25 @@ export default {
       this.$router.push({ name: "single-car" });
     },
     handleScroll() {
-    if (window.scrollY >= 150 && !this.isScrolled) {
-      console.log("123"); 
-      this.isScrolled = true; 
-    } else if (window.scrollY < 150 && this.isScrolled){
-      console.log("321"); 
-      this.isScrolled = false; 
-    }
-  },
-  removeScrollListener() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
+      if (window.scrollY >= 150 && !this.isScrolled) {
+
+        this.isScrolled = true;
+      } else if (window.scrollY < 150 && this.isScrolled) {
+
+        this.isScrolled = false;
+      }
+    },
+    removeScrollListener() {
+      window.removeEventListener("scroll", this.handleScroll);
+    },
   },
   mounted() {
-  this.userEmail = localStorage.getItem("u-e");
-  window.addEventListener("scroll", this.handleScroll);
-},
-beforeUnmount() {
-  window.removeEventListener("scroll", this.handleScroll);
-},
+    this.userEmail = localStorage.getItem("u-e");
+    window.addEventListener("scroll", this.handleScroll);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.handleScroll);
+  },
 
   components: {
     SettingsTab,
