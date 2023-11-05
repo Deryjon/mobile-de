@@ -31,11 +31,40 @@ export default {
       range: "The e-cars with the longest range",
       toretto: `Dominic Toretto's road racing cars and the carts of his
       opponents.`,
+      counsellor: "Counsellor",
+      buying: "Buying or leasing?",
+      find: "Find out more about the advantages and disadvantages of the financing options and what costs you can expect.",
+      financing: "Financing made easy",
+      oFinancing: "Online financing in just a few minutes.",
+      overview: `Here you will find everything that has to do with vehicles - get an
+      easily get an overview of the entire car market. Here over 1.2 million vehicles are waiting for you every day.`,
+      thinking: "Thinking of buying a used car?",
+      selling: "Thinking of selling your car?",
+      new: "Thinking of buying a new car?",
+      leasing: "Do you think leasing?",
+      rate: "Rate car",
+      buy: "Buy a used car",
+      newCar: "Buy a new car",
+      offers: "Find leasing offers",
+      market: "SellCenter is Germany's largest vehicle market",
     },
     text: {
       about: `Electric, sustainable and reasonably priced: seven solid you
       can buy second-hand. Also find out, what you should look out
       for in a used electric car.`,
+      sell: `Then you can sell your used car here free of charge.
+Simply and conveniently. At the maximum price per advertisement or quickly via express sale at a sell-centre buying station.`,
+      compare: `Then you can compare numerous offers here and contact sellers
+directly. Professional car dealers or private sellers, company vehicles from commercial sellers `,
+      selection: `Then you will find a huge selection of new cars here: whether cars with one-day registration, demonstration vehicles or new EU cars. `,
+      buy: `Whether you want to buy or lease, you'll find what you're looking for here. Find your dream car and find suitable leasing offers from our dealers near you.
+      dealers near you. `,
+      aboutMarket: `SellCenter is Germany's largest vehicle market where you can easily
+easily buy or sell a car. Here you can find
+Used cars, new cars, youngtimers, oldtimers,
+small and compact cars, SUVs, luxury saloons and cheap cars. You can sell your used car, contact new car and used car sellers. You can find out more about
+car makes and models, find out about car financing, compare financing offers and monthly instalments, or find leasing offers. You can also
+you will find car tips, tests, guides and much more.`,
     },
     selects: {
       condition: "Condition",
@@ -56,6 +85,7 @@ export default {
       buy: "Buy",
       continue: "Continue",
       try: "Try now",
+      discover: "Discover more",
     },
     filter: {
       any: "Any",

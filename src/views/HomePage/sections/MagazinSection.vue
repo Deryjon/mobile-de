@@ -66,13 +66,14 @@
                 </p>
               </div>
               <div class="telephone">
-                <a class="links" href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
-                  >Ratgeber</a
+                <a
+                  class="links"
+                  href="https://ru.wikipedia.org/wiki/MINI_(BMW)"
+                  >{{ $t("message.title.counsellor") }}</a
                 >
-                <h2 class="sell">Kaufen oder lieber Leasen?</h2>
+                <h2 class="sell">{{ $t("message.title.buying") }}</h2>
                 <p class="text-[14px]">
-                  Erfahre mehr über Vor- und Nachteile der Finanzierungsoptionen
-                  und welche Kosten Dich erwarten.
+                  {{ $t("message.title.find") }}
                 </p>
               </div>
             </div>
@@ -86,10 +87,10 @@
               alt=""
             />
             <div class="">
-              <h2>Financing made easy</h2>
-              <p>Online financing in just a few minutes.</p>
+              <h2>{{ $t("message.title.financing") }}</h2>
+              <p>{{ $t("message.title.oFinancing") }}</p>
 
-              <button class="button">Discover more</button>
+              <button class="button">{{ $t("message.btn.discover") }}</button>
             </div>
           </div>
 
@@ -100,10 +101,10 @@
               alt=""
             />
             <div class="">
-              <h2>Financing made easy</h2>
-              <p>Online financing in just a few minutes.</p>
+              <h2>{{ $t("message.title.financing") }}</h2>
+              <p>{{ $t("message.title.oFinancing") }}</p>
 
-              <button class="button">Discover more</button>
+              <button class="button">{{ $t("message.btn.discover") }}</button>
             </div>
           </div>
         </div>
@@ -491,7 +492,7 @@ select {
 
 .button {
   width: 120px;
-  height: 30px;
+  // height: 30px;
   margin-top: 50px;
   border-radius: 5px;
   border: 1px solid gray;

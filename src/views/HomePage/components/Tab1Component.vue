@@ -300,7 +300,9 @@
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[80px]">
           <div class="price dropdown-container">
-            <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
+            <h2 class="mt-2 text-sm lg:text-[14px]">
+              {{ $t("message.selects.priceFrom") }}
+            </h2>
             <div class="input-container flex relative mt-[10px]">
               <input
                 type="from"

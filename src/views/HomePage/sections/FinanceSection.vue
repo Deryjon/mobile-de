@@ -1,34 +1,26 @@
+<script>
+export default {};
+</script>
+
 <template>
   <v-container class="max-w-[1120px]">
     <div class="magazine-bmw">
       <div class="row sections-2">
         <div class="col-xl-5">
-          <h2 class="head text-[#000]">mobile.de Magazin</h2>
+          <h2 class="head text-[#000]">SellCenter</h2>
         </div>
       </div>
 
       <div class="row">
         <div class="col-xl-5 col-xs-5 mobe">
           <p>
-            Hier findest Du alles, was mit Fahrzeugen zu tun hat - verschaff Dir
-            ganz einfach einen Überblick über den gesamten Automarkt. Hier
-            warten täglich über 1,2 Millionen Fahrzeuge auf Dich.
+            {{ $t("message.title.overview") }}
           </p>
           <h2 class="marketF">
-            mobile.de ist Deutschlands größter Fahrzeugmarkt
+            {{ $t("message.title.market") }}
           </h2>
           <p>
-            mobile.de ist Deutschlands größter Fahrzeugmarkt, auf dem Du einfach
-            ein Auto kaufen oder verkaufen kannst. Hier gibt es Gebrauchtwagen,
-            <span>Neuwagen</span> , Youngtimer, <span>Oldtimer</span> ,
-            <span>Kleinwagen</span> und Kompakte, <span>SUV</span>, luxuriöse
-            Limousinen und günstige Autos. Du kannst Dein gebrauchtes
-            <span>Auto verkaufen</span>, Neuwagen- und Gebrauchtwagenverkäufer
-            kontaktieren. Du kannst mehr über
-            <span>Automarken und Modelle</span> herausfinden, Dich über die
-            Fahrzeugfinanzierung informieren, Finanzierungsangebote und
-            Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
-            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr.
+            {{ $t("message.text.aboutMarket") }}
           </p>
         </div>
         <div class="col-xl-6">
@@ -36,16 +28,15 @@
         </div>
         <div class="col-xl-5 nomobe">
           <p>
-            Hier findest Du alles, was mit Fahrzeugen zu tun hat - verschaff Dir
-            ganz einfach einen Überblick über den gesamten Automarkt. Hier
-            warten täglich über 1,2 Millionen Fahrzeuge auf Dich.
+            {{ $t("message.title.overview") }}
           </p>
           <h2 class="marketF">
-            mobile.de ist Deutschlands größter Fahrzeugmarkt
+            {{ $t("message.title.market") }}
           </h2>
           <p>
-            mobile.de ist Deutschlands größter Fahrzeugmarkt, auf dem Du einfach
-            ein Auto kaufen oder verkaufen kannst. Hier gibt es Gebrauchtwagen,
+            <!-- SellCenter ist Deutschlands größter Fahrzeugmarkt, auf dem Du
+            einfach ein Auto kaufen oder verkaufen kannst. Hier gibt es
+            Gebrauchtwagen,
             <span>Neuwagen</span> , Youngtimer, <span>Oldtimer</span> ,
             <span>Kleinwagen</span> und Kompakte, <span>SUV</span>, luxuriöse
             Limousinen und günstige Autos. Du kannst Dein gebrauchtes
@@ -54,7 +45,8 @@
             <span>Automarken und Modelle</span> herausfinden, Dich über die
             Fahrzeugfinanzierung informieren, Finanzierungsangebote und
             Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
-            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr.
+            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr. -->
+            {{ $t("message.text.aboutMarket") }}
           </p>
         </div>
       </div>
@@ -69,13 +61,11 @@
             />
           </div>
           <div class="col-xl-4 Auto">
-            <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
+            <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
             <p>
-              Dann kannst Du Dein gebrauchtes Auto hier kostenlos verkaufen.
-              Einfach und bequem. Zum maximalen Preis per Inserat oder schnell
-              per Expressverkauf an einer mobile.de Ankaufsstation.
+              {{ $t("message.text.sell") }}
             </p>
-            <span>➤ Auto bewerten</span>
+            <span>➤ {{ $t("message.title.rate") }}</span>
           </div>
         </div>
         <div class="mini-sec">
@@ -87,15 +77,11 @@
             />
           </div>
           <div class="col-xl-4 Auto">
-            <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
+            <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
             <p>
-              Dann kannst Du hier zahlreiche Angebote vergleichen und Verkäufer
-              direkt kontaktieren. Professionelle Autohändler oder
-              Privatverkäufer, Firmenfahrzeuge von gewerblichen Anbietern oder
-              Jahreswagen. Auch mit Gebrauchtwagen-Garantie oder
-              Qualitätssiegel.
+              {{ $t("message.text.compare") }}
             </p>
-            <span>➤ Gebrauchtwagen kaufen</span>
+            <span>➤ {{ $t("message.title.buy") }}</span>
           </div>
         </div>
       </div>
@@ -110,13 +96,11 @@
             />
           </div>
           <div class="w-[300px]">
-            <h2 class="denkst">Denkst Du Auto verkaufen?</h2>
+            <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
             <p class="text-[14px]">
-              Dann kannst Du Dein gebrauchtes Auto hier kostenlos verkaufen.
-              Einfach und bequem. Zum maximalen Preis per Inserat oder schnell
-              per Expressverkauf an einer mobile.de Ankaufsstation.
+              {{ $t("message.text.sell") }}
             </p>
-            <span>➤ Auto bewerten</span>
+            <span>➤ {{ $t("message.title.rate") }}</span>
           </div>
         </div>
         <div class="flex gap-[20px]">
@@ -124,13 +108,11 @@
             <img class="" src="../../../assets/images/woman.jpg" alt="" />
           </div>
           <div class="w-[300px]">
-            <h2 class="denkst">Denkst Du Gebrauchtwagen kaufen?</h2>
+            <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
             <p class="text-[14px]">
-              Dann kannst Du hier zahlreiche Angebote vergleichen und Verkäufer
-              direkt kontaktieren. Professionelle Autohändler oder
-              Privatverkäufer, Firmenfahrzeuge von gewerblichen Anbietern oder
+              {{ $t("message.text.compare") }}
             </p>
-            <span>➤ Gebrauchtwagen kaufen</span>
+            <span>➤ {{ $t("message.title.buy") }}</span>
           </div>
         </div>
         <div class="flex gap-[20px]">
@@ -138,30 +120,27 @@
             <img class="" src="../../../assets/images/mens.jpg" alt="" />
           </div>
           <div class="w-[300px]">
-            <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
+            <h2 class="denkst">{{ $t("message.title.new") }}</h2>
             <p class="text-[14px]">
-              Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos
-              mit Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Id pariatu
+              {{ $t("message.text.selection") }}
             </p>
-            <span>➤ Neuwagen kaufen</span>
+            <span>➤ {{ $t("message.title.newCar") }}</span>
           </div>
         </div>
         <div class="flex gap-[20px]">
           <div class="w-[170px]">
-						<img
-            class="h-[170px]"
-            src="../../../assets/images/man-telephone.jpg"
-            alt=""
-          />          </div>
+            <img
+              class="h-[170px]"
+              src="../../../assets/images/man-telephone.jpg"
+              alt=""
+            />
+          </div>
           <div class="w-[300px]">
-            <h2 class="denkst">Denkst Du Leasing?</h2>
-          <p class="text-[14px]">
-            Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
-            Traumwagen und finde passende Leasing-Angebote von unseren Händlern
-            in Deiner Nähe. Lorem ipsum, dolor sit amet consectetur adipisicin
-          </p>
-          <span>➤ Leasing-Angebote finden</span>
+            <h2 class="denkst">{{ $t("message.title.leasing") }}</h2>
+            <p class="text-[14px]">
+              {{ $t("message.text.buy") }}
+            </p>
+            <span>➤ {{ $t("message.title.offers") }}</span>
           </div>
         </div>
       </div>
@@ -169,12 +148,8 @@
       <div class="row sec-4">
         <div class="col-xl-1"></div>
 
-        <div class="col-xl-1">
-         
-        </div>
-        <div class="col-xl-4 Auto">
-          
-        </div>
+        <div class="col-xl-1"></div>
+        <div class="col-xl-4 Auto"></div>
       </div>
 
       <div class="row sec-5">
@@ -547,6 +522,7 @@ body {
 }
 
 .head {
+  margin-top: 10px;
   font-size: 18px;
 }
 
