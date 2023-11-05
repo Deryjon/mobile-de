@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative" v-else>
     <div class="left flex flex-col gap-[20px] w-[700px] rounded-[4px]">
       <div class="img h-[500px]">
         <img :src="car.car_images_url" class="w-full h-full object-cover" alt="" />
@@ -357,7 +358,7 @@
         </p>
       </div>
     </div>
-    <div class="right mt-[50px]  bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
+    <div class="right mt-[25px]  bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
       :class="{ 'fixed right-[202px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name flex gap-[5px] text-[20px] font-bold">
@@ -419,7 +420,8 @@
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
-// import { format } from "date-fns";
+import TheLoader from "../../../components/TheLoader.vue"
+import { format } from "date-fns";
 import http from "../../../axios.config";
 export default {
   data() {
@@ -431,6 +433,7 @@ export default {
       car: [],
       user: [],
       contactUser: false,
+      isLoading: true,
       horsepower: "",
       isScrolled: false,
       scrollThresholdReached: false,
@@ -447,15 +450,16 @@ export default {
       http.get(`/car/${this.carId}`).then((res) => {
         this.car = res.data.data;
         this.horsepower = this.car.car_power;
+        this.isLoading = false
 
       });
     },
     fetchUser() {
       http.get(`/users?id=${this.userI}`).then((res) => {
         this.user = res.data.data;
-        // this.userCreatedAt = this.user.user_create_at;
-        // const date = new Date(this.userCreatedAt);
-        // this.formattedDate = format(date, " MMM d yyyy");
+        this.userCreatedAt = this.user.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
         // console.log(this.formattedDate);
         // console.log(this.user);
       });
@@ -488,7 +492,9 @@ export default {
     SettingsTab,
     OverviewTab,
     MyAdCarsTab,
+    TheLoader,
   },
+
   created() {
     this.userI = localStorage.getItem("u-i");
     this.carId = this.$route.params.id;

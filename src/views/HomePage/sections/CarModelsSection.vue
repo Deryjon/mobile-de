@@ -356,7 +356,7 @@ export default {};
   display: flex;
   align-items: center;
 justify-content: space-between;
-}6
+}
 .Automarken .container .wrapper .car-model li {
   color: #fff;
   text-decoration: none;

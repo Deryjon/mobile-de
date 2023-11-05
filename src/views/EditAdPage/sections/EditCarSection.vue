@@ -1,5 +1,5 @@
 <template>
-  <TheLoader v-if="isLoading"/>
+  <TheLoader v-if="isLoading" />
   <div class="" v-else>
     <div class="basic-add" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
@@ -751,8 +751,7 @@
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from" v-model="power" @focus="openPowerDropdown" @input="filterOptions"
-              @blur="closePowerDropdown" />
+              placeholder="from" v-model="power" @input="filterOptions" @click="openPowerDropdown" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -784,8 +783,7 @@
             <div class="input-container flex relative mt-[10px]">
               <input type="from"
                 class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-                placeholder="from" v-model="cubic" @focus="openCubicDropdown" @input="filterOptions"
-                @blur="closeCubicDropdown" />
+                placeholder="from" v-model="cubic" @input="filterOptions" @click="openCubicDropdown" />
 
               <div
                 class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -815,10 +813,10 @@
           <input type="radio" id="condition-any" v-model="selectedPower" :class="{
             'bg-transparent': selectedPower !== 'Hp',
             'bg-orange': selectedPower === 'Hp',
-          }" @click="selectPower('Hp')" />
+          }" />
           <span class="ml-[10px]">Hp</span>
         </label>
-        <label for="condition-any" @click="selectPower('kW')" class="mt-[30px]">
+        <label for="condition-any" class="mt-[30px]">
           <input type="radio" id="condition-any" v-model="selectedPower" :class="{
             'bg-transparent': selectedPower !== 'kW',
             'bg-orange': selectedPower === 'kW',
@@ -1726,7 +1724,7 @@ export default {
       toggleShowCheckboxAds,
     };
   },
-  components:{
+  components: {
     TheLoader
   },
   data() {
@@ -1819,7 +1817,7 @@ export default {
       isLoading: true,
       extras: [],
       others: [],
-      power: [],
+      power: "",
       selectedType: "",
       selectedFiles: [],
       userI: "",
@@ -1913,7 +1911,7 @@ export default {
       const formData = new FormData();
       for (let i = 0; i < this.selectedFiles.length; i++) {
 
-        formData.append("photos", this.selectedFiles[i]); 
+        formData.append("photos", this.selectedFiles[i]);
       }
       formData.append('car_id', this.carId);
       formData.append('user_id', this.userI);
@@ -1975,7 +1973,8 @@ export default {
         .put("/car/update", formData)
         .then((response) => {
           const store = useTabsStore();
-          store.setActiveTab("tab-3")
+          store.setActiveTab("tab-3");
+          this.$router.push({ name: "profile-settings" })
           const responseData = response;
           console.log(responseData);
         });
@@ -2283,9 +2282,6 @@ export default {
     },
     selectCar(condition) {
       this.selectedCar = condition;
-    },
-    selectPower(condition) {
-      this.selectedPower = condition;
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

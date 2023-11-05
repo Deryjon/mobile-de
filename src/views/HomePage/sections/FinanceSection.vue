@@ -72,9 +72,6 @@
           <div class="w-[300px]">
             <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
             <p class="text-[14px]">
-              Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos
-              mit Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen. Lorem ipsum
-              dolor sit amet consectetur adipisicing elit. Id pariatu
             </p>
             <span>➤ Neuwagen kaufen</span>
           </div>
