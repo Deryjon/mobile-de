@@ -159,12 +159,6 @@
             <p class="w-[288px] text-[14px] font-semibold">Fuel</p>
             <p class="w-[288px] text-[14px]">{{ coache.coache_fuel_type }}</p>
           </div>
-          <div class="cubic flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">GVW</p>
-            <p class="w-[288px] text-[14px]">
-              {{ coache.coache_gvw }} 
-            </p>
-          </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Gearbox</p>
             <p class="w-[288px] text-[14px]">{{ coache.coache_transmission }}</p>
@@ -229,7 +223,7 @@
         </p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[14px]">
-          <P class="title"> {{ coache.coache_description }} </P>
+          <P class="title"> {{ coache.coache_describtion }} </P>
         </div>
       </div>
       <div class="description bor p-[20px]">
@@ -345,7 +339,7 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[14px]">Phone: {{ coache.coachephone }}</p>
+          <p class="phone text-[14px]">Phone: {{ coache.user_phone }}</p>
         </div>
         <div class="line mt-[10px]"></div>
 
