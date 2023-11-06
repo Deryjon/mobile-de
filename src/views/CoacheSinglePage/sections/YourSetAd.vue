@@ -1,10 +1,11 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative" v-else>
     <div class="left flex flex-col gap-[20px] w-[700px] rounded-[4px]">
       <div class="img h-[500px]">
         <img :src="coache.coache_images_url" class="w-full h-full object-cover" alt="" />
       </div>
-      <div class="basic-data bor flex flex-wrap justify-between h-[180px] p-[20px]">
+      <div class="basic-data bor flex flex-wrap gap-x-[40px] h-[180px] p-[20px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -16,7 +17,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">Mileage</p>
-            <p class="font-bold">{{ coache.coache_mileage }} km</p>
+            <p class="font-bold">{{ coache.coache_kilometre }} km</p>
           </div>
         </div>
         <div class="registration flex w-[186px] gap-[5px]">
@@ -98,25 +99,6 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
-              <path d="M31 17C31 24.1797 26.0751 30 20 30C13.9249 30 9 24.1797 9 17" stroke-linecap="round"></path>
-              <path
-                d="M8 13C8 6.5 13.6667 5 15.5 5C17 4.33333 18 3 23 3C28 3 32 6.5 32 12C32 15.2 31 17 31 17C30 14.5 27.2 13.5 26 13.5H17C15.8 13.5 14.8334 12.1667 14.5 11.5C14.3334 12.1667 13.7 13.8 12.5 15C11.3 16.2 9.66664 16.8333 8.99993 17C8.99993 17 8 17 8 13Z">
-              </path>
-              <path d="M17 29.5L13 34H27L23 29.5"></path>
-              <path
-                d="M3 39L3.99423 36.5144C4.60168 34.9958 6.07251 34 7.70813 34H32.2919C33.9275 34 35.3983 34.9958 36.0058 36.5144L37 39"
-                stroke-linecap="round"></path>
-            </g>
-          </svg>
-          <div class="kilomet">
-            <p class="text-[12px]">Previous Owners</p>
-            <p class="font-bold">{{ coache.coache_previous_owners }}</p>
-          </div>
-        </div>
-        <div class="power flex w-[186px] gap-[5px]">
-          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
             <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z">
@@ -139,21 +121,32 @@
           <div class="category flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Category</p>
             <p class="w-[288px] text-[14px]">
-              {{ coache.coache_body }}, {{ coache.coache_type }}
+       {{ coache.coache_category }}
             </p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Origin</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_programme }}</p>
           </div>
           <div class="mileage flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Mileage</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_mileage }} km</p>
+            <p class="w-[288px] text-[14px]">{{ coache.coache_kilometre }} km</p>
           </div>
           <div class="cubic flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Cubic Capacity</p>
+            <p class="w-[288px] text-[14px] font-semibold">Number of Seats</p>
             <p class="w-[288px] text-[14px]">
-              {{ coache.coache_cubic_capacity }} ccm
+              {{ coache.coache_number_of_seats }} 
+            </p>
+          </div>
+          
+          <div class="cubic flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Programme</p>
+            <p class="w-[288px] text-[14px]">
+              {{ coache.coache_approved_used_programme
+ }} 
+            </p>
+          </div>
+          <div class="cubic flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Air Conditioning</p>
+            <p class="w-[288px] text-[14px]">
+              {{ coache.coache_air_conditioning
+ }} 
             </p>
           </div>
           <div class="power flex justify-between">
@@ -166,25 +159,15 @@
             <p class="w-[288px] text-[14px] font-semibold">Fuel</p>
             <p class="w-[288px] text-[14px]">{{ coache.coache_fuel_type }}</p>
           </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Number of Seats</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_number_seats }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Door Count</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_number_door }}</p>
+          <div class="cubic flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">GVW</p>
+            <p class="w-[288px] text-[14px]">
+              {{ coache.coache_gvw }} 
+            </p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Gearbox</p>
             <p class="w-[288px] text-[14px]">{{ coache.coache_transmission }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Emission Class</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_emission_class }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Emissions Sticker</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_emissions_sticker }}</p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">
@@ -193,8 +176,23 @@
             <p class="w-[288px] text-[14px]">{{ coache.coache_firt_date_year }}</p>
           </div>
           <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">HU</p>
-            <p class="w-[288px] text-[14px]">{{ coache.coache_hu_valid_until }}</p>
+            <p class="w-[288px] text-[14px] font-semibold">
+             Cruise Control
+            </p>
+            <p class="w-[288px] text-[14px]">{{ coache.coache_cruise_control
+ }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Condition</p>
+            <p class="w-[288px] text-[14px]">{{ coache.coache_condition }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Emission Sticker</p>
+            <p class="w-[288px] text-[14px]">{{ coache.coache_emissions_sticker }}</p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[14px] font-semibold">Emission Class</p>
+            <p class="w-[288px] text-[14px]">{{ coache.coache_emission_class }}</p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Colour</p>
@@ -347,7 +345,7 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[14px]">Phone: {{ coache.coachhone }}</p>
+          <p class="phone text-[14px]">Phone: {{ coache.coachephone }}</p>
         </div>
         <div class="line mt-[10px]"></div>
 
@@ -357,7 +355,7 @@
         </p>
       </div>
     </div>
-    <div class="right mt-[50px]  bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
+    <div class="right mt-[25px]  bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
       :class="{ 'fixed right-[202px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="coache-name flex gap-[5px] text-[20px] font-bold">
@@ -369,17 +367,17 @@
       </div> -->
       <div class="price flex gap-[5px] text-[16px] mt-[5px]">
         €
-        <p class="coache-price">{{ coache.price }}</p>
+        <p class="coache-price">{{ coache.coache_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
       <div class="name-seller mt-[20px]">
-        <p class="name">{{ coache.vendor }}</p>
-      </div>
+        <p class="name">{{ coache.coache_vendor }}</p>
+      </div> 
       <div class="name-seller">
-        <p class="name">DE-33602 Bielefeld</p>
+        <p class="name">{{user.user_gender}} {{  user.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">Phone: {{ coache.coacher_phone }}</p>
+        <p class="name">Phone: {{ coache.user_phone }}</p>
       </div>
       <button
         class="complete bg-[#e04b00] w-full py-[12px] rounded-[8px] text-[#fff] font-bold flex items-center gap-[5px] px-[32%] mt-[20px]">
@@ -419,7 +417,8 @@
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
-// import { format } from "date-fns";
+import TheLoader from "../../../components/TheLoader.vue"
+import { format } from "date-fns";
 import http from "../../../axios.config";
 export default {
   data() {
@@ -431,6 +430,7 @@ export default {
       coache: [],
       user: [],
       contactUser: false,
+      isLoading: true,
       horsepower: "",
       isScrolled: false,
       scrollThresholdReached: false,
@@ -443,25 +443,25 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      this.userI = localStorage.getItem("u-i");
-      http.get(`/coache/${this.carId}`).then((res) => {
+      http.get(`/coaches/${this.carId}`).then((res) => {
         this.coache = res.data.data;
         this.horsepower = this.coache.coache_power;
 
+        this.userI = this.coache.user_id;
+        this.fetchUser();
+        this.isLoading = false
       });
     },
     fetchUser() {
       http.get(`/users?id=${this.userI}`).then((res) => {
         this.user = res.data.data;
-        // this.userCreatedAt = this.user.user_create_at;
-        // const date = new Date(this.userCreatedAt);
-        // this.formattedDate = format(date, " MMM d yyyy");
-        // console.log(this.formattedDate);
-        // console.log(this.user);
+        this.userCreatedAt = this.user.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
       });
     },
     goToSinglePageAd() {
-      this.$router.push({ name: "single-car" });
+      this.$router.push({ name: "single-coache" });
     },
     handleScroll() {
       if (window.scrollY >= 150 && !this.isScrolled) {
@@ -488,12 +488,13 @@ export default {
     SettingsTab,
     OverviewTab,
     MyAdCarsTab,
+    TheLoader,
   },
+
   created() {
-    this.userI = localStorage.getItem("u-i");
     this.carId = this.$route.params.id;
     this.fetchAds();
-    this.fetchUser();
+    
   },
   computed: {
     powerInkW() {
