@@ -24,10 +24,7 @@ async function fetchData() {
     const res = await axios.get(
       `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=${lang}`
 
-    const res = await http.get(
-      `/price/list?limit=${limit.value}&offset=${offset.value}&lang=en`
-
-    );
+    )
     data.value = res.data.data;
     isLastPage.value = res.data.data.length < limit.value;
     console.log(data.value);

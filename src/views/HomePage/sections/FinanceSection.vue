@@ -168,9 +168,6 @@ export default {};
 
         </div>
       </div>
-
-
-    </div>
   </v-container>
 </template>
 <style scoped>

@@ -409,7 +409,7 @@ export default {
           const data = response.data.data;
           this.count = data.count;
           console.log(data.count);
-        });
+        })},
     updateMotorbikeData() {
       const motorcycleStore = useMotorbikeStore();
       motorcycleStore.motorcycleData.motorcycle_make = this.selectedMark;
@@ -568,27 +568,6 @@ export default {
       this.$router.push({ name: "motorbike-list" });
 
     },
-  },
-  components: { FilterBtn },
-  mounted() {
-
-    fetchMarks(){
-      http
-
-      .get("/motorcycle/marks")
-      .then((response) => {
-        const data = response.data.data;
-        console.log(response);
-        if (data) {
-          this.makes = data;
-        } else {
-          console.error("Некорректный формат ответа API.");
-        }
-      })
-      .catch((error) => {
-        console.error("Ошибка при выполнении запроса:", error.message);
-      });
-    }
   },
   components: { FilterBtn },
   mounted() {

@@ -349,7 +349,7 @@ export default {};
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  background-color: rgb(243, 241, 241)
+  background-color: rgb(243, 241, 241);
   max-width: 1120px;
   padding: 20px;
 }
