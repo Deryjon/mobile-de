@@ -8,7 +8,6 @@
           </h2>
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-
             v-model="selectedMark">
             <option value="" selected>Beliebig</option>
             <optgroup>
@@ -28,12 +27,8 @@
         </h2>
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig"
-          :disabled="isModelSelectDisabled"
-          @change="postModels"
-          v-model="selectedModel"
-          type="text"
-        />
+          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel"
+          type="text" />
 
       </div>
       <div class="years dropdown-container">
@@ -409,7 +404,8 @@ export default {
           const data = response.data.data;
           this.count = data.count;
           console.log(data.count);
-        })},
+        })
+    },
     updateMotorbikeData() {
       const motorcycleStore = useMotorbikeStore();
       motorcycleStore.motorcycleData.motorcycle_make = this.selectedMark;
@@ -568,19 +564,37 @@ export default {
       this.$router.push({ name: "motorbike-list" });
 
     },
+    fetchMarks() {
+      http
+
+        .get("/motorcycle/marks")
+        .then((response) => {
+          const data = response.data.data;
+          console.log(response);
+          if (data) {
+            this.makes = data;
+          } else {
+            console.error("Некорректный формат ответа API.");
+          }
+        })
+        .catch((error) => {
+          console.error("Ошибка при выполнении запроса:", error.message);
+        });
+    }
   },
+
   components: { FilterBtn },
   mounted() {
     this.count = this.motorbikeStore.count
 
-   this.fetchMarks()
+    this.fetchMarks()
     this.fetchModelYears();
     this.postData();
     this.fetchData();
 
     this.updateMotorbikeData()
   },
-  created(){
+  created() {
     this.updateMotorbikeData()
     this.count = this.motorbikeStore.count
   },

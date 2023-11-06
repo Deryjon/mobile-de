@@ -560,8 +560,25 @@ export default {
       this.$router.push({ name: "motorhome-list" });
 
     },
+    
+    fetchMarks(){
+      http
+      .get("/motorhome/marks")
+      .then((response) => {
+        const data = response.data.data;
+        if (data) {
+          this.makes = data;
+        } else {
+          console.error("Некорректный формат ответа API.");
+        }
+      })
+      .catch((error) => {
+        console.error("Ошибка при выполнении запроса:", error.message);
+      });
+    }
   },
   components: { FilterBtn },
+  
   mounted() {
     this.count = this.motorhomeStore.count
 
