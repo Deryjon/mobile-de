@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading" />
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="machine in machines"
@@ -26,7 +27,7 @@
                 {{ machine.machine_operating_hours }}
                 hours
               </div>
-            
+
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -69,6 +70,7 @@
 <script>
 
 import http from "../../../axios.config";
+import TheLoader from "../../../components/TheLoader.vue";
 import { useMachineStore } from "../../../store/machineDataStore"
 export default {
   data() {
@@ -80,6 +82,7 @@ export default {
       isOpen: false,
       machines: [],
       contactUser: false,
+      isLoading: true,
 
     };
   },
@@ -91,18 +94,18 @@ export default {
       const machineData = this.machineStore.machineData
       http.post(`/constructions/list?limit=100&offset=0`, machineData).then((res) => {
         this.machines = res.data.data;
-        console.log(this.machines);
+        this.isLoading = false
       });
     },
-    goToSinglePageAd(agriculturald){
+    goToSinglePageAd(agriculturald) {
       this.$router.push({ name: "constructions-single", params: { id: agriculturald } });
-5
     }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
+    TheLoader
   },
   created() {
     this.fetchAds();
