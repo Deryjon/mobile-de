@@ -4,6 +4,9 @@ export default {
       sell: "Passer une annonce",
       login: "Connexion ou Inscription",
       contact: "Contact",
+	  language: "Language",
+      country: "Country",
+      cities: "City's",
     },
     title: {
       popular:

@@ -3,11 +3,12 @@ export default {};
 </script>
 
 <template>
-  <v-container class="max-w-[1120px]">
-    <div class="magazine-bmw">
+  <v-container class="xl:w-[1120px]">
+    <div class="magazine-bmw bg-[#f5f5f5] xl:w-[1120px] xl:p-[20px]">
       <div class="row sections-2">
         <div class="col-xl-5">
-          <h2 class="head text-[#000]">SellCenter</h2>
+
+          <h2 class="head text-[#000]">SellCenter Magazin</h2>
         </div>
       </div>
 
@@ -26,7 +27,7 @@ export default {};
         <div class="col-xl-6">
           <img src="../../../assets/images/family.jpg" alt="" />
         </div>
-        <div class="col-xl-5 nomobe">
+        <div class="col-xl-5 ">
           <p>
             {{ $t("message.title.overview") }}
           </p>
@@ -49,7 +50,9 @@ export default {};
             {{ $t("message.text.aboutMarket") }}
           </p>
         </div>
+        
       </div>
+
 
       <div class="row sec-5">
         <div class="mini-sec">
@@ -85,15 +88,10 @@ export default {};
           </div>
         </div>
       </div>
-
       <div class="flex flex-wrap gap-[40px] justify-between mt-[30px]">
         <div class="flex gap-[20px]">
           <div class="w-[170px]">
-            <img
-              class="w-[100%]"
-              src="../../../assets/images/men-glase.jpg"
-              alt=""
-            />
+            <img class="w-[100%]" src="../../../assets/images/men-glase.jpg" alt="" />
           </div>
           <div class="w-[300px]">
             <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
@@ -123,12 +121,13 @@ export default {};
             <h2 class="denkst">{{ $t("message.title.new") }}</h2>
             <p class="text-[14px]">
               {{ $t("message.text.selection") }}
+
             </p>
             <span>➤ {{ $t("message.title.newCar") }}</span>
           </div>
         </div>
         <div class="flex gap-[20px]">
-          <div class="w-[170px]">
+          <div class="w-[170px]"> 
             <img
               class="h-[170px]"
               src="../../../assets/images/man-telephone.jpg"
@@ -141,6 +140,17 @@ export default {};
               {{ $t("message.text.buy") }}
             </p>
             <span>➤ {{ $t("message.title.offers") }}</span>
+
+            <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
+          </div>
+          <div class="w-[300px]">
+            <h2 class="denkst">Denkst Du Leasing?</h2>
+            <p class="text-[14px]">
+              Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
+              Traumwagen und finde passende Leasing-Angebote von unseren Händlern
+              in Deiner Nähe. Lorem ipsum, dolor sit amet consectetur adipisicin
+            </p>
+            <span>➤ Leasing-Angebote finden</span>
           </div>
         </div>
       </div>
@@ -151,44 +161,15 @@ export default {};
         <div class="col-xl-1"></div>
         <div class="col-xl-4 Auto"></div>
       </div>
+        <div class="col-xl-1">
 
-      <div class="row sec-5">
-        <div class="mini-sec">
-          <div class="col-xl-1">
-            <img
-              class="men-glase"
-              src="../../../assets/images/mens.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-xl-4 Auto">
-            <h2 class="denkst">Denkst Du Neuwagen kaufen?</h2>
-            <p>
-              Dann findest Du hier eine riesige Auswahl an Neuwagen: ob Autos
-              mit Tageszulassung, Vorführfahrzeuge oder EU-Neuwagen.
-            </p>
-            <span>➤ Neuwagen kaufen</span>
-          </div>
         </div>
-        <div class="mini-sec">
-          <div class="col-xl-1">
-            <img
-              class="men-glase"
-              src="../../../assets/images/man-telephone.jpg"
-              alt=""
-            />
-          </div>
-          <div class="col-xl-4 Auto">
-            <h2 class="denkst">Denkst Du Leasing?</h2>
-            <p>
-              Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
-              Traumwagen und finde passende Leasing-Angebote von unseren
-              Händlern in Deiner Nähe.
-            </p>
-            <span>➤ Leasing-Angebote finden</span>
-          </div>
+        <div class="col-xl-4 Auto">
+
         </div>
       </div>
+
+
     </div>
   </v-container>
 </template>
@@ -199,6 +180,7 @@ export default {};
   font-weight: 400;
   font-style: normal;
 }
+
 body {
   margin: 0;
 }
@@ -247,21 +229,25 @@ select {
     flex-grow: 0;
     width: 25%;
   }
+
   .col-xs-2 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 50%;
   }
+
   .col-xs-3 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 75%;
   }
+
   .col-xs-4 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 100%;
   }
+
   .container {
     box-sizing: border-box;
     width: 100%;
@@ -269,37 +255,44 @@ select {
     margin: 0 auto;
   }
 }
+
 @media (min-width: 576px) {
   .col-sm-1 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 16.6666666667%;
   }
+
   .col-sm-2 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 33.3333333333%;
   }
+
   .col-sm-3 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 50%;
   }
+
   .col-sm-4 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 66.6666666667%;
   }
+
   .col-sm-5 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 83.3333333333%;
   }
+
   .col-sm-6 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 100%;
   }
+
   .container {
     box-sizing: border-box;
     width: 100%;
@@ -307,37 +300,44 @@ select {
     margin: 0 auto;
   }
 }
+
 @media (min-width: 768px) {
   .col-md-1 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 16.6666666667%;
   }
+
   .col-md-2 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 33.3333333333%;
   }
+
   .col-md-3 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 50%;
   }
+
   .col-md-4 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 66.6666666667%;
   }
+
   .col-md-5 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 83.3333333333%;
   }
+
   .col-md-6 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 100%;
   }
+
   .container {
     box-sizing: border-box;
     width: 100%;
@@ -345,67 +345,80 @@ select {
     margin: 0 auto;
   }
 }
+
 @media (min-width: 992px) {
   .col-lg-1 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 8.3333333333%;
   }
+
   .col-lg-2 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 16.6666666667%;
   }
+
   .col-lg-3 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 25%;
   }
+
   .col-lg-4 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 33.3333333333%;
   }
+
   .col-lg-5 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 41.6666666667%;
   }
+
   .col-lg-6 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 50%;
   }
+
   .col-lg-7 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 58.3333333333%;
   }
+
   .col-lg-8 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 66.6666666667%;
   }
+
   .col-lg-9 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 75%;
   }
+
   .col-lg-10 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 83.3333333333%;
   }
+
   .col-lg-11 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 91.6666666667%;
   }
+
   .col-lg-12 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 100%;
   }
+
   .container {
     box-sizing: border-box;
     width: 100%;
@@ -413,67 +426,80 @@ select {
     margin: 0 auto;
   }
 }
+
 @media (min-width: 1200px) {
   .col-xl-1 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 8.3333333333%;
   }
+
   .col-xl-2 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 16.6666666667%;
   }
+
   .col-xl-3 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 25%;
   }
+
   .col-xl-4 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 33.3333333333%;
   }
+
   .col-xl-5 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 41.6666666667%;
   }
+
   .col-xl-6 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 50%;
   }
+
   .col-xl-7 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 58.3333333333%;
   }
+
   .col-xl-8 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 66.6666666667%;
   }
+
   .col-xl-9 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 75%;
   }
+
   .col-xl-10 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 83.3333333333%;
   }
+
   .col-xl-11 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 91.6666666667%;
   }
+
   .col-xl-12 {
     box-sizing: border-box;
     flex-grow: 0;
     width: 100%;
   }
+
   .container {
     box-sizing: border-box;
     width: 100%;
@@ -481,6 +507,7 @@ select {
     margin: 0 auto;
   }
 }
+
 .ml-a {
   margin-left: auto;
 }
@@ -526,12 +553,12 @@ body {
   font-size: 18px;
 }
 
-.magazine-bmw {
+/* .magazine-bmw {
   width: 1120px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f5f5f5;
-}
+  background-color: ;
+} */
 
 .mini-bmw {
   width: 450px;
@@ -600,143 +627,181 @@ body {
     display: block;
     margin-top: 20px;
   }
+
   .bmw {
     width: 100%;
     object-fit: cover;
     height: 190px;
   }
+
   .car-text1 {
     display: none;
   }
+
   .cars-text {
     margin-top: 20px;
     border-top: 1px solid rgb(98, 98, 98);
     padding-top: 20px;
     gap: 0 125px;
   }
+
   .mini-bmw {
     display: block;
   }
+
   .mini {
     width: 266px;
     height: 101px;
   }
+
   .mini-car {
     width: 266px;
     height: 101px;
   }
+
   .car-block {
     display: flex;
     gap: 0 15px;
   }
+
   .list {
     display: block;
   }
+
   .sect-2 {
     width: 95%;
     color: white;
   }
+
   .mobe {
     display: block;
   }
+
   .nomobe {
     display: none;
   }
+
   .marketF {
     margin: 20px 0 20px 0;
     font-size: 21px;
   }
+
   .men-glase {
     width: 150px;
     height: 150px;
   }
+
   .sec-02 {
     margin: 20px 0 0 12px;
   }
+
   .sec-3 {
     margin-top: 40px;
     display: flex;
   }
+
   .sec-4 {
     display: none;
   }
+
   .button {
     width: 100%;
     height: 40px;
   }
+
   span {
     text-decoration: underline;
     color: rgb(255, 166, 0);
   }
+
   .mini-sec {
     display: flex;
     margin: 20px 0 0 0;
   }
+
   .Auto {
     margin-left: 20px;
   }
 }
+
 @media (min-width: 1200px) {
   .cars-text {
     display: none;
   }
+
   .sec-02 {
     width: 120%;
     margin: 20px 0 0 80px;
   }
+
   .sect-2 {
     width: 110%;
   }
+
   .car-text1 {
     display: block;
   }
+
   .mini {
     width: 180px;
     height: 101px;
   }
+
   .mini-car {
     width: 180px;
     height: 101px;
   }
+
   .button {
     width: 140px;
     height: 40px;
     font-size: 14px;
   }
+
   .mobe {
     display: none;
   }
+
   .nomobe {
     display: block;
   }
+
   .sections-2 {
     color: white;
   }
+
   .family-near {
     margin-left: 80px;
   }
+
   .marketF {
     margin: 20px 0 20px 0;
     font-size: 21px;
   }
+
   span {
     text-decoration: underline;
     color: rgb(255, 166, 0);
   }
+
   .sec-4 {
     display: flex;
     margin-top: 20px;
   }
+
   .sec-5 {
     display: none;
   }
+
   .Auto {
     margin-left: 50px;
   }
+
   .denkst {
     margin-bottom: 20px;
   }
 }
+
 .navbar {
   padding: 32px 0;
   color: white;
@@ -758,5 +823,4 @@ body {
 
 .btn {
   display: block;
-}
-</style>
+}</style>

@@ -25,9 +25,8 @@
               <select
                 class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
-                @change="fetchModels()"
               >
-                <option value="14600" selected>Beliebig</option>
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option
                     v-for="make in makes"
@@ -144,6 +143,7 @@ export default {
   },
   data() {
     return {
+      semitrailerStore: useSemiTrailerStore(),
       makes: [],
       models: [],
       selectedMark: "",
@@ -188,6 +188,9 @@ export default {
       if (newValue !== oldValue) {
         this.updateSemiTrailerData();
       }
+    },
+    "semitrailerStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {

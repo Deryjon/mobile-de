@@ -6,7 +6,7 @@
       :data-van-id="van.id"
       class="vand bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px]">
+      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
         <img :src="van.van_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
@@ -26,13 +26,13 @@
             {{ van.van_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ van.van_mileage }} km</div>
+          <div class="mileage">{{ van.van_kilometre }} km</div>
           •
           <div class="power">{{ van.van_power }} Hp</div>
         </div>
-        <div class="van-body flex gap-[5px] text-[14px]">
+        <div class="van-body flex flex-wrap gap-x-[5px] text-[14px]">
           <div class="van-body">
-            {{ van.van_body }}
+            {{ van.van_category }}
           </div>
           •
           <div class="fuel">
@@ -47,12 +47,11 @@
             HU
             {{ van.van_hu_valid_until }}
           </div>
-        </div>
-        <div class="van-body flex gap-[5px] text-[14px]">
+          •
           <div class="van-body">
-            {{ van.van_number_door }}
+            {{ van.van_gvw }}
+            GVW
           </div>
-          Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">

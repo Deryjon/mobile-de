@@ -1,6 +1,6 @@
 <template>
   <v-container class="w-[1120px]">
-    <PathLink>Machine list</PathLink>
+    <PathLink>Forklift list</PathLink>
     <div class="sections">
       <YourAccount />	
     </div>

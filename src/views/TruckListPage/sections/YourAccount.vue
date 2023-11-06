@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading" />
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="truck in trucks" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
@@ -35,9 +36,9 @@
                 Hp
               </div>
             </div>
-            <div class="truck-body flex gap-[5px] text-[14px]">
+            <div class="truck-body flex flex-wrap gap-x-[5px] text-[14px]">
               <div class="truck-body">
-                {{ truck.truck_body }}
+                {{ truck.truck_category }}
               </div>
               •
               <div class="fuel">
@@ -49,15 +50,14 @@
               </div>
               •
               <div class="hu">
-                HU
-                {{ truck.truck_hu_valid_until }}
+                {{ truck.truck_hydraulic_installation }}
+                Hydraulic
               </div>
-            </div>
-            <div class="truck-body flex gap-[5px] text-[14px]">
+              •
               <div class="truck-body">
-                {{ truck.truck_number_door }}
+                {{ truck.truck_gvw }}
+                GVW
               </div>
-              Doors
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -75,10 +75,6 @@
                   </svg>
                   Contact
                 </button>
-                <!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
-<p>+998946120844</p>
-<p>lonewolf@gmail.com</p>
-						</div> -->
               </div>
               <button @click="addAdBasicmotorcycles"
                 class="bg-transparent bor rounded-[4px] text-[14px] p-[8px] px-[20px] text-[#08829a] flex items-center gap-[5px]">
@@ -100,16 +96,19 @@
 <script>
 
 import http from "../../../axios.config";
+import { useTruckStore } from "../../../store/truckDataStore"
+import TheLoader from '../../../components/TheLoader.vue'
 export default {
   data() {
     return {
+      truckStore: useTruckStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       trucks: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("trailerData")),
+      isLoading: true,
     };
   },
   methods: {
@@ -117,17 +116,21 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/trucks/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const truckData = this.truckStore.truckData
+      http.post(`/trucks/list?limit=100&offset=0`, truckData).then((res) => {
         this.trucks = res.data.data;
-        console.log(this.trucks);
-        console.log(this.fetchData.motorcycle_make);
+        this.isLoading = false
       });
+    },
+    goToSinglePageAd(truckId) {
+      this.$router.push({ name: "truck-single", params: { id: truckId } });
     },
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
+    TheLoader
   },
   created() {
     this.fetchAds();

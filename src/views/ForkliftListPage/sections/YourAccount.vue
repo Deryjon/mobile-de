@@ -11,7 +11,7 @@
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ forklift.forklift_make_name }}
+                {{ forklift.forklift_make }}
               </div>
               <div class="model">
                 {{ forklift.forklift_model }}
@@ -22,12 +22,12 @@
             </div>
             <div class="date-km flex gap-[5px]">
               <div class="year">
-                {{ forklift.forklift_firt_date_year }}
+                {{ forklift.forklift_firt_date }}
               </div>
               •
               <div class="mileage">
-                {{ forklift.forklift_mileage }}
-                km
+                {{ forklift.forklift_operating_hours }}
+                hours
               </div>
               •
               <div class="power">
@@ -37,7 +37,7 @@
             </div>
             <div class="forklift-coachey flex gap-[5px] text-[14px]">
               <div class="forklift-coachey">
-                {{ forklift.forklift_body }}
+                {{ forklift.forklift_category }}
               </div>
               •
               <div class="fuel">
@@ -47,18 +47,7 @@
               <div class="transmission">
                 {{ forklift.forklift_transmission }}
               </div>
-              •
-              <div class="hu">
-                HU
-                {{ forklift.forklift_hu_valid_until }}
-              </div>
-            </div>
-            <div class="forklift-body flex gap-[5px] text-[14px]">
-              <div class="forklift-body">
-                {{ forklift.forklift_number_door }}
-              </div>
-              Doors
-            </div>
+          </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ forklift.forklift_price }}</p>
@@ -100,16 +89,17 @@
 <script>
 
 import http from "../../../axios.config";
+import { useForkliftStore } from "../../../store/forkliftDataStore";
 export default {
   data() {
     return {
+      forkliftStore: useForkliftStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       forklifts: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
     };
   },
   methods: {
@@ -117,12 +107,15 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/forklifts/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const forkliftData = this.forkliftStore.forkliftData
+      http.post(`/forklifts/list?limit=100&offset=0`, forkliftData).then((res) => {
         this.forklifts = res.data.data;
-        console.log(this.forklifts);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
+    goToSinglePageAd(forkliftId){
+      this.$router.push({ name: "forklift-single", params: { id: forkliftId } });
+
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");

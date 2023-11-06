@@ -8,15 +8,11 @@
           </h2>
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMark"
-          >
+
+            v-model="selectedMark">
             <option value="" selected>Beliebig</option>
             <optgroup>
-              <option
-                v-for="make in makes"
-                :key="make"
-                :value="make.motorcycle_make_name"
-              >
+              <option v-for="make in makes" :key="make" :value="make.motorcycle_make_name">
                 {{ make.motorcycle_make_name }}
               </option>
               <option value="other">other</option>
@@ -38,41 +34,25 @@
           v-model="selectedModel"
           type="text"
         />
+
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputValue"
-            @focus="openDropdown"
-            @input="filterOptions"
-            @blur="openDropdown"
-          />
+            placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions" @blur="openDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpen"
-          class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
-        >
-          <li
-            v-for="option in filteredOptions"
-            :key="option"
-            @click="selectOption(option)"
-            class=""
-          >
+        <ul v-if="isOpen" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
+          <li v-for="option in filteredOptions" :key="option" @click="selectOption(option)" class="">
             {{ option }}
           </li>
           <li @click="selectOption('1989')">1989</li>
@@ -170,29 +150,18 @@
           {{ $t("message.selects.kilometr") }}
         </h2>
         <div class="kilometers input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputKilometer"
-            @focus="openKilmeterDropdown"
-            @input="filterOptions"
-            @blur="openKilmeterDropdown"
-          />
+            placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
+            @blur="openKilmeterDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openKilmeterDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openKilmeterDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenKilometer"
-          class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenKilometer" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
           <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometer('10000')">10.000 km</li>
           <li data-key="20000" @click="selectKilometer('20000')">20.000 km</li>
@@ -221,26 +190,18 @@
         </ul>
       </div>
     </div>
-    <div
-      class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]"
-    >
+    <div class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]">
       <div>
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.ad") }}
         </h2>
         <div class="Kaufen_div lg:flex text-[14px]">
-          <button
-            class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-            @click="showTab1"
-            :class="{ 'active-Kaufen': activeTab === 'sell' }"
-          >
+          <button class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab1" :class="{ 'active-Kaufen': activeTab === 'sell' }">
             {{ $t("message.btn.sell") }}
           </button>
-          <button
-            class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-            @click="showTab2"
-            :class="{ 'active-Kaufen': activeTab === 'buy' }"
-          >
+          <button class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab2" :class="{ 'active-Kaufen': activeTab === 'buy' }">
             {{ $t("message.btn.buy") }}
           </button>
         </div>
@@ -252,29 +213,19 @@
               {{ $t("message.selects.priceFrom") }}
             </h2>
             <div class="input-container flex relative mt-[10px]">
-              <input
-                type="from"
+              <input type="from"
                 class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-                placeholder="from"
-                v-model="inputPrice"
-                @focus="openPriceDropdown"
-                @input="filterOptions"
-                @blur="closePriceDropdown"
-              />
+                placeholder="from" v-model="inputPrice" @focus="openPriceDropdown" @input="filterOptions"
+                @blur="closePriceDropdown" />
 
               <div
                 class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-                @click="openPriceDropdown"
-              >
+                @click="openPriceDropdown">
                 <span
-                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-                ></span>
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
               </div>
             </div>
-            <ul
-              v-if="isOpenPrice"
-              class="dropdown-options w-[170px] text-[10px] lg:text-[12px]"
-            >
+            <ul v-if="isOpenPrice" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
               <li data-key="500" @click="selectPrice('500')">500 €</li>
               <li data-key="1000" @click="selectPrice('1000')">1,000 €</li>
               <li data-key="1500" @click="selectPrice('1500')">1,500 €</li>
@@ -318,14 +269,10 @@
             </h2>
             <input
               class="mark_input_zip text-[12px] mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-              type="text"
-              placeholder="Beliebig"
-              v-model="cityName"
-            />
+              type="text" placeholder="Beliebig" v-model="cityName" />
             <div
               class="icon absolute top-[30px] sm:left-[330px] lg:top-[43px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
-              @click="getLocation()"
-            >
+              @click="getLocation()">
               <img src="../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
@@ -333,6 +280,7 @@
             <p class="text-white text-[18px] lg:text-[16px]">
               {{ this.count }} {{ $t("message.results.result") }}
             </p>
+
           </FilterBtn>
         </div>
       </div>
@@ -343,9 +291,12 @@
 import http from "../../../axios.config";
 import axios from "axios";
 import FilterBtn from "../../../components/FilterBtn.vue";
+import { useMotorbikeStore } from "../../../store/motorbikeDataStore"
 export default {
   data() {
     return {
+      motorbikeStore: useMotorbikeStore(),
+
       count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -375,60 +326,60 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+
+        this.updateMotorbikeData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+
+        this.updateMotorbikeData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+
+        this.updateMotorbikeData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMotorbikeData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMotorbikeData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMotorbikeData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateMotorbikeData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+
+        this.updateMotorbikeData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+
+        this.updateMotorbikeData()
       }
+    },
+    "motorbikeStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
+
     postData() {
       localStorage.setItem(
         "motorbikeData",
@@ -459,6 +410,17 @@ export default {
           this.count = data.count;
           console.log(data.count);
         });
+    updateMotorbikeData() {
+      const motorcycleStore = useMotorbikeStore();
+      motorcycleStore.motorcycleData.motorcycle_make = this.selectedMark;
+      motorcycleStore.motorcycleData.motorcycle_model = this.selectedModel;
+      motorcycleStore.motorcycleData.motorcycle_firt_date_year = this.inputValue;
+      motorcycleStore.motorcycleData.motorcycle_mileage_from = this.inputKilometer;
+      motorcycleStore.motorcycleData.motorcycle_payment_type = this.activeTab;
+      motorcycleStore.motorcycleData.motorcycle_price_from = this.inputPrice;
+      motorcycleStore.motorcycleData.motorcycle_city_zipcode = this.cityNamem;
+      motorcycleStore.updateMotorbikeData();
+
     },
     showTab1() {
       this.activeTab = "sell";
@@ -604,11 +566,15 @@ export default {
     },
     goMotorbikeList() {
       this.$router.push({ name: "motorbike-list" });
+
     },
   },
   components: { FilterBtn },
   mounted() {
-    http
+
+    fetchMarks(){
+      http
+
       .get("/motorcycle/marks")
       .then((response) => {
         const data = response.data.data;
@@ -622,9 +588,22 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+    this.count = this.motorbikeStore.count
+
+   this.fetchMarks()
     this.fetchModelYears();
     this.postData();
     this.fetchData();
+
+    this.updateMotorbikeData()
+  },
+  created(){
+    this.updateMotorbikeData()
+    this.count = this.motorbikeStore.count
   },
   computed: {
     isModelSelectDisabled() {
@@ -643,6 +622,7 @@ export default {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;
@@ -650,17 +630,21 @@ export default {
   transform: rotate(135deg);
   pointer-events: none;
 }
+
 .Kaufen:hover {
   box-shadow: 0 0 2px 1px #eaccb4;
 }
+
 .active-Kaufen {
   background-color: #fffaf6;
   border: 1px solid #eaccb4;
   color: #000;
 }
+
 select:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
 }
+
 input:hover {
   box-shadow: 0 0 2px 1px #6a6acc;
 }
@@ -669,12 +653,15 @@ select:focus {
   outline: none;
   box-shadow: 0 0 2px 1px #6a6acc;
 }
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   /* display: none; <- Crashes Chrome on hover */
   -webkit-appearance: none;
-  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  margin: 0;
+  /* <-- Apparently some margin are still there even though it's hidden */
 }
+
 select::-webkit-scrollbar {
   width: 0;
 }
@@ -683,9 +670,11 @@ select::-webkit-scrollbar {
 ::-webkit-scrollbar {
   width: 0;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 .dropdown-container {
   position: relative;
   display: inline-block;

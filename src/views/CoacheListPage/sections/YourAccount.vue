@@ -11,7 +11,7 @@
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ coache.coache_make_name }}
+                {{ coache.coache_make }}
               </div>
               <div class="model">
                 {{ coache.coache_model }}
@@ -26,7 +26,7 @@
               </div>
               •
               <div class="mileage">
-                {{ coache.coache_mileage }}
+                {{ coache.coache_kilometre }}
                 km
               </div>
               •
@@ -37,7 +37,7 @@
             </div>
             <div class="coache-coachey flex gap-[5px] text-[14px]">
               <div class="coache-coachey">
-                {{ coache.coache_body }}
+                {{ coache.coache_category }}
               </div>
               •
               <div class="fuel">
@@ -48,17 +48,12 @@
                 {{ coache.coache_transmission }}
               </div>
               •
-              <div class="hu">
-                HU
-                {{ coache.coache_hu_valid_until }}
-              </div>
-            </div>
-            <div class="coache-body flex gap-[5px] text-[14px]">
+              
               <div class="coache-body">
-                {{ coache.coache_number_door }}
+                {{ coache.coache_number_of_seats }}
+                Seats
               </div>
-              Doors
-            </div>
+            </div>  
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ coache.coache_price }}</p>
@@ -100,16 +95,18 @@
 <script>
 
 import http from "../../../axios.config";
+import {useCoacheStore} from "../../../store/coacheDataStore"
+
 export default {
   data() {
     return {
+      coacheStore: useCoacheStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       coaches: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
     };
   },
   methods: {
@@ -117,12 +114,16 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/coaches/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const coacheData = this.coacheStore.coacheData
+      http.post(`/coaches/list?limit=100&offset=0`, coacheData).then((res) => {
         this.coaches = res.data.data;
         console.log(this.coaches);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
+    goToSinglePageAd(coacheId){
+      this.$router.push({ name: "coache-single", params: { id: coacheId } });
+
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");

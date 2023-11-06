@@ -340,9 +340,13 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
+import {useTruckStore} from "../../../../store/truckDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
 export default {
   data() {
     return {
+      store: useActiveTab4(),
+      truckStore: useTruckStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -372,88 +376,80 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+      
+        this.updateTruckData();
       }
+    },
+    "truckStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('truckData', JSON.stringify({
-      truck_make: this.selectedMark,
-      truck_model: this.selectedModel,
-      truck_firt_date_year_from: this.inputValue,
-      truck_mileage_from: this.inputKilometer,
-      truck_payment_type: this.activeTab,
-      truck_price_from: this.inputPrice,
-      truck_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-      http
-        .post("/trucks/count", {
-					truck_make: this.selectedMark,
-      truck_model: this.selectedModel,
-      truck_firt_date_year_from: this.inputValue,
-      truck_mileage_from: this.inputKilometer,
-      truck_payment_type: this.activeTab,
-      truck_price_from: this.inputPrice,
-      truck_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+    updateTruckData() {
+      const truckStore = useTruckStore();
+        (truckStore.truckData.truck_make =
+          this.selectedMark),
+        (truckStore.truckData.truck_model =
+          this.selectedModel),
+        (truckStore.truckData.truck_firt_date_year_from =
+          this.inputValue),
+        (truckStore.truckData.truck_mileage_from =
+          this.inputKilometer),
+        (truckStore.truckData.truck_payment_type =
+          this.activeTab),
+        (truckStore.truckData.truck_price_from =
+          this.inputPrice),
+        (truckStore.truckData.truck_city_zipcode =
+          this.cityName),
+        truckStore.updateTruckData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -599,12 +595,10 @@ export default {
     },
 		goMotorhomeList(){
 			 	this.$router.push({ name: "truck-list" });
-
-		}
-  },
-  components: { FilterBtn },
-  mounted() {
-    http
+         this.store.setActiveDiv("");
+		},
+    fetchMark(){
+      http
       .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
@@ -617,9 +611,17 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
+    }
+  },
+  components: { FilterBtn },
+  mounted() {
+    this.count = this.truckStore.count
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+		this.updateTruckData()
+  },
+  created() {
+    this.count = this.truckStore.count
+		this.updateTruckData()
   },
   computed: {
     isModelSelectDisabled() {

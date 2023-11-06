@@ -17,42 +17,26 @@
           <div class="model">
             {{ trailer.trailer_model }}
           </div>
-          <div class="variant">
-            {{ trailer.trailer_variant }}
-          </div>
         </div>
-        <div class="date-km flex gap-[5px]">
+        <div class="date-km text-[15px] flex flex-wrap gap-x-[5px]">
           <div class="year">
             {{ trailer.trailer_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ trailer.trailer_mileage }} km</div>
-          •
-          <div class="power">{{ trailer.trailer_power }} Hp</div>
-        </div>
-        <div class="trailer-body flex gap-[5px] text-[14px]">
+         
           <div class="trailer-body">
-            {{ trailer.trailer_body }}
+            {{ trailer.trailer_category }}
           </div>
           •
           <div class="fuel">
-            {{ trailer.trailer_fuel_type }}
+            {{ trailer.trailer_axles }}
+            Axles
           </div>
           •
-          <div class="transmission">
-            {{ trailer.trailer_transmission }}
-          </div>
-          •
-          <div class="hu">
-            HU
-            {{ trailer.trailer_hu_valid_until }}
-          </div>
-        </div>
-        <div class="trailer-body flex gap-[5px] text-[14px]">
           <div class="trailer-body">
-            {{ trailer.trailer_number_door }}
+            {{ trailer.trailer_gvw }}
+            GVW
           </div>
-          Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">

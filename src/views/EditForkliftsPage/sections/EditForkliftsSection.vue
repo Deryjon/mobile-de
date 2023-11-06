@@ -1,5 +1,6 @@
 <template>
- <div class="">
+  <TheLoader v-if="isLoading"/>
+ <div class="" v-else>
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -54,7 +55,7 @@
               v-model="selectedMark"
               @change="fetchModels()"
             >
-              <option value="14600" selected>Beliebig</option>
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option
                   v-for="make in makes"
@@ -414,7 +415,7 @@
             v-model="selectedCountry"
           >
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -1502,7 +1503,7 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "@/axios.config";
 import { useTabsStore } from "@/store/storeAd";
-
+import TheLoader from "../../../components/TheLoader.vue";
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -1534,11 +1535,14 @@ export default {
       toggleShowCheckboxAds,
     };
   },
+  components:{
+TheLoader
+  },
   data() {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -1583,7 +1587,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
@@ -1626,6 +1630,7 @@ export default {
       isCheckedRenting: false,
       isCheckedDamaged: false,
       isCheckedSki: false,
+      isLoading: true,
       extras: [],
       others: [],
       power: [],
@@ -1696,6 +1701,7 @@ this.isCheckedVAT = this.dataAd.forklift_vat
 this.isCheckedWarranty = this.dataAd.forklift_warranty
 this.approveUsed = this.dataAd.forklift_programme
 this.descriptionText = this.dataAd.forklift_describtion
+this.isLoading = false
 })
 		},
     closeDropdownOnClickOutside(event) {
@@ -2108,8 +2114,9 @@ this.descriptionText = this.dataAd.forklift_describtion
       });
 		},
     handleCancelButtonClick() {
-      // Создаем событие и отправляем его вверх по иерархии
-      this.$emit("cancel-create-add");
+      const store = useTabsStore();
+      store.setActiveTab("tab-14"); 
+     this.$router.push({name: "profile-settings"})
     },
   },
   mounted() {

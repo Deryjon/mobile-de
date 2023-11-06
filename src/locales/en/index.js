@@ -4,6 +4,9 @@ export default {
       sell: "Place an ad",
       login: "Login or Register",
       contact: "Contact",
+      language: "Language",
+      country: "Country",
+      cities: "City's",
     },
     title: {
       popular: "Popular car brands and more on our car market",

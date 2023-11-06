@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <TheLoader v-if="isLoading"/>
+  <div class="" v-else>
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -1576,22 +1577,6 @@
           ></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Municipal</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMunicipal"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1895,7 +1880,7 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "@/axios.config";
 import { useTabsStore } from "@/store/storeAd";
-
+import TheLoader from "../../../components/TheLoader.vue"
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -1927,11 +1912,14 @@ export default {
       toggleShowCheckboxAds,
     };
   },
+  components:{
+TheLoader
+  },
   data() {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -2035,6 +2023,7 @@ export default {
       combinedNumber: "",
       selectedTransmision: "",
       selectedMunicipal: false,
+      isLoading: true,
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
@@ -2089,6 +2078,7 @@ this.isCheckedVAT = this.dataAd.truck_vat
 this.isCheckedWarranty = this.dataAd.truck_warranty
 this.approveUsed = this.dataAd.truck_programme
 this.descriptionText = this.dataAd.truck_describtion
+this.isLoading = false
 })
 		},
     closeDropdownOnClickOutside(event) {
@@ -2114,7 +2104,7 @@ this.descriptionText = this.dataAd.truck_describtion
         formData.append("photos", this.selectedFiles[i]);
       }
 
-      formData.append("truck_id", this.truckId);
+      formData.append("id", this.truckId);
       formData.append("truck_make", this.selectedMark);
       formData.append("truck_model", this.selectedModel);
       formData.append("truck_condition", this.selectedCondition);
@@ -2152,7 +2142,6 @@ this.descriptionText = this.dataAd.truck_describtion
       formData.append("truck_vendor", this.selectedVendor);
       formData.append("truck_full_service_history", this.isCheckedHistory);
       formData.append("truck_damaged", this.isCheckedDamaged);
-      formData.append("truck_municipal", this.isCheckedMunicipal);
       formData.append("truck_new_hu", this.isCheckedEnvironmental);
       formData.append("truck_renting_possible", this.isCheckedRenting);
       formData.append("truck_dealer_rating", 4);
@@ -2166,9 +2155,9 @@ this.descriptionText = this.dataAd.truck_describtion
       await http.put("/semitruck/update", formData).then((response) => {
 				console.log(response);
         const responseData = response.data.data;
-			// 	const store = useTabsStore();
-      // store.setActiveTab("tab-9"); 
-    //  this.$router.push({name: "profile-settings"})
+				const store = useTabsStore();
+      store.setActiveTab("tab-9"); 
+     this.$router.push({name: "profile-settings"})
       });
     },
     openFileInput() {

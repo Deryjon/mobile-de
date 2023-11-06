@@ -5,7 +5,7 @@ export const useTruckStore = defineStore('truck', {
     truckData: {
 			truck: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateTruckData() {

@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --host",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "vue-cli-service serve"
   },
   "dependencies": {
     "@vuelidate/core": "^2.0.3",

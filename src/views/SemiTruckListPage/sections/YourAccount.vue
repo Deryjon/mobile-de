@@ -1,17 +1,18 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container v-else class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="truck in trucks" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
           @click="goToSinglePageAd(truck.truck_id)">
           <div class="img w-[350px] h-[260px] m-0">
 
-            <img class="w-[100%] h-full" :src="truck.truck_images_url" />
+            <img class="w-[100%] h-full object-cover" :src="truck.truck_images_url" />
           </div>
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ truck.truck_make_name }}
+                {{ truck.truck_make }}
               </div>
               <div class="model">
                 {{ truck.truck_model }}
@@ -26,7 +27,7 @@
               </div>
               •
               <div class="mileage">
-                {{ truck.truck_mileage }}
+                {{ truck.truck_kilometre }}
                 km
               </div>
               •
@@ -37,7 +38,7 @@
             </div>
             <div class="truck-body flex gap-[5px] text-[14px]">
               <div class="truck-body">
-                {{ truck.truck_body }}
+                {{ truck.truck_category }}
               </div>
               •
               <div class="fuel">
@@ -48,16 +49,13 @@
                 {{ truck.truck_transmission }}
               </div>
               •
-              <div class="hu">
-                HU
-                {{ truck.truck_hu_valid_until }}
+              <div class="truck-body">
+                {{ truck.truck_gvw }}
+                GVW
               </div>
             </div>
             <div class="truck-body flex gap-[5px] text-[14px]">
-              <div class="truck-body">
-                {{ truck.truck_number_door }}
-              </div>
-              Doors
+              
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -100,27 +98,35 @@
 <script>
 
 import http from "../../../axios.config";
+import TheLoader from "../../../components/TheLoader.vue";
+import {useSemiTruckStore} from "../../../store/semitruckDataStore"
 export default {
   data() {
     return {
+      semitruckStore: useSemiTruckStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
+      isLoading: true,
       trucks: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("semitrailerData")),
+      
     };
   },
   methods: {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
+    goToSinglePageAd(semitruckId) {
+      this.$router.push({ name: "semitruck-single", params: { id: semitruckId } });
+    },
     fetchAds() {
-      http.post(`/semitrucks/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const semitruckData = this.semitruckStore.semitruckData
+      http.post(`/semitrucks/list?limit=100&offset=0`, semitruckData).then((res) => {
         this.trucks = res.data.data;
-        console.log(this.trucks);
-        console.log(this.fetchData.motorcycle_make);
+        this.isLoading = false  
+
       });
     },
   },
@@ -128,7 +134,8 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-  },
+    TheLoader
+},
   created() {
     this.fetchAds();
   },
