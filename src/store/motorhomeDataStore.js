@@ -6,7 +6,7 @@ export const useMotorhomeStore = defineStore('motorhome', {
 			motor_home_make: "",
 			motor_home_model: "",
     },
-		count: ""
+		count: "0"
   }),
   actions: {
     async updateMotorhomeData() {

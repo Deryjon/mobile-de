@@ -46,8 +46,19 @@ import ContactPage from "../views/ContactPage/Contact.vue";
 import CarSinglePage from "../views/CarSinglePage/CarSinglePage.vue";
 import MotorbikeSinglePage from "../views/MotorbikeSinglePage/MotorbikeSinglePage.vue";
 import MotorhomeSinglePage from "../views/MotorhomeSinglePage/MotorhomeSinglePage.vue";
+import TruckSinglePage from "../views/TruckSinglePage/TruckSinglePage.vue";
+import TrailerSinglePage from "../views/TrailerSinglePage/TrailerSinglePage.vue";
+import VanSinglePage from "../views/VanSinglePage/VanSinglePage.vue";
+import SemitruckSinglePage from "../views/SemitruckSinglePage/SemitruckSinglePage.vue";
+import SemitrailerSinglePage from "../views/SemitrailerSinglePage/SemitrailerSinglePage.vue";
+import CoacheSinglePage from "../views/CoacheSinglePage/CoacheSinglePage.vue";
+import AgriculturalSinglePage from "../views/AgriculturalSinglePage/AgriculturalSinglePage.vue";
+import ConstructionSinglePage from "../views/ConstructionSinglePage/ConstructionSinglePage.vue";
+import ForkliftSinglePage from "../views/ForkliftSinglePage/ForkliftSinglePage.vue";
 import FullNews from "../views/FullNews/FullNews.vue";
 import PriceList from "../views/PriceList/PriceList.vue";
+import AfterPaymentPage from "../views/AfterPaymentPage/AfterPaymentPage.vue";
+import AfterFailedPaymentPage from "../views/AfterPaymentFailedPage/AfterPaymentPage.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -283,9 +294,50 @@ const router = createRouter({
       component: MotorhomeSinglePage,
     },
     {
-      path: "/:catchAll(.*)",
-      component: NotFound,
+      path: "/truck/:id",
+      name: "truck-single",
+      component: TruckSinglePage,
     },
+    {
+      path: "/trailer/:id",
+      name: "trailer-single",
+      component: TrailerSinglePage,
+    },
+    {
+      path: "/van/:id",
+      name: "van-single",
+      component: VanSinglePage,
+    },
+    {
+      path: "/semitruck/:id",
+      name: "semitruck-single",
+      component: SemitruckSinglePage,
+    },
+    {
+      path: "/semitrailer/:id",
+      name: "semitrailer-single",
+      component: SemitrailerSinglePage,
+    },
+    {
+      path: "/coache/:id",
+      name: "coache-single",
+      component: CoacheSinglePage,
+    },
+    {
+      path: "/agricultural/:id",
+      name: "agricultural-single",
+      component: AgriculturalSinglePage,
+    },
+    {
+      path: "/constructions/:id",
+      name: "constructions-single",
+      component: ConstructionSinglePage,
+    },
+      {
+        path: "/forklift/:id",
+        name: "forklift-single",
+        component: ForkliftSinglePage,
+      },
     {
       path: "/fullnews/:id",
       name: "full-news",
@@ -295,6 +347,20 @@ const router = createRouter({
       path: "/pricelist",
       name: "price-list",
       component: PriceList,
+    },
+    {
+      path: "/success-pay",
+      name: "success-pay",
+      component: AfterPaymentPage,
+    },
+    {
+      path: "/failed-pay",
+      name: "failed-pay",
+      component: AfterFailedPaymentPage,
+    },
+    {
+      path: "/:catchAll(.*)",
+      component: NotFound,
     },
   ],
 });

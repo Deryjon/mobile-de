@@ -54,7 +54,7 @@
               v-model="selectedMark"
               @change="fetchModels()"
             >
-              <option value="14600" selected>Beliebig</option>
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option
                   v-for="make in makes"
@@ -414,7 +414,7 @@
             v-model="selectedCountry"
           >
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -1854,7 +1854,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -1899,7 +1899,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
@@ -2025,11 +2025,9 @@ export default {
       );
       formData.append("user_email", this.uEmail);
       http.post("/forklifts/add", formData).then((response) => {
-				console.log(response);
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
-        console.log(responseData);
+				this.handleCancelButtonClick();
+        this.router({name: "price-list"})
       });
     },
     openFileInput() {

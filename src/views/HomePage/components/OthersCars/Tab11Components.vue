@@ -9,7 +9,7 @@
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedMark"
-            @change="fetchModels()"
+            
           >
             <option value="" selected>Beliebig</option>
             <optgroup>
@@ -340,9 +340,13 @@
 import http from "@/axios.config";
 import axios from "axios";
 import FilterBtn from "@/components/FilterBtn.vue";
-export default {
+import {useVehicleStore} from "../../../../store/agriculturalDataStore"
+import { useActiveTab4 } from "../../../../store/activeTab4Component";
+export default { 
   data() {
     return {
+      store: useActiveTab4(),
+    vehicleStore: useVehicleStore(),
 			count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -372,88 +376,71 @@ export default {
   watch: {
     selectedMark(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     selectedModel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     activeTab(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     inputPrice(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     cityName(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
     },
     selectedDriving(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.postData();
-        this.fetchData();
+        this.updateAgriculturalData()
       }
+    },
+    "vehicleStore.count": function (newCount, oldCount) {
+      this.count = newCount;
     },
   },
   methods: {
-		postData(){
-			localStorage.setItem('motorhomeData', JSON.stringify({
-      vehicle_make: this.selectedMark,
-      vehicle_model: this.selectedModel,
-      vehicle_firt_date_year_from: this.inputValue,
-      vehicle_mileage_from: this.inputKilometer,
-      vehicle_payment_type: this.activeTab,
-      vehicle_price_from: this.inputPrice,
-      vehicle_city_zipcode: this.cityName,
-    }));
-		},
-    fetchData() {
-      http
-        .post("/agriculturals/count", {
-					motor_home_make: this.selectedMark,
-      vehicle_model: this.selectedModel,
-      vehicle_firt_date_year_from: this.inputValue,
-      vehicle_mileage_from: this.inputKilometer,
-      vehicle_payment_type: this.activeTab,
-      vehicle_price_from: this.inputPrice,
-      vehicle_city_zipcode: this.cityName,
-        })
-        .then((response) => {
-          const data = response.data.data;
-					this.count = data.count
-          console.log(data.count);
-
-        });
+		updateAgriculturalData() {
+      const vehicleStore = useVehicleStore();
+      (vehicleStore.vehicleData.vehicle_make =
+        this.selectedMark),
+        (vehicleStore.vehicleData.vehicle_model =
+          this.selectedModel),
+        (vehicleStore.vehicleData.vehicle_firt_date_year_from =
+          this.inputValue),
+        (vehicleStore.vehicleData.vehicle_mileage_from =
+          this.inputKilometer),
+        (vehicleStore.vehicleData.vehicle_payment_type =
+          this.activeTab),
+        (vehicleStore.vehicleData.vehicle_price_from =
+          this.inputPrice),
+        (vehicleStore.vehicleData.vehicle_city_zipcode =
+          this.cityName),
+        vehicleStore.updateAgriculturalData();
     },
     showTab1() {
       this.activeTab = "sell";
@@ -599,6 +586,7 @@ export default {
     },
 		goMotorhomeList(){
 			 	this.$router.push({ name: "agricultural-list" });
+         this.store.setActiveDiv("");
 
 		}
   },
@@ -618,8 +606,13 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-		this.postData()
-		this.fetchData()
+		
+		this.updateAgriculturalData()
+    this.count = this.vehicleStore.count
+  },
+  created(){
+    this.updateAgriculturalData()
+    this.count = this.vehicleStore.count
   },
   computed: {
     isModelSelectDisabled() {

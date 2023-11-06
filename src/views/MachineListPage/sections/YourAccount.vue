@@ -2,16 +2,17 @@
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
-        <div v-for="machine in machines" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
+        <div v-for="machine in machines"
+          class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
           @click="goToSinglePageAd(machine.machine_id)">
           <div class="img w-[350px] h-[260px] m-0">
 
-            <img class="w-[100%] h-full" :src="machine.machine_images_url" />
+            <img class="w-[100%] h-full object-cover" :src="machine.machine_images_url" />
           </div>
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ machine.machine_make_name }}
+                {{ machine.machine_make }}
               </div>
               <div class="model">
                 {{ machine.machine_model }}
@@ -22,42 +23,10 @@
             </div>
             <div class="date-km flex gap-[5px]">
               <div class="year">
-                {{ machine.machine_firt_date_year }}
+                {{ machine.machine_operating_hours }}
+                hours
               </div>
-              •
-              <div class="mileage">
-                {{ machine.machine_mileage }}
-                km
-              </div>
-              •
-              <div class="power">
-                {{ machine.machine_power }}
-                Hp
-              </div>
-            </div>
-            <div class="machine-coachey flex gap-[5px] text-[14px]">
-              <div class="machine-coachey">
-                {{ machine.machine_body }}
-              </div>
-              •
-              <div class="fuel">
-                {{ machine.machine_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ machine.machine_transmission }}
-              </div>
-              •
-              <div class="hu">
-                HU
-                {{ machine.machine_hu_valid_until }}
-              </div>
-            </div>
-            <div class="machine-body flex gap-[5px] text-[14px]">
-              <div class="machine-body">
-                {{ machine.machine_number_door }}
-              </div>
-              Doors
+            
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -100,16 +69,18 @@
 <script>
 
 import http from "../../../axios.config";
+import { useMachineStore } from "../../../store/machineDataStore"
 export default {
   data() {
     return {
+      machineStore: useMachineStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       machines: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
+
     };
   },
   methods: {
@@ -117,12 +88,16 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/constructions/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const machineData = this.machineStore.machineData
+      http.post(`/constructions/list?limit=100&offset=0`, machineData).then((res) => {
         this.machines = res.data.data;
         console.log(this.machines);
-        console.log(this.fetchData.motorcycle_make);
       });
     },
+    goToSinglePageAd(agriculturald){
+      this.$router.push({ name: "constructions-single", params: { id: agriculturald } });
+5
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");

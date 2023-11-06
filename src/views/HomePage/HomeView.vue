@@ -1,6 +1,7 @@
 <template>
-  <main class="">
-		<SwiperSection/>
+  <TheLoader v-if="isLoading"/>
+  <main class="" v-else>
+		<SwiperSection />
     <SearchSection />
 		<RentSection/>
 		<MagazinSection/>
@@ -18,6 +19,7 @@ import SwiperSection from "./sections/SwiperSection.vue";
 import MagazinSection from "./sections/MagazinSection.vue";
 import FinanceSection from "./sections/FinanceSection.vue";
 import CarModelsSection from "./sections/CarModelsSection.vue";
+import TheLoader from "../../components/TheLoader.vue";
 export default {
   components: {
     HeaderLayoutVue,
@@ -26,7 +28,24 @@ export default {
     SwiperSection,
     MagazinSection,
     FinanceSection,
-    CarModelsSection
+    CarModelsSection,
+    TheLoader
+},
+data(){
+return{
+  isLoading: true,
+}
+},
+methods:{
+  handleVariableChange(newValue) {
+      this.isLoading = newValue;
+    }
+},
+created(){
+
+  setTimeout(() => {
+      this.isLoading = false; 
+    }, 1000);
 },
 mounted() {
 	if (localStorage.getItem("u-com") == null) {

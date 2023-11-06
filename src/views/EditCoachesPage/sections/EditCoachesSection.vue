@@ -1,5 +1,6 @@
 <template>
-  <div class="">
+  <TheLoader v-if="isLoading"/>
+  <div class="" v-else>
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -54,7 +55,7 @@
               v-model="selectedMark"
               @change="fetchModels()"
             >
-              <option value="14600" selected>Beliebig</option>
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option
                   v-for="make in makes"
@@ -414,7 +415,7 @@
             v-model="selectedCountry"
           >
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -1560,7 +1561,7 @@
           ></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
+          <h2 class="text-sm lg:text-[14px]">Driving cab</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision"
@@ -1809,7 +1810,7 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "@/axios.config";
 import { useTabsStore } from "@/store/storeAd";
-
+import TheLoader from "../../../components/TheLoader.vue";
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -1841,11 +1842,14 @@ export default {
       toggleShowCheckboxAds,
     };
   },
+  components:{
+TheLoader
+  },
   data() {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -1860,6 +1864,7 @@ export default {
       selectedVendor: "Any",
       isRadioNewSelected: false,
       isCheckedAny: true,
+      isLoading: true,
       isCheckedFromThree: false,
       isCheckedfromFour: false,
       isCheckedFive: false,
@@ -1890,7 +1895,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
@@ -1916,8 +1921,10 @@ export default {
       isCheckedCloth: false,
       isCheckedPartLeather: false,
       isCheckedVelour: false,
+      isCheckedDiscount: false,
       isCheckedFullLeather: false,
       isCheckedOther: false,
+      isCheckedVAT: false,
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
       selectedAxles: "",
@@ -1984,7 +1991,7 @@ this.selectedTransmision = this.dataAd.coache_transmission
 this.selectedExteriorColour = this.dataAd.coache_exterior_colour
 this.selectedCruise = this.dataAd.coache_cruise_control
 this.selectedTrailer = this.dataAd.coache_trailer_coupling
-this.selectedOthers = this.dataAd.coacheres
+// this.selectedOthers = this.dataAd.coache_interior_features
  this.stickerEmission = this.dataAd.coache_emissions_sticker
 this.classEmision = this.dataAd.coache_emission_class
 this.selectedGvw = this.dataAd.coache_gvw
@@ -2003,6 +2010,7 @@ this.isCheckedVAT = this.dataAd.coache_vat
 this.isCheckedWarranty = this.dataAd.coache_warranty
 this.approveUsed = this.dataAd.coache_programme
 this.descriptionText = this.dataAd.coache_describtion
+this.isLoading = false
 })
 		},
     closeDropdownOnClickOutside(event) {
@@ -2029,48 +2037,48 @@ this.descriptionText = this.dataAd.coache_describtion
       }
 
       formData.append("id", this.vanId);
-      formData.append("van_make", this.selectedMark);
-      formData.append("van_model", this.selectedModel);
-      formData.append("van_condition", this.selectedCondition);
-      formData.append("van_category", this.selectedCategory);
-      formData.append("van_video_link", this.linkVideo);
-      formData.append("van_price", parseInt(this.price));
-      formData.append("van_price_type", this.activeTab);
-      formData.append("van_firt_date", this.inputValue);
-      formData.append("van_firt_date_year", parseInt(this.inputValue));
-      formData.append("van_kilometre", parseInt(this.inputKilometer));
-      formData.append("van_power", parseInt(this.power));
-      formData.append("van_country", this.selectedCountry);
-      formData.append("van_city_zipcode", this.zipCode);
-      formData.append("van_radius", parseInt(this.radius));
-      formData.append("van_fuel_type", this.selectedFuel);
-      formData.append("van_transmission", this.selectedTransmision);
-      formData.append("van_emission_class", this.classEmision);
-      formData.append("van_emissions_sticker", this.stickerEmission);
+      formData.append("coache_make", this.selectedMark);
+      formData.append("coache_model", this.selectedModel);
+      formData.append("coache_condition", this.selectedCondition);
+      formData.append("coache_category", this.selectedCategory);
+      formData.append("coache_video_link", this.linkVideo);
+      formData.append("coache_price", parseInt(this.price));
+      formData.append("coache_price_type", this.activeTab);
+      formData.append("coache_firt_date", this.inputValue);
+      formData.append("coache_firt_date_year", parseInt(this.inputValue));
+      formData.append("coache_kilometre", parseInt(this.inputKilometer));
+      formData.append("coache_power", parseInt(this.power));
+      formData.append("coache_country", this.selectedCountry);
+      formData.append("coache_city_zipcode", this.zipCode);
+      formData.append("coache_radius", parseInt(this.radius));
+      formData.append("coache_fuel_type", this.selectedFuel);
+      formData.append("coache_transmission", this.selectedTransmision);
+      formData.append("coache_emission_class", this.classEmision);
+      formData.append("coache_emissions_sticker", this.stickerEmission);
       formData.append(
-        "features",
+        "coache_features",
         this.selectedOthers
       );
-      formData.append("van_air_conditioning", this.selectedConditioning);
-      formData.append("van_axles", parseInt(this.selectedAxles));
-      formData.append("van_wheel_formula", this.selectedWheelFormula);
-      formData.append("van_gvw", parseInt(this.selectedGvw));
-      formData.append("van_hydraulic_installation", this.selectedHydraulic);
-      formData.append("van_trailer_coupling_fix", this.isCheckedTrailerCoupling);
-      formData.append("van_cruise_control", this.selectedCruise);
-      formData.append("van_driving_cab", this.selectedDriving);
-      formData.append("van_vat", this.isCheckedVAT);
-      formData.append("van_discount_offers", this.isCheckedDiscount);
-      formData.append("interior_features", this.selectedOthers);
-      formData.append("van_exterior_colour", this.selectedExteriorColour);
-      formData.append("van_vendor", this.selectedVendor);
-      formData.append("van_full_service_history", this.isCheckedHistory);
-      formData.append("van_damaged", this.isCheckedDamaged);
-      formData.append("van_municipal", this.isCheckedMunicipal);
-      formData.append("van_new_hu", this.isCheckedEnvironmental);
-      formData.append("van_renting_possible", this.isCheckedRenting);
-      formData.append("van_dealer_rating", 4);
-      formData.append("van_describtion", this.descriptionText);
+      formData.append("coache_air_conditioning", this.selectedConditioning);
+      formData.append("coache_axles", parseInt(this.selectedAxles));
+      formData.append("coache_wheel_formula", this.selectedWheelFormula);
+      formData.append("coache_gvw", parseInt(this.selectedGvw));
+      formData.append("coache_hydraulic_installation", this.selectedHydraulic);
+      formData.append("coache_trailer_coupling_fix", this.isCheckedTrailerCoupling);
+      formData.append("coache_cruise_control", this.selectedCruise);
+      formData.append("coache_driving_cab", this.classEmision);
+      formData.append("coache_vat", this.isCheckedVAT);
+      formData.append("coache_discount_offers", this.isCheckedDiscount);
+      formData.append("coache_interior_features", this.selectedOthers);
+      formData.append("coache_exterior_colour", this.selectedExteriorColour);
+      formData.append("coache_vendor", this.selectedVendor);
+      formData.append("coache_full_service_history", this.isCheckedHistory);
+      formData.append("coache_damaged", this.isCheckedDamaged);
+      formData.append("coache_municipal", this.isCheckedMunicipal);
+      formData.append("coache_new_hu", this.isCheckedEnvironmental);
+      formData.append("coache_renting_possible", this.isCheckedRenting);
+      formData.append("coache_dealer_rating", 4);
+      formData.append("coache_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
@@ -2290,6 +2298,7 @@ this.descriptionText = this.dataAd.coache_describtion
           this.selectedOthers.splice(carIndex, 1); // Удаляем otherName из массива
         }
       }
+      console.log(this.selectedOthers); 
     },
     openSeatsDropdown() {
       this.seatsOpen = true;
@@ -2421,8 +2430,9 @@ this.descriptionText = this.dataAd.coache_describtion
       });
 		},
     handleCancelButtonClick() {
-      // Создаем событие и отправляем его вверх по иерархии
-      this.$emit("cancel-create-add");
+      const store = useTabsStore();
+      store.setActiveTab("tab-11"); 
+     this.$router.push({name: "profile-settings"})
     },
   },
   mounted() {

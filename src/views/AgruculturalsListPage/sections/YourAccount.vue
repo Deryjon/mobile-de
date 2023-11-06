@@ -11,7 +11,7 @@
           <div class="texts w-[350px] h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ vehicle.vehicle_make_name }}
+                {{ vehicle.vehicle_make }}
               </div>
               <div class="model">
                 {{ vehicle.vehicle_model }}
@@ -22,12 +22,7 @@
             </div>
             <div class="date-km flex gap-[5px]">
               <div class="year">
-                {{ vehicle.vehicle_firt_date_year }}
-              </div>
-              •
-              <div class="mileage">
-                {{ vehicle.vehicle_mileage }}
-                km
+                {{ vehicle.vehicle_firt_date }}
               </div>
               •
               <div class="power">
@@ -37,27 +32,14 @@
             </div>
             <div class="vehicle-coachey flex gap-[5px] text-[14px]">
               <div class="vehicle-coachey">
-                {{ vehicle.vehicle_body }}
-              </div>
-              •
-              <div class="fuel">
-                {{ vehicle.vehicle_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ vehicle.vehicle_transmission }}
+                {{ vehicle.vehicle_category }}
               </div>
               •
               <div class="hu">
-                HU
-                {{ vehicle.vehicle_hu_valid_until }}
+                
+                {{ vehicle.machine_operating_hours }}
+                hours
               </div>
-            </div>
-            <div class="vehicle-body flex gap-[5px] text-[14px]">
-              <div class="vehicle-body">
-                {{ vehicle.vehicle_number_door }}
-              </div>
-              Doors
             </div>
           </div>
           <div class="price text-[18px] font-semibold">
@@ -100,16 +82,17 @@
 <script>
 
 import http from "../../../axios.config";
+import {useVehicleStore} from "../../../store/agriculturalDataStore"
 export default {
   data() {
     return {
+      vehicleStore: useVehicleStore(),
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
       vehicles: [],
       contactUser: false,
-      fetchData: JSON.parse(localStorage.getItem("coacheData")),
     };
   },
   methods: {
@@ -117,12 +100,16 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      http.post(`/agriculturals/list?limit=100&offset=0`, this.fetchData).then((res) => {
+      const vehicleData = this.vehicleStore.vehicleData
+      http.post(`/agriculturals/list?limit=100&offset=0`, vehicleData).then((res) => {
         this.vehicles = res.data.data;
-        console.log(this.vehicles);
-        console.log(this.fetchData.motorcycle_make);
+        
       });
     },
+    goToSinglePageAd(agriculturald){
+      this.$router.push({ name: "machine-single", params: { id: agriculturald } });
+
+    }
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");

@@ -6,10 +6,10 @@
       :data-motorcycle-id="motorcycle.id"
       class="motorcycled bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px]">
-        <img :src="motorcycle.motorcycle_images_url[0]" alt="" class="object-cover w-full h-full"/>
+      <div class="img w-[500px] h-[200px] mr-[20px] m-0">
+        <img :src="motorcycle.motorcycle_images_url[0]" alt="" class="object-cover w-[100%] h-full"/>
       </div>
-      <div class="texts w-[520px] h-[260px]">
+      <div class="texts w-[520px] h-[20px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
           <div class="make">
             {{ motorcycle.motorcycle_make }}
@@ -30,9 +30,9 @@
           •
           <div class="power">{{ motorcycle.motorcycle_power }} Hp</div>
         </div>
-        <div class="motorcycle-body flex gap-[5px] text-[14px]">
+        <div class="motorcycle-body flex flex-wrap gap-x-[5px] text-[14px]">
           <div class="motorcycle-body">
-            {{ motorcycle.motorcycle_body }}
+            {{ motorcycle.motorcycle_type }}
           </div>
           •
           <div class="fuel">
@@ -47,12 +47,6 @@
             HU
             {{ motorcycle.motorcycle_hu_valid_until }}
           </div>
-        </div>
-        <div class="motorcycle-body flex gap-[5px] text-[14px]">
-          <div class="motorcycle-body">
-            {{ motorcycle.motorcycle_number_door }}
-          </div>
-          Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">

@@ -107,7 +107,7 @@ export default {
       inputVariant: "",
       modeltoYears: [],
       killometres: "",
-      selectedModel: localStorage.getItem("mark-model"),
+      selectedModel: "",
     };
   },
   watch: {

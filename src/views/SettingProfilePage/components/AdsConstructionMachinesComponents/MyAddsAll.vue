@@ -5,7 +5,7 @@
       :key="agricultural.machine_id"
       class="agriculturald bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px]">
+      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
         <img :src="agricultural.machine_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
@@ -21,38 +21,12 @@
           </div>
         </div>
         <div class="date-km flex gap-[5px]">
-          <div class="year">
-            {{ agricultural.machine_firt_date_year }}
-          </div>
-          •
-          <div class="mileage">{{ agricultural.machine_mileage }} km</div>
-          •
-          <div class="power">{{ agricultural.machine_power }} Hp</div>
-        </div>
-        <div class="agricultural-body flex gap-[5px] text-[14px]">
-          <div class="agricultural-body">
-            {{ agricultural.machine_body }}
-          </div>
-          •
-          <div class="fuel">
-            {{ agricultural.machine_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ agricultural.machine_transmission }}
-          </div>
-          •
-          <div class="hu">
-            HU
-            {{ agricultural.machine_hu_valid_until }}
-          </div>
-        </div>
-        <div class="agricultural-body flex gap-[5px] text-[14px]">
-          <div class="agricultural-body">
-            {{ agricultural.machine_number_door }}
-          </div>
-          Doors
-        </div>
+              <div class="year">
+                {{ agricultural.machine_operating_hours }}
+                hours
+              </div>
+            
+            </div>
       </div>
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ agricultural.machine_price }}</p>

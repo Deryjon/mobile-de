@@ -1,4 +1,5 @@
 <template>
+
   <v-container class="max-w-[1120px] h-[650px]">
     <div class="header max-w-[1120px]">
       <div class="container">
@@ -109,11 +110,13 @@
           </div>
         </div>
       </div>
+
     </div>
   </v-container>
 </template>
 <script></script>
 <style lang="scss">
+
 body {
   margin: 0;
 }

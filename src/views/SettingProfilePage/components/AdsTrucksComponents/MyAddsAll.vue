@@ -6,7 +6,7 @@
       :data-truck-id="truck.id"
       class="truckd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px]">
+      <div class="img w-[500px]  h-[200px] mr-[20px] m-0" >
         <img :src="truck.truck_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="texts w-[520px] h-[260px]">
@@ -26,13 +26,13 @@
             {{ truck.truck_firt_date_year }}
           </div>
           •
-          <div class="mileage">{{ truck.truck_mileage }} km</div>
+          <div class="mileage">{{ truck.truck_kilometre }} km</div>
           •
           <div class="power">{{ truck.truck_power }} Hp</div>
         </div>
-        <div class="truck-body flex gap-[5px] text-[14px]">
+        <div class="truck-body flex flex-wrap gap-x-[5px] text-[14px]">
           <div class="truck-body">
-            {{ truck.truck_body }}
+            {{ truck.truck_category }}
           </div>
           •
           <div class="fuel">
@@ -44,15 +44,14 @@
           </div>
           •
           <div class="hu">
-            HU
-            {{ truck.truck_hu_valid_until }}
+            {{ truck.truck_hydraulic_installation }}
+            Hydraulic
           </div>
-        </div>
-        <div class="truck-body flex gap-[5px] text-[14px]">
+          •
           <div class="truck-body">
-            {{ truck.truck_number_door }}
+            {{ truck.truck_gvw }}
+            GVW
           </div>
-          Doors
         </div>
       </div>
       <div class="price text-[18px] font-semibold">

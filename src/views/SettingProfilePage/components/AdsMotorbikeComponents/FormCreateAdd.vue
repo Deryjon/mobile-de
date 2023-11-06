@@ -2147,7 +2147,7 @@ export default {
 				console.log(response);
         const responseData = response.data.data;
 				this.handleCancelButtonClick()
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
+        this.$router.push({name: "price-list"})
         console.log(responseData);
       });
     },

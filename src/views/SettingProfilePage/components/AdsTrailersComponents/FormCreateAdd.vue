@@ -51,7 +51,7 @@
             v-model="selectedCategory"
             @change="fetchModels()"
           >
-            <option value="14600" selected>Beliebig</option>
+            <option value="" selected>Beliebig</option>
             <optgroup>
               <option value="" data-track-as="any">Any</option>
               <option value="BeveragesTruck">Beverage</option>
@@ -442,7 +442,7 @@
             v-model="selectedCountry"
           >
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -1756,11 +1756,10 @@ export default {
       );
       formData.append("user_email", this.uEmail);
       http.post("/trailers/add", formData).then((response) => {
-        console.log(response);
-        const responseData = response.data.data;
+             const responseData = response.data.data;
         this.handleCancelButtonClick();
-        // localStorage.setItem("car_id", responseData.motorcycle_id);
-        console.log(responseData);
+        this.$router.push({name: "price-list"})
+        
       });
     },
     openFileInput() {

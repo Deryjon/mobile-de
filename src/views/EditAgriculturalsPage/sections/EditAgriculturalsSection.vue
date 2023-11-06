@@ -1,5 +1,6 @@
 <template>
- <div class="">
+  <TheLoader v-if="isLoading"/>
+ <div class="" v-else>
     <div class="basic-add">
       <div class="flex items-center gap-[20px]">
         <input
@@ -1502,7 +1503,7 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "@/axios.config";
 import { useTabsStore } from "@/store/storeAd";
-
+import TheLoader from "../../../components/TheLoader.vue"
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -1533,6 +1534,9 @@ export default {
       isCheckedEnvironmental,
       toggleShowCheckboxAds,
     };
+  },
+  components:{
+TheLoader
   },
   data() {
     return {
@@ -1641,6 +1645,7 @@ export default {
       combinedNumber: "",
       selectedTransmision: "",
       selectedMunicipal: false,
+      isLoading: true,
       selectedMaterial: "",
 			selectedMotorbike: "",
 			selectedGvw: "",
@@ -1696,6 +1701,7 @@ this.isCheckedVAT = this.dataAd.vehicle_vat
 this.isCheckedWarranty = this.dataAd.vehicle_warranty
 this.approveUsed = this.dataAd.vehicle_programme
 this.descriptionText = this.dataAd.vehicle_describtion
+this.isLoading = false
 })
 		},
     closeDropdownOnClickOutside(event) {

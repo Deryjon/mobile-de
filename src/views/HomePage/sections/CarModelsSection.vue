@@ -1,7 +1,7 @@
 <template>
   <section class="rental-section">
-    <v-container class="max-w-[1120px]">
-      <div class="Automarken">
+    <v-container class="xl:w-[1120px]">
+      <div class="Automarken xl:w-[1120px]">
         <div class="container">
           <h3 class="title">
             {{ $t("message.title.popular") }}
@@ -349,7 +349,7 @@ export default {};
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  background-color: rgb(243, 241, 241);
+  background-color: rgb(243, 241, 241)
   max-width: 1120px;
   padding: 20px;
 }
@@ -364,7 +364,6 @@ export default {};
   align-items: center;
   justify-content: space-between;
 }
-
 .Automarken .container .wrapper .car-model li {
   color: #fff;
   text-decoration: none;
