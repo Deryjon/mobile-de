@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="forklift in forklifts" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
@@ -90,6 +91,7 @@
 
 import http from "../../../axios.config";
 import { useForkliftStore } from "../../../store/forkliftDataStore";
+import TheLoader from '../../../components/TheLoader.vue'
 export default {
   data() {
     return {
@@ -98,6 +100,7 @@ export default {
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
+      isLoading: true,
       forklifts: [],
       contactUser: false,
     };
@@ -110,6 +113,7 @@ export default {
       const forkliftData = this.forkliftStore.forkliftData
       http.post(`/forklifts/list?limit=100&offset=0`, forkliftData).then((res) => {
         this.forklifts = res.data.data;
+        this.isLoading = false
       });
     },
     goToSinglePageAd(forkliftId){
@@ -121,6 +125,7 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
+    TheLoader
   },
   created() {
     this.fetchAds();

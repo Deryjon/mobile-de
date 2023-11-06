@@ -1,6 +1,6 @@
 <template>
   <v-container class="w-[1120px]">
-    <PathLink>Motorbike Single</PathLink>
+    <PathLink>Forklift Single</PathLink>
     <div class="sections">
       <YourSetAd />
     </div>
