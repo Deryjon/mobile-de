@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="vehicle in vehicles" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
@@ -83,6 +84,7 @@
 
 import http from "../../../axios.config";
 import {useVehicleStore} from "../../../store/agriculturalDataStore"
+import TheLoader from "../../../components/TheLoader.vue"
 export default {
   data() {
     return {
@@ -91,6 +93,7 @@ export default {
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
+      isLoading: true,
       vehicles: [],
       contactUser: false,
     };
@@ -103,11 +106,11 @@ export default {
       const vehicleData = this.vehicleStore.vehicleData
       http.post(`/agriculturals/list?limit=100&offset=0`, vehicleData).then((res) => {
         this.vehicles = res.data.data;
-        
+        this.isLoading = false
       });
     },
     goToSinglePageAd(agriculturald){
-      this.$router.push({ name: "machine-single", params: { id: agriculturald } });
+      this.$router.push({ name: "agricultural-single", params: { id: agriculturald } });
 
     }
   },
@@ -115,6 +118,7 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
+    TheLoader
   },
   created() {
     this.fetchAds();

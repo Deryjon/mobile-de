@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="coache in coaches" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
@@ -95,6 +96,7 @@
 <script>
 
 import http from "../../../axios.config";
+import TheLoader from "../../../components/TheLoader.vue";
 import {useCoacheStore} from "../../../store/coacheDataStore"
 
 export default {
@@ -105,6 +107,7 @@ export default {
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
+      isLoading: true,
       coaches: [],
       contactUser: false,
     };
@@ -117,7 +120,7 @@ export default {
       const coacheData = this.coacheStore.coacheData
       http.post(`/coaches/list?limit=100&offset=0`, coacheData).then((res) => {
         this.coaches = res.data.data;
-        console.log(this.coaches);
+this.isLoading = false        
       });
     },
     goToSinglePageAd(coacheId){
@@ -129,7 +132,8 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-  },
+    TheLoader
+},
   created() {
     this.fetchAds();
   },

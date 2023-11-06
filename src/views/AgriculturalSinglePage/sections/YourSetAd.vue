@@ -1,24 +1,11 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative" v-else>
     <div class="left flex flex-col gap-[20px] w-[700px] rounded-[4px]">
       <div class="img h-[500px]">
         <img :src="agricultural.vehicle_images_url" class="w-full h-full object-cover" alt="" />
       </div>
-      <div class="basic-data bor flex flex-wrap justify-between h-[180px] p-[20px]">
-        <div class="mileage flex w-[186px] gap-[5px]">
-          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
-            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
-              <path d="M31 5L35 35"></path>
-              <path d="M9 5L5 35"></path>
-              <path d="M20 7V11M20 16.5V21.5M20 27V33"></path>
-            </g>
-          </svg>
-          <div class="kilomet">
-            <p class="text-[12px]">Mileage</p>
-            <p class="font-bold">{{ agricultural.vehicle_mileage }} km</p>
-          </div>
-        </div>
+      <div class="basic-data bor flex flex-wrap justify-between  p-[20px]">
         <div class="registration flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -33,7 +20,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[12px]">First Registration</p>
-            <p class="font-bold">{{ agricultural.vehicle_firt_date_year }}</p>
+            <p class="font-bold">{{ agricultural.vehicle_firt_date }}</p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
@@ -62,40 +49,7 @@
             <p class="font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
           </div>
         </div>
-        <div class="power flex w-[186px]">
-          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-width="2">
-              <path
-                d="M10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12Z">
-              </path>
-              <path
-                d="M20 12C21.1046 12 22 11.1046 22 10C22 8.89543 21.1046 8 20 8C18.8954 8 18 8.89543 18 10C18 11.1046 18.8954 12 20 12Z">
-              </path>
-              <path
-                d="M30 12C31.1046 12 32 11.1046 32 10C32 8.89543 31.1046 8 30 8C28.8954 8 28 8.89543 28 10C28 11.1046 28.8954 12 30 12Z">
-              </path>
-              <path
-                d="M10 32C11.1046 32 12 31.1046 12 30C12 28.8954 11.1046 28 10 28C8.89543 28 8 28.8954 8 30C8 31.1046 8.89543 32 10 32Z">
-              </path>
-              <path
-                d="M20 32C21.1046 32 22 31.1046 22 30C22 28.8954 21.1046 28 20 28C18.8954 28 18 28.8954 18 30C18 31.1046 18.8954 32 20 32Z">
-              </path>
-              <path
-                d="M30 32C31.1046 32 32 31.1046 32 30C32 28.8954 31.1046 28 30 28C28.8954 28 28 28.8954 28 30C28 31.1046 28.8954 32 30 32Z">
-              </path>
-              <path d="M10 13V27" stroke-linecap="round"></path>
-              <path d="M20 13V27" stroke-linecap="round"></path>
-              <path d="M30 13V20" stroke-linecap="round"></path>
-              <path d="M30 20H10" stroke-linecap="round"></path>
-            </g>
-          </svg>
-          <div class="kilomet">
-            <p class="text-[12px]">Gearbox</p>
-            <p class="font-bold">{{ agricultural.vehicle_transmission }}</p>
-          </div>
-        </div>
-        <div class="power flex w-[186px] gap-[5px]">
+         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
             <g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
@@ -110,25 +64,8 @@
             </g>
           </svg>
           <div class="kilomet">
-            <p class="text-[12px]">Previous Owners</p>
-            <p class="font-bold">{{ agricultural.vehicle_previous_owners }}</p>
-          </div>
-        </div>
-        <div class="power flex w-[186px] gap-[5px]">
-          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path
-                d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z">
-              </path>
-              <path
-                d="M26 6H14C12.8954 6 12 6.89543 12 8V14C12 15.1046 12.8954 16 14 16H26C27.1046 16 28 15.1046 28 14V8C28 6.89543 27.1046 6 26 6Z">
-              </path>
-            </g>
-          </svg>
-          <div class="kilomet">
-            <p class="text-[12px]">Fuel</p>
-            <p class="font-bold">{{ agricultural.vehicle_fuel_type }}</p>
+            <p class="text-[12px]">Operating Hours</p>
+            <p class="font-bold">{{ agricultural.vehicle_operating_hours }}</p>
           </div>
         </div>
       </div>
@@ -139,21 +76,13 @@
           <div class="category flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Category</p>
             <p class="w-[288px] text-[14px]">
-              {{ agricultural.vehicle_body }}, {{ agricultural.vehicle_type }}
+              {{ agricultural.vehicle_category }}
             </p>
           </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Origin</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_programme }}</p>
-          </div>
-          <div class="mileage flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Mileage</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_mileage }} km</p>
-          </div>
           <div class="cubic flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Cubic Capacity</p>
+            <p class="w-[288px] text-[14px] font-semibold">Air Conditioning</p>
             <p class="w-[288px] text-[14px]">
-              {{ agricultural.vehicle_cubic_capacity }} ccm
+              {{ agricultural.vehicle_air_conditioning }} 
             </p>
           </div>
           <div class="power flex justify-between">
@@ -161,26 +90,6 @@
             <p class="w-[288px] text-[14px]">
               {{ powerInkW }} kW ({{ powerInHp }} Hp)
             </p>
-          </div>
-          <div class="power flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Fuel</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_fuel_type }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Number of Seats</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_number_seats }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Door Count</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_number_door }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Gearbox</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_transmission }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Emission Class</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_emission_class }}</p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">Emissions Sticker</p>
@@ -190,15 +99,11 @@
             <p class="w-[288px] text-[14px] font-semibold">
               First Registration
             </p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_firt_date_year }}</p>
+            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_firt_date }}</p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[14px] font-semibold">HU</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_hu_valid_until }}</p>
-          </div>
-          <div class="availability flex justify-between">
-            <p class="w-[288px] text-[14px] font-semibold">Colour</p>
-            <p class="w-[288px] text-[14px]">{{ agricultural.vehicle_exterior_colour }}</p>
+            <p class="w-[288px] text-[14px]">Yes</p>
           </div>
         </div>
       </div>
@@ -231,7 +136,7 @@
         </p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[14px]">
-          <P class="title"> {{ agricultural.vehicle_description }} </P>
+          <P class="title"> {{ agricultural.vehicle_describtion }} </P>
         </div>
       </div>
       <div class="description bor p-[20px]">
@@ -369,17 +274,17 @@
       </div> -->
       <div class="price flex gap-[5px] text-[16px] mt-[5px]">
         €
-        <p class="agricultural-price">{{ agricultural.car_price }}</p>
+        <p class="agricultural-price">{{ agricultural.vehicle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
       <div class="name-seller mt-[20px]">
-        <p class="name">{{ agricultural.car_vendor }}</p>
+        <p class="name">{{ agricultural.vehicler_vendor }}</p>
       </div>
       <div class="name-seller">
         <p class="name">DE-33602 Bielefeld</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">Phone: {{ agricultural.vehicler_phone }}</p>
+        <p class="name">Phone: {{ agricultural.user_phone }}</p>
       </div>
       <button
         class="complete bg-[#e04b00] w-full py-[12px] rounded-[8px] text-[#fff] font-bold flex items-center gap-[5px] px-[32%] mt-[20px]">
@@ -419,8 +324,9 @@
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
-// import { format } from "date-fns";
+import { format } from "date-fns";
 import http from "../../../axios.config";
+import TheLoader from "../../../components/TheLoader.vue";
 export default {
   data() {
     return {
@@ -433,6 +339,7 @@ export default {
       contactUser: false,
       horsepower: "",
       isScrolled: false,
+      isLoading: true,
       scrollThresholdReached: false,
       userCreatedAt: null,
       formattedDate: "",
@@ -444,18 +351,18 @@ export default {
     },
     fetchAds() {
       this.userI = localStorage.getItem("u-i");
-      http.get(`/agricultural/${this.carId}`).then((res) => {
+      http.get(`/agriculturals/${this.carId}`).then((res) => {
         this.agricultural = res.data.data;
         this.horsepower = this.agricultural.vehicle_power;
-
+this.isLoading  = false
       });
     },
     fetchUser() {
       http.get(`/users?id=${this.userI}`).then((res) => {
         this.user = res.data.data;
-        // this.userCreatedAt = this.user.user_create_at;
-        // const date = new Date(this.userCreatedAt);
-        // this.formattedDate = format(date, " MMM d yyyy");
+        this.userCreatedAt = this.user.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
         // console.log(this.formattedDate);
         // console.log(this.user);
       });
@@ -488,6 +395,7 @@ export default {
     SettingsTab,
     OverviewTab,
     MyAdCarsTab,
+    TheLoader
   },
   created() {
     this.userI = localStorage.getItem("u-i");
