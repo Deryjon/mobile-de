@@ -12,7 +12,9 @@
               {{ $t("message.title.clicked") }}
             </h3>
             <p class="subtitle text-[15px] mt-[10px]">
-              {{ ad.card_text }}
+             {{ ad.card_text.length > 45
+              ? ad.card_text.substring(0, 45) + "..."
+              : ad.card_text}}
             </p>
             <button class="btn text-[15px] mt-[15px] border-gray-500" @click="redirectToLink(ad)">
               {{ ad.card_title }}
