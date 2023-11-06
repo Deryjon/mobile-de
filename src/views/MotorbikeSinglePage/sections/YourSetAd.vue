@@ -334,7 +334,7 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[14px]">Phone: {{ user.user_country_code }}{{ user.user_number_prefix }}{{ user.user_phone_number }}</p>
+          <p class="phone text-[14px]">Phone: {{ motorcycle.user_phone }}</p>
         </div>
         <div class="line mt-[10px]"></div>
 

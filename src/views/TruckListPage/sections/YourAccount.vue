@@ -1,5 +1,6 @@
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
+  <TheLoader v-if="isLoading" />
+  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
     <section class="w-full settings relative bg-[#0000001f] p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="truck in trucks" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
@@ -36,28 +37,28 @@
               </div>
             </div>
             <div class="truck-body flex flex-wrap gap-x-[5px] text-[14px]">
-          <div class="truck-body">
-            {{ truck.truck_category }}
-          </div>
-          •
-          <div class="fuel">
-            {{ truck.truck_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ truck.truck_transmission }}
-          </div>
-          •
-          <div class="hu">
-            {{ truck.truck_hydraulic_installation }}
-            Hydraulic
-          </div>
-          •
-          <div class="truck-body">
-            {{ truck.truck_gvw }}
-            GVW
-          </div>
-        </div>
+              <div class="truck-body">
+                {{ truck.truck_category }}
+              </div>
+              •
+              <div class="fuel">
+                {{ truck.truck_fuel_type }}
+              </div>
+              •
+              <div class="transmission">
+                {{ truck.truck_transmission }}
+              </div>
+              •
+              <div class="hu">
+                {{ truck.truck_hydraulic_installation }}
+                Hydraulic
+              </div>
+              •
+              <div class="truck-body">
+                {{ truck.truck_gvw }}
+                GVW
+              </div>
+            </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ truck.truck_price }}</p>
@@ -96,6 +97,7 @@
 
 import http from "../../../axios.config";
 import { useTruckStore } from "../../../store/truckDataStore"
+import TheLoader from '../../../components/TheLoader.vue'
 export default {
   data() {
     return {
@@ -106,6 +108,7 @@ export default {
       isOpen: false,
       trucks: [],
       contactUser: false,
+      isLoading: true,
     };
   },
   methods: {
@@ -116,10 +119,10 @@ export default {
       const truckData = this.truckStore.truckData
       http.post(`/trucks/list?limit=100&offset=0`, truckData).then((res) => {
         this.trucks = res.data.data;
-
+        this.isLoading = false
       });
     },
-    goToSinglePageAd(truckId){
+    goToSinglePageAd(truckId) {
       this.$router.push({ name: "truck-single", params: { id: truckId } });
     },
   },
@@ -127,6 +130,7 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
+    TheLoader
   },
   created() {
     this.fetchAds();
