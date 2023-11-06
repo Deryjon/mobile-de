@@ -1,6 +1,3 @@
-<script>
-export default {};
-</script>
 
 <template>
   <v-container class="xl:w-[1120px]">
@@ -170,6 +167,26 @@ export default {};
       </div>
   </v-container>
 </template>
+<script>
+import http from "../../../axios.config"
+export default{
+  data(){
+    return{
+
+    }
+  },
+  methods:{
+    fetchCard(){
+http.get('/ads/card').then((res) => {
+  console.log(res);
+})
+    }
+  },
+  created (){
+    this.fetchCard
+  }
+}
+</script>
 <style scoped>
 @font-face {
   font-family: "20 Kopeek";

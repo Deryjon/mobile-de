@@ -1,49 +1,21 @@
 <template>
   <section class="rental-section">
     <v-container class="max-w-[1120px]">
-      <div
-        class="wrapper flex flex-col lg:flex-row lg:justify-between w-[1120px]"
-      >
-        <div
-          class="left-rent bg-[#f5f5f5] w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex gap-[15px] p-[30px]"
-        >
+      <div class="wrapper flex flex-col lg:flex-row lg:justify-between w-[1120px]">
+        <div v-for="ad in ads" :key="ad.card_id" 
+        class="left-rent bg-[#f5f5f5] w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex gap-[15px] p-[30px]">
           <div class="img lg:w-[200x] lg:h-[140px]">
-            <img
-              src="../../../assets/images/rent-section-img-1.jpg"
-              alt=""
-              class="w-full h-full object-cover"
-            />
+            <img :src="ad.card_image_url" alt="" class="w-full h-full object-cover" />
           </div>
           <div class="text">
             <h3 class="title font-bold text-[18px]">
               {{ $t("message.title.clicked") }}
             </h3>
             <p class="subtitle text-[15px] mt-[10px]">
-              Autos online kaufen und liefern lassen - mit Online-Kauf von
-              mobile.de
+              {{ ad.card_text }}
             </p>
-            <button class="btn text-[15px] mt-[15px] border-gray-500">
-              7974 Online-Kauf-Angebote
-            </button>
-          </div>
-        </div>
-        <div
-          class="right-rent bg-[#f5f5f5] w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex gap-[15px] p-[30px] mt-[10px] lg:mt-[0px]"
-        >
-          <div class="img sm:w-[386px] sm:h-[187px] lg:w-[200px] lg:h-[140px]">
-            <img
-              src="../../../assets/images/rent-section-img-1.jpg"
-              alt=""
-              class="w-full h-full object-cover"
-            />
-          </div>
-          <div class="text">
-            <h3 class="title font-bold text-[18px]">Leasing-Schnäppchen</h3>
-            <p class="subtitle text-[15px] mt-[10px]">
-              Exklusive Angebote für privat und gewerblich.
-            </p>
-            <button class="btn text-[15px] mt-[15px] border-gray-500">
-              Leasing-Deals zeigen
+            <button class="btn text-[15px] mt-[15px] border-gray-500" @click="redirectToLink(ad)">
+              {{ ad.card_title }}
             </button>
           </div>
         </div>
@@ -51,9 +23,33 @@
     </v-container>
   </section>
 </template>
+
 <script>
-export default {};
+import http from '../../../axios.config';
+
+export default {
+  data() {
+    return {
+      ads: []
+    }
+  },
+  methods: {
+    fetchCard() {
+      http.get('/ads/card').then((res) => {
+        this.ads = res.data.data;
+      })
+    },
+    redirectToLink(ad) {
+      // Перенаправляем пользователя по ссылке из объекта ad
+      window.location.href = ad.card_link;
+    },
+  },
+  created() {
+    this.fetchCard();
+  }
+};
 </script>
+
 <style scoped>
 .btn {
   border: 1px solid gray;
