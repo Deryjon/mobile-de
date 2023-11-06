@@ -4,6 +4,7 @@
     <div class="swiper_wrapper">
     <SwiperSection class="swiper"/>
   </div>
+  <PathLink>News</PathLink>
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in newsData" :key="item.news_id">
         <img :src="item.news_image_url" alt="Image 1" />
@@ -21,7 +22,7 @@
     
         </p>
         <div class="btn">
-          <router-link :to="`/fullnews/${item.news_id}`" class="">Weitless</router-link>
+          <router-link :to="`/fullnews/${item.news_id}`" >{{ $t("message.btn.continue") }}</router-link>
         </div>
       </div>
     </div>
@@ -41,6 +42,7 @@
 import http from "../../../axios.config";
 import SwiperSection from "../../HomePage/sections/SwiperSection.vue";
 import TheLoader from "../../../components/TheLoader.vue"
+import PathLink from "../../../ui/PathLink.vue";
 
 export default {
     data() {
@@ -51,13 +53,14 @@ export default {
             limit: 9,
             isLastPage: false,
             isLoading: false,
+            lang: localStorage.getItem('lang')
         };
     },
     methods: {
         async fetchNews() {
             this.isLoading = true;
             try {
-                const res = await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=en`);
+                const res = await http.get(`/news/list?limit=${this.limit}&offset=${this.offset}&lang=${this.lang}`);
                 this.newsData = res.data.data;
                 this.isLastPage = res.data.data.length >= this.limit;
                 console.log(this.newsData);
@@ -93,7 +96,7 @@ export default {
     mounted() {
      this.fetchNews();
     },
-    components: { SwiperSection, TheLoader }
+    components: { SwiperSection, TheLoader, PathLink }
 };
 </script>
 <style scoped>

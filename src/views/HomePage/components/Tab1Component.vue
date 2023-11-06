@@ -2,27 +2,37 @@
   <div class="for-example">
     <div class="filters-selects flex gap-[80px]">
       <div class="relative">
-        <h2 class="text-sm lg:text-[14px] mt-2">Condition</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">
+          {{ $t("message.selects.condition") }}
+        </h2>
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" @change="fetchCondition()" v-model="selectedCondition">
-          <option value="" selected>Any</option>
-          <option class="">New</option>
-          <option class="">Used</option>
-          <option class="">Rental</option>
-          <option class="">Crash Car</option>
-          <option class="">Classic</option>
+          placeholder="Beliebig"
+          @change="fetchCondition()"
+          v-model="selectedCondition"
+        >
+          <option value="" selected>{{ $t("message.filter.any") }}</option>
+          <option class="">{{ $t("message.filter.new") }}</option>
+          <option class="">{{ $t("message.filter.used") }}</option>
+          <option class="">{{ $t("message.filter.rent") }}</option>
+          <option class="">{{ $t("message.filter.crash") }}</option>
+          <option class="">{{ $t("message.filter.classic") }}</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"></span>
       </div>
       <div class="relative">
-        <h2 class="text-sm lg:text-[14px] mt-2">Driving site</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">
+          {{ $t("message.side.title") }}
+        </h2>
         <select
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" v-model="selectedDriving">
-          <option value="" selected>Any</option>
-          <option class="">Left side</option>
-          <option class="">Right side</option>
+          placeholder="Beliebig"
+          v-model="selectedDriving"
+        >
+          <option value="" selected>{{ $t("message.filter.any") }}</option>
+          <option class="">{{ $t("message.side.left") }}</option>
+          <option class="">{{ $t("message.side.right") }}</option>
+
         </select>
         <span class="arrow w-[7px] h-[7px] absolute left-[155px] bottom-4"></span>
       </div>
@@ -236,7 +246,9 @@
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[80px]">
           <div class="price dropdown-container">
-            <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
+            <h2 class="mt-2 text-sm lg:text-[14px]">
+              {{ $t("message.selects.priceFrom") }}
+            </h2>
             <div class="input-container flex relative mt-[10px]">
               <input type="from"
                 class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -302,7 +314,10 @@
             </div>
           </div>
           <FilterBtn :to="{ name: 'car-filter' }" @click="goCarList">
-            <p class="text-white text-[18px] lg:text-[16px]">{{ this.count }} {{ $t("message.results.result") }}</p>
+            <p class="text-white text-[18px] lg:text-[16px]">
+              {{ this.count }} {{ $t("message.results.result") }}
+            </p>
+
           </FilterBtn>
         </div>
       </div>
@@ -320,7 +335,9 @@ export default {
   },
   data() {
     return {
+
       carStore: useCarStore(),
+
       count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -409,6 +426,41 @@ export default {
   methods: {
     goCarList() {
       this.$router.push({ name: "car-list" });
+    },
+    postData() {
+      localStorage.setItem(
+        "carData",
+        JSON.stringify({
+          car_make: this.selectedMark,
+          car_model: this.selectedModel,
+          car_condition: this.selectedCondition,
+          car_firt_date_year_from: this.inputValue,
+          car_mileage_from: this.inputKilometer,
+          car_payment_type: this.activeTab,
+          car_price_from: this.inputPrice,
+          car_city_zipcode: this.cityName,
+          car_silding_door: this.selectedDriving,
+        })
+      );
+    },
+    fetchData() {
+      http
+        .post("/cars/count", {
+          car_make: this.selectedMark,
+          car_model: this.selectedModel,
+          car_condition: this.selectedCondition,
+          car_firt_date_year_from: this.inputValue,
+          car_mileage_from: this.inputKilometer,
+          car_payment_type: this.activeTab,
+          car_price_from: this.inputPrice,
+          car_city_zipcode: this.cityName,
+          car_silding_door: this.selectedDriving,
+        })
+        .then((response) => {
+          const data = response.data.data;
+          this.count = data.count;
+          console.log(data.count);
+        });
 
     },
     updateCarData() {
@@ -422,6 +474,7 @@ export default {
       carStore.carData.car_variant = this.inputVariant;
       carStore.carData.car_payment_type = this.activeTab;
       carStore.updateCarData();
+
     },
     showTab1() {
       this.activeTab = "sell";
@@ -583,12 +636,13 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
+    this.postData();
+    this.fetchData();
         this.updateCarData()
   },
   created(){
     this.updateCarData()
     this.count = this.carStore.count
-
 
   },
   computed: {

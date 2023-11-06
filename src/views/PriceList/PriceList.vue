@@ -3,19 +3,30 @@ import axios from "axios";
 import { onMounted, ref } from "vue";
 import SwiperSection from "../HomePage/sections/SwiperSection.vue";
 import TheLoader from "../../components/TheLoader.vue";
+
+import PathLink from "../../ui/PathLink.vue";
+
+
 import http from "../../axios.config";
+
 const data = ref([]);
 const isLastPage = ref(false);
 const isLoading = ref(false);
 const offset = ref(0);
 const limit = ref(9);
+const lang = localStorage.getItem("lang");
 
 async function fetchData() {
   isLoading.value = true;
 
   try {
+
+    const res = await axios.get(
+      `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=${lang}`
+
     const res = await http.get(
       `/price/list?limit=${limit.value}&offset=${offset.value}&lang=en`
+
     );
     data.value = res.data.data;
     isLastPage.value = res.data.data.length < limit.value;
@@ -82,6 +93,7 @@ onMounted(fetchData);
     <div class="swiper_wrapper">
       <SwiperSection />
     </div>
+    <PathLink>PriceList</PathLink>
     <div class="w-[100%] card_box">
       <div class="card" v-for="item in data" :key="item.price_item_id">
         <h1 class="card__title">
@@ -92,6 +104,9 @@ onMounted(fetchData);
         </p>
         <div class="price">{{ formatPrice(item.price_item_price) }}</div>
         <div class="btn">
+
+          <button>{{ $t("message.btn.try") }}</button>
+
           <button @click="goPayment(item)">Try now</button>
         </div>
       </div>
