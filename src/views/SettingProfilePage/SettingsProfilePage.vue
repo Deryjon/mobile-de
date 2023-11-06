@@ -1,5 +1,6 @@
 <template>
   <v-container class="w-[1120px]">
+    <span></span>
     <PathLink>Settings</PathLink>
     <div class="sections">
       <YourAccount />
@@ -14,16 +15,14 @@ import YourAccount from "./sections/YourAccount.vue";
 export default {
   components: {
     PathLink,
-    YourAccount
+    YourAccount,
   },
   created() {
-const isLoggedIn = localStorage.getItem("logged-in");
-if (isLoggedIn === "false") {
-
-  this.$router.push({ name: "home" });
-}
-
-  }
+    const isLoggedIn = localStorage.getItem("logged-in");
+    if (isLoggedIn === "false") {
+      this.$router.push({ name: "home" });
+    }
+  },
 };
 </script>
 
