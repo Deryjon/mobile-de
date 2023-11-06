@@ -7,7 +7,7 @@
           @click="setActive('tab-1')"
           :class="{ active: isActive('tab-1') }"
         >
-          Login
+          {{ $t("message.register.login") }}
         </button>
 
         <button
@@ -15,7 +15,7 @@
           @click="setActive('tab-2')"
           :class="{ active: isActive('tab-2') }"
         >
-          Register
+          {{ $t("message.register.register") }}
         </button>
       </div>
       <div class="tab-content bg-[#fff] w-[480px]">
@@ -30,12 +30,12 @@
 
               <v-form @submit.prevent="signUp">
                 <p class="font-bold text-[24px] text-center mt-[10px]">
-                  Hello! Welcome back!
+                  {{ $t("message.register.back") }}
                 </p>
                 <div class="flex flex-col mt-[15px]">
-                  <label for="email" class="text-[14px] font-medium"
-                    >E-Mail address</label
-                  >
+                  <label for="email" class="text-[14px] font-medium">{{
+                    $t("message.register.email")
+                  }}</label>
                   <input
                     id="email"
                     type="email"
@@ -47,13 +47,13 @@
                   <span
                     v-if="!isEmailLoginValid"
                     class="text-red-600 text-sm mt-1"
-                    >Please enter a valid email address.</span
+                    >{{ $t("message.register.validEmail") }}</span
                   >
                 </div>
                 <div class="flex flex-col mt-[20px]">
-                  <label for="password" class="text-[14px] font-medium"
-                    >Password</label
-                  >
+                  <label for="password" class="text-[14px] font-medium">{{
+                    $t("message.register.password")
+                  }}</label>
                   <div class="relative rounded-md shadow-sm">
                     <input
                       @input="validatePasswordLogin"
@@ -100,14 +100,14 @@
                   <span
                     v-if="!isPasswordLoginValid"
                     class="text-red-600 text-sm mt-1"
-                    >Password must be at least 8 characters long.</span
+                    >{{ $t("message.register.atLeast") }}</span
                   >
                 </div>
 
                 <p
                   class="text-sm text-gray-600 font-medium underline cursor-pointer ml-1 mt-4"
                 >
-                  Forget password?
+                  {{ $t("message.register.forget") }}
                 </p>
                 <button
                   type="submit"
@@ -116,7 +116,7 @@
                   @click="LoginUser(emailLogin, passwordLogin)"
                   :class="{ 'opacity-50': !isFormLoginValid }"
                 >
-                  Login
+                  {{ $t("message.register.login") }}
                 </button>
               </v-form>
             </v-sheet>
@@ -132,12 +132,12 @@
               <HeaderLogo class="mx-auto" />
               <v-form @submit.prevent="createNewUser">
                 <p class="font-bold text-[24px] text-center">
-                  Create your sellcenter account!
+                  {{ $t("message.register.title") }}
                 </p>
                 <div class="flex flex-col mt-[15px]">
-                  <label for="email" class="text-[14px] font-medium"
-                    >E-Mail address</label
-                  >
+                  <label for="email" class="text-[14px] font-medium">
+                    {{ $t("message.register.email") }}
+                  </label>
                   <input
                     id="email"
                     type="email"
@@ -147,14 +147,14 @@
                     @input="validateEmail"
                   />
                   <span v-if="!isEmailValid" class="text-red-600 text-sm mt-1">
-                    Please enter a valid email address.
+                    {{ $t("message.register.validEmail") }}
                   </span>
                 </div>
 
                 <div class="flex flex-col mt-[20px]">
-                  <label for="password" class="text-[14px] font-medium"
-                    >Password</label
-                  >
+                  <label for="password" class="text-[14px] font-medium">
+                    {{ $t("message.register.password") }}
+                  </label>
                   <div class="relative rounded-md shadow-sm">
                     <input
                       @input="validatePassword"
@@ -199,31 +199,39 @@
                   <span
                     v-if="!isPasswordValid"
                     class="text-red-600 text-sm mt-1"
-                    >Password must be at least 8 characters long.</span
                   >
+                    {{ $t("message.register.atLeast") }}
+                  </span>
                 </div>
-								<div class="flex gap-[30px] mt-[20px]">
-
-									<label class="">
-										<input type="radio" id="user-rad" value="false"
-										@click="handleRadioClick(false)"
-										v-model="userCompany"
-										/>
-										Private
-									</label>
-									<label  class="">
-										<input type="radio"  id="user-com" value="true"
-										v-model="userCompany"
-										@click="handleRadioClick(true)"
-										/>
-										Company
-									</label>
-								</div>
+                <div class="flex gap-[30px] mt-[20px]">
+                  <label class="">
+                    <input
+                      type="radio"
+                      id="user-rad"
+                      value="false"
+                      @click="handleRadioClick(false)"
+                      v-model="userCompany"
+                    />
+                    {{ $t("message.register.private") }}
+                  </label>
+                  <label class="">
+                    <input
+                      type="radio"
+                      id="user-com"
+                      value="true"
+                      v-model="userCompany"
+                      @click="handleRadioClick(true)"
+                    />
+                    {{ $t("message.register.company") }}
+                  </label>
+                </div>
 
                 <p class="conditions text-[14px] mt-[20px] mb-[20px]">
-                  The <span>General Terms and Conditions</span> apply.
-                  Information on the way all data are processed can be found in
-                  our <span>Privacy Policy</span>.
+                  {{ $t("message.register.the") }}
+                  <span> {{ $t("message.register.conditions") }}</span>
+                  {{ $t("message.register.information")
+                  }}<span> {{ $t("message.register.policy") }}</span
+                  >.
                 </p>
                 <label class="custom-checkbox">
                   <input
@@ -245,19 +253,18 @@
                       d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
                     />
                   </svg>
-                  I would like to receive emails from mobile.de about offers,
-                  surveys and information on products and services from
-                  mobile.de and Kleinanzeigen (can be cancelled at any time in
-                  the account settings).
+                  {{ $t("message.register.recieveEmails") }}
                 </label>
                 <button
-                  @click="createNewUser(emailRegister, passwordRegister, userCompany)"
+                  @click="
+                    createNewUser(emailRegister, passwordRegister, userCompany)
+                  "
                   type="submit"
                   :disabled="!isFormRegisterValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
                   :class="{ 'opacity-50': !isFormRegisterValid }"
                 >
-                  Register
+                  {{ $t("message.register.register") }}
                 </button>
               </v-form>
             </v-sheet>
@@ -316,7 +323,7 @@ export default {
       isEmailLoginValid: false,
       isPasswordLoginValid: false,
       isChecked: false,
-			userCompany: false
+      userCompany: false,
     };
   },
   methods: {
@@ -343,15 +350,15 @@ export default {
       // Пример проверки на длину пароля:
       this.isPasswordLoginValid = this.passwordLogin.length >= 8;
     },
-		handleRadioClick(value) {
-            console.log(value);
-        },
+    handleRadioClick(value) {
+      console.log(value);
+    },
     createNewUser(email, password) {
       http
         .post("/user/register", {
           user_email: email,
           user_password: password,
-					user_company: this.userCompany
+          user_company: this.userCompany,
         })
         .then((response) => {
           const responseData = response.data;
@@ -397,7 +404,7 @@ export default {
           console.log(responseData);
           localStorage.setItem("u-i", responseData.data.user_id);
           localStorage.setItem("u-com", responseData.data.user_company);
-					localStorage.setItem("com-i", responseData.company_id);
+          localStorage.setItem("com-i", responseData.company_id);
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
           localStorage.setItem("u-fn", responseData.data.user_first_name);
@@ -411,14 +418,8 @@ export default {
             "u-d-co",
             responseData.data.user_address_country
           );
-          localStorage.setItem(
-            "u-img-prof",
-            responseData.data.user_image_url
-          );
-          localStorage.setItem(
-            "u-img-alt",
-            responseData.data.user_image_name
-          );
+          localStorage.setItem("u-img-prof", responseData.data.user_image_url);
+          localStorage.setItem("u-img-alt", responseData.data.user_image_name);
           localStorage.setItem("u-code", responseData.data.user_country_code);
           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);
@@ -535,7 +536,7 @@ input[type="radio"]:focus {
   box-shadow: none;
 }
 input[type="radio"]:checked {
-background: orange;
-box-shadow: transparent
+  background: orange;
+  box-shadow: transparent;
 }
 </style>

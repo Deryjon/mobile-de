@@ -27,8 +27,13 @@
         </h2>
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel"
-          type="text" />
+
+          placeholder="Beliebig"
+          :disabled="isModelSelectDisabled"
+          @change="postModels"
+          v-model="selectedModel"
+          type="text"
+        />
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -203,7 +208,9 @@
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[80px]">
           <div class="price dropdown-container">
-            <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
+            <h2 class="mt-2 text-sm lg:text-[14px]">
+              {{ $t("message.selects.priceFrom") }}
+            </h2>
             <div class="input-container flex relative mt-[10px]">
               <input type="from"
                 class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -269,7 +276,9 @@
             </div>
           </div>
           <FilterBtn @click="goMotorhomeList">
-            <p class="text-white text-[18px] lg:text-[16px]">{{ this.count }} {{ $t("message.results.result") }}</p>
+            <p class="text-white text-[18px] lg:text-[16px]">
+              {{ this.count }} {{ $t("message.results.result") }}
+            </p>
           </FilterBtn>
         </div>
       </div>
@@ -362,6 +371,36 @@ export default {
     },
   },
   methods: {
+    postData() {
+      localStorage.setItem(
+        "motorhomeData",
+        JSON.stringify({
+          motor_home_make: this.selectedMark,
+          motor_home_model: this.selectedModel,
+          motor_home_firt_date_year_from: this.inputValue,
+          motor_home_mileage_from: this.inputKilometer,
+          motor_home_payment_type: this.activeTab,
+          motor_home_price_from: this.inputPrice,
+          motor_home_city_zipcode: this.cityName,
+        })
+      );
+    },
+    fetchData() {
+      http
+        .post("/motorhomes/count", {
+          motor_home_make: this.selectedMark,
+          motor_home_model: this.selectedModel,
+          motor_home_firt_date_year_from: this.inputValue,
+          motor_home_mileage_from: this.inputKilometer,
+          motor_home_payment_type: this.activeTab,
+          motor_home_price_from: this.inputPrice,
+          motor_home_city_zipcode: this.cityName,
+        })
+        .then((response) => {
+          const data = response.data.data;
+          this.count = data.count;
+          console.log(data.count);
+        });
     updateMotorhomeData() {
       const motorhomeStore = useMotorhomeStore();
       (motorhomeStore.motorhomeData.motor_home_make = this.selectedMark),
@@ -519,6 +558,13 @@ export default {
       this.$router.push({ name: "motorhome-list" });
 
     },
+  },
+  components: { FilterBtn },
+  mounted() {
+    http
+
+
+    },
     fetchMarks(){
       http
       .get("/motorhome/marks")
@@ -541,6 +587,8 @@ export default {
 
    this.fetchMarks()
     this.fetchModelYears();
+    this.postData();
+    this.fetchData();
 
     this.updateMotorhomeData()
   },
@@ -549,6 +597,7 @@ export default {
     this.count = this.motorhomeStore.count
 
 
+>>>>>>> main
   },
   computed: {
     isModelSelectDisabled() {

@@ -8,6 +8,7 @@
           </h2>
           <select
             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+
             v-model="selectedMark">
             <option value="" selected>Beliebig</option>
             <optgroup>
@@ -27,8 +28,13 @@
         </h2>
         <input
           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel"
-          type="text" />
+          placeholder="Beliebig"
+          :disabled="isModelSelectDisabled"
+          @change="postModels"
+          v-model="selectedModel"
+          type="text"
+        />
+
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -203,7 +209,9 @@
       <div class="tab-content">
         <div class="bottom tab-panel lg:flex items-center gap-[80px]">
           <div class="price dropdown-container">
-            <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
+            <h2 class="mt-2 text-sm lg:text-[14px]">
+              {{ $t("message.selects.priceFrom") }}
+            </h2>
             <div class="input-container flex relative mt-[10px]">
               <input type="from"
                 class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -269,7 +277,10 @@
             </div>
           </div>
           <FilterBtn @click="goMotorbikeList">
-            <p class="text-white text-[18px] lg:text-[16px]">{{ this.count }} {{ $t("message.results.result") }}</p>
+            <p class="text-white text-[18px] lg:text-[16px]">
+              {{ this.count }} {{ $t("message.results.result") }}
+            </p>
+
           </FilterBtn>
         </div>
       </div>
@@ -285,6 +296,7 @@ export default {
   data() {
     return {
       motorbikeStore: useMotorbikeStore(),
+
       count: "",
       selectedMake: "",
       selectedPrice: "",
@@ -367,6 +379,37 @@ export default {
     },
   },
   methods: {
+
+    postData() {
+      localStorage.setItem(
+        "motorbikeData",
+        JSON.stringify({
+          motorcycle_make: this.selectedMark,
+          motorcycle_model: this.selectedModel,
+          motorcycle_firt_date_year_from: this.inputValue,
+          motorcycle_mileage_from: this.inputKilometer,
+          motorcycle_payment_type: this.activeTab,
+          motorcycle_price_from: this.inputPrice,
+          motorcycle_city_zipcode: this.cityName,
+        })
+      );
+    },
+    fetchData() {
+      http
+        .post("/motorcycles/count", {
+          motorcycle_make: this.selectedMark,
+          motorcycle_model: this.selectedModel,
+          motorcycle_firt_date_year_from: this.inputValue,
+          motorcycle_mileage_from: this.inputKilometer,
+          motorcycle_payment_type: this.activeTab,
+          motorcycle_price_from: this.inputPrice,
+          motorcycle_city_zipcode: this.cityName,
+        })
+        .then((response) => {
+          const data = response.data.data;
+          this.count = data.count;
+          console.log(data.count);
+        });
     updateMotorbikeData() {
       const motorcycleStore = useMotorbikeStore();
       motorcycleStore.motorcycleData.motorcycle_make = this.selectedMark;
@@ -377,6 +420,7 @@ export default {
       motorcycleStore.motorcycleData.motorcycle_price_from = this.inputPrice;
       motorcycleStore.motorcycleData.motorcycle_city_zipcode = this.cityNamem;
       motorcycleStore.updateMotorbikeData();
+
     },
     showTab1() {
       this.activeTab = "sell";
@@ -524,8 +568,13 @@ export default {
       this.$router.push({ name: "motorbike-list" });
 
     },
+  },
+  components: { FilterBtn },
+  mounted() {
+
     fetchMarks(){
       http
+
       .get("/motorcycle/marks")
       .then((response) => {
         const data = response.data.data;
@@ -547,14 +596,14 @@ export default {
 
    this.fetchMarks()
     this.fetchModelYears();
+    this.postData();
+    this.fetchData();
 
     this.updateMotorbikeData()
   },
   created(){
     this.updateMotorbikeData()
     this.count = this.motorbikeStore.count
-
-
   },
   computed: {
     isModelSelectDisabled() {
