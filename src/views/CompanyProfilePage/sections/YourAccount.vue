@@ -316,7 +316,7 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
     this.companyProfileImg = localStorage.getItem("u-img-prof");
 		if (this.companyProfileImg === 'null') {
-    return   this.companyIcon = false;
+       this.companyIcon = true;
     }
     this.companyProfileImgName = localStorage.getItem("com-img-alt");
   },
