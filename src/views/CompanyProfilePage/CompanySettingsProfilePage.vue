@@ -46,11 +46,15 @@ export default {
   },
   mounted() {
     this.userId = localStorage.getItem("u-i");
-    this.getDataCompany()
+
     const isLoggedIn = localStorage.getItem("logged-in");
     const isLoggedCompany = localStorage.getItem("u-com");
     if (isLoggedIn === "false" || isLoggedCompany === "false") {
       this.$router.push({ name: "home" });
+    }
+    if (typeof comI === 'number') {
+        // Check if comI is a number
+        this.getDataCompany();
     }
   },
 };
