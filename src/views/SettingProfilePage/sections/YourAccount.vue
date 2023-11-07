@@ -404,7 +404,7 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
     this.userProfileImg = localStorage.getItem("u-img-prof");
 		if (this.userProfileImg === 'null') {
-    return   this.userIcon = true;
+       this.userIcon = true;
     }
     this.userProfileImgName = localStorage.getItem("u-img-alt");
   },

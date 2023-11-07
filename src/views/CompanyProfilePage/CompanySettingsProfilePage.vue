@@ -47,12 +47,12 @@ export default {
   created() {
     this.userId = localStorage.getItem("u-i");
 		this.getDataCompany()
-    // const isLoggedIn = localStorage.getItem("logged-in");
-    // const isLoggedCompany = localStorage.getItem("u-com");
-    // if (isLoggedIn === "false" || isLoggedCompany === "false") {
-    //   // Перенаправление на страницу "home"
-    //   this.$router.push({ name: "home" });
-    // }
+    const isLoggedIn = localStorage.getItem("logged-in");
+    const isLoggedCompany = localStorage.getItem("u-com");
+    if (isLoggedIn === "false" || isLoggedCompany === "false") {
+      // Перенаправление на страницу "home"
+      this.$router.push({ name: "home" });
+    }
   },
 };
 </script>

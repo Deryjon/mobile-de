@@ -271,7 +271,7 @@ export default {
       isOpen: false,
 			companyProfileImg: null,
       companyProfileImgName: null,
-			companyIcon: false
+			companyIcon: false,
     };
   },
   methods: {
@@ -314,9 +314,9 @@ export default {
   },
   created() {
     this.userEmail = localStorage.getItem("u-e");
-    this.companyProfileImg = localStorage.getItem("com-img-prof");
+    this.companyProfileImg = localStorage.getItem("u-img-prof");
 		if (this.companyProfileImg === 'null') {
-    return   this.companyIcon = true;
+    return   this.companyIcon = false;
     }
     this.companyProfileImgName = localStorage.getItem("com-img-alt");
   },
