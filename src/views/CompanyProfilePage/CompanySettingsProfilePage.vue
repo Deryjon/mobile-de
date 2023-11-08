@@ -49,14 +49,15 @@ export default {
 
     const isLoggedIn = localStorage.getItem("logged-in");
     const isLoggedCompany = localStorage.getItem("u-com");
+    const comI = localStorage.getItem("com-i"); // Получаем значение "com-i" из localStorage
+
     if (isLoggedIn === "false" || isLoggedCompany === "false") {
       this.$router.push({ name: "home" });
     }
-    if (typeof comI === 'number') {
-        // Check if comI is a number
-        this.getDataCompany();
-    }
+    this.getDataCompany();
+
   },
+
 };
 </script>
 

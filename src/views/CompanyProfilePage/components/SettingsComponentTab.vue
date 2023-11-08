@@ -1046,7 +1046,6 @@ export default {
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-          window.location.reload();
           console.log(responseData);
         });
     },
