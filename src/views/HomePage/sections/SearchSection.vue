@@ -1,6 +1,6 @@
 <template>
-  <section class="search">
-    <v-container class="max-w-[1120px]">
+  <section class="search ">
+    <v-container class="  xl:w-[1120px]">
       <div
         class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1120px] bg-[#0000001f] h-[650px] lg:h-[240px] flex"
       >

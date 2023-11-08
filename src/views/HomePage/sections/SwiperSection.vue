@@ -1,9 +1,11 @@
 <template>
-  <section class="swiper">
-    <v-container class="max-w-[1120px]">
-      <div class="slider">
+  <section class="swiper relative">
+    <v-container class="xl:w-[1120px]">
+      <div class="slider xl:w-[1120px] xl:h-[400px] left-auto right-auto">
         <img v-for="(image, index) in images" :key="index" :src="image.slider_image_url" :alt="image.slider_title"
-          :class="{ 'slider-item': true, active: activeIndex === index }" />
+          :class="{ 'slider-item': true, active: activeIndex === index }" 
+          class="xl:w-[1120px] xl:h-[400px] opacity-0 absolute left-auto right-auto -[100px]  duration-500 object-cover"
+          />
       </div>
       <div class="indicators">
         <div v-for="(dot, index) in images" :key="index" class="item" @click="changeSlide(index)"
@@ -68,27 +70,6 @@ export default {
 };
 </script>
 <style scoped>
-.swiper .slider {
-  position: relative;
-  width: 1120px;
-  height: 400px;
-  left: auto;
-  right: auto;
-}
-
-.swiper .slider .slider-item {
-  width: 1120px;
-  height: 400px;
-  opacity: 0;
-  position: absolute;
-  height: 400px;
-  left: auto;
-  right: auto;
-  top: 0;
-  transition: 0.5s;
-  object-fit: cover;
-}
-
 .swiper .slider .slider-item img {
   width: 100%;
   object-fit: cover;
@@ -96,7 +77,6 @@ export default {
 
 .swiper .slider .slider-item.active {
   opacity: 1;
-  /* transform: translateY(0) ; */
 }
 
 .swiper .next-prev {
