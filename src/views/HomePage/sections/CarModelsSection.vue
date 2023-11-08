@@ -7,7 +7,7 @@
             {{ $t("message.title.popular") }}
           </h3>
 
-          <div class="wrapper w-[360px] flex justify-between">
+          <div class="wrapper w-full flex justify-between">
             <!-- lists -->
             <div class="car-names">
               <ul class="car-model">
