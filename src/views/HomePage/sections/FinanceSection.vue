@@ -9,22 +9,11 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xl-5 col-xs-5 mobe">
-          <p>
-            {{ $t("message.title.overview") }}
-          </p>
-          <h2 class="marketF">
-            {{ $t("message.title.market") }}
-          </h2>
-          <p>
-            {{ $t("message.text.aboutMarket") }}
-          </p>
-        </div>
-        <div class="col-xl-6">
+      <div class=" flex justify-between mt-[10px]">
+        <div class="w-[50%]">
           <img src="../../../assets/images/family.jpg" alt="" />
         </div>
-        <div class="col-xl-5 ">
+        <div class="w-[50%]">
           <p>
             {{ $t("message.title.overview") }}
           </p>
@@ -32,33 +21,17 @@
             {{ $t("message.title.market") }}
           </h2>
           <p>
-            <!-- SellCenter ist Deutschlands größter Fahrzeugmarkt, auf dem Du
-            einfach ein Auto kaufen oder verkaufen kannst. Hier gibt es
-            Gebrauchtwagen,
-            <span>Neuwagen</span> , Youngtimer, <span>Oldtimer</span> ,
-            <span>Kleinwagen</span> und Kompakte, <span>SUV</span>, luxuriöse
-            Limousinen und günstige Autos. Du kannst Dein gebrauchtes
-            <span>Auto verkaufen</span>, Neuwagen- und Gebrauchtwagenverkäufer
-            kontaktieren. Du kannst mehr über
-            <span>Automarken und Modelle</span> herausfinden, Dich über die
-            Fahrzeugfinanzierung informieren, Finanzierungsangebote und
-            Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
-            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr. -->
             {{ $t("message.text.aboutMarket") }}
           </p>
         </div>
-        
+
       </div>
 
 
       <div class="row sec-5">
         <div class="mini-sec">
           <div class="w-[200px] col-md-2">
-            <img
-              class="men-glase"
-              src="../../../assets/images/men-glase.jpg"
-              alt=""
-            />
+            <img class="men-glase" src="../../../assets/images/men-glase.jpg" alt="" />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
@@ -70,11 +43,7 @@
         </div>
         <div class="mini-sec">
           <div class="w-[200px]">
-            <img
-              class="men-glase"
-              src="../../../assets/images/woman.jpg"
-              alt=""
-            />
+            <img class="men-glase" src="../../../assets/images/woman.jpg" alt="" />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
@@ -124,12 +93,8 @@
           </div>
         </div>
         <div class="flex gap-[20px]">
-          <div class="w-[170px]"> 
-            <img
-              class="h-[170px]"
-              src="../../../assets/images/man-telephone.jpg"
-              alt=""
-            />
+          <div class="w-[170px]">
+            <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
           </div>
           <div class="w-[300px]">
             <h2 class="denkst">{{ $t("message.title.leasing") }}</h2>
@@ -138,59 +103,37 @@
             </p>
             <span>➤ {{ $t("message.title.offers") }}</span>
 
-            <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
           </div>
-          <div class="w-[300px]">
-            <h2 class="denkst">Denkst Du Leasing?</h2>
-            <p class="text-[14px]">
-              Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
-              Traumwagen und finde passende Leasing-Angebote von unseren Händlern
-              in Deiner Nähe. Lorem ipsum, dolor sit amet consectetur adipisicin
-            </p>
-            <span>➤ Leasing-Angebote finden</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row sec-4">
-        <div class="col-xl-1"></div>
-
-        <div class="col-xl-1"></div>
-        <div class="col-xl-4 Auto"></div>
-      </div>
-        <div class="col-xl-1">
-
-        </div>
-        <div class="col-xl-4 Auto">
 
         </div>
       </div>
+
+
+    </div>
   </v-container>
 </template>
 <script>
 import http from "../../../axios.config"
-export default{
-  data(){
-    return{
+export default {
+  data() {
+    return {
 
     }
   },
-  methods:{
-    fetchCard(){
-http.get('/ads/card').then((res) => {
-  console.log(res);
-})
+  methods: {
+    fetchCard() {
+      http.get('/ads/card').then((res) => {
+        console.log(res);
+      })
     }
   },
-  created (){
+  created() {
     this.fetchCard
   }
 }
 </script>
 <style scoped>
-
 .header {
-  height: 945px;
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: contain;
@@ -487,4 +430,5 @@ http.get('/ads/card').then((res) => {
 
 .btn {
   display: block;
-}</style>
+}
+</style>
