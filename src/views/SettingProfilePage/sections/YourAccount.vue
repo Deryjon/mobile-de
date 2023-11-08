@@ -1,7 +1,7 @@
 --
 <template>
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
+    <div class="tabs w-[210px] h-[750px] bg-[#0000001f] p-[20px]">
       <div class="top flex gap-[10px] items-center mt-[10px]">
         <div class="profile-img" v-if="!userIcon">
           <img
@@ -99,14 +99,18 @@
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
               >
-                <li class="text-[14px]" data-key="be">Cars</li>
+                <li class="text-[14px]" data-key="be">
+                  {{ $t("message.profile.cars") }}
+                </li>
               </div>
               <div
                 class="flex items-center"
                 @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
               >
-                <li class="text-[14px]">Motorcycles</li>
+                <li class="text-[14px]">
+                  {{ $t("message.profile.motorcycles") }}
+                </li>
               </div>
 
               <div class="flex items-center">
@@ -116,7 +120,7 @@
                   @click="setActive('tab-5')"
                   :class="{ active: isActive('tab-5') }"
                 >
-                  Motor homes
+                  {{ $t("message.profile.motorHomes") }}
                 </li>
               </div>
 
@@ -127,7 +131,7 @@
                   @click="setActive('tab-6')"
                   :class="{ active: isActive('tab-6') }"
                 >
-                  Trucks
+                  {{ $t("message.profile.trucks") }}
                 </li>
               </div>
 
@@ -138,7 +142,7 @@
                   @click="setActive('tab-7')"
                   :class="{ active: isActive('tab-7') }"
                 >
-                  Trailers
+                  {{ $t("message.profile.trailers") }}
                 </li>
               </div>
 
@@ -149,7 +153,7 @@
                   @click="setActive('tab-8')"
                   :class="{ active: isActive('tab-8') }"
                 >
-                  Vans
+                  {{ $t("message.profile.vans") }}
                 </li>
               </div>
 
@@ -160,7 +164,7 @@
                   @click="setActive('tab-9')"
                   :class="{ active: isActive('tab-9') }"
                 >
-                  Semi trailer trucks
+                  {{ $t("message.profile.semiTrucks") }}
                 </li>
               </div>
               <div class="flex items-center">
@@ -170,7 +174,7 @@
                   @click="setActive('tab-10')"
                   :class="{ active: isActive('tab-10') }"
                 >
-                  Semi trailers
+                  {{ $t("message.profile.semiTrailers") }}
                 </li>
               </div>
               <div class="flex items-center">
@@ -180,7 +184,7 @@
                   @click="setActive('tab-11')"
                   :class="{ active: isActive('tab-11') }"
                 >
-                  Coaches
+                  {{ $t("message.profile.coaches") }}
                 </li>
               </div>
               <div class="flex items-center">
@@ -190,7 +194,7 @@
                   @click="setActive('tab-12')"
                   :class="{ active: isActive('tab-12') }"
                 >
-                  Agricultural vehicle
+                  {{ $t("message.profile.agrocultural") }}
                 </li>
               </div>
 
@@ -201,7 +205,7 @@
                   @click="setActive('tab-13')"
                   :class="{ active: isActive('tab-13') }"
                 >
-                  Construction machines
+                  {{ $t("message.profile.construction") }}
                 </li>
               </div>
               <div class="flex items-center">
@@ -211,7 +215,7 @@
                   @click="setActive('tab-14')"
                   :class="{ active: isActive('tab-14') }"
                 >
-                  Forklift trucks
+                  {{ $t("message.profile.forklift") }}
                 </li>
               </div>
             </div>

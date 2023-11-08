@@ -298,7 +298,7 @@
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="font-medium">Address</p>
+                <p class="font-medium">{{ $t("message.profile.address") }}</p>
                 <p class="font-normal text-[14px]">
                   {{ userAddressStreet }} {{ userAddressNr }}
                   {{ userAddressZip }} {{ userAddressCity }}
@@ -316,13 +316,15 @@
           <div class="" v-if="addressChange">
             <div class="box">
               <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
-                <p>Complete address</p>
+                <p>{{ $t("message.profile.completeAddress") }}</p>
               </div>
               <div class="changes w-[656px] h-[350px] p-[20px]">
                 <div class="top flex items-center gap-[40px] w-[656px]">
                   <div class="mark">
                     <div class="w-[440px] mt-2">
-                      <h2 class="text-sm lg:text-[14px]">Street</h2>
+                      <h2 class="text-sm lg:text-[14px]">
+                        {{ $t("message.profile.street") }}
+                      </h2>
                       <input
                         class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                         v-model="userAddressStreet"
@@ -330,7 +332,7 @@
                     </div>
                   </div>
                   <div class="email mt-[10px]">
-                    <p class="text-sm lg:text-[14px]">Nr</p>
+                    <p class="text-sm lg:text-[14px]">№</p>
                     <input
                       type="text "
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -340,7 +342,9 @@
                 </div>
                 <div class="top flex items-center gap-[40px] w-[656px]">
                   <div class="email mt-[10px]">
-                    <p class="text-sm lg:text-[14px]">PostCode</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.postcode") }}
+                    </p>
                     <input
                       type="text "
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -349,7 +353,9 @@
                   </div>
                   <div class="mark">
                     <div class="w-[440px] mt-2">
-                      <h2 class="text-sm lg:text-[14px]">City</h2>
+                      <h2 class="text-sm lg:text-[14px]">
+                        {{ $t("message.profile.city") }}
+                      </h2>
                       <input
                         class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                         v-model="userAddressCity"
@@ -358,7 +364,9 @@
                   </div>
                 </div>
                 <div class="relative mt-2">
-                  <h2 class="text-sm lg:text-[14px]">Country</h2>
+                  <h2 class="text-sm lg:text-[14px]">
+                    {{ $t("message.profile.country") }}
+                  </h2>
                   <select
                     class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[620px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                     v-model="selectedCountry"
@@ -443,13 +451,13 @@
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
                     @click="openAddressChange"
                   >
-                    Cancel
+                    {{ $t("message.profile.cancel") }}
                   </button>
                   <button
                     class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
                     @click="changeContactDataAddress"
                   >
-                    Save
+                    {{ $t("message.profile.save") }}
                   </button>
                 </div>
               </div>
@@ -461,7 +469,9 @@
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="font-medium">Phone number</p>
+                <p class="font-medium">
+                  {{ $t("message.profile.phoneNumber") }}
+                </p>
                 <p class="font-normal text-[14px]">
                   {{ userCountryCode }} {{ userNumberPre }}
                   {{ userPhoneNumber }}
@@ -478,12 +488,14 @@
           <div class="" v-if="numberChanges">
             <div class="box">
               <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
-                <p>Complete name</p>
+                <p>{{ $t("message.profile.completeNumber") }}</p>
               </div>
               <div class="changes w-[656px] h-[200px] p-[20px]">
                 <div class="mark flex gap-[15px]">
                   <div class="relative w-[141px]">
-                    <h2 class="text-sm lg:text-[14px]">Country code</h2>
+                    <h2 class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.countryCode") }}
+                    </h2>
                     <select
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                       v-model="userCountryCode"
@@ -562,7 +574,9 @@
                   </div>
 
                   <div class="email mt-[5px]">
-                    <p class="text-sm lg:text-[14px]">Prefix</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.prefix") }}
+                    </p>
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
@@ -570,7 +584,9 @@
                     />
                   </div>
                   <div class="email mt-[5px]">
-                    <p class="text-sm lg:text-[14px]">Phone number</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.phoneNumber") }}
+                    </p>
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
@@ -583,13 +599,13 @@
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
                     @click="openNumberChange"
                   >
-                    Cancel
+                    {{ $t("message.profile.cancel") }}
                   </button>
                   <button
                     class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
                     @click="changeContactDataNumber"
                   >
-                    Save
+                    {{ $t("message.profile.save") }}
                   </button>
                 </div>
               </div>
@@ -597,7 +613,9 @@
           </div>
         </div>
         <div class="profile mt-[30px]">
-          <h2 class="text-[26px] font-semibold">Documents</h2>
+          <h2 class="text-[26px] font-semibold">
+            {{ $t("message.profile.docs") }}
+          </h2>
           <div class="box">
             <div
               class="w-[656px] h-[84px] p-[10px] flex items-center justify-between"
@@ -607,10 +625,11 @@
               >
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">My invoices</p>
+                    <p class="font-medium">
+                      {{ $t("message.profile.invoices") }}
+                    </p>
                     <p class="font-normal text-[14px]">
-                      Here you will find an overview of your booked packages and
-                      options
+                      {{ $t("message.profile.packages") }}
                     </p>
                   </div>
                 </div>
@@ -618,13 +637,15 @@
               <button
                 class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
               >
-                None available
+                {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
         </div>
         <div class="profile mt-[30px]">
-          <h2 class="text-[26px] font-semibold">Privacy</h2>
+          <h2 class="text-[26px] font-semibold">
+            {{ $t("message.profile.privacy") }}
+          </h2>
           <div class="box">
             <div
               class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
@@ -632,12 +653,11 @@
               <div class="w-[656px] p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">Newsletter</p>
+                    <p class="font-medium">
+                      {{ $t("message.profile.newsletter") }}
+                    </p>
                     <p class="font-normal text-[12px]">
-                      I would like to receive emails from mobile.de about
-                      offers, surveys and information on products and services
-                      from mobile.de and Kleinanzeigen (can be cancelled at any
-                      time in the account settings).
+                      {{ $t("message.profile.recieveEmails") }}
                     </p>
                   </div>
                 </div>
@@ -645,7 +665,7 @@
               <button
                 class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
               >
-                None available
+                {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
@@ -656,9 +676,11 @@
               <div class="w-[656px] p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">Market research</p>
+                    <p class="font-medium">
+                      {{ $t("message.profile.market") }}
+                    </p>
                     <p class="font-normal text-[12px]">
-                      I agree that my data is used for market research.
+                      {{ $t("message.profile.agree") }}
                     </p>
                   </div>
                 </div>
@@ -666,13 +688,15 @@
               <button
                 class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
               >
-                None available
+                {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
         </div>
         <div class="profile mt-[30px]">
-          <h2 class="text-[26px] font-semibold">Delete account</h2>
+          <h2 class="text-[26px] font-semibold">
+            {{ $t("message.profile.delete") }}
+          </h2>
           <div
             class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
           >
@@ -696,7 +720,7 @@
               <div class="profile-pic">
                 <p class="font-medium">{{ userE }}</p>
                 <p class="font-normal">
-                  Private Account, registered since 2023
+                  {{ $t("message.profile.since") }}
                 </p>
               </div>
             </div>
@@ -706,7 +730,7 @@
                   class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
                   v-bind="props"
                 >
-                  Delete account
+                  {{ $t("message.profile.delete") }}
                 </button>
               </template>
 
