@@ -102,9 +102,7 @@ onMounted(fetchData);
         <div class="price">{{ formatPrice(item.price_item_price) }}</div>
         <div class="btn">
 
-          <button>{{ $t("message.btn.try") }}</button>
-
-          <button @click="goPayment(item)">Try now</button>
+          <button @click="goPayment(item)">{{ $t("message.btn.try") }}</button>
         </div>
       </div>
     </div>
