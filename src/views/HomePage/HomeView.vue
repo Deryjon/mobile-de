@@ -2,12 +2,12 @@
   <TheLoader v-if="isLoading"/>
   <main class="" v-else>
 		<SwiperSection />
-    <SearchSection />
-		<RentSection/>
+     <SearchSection />
+		<!-- <RentSection/>
 		<MagazinSection/>
     <ElectroCarsSection/>
 		<FinanceSection/>
-		<CarModelsSection/>
+		<CarModelsSection/> -->
 		
   </main>
 </template>

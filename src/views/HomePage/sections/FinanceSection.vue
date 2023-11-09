@@ -1,7 +1,7 @@
 
 <template>
   <v-container class="xl:w-[1120px]">
-    <div class="magazine-bmw bg-[#f5f5f5] xl:w-[1120px] xl:p-[20px]">
+    <div class="magazine-bmw bg-[#f5f5f5] w-full xl:w-[1120px] xl:p-[20px]">
       <div class="row sections-2">
         <div class="col-xl-5">
 

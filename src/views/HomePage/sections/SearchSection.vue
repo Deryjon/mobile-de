@@ -1,13 +1,13 @@
 <template>
   <section class="search ">
-    <v-container class="  xl:w-[1120px]">
+    <v-container class="max-w-[1145px]">
       <div
-        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1120px] bg-[#0000001f] h-[650px] lg:h-[240px] flex"
+        class="search relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[1120px] bg-[#0000001f] h-[800px] lg:h-[240px] flex"
       >
         <div class="tabs h-full">
-          <div class="nav-tabs flex lg:flex-col mt-[-0.01px]">
+          <div class="nav-tabs flex lg:flex-col lg:mt-[-0.01px]">
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20.35px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
+              class="nav-item  lg:w-[80px] bg-[#d3d3d3] py-[20.35px] w-[87.5px] sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-1')"
               :class="{ active: isActive('tab-1') }"
             >
@@ -25,7 +25,7 @@
               </svg>
             </div>
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
+              class="nav-item  lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-2')"
               :class="{ active: isActive('tab-2') }"
             >
@@ -43,7 +43,7 @@
               </svg>
             </div>
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
+              class="nav-item  lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-3')"
               :class="{ active: isActive('tab-3') }"
             >
@@ -61,7 +61,7 @@
               </svg>
             </div>
             <div
-              class="nav-item lg:w-[80px] bg-[#d3d3d3] py-[20px] w-1/4 sm:w-1/4 hover:bg-[#0000001f]"
+              class="nav-item  lg:w-[80px] bg-[#d3d3d3] py-[20px] w-[87.5px] sm:w-1/4 hover:bg-[#0000001f]"
               @click="setActive('tab-4')"
               :class="{ active: isActive('tab-4') }"
             >
@@ -80,25 +80,25 @@
             </div>
           </div>
         </div>
-        <div class="tab-content absolute left-[60px] sm:left-[100px]">
+        <div class="tab-content absolute top-[61px] sm:left-[100px] p-[20px]">
           <div class="tab-panel" v-show="isActive('tab-1')">
             <Tab1Component
-              class="absolute top-[110px] lg:top-[0px] sm:mt-[120px] lg:mt-[10px]"
+              class="absolute  lg:top-[0px] sm:mt-[120px] lg:mt-[10px]"
             />
           </div>
           <div class="tab-panel" v-show="isActive('tab-2')">
             <div class="for-example">
-              <Tab2Component class="mt-[50px]" />
+              <Tab2Component class="" />
             </div>
           </div>
           <div class="tab-panel" v-show="isActive('tab-3')">
             <div class="for-example">
-              <Tab3Component class="mt-[50px]" />
+              <Tab3Component class="" />
             </div>
           </div>
           <div class="tab-panel" v-show="isActive('tab-4')">
             <div class="for-example">
-              <Tab4Components class="mt-[100px] sm:mt-[120px] lg:mt-[25px]" />
+              <Tab4Components class=" sm:mt-[120px] lg:mt-[25px]" />
             </div>
           </div>
         </div>

@@ -1,7 +1,7 @@
 <template>
     <section class="rental-section">
-        <v-container class="max-w-[1120px]">
-            <div class="wrapper flex flex-col gap-[10px] lg:flex-row lg:justify-between w-[1120px]">
+        <v-container class="xl:w-[1120px]">
+            <div class="wrapper w-full flex flex-col gap-[10px] lg:flex-row lg:justify-between w-[1120px]">
                 <div
                     class="left-rent bg-[#f5f5f5]  w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex items-center gap-[15px] p-[30px]">
                     <div class="img lg:w-[200x] lg:h-[140px] ">

@@ -1,12 +1,10 @@
 <template>
   <div
-    class="hidden-menu fixed right-0 top-0 w-1.5/2 h-full p-5 flex flex-col "
+    class="hidden-menu fixed right-0 top-0 w-full h-full p-5 flex flex-col "
     :class="{ 'bg-[#526d82]': isDarkMode, 'bg-[#F8FCFF]': !isDarkMode }"
   >
-    <div class="wrapper">
+    <div class="wrapper ">
       <div class="head flex items-center justify-between pt-3">
-        <HeaderLinks />
-
         <button
           class="close-btn w-7 h-7 flex justify-center items-center order-3"
           @click="$emit('closeMenu')"
@@ -16,18 +14,19 @@
         <HeaderLogo @click="$emit('closeMenu')" class="order-2" />
       </div>
 
-      <div class="body">
+      <div class="body flex flex-col justify-center">
         <HeaderSwitcherTheme
-          class="ml-[30px] mt-[10px]"
+          class=""
           @click="$emit('closeMenu')"
         />
-        <HeaderActions class="flex flex-col justify-between mr-[30px]" />
+        <HeaderActions class="w-[180px]" />
         <HeaderContact
-          class="ml-[35px] mt-[10px]"
+          class="ml-[23px]"
           @click="$emit('closeMenu')"
         />
         <HeaderLogout
-          class="flex justify-center ml-[35px] mt-[10px]"
+          class=""
+          @click="$emit('closeMenu')"
         />
       </div>
     </div>

@@ -1,7 +1,7 @@
 <template>
   <v-container class="xl:w-[1120px] ">
     <h3 class="">News</h3>
-    <div class="w-[1120px] card_box">
+    <div class="w-full xl:w-[1120px] card_box">
       <div class="card" v-for="item in newsData" :key="item.news_id">
         <img :src="item.news_image_url" alt="Image 1" />
         <p class="date">{{ formatDate(item.news_create_at) }}</p>
@@ -216,5 +216,27 @@ export default {
   width: 100%;
   overflow-x: hidden;
   transform: translateX(-10px);
+}
+/* responsive */
+@media(max-width:1000px) {
+  .card_box{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: center;
+  border: 1px solid black;
+}
+}
+@media(max-width:680px) {
+  .swiper_wrapper{
+    display: none;
+  }
+  .card_box{
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  justify-items: center;
+  border: 1px solid black;
+}
 }
 </style>

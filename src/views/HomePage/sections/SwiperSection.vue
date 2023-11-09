@@ -1,13 +1,15 @@
 <template>
-  <section class="swiper relative">
-    <v-container class="xl:w-[1120px]">
-      <div class="slider xl:w-[1120px] xl:h-[400px] left-auto right-auto">
+  <section class="swiper relative h-[250px] xs:h-[300px] sm:h-[400px]
+  
+  xl:h-[500px]">
+    <v-container class="max-w-[1145px]">
+      <div  class="slider w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto h-[100px] xs:h-[130px] sm:h-[200px] lg:h-[240px] xl:h-[340px] ">
         <img v-for="(image, index) in images" :key="index" :src="image.slider_image_url" :alt="image.slider_title"
           :class="{ 'slider-item': true, active: activeIndex === index }" 
-          class="xl:w-[1120px] xl:h-[400px] opacity-0 absolute left-auto right-auto -[100px]  duration-500 object-cover"
+          class="slider-img w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  h-[70%] lg:h-[300px] xl:h-[400px] xl:w-[1100px]  opacity-0 absolute  duration-500 object-cover"
           />
       </div>
-      <div class="indicators">
+      <div class="indicators mt-[80px]">
         <div v-for="(dot, index) in images" :key="index" class="item" @click="changeSlide(index)"
           :class="{ active: activeIndex === index }"></div>
       </div>
@@ -22,13 +24,6 @@ export default {
     return {
       activeIndex: 0,
       images: [],
-      // images: [
-      //   { src: 'https://gaadiwaadi.com/wp-content/uploads/2020/01/Changan-CS75-Plus-7-1280x720.jpg', alt: '' },
-      //   { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-dashboard-view-246796.jpg', alt: '' },
-      //   { src: 'https://imgcdn.zigwheels.ph/large/gallery/exterior/138/3010/changan-cs75-plus-rear-angle-view-222963.jpg', alt: '' },
-      //   { src: 'https://imgcdn.zigwheels.ph/large/gallery/interior/138/3010/changan-cs75-plus-rd-row-seat-417889.jpg', alt: '' },
-      //   // ... add other image objects here
-      // ],
       intervalId: null,
     };
   },
@@ -70,6 +65,9 @@ export default {
 };
 </script>
 <style scoped>
+.slider-img{
+  margin: 0 auto;
+}
 .swiper .slider .slider-item img {
   width: 100%;
   object-fit: cover;
