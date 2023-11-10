@@ -1,7 +1,7 @@
 
 <template>
   <v-container class="xl:w-[1120px]">
-    <div class="magazine-bmw bg-[#f5f5f5] xl:w-[1120px] xl:p-[20px]">
+    <div class="magazine-bmw bg-[#f5f5f5] w-full xl:w-[1120px] xl:p-[20px]">
       <div class="row sections-2">
         <div class="col-xl-5">
 
@@ -9,22 +9,11 @@
         </div>
       </div>
 
-      <div class="row">
-        <div class="col-xl-5 col-xs-5 mobe">
-          <p>
-            {{ $t("message.title.overview") }}
-          </p>
-          <h2 class="marketF">
-            {{ $t("message.title.market") }}
-          </h2>
-          <p>
-            {{ $t("message.text.aboutMarket") }}
-          </p>
-        </div>
-        <div class="col-xl-6">
+      <div class=" flex justify-between mt-[10px]">
+        <div class="w-[50%]">
           <img src="../../../assets/images/family.jpg" alt="" />
         </div>
-        <div class="col-xl-5 ">
+        <div class="w-[50%]">
           <p>
             {{ $t("message.title.overview") }}
           </p>
@@ -32,33 +21,17 @@
             {{ $t("message.title.market") }}
           </h2>
           <p>
-            <!-- SellCenter ist Deutschlands größter Fahrzeugmarkt, auf dem Du
-            einfach ein Auto kaufen oder verkaufen kannst. Hier gibt es
-            Gebrauchtwagen,
-            <span>Neuwagen</span> , Youngtimer, <span>Oldtimer</span> ,
-            <span>Kleinwagen</span> und Kompakte, <span>SUV</span>, luxuriöse
-            Limousinen und günstige Autos. Du kannst Dein gebrauchtes
-            <span>Auto verkaufen</span>, Neuwagen- und Gebrauchtwagenverkäufer
-            kontaktieren. Du kannst mehr über
-            <span>Automarken und Modelle</span> herausfinden, Dich über die
-            Fahrzeugfinanzierung informieren, Finanzierungsangebote und
-            Monatsraten vergleichen, oder Leasing-Angebote finden. Ebenso
-            findest Du <span>Auto-Tipps, Tests, Ratgeber</span> und vieles mehr. -->
             {{ $t("message.text.aboutMarket") }}
           </p>
         </div>
-        
+
       </div>
 
 
       <div class="row sec-5">
         <div class="mini-sec">
           <div class="w-[200px] col-md-2">
-            <img
-              class="men-glase"
-              src="../../../assets/images/men-glase.jpg"
-              alt=""
-            />
+            <img class="men-glase" src="../../../assets/images/men-glase.jpg" alt="" />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
@@ -70,11 +43,7 @@
         </div>
         <div class="mini-sec">
           <div class="w-[200px]">
-            <img
-              class="men-glase"
-              src="../../../assets/images/woman.jpg"
-              alt=""
-            />
+            <img class="men-glase" src="../../../assets/images/woman.jpg" alt="" />
           </div>
           <div class="col-xl-4 Auto">
             <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
@@ -124,12 +93,8 @@
           </div>
         </div>
         <div class="flex gap-[20px]">
-          <div class="w-[170px]"> 
-            <img
-              class="h-[170px]"
-              src="../../../assets/images/man-telephone.jpg"
-              alt=""
-            />
+          <div class="w-[170px]">
+            <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
           </div>
           <div class="w-[300px]">
             <h2 class="denkst">{{ $t("message.title.leasing") }}</h2>
@@ -138,409 +103,37 @@
             </p>
             <span>➤ {{ $t("message.title.offers") }}</span>
 
-            <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
           </div>
-          <div class="w-[300px]">
-            <h2 class="denkst">Denkst Du Leasing?</h2>
-            <p class="text-[14px]">
-              Ob kaufen oder leasen, bei uns wirst Du fündig. Such Dir deinen
-              Traumwagen und finde passende Leasing-Angebote von unseren Händlern
-              in Deiner Nähe. Lorem ipsum, dolor sit amet consectetur adipisicin
-            </p>
-            <span>➤ Leasing-Angebote finden</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="row sec-4">
-        <div class="col-xl-1"></div>
-
-        <div class="col-xl-1"></div>
-        <div class="col-xl-4 Auto"></div>
-      </div>
-        <div class="col-xl-1">
-
-        </div>
-        <div class="col-xl-4 Auto">
 
         </div>
       </div>
+
+
+    </div>
   </v-container>
 </template>
 <script>
 import http from "../../../axios.config"
-export default{
-  data(){
-    return{
+export default {
+  data() {
+    return {
 
     }
   },
-  methods:{
-    fetchCard(){
-http.get('/ads/card').then((res) => {
-  console.log(res);
-})
+  methods: {
+    fetchCard() {
+      http.get('/ads/card').then((res) => {
+        console.log(res);
+      })
     }
   },
-  created (){
+  created() {
     this.fetchCard
   }
 }
 </script>
 <style scoped>
-@font-face {
-  font-family: "20 Kopeek";
-  src: url(/assets/fonts/20_Kopeek_Book.otf);
-  font-weight: 400;
-  font-style: normal;
-}
-
-body {
-  margin: 0;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin: 0;
-}
-
-ol,
-ul {
-  padding: 0;
-  margin: 0;
-}
-
-ul {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-}
-
-button,
-input,
-textarea,
-select {
-  font-family: inherit;
-}
-
-.row {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 0 15px;
-}
-
-@media (min-width: 360px) {
-  .col-xs-1 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 25%;
-  }
-
-  .col-xs-2 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 50%;
-  }
-
-  .col-xs-3 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 75%;
-  }
-
-  .col-xs-4 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 100%;
-  }
-
-  .container {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 290px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 576px) {
-  .col-sm-1 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 16.6666666667%;
-  }
-
-  .col-sm-2 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 33.3333333333%;
-  }
-
-  .col-sm-3 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 50%;
-  }
-
-  .col-sm-4 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 66.6666666667%;
-  }
-
-  .col-sm-5 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 83.3333333333%;
-  }
-
-  .col-sm-6 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 100%;
-  }
-
-  .container {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 510px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 768px) {
-  .col-md-1 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 16.6666666667%;
-  }
-
-  .col-md-2 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 33.3333333333%;
-  }
-
-  .col-md-3 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 50%;
-  }
-
-  .col-md-4 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 66.6666666667%;
-  }
-
-  .col-md-5 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 83.3333333333%;
-  }
-
-  .col-md-6 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 100%;
-  }
-
-  .container {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 690px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 992px) {
-  .col-lg-1 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 8.3333333333%;
-  }
-
-  .col-lg-2 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 16.6666666667%;
-  }
-
-  .col-lg-3 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 25%;
-  }
-
-  .col-lg-4 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 33.3333333333%;
-  }
-
-  .col-lg-5 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 41.6666666667%;
-  }
-
-  .col-lg-6 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 50%;
-  }
-
-  .col-lg-7 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 58.3333333333%;
-  }
-
-  .col-lg-8 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 66.6666666667%;
-  }
-
-  .col-lg-9 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 75%;
-  }
-
-  .col-lg-10 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 83.3333333333%;
-  }
-
-  .col-lg-11 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 91.6666666667%;
-  }
-
-  .col-lg-12 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 100%;
-  }
-
-  .container {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 930px;
-    margin: 0 auto;
-  }
-}
-
-@media (min-width: 1200px) {
-  .col-xl-1 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 8.3333333333%;
-  }
-
-  .col-xl-2 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 16.6666666667%;
-  }
-
-  .col-xl-3 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 25%;
-  }
-
-  .col-xl-4 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 33.3333333333%;
-  }
-
-  .col-xl-5 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 41.6666666667%;
-  }
-
-  .col-xl-6 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 50%;
-  }
-
-  .col-xl-7 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 58.3333333333%;
-  }
-
-  .col-xl-8 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 66.6666666667%;
-  }
-
-  .col-xl-9 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 75%;
-  }
-
-  .col-xl-10 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 83.3333333333%;
-  }
-
-  .col-xl-11 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 91.6666666667%;
-  }
-
-  .col-xl-12 {
-    box-sizing: border-box;
-    flex-grow: 0;
-    width: 100%;
-  }
-
-  .container {
-    box-sizing: border-box;
-    width: 100%;
-    max-width: 1110px;
-    margin: 0 auto;
-  }
-}
-
-.ml-a {
-  margin-left: auto;
-}
-
-.ml-2 {
-  margin-left: 30px;
-}
-
-html {
-  font-family: "20 Kopeek";
-}
-
-body {
-  color: white;
-  background-color: rgb(94, 93, 93);
-}
-
 .header {
-  height: 945px;
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: contain;
@@ -837,4 +430,5 @@ body {
 
 .btn {
   display: block;
-}</style>
+}
+</style>

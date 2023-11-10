@@ -373,6 +373,8 @@ export default {
           localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
           localStorage.setItem("u-d-c", responseData.data.user_address_city);
+          localStorage.setItem("u-com", responseData.data.user_company);
+          localStorage.setItem("u-img-prof", responseData.data.user_image_url);
           localStorage.setItem(
             "u-d-co",
             responseData.data.user_address_country
@@ -403,8 +405,6 @@ export default {
           const responseData = response.data;
           console.log(responseData);
           localStorage.setItem("u-i", responseData.data.user_id);
-          localStorage.setItem("u-com", responseData.data.user_company);
-          localStorage.setItem("com-i", responseData.company_id);
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
           localStorage.setItem("u-fn", responseData.data.user_first_name);
@@ -414,12 +414,13 @@ export default {
           localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
           localStorage.setItem("u-d-c", responseData.data.user_address_city);
+          localStorage.setItem("u-com", responseData.data.user_company);
+          localStorage.setItem("com-i", responseData.data.company_id);
+          localStorage.setItem("u-img-prof", responseData.data.user_image_url);
           localStorage.setItem(
             "u-d-co",
             responseData.data.user_address_country
           );
-          localStorage.setItem("u-img-prof", responseData.data.user_image_url);
-          localStorage.setItem("u-img-alt", responseData.data.user_image_name);
           localStorage.setItem("u-code", responseData.data.user_country_code);
           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);

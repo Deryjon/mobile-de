@@ -9,11 +9,11 @@
 		>
       <HeaderLogo class="" />
 
-      <div class="actions flex h-[50px] items-center gap-[100px] lg:gap-[8px]">
+      <div class="actions flex h-[50px] items-center gap-[100px] lg:gap-[8px] xl:gap-[8x] ">
         <HeaderActions class="hidden lg:flex" />
         <HeaderMenuAction @openMenu="toggleMenu" />
-        <HeaderSwitcherTheme class="mt-[40px] hidden lg:flex" />
-        <HeaderContact class="mt-[25px] hidden lg:flex" />
+        <HeaderSwitcherTheme class="mt-[40px] hidden xl:flex" />
+        <HeaderContact class="mt-[25px] hidden xl:flex" />
         <HeaderLogout class="mt-[25px] hidden lg:flex" />
         <Transition name="menu">
           <HiddenMenu class="z-50" v-if="isOpen" @closeMenu="toggleMenu" />

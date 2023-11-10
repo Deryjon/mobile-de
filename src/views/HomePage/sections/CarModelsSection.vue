@@ -1,15 +1,15 @@
 <template>
   <section class="rental-section">
     <v-container class="xl:w-[1120px]">
-      <div class="Automarken xl:w-[1120px]">
+      <div class="Automarken w-[360px] xl:w-[1120px]">
         <div class="container">
           <h3 class="title">
             {{ $t("message.title.popular") }}
           </h3>
 
-          <div class="wrapper">
+          <div class="wrapper w-full flex justify-between">
             <!-- lists -->
-            <h3 class="car-names">
+            <div class="car-names">
               <ul class="car-model">
                 <h3 class="car-class-name">Audi</h3>
                 <li>
@@ -38,11 +38,11 @@
                   >
                 </li>
               </ul>
-            </h3>
+            </div>
 
             <!-- lists -->
 
-            <h4 class="car-names">
+            <div class="car-names">
               <ul class="car-model">
                 <h3 class="car-class-name">BMW</h3>
                 <li>
@@ -69,11 +69,11 @@
                   <a href="https://www.mobile.de/auto/bmw/x1/serie/">BMW X1</a>
                 </li>
               </ul>
-            </h4>
+            </div>
 
             <!-- lists -->
 
-            <h4 class="car-names">
+            <div class="car-names">
               <ul class="car-model">
                 <h3 class="car-class-name">Ford</h3>
                 <li>
@@ -102,11 +102,11 @@
                   >
                 </li>
               </ul>
-            </h4>
+            </div>
 
             <!-- lists -->
 
-            <h4 class="car-names">
+            <div class="car-names">
               <ul class="car-model">
                 <h3 class="car-class-name">Mercedes-Benz</h3>
                 <li>
@@ -135,9 +135,9 @@
                   >
                 </li>
               </ul>
-            </h4>
+            </div>
             <!-- lists -->
-            <h4 class="car-names">
+            <div class="car-names">
               <ul class="car-model">
                 <h3 class="car-class-name">Opel</h3>
                 <li>
@@ -166,10 +166,10 @@
                   >
                 </li>
               </ul>
-            </h4>
+            </div>
 
             <!-- lists -->
-            <h4 class="car-names">
+            <div class="car-names">
               <ul class="car-model">
                 <h3 class="car-class-name">VW</h3>
                 <li>
@@ -196,7 +196,7 @@
                   <a href="https://www.mobile.de/auto/vw/up/serie/">VW up!</a>
                 </li>
               </ul>
-            </h4>
+            </div>
           </div>
         </div>
 
@@ -356,13 +356,6 @@ export default {};
 
 .Automarken .container .title {
   color: black;
-}
-
-.Automarken .container .wrapper {
-  max-width: 1000px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 }
 .Automarken .container .wrapper .car-model li {
   color: #fff;

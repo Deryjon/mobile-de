@@ -2,9 +2,6 @@
   <div class="set p-[40px]">
     <div class="your-setting">
       <h2 class="text-[32px] font-semibold">Your company settings</h2>
-      <p class="mt-[5px] font-normal text-gray-600">
-        Your company number: {{ companyI }}
-      </p>
     </div>
     <div class="profile mt-[20px]">
 			<div
@@ -1049,7 +1046,6 @@ export default {
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-          window.location.reload();
           console.log(responseData);
         });
     },

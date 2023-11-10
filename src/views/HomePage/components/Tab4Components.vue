@@ -1,6 +1,6 @@
 <template>
   <div class="for-example">
-    <div class="flex flex-wrap" v-show="activeDiv === ('1')">
+    <div class="flex flex-wrap " v-show="activeDiv === ('1')">
       <div
         class="w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
         @click="toggleDiv('2')"

@@ -1,3 +1,4 @@
+--
 <template>
   <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
     <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
@@ -26,7 +27,7 @@
           </svg>
         </div>
         <div class="changes">
-          <p class="email text-[14px]">{{ userEmail.slice(0, 10) + "..." }}</p>
+          <p class="email text-[14px]">{{ companyEmail.slice(0, 10) + "..." }}</p>
           <p class="email text-[14px] underline cursor-pointer">Edit</p>
         </div>
       </div>
@@ -68,33 +69,46 @@
           <button
             class="flex gap-[8px] items-center mt-[20px] w-[160px]"
             @click="openCountryDropdown"
-            
           >
-					<svg class="SvgIcon___YgmFC" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.335 9.009A1.5 1.5 0 0121 11.915V19.5a1.5 1.5 0 01-1.5 1.5H18a1.5 1.5 0 01-1.5-1.5V18h-9v1.5A1.5 1.5 0 016 21H4.5A1.5 1.5 0 013 19.5v-7.585a1.5 1.5 0 01.665-2.906l.9-4.051A2.5 2.5 0 017.005 3h9.99a2.5 2.5 0 012.44 1.958l.9 4.05zM18.507 10l-1.024-4.608A.5.5 0 0016.995 5h-9.99a.5.5 0 00-.488.392L5.493 10h13.014zM6.5 16a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill="currentColor"></path></svg>
+            <svg
+              class="SvgIcon___YgmFC"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              focusable="false"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M20.335 9.009A1.5 1.5 0 0121 11.915V19.5a1.5 1.5 0 01-1.5 1.5H18a1.5 1.5 0 01-1.5-1.5V18h-9v1.5A1.5 1.5 0 016 21H4.5A1.5 1.5 0 013 19.5v-7.585a1.5 1.5 0 01.665-2.906l.9-4.051A2.5 2.5 0 017.005 3h9.99a2.5 2.5 0 012.44 1.958l.9 4.05zM18.507 10l-1.024-4.608A.5.5 0 0016.995 5h-9.99a.5.5 0 00-.488.392L5.493 10h13.014zM6.5 16a1.5 1.5 0 100-3 1.5 1.5 0 000 3zm11 0a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"
+                fill="currentColor"
+              ></path>
+            </svg>
             My Adds
           </button>
           <ul
             v-if="isOpen"
             class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
           >
-            <div class="countries">
+            <div class="tabs">
+              <div
+                class="flex items-center"
+                @click="setActive('tab-3')"
+                :class="{ active: isActive('tab-3') }"
+              >
+                <li class="text-[14px]" data-key="be">Cars</li>
+              </div>
               <div class="flex items-center"
-							@click="setActive('tab-3')"
-          :class="{ active: isActive('tab-3') }"
+							
+							@click="setActive('tab-4')"
+                :class="{ active: isActive('tab-4') }"
 							>
                 <li
                   class="text-[14px]"
-                  data-key="be"
-                  
-                >
-                  Cars
-                </li>
-              </div>
-              <div class="flex items-center">
-                <li
-                  class="text-[14px]"
-                  data-key="can"
-                  @click="selectCountry('Motorcycles')"
+									
                 >
                   Motorcycles
                 </li>
@@ -104,8 +118,10 @@
                 <li
                   class="text-[14px]"
                   data-key="dk"
-                  @click="selectCountry('Motor homes')"
-                >
+									@click="setActive('tab-5')"
+                :class="{ active: isActive('tab-5') }"
+							>
+                
                   Motor homes
                 </li>
               </div>
@@ -114,8 +130,10 @@
                 <li
                   class="text-[14px]"
                   data-key="us"
-                  @click="selectCountry('Trucks')"
-                >
+									@click="setActive('tab-6')"
+                :class="{ active: isActive('tab-6') }"
+							>
+                
                   Trucks
                 </li>
               </div>
@@ -124,8 +142,10 @@
                 <li
                   class="text-[14px]"
                   data-key="fr"
-                  @click="selectCountry('Trailers')"
-                >
+                	@click="setActive('tab-7')"
+                :class="{ active: isActive('tab-7') }"
+							>
+                
                   Trailers
                 </li>
               </div>
@@ -133,8 +153,8 @@
               <div class="flex items-center">
                 <li
                   class="text-[14px]"
-                  data-key="gr"
-                  @click="selectCountry('Vans')"
+                  data-key="gr"	@click="setActive('tab-8')"
+                :class="{ active: isActive('tab-8') }"
                 >
                   Vans
                 </li>
@@ -144,8 +164,10 @@
                 <li
                   class="text-[14px]"
                   data-key="ita"
-                  @click="selectCountry('Semi trailer trucks')"
-                >
+									@click="setActive('tab-9')"
+                :class="{ active: isActive('tab-9') }"
+							>
+                
                   Semi trailer trucks
                 </li>
               </div>
@@ -153,8 +175,10 @@
                 <li
                   class="text-[14px]"
                   data-key="mor"
-                  @click="selectCountry('Semi trailers')"
-                >
+									@click="setActive('tab-10')"
+                :class="{ active: isActive('tab-10') }"
+							>
+                
                   Semi trailers
                 </li>
               </div>
@@ -162,8 +186,10 @@
                 <li
                   class="text-[14px]"
                   data-key="mor"
-                  @click="selectCountry('Coaches')"
-                >
+									@click="setActive('tab-11')"
+                :class="{ active: isActive('tab-11') }"
+							>
+                
                   Coaches
                 </li>
               </div>
@@ -171,8 +197,10 @@
                 <li
                   class="text-[14px]"
                   data-key="nt"
-                  @click="selectCountry('Agricultural vehicle')"
-                >
+									@click="setActive('tab-12')"
+                :class="{ active: isActive('tab-12') }"
+							>
+                
                   Agricultural vehicle
                 </li>
               </div>
@@ -181,8 +209,10 @@
                 <li
                   class="text-[14px]"
                   data-key="mor"
-                  @click="selectCountry('Construction machines')"
-                >
+									@click="setActive('tab-13')"
+                :class="{ active: isActive('tab-13') }"
+							>
+                
                   Construction machines
                 </li>
               </div>
@@ -190,8 +220,10 @@
                 <li
                   class="text-[14px]"
                   data-key="sp"
-                  @click="selectCountry('Forklift trucks')"
-                >
+									@click="setActive('tab-14')"
+                :class="{ active: isActive('tab-14') }"
+							>
+                
                   Forklift trucks
                 </li>
               </div>
@@ -244,35 +276,89 @@
         </button>
       </div>
     </div>
+		<p>{{ activeTab }}</p> <!-- Правильный способ обращения к данным хранилища -->
+
     <section
       class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
-				<OverviewTab />
+        <OverviewTab />
       </div>
       <div class="" v-show="isActive('tab-2')">
-				<SettingsTab />
+        <SettingsTab />
       </div>
-      <div class="" v-show="isActive('tab-3')">
-				<MyAdCarsTab />
+      	<div class="" v-show="isActive('tab-3')">
+        <MyAdCarsTab />
+      </div>
+      	<div class="" v-show="isActive('tab-4')">
+        <MyAdMotorCycleTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-5')">
+        <MyAdMotorhomesTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-6')">
+        <MyAdTrucksTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-7')">
+        <MyAdTrailerTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-8')">
+        <MyAdVansTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-9')">
+        <MyAdSemiTrailerTruckTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-10')">
+        <MyAdSemiTrailerTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-11')">
+        <MyAdCoachesTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-12')">
+        <MyAdAgriculturalTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-13')">
+        <MyAdConstructionTab/> 
+      </div>
+      	<div class="" v-show="isActive('tab-14')">
+        <MyAdForkliftTab/> 
       </div>
     </section>
   </v-container>
 </template>
 <script>
+import { useTabsStore } from "../../../store/storeAd";
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
-import MyAdCarsTab from "../components/MyAdCarsTab.vue"
-export default {
+import MyAdCarsTab from "../components/AdsCarComponents/MyAdCarsTab.vue";
+import MyAdMotorCycleTab from "../components/AdsMotorbikeComponents/MyAdMotorbikeTab.vue";
+import MyAdVansTab from "../components/AdsVansComponents/MyAdVansTab.vue";
+import MyAdMotorhomesTab from "../components/AdsMotorhomesComponents/MyAdMotorhomesTab.vue";
+import MyAdTrucksTab from "../components/AdsTrucksComponents/MyAdTrucksTab.vue";
+import MyAdTrailerTab from "../components/AdsTrailersComponents/MyAdTrailersTab.vue";
+import MyAdSemiTrailerTab from "../components/AdsSemiTrailersComponents/MyAdSemiTrailerTab.vue";
+import MyAdSemiTrailerTruckTab from "../components/AdsSemiTrailersTrucksComponents/MyAdSemiTrailerTrucksTab.vue";
+import MyAdCoachesTab from "../components/AdsCoachesComponents/MyAdCoachesTab.vue";
+import MyAdAgriculturalTab from "../components/AdsAgriculturalVehicleComponents/MyAdAgriculturalTab.vue";
+import MyAdConstructionTab from "../components/AdsConstructionMachinesComponents/MyAdConstructionsTab.vue";
+import MyAdForkliftTab from "../components/AdsForkliftTrucksComponents/MyAdForkliftTruckTab.vue";
+export default {	
   data() {
     return {
-      userEmail: "",
+			 
+      companyEmail: "",
       activeTab: "tab-2",
-      isOpen: false,
-			companyProfileImg: null,
+      companyProfileImg: null,
       companyProfileImgName: null,
+      isOpen: false,
 			companyIcon: false
     };
+  },
+	computed: {
+    activeTab() {
+      const store = useTabsStore();
+      this.activeTab = store.activeTab; 
+    },
   },
   methods: {
     setActive(tab) {
@@ -312,18 +398,31 @@ export default {
       }
     },
   },
+
+
   created() {
-    this.userEmail = localStorage.getItem("u-e");
-    this.companyProfileImg = localStorage.getItem("com-img-prof");
+    this.companyEmail = localStorage.getItem("u-e");
+    this.companyProfileImg = localStorage.getItem("u-img-prof");
 		if (this.companyProfileImg === 'null') {
-    return   this.companyIcon = true;
+       this.companyIcon = true;
     }
-    this.companyProfileImgName = localStorage.getItem("com-img-alt");
+    this.companyProfileImgName = localStorage.getItem("u-img-alt");
   },
   components: {
     SettingsTab,
     OverviewTab,
-		MyAdCarsTab
+    MyAdCarsTab,
+		MyAdMotorCycleTab,
+		MyAdVansTab,
+		MyAdMotorhomesTab,
+		MyAdTrucksTab,
+		MyAdTrailerTab,
+		MyAdSemiTrailerTab,
+		MyAdSemiTrailerTruckTab,
+		MyAdCoachesTab,
+		MyAdAgriculturalTab,
+		MyAdConstructionTab,
+		MyAdForkliftTab,
   },
 };
 </script>
@@ -355,8 +454,8 @@ export default {
   padding: 0.5em;
   cursor: pointer;
 }
-.active{
-	background: #fff;
-	padding: 5px 8px;
+.active {
+  background: #fff;
+  padding: 5px 8px;
 }
 </style>

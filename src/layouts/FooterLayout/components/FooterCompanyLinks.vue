@@ -1,5 +1,5 @@
 <template>
-  <div class="socials">
+  <div class="socials ">
 		<h3 class="font-bold ">Company</h3>
 		<ul class=" flex flex-col ">
 		<router-link class="text text-[14px]" :to="{ name: 'about-us' }">About</router-link>

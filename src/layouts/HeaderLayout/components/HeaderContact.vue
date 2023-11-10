@@ -1,7 +1,7 @@
 <template>
-  <div class="flex row relative mt-[40px]">
+  <div class="flex  w-[200px] lg:w-[150px] relative mt-[20px] lg:mt-[40px]">
     <button
-      class="bg-transparent mark-select w-[180px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none rounded-[10px] py-[9px] px-12 font-normal text-[12px] lg:text-[10px]"
+      class="bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none rounded-[10px] py-[9px] px-12 font-normal text-[12px] lg:text-[10px]"
       :class="{ 'bg-white': isDarkMode, 'bg-gray-800': isDarkMode }"
       @click="openModal"
     >

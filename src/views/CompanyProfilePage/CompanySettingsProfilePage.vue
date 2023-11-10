@@ -14,14 +14,14 @@ import http from "../../axios.config";
 export default {
   data() {
     return {
-			userId: localStorage.getItem("u-i"),
-		};
+      userId: localStorage.getItem("u-i"),
+    };
   },
   methods: {
     getDataCompany() {
       http.get(`/company/${this.userId}`).then((response) => {
         const responseData = response.data;
-				console.log(responseData);
+        console.log(responseData);
         localStorage.setItem("com-city", responseData.data.company_address_city);
         localStorage.setItem("com-country", responseData.data.company_address_country);
         localStorage.setItem("com-nr", responseData.data.company_address_nr);
@@ -32,11 +32,11 @@ export default {
         localStorage.setItem("com-i", responseData.data.company_id);
         localStorage.setItem("com-e", responseData.data.company_mail)
         localStorage.setItem("com-name", responseData.data.company_name
-);
+        );
         localStorage.setItem("com-prefix", responseData.data.company_number_prefix
-);
+        );
         localStorage.setItem("com-number", responseData.data.company_phone_number
-);
+        );
       });
     },
   },
@@ -44,16 +44,20 @@ export default {
     PathLink,
     YourAccount,
   },
-  created() {
+  mounted() {
     this.userId = localStorage.getItem("u-i");
-		this.getDataCompany()
-    // const isLoggedIn = localStorage.getItem("logged-in");
-    // const isLoggedCompany = localStorage.getItem("u-com");
-    // if (isLoggedIn === "false" || isLoggedCompany === "false") {
-    //   // Перенаправление на страницу "home"
-    //   this.$router.push({ name: "home" });
-    // }
+
+    const isLoggedIn = localStorage.getItem("logged-in");
+    const isLoggedCompany = localStorage.getItem("u-com");
+    const comI = localStorage.getItem("com-i"); // Получаем значение "com-i" из localStorage
+
+    if (isLoggedIn === "false" || isLoggedCompany === "false") {
+      this.$router.push({ name: "home" });
+    }
+    this.getDataCompany();
+
   },
+
 };
 </script>
 

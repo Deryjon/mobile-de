@@ -1,7 +1,7 @@
 <template>
-  <div class="actions gap-[10px] items-center mt-[20px]">
-    <div class="language dropdown-container mt-[15px]">
-      <div class="input-container flex relative mt-[5px]">
+  <div class="actions gap-[10px] items-center lg:mt-[20px]">
+    <div class="language dropdown-container lg:mt-[15px]">
+      <div class="input-container flex relative lg:mt-[5px]">
         <div
           class="dropdown-input mark_input bg-transparent mark-select w-[200px] lg:w-[150px] xl:w-[140px] h-[35px] outline-none bg-white rounded-[10px] py-[8px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           @focus="openPriceDropdown"
@@ -259,7 +259,7 @@
 		<div class="place relative">
 
 			<button
-				class="bg-[#67bbffa6]  mt-[20px] mark_input mark-select outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[20px] "
+				class="bg-[#67bbffa6]  mt-[20px] mark_input mark-select outline-none rounded-[10px] w-[200px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[20px] "
 				@click="toggleDropdown"
 	
 				:class="{ 'bg-blue-500': isDarkMode, 'bg-transparent': isDarkMode }"

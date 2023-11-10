@@ -2,11 +2,12 @@
   <TheLoader v-if="isLoading"/>
   <main class="" v-else>
 		<SwiperSection />
-    <SearchSection />
-		<RentSection/>
+     <SearchSection />
+		<!-- <RentSection/>
 		<MagazinSection/>
+    <ElectroCarsSection/>
 		<FinanceSection/>
-		<CarModelsSection/>
+		<CarModelsSection/> -->
 		
   </main>
 </template>
@@ -19,6 +20,7 @@ import SwiperSection from "./sections/SwiperSection.vue";
 import MagazinSection from "./sections/MagazinSection.vue";
 import FinanceSection from "./sections/FinanceSection.vue";
 import CarModelsSection from "./sections/CarModelsSection.vue";
+import ElectroCarsSection from "./sections/ElectroCars.vue";
 import TheLoader from "../../components/TheLoader.vue";
 export default {
   components: {
@@ -29,6 +31,7 @@ export default {
     MagazinSection,
     FinanceSection,
     CarModelsSection,
+    ElectroCarsSection,
     TheLoader
 },
 data(){

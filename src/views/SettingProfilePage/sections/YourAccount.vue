@@ -393,8 +393,10 @@ export default {
   created() {
     this.userEmail = localStorage.getItem("u-e");
     this.userProfileImg = localStorage.getItem("u-img-prof");
-    if (this.userProfileImg === "null") {
-      return (this.userIcon = true);
+
+		if (this.userProfileImg === 'null') {
+       this.userIcon = true;
+
     }
     this.userProfileImgName = localStorage.getItem("u-img-alt");
   },
