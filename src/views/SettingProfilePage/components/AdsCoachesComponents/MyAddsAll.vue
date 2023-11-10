@@ -6,8 +6,12 @@
       :data-coache-id="coache.id"
       class="coachd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
-        <img :src="coache.coache_images_url[0]" alt="" class="object-cover w-full h-full"/>
+      <div class="img w-[500px] h-[200px] mr-[20px] m-0">
+        <img
+          :src="coache.coache_images_url[0]"
+          alt=""
+          class="object-cover w-full h-full"
+        />
       </div>
       <div class="texts w-[520px] h-[260px]">
         <div class="name flex gap-[5px] text-[16px] font-semibold">
@@ -17,7 +21,6 @@
           <div class="model">
             {{ coache.coache_model }}
           </div>
-         
         </div>
         <div class="date-km flex gap-[5px]">
           <div class="year">
@@ -29,24 +32,24 @@
           <div class="power">{{ coache.coache_power }} Hp</div>
         </div>
         <div class="coache-coachey flex flex-wrap gap-[5px] text-[14px]">
-              <div class="coache-coachey">
-                {{ coache.coache_category }}
-              </div>
-              •
-              <div class="fuel">
-                {{ coache.coache_fuel_type }}
-              </div>
-              •
-              <div class="transmission">
-                {{ coache.coache_transmission }}
-              </div>
-              •
-              
-              <div class="coache-body">
-                {{ coache.coache_number_of_seats }}
-                Seats
-              </div>
-            </div>  
+          <div class="coache-coachey">
+            {{ coache.coache_category }}
+          </div>
+          •
+          <div class="fuel">
+            {{ coache.coache_fuel_type }}
+          </div>
+          •
+          <div class="transmission">
+            {{ coache.coache_transmission }}
+          </div>
+          •
+
+          <div class="coache-body">
+            {{ coache.coache_number_of_seats }}
+            Seats
+          </div>
+        </div>
       </div>
       <div class="price text-[18px] font-semibold">
         <p class="price">€{{ coache.coache_price }}</p>
@@ -126,7 +129,10 @@ export default {
         })
         .catch((error) => {
           // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${coachId}:`, error);
+          console.error(
+            `Ошибка при удалении объявления с ID ${coachId}:`,
+            error
+          );
           // Выполните здесь необходимые действия при ошибке
         });
     },
