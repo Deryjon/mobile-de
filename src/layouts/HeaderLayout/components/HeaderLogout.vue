@@ -71,6 +71,8 @@
 <script>
 import { useDarkModeStore } from "@/store/dark-mode.js";
 import { defineComponent, computed } from "vue";
+import { useActiveTab4 } from "@/store/activeTab4Component.js";  // Импорт стора useActiveTab4
+
 export default defineComponent({
   setup() {
     const darkModeStore = useDarkModeStore();
@@ -84,6 +86,13 @@ export default defineComponent({
 
     const uComValue = computed(() => localStorage.getItem("u-com") === "true");
 
+
+    const activeTab4Store = useActiveTab4();
+    const computedIsOpen = computed(() => activeTab4Store.computedIsOpen);
+
+    const handleMenuClick = () => {
+      activeTab4Store.toggleMenu(); 
+    };
     return {
       hasToken,
       isDarkMode,
@@ -91,10 +100,13 @@ export default defineComponent({
       currentLanguage,
       updateTranslate,
       uComValue,
+      computedIsOpen,
+      handleMenuClick,
     };
   },
   data() {
     return {
+      activeTab4Store: useActiveTab4(),
       isProfileSetting: false,
       userName: "Noname",
       companyName: "No Company",
@@ -102,22 +114,27 @@ export default defineComponent({
   },
   methods: {
     gotoLogin() {
+      this.activeTab4Store.toggleMenu()
       this.$router.push({ name: "login" });
     },
+
     goSettings() {
+      this.activeTab4Store.toggleMenu()
       this.$router.push({ name: "profile-settings" });
     },
     goSettingsCompany() {
+      this.activeTab4Store.toggleMenu()
       this.$router.push({ name: "company-settings" });
+
     },
     logOut() {
+      this.activeTab4Store.toggleMenu()
       localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
       localStorage.removeItem("logged-in");
       localStorage.setItem("logged-in", "false");
       localStorage.clear()
       this.$router.push({ name: "home" });
-      window.location.reload();
     },
     openProfileDropdown() {
       this.isProfileSetting = !this.isProfileSetting;
