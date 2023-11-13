@@ -1,15 +1,13 @@
 <template>
-  <section class="swiper relative h-[250px] xs:h-[300px] sm:h-[400px]
-  
-  xl:h-[500px]">
+  <section class="swiper relative h-[270px] xs:h-[300px] sm:h-[320px] md:h-[350px] lg:h-[360px] xl:h-[470px]">
     <v-container class="max-w-[1145px]">
-      <div  class="slider w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto h-[100px] xs:h-[130px] sm:h-[200px] lg:h-[240px] xl:h-[340px] ">
+      <div  class="slider w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto h-[130px] xs:h-[170px] sm:h-[180px] md:h-[210px] lg:h-[220px] xl:h-[320px] ">
         <img v-for="(image, index) in images" :key="index" :src="image.slider_image_url" :alt="image.slider_title"
           :class="{ 'slider-item': true, active: activeIndex === index }" 
-          class="slider-img w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  h-[70%] lg:h-[300px] xl:h-[400px] xl:w-[1125px]  opacity-0 absolute  duration-500 object-cover"
+          class="slider-img w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  sm:h-[85%] md:h-[85%] lg:h-[300px] xl:h-[400px] xl:w-[1125px]  opacity-0 absolute  duration-500 object-cover"
           />
       </div>
-      <div class="indicators mt-[80px]">
+      <div class="indicators mt-[100px]">
         <div v-for="(dot, index) in images" :key="index" class="item" @click="changeSlide(index)"
           :class="{ active: activeIndex === index }"></div>
       </div>

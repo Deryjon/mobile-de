@@ -25,8 +25,7 @@
           @click="$emit('closeMenu')"
         />
         <HeaderLogout
-          class=""
-          @click="$emit('closeMenu')"
+          class="ml-[23px] mt-[10px]"
         />
       </div>
     </div>

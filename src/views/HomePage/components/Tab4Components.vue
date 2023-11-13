@@ -1,8 +1,8 @@
 <template>
-  <div class="for-example">
-    <div class="flex flex-wrap " v-show="activeDiv === ('1')">
+  <div class="for-example w-[310px]">
+    <div class="flex flex-wrap  w-[200px] sm:w-[400px] md:w-[600px] lg:w-[800px] xl:w-[1000px] mx-auto" v-show="activeDiv === ('1')">
       <div
-        class="w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
         @click="toggleDiv('2')"
       >
         <img
@@ -14,7 +14,7 @@
         <h3 class="text-center text-[14px]">Trucks over 7.5 t</h3>
       </div>
       <div
-        class="w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
         @click="toggleDiv('3')"
       >
         <img
@@ -29,7 +29,7 @@
       </div>
 
       <div
-        class="w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
         @click="toggleDiv('4')"
       >
         <img
@@ -43,7 +43,7 @@
         <h3 class="text-center text-[14px]">Vans/trucks up to 7.5 t</h3>
       </div>
       <div
-        class="w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] bor bor-b hover:bg-gray-300 pb-[25px]"
         @click="toggleDiv('5')"
       >
         <img
@@ -58,7 +58,7 @@
       </div>
 
       <div
-        class="w-[200px] hover:bg-gray-300 bor-b pb-[25px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] hover:bg-gray-300 bor-b pb-[25px]"
         @click="toggleDiv('6')"
       >
         <img
@@ -71,7 +71,7 @@
         <h3 class="text-center text-[14px]">Semi-Trailer</h3>
       </div>
       <div
-        class="w-[200px] hover:bg-gray-300 bor pt-[20px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] hover:bg-gray-300 bor pt-[20px]"
         @click="toggleDiv('7')"
       >
         <img
@@ -86,7 +86,7 @@
       </div>
 
       <div
-        class="w-[200px] hover:bg-gray-300 bor pt-[20px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] hover:bg-gray-300 bor pt-[20px]"
         @click="toggleDiv('8')"
       >
         <img
@@ -100,7 +100,7 @@
         <h3 class="text-center text-[14px]">Agricultural Vehicles</h3>
       </div>
       <div
-        class="w-[200px] hover:bg-gray-300 bor pt-[20px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] hover:bg-gray-300 bor pt-[20px]"
         @click="toggleDiv('9')"
       >
         <img
@@ -115,7 +115,7 @@
       </div>
 
       <div
-        class="w-[200px] hover:bg-gray-300 bor pt-[20px]"
+        class="w-[200px] lg:w-[150px] xl:w-[200px] hover:bg-gray-300 bor pt-[20px]"
         @click="toggleDiv('10')"
       >
         <img
@@ -210,5 +210,13 @@ export default {
 }
 .bor-b {
   border-bottom: 1px solid #111;
+}
+@media(min-width:425px) and (max-width:1024px){
+  .bor {
+  border: 0.5px solid #111;
+}
+.bor-b {
+  border: 0.5px solid #111;
+}
 }
 </style>

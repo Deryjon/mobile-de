@@ -1,7 +1,7 @@
 <template>
   <section class="rental-section">
-    <v-container class="xl:w-[1120px]">
-      <div class="Automarken w-[360px] xl:w-[1120px]">
+    <v-container class="w-[380px] xs:w-[430px] sm:w-[630px] md:w-[780px]  lg:ml-[6.3%] ">
+      <div class="Automarken w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] mx-auto  xl:w-[1120px]">
         <div class="container">
           <h3 class="title">
             {{ $t("message.title.popular") }}

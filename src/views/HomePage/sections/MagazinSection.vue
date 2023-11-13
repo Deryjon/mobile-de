@@ -1,7 +1,7 @@
 <template>
-  <v-container class="xl:w-[1120px] ">
-    <h3 class="">News</h3>
-    <div class="w-full xl:w-[1120px] card_box">
+  <v-container class="w-[380px] xs:w-[430px] sm:w-[630px] md:w-[780px]  lg:w-[940px] xl:w-[1100px] lg:p-0">
+    <h3 class="mx-auto">News</h3>
+    <div class="w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  mx-auto  xl:w-[1120px] card_box    ">
       <div class="card" v-for="item in newsData" :key="item.news_id">
         <img :src="item.news_image_url" alt="Image 1" />
         <p class="date">{{ formatDate(item.news_create_at) }}</p>
@@ -218,7 +218,7 @@ export default {
   transform: translateX(-10px);
 }
 /* responsive */
-@media(max-width:1000px) {
+@media(max-width:1024px) {
   .card_box{
   margin-top: 12px;
   display: grid;
@@ -227,7 +227,7 @@ export default {
   border: 1px solid black;
 }
 }
-@media(max-width:680px) {
+@media(max-width:768px) {
   .swiper_wrapper{
     display: none;
   }
@@ -237,6 +237,26 @@ export default {
   grid-template-columns: repeat(1,1fr);
   justify-items: center;
   border: 1px solid black;
+}
+}
+@media (min-width:1024px){
+  .card {
+  width: 280px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+}
+@media (min-width:1240px){
+  .card {
+  width: 300px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #fff;
+  margin-top: 30px;
+  margin-bottom: 10px;
 }
 }
 </style>

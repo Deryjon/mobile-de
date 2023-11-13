@@ -1,9 +1,9 @@
 <template>
     <section class="rental-section">
-        <v-container class="xl:w-[1120px]">
-            <div class="wrapper w-full flex flex-col gap-[10px] lg:flex-row lg:justify-between ">
+        <v-container class="max-w-[1140px]">
+            <div class="wrapper  flex flex-col gap-[10px] lg:flex-row lg:w-[900px] lg:mx-auto  xl:w-[1130px]">
                 <div
-                    class="left-rent bg-[#f5f5f5]  w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex items-center gap-[15px] p-[30px]">
+                    class="left-rent bg-[#f5f5f5]  w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[450px] xl:w-[550px] flex items-center gap-[15px] p-[30px] mx-auto">
                     <div class="img lg:w-[200x] lg:h-[140px] ">
                         <img src="../../../assets/images/tablet-man.jpg" alt=""
                             class="w-full h-full  mt-[-35px]" />
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div
-                    class="left-rent bg-[#f5f5f5]  w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex items-center gap-[15px] p-[30px]">
+                    class="left-rent bg-[#f5f5f5] w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[450px] xl:w-[550px] flex items-center gap-[15px] p-[30px] mx-auto">
                     <div class="img lg:w-[200x] lg:h-[140px] ">
                         <img src="../../../assets/images/car-men.jpg" alt=""
                             class="w-full h-full  mt-[-35px]" />

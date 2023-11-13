@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <button v-if="!hasToken"
-      class="btn outline-none rounded-[10px] w-[130px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal lg:mt-[17px] bg-[#feed00]"
+      class="btn outline-none rounded-[10px] w-[200px] lg:w-[120px] px-[10px] py-[6px] lg:py-[10px] lg:px-[6px] text-xs font-normal mt-[10px]  lg:mt-[17px] bg-[#feed00]"
       :class="{ 'bg-[#feed00]': isDarkMode, 'bg-transparent': isDarkMode }" @click="gotoLogin">
       {{ $t("message.header.login") }}
     </button>
@@ -115,6 +115,7 @@ export default defineComponent({
       localStorage.removeItem("hasReloaded");
       localStorage.removeItem("logged-in");
       localStorage.setItem("logged-in", "false");
+      localStorage.clear()
       this.$router.push({ name: "home" });
       window.location.reload();
     },

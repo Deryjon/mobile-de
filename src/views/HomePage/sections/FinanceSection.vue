@@ -1,116 +1,91 @@
 
 <template>
-  <v-container class="xl:w-[1120px]">
-    <div class="magazine-bmw bg-[#f5f5f5] w-full xl:w-[1120px] xl:p-[20px]">
-      <div class="row sections-2">
-        <div class="col-xl-5">
+  <section class="">
+    <v-container class=" max-w-[1140px]">
+      <div
+        class="magazine-bmw bg-[#f5f5f5] w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]   xl:w-[1125px] mx-auto  p-[20px]">
+        <div class="row sections-2">
+          <div class="col-xl-5">
 
-          <h2 class="head text-[#000]">SellCenter Magazin</h2>
-        </div>
-      </div>
-
-      <div class=" flex justify-between mt-[10px]">
-        <div class="w-[50%]">
-          <img src="../../../assets/images/family.jpg" alt="" />
-        </div>
-        <div class="w-[50%]">
-          <p>
-            {{ $t("message.title.overview") }}
-          </p>
-          <h2 class="marketF">
-            {{ $t("message.title.market") }}
-          </h2>
-          <p>
-            {{ $t("message.text.aboutMarket") }}
-          </p>
-        </div>
-
-      </div>
-
-
-      <div class="row sec-5">
-        <div class="mini-sec">
-          <div class="w-[200px] col-md-2">
-            <img class="men-glase" src="../../../assets/images/men-glase.jpg" alt="" />
+            <h2 class="head text-[#000]">SellCenter Magazin</h2>
           </div>
-          <div class="col-xl-4 Auto">
-            <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
+        </div>
+
+        <div class="lg:flex justify-between mt-[10px]">
+          <div class="w-[100%] lg:w-[400px] xl:w-[50%]">
+            <img src="../../../assets/images/family.jpg" alt="" />
+          </div>
+          <div class="lg:w-[50%] text-[12px] lg:text-[15px]">
             <p>
-              {{ $t("message.text.sell") }}
+              {{ $t("message.title.overview") }}
             </p>
-            <span>➤ {{ $t("message.title.rate") }}</span>
-          </div>
-        </div>
-        <div class="mini-sec">
-          <div class="w-[200px]">
-            <img class="men-glase" src="../../../assets/images/woman.jpg" alt="" />
-          </div>
-          <div class="col-xl-4 Auto">
-            <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
+            <h2 class="marketF">
+              {{ $t("message.title.market") }}
+            </h2>
             <p>
-              {{ $t("message.text.compare") }}
+              {{ $t("message.text.aboutMarket") }}
             </p>
-            <span>➤ {{ $t("message.title.buy") }}</span>
+          </div>
+
+        </div>
+        <div class="flex flex-wrap gap-[40px] justify-between mt-[30px]">
+          <div class="lg:flex gap-[20px]">
+            <div class="w-full lg:w-[170px] xl:w-[250px]">
+              <img class="w-[100%]" src="../../../assets/images/men-glase.jpg" alt="" />
+            </div>
+            <div class="w-[300px] lg:w-[170px] xl:w-[250px] text-[12px] lg:text-[14px]">
+              <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
+              <p class="text-[14px]">
+                {{ $t("message.text.sell") }}
+              </p>
+              <span>➤ {{ $t("message.title.rate") }}</span>
+            </div>
+          </div>
+          <div class="lg:flex gap-[20px]">
+            <div class="w-full lg:w-[170px] xl:w-[250px]">
+              <img class="" src="../../../assets/images/woman.jpg" alt="" />
+            </div>
+            <div class="w-[300px] lg:w-[170px] xl:w-[250px] text-[12px] lg:text-[14px]">
+              <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
+              <p class="text-[14px]">
+                {{ $t("message.text.compare") }}
+              </p>
+              <span>➤ {{ $t("message.title.buy") }}</span>
+            </div>
+          </div>
+          <div class="lg:flex gap-[20px]">
+            <div class="w-full lg:w-[170px] xl:w-[250px]">
+              <img class="" src="../../../assets/images/mens.jpg" alt="" />
+            </div>
+            <div class="w-[300px] lg:w-[170px] xl:w-[250px] text-[12px] lg:text-[14px]">
+              <h2 class="denkst">{{ $t("message.title.new") }}</h2>
+              <p class="text-[14px]">
+                {{ $t("message.text.selection") }}
+
+              </p>
+              <span>➤ {{ $t("message.title.newCar") }}</span>
+            </div>
+          </div>
+          <div class="lg:flex gap-[20px]">
+            <div class="w-full lg:w-[170px] xl:w-[250px]">
+              <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
+            </div>
+            <div class="w-[300px] lg:w-[170px] xl:w-[250px] text-[12px] lg:text-[14px]">
+              <h2 class="denkst">{{ $t("message.title.leasing") }}</h2>
+              <p class="text-[14px]">
+                {{ $t("message.text.buy") }}
+              </p>
+              <span>➤ {{ $t("message.title.offers") }}</span>
+
+            </div>
+
           </div>
         </div>
+
+
       </div>
-      <div class="flex flex-wrap gap-[40px] justify-between mt-[30px]">
-        <div class="flex gap-[20px]">
-          <div class="w-[170px]">
-            <img class="w-[100%]" src="../../../assets/images/men-glase.jpg" alt="" />
-          </div>
-          <div class="w-[300px]">
-            <h2 class="denkst">{{ $t("message.title.selling") }}</h2>
-            <p class="text-[14px]">
-              {{ $t("message.text.sell") }}
-            </p>
-            <span>➤ {{ $t("message.title.rate") }}</span>
-          </div>
-        </div>
-        <div class="flex gap-[20px]">
-          <div class="w-[170px]">
-            <img class="" src="../../../assets/images/woman.jpg" alt="" />
-          </div>
-          <div class="w-[300px]">
-            <h2 class="denkst">{{ $t("message.title.thinking") }}</h2>
-            <p class="text-[14px]">
-              {{ $t("message.text.compare") }}
-            </p>
-            <span>➤ {{ $t("message.title.buy") }}</span>
-          </div>
-        </div>
-        <div class="flex gap-[20px]">
-          <div class="w-[170px]">
-            <img class="" src="../../../assets/images/mens.jpg" alt="" />
-          </div>
-          <div class="w-[300px]">
-            <h2 class="denkst">{{ $t("message.title.new") }}</h2>
-            <p class="text-[14px]">
-              {{ $t("message.text.selection") }}
-
-            </p>
-            <span>➤ {{ $t("message.title.newCar") }}</span>
-          </div>
-        </div>
-        <div class="flex gap-[20px]">
-          <div class="w-[170px]">
-            <img class="h-[170px]" src="../../../assets/images/man-telephone.jpg" alt="" />
-          </div>
-          <div class="w-[300px]">
-            <h2 class="denkst">{{ $t("message.title.leasing") }}</h2>
-            <p class="text-[14px]">
-              {{ $t("message.text.buy") }}
-            </p>
-            <span>➤ {{ $t("message.title.offers") }}</span>
-
-          </div>
-
-        </div>
-      </div>
-
-
-    </div>
-  </v-container>
+    </v-container>
+  </section>
 </template>
 <script>
 import http from "../../../axios.config"
@@ -159,13 +134,6 @@ export default {
   margin-top: 10px;
   font-size: 18px;
 }
-
-/* .magazine-bmw {
-  width: 1120px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: ;
-} */
 
 .mini-bmw {
   width: 450px;
@@ -227,208 +195,5 @@ export default {
 .sec-02 {
   width: 490px;
   margin-left: 32px;
-}
-
-@media (min-width: 360px) {
-  .magazine-bmw {
-    display: block;
-    margin-top: 20px;
-  }
-
-  .bmw {
-    width: 100%;
-    object-fit: cover;
-    height: 190px;
-  }
-
-  .car-text1 {
-    display: none;
-  }
-
-  .cars-text {
-    margin-top: 20px;
-    border-top: 1px solid rgb(98, 98, 98);
-    padding-top: 20px;
-    gap: 0 125px;
-  }
-
-  .mini-bmw {
-    display: block;
-  }
-
-  .mini {
-    width: 266px;
-    height: 101px;
-  }
-
-  .mini-car {
-    width: 266px;
-    height: 101px;
-  }
-
-  .car-block {
-    display: flex;
-    gap: 0 15px;
-  }
-
-  .list {
-    display: block;
-  }
-
-  .sect-2 {
-    width: 95%;
-    color: white;
-  }
-
-  .mobe {
-    display: block;
-  }
-
-  .nomobe {
-    display: none;
-  }
-
-  .marketF {
-    margin: 20px 0 20px 0;
-    font-size: 21px;
-  }
-
-  .men-glase {
-    width: 150px;
-    height: 150px;
-  }
-
-  .sec-02 {
-    margin: 20px 0 0 12px;
-  }
-
-  .sec-3 {
-    margin-top: 40px;
-    display: flex;
-  }
-
-  .sec-4 {
-    display: none;
-  }
-
-  .button {
-    width: 100%;
-    height: 40px;
-  }
-
-  span {
-    text-decoration: underline;
-    color: rgb(255, 166, 0);
-  }
-
-  .mini-sec {
-    display: flex;
-    margin: 20px 0 0 0;
-  }
-
-  .Auto {
-    margin-left: 20px;
-  }
-}
-
-@media (min-width: 1200px) {
-  .cars-text {
-    display: none;
-  }
-
-  .sec-02 {
-    width: 120%;
-    margin: 20px 0 0 80px;
-  }
-
-  .sect-2 {
-    width: 110%;
-  }
-
-  .car-text1 {
-    display: block;
-  }
-
-  .mini {
-    width: 180px;
-    height: 101px;
-  }
-
-  .mini-car {
-    width: 180px;
-    height: 101px;
-  }
-
-  .button {
-    width: 140px;
-    height: 40px;
-    font-size: 14px;
-  }
-
-  .mobe {
-    display: none;
-  }
-
-  .nomobe {
-    display: block;
-  }
-
-  .sections-2 {
-    color: white;
-  }
-
-  .family-near {
-    margin-left: 80px;
-  }
-
-  .marketF {
-    margin: 20px 0 20px 0;
-    font-size: 21px;
-  }
-
-  span {
-    text-decoration: underline;
-    color: rgb(255, 166, 0);
-  }
-
-  .sec-4 {
-    display: flex;
-    margin-top: 20px;
-  }
-
-  .sec-5 {
-    display: none;
-  }
-
-  .Auto {
-    margin-left: 50px;
-  }
-
-  .denkst {
-    margin-bottom: 20px;
-  }
-}
-
-.navbar {
-  padding: 32px 0;
-  color: white;
-}
-
-.button {
-  margin-top: 50px;
-  border-radius: 5px;
-  border: 1px solid gray;
-  color: rgb(191, 245, 245);
-  background-color: #f5f5f5;
-}
-
-.button:hover,
-.button:focus {
-  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
-  transform: translateY(-0.25em);
-}
-
-.btn {
-  display: block;
 }
 </style>

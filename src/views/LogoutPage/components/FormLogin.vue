@@ -237,7 +237,7 @@
                   <input
                     type="checkbox"
                     v-model="isChecked"
-                    @click="toggleShowCheckbox()"
+                    @click="toggleShowCheckbox"
                   />
                   <svg
                     class="icon"
@@ -374,6 +374,7 @@ export default {
           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
           localStorage.setItem("u-d-c", responseData.data.user_address_city);
           localStorage.setItem("u-com", responseData.data.user_company);
+          localStorage.setItem("com-i", false);
           localStorage.setItem("u-img-prof", responseData.data.user_image_url);
           localStorage.setItem(
             "u-d-co",

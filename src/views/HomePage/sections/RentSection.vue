@@ -1,9 +1,9 @@
 <template>
   <section class="rental-section">
-    <v-container class="max-w-[1120px]">
-      <div class="wrapper flex flex-col gap-[10px] lg:flex-row lg:justify-between w-[1120px]">
+    <v-container class=" max-w-[1140px]">
+      <div class="wrapper flex flex-col gap-[10px] lg:flex-row lg:w-[900px] lg:mx-auto  xl:w-[1130px] ">
         <div v-for="ad in ads" :key="ad.card_id"
-          class="left-rent bg-[#f5f5f5]  w-[350px] sm:w-[550px] lg:w-[420px] xl:w-[550px] flex items-center gap-[15px] p-[30px]">
+          class="left-rent bg-[#f5f5f5]  w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[450px] xl:w-[550px] flex items-center gap-[15px] p-[30px] mx-auto">
           <div class="img lg:w-[200x] lg:h-[140px] ">
             <img :src="ad.card_image_url" alt="" class="w-full h-full object-cover mt-[-35px]" />
           </div>
