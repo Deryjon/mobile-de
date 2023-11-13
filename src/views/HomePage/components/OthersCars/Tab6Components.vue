@@ -273,7 +273,7 @@
             <div
               class="icon absolute top-[35px] right-[10px] sm:left-[330px] lg:top-[43px] lg:right-0   lg:left-[130px] xl:left-[150px] cursor-pointer"
               @click="getLocation()">
-              <img src="../../../assets/images/icon-location.svg" alt="" />
+              <img src="../../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
           <FilterBtn  @click="goTrailerList">
