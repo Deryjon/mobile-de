@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[380px] xs:w-[430px] sm:w-[630px] md:w-[780px]  lg:w-[940px] xl:w-[1100px] lg:p-0">
+  <v-container class="w-full xs:w-[430px] sm:w-[630px] md:w-[780px]  lg:w-[940px] xl:w-[1100px] lg:p-0">
     <h3 class="mx-auto">News</h3>
     <div class="w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  mx-auto  xl:w-[1120px] card_box    ">
       <div class="card" v-for="item in newsData" :key="item.news_id">
