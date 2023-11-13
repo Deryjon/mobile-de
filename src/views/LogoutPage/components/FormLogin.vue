@@ -1,9 +1,9 @@
 <template>
   <v-container class="lg:flex justify-between">
     <div class="left">
-      <div class="tab-buttons mt-[0px]">
+      <div class="tab-buttons flex mt-[0px]">
         <button
-          class="login w-[240px] h-[54px]"
+          class="login w-[50%] lg:w-[240px] h-[54px]"
           @click="setActive('tab-1')"
           :class="{ active: isActive('tab-1') }"
         >
@@ -11,20 +11,19 @@
         </button>
 
         <button
-          class="forget w-[240px] h-[54px]"
+          class="forget w-[50%] lg:w-[240px] h-[54px]"
           @click="setActive('tab-2')"
           :class="{ active: isActive('tab-2') }"
         >
           {{ $t("message.register.register") }}
         </button>
       </div>
-      <div class="tab-content bg-[#fff] w-[480px]">
+      <div class="tab-content bg-[#fff] w-full">
         <div class="tab-panel" v-show="isActive('tab-1')">
           <div class="for-example">
             <v-sheet
-              width="480"
-              height="480"
-              class="mx-auto shadow-md px-[40px] rounded-md"
+             
+              class="w-full h-[530px] mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
 
@@ -125,9 +124,8 @@
         <div class="tab-panel" v-show="isActive('tab-2')">
           <div class="for-example">
             <v-sheet
-              width="480"
-              height="650"
-              class="mx-auto shadow-md px-[40px] rounded-md"
+              
+              class="w-full lg:w-[480px]  mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto" />
               <v-form @submit.prevent="createNewUser">
@@ -261,7 +259,7 @@
                   "
                   type="submit"
                   :disabled="!isFormRegisterValid"
-                  class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px]"
+                  class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[20px] mb-[10px]"
                   :class="{ 'opacity-50': !isFormRegisterValid }"
                 >
                   {{ $t("message.register.register") }}
