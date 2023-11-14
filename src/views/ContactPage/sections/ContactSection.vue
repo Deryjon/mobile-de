@@ -1,6 +1,6 @@
 <template>
   <div class=" ">
-    <v-container class="container w-[1180px]">
+    <v-container class=" max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
         <!-- Status Date-->
@@ -12,7 +12,7 @@
           свои опасения по телефону? Тогда вы найдете здесь всю необходимую
           информацию!
         </div>
-        <div class="contentImg">
+        <div class="">
           <img
             src="https://images.prismic.io/shacarlacca/NWQ1Yjc5ZWItYTUxOC00ZDAwLTk5NjMtMzE4MzgyZmJhZWY3__10.jpg?auto=compress%2Cformat&rect=0%2C0%2C1600%2C900&w=1920&ar=1600%3A900"
           />
