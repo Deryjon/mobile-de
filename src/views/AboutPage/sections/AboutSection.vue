@@ -1,6 +1,6 @@
 <template>
   <div> <!-- /template-->
-    <v-container class=" w-[1130px] mx-[14%]">
+    <v-container class=" max-w-[1140px]">
         <div class="" >
             <!-- img -->
             <img src="./header.png" alt="" class="container-img-header rounded-lg" style="width: 100%; height: 100%;">
@@ -166,8 +166,6 @@ export default {
 
 .aboutus-container {
     display: flex;
-    width: 100%;
-    max-width: 960px;
     margin: 0 auto;
     justify-content: center;
     flex-direction: row;

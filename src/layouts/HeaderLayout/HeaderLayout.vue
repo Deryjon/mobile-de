@@ -13,7 +13,7 @@
         <HeaderContact class="mt-[25px] hidden xl:flex" />
         <HeaderLogout class="mt-[25px] hidden lg:flex" />
         <Transition name="menu">
-          <HiddenMenu class="z-50" v-if="computedIsOpen" @closeMenu="toggleMenu" />
+          <HiddenMenu class="z-50 lg:hidden" v-if="computedIsOpen" @closeMenu="toggleMenu" />
         </Transition>
       </div>
     </v-container>

@@ -122,10 +122,11 @@
           </div>
         </div>
         <div class="tab-panel" v-show="isActive('tab-2')">
-          <div class="for-example">
+          <div 
+          class="for-example">
             <v-sheet
               
-              class="w-full lg:w-[480px]  mx-auto shadow-md px-[40px] rounded-md"
+              class="w-full lg:w-[480px] mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto" />
               <v-form @submit.prevent="createNewUser">
