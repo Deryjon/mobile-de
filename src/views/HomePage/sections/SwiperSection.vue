@@ -1,6 +1,6 @@
 <template>
   <section class="swiper relative h-[270px] xs:h-[300px] sm:h-[320px] md:h-[350px] lg:h-[360px] xl:h-[470px]">
-    <v-container class="max-w-[1145px]">
+    <v-container class="max-w-[1140px]">
       <div  class="slider w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto h-[130px] xs:h-[170px] sm:h-[180px] md:h-[210px] lg:h-[220px] xl:h-[320px] ">
         <img v-for="(image, index) in images" :key="index" :src="image.slider_image_url" :alt="image.slider_title"
           :class="{ 'slider-item': true, active: activeIndex === index }" 
