@@ -1,7 +1,7 @@
 <template>
   <TheLoader v-if="isLoading"/>
   <v-container class="max-w-[1120px]" v-else>
-    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] pt-[20px] lg:p-[40px]">
+    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="motorhome in motorhomes"
           class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"

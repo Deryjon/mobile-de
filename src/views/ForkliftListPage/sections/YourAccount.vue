@@ -1,9 +1,11 @@
 <template>
-  <TheLoader v-if="isLoading"/>
+  <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1120px] " v-else>
-    <section class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+    <section
+      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
-        <div v-for="forklift in forklifts" class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+        <div v-for="forklift in forklifts"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(forklift.forklift_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
@@ -48,7 +50,7 @@
               <div class="transmission">
                 {{ forklift.forklift_transmission }}
               </div>
-          </div>
+            </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ forklift.forklift_price }}</p>
@@ -116,7 +118,7 @@ export default {
         this.isLoading = false
       });
     },
-    goToSinglePageAd(forkliftId){
+    goToSinglePageAd(forkliftId) {
       this.$router.push({ name: "forklift-single", params: { id: forkliftId } });
 
     }
