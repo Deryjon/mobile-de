@@ -211,7 +211,7 @@ export default {
 .bor-b {
   border-bottom: 1px solid #111;
 }
-@media(min-width:425px) and (max-width:1024px){
+@media(min-width:375px) and (max-width:1024px){
   .bor {
   border: 0.5px solid #111;
 }

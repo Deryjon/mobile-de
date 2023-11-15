@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[1120px]">
+  <v-container class="max-w-[1120px]">
     <PathLink>Agricultural Vehicle list</PathLink>
     <div class="sections">
       <YourAccount />	

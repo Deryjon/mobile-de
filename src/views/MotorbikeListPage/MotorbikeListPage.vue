@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[1120px]">
+  <v-container class="">
     <PathLink>Motorbike list</PathLink>
     <div class="sections">
       <YourAccount />	

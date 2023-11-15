@@ -1,16 +1,16 @@
 <template>
   <TheLoader v-if="isLoading"/>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
-    <section class="w-full settings relative bg-[#0000001f] p-[40px]">
-      <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
+  <v-container class="max-w-[1120px]" v-else>
+    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] pt-[20px] lg:p-[40px]">
+      <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="trailer in trailers"
-          class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(trailer.trailer_id)">
-          <div class="img w-[350px] h-[260px] m-0">
+          <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
-            <img class="w-[100%] object-cover h-full" :src="trailer.trailer_images_url" />
+            <img class="w-[100%] h-full sm:object-cover" :src="trailer.trailer_images_url" />
           </div>
-          <div class="texts w-[350px] h-[260px]">
+          <div class="text lg:h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ trailer.trailer_make_name }}
@@ -22,7 +22,7 @@
                 {{ trailer.trailer_variant }}
               </div>
             </div>
-            <div class="date-km text-[15px] flex flex-wrap gap-x-[20px]">
+            <div class="date-km hidden lg:flex gap-[5px] text-[14px]">
               <div class="year">
                 {{ trailer.trailer_firt_date_year }}
               </div>
@@ -45,7 +45,7 @@
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ trailer.trailer_price }}</p>
-            <div class="flex gap-[10px] justify-end mt-[200px]">
+            <div class="flex gap-[10px] lg:justify-end mt-[10px] lg:mt-[200px]">
               <div class="">
                 <button
                   class="flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white"
@@ -77,7 +77,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </v-container>
 </template>
 <script>
