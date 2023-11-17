@@ -1,16 +1,16 @@
 --
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[210px] h-[750px] bg-[#0000001f] p-[20px]">
+  <v-container class="max-w-[1120px] flex justify-between pl-0 ml-[4px]">
+    <div class="tabs w-[130px] lg:w-[210px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] text-[12px]">
       <div class="top flex gap-[10px] items-center mt-[10px]">
         <div class="profile-img" v-if="!userIcon">
           <img
             :src="userProfileImg"
             :alt="userProfileImgName"
-            class="w-[60px] h-[60px] rounded-[100%]"
+            class="w-[40px] lg:w-[60px] h-[40px] lg:h-[60px] rounded-[100%]"
           />
         </div>
-        <div class="icon w-[35px] h-[35px] mx-[15px]" v-if="userIcon">
+        <div class="icon w-[15px] lg:w-[35px] h-[15px] lg:h-[35px] mx-[15px]" v-if="userIcon">
           <svg
             data-v-53d99ea3=""
             xmlns="http://www.w3.org/2000/svg"
@@ -271,7 +271,7 @@
     <!-- Правильный способ обращения к данным хранилища -->
 
     <section
-      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
+      class="tabs-content settings relative w-[250px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
