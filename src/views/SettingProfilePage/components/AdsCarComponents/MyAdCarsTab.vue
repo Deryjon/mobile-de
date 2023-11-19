@@ -1,12 +1,12 @@
 <template>
-  <div class="set p-[40px] w-[870px]">
-    <div class="add car" v-if="createAdd">
+  <div class="set lg:p-[40px] w-[210px] lg:w-[870px]">
+    <div class="add car  lg:w-[870px]" v-if="createAdd">
       <div class="ads">
-        <p class="car-text font-bold text-[30px]">My Car Ads</p>
+        <p class="car-text font-bold text-[18px] lg:text-[30px]">My Car Ads</p>
       </div>
       <div class="">
-				<p class="car-text font-bold text-[20px] mt-[20px]">Create new ad</p>
-				<SellButton class="ml-[78.4%] w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
+				<p class="car-text font-bold text-[14px] lg:text-[20px] mt-[20px]">Create new ad</p>
+				<SellButton class="ml-[90px] lg:ml-[78.4%]  lg:w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
 			</div>
       <div
 			class="btn w-[500px] h-[350px] hover:bg-orange-200 mx-auto mt-[40px] pt-[10px] cursor-pointer rounded-[20px]"

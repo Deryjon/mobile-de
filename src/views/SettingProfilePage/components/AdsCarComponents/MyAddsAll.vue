@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
+  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px] p-[5px]">
     <div v-for="car in cars" :key="car.car_id" :data-car-id="car.id"
-      class="card bor bg-white flex justify-between w-full h-[300px] p-[20px]">
-      <div class="bor img w-[500px]  h-[200px] mr-[20px] m-0">
+      class="card bor bg-white lg:flex justify-between w-full lg:h-[300px] p-[20px]">
+      <div class="bor img lg:w-[500px]  h-[150px] lg:h-[200px] mr-[20px] m-0">
         <img :src="car.car_images_url[0]" alt="" class="object-cover w-full h-full" />
       </div>
-      <div class="text w-[520px] h-[20px]">
-        <div class="name flex gap-[5px] text-[16px] font-semibold">
+      <div class="text lg:w-[520px]">
+        <div class="name flex flex-wrap gap-[5px] text-[12px] lg:text-[16px] font-semibold">
           <div class="make">
             {{ car.car_make }}
           </div>
@@ -17,7 +17,7 @@
             {{ car.car_variant }}
           </div>
         </div>
-        <div class="date-km flex gap-[5px]">
+        <div class="date-km flex gap-[5px] text-[11px] lg:text-[14px]">
           <div class="year">
             {{ car.car_firt_date_year }}
           </div>
@@ -26,7 +26,7 @@
           •
           <div class="power">{{ car.car_power }} Hp</div>
         </div>
-        <div class="car-body flex flex-wrap gap-x-[5px] text-[14px]">
+        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] lg:text-[14px]">
           <div class="car-body ">
             {{ car.car_body }}
           </div>
@@ -50,9 +50,9 @@
           </div>
         </div>
       </div>
-      <div class="price text-[18px] font-semibold">
+      <div class="price text-[15px] lg:text-[18px] font-semibold ">
         <p class="price">€{{ car.car_price }}</p>
-        <div class="flex gap-[10px] justify-end mt-[200px]">
+        <div class="flex gap-[10px] justify-center lg:justify-end lg:mt-[200px]">
           <!-- <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
             @click="deleteAdCar(car.car_id)"
@@ -72,7 +72,7 @@
 
           <v-dialog v-model="dialog" width="200px">
             <template v-slot:activator="{ props }">
-              <button class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
+              <button class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
                 v-bind="props">
                 Delete
               </button>
@@ -91,7 +91,7 @@
             </v-card>
           </v-dialog>
           <button @click="editAdCar(car.car_id)"
-            class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]">
+            class="bg-yellow-500 bor rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
               <path

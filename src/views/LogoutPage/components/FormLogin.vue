@@ -19,11 +19,11 @@
         </button>
       </div>
       <div class="tab-content bg-[#fff] w-full">
-        <div class="tab-panel" v-show="isActive('tab-1')">
+        <div class="" v-show="isActive('tab-1')">
           <div class="for-example">
             <v-sheet
              
-              class="w-full h-[530px] mx-auto shadow-md px-[40px] rounded-md"
+              class="w-full  lg:h-[530px] mx-auto shadow-md px-[40px] rounded-md"
             >
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
 
@@ -111,7 +111,7 @@
                 <button
                   type="submit"
                   :disabled="!isFormLoginValid"
-                  class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md mt-[30px]"
+                  class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md my-[30px]"
                   @click="LoginUser(emailLogin, passwordLogin)"
                   :class="{ 'opacity-50': !isFormLoginValid }"
                 >
