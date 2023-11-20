@@ -1,12 +1,12 @@
 <template>
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px] p-[5px]">
     <div v-for="car in cars" :key="car.car_id" :data-car-id="car.id"
-      class="card bor bg-white lg:flex justify-between w-full lg:h-[300px] p-[20px]">
+      class="card bor bg-white md:flex justify-between w-full lg:h-[300px] p-[20px]">
       <div class="bor img lg:w-[500px]  h-[150px] lg:h-[200px] mr-[20px] m-0">
         <img :src="car.car_images_url[0]" alt="" class="object-cover w-full h-full" />
       </div>
       <div class="text lg:w-[520px]">
-        <div class="name flex flex-wrap gap-[5px] text-[12px] lg:text-[16px] font-semibold">
+        <div class="name flex flex-wrap gap-[5px] text-[12px] md:text-[14px] lg:text-[16px] font-semibold">
           <div class="make">
             {{ car.car_make }}
           </div>
@@ -17,7 +17,7 @@
             {{ car.car_variant }}
           </div>
         </div>
-        <div class="date-km flex gap-[5px] text-[11px] lg:text-[14px]">
+        <div class="date-km flex gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="year">
             {{ car.car_firt_date_year }}
           </div>
@@ -26,7 +26,7 @@
           •
           <div class="power">{{ car.car_power }} Hp</div>
         </div>
-        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] lg:text-[14px]">
+        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="car-body ">
             {{ car.car_body }}
           </div>
@@ -51,29 +51,27 @@
         </div>
       </div>
       <div class="price text-[15px] lg:text-[18px] font-semibold ">
-        <p class="price">€{{ car.car_price }}</p>
-        <div class="flex gap-[10px] justify-center lg:justify-end lg:mt-[200px]">
+        <p class="price mx-auto w-[100px]">€{{ car.car_price }}</p>
+        <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
           <!-- <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
             @click="deleteAdCar(car.car_id)"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-            >
-            Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
-              <path
-                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
-              />
-            </svg>
+           
             Delete
           </button> -->
 
-          <v-dialog v-model="dialog" width="200px">
+          <v-dialog v-model="dialog">
             <template v-slot:activator="{ props }">
-              <button class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
+              <button
+                class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
                 v-bind="props">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                  Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
+                  https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                </svg>
                 Delete
               </button>
             </template>

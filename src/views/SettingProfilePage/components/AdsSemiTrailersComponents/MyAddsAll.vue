@@ -9,8 +9,8 @@
       <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
         <img :src="semitrailer.trailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
-      <div class="texts w-[520px] h-[260px]">
-        <div class="name flex gap-[5px] text-[16px] font-semibold">
+      <div class="text lg:w-[520px]">
+        <div class="name flex flex-wrap gap-[5px] text-[12px] md:text-[14px] lg:text-[16px] font-semibold ">
           <div class="make">
             {{ semitrailer.trailer_make }}
           </div>
@@ -26,7 +26,7 @@
             {{ semitrailer.trailer_firt_date_year }}
           </div>
         </div>
-        <div class="trailer-body flex flex-wrap gap-x-[5px] text-[14px]">
+        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
               <div class="trailer-body">
                 {{ semitrailer.trailer_category }}
               </div>
@@ -48,9 +48,9 @@
               </div>
             </div>
       </div>
-      <div class="price text-[18px] font-semibold">
+      <div class="price text-[15px] lg:text-[18px] font-semibold ">
         <p class="price">€{{ semitrailer.trailer_price }}</p>
-        <div class="flex gap-[10px] justify-end mt-[200px]">
+        <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
             @click="deleteAdsemitrailer(semitrailer.trailer_id)"

@@ -8,8 +8,8 @@
       <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
         <img :src="semitruck.truck_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
-      <div class="texts w-[520px] h-[260px]">
-        <div class="name flex gap-[5px] text-[16px] font-semibold">
+      <div class="text lg:w-[520px]">
+        <div class="name flex flex-wrap gap-[5px] text-[12px] md:text-[14px] lg:text-[16px] font-semibold">
           <div class="make">
             {{ semitruck.truck_make }}
           </div>
@@ -20,7 +20,7 @@
             {{ semitruck.truck_variant }}
           </div>
         </div>
-        <div class="date-km flex gap-[5px]">
+        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="year">
             {{ semitruck.truck_firt_date_year }}
           </div>
@@ -29,7 +29,7 @@
           •
           <div class="power">{{ semitruck.truck_power }} Hp</div>
         </div>
-        <div class="truck-body flex flex-wrap gap-[5px] text-[14px]">
+        <div class="date-km flex gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
               <div class="truck-body">
                 {{ semitruck.truck_category }}
               </div>
@@ -48,9 +48,9 @@
               </div>
             </div>
       </div>
-      <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ semitruck.truck_price }}</p>
-        <div class="flex gap-[10px] justify-end mt-[200px]">
+      <div class="price text-[15px] lg:text-[18px] font-semibold">
+        <p class="price mx-auto w-[100px]">€{{ semitruck.truck_price }}</p>
+        <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
             @click="deleteAdsemitruck(semitruck.truck_id)"

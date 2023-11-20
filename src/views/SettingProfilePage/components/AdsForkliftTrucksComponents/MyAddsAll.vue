@@ -1,12 +1,12 @@
 <template>
-  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
+  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px] p-[5px]">
     <div v-for="forklift in forklifts" :key="forklift.forklift_id" :data-forklift-id="forklift.id"
-      class="forkliftd bor bg-white flex justify-between w-full h-[300px] p-[20px]">
-      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
+      class="card bor bg-white md:flex justify-between w-full lg:h-[300px] p-[20px]">
+      <div class="bor img lg:w-[500px]  h-[150px] lg:h-[200px] mr-[20px] m-0">
         <img :src="forklift.forklift_images_url[0]" alt="" class="object-cover w-full h-full" />
       </div>
-      <div class="texts w-[520px] h-[260px]">
-        <div class="name flex gap-[5px] text-[16px] font-semibold">
+      <div class="text lg:w-[520px]">
+        <div class="name flex flex-wrap gap-[5px] text-[12px] md:text-[14px] lg:text-[16px] font-semibold">
           <div class="make">
             {{ forklift.forklift_make }}
           </div>
@@ -17,7 +17,7 @@
             {{ forklift.forklift_variant }}
           </div>
         </div>
-        <div class="date-km flex gap-[5px]">
+        <div class="date-km flex gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="year">
             {{ forklift.forklift_firt_date_year }}
           </div>
@@ -26,7 +26,7 @@
           •
           <div class="power">{{ forklift.forklift_power }} Hp</div>
         </div>
-        <div class="forklift-body flex gap-[5px] text-[14px]">
+        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="forklift-body">
             {{ forklift.forklift_body }}
           </div>
@@ -41,9 +41,9 @@
 
         </div>
       </div>
-      <div class="price text-[18px] font-semibold">
-        <p class="price">€{{ forklift.forklift_price }}</p>
-        <div class="flex gap-[10px] justify-end mt-[200px]">
+      <div class="price text-[15px] lg:text-[18px] font-semibold ">
+        <p class="price mx-auto w-[100px]">€{{ forklift.forklift_price }}</p>
+        <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
           <button class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
             @click="deleteAdforklift(forklift.forklift_id)">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">

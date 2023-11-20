@@ -1,7 +1,7 @@
 --
 <template>
-  <v-container class="max-w-[1120px] flex justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[115px]  xs:w-full sm:w-[200px] md:w-[350px] lg:w-[350px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] text-[12px] sm:text-[13px] md:text-[14px] lg:text-[15px]">
+  <v-container class="max-w-[1140px] flex lg:justify-between pl-0 ml-[4px]">
+    <div class="tabs w-[130px]  xs:w-[200px] sm:w-[200px] md:w-[350px] lg:w-[400px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] ">
       <div class="top flex gap-[10px] items-center mt-[10px]">
         <div class="profile-img" v-if="!userIcon">
           <img
@@ -27,14 +27,14 @@
           </svg>
         </div>
         <div class="changes">
-          <p class="email text-[12px] sm:text-[15px] lg:text-[16px]">{{ userEmail.slice(0, 5) + "..." }}</p>
-          <p class="email text-[14px] sm:text-[15px] lg:text-[16px] underline cursor-pointer">Edit</p>
+          <p class="email text-[12px]  ">{{ userEmail.slice(0, 5) + "..." }}</p>
+          <p class="email text-[14px]   underline cursor-pointer">Edit</p>
         </div>
       </div>
       <div class="line mt-[20px] w-full"></div>
       <div class="tabs-btn">
         <button
-          class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] font-semibold"
+          class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
           @click="setActive('tab-1')"
           :class="{ active: isActive('tab-1') }"
         >
@@ -67,7 +67,7 @@
         </button>
         <div class="adds">
           <button
-            class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] font-semibold"
+            class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
             @click="openCountryDropdown"
           >
             <svg
@@ -91,7 +91,7 @@
           </button>
           <ul
             v-if="isOpen"
-            class="dropdown-options text-[10px] lg:text-[12px] sm:text-[13px] w-[100px] lg:w-[135px] " 
+            class="dropdown-options text-[10px] sm:text-[12px] md:text-[14px]   w-[100px] md:w-[170px] lg:w-[135px] " 
           >
             <div class="tabs">
               <div
@@ -99,7 +99,7 @@
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
               >
-                <li class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold" data-key="be">
+                <li class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold" data-key="be">
                   {{ $t("message.profile.cars") }}
                 </li>
               </div>
@@ -108,14 +108,14 @@
                 @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
               >
-                <li class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold">
+                <li class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold">
                   {{ $t("message.profile.motorcycles") }}
                 </li>
               </div>
 
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="dk"
                   @click="setActive('tab-5')"
                   :class="{ active: isActive('tab-5') }"
@@ -126,7 +126,7 @@
 
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="us"
                   @click="setActive('tab-6')"
                   :class="{ active: isActive('tab-6') }"
@@ -137,7 +137,7 @@
 
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="fr"
                   @click="setActive('tab-7')"
                   :class="{ active: isActive('tab-7') }"
@@ -148,7 +148,7 @@
 
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="gr"
                   @click="setActive('tab-8')"
                   :class="{ active: isActive('tab-8') }"
@@ -159,7 +159,7 @@
 
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="ita"
                   @click="setActive('tab-9')"
                   :class="{ active: isActive('tab-9') }"
@@ -169,7 +169,7 @@
               </div>
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="mor"
                   @click="setActive('tab-10')"
                   :class="{ active: isActive('tab-10') }"
@@ -179,7 +179,7 @@
               </div>
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="mor"
                   @click="setActive('tab-11')"
                   :class="{ active: isActive('tab-11') }"
@@ -189,7 +189,7 @@
               </div>
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="nt"
                   @click="setActive('tab-12')"
                   :class="{ active: isActive('tab-12') }"
@@ -200,7 +200,7 @@
 
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="mor"
                   @click="setActive('tab-13')"
                   :class="{ active: isActive('tab-13') }"
@@ -210,7 +210,7 @@
               </div>
               <div class="flex items-center">
                 <li
-                  class="  sm:text-[15px] lg:text-[16px] text-[10px] font-semibold"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="sp"
                   @click="setActive('tab-14')"
                   :class="{ active: isActive('tab-14') }"
@@ -222,7 +222,7 @@
           </ul>
         </div>
         <button
-          class="flex gap-[3px] sm:gap-[3px] lg:gap-[8px] text-[10px] font-semibold items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
+          class="flex gap-[3px] sm:gap-[3px] lg:gap-[8px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
           @click="setActive('tab-2')" 
           :class="{ active: isActive('tab-2') }"
         >
@@ -246,7 +246,7 @@
           {{ $t("message.profile.settings") }}
         </button>
         <button
-          class="flex gap-[1px] sm:gap-[3px] text-[9px] font-bold lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
+          class="flex gap-[1px] sm:gap-[3px] text-[9px] sm:text-[12px] md:text-[14px] font-bold lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
           @click="logOut"
         >
           <div class="icon-settings w-[24px]">
@@ -271,7 +271,7 @@
     <!-- Правильный способ обращения к данным хранилища -->
 
     <section
-      class="tabs-content settings relative w-[250px] sm:w-[550px] md:w-full lg:w-[800px] xl:w-[870px] bg-[#0000001f] flex"
+      class="tabs-content settings relative w-[250px]  xs:w-[550px] md:w-full lg:w-[800px] xl:w-[870px] bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
