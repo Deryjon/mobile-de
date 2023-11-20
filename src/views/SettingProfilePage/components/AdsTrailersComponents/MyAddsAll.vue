@@ -18,7 +18,7 @@
             {{ trailer.trailer_model }}
           </div>
         </div>
-        <div class="ate-km flex gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
+        <div class="date-km flex flex-wrap gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="year">
             {{ trailer.trailer_firt_date_year }}
           </div>
@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="price text-[15px] lg:text-[18px] font-semibold ">
-        <p class="price mx-auto w-[100px]">€{{ trailer.trailer_price }}</p>
+        <p class="price">€{{ trailer.trailer_price }}</p>
         <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]
         ">
           <button

@@ -26,9 +26,9 @@
         </div>
       </div>
       <div class="price text-[15px] lg:text-[18px] font-semibold">
-        <p class="price mx-auto w-[100px]">€{{ agricultural.machine_price }}</p>
+        <p class="price">€{{ agricultural.machine_price }}</p>
         <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
-          <button class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
+          <button class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
             @click="deleteAdagricultural(agricultural.machine_id)">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
@@ -39,7 +39,7 @@
           </button>
 
           <button @click="editAdagricultural(agricultural.machine_id)"
-            class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]">
+            class="flex items-center gap-[5px] bg-yellow-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]">
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
               <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
               <path

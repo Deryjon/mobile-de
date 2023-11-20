@@ -1,11 +1,11 @@
 <template>
-  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
+  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px] p-[5px]">
     <div
       v-for="semitruck in semitrucks"
       :key="semitruck.truck_id"
-      class="semitruckd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      class="card bor bg-white md:flex justify-between w-full lg:h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
+      <div class="bor img lg:w-[500px]  h-[150px] lg:h-[200px] mr-[20px] m-0">
         <img :src="semitruck.truck_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
       <div class="text lg:w-[520px]">
@@ -20,7 +20,7 @@
             {{ semitruck.truck_variant }}
           </div>
         </div>
-        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
+        <div class="date-km flex gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="year">
             {{ semitruck.truck_firt_date_year }}
           </div>
@@ -29,7 +29,7 @@
           •
           <div class="power">{{ semitruck.truck_power }} Hp</div>
         </div>
-        <div class="date-km flex gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
+        <div class="car-body flex flex-wrap gap-x-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
               <div class="truck-body">
                 {{ semitruck.truck_category }}
               </div>
@@ -49,10 +49,10 @@
             </div>
       </div>
       <div class="price text-[15px] lg:text-[18px] font-semibold">
-        <p class="price mx-auto w-[100px]">€{{ semitruck.truck_price }}</p>
+        <p class="price ">€{{ semitruck.truck_price }}</p>
         <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
           <button
-            class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
+            class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
             @click="deleteAdsemitruck(semitruck.truck_id)"
           >
             <svg
@@ -70,7 +70,7 @@
 
           <button
             @click="editAdsemitruck(semitruck.truck_id)"
-            class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
+            class="flex items-center gap-[5px] bg-yellow-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

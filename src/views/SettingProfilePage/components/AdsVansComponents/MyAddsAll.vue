@@ -55,7 +55,7 @@
         </div>
       </div>
       <div class="price text-[15px] lg:text-[18px] font-semibold">
-        <p class="price mx-auto w-[100px]">€{{ van.van_price }}</p>
+        <p class="price">€{{ van.van_price }}</p>
         <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]">
           <button
             class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
