@@ -7,7 +7,7 @@
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
           + Add image
         </button>
-        <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
+        <div class="file-preview flex flex-wrap lg:w-[600px] gap-[2px] lg:gap-[10px]">
           <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
               <img class="w-full h-full" :src="file.url" :alt="file.name" />
@@ -22,17 +22,17 @@
       <div class="video-link mt-[30px]">
         <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
         <input type="text"
-          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo" />
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
+      <div class="flex flex-wrap gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
             <h2 class="text-sm lg:text-[14px]">
               {{ $t("message.selects.mark") }}
             </h2>
             <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
               v-model="selectedMark" @change="fetchModels()">
               <option value="" selected>Beliebig</option>
               <optgroup>
@@ -51,7 +51,7 @@
             {{ $t("message.selects.model") }}
           </h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             :disabled="isModelSelectDisabled" v-model="selectedModel">
             <option :value="selectedModel" selected>
               {{ selectedModel }}
@@ -66,7 +66,7 @@
           <div class="relative mt-2">
             <h2 class="text-sm lg:text-[14px]">Variant</h2>
             <input
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
               placeholder="e.g. GTI..." v-model="inputVariant" />
           </div>
         </div>
@@ -74,7 +74,7 @@
 
       <div class="filter-cars flex flex-wrap gap-[50px] mt-[0px] lg:mt-[50px]">
         <!-- cabrio -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-[40px] w-[230px]">
+        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-[40px] w-[150px] lg:w-[230px]">
           <input type="radio" v-model="selectedCar" :class="{
             'bg-transparent': selectedCar !== 'Cabrio / Roadster',
             'bg-orange': selectedCar === 'Cabrio / Roadster',
@@ -83,7 +83,7 @@
           <span class="text-sm"> Cabrio / Roadster</span>
         </label>
         <!-- estate -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]">
+        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10 w-[150px] lg:w-[230px]">
           <input @click="selectCar('Estate Car')" type="radio" v-model="selectedCar" :class="{
             'bg-transparent': selectedCar !== 'Estate Car',
             'bg-orange': selectedCar === 'Estate Car',
@@ -93,7 +93,7 @@
         </label>
 
         <!-- saloon -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]">
+        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10 w-[150px] lg:w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Saloon')" :class="{
             'bg-transparent': selectedCar !== 'Saloon',
             'bg-orange': selectedCar === 'Saloon',
@@ -103,7 +103,7 @@
           <span class="text-sm">Saloon</span>
         </label>
         <!-- small -->
-        <label class="custom-checkbox p-[0] flex gap-[10px] items-center h-10 w-[210px]20px]">
+        <label class="custom-checkbox p-[0] flex gap-[2px] lg:gap-[10px] items-center h-10 lg:w-[210px] ">
           <input type="radio" v-model="selectedCar" @click="selectCar('Small Car')" :class="{
             'bg-transparent': selectedCar !== 'Small Car',
             'bg-orange': selectedCar === 'Small Car',
@@ -113,7 +113,7 @@
           <span class="text-sm">Small Car</span>
         </label>
         <!-- sports -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-8 w-[280px]20px]">
+        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-8 lg:w-[280px] ">
           <input type="radio" v-model="selectedCar" @click="selectCar(' Sports Car / Coupe')" :class="{
             'bg-transparent': selectedCar !== ' Sports Car / Coupe',
             'bg-orange': selectedCar === ' Sports Car / Coupe',
@@ -123,7 +123,7 @@
           <span class="text-sm"> Sports Car / Coupe</span>
         </label>
         <!-- off-road -->
-        <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
+        <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[150px] lg:w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
             'bg-transparent': selectedCar !== 'Van / Minibus',
             'bg-orange': selectedCar === 'Van / Minibus',
@@ -133,7 +133,7 @@
           <span class="text-sm">Van / Minibus</span>
         </label>
         <!-- off-road -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[350px]">
+        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10  lg:w-[350px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('SUV / Off-road Vehicle / Pickup Truck')" :class="{
             'bg-transparent':
               selectedCar !== 'SUV / Off-road Vehicle / Pickup Truck',
@@ -485,7 +485,7 @@
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="huValid">
             <option value="new">New</option>
             <option value="18">18</option>
@@ -499,7 +499,7 @@
         <div class="marke_select_div relative mt-2">
           <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="preOwners">
             <option value="1">Up to 1</option>
             <option value="2">Up to 2</option>
@@ -535,7 +535,7 @@
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">Country</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry">
             <optgroup>
               <option value="" selected>Any</option>
@@ -649,7 +649,7 @@
         <h3 class="text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Diesel',
               'bg-orange': selectedFuel === 'Diesel',
@@ -657,7 +657,7 @@
 
             Diesel
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
               'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
@@ -665,7 +665,7 @@
 
             Hybrid (diesel/electric)
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Natural Gas',
               'bg-orange': selectedFuel === 'Natural Gas',
@@ -673,7 +673,7 @@
 
             Natural Gas
           </label>
-          <label class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0">
+          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Other',
               'bg-orange': selectedFuel === 'Other',
@@ -681,7 +681,7 @@
 
             Other
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Petrol',
               'bg-orange': selectedFuel === 'Petrol',
@@ -689,7 +689,7 @@
 
             Petrol
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Electric',
               'bg-orange': selectedFuel === 'Electric',
@@ -829,7 +829,7 @@
         <div class="
 			">
           <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-          <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[210px]">
+          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[210px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent':
                 selectedTransmision !== 'Automatic transmissio',
@@ -840,7 +840,7 @@
           </label>
         </div>
         <div class="mt-[43px] lg:mt-[84px]">
-          <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]">
+          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Semi-automatic',
               'bg-orange': selectedTransmision === 'Semi-automatic',
@@ -850,7 +850,7 @@
           </label>
         </div>
         <div class="mt-[43px] lg:mt-[84px]">
-          <label class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]">
+          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] p-0 items-center h-10 w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Manual gearbox',
               'bg-orange': selectedTransmision === 'Manual gearbox',
@@ -881,7 +881,7 @@
         <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="stickerEmission">
             <option value="any" selected>Any</option>
             <option value="1">Up to 1</option>
@@ -894,7 +894,7 @@
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision">
             <option value="any" selected>Any</option>
             <option value="1">Up to 1</option>
@@ -922,7 +922,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Beige',
               'bg-orange': selectedExteriorColour === 'Beige',
@@ -931,7 +931,7 @@
             Beige
           </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Brown',
               'bg-orange': selectedExteriorColour === 'Brown',
@@ -940,7 +940,7 @@
             Brown
           </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Gold',
               'bg-orange': selectedExteriorColour === 'Gold',
@@ -949,7 +949,7 @@
             Gold
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Green',
               'bg-orange': selectedExteriorColour === 'Green',
@@ -958,7 +958,7 @@
             Green
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Red',
               'bg-orange': selectedExteriorColour === 'Red',
@@ -967,7 +967,7 @@
             Red
           </label>
           <label
-            class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-silver flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Silver',
               'bg-orange': selectedExteriorColour === 'Silver',
@@ -1080,14 +1080,14 @@
         <h3>Parking sensors</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
-          <label class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Rear')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Rear',
               'bg-orange': selectedParking === 'Rear',
             }" />
             Rear
           </label>
-          <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Front')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Front',
               'bg-orange': selectedParking === 'Front',
@@ -1095,7 +1095,7 @@
 
             Front
           </label>
-          <label class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Camera')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Camera',
               'bg-orange': selectedParking === 'Camera',
@@ -1103,7 +1103,7 @@
 
             Camera
           </label>
-          <label class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('360° camera')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== '360° camera',
               'bg-orange': selectedParking === '360° camera',
@@ -1111,7 +1111,7 @@
 
             360° camera
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Self-steering systems')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Self-steering systems',
               'bg-orange': selectedParking === 'Self-steering systems',
@@ -1145,7 +1145,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedABS" @click="toggleShowCheckboxOthers(0, 'ABS')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1155,7 +1155,7 @@
             ABS
           </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedEmergency"
               @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1166,7 +1166,7 @@
             Emergency brake assist
           </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedCentral"
               @click="toggleShowCheckboxOthers(2, 'Keyless central locking')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1177,7 +1177,7 @@
             Keyless central locking
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSpeed"
               @click="toggleShowCheckboxOthers(3, '	Speed limit control system')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1187,7 +1187,7 @@
             </svg>
             Speed limit control system
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedAdaptive"
               @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1197,7 +1197,7 @@
             </svg>
             Adaptive cornering lights
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTyre" @click="toggleShowCheckboxOthers(5, 'Emergency tyre')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1206,7 +1206,7 @@
             </svg>
             Emergency tyre
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedLastChanges"
               @click="toggleShowCheckboxOthers(6, 'Lane change assist')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1216,7 +1216,7 @@
             </svg>
             Lane change assist
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSportsPackage"
               @click="toggleShowCheckboxOthers(7, 'Sports package')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1235,7 +1235,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox p-0 custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
+            class="custom-checkbox p-0 custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
             <input type="radio" @click="selectInteriorColour('Beige')" v-model="selectedInteriorColour" :class="{
               'bg-transparent': selectedInteriorColour !== 'Beige',
               'bg-orange': selectedInteriorColour === 'Beige',
@@ -1244,7 +1244,7 @@
             Beige
           </label>
           <label
-            class="custom-checkbox p-0 custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
+            class="custom-checkbox p-0 custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
             <input type="radio" @click="selectInteriorColour('Brown')" v-model="selectedInteriorColour" :class="{
               'bg-transparent': selectedInteriorColour !== 'Brown',
               'bg-orange': selectedInteriorColour === 'Brown',
@@ -1284,7 +1284,7 @@
         <h3>Interior material</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">
           <!-- cabrio -->
-          <label class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedAlcantra" @click="toggleShowCheckboxMaterial(0, 'Alcantra')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1293,7 +1293,7 @@
             </svg>
             Alcantra
           </label>
-          <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedCloth" @click="toggleShowCheckboxMaterial(1, 'Cloth')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1302,7 +1302,7 @@
             </svg>
             Cloth
           </label>
-          <label class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedPartLeather"
               @click="toggleShowCheckboxMaterial(2, 'Part leather')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1312,7 +1312,7 @@
             </svg>
             Part leather
           </label>
-          <label class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedVelour" @click="toggleShowCheckboxMaterial(3, 'Velour')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1321,7 +1321,7 @@
             </svg>
             Velour
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedFullLeather"
               @click="toggleShowCheckboxMaterial(4, 'Full Leather')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1331,7 +1331,7 @@
             </svg>
             Full Leather
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedOther" @click="toggleShowCheckboxMaterial(5, 'Other')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1436,7 +1436,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedAlarmSystem" @click="toggleShowCheckboxExtras(0, 'Alarm System')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1446,7 +1446,7 @@
             Alarm System
           </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedDisable"
               @click="toggleShowCheckboxExtras(1, 'Disabled accessible')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1457,7 +1457,7 @@
             Disabled accessible
           </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedHeated"
               @click="toggleShowCheckboxExtras(2, 'Heated steering whee')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
@@ -1468,7 +1468,7 @@
             Heated steering whee
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSeat" @click="toggleShowCheckboxExtras(3, 'Seat ventilation')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1477,7 +1477,7 @@
             </svg>
             Seat ventilation
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedAmbient" @click="toggleShowCheckboxExtras(4, 'Ambient lighting')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1486,7 +1486,7 @@
             </svg>
             Ambient lighting
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedElectric" @click="
               toggleShowCheckboxExtras(5, 'Electric backseat adjustment')
               " />
@@ -1497,7 +1497,7 @@
             </svg>
             Electric backseat adjustment
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedInduction" @click="
               toggleShowCheckboxExtras(
                 6,
@@ -1511,7 +1511,7 @@
             </svg>
             Induction charging for smartphones
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSki" @click="toggleShowCheckboxExtras(7, 'Ski bag')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1552,7 +1552,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedDiscount" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1562,7 +1562,7 @@
             Discount offers
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedNon" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1571,7 +1571,7 @@
             </svg>
             Non-smoker vehicle
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTaxi" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1580,7 +1580,7 @@
             </svg>
             Taxi
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedVAT" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1589,7 +1589,7 @@
             </svg>
             VAT reclaimable
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedWarranty" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -1598,7 +1598,7 @@
             </svg>
             Warranty
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedEnvironmental" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
