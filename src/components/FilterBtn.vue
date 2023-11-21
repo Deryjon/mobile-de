@@ -1,7 +1,7 @@
 <template>
   <div
 
-    class="resultast_div flex items-center px-[50px] lg:px-[10px] gap-[10px] lg:gap-[5px] w-[300px] lg:w-[150px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[35px] cursor-pointer
+    class="resultast_div flex items-center px-[50px] lg:px-[5px] gap-[10px] lg:gap-[5px] w-[300px] lg:w-[150px] xl:w-[170px] h-[35px] bg-[#e04b00]  rounded-[8px] mt-[30px] lg:mt-[35px] cursor-pointer
 		"
 		>
 
