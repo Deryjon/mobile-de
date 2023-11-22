@@ -263,9 +263,9 @@
         </p>
       </div>
     </div>
-    <div class="right mt-[45px]  lg:mt-[25px]  bg-[#0000001f] w-[120px] lg:w-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px] lg:right-[202px]': isScrolled }"
-      :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
+    <div class="right mt-[45px]   lg:mt-[25px]  bg-[#0000001f] w-[120px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px] lg:right-[202px] ': isScrolled }"
+      :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto'}">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="car-mark">{{ car.car_make }}</p>
         <p class="car-model">{{ car.car_model }}</p>
