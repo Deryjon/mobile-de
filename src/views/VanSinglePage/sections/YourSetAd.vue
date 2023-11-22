@@ -1,11 +1,11 @@
   <template>
     <TheLoader v-if="isLoading"/>
-    <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px] relative" v-else>
-      <div class="left flex flex-col gap-[20px] w-[700px] rounded-[4px]">
-        <div class="img h-[500px]">
+    <v-container class="max-w-[1140px] flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
+      <div class="left flex flex-col gap-[20px] w-[205px] lg:w-[700px] rounded-[4px]">
+        <div class="img h-[150px] lg:h-[500px]">
           <img :src="van.van_images_url" class="w-full h-full object-cover" alt="" />
         </div>
-        <div class="basic-data bor flex flex-wrap gap-x-[40px] h-[180px] p-[20px]">
+        <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]">
           <div class="mileage flex w-[186px] gap-[5px]">
             <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -16,8 +16,8 @@
               </g>
             </svg>
             <div class="kilomet">
-              <p class="text-[12px]">Mileage</p>
-              <p class="font-bold">{{ van.van_kilometre }} km</p>
+              <p class="text-[10px] lg:text-[12px]">Mileage</p>
+              <p class="text-[12px] font-medium lg:font-bold">{{ van.van_kilometre }} km</p>
             </div>
           </div>
           <div class="registration flex w-[186px] gap-[5px]">
@@ -33,8 +33,8 @@
               </g>
             </svg>
             <div class="kilomet">
-              <p class="text-[12px]">First Registration</p>
-              <p class="font-bold">{{ van.van_firt_date_year }}</p>
+              <p class="text-[10px] lg:text-[12px]">First Registration</p>
+              <p class="text-[12px] font-medium lg:font-bold">{{ van.van_firt_date_year }}</p>
             </div>
           </div>
           <div class="power flex w-[186px] gap-[5px]">
@@ -59,8 +59,8 @@
               </g>
             </svg>
             <div class="kilomet">
-              <p class="text-[12px]">Power</p>
-              <p class="font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
+              <p class="text-[10px] lg:text-[12px]">Power</p>
+              <p class="text-[12px] font-medium lg:font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
             </div>
           </div>
           <div class="power flex w-[186px]">
@@ -92,8 +92,8 @@
               </g>
             </svg>
             <div class="kilomet">
-              <p class="text-[12px]">Gearbox</p>
-              <p class="font-bold">{{ van.van_transmission }}</p>
+              <p class="text-[10px] lg:text-[12px]">Gearbox</p>
+              <p class="text-[12px] font-medium lg:font-bold">{{ van.van_transmission }}</p>
             </div>
           </div>
           <div class="power flex w-[186px] gap-[5px]">
@@ -109,99 +109,99 @@
               </g>
             </svg>
             <div class="kilomet">
-              <p class="text-[12px]">Fuel</p>
-              <p class="font-bold">{{ van.van_fuel_type }}</p>
+              <p class="text-[10px] lg:text-[12px]">Fuel</p>
+              <p class="text-[12px] font-medium lg:font-bold">{{ van.van_fuel_type }}</p>
             </div>
           </div>
         </div>
         <div class="technical-data bor p-[20px]">
-          <p class="title font-semibold">Technical data</p>
+          <p class="title text-[16px] lg:font-semibold">Technical data</p>
           <div class="line mt-[10px]"></div>
-          <div class="td-box mt-[20px] flex flex-col gap-[20px]">
+          <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
             <div class="category flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Category</p>
-              <p class="w-[288px] text-[14px]">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Category</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">
         {{ van.van_category }}
               </p>
             </div>
             <div class="mileage flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Mileage</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_kilometre }} km</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Mileage</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_kilometre }} km</p>
             </div>
             <div class="cubic flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Number of Seats</p>
-              <p class="w-[288px] text-[14px]">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Number of Seats</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">
                 {{ van.van_number_of_seats }} 
               </p>
             </div>
             
             <div class="cubic flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Programme</p>
-              <p class="w-[288px] text-[14px]">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Programme</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">
                 {{ van.van_approved_used_programme
   }} 
               </p>
             </div>
             <div class="cubic flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Air Conditioning</p>
-              <p class="w-[288px] text-[14px]">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Air Conditioning</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">
                 {{ van.van_air_conditioning
   }} 
               </p>
             </div>
             <div class="power flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Power</p>
-              <p class="w-[288px] text-[14px]">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Power</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">
                 {{ powerInkW }} kW ({{ powerInHp }} Hp)
               </p>
             </div>
             <div class="power flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Fuel</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_fuel_type }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Fuel</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_fuel_type }}</p>
             </div>
             <div class="cubic flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">GVW</p>
-              <p class="w-[288px] text-[14px]">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">GVW</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">
                 {{ van.van_gvw }} 
               </p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Gearbox</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_transmission }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Gearbox</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_transmission }}</p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
                 First Registration
               </p>
-              <p class="w-[288px] text-[14px]">{{ van.van_firt_date_year }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_firt_date_year }}</p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
               Cruise Control
               </p>
-              <p class="w-[288px] text-[14px]">{{ van.van_cruise_control
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_cruise_control
   }}</p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Condition</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_condition }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Condition</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_condition }}</p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Emission Sticker</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_emissions_sticker }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Emission Sticker</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_emissions_sticker }}</p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Emission Class</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_emission_class }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Emission Class</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_emission_class }}</p>
             </div>
             <div class="availability flex justify-between">
-              <p class="w-[288px] text-[14px] font-semibold">Colour</p>
-              <p class="w-[288px] text-[14px]">{{ van.van_exterior_colour }}</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Colour</p>
+              <p class="w-[288px] text-[11px] lg:text-[14px]">{{ van.van_exterior_colour }}</p>
             </div>
           </div>
         </div>
         <div class="features bor p-[20px]">
-          <p class="title font-semibold">Features</p>
+          <p class="title text-[16px] lg:font-semibold">Features</p>
           <div class="line mt-[10px]"></div>
           <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[14px] font-semibold">
             <div class="w-[297px]">ABS</div>
@@ -224,7 +224,7 @@
           </div>
         </div>
         <div class="description bor p-[20px]">
-          <p class="title font-semibold">
+          <p class="title text-[16px] lg:font-semibold">
             Vehicle description according to seller
           </p>
           <div class="line mt-[10px]"></div>
@@ -233,7 +233,7 @@
           </div>
         </div>
         <div class="description bor p-[20px]">
-          <p class="title font-semibold">About this dealer</p>
+          <p class="title text-[16px] lg:font-semibold">About this dealer</p>
           <div class="line mt-[10px]"></div>
           <div class="flex flex-wrap p-[20px] mt-[20px] gap-[20px] justify-between text-[14px]">
             <div class="power flex w-[186px] gap-[5px]">
@@ -249,8 +249,8 @@
                 </g>
               </svg>
               <div class="kilomet">
-                <p class="text-[12px]">With mobile.de since</p>
-                <p class="font-bold">3 Years</p>
+                <p class="text-[10px] lg:text-[12px]">With mobile.de since</p>
+                <p class="text-[12px] font-medium lg:font-bold">3 Years</p>
               </div>
             </div>
             <div class="power flex w-[186px] gap-[5px]">
@@ -273,8 +273,8 @@
                   fill="currentColor"></path>
               </svg>
               <div class="kilomet">
-                <p class="text-[12px]">Ads online</p>
-                <p class="font-bold">534</p>
+                <p class="text-[10px] lg:text-[12px]">Ads online</p>
+                <p class="text-[12px] font-medium lg:font-bold">534</p>
               </div>
             </div>
             <div class="power flex w-[186px] gap-[5px]">
@@ -288,8 +288,8 @@
                   fill="currentColor"></path>
               </svg>
               <div class="kilomet">
-                <p class="text-[12px]">Referrals</p>
-                <p class="font-bold">82%</p>
+                <p class="text-[10px] lg:text-[12px]">Referrals</p>
+                <p class="text-[12px] font-medium lg:font-bold">82%</p>
               </div>
             </div>
             <div class="power flex w-[186px] gap-[5px]">
@@ -315,20 +315,20 @@
                   fill="currentColor"></path>
               </svg>
               <div class="kilomet">
-                <p class="text-[12px]">Vehicle as described</p>
-                <p class="font-bold">88%</p>
+                <p class="text-[10px] lg:text-[12px]">Vehicle as described</p>
+                <p class="text-[12px] font-medium lg:font-bold">88%</p>
               </div>
             </div>
           </div>
           <div class="line mt-[10px]"></div>
 
-          <p class="show mt-[20px] text-[12px]">
+          <p class="show mt-[20px] text-[10px] lg:text-[12px]">
             This information is based exclusively on data from mobile.de and
             reviews by other users. All content is independent and not for sale.
           </p>
         </div>
         <div class="description bor p-[20px]">
-          <p class="title font-semibold">Dealer</p>
+          <p class="title text-[16px] lg:font-semibold">Dealer</p>
           <div class="line mt-[10px]"></div>
 
           <div class="profile-img w-[200px]">
@@ -349,23 +349,23 @@
           </div>
           <div class="line mt-[10px]"></div>
 
-          <p class="show mt-[20px] text-[12px]">
+          <p class="show mt-[20px] text-[10px] lg:text-[12px]">
             This information is based exclusively on data from mobile.de and
             reviews by other users. All content is independent and not for sale.
           </p>
         </div>
       </div>
-      <div class="right mt-[25px]  bg-[#0000001f] w-[350px] h-[400px] rounded-[4px] p-[20px]"
-        :class="{ 'fixed right-[202px]': isScrolled }"
-        :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
-        <div class="van-name flex gap-[5px] text-[20px] font-bold">
+      <div class="right mt-[45px]   lg:mt-[25px]  bg-[#0000001f] w-[120px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px] lg:right-[202px] ': isScrolled }"
+      :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto'}">
+        <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
           <p class="van-mark">{{ van.van_make }}</p>
           <p class="van-model">{{ van.van_model }}</p>
         </div>
         <!-- <div class="van-name flex gap-[5px] text-[16px] mt-[5px]">
           <p class="van-mark">PureTech 130 EAT8 Allure Pack</p>
         </div> -->
-        <div class="price flex gap-[5px] text-[16px] mt-[5px]">
+        <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
           €
           <p class="van-price">{{ van.van_price }}</p>
         </div>
@@ -376,20 +376,20 @@
         <div class="name-seller">
           <p class="name">{{user.user_gender}} {{  user.user_first_name }}</p>
         </div>
-        <div class="name-seller mt-[15px] font-semibold">
+        <div class="name-seller mt-[15px] font-semibold text-[12px]">
           <p class="name">Phone: {{ van.user_phone }}</p>
         </div>
         <button
-          class="complete bg-[#e04b00] w-full py-[12px] rounded-[8px] text-[#fff] font-bold flex items-center gap-[5px] px-[32%] mt-[20px]">
+          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
           Write Email
         </button>
-        <div class="flex gap-[10px] w-full mt-[25px]">
+        <div class="flex gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
           <button
-            class="bg-transparent m-0 bor rounded-[4px] text-[14px] py-[12px] px-[15%] w-[50%] text-[#08829a] flex items-center gap-[5px]">
+            class="bg-transparent m-0 bor rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[15%] lg:w-[50%] text-[#08829a] flex items-center gap-[1px] lg:gap-[5px]">
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -399,7 +399,7 @@
             Park
           </button>
           <button
-            class="mt-0 flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] py-[12px] px-[13%] w-[50%] text-white"
+            class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[13%] lg:w-[50%] text-white"
             @click="contactAd">
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
