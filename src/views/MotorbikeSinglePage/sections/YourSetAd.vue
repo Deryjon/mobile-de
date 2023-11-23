@@ -357,13 +357,12 @@ export default {
       this.$router.push({ name: "single-motorcycle" });
     },
     handleScroll() {
-      if (window.scrollY >= 150 && !this.isScrolled) {
-
+      if (window.scrollY >= 150 && window.scrollY <= 1750 && !this.isScrolled) {
         this.isScrolled = true;
-      } else if (window.scrollY < 150 && this.isScrolled) {
-
+      } else if ((window.scrollY < 150 || window.scrollY > 1750) && this.isScrolled) {
         this.isScrolled = false;
       }
+
     },
     removeScrollListener() {
       window.removeEventListener("scroll", this.handleScroll);
