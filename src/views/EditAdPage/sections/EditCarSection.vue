@@ -1,6 +1,6 @@
 <template>
   <TheLoader v-if="isLoading" />
-  <div class="" v-else>
+  <div class=" text-[12px] lg-text-[14px]" v-else >
     <div class="basic-add" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
@@ -72,15 +72,15 @@
         </div>
       </div>
 
-      <div class="filter-cars flex flex-wrap gap-[50px] mt-[0px] lg:mt-[50px]">
+      <div class="filter-cars flex flex-wrap gap-[5px] lg:gap-[50px] mt-[0px] lg:mt-[50px]">
         <!-- cabrio -->
-        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-[40px] w-[150px] lg:w-[230px]">
+        <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-[40px] w-[180px] lg:w-[230px]">
           <input type="radio" v-model="selectedCar" :class="{
             'bg-transparent': selectedCar !== 'Cabrio / Roadster',
             'bg-orange': selectedCar === 'Cabrio / Roadster',
           }" @click="selectCar('Cabrio / Roadster')" />
-          <img src="../../../assets/icons/cabriolet-icon.svg" alt="" class="w-[90px] pt-[20px]" />
-          <span class="text-sm"> Cabrio / Roadster</span>
+          <img src="../../../assets/icons/cabriolet-icon.svg" alt="" class="w-[60px] lg:w-[90px] pt-[20px]" />
+          <span class="text-[12px] lg:text-sm"> Cabrio / Roadster</span>
         </label>
         <!-- estate -->
         <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10 w-[150px] lg:w-[230px]">
@@ -88,8 +88,8 @@
             'bg-transparent': selectedCar !== 'Estate Car',
             'bg-orange': selectedCar === 'Estate Car',
           }" />
-          <img src="../../../assets/icons/estate-car-icon.svg" alt="" class="w-24 pt-[20px]" />
-          <span class="text-sm">Estate Car</span>
+          <img src="../../../assets/icons/estate-car-icon.svg" alt="" class="w-[60px] lg:w-24 pt-[20px]" />
+          <span class="text-[12px] lg:text-sm">Estate Car</span>
         </label>
 
         <!-- saloon -->
@@ -99,38 +99,39 @@
             'bg-orange': selectedCar === 'Saloon',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-          <img src="../../../assets/icons/saloon-car-icon.svg" alt="" class="w-24 pt-[20px]" />
-          <span class="text-sm">Saloon</span>
+          <img src="../../../assets/icons/saloon-car-icon.svg" alt="" class="w-[60px] lg:w-24 pt-[20px]" />
+          <span class="text-[12px] lg:text-sm">Saloon</span>
         </label>
         <!-- small -->
-        <label class="custom-checkbox p-[0] flex gap-[2px] lg:gap-[10px] items-center h-10 lg:w-[210px] ">
-          <input type="radio" v-model="selectedCar" @click="selectCar('Small Car')" :class="{
-            'bg-transparent': selectedCar !== 'Small Car',
-            'bg-orange': selectedCar === 'Small Car',
-          }" class="form-checkbox h-5 w-5 text-indigo-600" />
-
-          <img src="../../../assets/icons/small-car-icon.svg" alt="" class="w-[75px] pt-[10px]" />
-          <span class="text-sm">Small Car</span>
-        </label>
-        <!-- sports -->
         <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-8 lg:w-[280px] ">
           <input type="radio" v-model="selectedCar" @click="selectCar(' Sports Car / Coupe')" :class="{
             'bg-transparent': selectedCar !== ' Sports Car / Coupe',
             'bg-orange': selectedCar === ' Sports Car / Coupe',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-          <img src="../../../assets/icons/sports-car-icon.svg" alt="" class="w-28 pt-[18px]" />
-          <span class="text-sm"> Sports Car / Coupe</span>
+          <img src="../../../assets/icons/sports-car-icon.svg" alt="" class="w-[60px] lg:w-28 pt-[18px]" />
+          <span class="text-[12px] lg:text-sm"> Sports Car / Coupe</span>
         </label>
+        <label class="custom-checkbox p-[0] flex gap-[2px] lg:gap-[10px] items-center h-10 lg:w-[210px] ">
+          <input type="radio" v-model="selectedCar" @click="selectCar('Small Car')" :class="{
+            'bg-transparent': selectedCar !== 'Small Car',
+            'bg-orange': selectedCar === 'Small Car',
+          }" class="form-checkbox h-5 w-5 text-indigo-600" />
+
+          <img src="../../../assets/icons/small-car-icon.svg" alt="" class="w-[60px] lg:w-[75px] pt-[10px]" />
+          <span class="text-[12px] lg:text-sm">Small Car</span>
+        </label>
+        <!-- sports -->
+       
         <!-- off-road -->
-        <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[150px] lg:w-[230px]">
+        <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[200px] lg:w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
             'bg-transparent': selectedCar !== 'Van / Minibus',
             'bg-orange': selectedCar === 'Van / Minibus',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-          <img src="../../../assets/icons/car-minibus-icon.svg" alt="" class="w-[70px] pt-[8px]" />
-          <span class="text-sm">Van / Minibus</span>
+          <img src="../../../assets/icons/car-minibus-icon.svg" alt="" class="w-[60px] lg:w-[70px] pt-[8px]" />
+          <span class="text-[12px] lg:text-sm">Van / Minibus</span>
         </label>
         <!-- off-road -->
         <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10  lg:w-[350px]">
@@ -141,16 +142,16 @@
               selectedCar === 'SUV / Off-road Vehicle / Pickup Truck',
           }" class="form-checkbox h-7 w-7 text-indigo-600" />
 
-          <img src="../../../assets/icons/car-suv-icon.svg" alt="" class="w-20 pt-[18px]" />
-          <span class="text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
+          <img src="../../../assets/icons/car-suv-icon.svg" alt="" class="w-[60px] lg:w-20 pt-[18px]" />
+          <span class="text-[12px] lg:text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
         </label>
       </div>
-      <div class="flex gap-[30px]">
+      <div class="flex flex-wrap items-center justify-between lg:gap-[30px]">
         <div class="seats dropdown-container mt-[20px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="numberSeats" @focus="openSeatsDropdown" @blur="closeSeatsDropdown" />
 
             <div
@@ -159,7 +160,7 @@
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="seatsOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <ul v-if="seatsOpen" class="dropdown-options w-[150px] text-[10px] lg:text-[12px]">
             <ul>
               <li key="2" @click="selectNumberSeats('2')">2</li>
               <li key="3" @click="selectNumberSeats('3')">3</li>
@@ -175,7 +176,7 @@
         <div class="seats relative mt-[28px]">
           <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
           <select
-            class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
+            class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="numDoor">
             <option value="">Any</option>
             <option value="2/3">2/3</option>
@@ -188,7 +189,7 @@
         <div class="seats relative mt-[28px]">
           <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
           <select
-            class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
+            class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="slidingDoor">
             <option value="any">Any</option>
             <option value="Sliding door right">Sliding door right</option>
@@ -273,12 +274,12 @@
           </button>
         </div>
       </div>
-      <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
+      <div class="price-tab flex flex-wrap items-center justify-between lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="dropdown-input mark_input mark-select  w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="price" @focus="openPriceDropdown" @blur="closePriceDropdown" />
 
             <div
@@ -287,7 +288,7 @@
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="priceOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <ul v-if="priceOpen" class="dropdown-options  w-[100px] text-[10px] lg:text-[12px]">
             <ul>
               <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
               <li data-value="100" @click="selectNumberPrice('100')">
@@ -314,7 +315,7 @@
           </h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="dropdown-input mark_input mark-select  w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions"
               @blur="closeDropdown" />
 
@@ -324,7 +325,7 @@
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="isOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <ul v-if="isOpen" class="dropdown-options w-[100px] text-[10px] lg:text-[12px]">
             <li v-for="option in filteredOptions" :key="option" @click="selectOption(option)" class="">
               {{ option }}
             </li>
@@ -424,7 +425,7 @@
           </h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
               @blur="closeKilometerDropdown" />
 
@@ -434,7 +435,7 @@
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="isOpenKilometer" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <ul v-if="isOpenKilometer" class="dropdown-options w-[150px] text-[10px] lg:text-[12px]">
             <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
             <li data-key="10000" @click="selectKilometer('10000')">
               10.000 km
@@ -535,7 +536,7 @@
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">Country</h2>
           <select
-            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry">
             <optgroup>
               <option value="" selected>Any</option>
@@ -615,7 +616,7 @@
         <div class="marke_select_div relative mt-2">
           <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
           <input
-            class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
+            class="mark_input mt-[10px] text-[14px] mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
             type="text" pattern="\d*" v-model="zipCode" />
         </div>
         <!--  -->
@@ -623,7 +624,7 @@
           <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="radius" @focus="openRadiusDropdown" @input="filterOptions"
               @blur="closeRadiusDropdown" />
 
@@ -649,7 +650,7 @@
         <h3 class="text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Diesel',
               'bg-orange': selectedFuel === 'Diesel',
@@ -657,7 +658,7 @@
 
             Diesel
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
               'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
@@ -665,7 +666,7 @@
 
             Hybrid (diesel/electric)
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Natural Gas',
               'bg-orange': selectedFuel === 'Natural Gas',
@@ -673,7 +674,7 @@
 
             Natural Gas
           </label>
-          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0">
+          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px] p-0">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Other',
               'bg-orange': selectedFuel === 'Other',
@@ -681,7 +682,7 @@
 
             Other
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Petrol',
               'bg-orange': selectedFuel === 'Petrol',
@@ -689,7 +690,7 @@
 
             Petrol
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Electric',
               'bg-orange': selectedFuel === 'Electric',
@@ -698,50 +699,50 @@
             Electric
           </label>
           <!-- estate -->
-          <label class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4">
+          <label class="custom-checkbox p-0 flex gap-4 text-[12px] lg:text-[14px] items-center h-10 w-[140px] lg:w-[206px] pb-4">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hydrogen',
               'bg-orange': selectedFuel === 'Hydrogen',
             }" @click="selectFuel('Hydrogen')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Hydrogen</span>
+            <span class="text-[12px] lg:text-[14px]">Hydrogen</span>
           </label>
 
           <!-- saloon -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4">
+          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[140px] lg:w-[200px] pb-4">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Plug-in hybrid',
               'bg-orange': selectedFuel === 'Plug-in hybrid',
             }" @click="selectFuel('Plug-in hybrid')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Plug-in hybrid</span>
+            <span class="text-[12px] lg:text-[14px]">Plug-in hybrid</span>
           </label>
           <!-- small -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (petrol/electric)',
               'bg-orange': selectedFuel === 'Hybrid (petrol/electric)',
             }" @click="selectFuel('Hybrid (petrol/electric)')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Hybrid (petrol/electric)</span>
+            <span class="text-[12px] lg:text-[14px]">Hybrid (petrol/electric)</span>
           </label>
           <!-- sports -->
-          <label class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'LPG',
               'bg-orange': selectedFuel === 'LPG',
             }" @click="selectFuel('LPG')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">LPG</span>
+            <span class="text-[12px] lg:text-[14px]">LPG</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px]">
+          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Ethanol (FFV, E85, etc.)',
               'bg-orange': selectedFuel === 'Ethanol (FFV, E85, etc.)',
             }" @click="selectFuel('Ethanol (FFV, E85, etc.)')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Ethanol (FFV, E85, etc.)</span>
+            <span class="text-[12px] lg:text-sm">Ethanol (FFV, E85, etc.)</span>
           </label>
         </div>
       </div>
@@ -825,38 +826,38 @@
         </label>
       </div>
 
-      <div class="flex gap-[40px] lg:gap-[100px]">
+      <div class="flex flex-wrap gap-x-[40px] lg:gap-[100px]">
         <div class="
 			">
           <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[210px]">
+          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[150px] lg:w-[210px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent':
                 selectedTransmision !== 'Automatic transmissio',
               'bg-orange': selectedTransmision === 'Automatic transmissio',
             }" @click="selectTransmision('Automatic transmissio')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Automatic transmission</span>
+            <span class="text-[12px] lg:text-sm">Automatic transmission</span>
           </label>
         </div>
         <div class="mt-[43px] lg:mt-[84px]">
-          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[180px]">
+          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[120px] lg:w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Semi-automatic',
               'bg-orange': selectedTransmision === 'Semi-automatic',
             }" @click="selectTransmision('Semi-automatic')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Semi-automatic</span>
+            <span class="text-[12px] lg:text-sm">Semi-automatic</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
-          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] p-0 items-center h-10 w-[180px]">
+        <div class=" lg:mt-[84px]">
+          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] p-0 items-center h-10 w-[120px] lg:w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Manual gearbox',
               'bg-orange': selectedTransmision === 'Manual gearbox',
             }" @click="selectTransmision('Manual gearbox')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Manual gearbox </span>
+            <span class="text-[12px] lg:text-sm">Manual gearbox </span>
           </label>
         </div>
       </div>
@@ -878,7 +879,7 @@
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
+        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] lg:w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -891,7 +892,7 @@
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[150px] lg:w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1524,7 +1525,7 @@
       </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex gap-[40px] mt-[20px]">
+        <div class="radios-type flex flex-wrap gap-x-[50px] lg:gap-[40px] mt-[20px]">
           <label>
             <input type="radio" id="vendor-private" v-model="selectedVendor" :class="{
               'bg-transparent': selectedVendor !== 'Private',
@@ -1609,8 +1610,8 @@
           </label>
         </div>
       </div>
-      <div class="flex items-center gap-[50px]">
-        <div class="relative mt-2 w-[200px]">
+      <div class="flex flex-wrap gap-x-[20px] items-center lg:gap-[50px]">
+        <div class="relative mt-2 w-[150px] lg:w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
           <select
             class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1619,9 +1620,9 @@
             <option value="not">Do not show</option>
             <option value="only">Only show</option>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute left-[130px] lg:left-[180px] xl:right-2 bottom-4"></span>
         </div>
-        <div class="relative mt-2 w-[200px]">
+        <div class="relative mt-2 w-[150px] lg:w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
           <select
             class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1630,9 +1631,9 @@
             <option value="not">Do not show</option>
             <option value="only">Only show</option>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute left-[130px] lg:left-[180px] xl:right-2 bottom-4"></span>
         </div>
-        <div class="relative mt-2 w-[200px]">
+        <div class="relative mt-2 w-[150px] lg:w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
           <select
             class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1666,7 +1667,7 @@
             <option value="VW_TRADEPORT">Volkswagen TradePort</option>
             <option value="VOLVO">VOLVO SELEKT</option>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute left-[130px] lg:left-[180px] xl:right-2 bottom-4"></span>
         </div>
       </div>
       <div class="">
@@ -1676,10 +1677,10 @@
       </div>
       <div>
         <div class="flex gap-[30px] justify-end">
-          <button class="bg-red-500 rounded-[8px] p-[10px]" @click="cancelAdCar">
+          <button class="bg-red-500 rounded-[8px] p-[10px] lg:px-[20px]" @click="cancelAdCar">
             Cancel
           </button>
-          <button @click="editAddCars" class="bg-blue-500 rounded-[8px] p-[10px]">
+          <button @click="editAddCars" class="bg-blue-500 rounded-[8px] p-[10px]  lg:px-[20px]">
             Edit Add
           </button>
         </div>
