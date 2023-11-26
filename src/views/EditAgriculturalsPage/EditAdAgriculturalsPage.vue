@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[1120px]">
+  <v-container class="max-w-[1140px]">
     <PathLink>Edit Agricultural Ad</PathLink>
     <div class="sections mt-[20px]">
       <EditSection />
