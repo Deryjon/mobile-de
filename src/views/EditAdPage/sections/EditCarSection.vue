@@ -67,7 +67,9 @@
             <h2 class="text-sm lg:text-[14px]">Variant</h2>
             <input
               class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              placeholder="e.g. GTI..." v-model="inputVariant" />
+              placeholder="e.g. GTI..."
+              type="text"
+              v-model="inputVariant" />
           </div>
         </div>
       </div>

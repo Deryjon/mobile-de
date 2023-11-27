@@ -1490,8 +1490,9 @@ export default {
         });
     },
     handleCancelButtonClick() {
-      // Создаем событие и отправляем его вверх по иерархии
-      this.$emit("cancel-create-add");
+      const store = useTabsStore();
+        store.setActiveTab("tab-7");
+        this.$router.push({ name: "profile-settings" })
     },
   },
   mounted() {
