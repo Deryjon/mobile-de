@@ -1,6 +1,6 @@
 <template>
-  <v-container class="w-[1120px]">
-    <PathLink>Edit Ad</PathLink>
+  <v-container class="max-w-[1140px]">
+    <PathLink>Edit Vans Ad</PathLink>
     <div class="sections mt-[20px]">
       <EditSection />
     </div>
