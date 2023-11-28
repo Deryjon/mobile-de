@@ -1,12 +1,12 @@
 <template>
   <div class="">
-    <div class="basic-add" v-if="basicAdd">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
           + Add image
         </button>
-        <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
+        <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
               <img class="w-full h-full" :src="file.url" :alt="file.name" />
@@ -21,10 +21,10 @@
       <div class="video-link mt-[30px]">
         <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
         <input type="text"
-          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo" />
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
+      <div class="flex flex-wrap lg:gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
             <h2 class="text-sm lg:text-[14px]">
@@ -33,7 +33,7 @@
             <select
               class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
               v-model="selectedMark" @change="fetchModels()">
-              <option value="14600" selected>Beliebig</option>
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option v-for="make in makes" :key="make" :value="make.car_make_name">
                   {{ make.car_make_name }}
@@ -145,7 +145,7 @@
           <span class="text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
         </label>
       </div>
-      <div class="flex gap-[30px]">
+      <div class="flex flex-wrap lg:gap-[30px]">
         <div class="seats dropdown-container mt-[20px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
           <div class="input-container flex relative mt-[10px]">
@@ -190,7 +190,7 @@
           <select
             class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="slidingDoor">
-            <option value="14600">Any</option>
+            <option value="">Any</option>
             <option class="">Left side</option>
             <option class="">Right side</option>
           </select>
@@ -270,7 +270,7 @@
           </button>
         </div>
       </div>
-      <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
+      <div class="price-tab flex flex-wrap items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
           <div class="input-container flex relative mt-[10px]">
@@ -513,7 +513,7 @@
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry">
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -629,7 +629,7 @@
     </div>
     <div class="fuel-add" v-if="fuelAdd">
       <div class="mt-[10px]">
-        <h3 class="text-[16px]">Fuel Type</h3>
+        <h3 class="text-[14px] lg:text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
           <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
@@ -810,7 +810,7 @@
         </label>
       </div>
 
-      <div class="flex gap-[40px] lg:gap-[100px]">
+      <div class="flex flex-wrap  lg:gap-[100px]">
         <div class="
 			">
           <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
@@ -824,7 +824,7 @@
             <span class="text-sm">Automatic transmission</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
+        <div class=" lg:mt-[84px]">
           <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Semi-automatic',
@@ -834,7 +834,7 @@
             <span class="text-sm">Semi-automatic</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
+        <div class=" lg:mt-[84px]">
           <label class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Manual gearbox',
@@ -903,7 +903,7 @@
       </div>
       <div class="line mt-[50px]"></div>
       <div class="mt-[10px]">
-        <h3 class="text-[16px]">Exterior Colour</h3>
+        <h3 class="text-[14px] lg:text-[16px]">Exterior Colour</h3>
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
           <!-- cabrio -->
           <label
@@ -1037,7 +1037,7 @@
       </div>
       <div class="condition mt-[20px]">
         <h3>Trailer coupling</h3>
-        <div class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
+        <div class="radios-type flex flex-wrap gap-x-[10px] lg:gap-[30px] mt-[10px]">
           <label>
             <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
               'bg-transparent': selectedTrailer !== 'Fix',
@@ -1363,7 +1363,7 @@
         </div>
       </div>
       <div class="condition mt-[40px]">
-        <h3 class="text-[16px]">Air conditioning</h3>
+        <h3 class="text-[14px] lg:text-[16px]">Air conditioning</h3>
         <div class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]">
           <label class="w-[250px]" for="manual">
             <input type="radio" id="manual" v-model="selectedConditioning" :class="{
@@ -1414,7 +1414,7 @@
         </div>
       </div>
       <div class="mt-[40px]">
-        <h3 class="text-[16px]">Extras</h3>
+        <h3 class="text-[14px] lg:text-[16px]">Extras</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
           <!-- cabrio -->
           <label
@@ -1501,8 +1501,8 @@
         </div>
       </div>
       <div class="condition mt-[30px]">
-        <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex gap-[40px] mt-[20px]">
+        <h3 class="text-[14px] lg:text-[16px]">Vendor</h3>
+        <div class="radios-type flex flex-wrap gap-x-[10px] lg:gap-[40px] mt-[20px]">
           <label>
             <input type="radio" id="vendor-private" v-model="selectedVendor" :class="{
               'bg-transparent': selectedVendor !== 'Private',
@@ -1587,7 +1587,7 @@
           </label>
         </div>
       </div>
-      <div class="flex items-center gap-[50px]">
+      <div class="flex flex-wrap items-center lg:gap-[50px]">
         <div class="relative mt-2 w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
           <select
@@ -1597,7 +1597,7 @@
             <option value="not">Do not show</option>
             <option value="only">Only show</option>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
         <div class="relative mt-2 w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
@@ -1608,7 +1608,7 @@
             <option value="not">Do not show</option>
             <option value="only">Only show</option>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
         <div class="relative mt-2 w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
@@ -1644,12 +1644,12 @@
             <option value="VW_TRADEPORT">Volkswagen TradePort</option>
             <option value="VOLVO">VOLVO SELEKT</option>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
       </div>
       <div class="">
-        <h2 class="mt-[30px] text-[16px]">Description</h2>
-        <textarea class="bg-[#ccc] mt-[10px] p-[20px]" name="" id="" cols="40" rows="5" placeholder="Description "
+        <h2 class="mt-[30px] text-[14px] lg:text-[16px]">Description</h2>
+        <textarea class="bg-[#ccc] mt-[10px] p-[20px] w-full" name="" id="" cols="40" rows="5" placeholder="Description "
           v-model="descriptionText"></textarea>
       </div>
       <div>
@@ -1707,7 +1707,7 @@ export default {
       basicAdd: true,
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCar: "",
       selectedCondition: "Any",
       selectedConditioning: "",
@@ -1751,7 +1751,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,
