@@ -1,6 +1,6 @@
 <template>
   	<div class="">
-    <div class="basic-add">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
       <div class="flex items-center gap-[20px]">
         <input
           type="file"
@@ -16,7 +16,7 @@
         >
           + Add image
         </button>
-        <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
+        <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div
             v-for="(file, index) in selectedFiles"
             :key="index"
@@ -39,7 +39,7 @@
         <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
         <input
           type="text"
-          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo"
         />
       </div>
@@ -102,7 +102,7 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
+      <div class="flex flex-wrap lg:gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
             <h2 class="text-sm lg:text-[14px]">
@@ -186,7 +186,7 @@
         </div>
       </div>
 
-      <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
+      <div class="price-tab flex flex-wrap items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
           <div class="input-container flex relative mt-[10px]">
@@ -1029,7 +1029,7 @@
         </label>
       </div>
       </div>
-      <div class="flex gap-[40px]">
+      <div class="flex flex-wrap lg:gap-[40px]">
         <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">New HU valid</h2>
           <select
@@ -1046,7 +1046,7 @@
             class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
           ></span>
         </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+        <div class="marke_select_div relative mt-[10px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1297,7 +1297,7 @@
     <div class="interior">
       <div class="condition mt-[30px]">
         <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex gap-[40px] mt-[20px]">
+        <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[40px] mt-[20px]">
           <label>
             <input
               type="radio"
@@ -1520,7 +1520,7 @@
       <div class="">
         <h2 class="mt-[30px] text-[16px]">Description</h2>
         <textarea
-          class="bg-[#ccc] mt-[10px] p-[20px]"
+          class="bg-[#ccc] mt-[10px] p-[20px] w-full"
           name=""
           id=""
           cols="40"
