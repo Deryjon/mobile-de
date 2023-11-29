@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-[20px]">
+  <div class="lg:pl-[20px]">
     
     <!-- transmision -->
     <div class="flex gap-[40px] lg:gap-x-[100px]">
@@ -8,7 +8,7 @@
 			"
       >
         <h3 class="">Transmission</h3>
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex items-center h-10  lg:w-[180px]">
           <input
             type="checkbox"
             v-model="isCheckedAutomatic"
@@ -34,7 +34,7 @@
         </label>
       </div>
       <div class="mt-[24px]">
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex items-center h-10  lg:w-[180px]">
           <input
             type="checkbox"
             v-model="isCheckedSemi"
@@ -60,7 +60,7 @@
         </label>
       </div>
       <div class="mt-[24px]">
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex items-center h-10  lg:w-[180px]">
           <input
             type="checkbox"
             v-model="isCheckedManual"
