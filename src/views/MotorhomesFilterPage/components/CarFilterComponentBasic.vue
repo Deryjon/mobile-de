@@ -1,10 +1,10 @@
 <template>
-  <div class="mt-[10px] p-[20px]">
+  <div class="mt-[10px] lg:p-[20px]">
     <h3 class="text-[16px]">Vehicle type</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
+    <div class="filter-cars flex flex-wrap gap-[10px] lg:gap-x-[60px] mt-[20px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -28,7 +28,7 @@
         Alcoves
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -52,7 +52,7 @@
         Integrated
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -76,7 +76,7 @@
         Motor Homes/Pickup
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -100,7 +100,7 @@
         Other
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -124,7 +124,7 @@
         Cabin
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -149,7 +149,7 @@
       </label>
       <!-- estate -->
       <label
-        class="custom-checkbox flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4"
+        class="custom-checkbox flex gap-4 text-[14px] items-center h-10 w-[120px] lg:w-[206px] pb-4"
       >
         <input
           type="checkbox"
@@ -176,7 +176,7 @@
 
       <!-- saloon -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[200px] pb-4"
+        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] lg:w-[200px] pb-4"
       >
         <input
           type="checkbox"
@@ -204,7 +204,7 @@
       </label>
       <!-- small -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-4 items-center h-10 w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -232,7 +232,7 @@
       </label>
       <!-- sports -->
       <label
-        class="custom-checkbox flex gap-3 items-center h-10 w-[206px] pb-[20px]"
+        class="custom-checkbox flex gap-3 items-center h-10 w-[120px] lg:w-[206px] pb-[20px]"
       >
         <input
           type="checkbox"

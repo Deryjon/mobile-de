@@ -1,7 +1,7 @@
 <template>
-  <div class="pl-[20px]">
+  <div class="lg:pl-[20px]">
     
-    <div class="flex gap-[40px] lg:gap-x-[100px]">
+    <div class="flex flex-wrap lg:`gap-[40px] lg:gap-x-[100px]">
       <div
         class="
 			"

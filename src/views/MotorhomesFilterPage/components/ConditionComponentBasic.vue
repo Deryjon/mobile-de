@@ -1,8 +1,8 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition lg:p-[20px]">
     <h3 class="text-[16px]">Type and condition</h3>
     <div
-      class="radios-type flex flex-wrap gap-x-[0px] lg:gap-x-[100px] mt-[10px]"
+      class="radios-type flex flex-wrap gap-x-[10px] lg:gap-x-[100px] mt-[10px]"
     >
       <label>
         <input
