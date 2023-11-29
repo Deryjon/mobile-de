@@ -1,7 +1,7 @@
 <template>
-  <div class="filter-cars p-[20px]">
+  <div class="filter-cars lg:p-[20px]">
     <h3 class="text-[16px]">Fuel type</h3>
-    <div class="filter-cars flex flex-wrap gap-[50px] mt-[20px]">
+    <div class="filter-cars flex flex-wrap gap-[10px] lg:gap-[50px] mt-[20px]">
       <label
         class="custom-checkbox flex gap-[10px] items-center h-[40px] pb-[20px]"
       >
