@@ -5,7 +5,7 @@
       <ExtrasComponent />
     </div>
   </div>
-  <div class="mt-[10px] p-[20px]">
+  <div class="mt-[10px] lg:p-[20px]">
     <h3 class="text-[16px]">Exterior Colour</h3>
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
       <!-- cabrio -->
