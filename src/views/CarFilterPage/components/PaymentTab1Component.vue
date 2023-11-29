@@ -511,7 +511,7 @@
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="huValid"
         >
-          <option value="14600" selected>Any</option>
+          <option value="" selected>Any</option>
           <option value="new">New</option>
           <option value="18">18</option>
           <option value="12">12</option>
@@ -601,7 +601,7 @@
           v-model="selectedCountry"
         >
           <optgroup>
-            <option value="14600" selected>Any</option>
+            <option value="" selected>Any</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>
@@ -691,7 +691,7 @@
           v-model="selectedCountry"
         >
           <optgroup>
-            <option value="14600" selected>Any</option>
+            <option value="" selected>Any</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>

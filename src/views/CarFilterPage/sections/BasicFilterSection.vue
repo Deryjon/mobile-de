@@ -1,6 +1,6 @@
 <template>
   <section class="basic-filter mt-[200px]">
-    <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
+    <v-container class="max-w-[1140px]">
       <PathLink>My New Car</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" @click="goCarList">
@@ -9,7 +9,7 @@
         </p>
       </FilterBtn>
       <div
-        class="relative filter xl:h-[1600px] lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[1500px] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter xl:h-[1600px] lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>

@@ -9,7 +9,7 @@
 					placeholder="Beliebig"
 					
 				>
-					<option value="14600">Beliebig</option>
+					<option value="">Beliebig</option>
 			<option value="" selected>Any</option>
 			<option value="" >50 km +</option>
 			<option value="" >100 km +</option>
@@ -310,7 +310,7 @@
         <select
           class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
-          <option value="14600" selected>Any</option>
+          <option value="" selected>Any</option>
           <option value="">New</option>
           <option value="">18</option>
           <option value="">12</option>
@@ -325,7 +325,7 @@
         <select
           class="mark-select mt-[10px] w-full lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
-          <option value="14600" selected>Any</option>
+          <option value="" selected>Any</option>
           <option value="">Up to 1</option>
           <option value="">Up to 2</option>
           <option value="">Up to 3</option>
@@ -338,7 +338,7 @@
         <select
           class="mark-select w-full mt-[10px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
         >
-          <option value="14600" selected>Any</option>
+          <option value="" selected>Any</option>
           <option value="">Up to 1</option>
           <option value="">Up to 2</option>
           <option value="">Up to 3</option>
