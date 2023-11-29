@@ -2,7 +2,7 @@
   <section class="basic-filter">
     <v-container class="max-w-[1140px]">
       <div
-        class="relative filter xl:h-[800px] lg:h-[900px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] h-[950px] mx-auto mt-[0] lg:mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter xl:h-[800px] lg:h-[900px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[0] lg:mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
         <h3 class="basic-title text-[25px] font-semibold">Interior</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
