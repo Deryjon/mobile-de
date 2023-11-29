@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-[10px] p-[20px]">
-    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+  <div class="mt-[10px] lg:p-[20px]">
+    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[20px]">
       <!-- cabrio -->
       <label
         class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
