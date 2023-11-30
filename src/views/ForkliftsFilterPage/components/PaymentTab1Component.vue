@@ -1,12 +1,12 @@
 <template>
-  <div class="pl-[20px]">
-    <div class="price-tab flex items-center gap-[20px] lg:gap-[80px]">
+  <div class="lg:pl-[20px]">
+    <div class="price-tab flex flex-wrap items-center gap-[20px] lg:gap-[80px]">
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="price"
             @focus="openPriceDropdown"
@@ -24,7 +24,7 @@
         </div>
         <ul
           v-if="priceOpen"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <ul>
             <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
@@ -50,7 +50,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="priceTo"
             @focus="openPriceToDropdown"
@@ -68,7 +68,7 @@
         </div>
         <ul
           v-if="priceToOpen"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <ul>
             <li data-value="50" @click="selectNumberPriceTo('50')">50 € mtl</li>
@@ -149,7 +149,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="inputValue"
             @focus="openDropdown"
@@ -168,7 +168,7 @@
         </div>
         <ul
           v-if="isOpen"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <li
             v-for="option in filteredOptions"
@@ -224,7 +224,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="yearsTo"
             @focus="openYearsToDropdown"
@@ -243,7 +243,7 @@
         </div>
         <ul
           v-if="isOpenYearsTo"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <li
             v-for="option in filteredOptions"
@@ -274,7 +274,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="inputKilometer"
             @focus="openKilmeterDropdown"
@@ -293,7 +293,7 @@
         </div>
         <ul
           v-if="isOpenKilometer"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometer('10000')">10.000 km</li>
@@ -331,7 +331,7 @@
           <input
             placeholder="from"
             id="inputYear"
-            class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="killometres"
@@ -367,7 +367,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="killometresTo"
             @focus="openKilometerToDropdown"
@@ -386,7 +386,7 @@
         </div>
         <ul
           v-if="isOpenKilometerTo"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <li data-key="5000" @click="selectKilometerTo('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometerTo('10000')">
@@ -437,7 +437,7 @@
         <input
           placeholder="to"
           id="inputYear"
-          class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           type="number"
           pattern="\d*"
           v-model="killometresTo"
@@ -476,7 +476,7 @@
 		<div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="selectedCountry"
         >
           <optgroup>
@@ -557,7 +557,7 @@
       <div class="marke_select_div relative mt-2">
         <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
         <input
-          class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
+          class="mark_input mt-[10px] text-[14px] mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="text"
           pattern="\d*"
 					v-model="zipCode"
@@ -659,7 +659,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="radius"
             @focus="openRadiusDropdown"
@@ -678,7 +678,7 @@
         </div>
         <ul
           v-if="isOpenRadius"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] text-[10px] lg:text-[12px]"
         >
           <li data-key="10" @click="selectRadius('10')">10 km</li>
           <li data-key="20" @click="selectRadius('20')">20 km</li>
@@ -694,7 +694,7 @@
           <input
             placeholder="from"
             id="inputYear"
-            class="mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             type="number"
             pattern="\d*"
             v-model="radius"
