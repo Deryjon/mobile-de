@@ -657,7 +657,7 @@
                       {{ $t("message.profile.newsletter") }}
                     </p>
                     <p class="font-normal text-[12px]">
-                      {{ $t("message.profile.recieveEmails") }}
+                      {{ $t("message.register.recieveEmails") }}
                     </p>
                   </div>
                 </div>
