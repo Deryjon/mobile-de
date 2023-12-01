@@ -1,5 +1,5 @@
 <template>
-  <v-container class="max-w-[1120px]">
+  <v-container class="max-w-[1140px]">
     <PathLink>Machine list</PathLink>
     <div class="sections">
       <YourAccount />	

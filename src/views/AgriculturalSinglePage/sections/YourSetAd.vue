@@ -1,13 +1,13 @@
 <template>
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
-    <div class=" relative  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
+    <div class=" relative md:hidden  h-[230px] lg:h-[500px] w-full lg:max-w-[700px]">
 
 
-      <div class="slider h-[250px]  w-full lg:h-[400px] lg:w-[600px]">
+      <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
 
           <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -19,9 +19,9 @@
         </div>
 
       </div>
-    </div>
+    </div>  
     <div
-      class="right mt-[45px] lg:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model ">{{ agricultural.vehicle_model }}</p>
@@ -32,7 +32,7 @@
       </div>
       <div class="line mt-[20px]"></div>
       <div class="name-seller mt-[20px]">
-        <p class="name">{{ agricultural.vehicler_vendor }}</p>
+        <p class="name">{{ agricultural.vehicle_vendor }}</p>
       </div>
       <div class="name-seller">
         <p class="name">DE-33602 Bielefeld</p>
@@ -73,17 +73,29 @@
         </button>
       </div>
     </div>
-    <div class="left flex flex-col gap-[20px] w-full lg:w-[700px] rounded-[4px] mt-[10px]">
+    <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:lg:max-w-[700px] rounded-[4px] mt-[10px] ">
+
+      <div class=" relative hidden md:block  h-[230px] lg:h-[400px] w-full lg:lg:max-w-[700px]">
 
 
-      <!-- <div class="slider h-[150px] lg:h-[500px]">
-        <img :src="image" v-for="(image, index) in images" :key="index" 
-          :alt="agricultural.vehicle_title" :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="w-full h-full object-cover" />
-        <img :src="agricultural.vehicle_images_url" class="" alt="" />
-      </div> -->
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]">
-        <div class="registration flex w-[186px] gap-[5px]">
+        <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
+          <img v-for="(image, index) in images" :key="index" :src="image"
+            :class="{ 'slider-item': true, active: activeIndex === index }"
+            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+          <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
+
+            <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+              <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
+            </div>
+            <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+              <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-0">
+        <div class="registration flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
             <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -100,7 +112,7 @@
             <p class="text-[12px] font-medium lg:font-bold">{{ agricultural.vehicle_firt_date }}</p>
           </div>
         </div>
-        <div class="power flex w-[186px] gap-[5px]">
+        <div class="power flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
             <g stroke="currentColor" stroke-linecap="round" fill="none" stroke-width="2">
@@ -245,8 +257,8 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden lg:mt-[25px] lg:block  bg-[#0000001f] w-[120px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px] lg:right-[177px] ': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[65px] xl:right-[225px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
@@ -270,7 +282,11 @@
         <p class="name">Phone: {{ agricultural.user_phone }}</p>
       </div>
       <button
-        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]">
+        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]
+        
+        "
+        @click="goWriteEmail(agricultural.user_email)"  
+        >
         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
           <path
             d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
@@ -366,7 +382,6 @@ export default {
         this.agricultural = res.data.data;
         this.horsepower = this.agricultural.vehicle_power;
         this.images = this.agricultural.vehicle_images_url;
-        console.log(this.images);
         this.isLoading = false
       });
     },
