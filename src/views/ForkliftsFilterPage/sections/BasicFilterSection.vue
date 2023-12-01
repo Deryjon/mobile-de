@@ -1,7 +1,7 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="max-w-[1140px]">
-      <PathLink>Van Filter</PathLink>
+      <PathLink>Forklift Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" @click="goMotorbikeList">
         <p class="text-white text-[18px] lg:text-[16px]">
