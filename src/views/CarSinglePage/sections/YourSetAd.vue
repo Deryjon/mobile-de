@@ -1,7 +1,7 @@
 <template>
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
-    <div class=" relative md:hidden  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
+    <div class="relative md:hidden  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
 
 
       <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
