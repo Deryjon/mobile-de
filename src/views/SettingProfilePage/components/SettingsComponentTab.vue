@@ -544,8 +544,35 @@
               class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[120px] p-[5px] sm:flex items-center justify-between">
               <div class=" lg:w-[656px] lg:p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">
+                      {{ $t("message.profile.newsletter") }}
+                    </p>
+                    <p class="font-normal text-[12px]">
+                      {{ $t("message.register.recieveEmails") }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+              >
+                {{ $t("message.profile.none") }}
+              </button>
+            </div>
+          </div>
+          <div class="box">
+            <div
+              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+            >
+              <div class="w-[656px] p-[15px] flex items-center justify-between">
+                <div class="flex items-center gap-[20px]">
+                  <div class="profile-pic">
+                    <p class="font-medium">
+
                   <div class="profile-pic w-[185px] lg:w-[250px]">
                     <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+
                       {{ $t("message.profile.market") }}
                     </p>
                     <p class="lg:font-normal text-[12px] sm:text-[13px] md:text-[14px]">
