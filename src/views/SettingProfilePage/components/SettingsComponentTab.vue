@@ -567,8 +567,6 @@
             >
               <div class="w-[656px] p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
-                  <div class="profile-pic">
-                    <p class="font-medium">
 
                   <div class="profile-pic w-[185px] lg:w-[250px]">
                     <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
