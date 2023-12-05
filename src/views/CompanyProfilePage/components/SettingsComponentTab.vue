@@ -76,7 +76,7 @@
         <div class="email mt-[10px]">
           <input
             type="text "
-            class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
+            class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md"
             v-model="userECh"
           />
         </div>
@@ -90,7 +90,7 @@
               @input="validatePasswordLogin"
               id="password"
               :type="showPassword ? 'text' : 'password'"
-              class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
+              class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md"
               v-model="newPasswordLogin"
             />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -131,7 +131,7 @@
               @input="validatePasswordLogin"
               id="password"
               :type="showPassword ? 'text' : 'password'"
-              class="input-bor px-[10px] py-[10px] w-[400px] rounded-md"
+              class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md"
               v-model="currentPasswordLogin"
             />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
@@ -552,7 +552,7 @@
                         <p class="text-sm lg:text-[14px]">Company Name</p>
                         <input
                           type="text "
-                          class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                          class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
                           v-model="companyName"
                         />
                       </div>
@@ -563,7 +563,7 @@
               <div class="">
                 <div class="">
                   <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
-                    <div class="top flex items-center gap-[40px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+                    <div class="top flex flex-wrap items-center gap-[40px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="mark">
                         <div class="w-[200px] lg:w-[150px] xl:w-[440px] mt-2">
                           <h2 class="text-sm lg:text-[14px]">Street</h2>
@@ -582,7 +582,7 @@
                         />
                       </div>
                     </div>
-                    <div class="top flex items-center gap-[40px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+                    <div class="top flex  items-center gap-[40px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="email mt-[10px]">
                         <p class="text-sm lg:text-[14px]">Zip</p>
                         <input
