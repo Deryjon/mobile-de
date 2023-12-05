@@ -243,8 +243,7 @@
               <div class="changes w-full lg:w-[600px]  p-[20px]">
                 <div class="top lg:flex lg:flex-wrap items-center gap-[40px] w-full lg:w-[600px]">
 
-                  <div class=" w-
-                    [120px] lg:w-[140px] mt-2">
+                  <div class=" w-[120px] lg:w-[140px] mt-2">
                     <h2 class="text-sm lg:text-[14px]">
                       {{ $t("message.profile.street") }}
                     </h2>
@@ -357,9 +356,6 @@
                   <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
                 </div>
                 </div>
-
-                
-
                 <div class="btns flex sm:gap-[10px] justify-between  sm:justify-end mt-[40px]">
                   <button
                     class="custom-file-label bg-[#fff] p-[5px] sm:px-[10px]  sm:py-[8px] rounded-[8px] text-[#094559]"

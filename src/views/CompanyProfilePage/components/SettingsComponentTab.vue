@@ -540,12 +540,12 @@
           </button>
         </div>
 
-        <div class=" box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] lg:p-[15px] sm:flex items-center justify-between p-[10px] mt-[20px]" v-if="contactData">
+        <div class=" box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] lg:p-[15px] sm:flex items-center justify-between p-[0px] mt-[20px]" v-if="contactData">
           <div class="profile">
             <div class="">
               <div class="">
                 <div class="">
-                  <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
+                  <div class="changes  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
                     <div class="mark"></div>
                     <div class="flex gap-[20px]">
                       <div class="email mt-[10px]">
@@ -562,13 +562,13 @@
               </div>
               <div class="">
                 <div class="">
-                  <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
-                    <div class="top flex flex-wrap items-center gap-[40px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+                  <div class="changes xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
+                    <div class="top flex flex-wrap items-center lg:gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="mark">
-                        <div class="w-[200px] lg:w-[150px] xl:w-[440px] mt-2">
+                        <div class="w-full lg:w-[150px] xl:w-[440px] mt-2">
                           <h2 class="text-sm lg:text-[14px]">Street</h2>
                           <input
-                            class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                            class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                             v-model="userAddressStreet"
                           />
                         </div>
@@ -577,35 +577,35 @@
                         <p class="text-sm lg:text-[14px]">Nr</p>
                         <input
                           type="text "
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                          class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                           v-model="userAddressNr"
                         />
                       </div>
                     </div>
-                    <div class="top flex  items-center gap-[40px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+                    <div class="top flex flex-wrap lg:no-wrap  items-center gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="email mt-[10px]">
                         <p class="text-sm lg:text-[14px]">Zip</p>
                         <input
                           type="text "
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                          class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                           v-model="userAddressZip"
                         />
                       </div>
                       <div class="mark">
-                        <div class="w-[440px] mt-2">
+                        <div class="lg:w-[440px] lg:mt-2">
                           <h2 class="text-sm lg:text-[14px]">City</h2>
                           <input
-                            class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                            class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                             v-model="userAddressCity"
                           />
                         </div>
                       </div>
                     </div>
-                    <div class="top flex items-center gap-[40px] w-[656px]">
+                    <div class="top flex flex-wrap items-center lg:gap-[40px] lg:w-[656px]">
                       <div class="relative mt-2">
                         <h2 class="text-sm lg:text-[14px]">Country</h2>
                         <select
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                          class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                           v-model="selectedCountry"
                         >
                           <optgroup>
@@ -686,7 +686,7 @@
                         <p class="text-sm lg:text-[14px]">Radius</p>
                         <input
                           type="text "
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                          class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                           v-model="userAddressRadius"
                         />
                       </div>
@@ -696,12 +696,12 @@
               </div>
               <div class="">
                 <div class="">
-                  <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
-                    <div class="mark flex gap-[15px]">
+                  <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[15px] sm:flex items-center justify-between">
+                    <div class="mark flex flex-wrap gap-[15px]">
                       <div class="relative w-[141px]">
                         <h2 class="text-sm lg:text-[14px]">Country code</h2>
                         <select
-                          class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                          class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                           v-model="userCountryCode"
                         >
                           <option value="1">+1 (CA)</option>
