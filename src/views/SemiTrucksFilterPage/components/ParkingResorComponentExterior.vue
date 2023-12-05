@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-[10px] p-[20px]">
+  <div class="mt-[10px] lg:p-[20px]">
     <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
       <!-- cabrio -->
       <label class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
@@ -39,12 +39,12 @@
         Tail lift
       </label>
     </div>
-    <div class="flex flex-wrap items-center gap-[40px]">
+    <div class="flex flex-wrap items-center gap-[10px] lg:gap-[40px]">
       <div class="length dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] w-[200px]">Permissible (GVW)</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">Permissible (GVW)</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from" v-model="lengthGVW" @focus="openlenthGVWoDropdown" @blur="openlenthGVWoDropdown" />
 
           <div
@@ -76,7 +76,7 @@
 
         <div class="input-container flex relative mt-[38px]">
           <input type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="to" v-model="lengthGVWTo" @focus="openlenthGVWToDropdown" @blur="openlenthGVWToDropdown" />
 
           <div
@@ -105,10 +105,10 @@
         </ul>
       </div>
       <div class="number dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] w-[200px]">Wheel Formula</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">Wheel Formula</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from" v-model="numberBunks" @focus="openNumberBunksDropdown" />
 
           <div
@@ -145,10 +145,10 @@
           </ul>
         </ul>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Axles</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="axles">
           <option value="" selected>Any</option>
           <option value="1"> 1</option>
@@ -158,11 +158,11 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Hydraulic Installation
         </h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="radio">
           <option value="" selected>Any</option>
           <option value="Tipper Hydraulic Installation
@@ -180,10 +180,10 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Cruise control</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="cruiseControl">
           <option value="" selected>Any</option>
           <option value="Cruise control">Cruise control</option>
@@ -191,10 +191,10 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Parking Sensors</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="parking">
           <option value="" selected>Any</option>
           <option value="Rear">Rear</option>
@@ -205,10 +205,10 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Air conditioning</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="airConditioning">
           <option value="" selected>Any</option>
           <option value="No climatisation">No climatisation</option>
@@ -220,10 +220,10 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Trailer coupling</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="trailerCoupling">
           <option value="" selected>Any</option>
           <option value="Fix, detachable or swiveling">Fix, detachable or swiveling</option>
@@ -236,11 +236,11 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-[14px] lg:mt-2 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Driving Cab
 </h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="drivinCab">
           <option value="" selected>Any</option>
           <option value="Fix, detachable or swiveling">Fix, detachable or swiveling</option>

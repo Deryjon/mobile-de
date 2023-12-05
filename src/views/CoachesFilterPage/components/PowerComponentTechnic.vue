@@ -1,7 +1,7 @@
 <template>
-  <div class="pl-[20px]">
+  <div class="lg:pl-[20px]">
     <!-- transmision -->
-    <div class="flex gap-[40px] lg:gap-x-[100px]">
+    <div class="flex flex-wrap lg:gap-[40px] lg:gap-x-[100px]">
       <div
         class="
 			"
@@ -89,10 +89,10 @@
     <div
       class="valid-until mt-[30px] flex flex-wrap items-center gap-x-[20px] lg:gap-[60px]"
     >
-      <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
+      <div class="marke_select_div relative mt-[14px] lg:mt-4 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
         <select
-          class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[20px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="stickerEmission"
         >
           <option value="any" selected>Any</option>
@@ -105,10 +105,10 @@
           class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
         ></span>
       </div>
-      <div class="marke_select_div relative mt-[20px] lg:mt-7 w-[200px]">
+      <div class="marke_select_div relative mt-[20px] lg:mt-7 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="classEmision"
         >
           <option value="any" selected>Any</option>

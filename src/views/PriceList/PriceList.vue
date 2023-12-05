@@ -56,7 +56,7 @@ function formatPrice(price) {
 async function goPayment(item) {
   if (item.price_item_price === 0) {
     console.log("Price is 0, no payment needed.");
-    return; 
+    return;
   }
 
   isLoading.value = true;
@@ -85,49 +85,46 @@ async function goPayment(item) {
 onMounted(fetchData);
 </script>
 <template>
-  <TheLoader v-if="isLoading" />
-  <v-container class="max-w-[1120px]" v-else>
-    <div class="swiper_wrapper">
-      <SwiperSection />
-    </div>
-    <PathLink>PriceList</PathLink>
-    <div class="w-[100%] card_box">
-      <div class="card" v-for="item in data" :key="item.price_item_id">
-        <h1 class="card__title">
-          {{ item.price_item_title }}
-        </h1>
-        <p class="card__text">
-          {{ item.price_item_desc }}
-        </p>
-        <div class="price">{{ formatPrice(item.price_item_price) }}</div>
-        <div class="btn">
+  <section>
+    <TheLoader v-if="isLoading" />
 
-          <button @click="goPayment(item)">{{ $t("message.btn.try") }}</button>
+    <v-container class=" max-w-[1140px]" v-else>
+      <div class="swiper_wrapper hidden lg:block  w-full">
+        <SwiperSection />
+      </div>
+      <PathLink>PriceList</PathLink>
+      <div class="w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  mx-auto xl:w-[1140px] card_box  ">
+        <div class="card" v-for="item in data" :key="item.price_item_id">
+          <h1 class="card__title">
+            {{ item.price_item_title }}
+          </h1>
+          <p class="card__text">
+            {{ item.price_item_desc }}
+          </p>
+          <div class="price">{{ formatPrice(item.price_item_price) }}</div>
+          <div class="btn">
+
+            <button @click="goPayment(item)">{{ $t("message.btn.try") }}</button>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="btn_box">
-      <button class="btn_prev" @click="prevPage">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-          <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
-        </svg>
-      </button>
-      <button class="btn_next" @click="nextPage">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
-          <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
-          4.6Z" />
-        </svg>
-      </button>
-    </div>
-  </v-container>
+      <div class="btn_box">
+        <button class="btn_prev" @click="prevPage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
+          </svg>
+        </button>
+        <button class="btn_next" @click="nextPage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
+            4.6Z" />
+          </svg>
+        </button>
+      </div>
+    </v-container>
+  </section>
 </template>
 <style scoped>
-.swiper_wrapper {
-  width: 100%;
-  overflow-x: hidden;
-  transform: translateX(-10px);
-}
-
 .card_box {
   margin-top: 20px;
   display: grid;
@@ -135,6 +132,7 @@ onMounted(fetchData);
   justify-items: center;
   border: 1px solid black;
 }
+
 
 .card {
   width: 250px;
@@ -219,9 +217,6 @@ onMounted(fetchData);
 }
 
 @media (max-width: 680px) {
-  .swiper_wrapper {
-    display: none;
-  }
 
   .card_box {
     margin-top: 12px;

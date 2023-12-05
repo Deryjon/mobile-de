@@ -1,6 +1,6 @@
 <template>
   <section class="basic-filter mt-[200px]">
-    <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
+    <v-container class="max-w-[1140px]">
       <PathLink>Trailer Filter</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn @click="goTrailerList" class="ml-auto">
@@ -15,7 +15,7 @@
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
         <div
-          class="top sm:flex w-[250px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] p-[20px]"
+          class="top flex flex-wrap gap-[10px]  sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -23,7 +23,7 @@
                 {{ $t("message.selects.mark") }}
               </h2>
               <select
-                class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
@@ -50,7 +50,7 @@
               {{ $t("message.selects.model") }}
             </h2>
             <input
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               type="text"
               v-model="selectedModel"
             />
@@ -58,7 +58,7 @@
           <div class="relative">
             <h2 class="text-sm lg:text-[14px] mt-2">Category</h2>
             <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               v-model="selectedCategory"
             >
               <option value="" data-track-as="any">Any</option>

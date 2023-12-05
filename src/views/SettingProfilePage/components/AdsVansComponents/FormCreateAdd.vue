@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="basic-add">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
       <div class="flex items-center gap-[20px]">
         <input
           type="file"
@@ -16,7 +16,7 @@
         >
           + Add image
         </button>
-        <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
+        <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div
             v-for="(file, index) in selectedFiles"
             :key="index"
@@ -39,11 +39,11 @@
         <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
         <input
           type="text"
-          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo"
         />
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
+      <div class="flex flex-wrap lg:gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
             <h2 class="text-sm lg:text-[14px]">
@@ -111,7 +111,7 @@
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
         <div
-          class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
+          class="radios-type flex flex-wrap gap-x-[50px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
         >
           <label>
             <input
@@ -153,7 +153,7 @@
         </div>
         </div>
         
-      <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
+      <div class="price-tab flex flex-wrap items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
           <div class="input-container flex relative mt-[10px]">
@@ -794,7 +794,7 @@
         </label>
       </div>
 
-      <div class="flex gap-[40px] lg:gap-[100px]">
+      <div class="flex flex-wrap gap-[20px] lg:gap-[100px]">
         <div
           class="
 			"
@@ -818,7 +818,7 @@
             <span class="text-sm">Automatic transmission</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
+        <div class=" lg:mt-[84px]">
           <label
             class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]"
           >
@@ -836,7 +836,7 @@
             <span class="text-sm">Semi-automatic</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
+        <div class=" lg:mt-[84px]">
           <label
             class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]"
           >
@@ -855,7 +855,7 @@
           </label>
         </div>
       </div>
-<div class="flex gap-[30px]" >
+<div class="flex flex-wrap lg:gap-[30px]" >
 	<div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
           <select
@@ -1419,7 +1419,7 @@
       </div>
 			<div class="text-[16px] condition mt-[20px]">
         <h3>Trailer coupling</h3>
-        <div class="text-[14px] radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
+        <div class="text-[14px] radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
           <label>
             <input
               type="radio"
@@ -1581,7 +1581,7 @@
     <div class="interior">
       <div class="condition mt-[30px]">
         <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex gap-[40px] mt-[20px]">
+        <div class="radios-type flex flex-wrap gap-[25px] lg:gap-[40px] mt-[20px]">
           <label>
             <input
               type="radio"
@@ -1823,7 +1823,7 @@
       <div class="">
         <h2 class="mt-[30px] text-[16px]">Description</h2>
         <textarea
-          class="bg-[#ccc] mt-[10px] p-[20px]"
+          class="bg-[#ccc] mt-[10px] p-[20px] w-full"
           name=""
           id=""
           cols="40"

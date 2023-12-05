@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-[20px]">
+  <div class="lg:pl-[20px]">
     <div
       class="price-tab  items-center gap-x-[20px] lg:gap-[80px]"
     >
@@ -8,12 +8,12 @@
    
     <!-- transmision -->
 		<h3 class="">Transmission</h3>
-    <div class="flex gap-[40px] lg:gap-x-[100px]">
+    <div class="flex flex-wrap gap-x-[20px] lg:gap-x-[100px]">
       <div
         class="
 			"
       >
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
           <input
             type="checkbox"
             v-model="isCheckedAutomatic"
@@ -39,7 +39,7 @@
         </label>
       </div>
       <div class="">
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
           <input
             type="checkbox"
             v-model="isCheckedSemi"
@@ -65,7 +65,7 @@
         </label>
       </div>
       <div class="">
-        <label class="custom-checkbox flex items-center h-10 w-[180px]">
+        <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
           <input
             type="checkbox"
             v-model="isCheckedManual"
@@ -102,7 +102,7 @@
           <div class="input-container flex relative mt-[10px]">
             <input
               type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from"
               v-model="cubic"
               @focus="openCubicDropdown"
@@ -121,7 +121,7 @@
           </div>
           <ul
             v-if="isOpenCubic"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+            class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
           >
             <li @click="selectCubic('any')" data-key="">Any</li>
             <li @click="selectCubic('1000')" data-key="1000">1,000 cm³</li>
@@ -143,7 +143,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="cubicTo"
             @focus="openCubicToDropdown"
@@ -162,7 +162,7 @@
         </div>
         <ul
           v-if="isOpenCubicTo"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
         >
           <li @click="selectCubicTo('any')" data-key="">Any</li>
           <li @click="selectCubicTo('1000')" data-key="1000">1,000 cm³</li>

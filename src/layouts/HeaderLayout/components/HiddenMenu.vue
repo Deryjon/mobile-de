@@ -7,26 +7,25 @@
       <div class="head flex items-center justify-between pt-3">
         <button
           class="close-btn w-7 h-7 flex justify-center items-center order-3"
-          @click="$emit('closeMenu')"
+          @click="closeMenu"
         >
           <img src="../../../assets/images/times.svg" alt="times-icon" />
         </button>
-        <HeaderLogo @click="$emit('closeMenu')" class="order-2" />
+        <HeaderLogo  @click="closeMenu" class="order-2" />
       </div>
 
       <div class="body flex flex-col justify-center">
         <HeaderSwitcherTheme
           class=""
-          @click="$emit('closeMenu')"
+          @click="closeMenu"
         />
         <HeaderActions class="w-[180px]" />
         <HeaderContact
           class="ml-[23px]"
-          @click="$emit('closeMenu')"
+          @click="closeMenu"
         />
         <HeaderLogout
-          class=""
-          @click="$emit('closeMenu')"
+          class="ml-[23px] mt-[10px]"
         />
       </div>
     </div>
@@ -40,6 +39,7 @@ import HeaderSwitcherTheme from "./HeaderSwitcherTheme.vue";
 import { useDarkModeStore } from "@/store/dark-mode.js";
 import HeaderContact from "./HeaderContact.vue";
 import HeaderLogout from "./HeaderLogout.vue";
+import { useActiveTab4 } from "@/store/activeTab4Component.js";
 import { computed } from "vue";
 
 export default {
@@ -49,9 +49,17 @@ export default {
     const isDarkMode = computed(() => darkModeStore.isDarkMode);
     const toggleDarkMode = () => darkModeStore.toggleDarkMode();
 
+    const activeTab4Store = useActiveTab4();
+    const computedIsOpen = computed(() => activeTab4Store.computedIsOpen);
+
+    const closeMenu = () => {
+      activeTab4Store.toggleMenu(); // Вызываем метод toggleMenu из стора при закрытии меню
+    };
+
     return {
       isDarkMode,
       toggleDarkMode,
+      closeMenu,
     };
   },
   data() {
@@ -62,9 +70,6 @@ export default {
 
 <style scoped>
 .btn {
-  background: #ffffff;
-  .img {
-    background: linear-gradient(322.12deg, #b1e2ff 1.25%, #68c7ff 89.56%);
-  }
+  background: #ffffff;    
 }
 </style>

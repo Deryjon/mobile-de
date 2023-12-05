@@ -1,12 +1,12 @@
 <template>
-  <div class="pl-[20px]">
-    <div class="price-tab flex items-center gap-[20px] lg:gap-[80px]">
+  <div class="lg:pl-[20px]">
+    <div class="price-tab flex flex-wrap items-center gap-[20px] lg:gap-[80px]">
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="price"
             @focus="openPriceDropdown"
@@ -50,7 +50,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="priceTo"
             @focus="openPriceToDropdown"
@@ -149,7 +149,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="inputValue"
             @focus="openDropdown"
@@ -224,7 +224,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="yearsTo"
             @focus="openYearsToDropdown"
@@ -274,7 +274,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="inputKilometer"
             @focus="openKilmeterDropdown"
@@ -367,7 +367,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="killometresTo"
             @focus="openKilometerToDropdown"
@@ -476,7 +476,7 @@
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="huValid"
         >
           <option value="14600" selected>Any</option>
@@ -492,7 +492,7 @@
       <div class="marke_select_div relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="preOwners"
         >
           <option value="any" selected>Any</option>
@@ -504,7 +504,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <label
-        class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
+        class="custom-checkbox flex items-center h-10 lg:w-[170px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
@@ -531,7 +531,7 @@
         <span class="text-sm p]b-[20px">Full Service History</span>
       </label>
       <label
-        class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
+        class="custom-checkbox flex items-center h-10 lg:w-[145px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
@@ -565,7 +565,7 @@
 		<div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="selectedCountry"
         >
           <optgroup>
@@ -646,7 +646,7 @@
       <div class="marke_select_div relative mt-2">
         <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
         <input
-          class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
+          class="mark_input mt-[10px] text-[14px] mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="text"
           pattern="\d*"
 					v-model="zipCode"
@@ -748,7 +748,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="radius"
             @focus="openRadiusDropdown"

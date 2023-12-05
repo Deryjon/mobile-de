@@ -1,15 +1,15 @@
 <template>
   <TheLoader v-if="isLoading"/>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]" v-else>
-    <section class="w-full settings relative bg-[#0000001f] p-[40px]">
-      <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
-        <div v-for="vehicle in vehicles" class="motorcycled bor flex justify-between w-full h-[320px] p-[20px] cursor-pointer"
+  <v-container class="max-w-[1120px]" v-else>
+    <section class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+      <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px] ">
+        <div v-for="vehicle in vehicles" class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(vehicle.vehicle_id)">
-          <div class="img w-[350px] h-[260px] m-0">
+          <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
-            <img class="w-[100%] h-full" :src="vehicle.vehicle_images_url" />
+            <img class="w-[100%] h-full sm:object-cover" :src="vehicle.vehicle_images_url[0]" />
           </div>
-          <div class="texts w-[350px] h-[260px]">
+          <div class="text lg:h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ vehicle.vehicle_make }}
@@ -31,7 +31,7 @@
                 Hp
               </div>
             </div>
-            <div class="vehicle-coachey flex gap-[5px] text-[14px]">
+            <div class="vehicle-coachey hidden lg:flex gap-[5px] text-[14px]">
               <div class="vehicle-coachey">
                 {{ vehicle.vehicle_category }}
               </div>
@@ -45,7 +45,7 @@
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ vehicle.vehicle_price }}</p>
-            <div class="flex gap-[10px] justify-end mt-[200px]">
+            <div class="flex gap-[10px] lg:justify-end mt-[10px] lg:mt-[200px]">
               <div class="">
                 <button
                   class="flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white"

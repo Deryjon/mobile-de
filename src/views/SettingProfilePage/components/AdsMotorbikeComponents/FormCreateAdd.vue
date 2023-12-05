@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="basic-add">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
       <div class="flex items-center gap-[20px]">
         <input
           type="file"
@@ -16,7 +16,7 @@
         >
           + Add image
         </button>
-        <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
+        <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div
             v-for="(file, index) in selectedFiles"
             :key="index"
@@ -36,17 +36,17 @@
         </div>
       </div>
       <div class="video-link mt-[30px]">
-        <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
+        <h2 class="text-[12px] lg:text-sm lg:text-[14px]">Link on Video</h2>
         <input
           type="text"
-          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo"
         />
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
+      <div class="flex flex-wrap lg:gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
-            <h2 class="text-sm lg:text-[14px]">
+            <h2 class="text-[12px] lg:text-sm lg:text-[14px]">
               {{ $t("message.selects.mark") }}
             </h2>
             <select
@@ -54,7 +54,7 @@
               v-model="selectedMark"
               @change="fetchModels()"
             >
-              <option value="14600" selected>Beliebig</option>
+              <option value="" selected>Beliebig</option>
               <optgroup>
                 <option
                   v-for="make in makes"
@@ -73,7 +73,7 @@
         </div>
 
         <div class="relative">
-          <h2 class="text-sm lg:text-[14px] mt-2">
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px] mt-2">
             {{ $t("message.selects.model") }}
           </h2>
           <input
@@ -89,10 +89,10 @@
       </div>
 			<div class="mt-[30px] ">
     <h3 class="text-[16px]">Vehicle type</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[25px] mt-[20px] ">
+    <div class="filter-cars flex flex-wrap gap-x-[10px] lg:gap-x-[25px] mt-[20px] ">
       <!-- cabrio -->
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0 pb-[20px]"
+        class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0 pb-[20px]"
       >
         <input
           type="radio"
@@ -106,21 +106,7 @@
         Chopper/Cruiser
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
-      >
-        <input
-          type="radio"
-          :class="{
-                'bg-transparent': selectedMotorbike !== ' Motor-assisted Bicycle/Small Moped',
-                'bg-orange': selectedMotorbike === ' Motor-assisted Bicycle/Small Moped',
-              }"
-              @click="selectMotorbike(' Motor-assisted Bicycle/Small Moped')"
-        />
-        
-        Motor-assisted Bicycle/Small Moped
-      </label>
-      <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+        class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0  pb-[20px]"
       >
         <input
           type="radio"
@@ -134,7 +120,7 @@
         Racing
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+        class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0  pb-[20px]"
       >
         <input
           type="radio"
@@ -148,7 +134,22 @@
         Streetfighter
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+        class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0  pb-[20px]"
+      >
+        <input
+          type="radio"
+          :class="{
+                'bg-transparent': selectedMotorbike !== ' Motor-assisted Bicycle/Small Moped',
+                'bg-orange': selectedMotorbike === ' Motor-assisted Bicycle/Small Moped',
+              }"
+              @click="selectMotorbike(' Motor-assisted Bicycle/Small Moped')"
+        />
+        
+        Motor-assisted Bicycle/Small Moped
+      </label>
+      
+      <label
+        class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0  pb-[20px]"
       >
         <input
           type="radio"
@@ -162,7 +163,7 @@
         Combination/Sidecar
       </label>
       <label
-        class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] p-0  pb-[20px]"
+        class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0  pb-[20px]"
       >
         <input
           type="radio"
@@ -177,7 +178,7 @@
       </label>
       <!-- estate -->
       <label
-        class="custom-checkbox flex gap-4 text-[14px] items-center h-10  p-0 pb-4"
+        class="custom-checkbox  flex gap-4 text-[10px] lg:text-[14px] items-center h-10  p-0 pb-4"
       >
         <input
           type="radio"
@@ -186,15 +187,15 @@
                 'bg-orange': selectedMotorbike === 'Rally/Cross',
               }"
               @click="selectMotorbike('Rally/Cross')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-[14px]">Rally/Cross </span>
+        <span class="text-[10px] lg:text-[14px]">Rally/Cross </span>
       </label>
 
       <!-- saloon -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0 w-[200px] pb-4"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-4"
       >
         <input
           type="radio"
@@ -203,16 +204,16 @@
                 'bg-orange': selectedMotorbike === 'Super Moto',
               }"
               @click="selectMotorbike('Super Moto')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
 
         
 
-        <span class="text-[14px]">Super Moto</span>
+        <span class="text-[10px] lg:text-[14px]">Super Moto</span>
       </label>
       <!-- small -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[20px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[20px]"
       >
         <input
           type="radio"
@@ -221,16 +222,16 @@
                 'bg-orange': selectedMotorbike === 'Dirt Bike',
               }"
               @click="selectMotorbike('Dirt Bike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
 
         
 
-        <span class="text-[14px]">Dirt Bike</span>
+        <span class="text-[10px] lg:text-[14px]">Dirt Bike</span>
       </label>
       <!-- sports -->
       <label
-        class="custom-checkbox flex gap-3 items-center h-10 p-0  pb-[20px]"
+        class="custom-checkbox  flex gap-3 items-center h-10 p-0  pb-[20px]"
       >
         <input
           type="radio"
@@ -239,16 +240,16 @@
                 'bg-orange': selectedMotorbike === 'Naked Bike',
               }"
               @click="selectMotorbike('Naked Bike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
 
         
 
-        <span class="text-[14px]">Naked Bike</span>
+        <span class="text-[10px] lg:text-[14px]">Naked Bike</span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -257,14 +258,14 @@
                 'bg-orange': selectedMotorbike === 'Scooter',
               }"
               @click="selectMotorbike('Scooter')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Scooter</span>
+        <span class="text-[12px] lg:text-sm">Scooter</span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -273,14 +274,14 @@
                 'bg-orange': selectedMotorbike === 'Tourer',
               }"
               @click="selectMotorbike('Tourer')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Tourer</span>
+        <span class="text-[12px] lg:text-sm">Tourer</span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -289,15 +290,15 @@
                 'bg-orange': selectedMotorbike === 'Enduro/Touring Enduro',
               }"
               @click="selectMotorbike('Enduro/Touring Enduro')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Enduro/Touring Enduro
+        <span class="text-[12px] lg:text-sm">Enduro/Touring Enduro
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -306,15 +307,15 @@
                 'bg-orange': selectedMotorbike === 'Pocketbike',
               }"
               @click="selectMotorbike('Pocketbike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Pocketbike
+        <span class="text-[12px] lg:text-sm">Pocketbike
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -323,15 +324,15 @@
                 'bg-orange': selectedMotorbike === 'Sports/Super Sports Bike',
               }"
               @click="selectMotorbike('Sports/Super Sports Bike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Sports/Super Sports Bike
+        <span class="text-[12px] lg:text-sm">Sports/Super Sports Bike
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -340,15 +341,15 @@
                 'bg-orange': selectedMotorbike === 'Trike',
               }"
               @click="selectMotorbike('Trike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Trike
+        <span class="text-[12px] lg:text-sm">Trike
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -357,16 +358,16 @@
                 'bg-orange': selectedMotorbike === 'Lightweight Motorcycle/Motorbike',
               }"
               @click="selectMotorbike('Lightweight Motorcycle/Motorbike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Lightweight Motorcycle/Motorbike
+        <span class="text-[12px] lg:text-sm">Lightweight Motorcycle/Motorbike
 
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -375,16 +376,16 @@
                 'bg-orange': selectedMotorbike === 'Quad',
               }"
               @click="selectMotorbike('Quad')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Quad
+        <span class="text-[12px] lg:text-sm">Quad
 
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -393,17 +394,17 @@
                 'bg-orange': selectedMotorbike === 'Sport Touring Motorcycles',
               }"
               @click="selectMotorbike('Sport Touring Motorcycles')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Sport Touring Motorcycles
+        <span class="text-[12px] lg:text-sm">Sport Touring Motorcycles
 
 
 </span>
       </label>
       <!-- off-road -->
       <label
-        class="custom-checkbox flex gap-4 items-center h-10 p-0  pb-[23px]"
+        class="custom-checkbox  flex gap-4 items-center h-10 p-0  pb-[23px]"
       >
         <input
           type="radio"
@@ -412,10 +413,10 @@
                 'bg-orange': selectedMotorbike === 'Other',
               }"
               @click="selectMotorbike('Other')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
+          class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
         />
         
-        <span class="text-sm">Other
+        <span class="text-[12px] lg:text-sm">Other
 
 
 </span>
@@ -426,7 +427,7 @@
     <div class="tab-1"></div>
   </div>
       <div class="condition mt-[30px]">
-        <h3 class="text-[14px]">Type and condition</h3>
+        <h3 class="text-[10px] lg:text-[14px]">Type and condition</h3>
         <div
           class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
         >
@@ -470,9 +471,9 @@
         </div>
         </div>
         
-      <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
+      <div class="price-tab flex flex-wrap items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+          <h2 class="mt-2 text-[12px] lg:text-sm lg:text-[14px]">Price</h2>
           <div class="input-container flex relative mt-[10px]">
             <input
               type="from"
@@ -517,7 +518,7 @@
           </ul>
         </div>
         <div class="years dropdown-container">
-          <h2 class="mt-2 text-sm lg:text-[14px]">
+          <h2 class="mt-2 text-[12px] lg:text-sm lg:text-[14px]">
             {{ $t("message.selects.registration") }}
           </h2>
           <div class="input-container flex relative mt-[10px]">
@@ -643,7 +644,7 @@
           </ul>
         </div>
         <div class="kilometer dropdown-container">
-          <h2 class="mt-2 text-sm lg:text-[14px]">
+          <h2 class="mt-2 text-[12px] lg:text-sm lg:text-[14px]">
             {{ $t("message.selects.kilometr") }}
           </h2>
           <div class="input-container flex relative mt-[10px]">
@@ -720,7 +721,7 @@
         class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]"
       >
         <div class="marke_select_div relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px]">Previous owners</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="preOwners"
@@ -738,13 +739,13 @@
         class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]"
       >
         <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">Country</h2>
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px]">Country</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry"
           >
             <optgroup>
-              <option value="14600" selected>Any</option>
+              <option value="" selected>Any</option>
             </optgroup>
             <optgroup>
               <option value="BA">Bosnia and Herzegovina</option>
@@ -819,7 +820,7 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
         <div class="marke_select_div relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px]">City / Post code</h2>
           <input
             class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
             type="text"
@@ -829,7 +830,7 @@
         </div>
         <!--  -->
         <div class="radius dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px] mt-2">Radius</h2>
           <div class="input-container flex relative mt-[10px]">
             <input
               type="from"
@@ -870,7 +871,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -885,7 +886,7 @@
             Diesel
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -900,7 +901,7 @@
             Hybrid (diesel/electric)
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -915,7 +916,7 @@
             Natural Gas
           </label>
           <label
-            class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
+            class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -930,7 +931,7 @@
             Other
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -945,7 +946,7 @@
             Petrol
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -971,7 +972,7 @@
                 'bg-orange': selectedFuel === 'Hydrogen',
               }"
               @click="selectFuel('Hydrogen')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">Hydrogen</span>
@@ -989,7 +990,7 @@
                 'bg-orange': selectedFuel === 'Plug-in hybrid',
               }"
               @click="selectFuel('Plug-in hybrid')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">Plug-in hybrid</span>
@@ -1006,7 +1007,7 @@
                 'bg-orange': selectedFuel === 'Hybrid (petrol/electric)',
               }"
               @click="selectFuel('Hybrid (petrol/electric)')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">Hybrid (petrol/electric)</span>
@@ -1023,7 +1024,7 @@
                 'bg-orange': selectedFuel === 'LPG',
               }"
               @click="selectFuel('LPG')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">LPG</span>
@@ -1040,10 +1041,10 @@
                 'bg-orange': selectedFuel === 'Ethanol (FFV, E85, etc.)',
               }"
               @click="selectFuel('Ethanol (FFV, E85, etc.)')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Ethanol (FFV, E85, etc.)</span>
+            <span class="text-[12px] lg:text-sm">Ethanol (FFV, E85, etc.)</span>
           </label>
         </div>
       </div>
@@ -1051,7 +1052,7 @@
         class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[30px]"
       >
         <div class="power dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px] mt-2">Power</h2>
           <div class="input-container flex relative mt-[10px]">
             <input
               type="from"
@@ -1094,7 +1095,7 @@
           </ul>
         </div>
         <div>
-          <h2 class="text-sm lg:text-[14px] mt-2">Cubic capacity</h2>
+          <h2 class="text-[12px] lg:text-sm lg:text-[14px] mt-2">Cubic capacity</h2>
           <div class="cubic dropdown-container">
             <div class="input-container flex relative mt-[10px]">
               <input
@@ -1185,10 +1186,10 @@
                 'bg-orange': selectedTransmision === 'Automatic transmissio',
               }"
               @click="selectTransmision('Automatic transmissio')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Automatic transmission</span>
+            <span class="text-[12px] lg:text-sm">Automatic transmission</span>
           </label>
         </div>
         <div class="mt-[43px] lg:mt-[84px]">
@@ -1203,10 +1204,10 @@
                 'bg-orange': selectedTransmision === 'Semi-automatic',
               }"
               @click="selectTransmision('Semi-automatic')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Semi-automatic</span>
+            <span class="text-[12px] lg:text-sm">Semi-automatic</span>
           </label>
         </div>
         <div class="mt-[43px] lg:mt-[84px]">
@@ -1221,10 +1222,10 @@
                 'bg-orange': selectedTransmision === 'Manual gearbox',
               }"
               @click="selectTransmision('Manual gearbox')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Manual gearbox </span>
+            <span class="text-[12px] lg:text-sm">Manual gearbox </span>
           </label>
         </div>
       </div>
@@ -1334,7 +1335,7 @@
                 'bg-orange': selectedExteriorColour === 'White',
               }"
               @click="selectExteriorColour('White')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">White</span>
@@ -1350,7 +1351,7 @@
                 'bg-orange': selectedExteriorColour === 'Blue',
               }"
               @click="selectExteriorColour('Blue')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">Blue</span>
@@ -1367,7 +1368,7 @@
                 'bg-orange': selectedExteriorColour === 'Yellow',
               }"
               @click="selectExteriorColour('Yellow')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">Yellow</span>
@@ -1384,7 +1385,7 @@
                 'bg-orange': selectedExteriorColour === 'Grey',
               }"
               @click="selectExteriorColour('Grey')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
             <span class="text-[14px]">Grey</span>
@@ -1401,10 +1402,10 @@
                 'bg-orange': selectedExteriorColour === 'Orange',
               }"
               @click="selectExteriorColour('Orange')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Orange</span>
+            <span class="text-[12px] lg:text-sm">Orange</span>
           </label>
           
           <label
@@ -1418,10 +1419,10 @@
                 'bg-orange': selectedExteriorColour === 'Black',
               }"
               @click="selectExteriorColour('Black')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Black</span>
+            <span class="text-[12px] lg:text-sm">Black</span>
           </label>
           
           <label
@@ -1435,10 +1436,10 @@
                 'bg-orange': selectedExteriorColour === 'Purple',
               }"
               @click="selectExteriorColour('Purple')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Purple</span>
+            <span class="text-[12px] lg:text-sm">Purple</span>
           </label>
           
           <label
@@ -1452,10 +1453,10 @@
                 'bg-orange': selectedExteriorColour === 'Metallic',
               }"
               @click="selectExteriorColour('Metallic')"
-              class="form-checkbox h-5 w-5 text-indigo-600"
+              class="form-checkbox h-[3px] lg:h-5 w-[4px] lg:w-5 text-indigo-600"
             />
 
-            <span class="text-sm">Metallic</span>
+            <span class="text-[12px] lg:text-sm">Metallic</span>
           </label>
         </div>
       </div>
@@ -1663,7 +1664,7 @@
     <div class="interior">
       <div class="condition mt-[30px]">
         <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex gap-[40px] mt-[20px]">
+        <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[40px] mt-[20px]">
           <label>
             <input
               type="radio"
@@ -1866,7 +1867,7 @@
             <option value="only">Only show</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+            class="arrow w-[7px] h-[7px] absolute   right-2 bottom-4"
           ></span>
         </div>
         <div class="relative mt-2 w-[200px]">
@@ -1905,14 +1906,14 @@
             <option value="VOLVO">VOLVO SELEKT</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+            class="arrow w-[7px] h-[7px] absolute   right-2 bottom-4"
           ></span>
         </div>
       </div>
       <div class="">
         <h2 class="mt-[30px] text-[16px]">Description</h2>
         <textarea
-          class="bg-[#ccc] mt-[10px] p-[20px]"
+          class="w-full bg-[#ccc] mt-[10px] p-[20px]" 
           name=""
           id=""
           cols="40"
@@ -1981,7 +1982,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedCondition: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
@@ -2024,7 +2025,7 @@ export default {
       inputValue: "",
       isOpen: false,
       selectedPrice: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: null,
       priceOpen: false,
       isCheckedHistory: false,

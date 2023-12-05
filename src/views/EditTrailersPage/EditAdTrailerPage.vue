@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[1120px]">
+  <v-container class="max-w-[1140px]">
     <PathLink>Edit Ad</PathLink>
     <div class="sections mt-[20px]">
       <EditSection />
@@ -19,14 +19,14 @@ export default {
   created() {
     // После успешной аутентификации
 
-  
 
-// Проверка, что значение существует и строго равно "false"
-const isLoggedIn = localStorage.getItem("logged-in");
-if (isLoggedIn === "false") {
-  // Перенаправление на страницу "home"
-  this.$router.push({ name: "home" });
-}
+
+    // Проверка, что значение существует и строго равно "false"
+    const isLoggedIn = localStorage.getItem("logged-in");
+    if (isLoggedIn === "false") {
+      // Перенаправление на страницу "home"
+      this.$router.push({ name: "home" });
+    }
 
   }
 };

@@ -1,9 +1,9 @@
 <template>
   <section class="rental-section">
-    <v-container class="xl:w-[1120px]">
-      <div class="Automarken w-[360px] xl:w-[1120px]">
+    <v-container class=" max-w-[1140px]">
+      <div class="Automarken w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]   xl:w-[1125px] mx-auto  p-[20px] text-[11px] sm:text-[13px] md:text-[14px] lg:text-[15px] xl:text-[16px]">
         <div class="container">
-          <h3 class="title">
+          <h3 class="title text-[15px] sm:text-[16px] md:text-[17px] lg:text-[18px] xl:text-[20px]">
             {{ $t("message.title.popular") }}
           </h3>
 
@@ -200,7 +200,7 @@
           </div>
         </div>
 
-        <div class="pre-wrapper2 w-[600px]">
+        <div class="pre-wrapper2 w-[600px] ">
           <div class="wrapper2">
             <!-- lists -->
             <h5 class="car-names">
@@ -361,7 +361,6 @@ export default {};
   color: #fff;
   text-decoration: none;
   list-style: none;
-  font-size: 15px;
 }
 
 .Automarken .container .wrapper .car-model li :hover {
@@ -384,7 +383,6 @@ export default {};
   color: #fff;
   text-decoration: none;
   list-style: none;
-  font-size: 15px;
 }
 
 .pre-wrapper2 .wrapper2 .car-model a {

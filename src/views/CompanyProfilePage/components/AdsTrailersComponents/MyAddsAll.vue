@@ -1,16 +1,16 @@
 <template>
-  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
+  <div class="flex flex-wrap gap-[40px] justify-between mt-[20px] p-[5px]">
     <div
       v-for="trailer in trailers"
       :key="trailer.trailer_id"
       :data-trailer-id="trailer.id"
-      class="trailerd bor bg-white flex justify-between w-full h-[300px] p-[20px]"
+      class="card bor bg-white md:flex justify-between w-full lg:h-[300px] p-[20px]"
     >
-      <div class="img w-[500px]  h-[200px] m-0">
+      <div class="bor img lg:w-[500px]  h-[150px] lg:h-[200px] mr-[20px] m-0">
         <img :src="trailer.trailer_images_url[0]" alt="" class="object-cover w-full h-full"/>
       </div>
-      <div class="texts w-[520px] h-[260px] ml-[20px]">
-        <div class="name flex gap-[5px] text-[16px] font-semibold">
+      <div class="text lg:w-[520px]">
+        <div class="ame flex flex-wrap gap-[5px] text-[12px] md:text-[14px] lg:text-[16px] font-semibold">
           <div class="make">
             {{ trailer.trailer_make }}
           </div>
@@ -18,7 +18,7 @@
             {{ trailer.trailer_model }}
           </div>
         </div>
-        <div class="date-km text-[15px] flex flex-wrap gap-x-[5px]">
+        <div class="date-km flex flex-wrap gap-[5px] text-[11px] md:text-[13px] lg:text-[14px]">
           <div class="year">
             {{ trailer.trailer_firt_date_year }}
           </div>
@@ -39,11 +39,12 @@
           </div>
         </div>
       </div>
-      <div class="price text-[18px] font-semibold">
+      <div class="price text-[15px] lg:text-[18px] font-semibold ">
         <p class="price">€{{ trailer.trailer_price }}</p>
-        <div class="flex gap-[10px] justify-end mt-[200px]">
+        <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]
+        ">
           <button
-            class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[14px] p-[8px] px-[20px]"
+            class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
             @click="deleteAdtrailer(trailer.trailer_id)"
           >
             <svg
@@ -61,7 +62,7 @@
 
           <button
             @click="editAdtrailer(trailer.trailer_id)"
-            class="bg-yellow-500 bor rounded-[4px] text-[14px] p-[8px] px-[20px] flex items-center gap-[5px]"
+            class="flex items-center gap-[5px] bg-yellow-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

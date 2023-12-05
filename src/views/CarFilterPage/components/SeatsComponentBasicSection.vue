@@ -1,6 +1,6 @@
 <template>
   <div
-    class="salon-filter flex flex-wrap gap-x-[20px] lg:gap-x-[60px] items-center pl-[20px] xl:p-[20px]"
+    class="salon-filter flex flex-wrap gap-x-[20px] lg:gap-x-[60px] items-center  xl:p-[20px]"
   >
     <!-- seats -->
     <div class="seats dropdown-container">
@@ -8,7 +8,7 @@
       <div class="input-container flex relative mt-[10px]">
         <input
           type="from"
-          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="from"
           v-model="numberSeats"
           @focus="openSeatsDropdown"
@@ -45,7 +45,7 @@
       <div class="input-container flex relative mt-[35px]">
         <input
           type="from"
-          class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="from"
           v-model="numberSeatsTo"
           @focus="openSeatsToDropdown"
@@ -81,7 +81,7 @@
     <div class="seats relative mt-2">
       <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
       <select
-        class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
+        class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
         v-model="numDoor"
       >
         <option value="">Any</option>
@@ -94,7 +94,7 @@
     <div class="seats relative mt-2">
       <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
       <select
-        class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
+        class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
         v-model="slidingDoor"
       >
         <option value="" selected>Any</option>

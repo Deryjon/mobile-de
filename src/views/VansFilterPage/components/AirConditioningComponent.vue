@@ -1,8 +1,8 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition lg:p-[20px] mt-[20px]">
     <h3 class="text-[16px]">Air conditioning</h3>
     <div class="radios-type flex flex-wrap gap-x-[60px] gap-y-[10px] mt-[20px]">
-      <label class="w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
+      <label class="lg:w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
         <input
           id="air-any"
           type="radio"
@@ -15,7 +15,7 @@
         />
         <span class="ml-[10px] text-[14px]">Any</span>
       </label>
-      <label class="w-[200px]" for="manual">
+      <label class="lg:w-[200px]" for="manual">
         <input
           type="radio"
           id="manual"
@@ -31,7 +31,7 @@
         </span>
       </label>
       <label
-        class="w-[200px]"
+        class="lg:w-[200px]"
         for="auto-climat"
         @click="selectAirbag('Auto-Climat')"
       >
@@ -50,7 +50,7 @@
       </label>
 
       <label
-        class="w-[200px]"
+        class="lg:w-[200px]"
         for="auto2"
         @click="selectAirbag('Auto-Climat2')"
       >
@@ -67,7 +67,7 @@
           >Automatic climatisation, 4 zones</span
         >
       </label>
-      <label class="w-[200px]" @click="selectAirbag('NoClimat')">
+      <label class="lg:w-[200px]" @click="selectAirbag('NoClimat')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -78,7 +78,7 @@
         />
         <span class="ml-[10px] text-[14px]">No climatisation</span>
       </label>
-      <label class="w-[200px]" @click="selectAirbag('AutoClimat')">
+      <label class="lg:w-[200px]" @click="selectAirbag('AutoClimat')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -89,7 +89,7 @@
         />
         <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
       </label>
-      <label class="w-[200px]" @click="selectAirbag('Auto-Climat3')">
+      <label class="lg:w-[200px]" @click="selectAirbag('Auto-Climat3')">
         <input
           type="radio"
           v-model="selectedCondition"

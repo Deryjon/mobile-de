@@ -4,7 +4,7 @@
   <ExteriorFilterSection />
   <InteriorFilterSection />
   <OfferDetailsSection />
-  <v-container class="w-[700px] lg:w-[900px] xl:w-[1110px]">
+  <v-container class="max-w-[1140px]">
     <FilterBtn class="ml-auto" @click="goCarList">
       <p class="text-white text-[18px] lg:text-[16px]">
         {{ this.count }} {{ $t("message.results.result") }}

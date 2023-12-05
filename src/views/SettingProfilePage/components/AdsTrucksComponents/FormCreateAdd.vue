@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="basic-add">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
       <div class="flex items-center gap-[20px]">
         <input
           type="file"
@@ -16,7 +16,7 @@
         >
           + Add image
         </button>
-        <div class="file-preview flex flex-wrap w-[600px] gap-[10px]">
+        <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div
             v-for="(file, index) in selectedFiles"
             :key="index"
@@ -39,11 +39,11 @@
         <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
         <input
           type="text"
-          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-[500px] mt-[10px] lg:text-[12px]"
+          class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo"
         />
       </div>
-      <div class="flex gap-[20px] mt-[30px]">
+      <div class="flex flex-wrap lg:gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
             <h2 class="text-sm lg:text-[14px]">
@@ -153,7 +153,7 @@
         </div>
         </div>
         
-      <div class="price-tab flex items-center gap-[21px] lg:gap-[30px]">
+      <div class="price-tab flex flex-wrap items-center gap-[10px] lg:gap-[30px]">
         <div class="price dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
           <div class="input-container flex relative mt-[10px]">
@@ -794,7 +794,7 @@
         </label>
       </div>
 
-      <div class="flex gap-[40px] lg:gap-[100px]">
+      <div class="flex flex-wrap gap-[20px] lg:gap-[100px]">
         <div
           class="
 			"
@@ -818,7 +818,7 @@
             <span class="text-sm">Automatic transmission</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
+        <div class=" lg:mt-[84px]">
           <label
             class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[180px]"
           >
@@ -836,7 +836,7 @@
             <span class="text-sm">Semi-automatic</span>
           </label>
         </div>
-        <div class="mt-[43px] lg:mt-[84px]">
+        <div class=" lg:mt-[84px]">
           <label
             class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[180px]"
           >
@@ -855,7 +855,7 @@
           </label>
         </div>
       </div>
-<div class="flex gap-[30px]" >
+<div class="flex flex-wrap lg:gap-[30px]" >
 	<div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
           <select
@@ -891,10 +891,10 @@
 </div>
 			<div class="mt-[30px]">
         <h3 class="text-[16px]">Exterior Colour</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
+        <div class="filter-cars flex flex-wrap gap-[5px] lg:gap-x-[20px] mt-[20px]">
           
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -909,7 +909,7 @@
             Beige
           </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -924,7 +924,7 @@
             Brown
           </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -939,7 +939,7 @@
             Gold
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -954,7 +954,7 @@
             Green
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -969,7 +969,7 @@
             Red
           </label>
           <label
-            class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -984,7 +984,7 @@
             Silver
           </label>
           <label
-            class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4 p-0"
+            class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[80px] lg:w-[100px] pb-4 p-0"
           >
             <input
               type="radio"
@@ -1017,7 +1017,7 @@
           </label>
          
           <label
-            class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -1034,7 +1034,7 @@
           </label>
      
           <label
-            class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px] p-0"
+            class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[80px] lg:w-[100px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -1051,7 +1051,7 @@
           </label>
        
           <label
-            class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+            class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[80px] lg:w-[100px] pb-[23px] p-0"
           >
             <input
               type="radio"
@@ -1068,7 +1068,7 @@
           </label>
           
           <label
-            class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+            class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[80px] lg:w-[100px] pb-[23px] p-0"
           >
             <input
               type="radio"
@@ -1085,7 +1085,7 @@
           </label>
           
           <label
-            class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+            class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[80px] lg:w-[100px] pb-[23px] p-0"
           >
             <input
               type="radio"
@@ -1102,7 +1102,7 @@
           </label>
           
           <label
-            class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0"
+            class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] lg:w-[100px] pb-[23px] p-0"
           >
             <input
               type="radio"
@@ -1419,7 +1419,7 @@
       </div>
 			<div class="text-[16px] condition mt-[20px]">
         <h3>Trailer coupling</h3>
-        <div class="text-[14px] radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
+        <div class="text-[14px] radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
           <label>
             <input
               type="radio"
@@ -1613,7 +1613,7 @@
     <div class="interior">
       <div class="condition mt-[30px]">
         <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex gap-[40px] mt-[20px]">
+        <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[40px] mt-[20px]">
           <label>
             <input
               type="radio"
@@ -1816,7 +1816,7 @@
             <option value="only">Only show</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+            class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
           ></span>
         </div>
         <div class="relative mt-2 w-[200px]">
@@ -1855,14 +1855,14 @@
             <option value="VOLVO">VOLVO SELEKT</option>
           </select>
           <span
-            class="arrow w-[7px] h-[7px] absolute lg:left-[180px] xl:right-2 bottom-4"
+            class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
           ></span>
         </div>
       </div>
       <div class="">
         <h2 class="mt-[30px] text-[16px]">Description</h2>
         <textarea
-          class="bg-[#ccc] mt-[10px] p-[20px]"
+          class="bg-[#ccc] mt-[10px] p-[20px] w-full"
           name=""
           id=""
           cols="40"

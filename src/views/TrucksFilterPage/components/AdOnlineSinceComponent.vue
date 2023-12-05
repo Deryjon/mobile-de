@@ -1,7 +1,7 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition lg:p-[20px]">
     <h3>Ad online since</h3>
-    <div class="radios-type flex gap-[30px] mt-[10px]">
+    <div class="radios-type flex flex-wrap gap-[30px] mt-[10px]">
       <label for="offer-ad" @click="selectOnlineSince('AnyOffer')">
         <input
           type="radio"

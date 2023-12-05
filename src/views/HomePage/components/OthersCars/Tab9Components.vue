@@ -1,14 +1,14 @@
 <template>
   <div class="for-example">
-    <div class="top lg:flex w-[250px] sm:w-[350px] items-center gap-[80px]">
+    <div class="top sm:flex flex-wrap  gap-x-[50px]  w-[250px] sm:w-[450px] md:w-[550px] lg:w-[850px] xl:w-[950px] items-center  lg:gap-x-[40px] xl:gap-x-[80px]">
       <div class="mark">
         <div class="relative mt-2">
           <h2 class="text-sm lg:text-[14px]">
             {{ $t("message.selects.mark") }}
           </h2>
           <select
-            class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMark">
+            class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="selectedMark" @change="fetchModels()">
             <option value="" selected>Beliebig</option>
             <optgroup>
               <option v-for="make in makes" :key="make" :value="make.trailer_make_name">
@@ -17,7 +17,7 @@
               <option value="other">other</option>
             </optgroup>
           </select>
-          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+          <span class="arrow w-[7px] h-[7px] absolute right-[-42px] sm:right-[10px] lg:right-2 bottom-4"></span>
         </div>
       </div>
 
@@ -25,9 +25,16 @@
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
-        <input
-          class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" v-model="selectedModel" type="text" />
+        <select
+          class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel">
+          <option value="">Beliebig</option>
+          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
+            {{ model.car_model_name }}
+          </option>
+          <option value="other" class="">Others</option>
+        </select>
+        <span class="arrow w-[7px] h-[7px] absolute right-[-42px] sm:right-[10px] lg:right-2 bottom-4"></span>
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -35,7 +42,7 @@
         </h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select  w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions" @blur="openDropdown" />
 
           <div
@@ -144,7 +151,7 @@
         </h2>
         <div class="kilometers input-container flex relative mt-[10px]">
           <input type="from"
-            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
             @blur="openKilmeterDropdown" />
 
@@ -183,7 +190,7 @@
         </ul>
       </div>
     </div>
-    <div class="bottom-all lg:flex w-[250px] lg mt-[5px]:w-full sm:w-[350px] items-center gap-[80px]">
+    <div class="bottom-all lg:flex w-[300px] lg:w-[800px] sm:w-[350px] items-center gap-[80px] lg:gap-[40px] xl:gap-x-[80px]">
       <div>
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.ad") }}
@@ -200,12 +207,14 @@
         </div>
       </div>
       <div class="tab-content">
-        <div class="bottom tab-panel lg:flex items-center gap-[80px]">
+        <div class="bottom tab-panel sm:flex flex-wrap items-center lg:gap-[40px] xl:gap-x-[80px] sm:w-[450px] md:w-[550px] lg:w-[700px] sm:gap-x-[50px]" >
           <div class="price dropdown-container">
-            <h2 class="mt-2 text-sm lg:text-[14px]">Price from</h2>
+            <h2 class="mt-2 text-sm lg:text-[14px]">
+              {{ $t("message.selects.priceFrom") }}
+            </h2>
             <div class="input-container flex relative mt-[10px]">
               <input type="from"
-                class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                class="dropdown-input mark_input mark-select w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
                 placeholder="from" v-model="inputPrice" @focus="openPriceDropdown" @input="filterOptions"
                 @blur="closePriceDropdown" />
 
@@ -259,12 +268,12 @@
               {{ $t("message.selects.zip") }}
             </h2>
             <input
-              class="mark_input_zip text-[12px] mark-select mt-[5px] w-full lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+              class="mark_input_zip text-[12px] mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
               type="text" placeholder="Beliebig" v-model="cityName" />
             <div
-              class="icon absolute top-[30px] sm:left-[330px] lg:top-[43px] left-[230px] lg:left-[130px] xl:left-[150px] cursor-pointer"
+              class="icon absolute top-[35px] right-[10px] sm:left-[330px] lg:top-[43px] lg:right-0   lg:left-[130px] xl:left-[150px] cursor-pointer"
               @click="getLocation()">
-              <img src="@/assets/images/icon-location.svg" alt="" />
+              <img src="../../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
           <FilterBtn @click="goMotorhomeList">

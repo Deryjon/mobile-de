@@ -3,11 +3,11 @@
   <main class="" v-else>
 		<SwiperSection />
      <SearchSection />
-		<!-- <RentSection/>
-		<MagazinSection/>
-    <ElectroCarsSection/>
-		<FinanceSection/>
-		<CarModelsSection/> -->
+		 <RentSection/>
+		 <MagazinSection/>
+ <ElectroCarsSection/>
+	  	<FinanceSection/>
+		  <CarModelsSection/>
 		
   </main>
 </template>

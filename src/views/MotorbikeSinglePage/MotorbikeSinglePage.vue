@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[1120px]">
+  <v-container class="max-w-[1140px]">
     <PathLink>Motorbike Single</PathLink>
     <div class="sections">
       <YourSetAd />
