@@ -1,16 +1,16 @@
 --
 <template>
-  <v-container class="w-[1120px] flex justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[200px] h-[680px] bg-[#0000001f] p-[20px]">
+  <v-container class="max-w-[1140px] flex lg:justify-between pl-0 ml-[4px]">
+    <div class="tabs w-[130px]  xs:w-[200px] sm:w-[200px] md:w-[350px] lg:w-[400px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] ">
       <div class="top flex gap-[10px] items-center mt-[10px]">
         <div class="profile-img" v-if="!companyIcon">
           <img
             :src="companyProfileImg"
             :alt="companyProfileImgName"
-            class="w-[60px] h-[60px] rounded-[100%]"
+            class="w-[60px] lg:w-[60px] h-[60px] lg:h-[60px] rounded-[100%]"
           />
         </div>
-        <div class="icon w-[35px] h-[35px] mx-[15px]" v-if="companyIcon">
+        <div class="icon w-[15px] lg:w-[35px] h-[15px] lg:h-[35px] mx-[15px]" v-if="companyIcon">
           <svg
             data-v-53d99ea3=""
             xmlns="http://www.w3.org/2000/svg"
@@ -27,14 +27,14 @@
           </svg>
         </div>
         <div class="changes">
-          <p class="email text-[14px]">{{ companyEmail.slice(0, 10) + "..." }}</p>
-          <p class="email text-[14px] underline cursor-pointer">Edit</p>
+          <p class="email text-[12px]  ">{{ companyEmail.slice(0, 5) + "..." }}</p>
+          <p class="email text-[14px]   underline cursor-pointer">Edit</p>
         </div>
       </div>
-      <div class="line mt-[20px]"></div>
+      <div class="line mt-[20px] w-full"></div>
       <div class="tabs-btn">
         <button
-          class="flex gap-[8px] items-center mt-[20px] w-[160px]"
+          class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
           @click="setActive('tab-1')"
           :class="{ active: isActive('tab-1') }"
         >
@@ -63,11 +63,11 @@
               ></path>
             </g>
           </svg>
-          Overview
+          {{ $t("message.profile.overview") }}
         </button>
         <div class="adds">
           <button
-            class="flex gap-[8px] items-center mt-[20px] w-[160px]"
+            class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
             @click="openCountryDropdown"
           >
             <svg
@@ -87,11 +87,11 @@
                 fill="currentColor"
               ></path>
             </svg>
-            My Adds
+            {{ $t("message.profile.myAdds") }}
           </button>
           <ul
             v-if="isOpen"
-            class="dropdown-options text-[10px] lg:text-[12px] w-[135px]"
+            class="dropdown-options text-[10px] sm:text-[12px] md:text-[14px]   w-[100px] md:w-[170px] lg:w-[135px] " 
           >
             <div class="tabs">
               <div
@@ -99,140 +99,131 @@
                 @click="setActive('tab-3')"
                 :class="{ active: isActive('tab-3') }"
               >
-                <li class="text-[14px]" data-key="be">Cars</li>
+                <li class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold" data-key="be">
+                  {{ $t("message.profile.cars") }}
+                </li>
               </div>
-              <div class="flex items-center"
-							
-							@click="setActive('tab-4')"
+              <div
+                class="flex items-center"
+                @click="setActive('tab-4')"
                 :class="{ active: isActive('tab-4') }"
-							>
-                <li
-                  class="text-[14px]"
-									
-                >
-                  Motorcycles
+              >
+                <li class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold">
+                  {{ $t("message.profile.motorcycles") }}
                 </li>
               </div>
 
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="dk"
-									@click="setActive('tab-5')"
-                :class="{ active: isActive('tab-5') }"
-							>
-                
-                  Motor homes
-                </li>
-              </div>
-
-              <div class="flex items-center">
-                <li
-                  class="text-[14px]"
-                  data-key="us"
-									@click="setActive('tab-6')"
-                :class="{ active: isActive('tab-6') }"
-							>
-                
-                  Trucks
-                </li>
-              </div>
-
-              <div class="flex items-center">
-                <li
-                  class="text-[14px]"
-                  data-key="fr"
-                	@click="setActive('tab-7')"
-                :class="{ active: isActive('tab-7') }"
-							>
-                
-                  Trailers
-                </li>
-              </div>
-
-              <div class="flex items-center">
-                <li
-                  class="text-[14px]"
-                  data-key="gr"	@click="setActive('tab-8')"
-                :class="{ active: isActive('tab-8') }"
+                  @click="setActive('tab-5')"
+                  :class="{ active: isActive('tab-5') }"
                 >
-                  Vans
+                  {{ $t("message.profile.motorHomes") }}
                 </li>
               </div>
 
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
+                  data-key="us"
+                  @click="setActive('tab-6')"
+                  :class="{ active: isActive('tab-6') }"
+                >
+                  {{ $t("message.profile.trucks") }}
+                </li>
+              </div>
+
+              <div class="flex items-center">
+                <li
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
+                  data-key="fr"
+                  @click="setActive('tab-7')"
+                  :class="{ active: isActive('tab-7') }"
+                >
+                  {{ $t("message.profile.trailers") }}
+                </li>
+              </div>
+
+              <div class="flex items-center">
+                <li
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
+                  data-key="gr"
+                  @click="setActive('tab-8')"
+                  :class="{ active: isActive('tab-8') }"
+                >
+                  {{ $t("message.profile.vans") }}
+                </li>
+              </div>
+
+              <div class="flex items-center">
+                <li
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="ita"
-									@click="setActive('tab-9')"
-                :class="{ active: isActive('tab-9') }"
-							>
-                
-                  Semi trailer trucks
+                  @click="setActive('tab-9')"
+                  :class="{ active: isActive('tab-9') }"
+                >
+                  {{ $t("message.profile.semiTrucks") }}
                 </li>
               </div>
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="mor"
-									@click="setActive('tab-10')"
-                :class="{ active: isActive('tab-10') }"
-							>
-                
-                  Semi trailers
+                  @click="setActive('tab-10')"
+                  :class="{ active: isActive('tab-10') }"
+                >
+                  {{ $t("message.profile.semiTrailers") }}
                 </li>
               </div>
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="mor"
-									@click="setActive('tab-11')"
-                :class="{ active: isActive('tab-11') }"
-							>
-                
-                  Coaches
+                  @click="setActive('tab-11')"
+                  :class="{ active: isActive('tab-11') }"
+                >
+                  {{ $t("message.profile.coaches") }}
                 </li>
               </div>
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="nt"
-									@click="setActive('tab-12')"
-                :class="{ active: isActive('tab-12') }"
-							>
-                
-                  Agricultural vehicle
+                  @click="setActive('tab-12')"
+                  :class="{ active: isActive('tab-12') }"
+                >
+                  {{ $t("message.profile.agrocultural") }}
                 </li>
               </div>
 
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="mor"
-									@click="setActive('tab-13')"
-                :class="{ active: isActive('tab-13') }"
-							>
-                
-                  Construction machines
+                  @click="setActive('tab-13')"
+                  :class="{ active: isActive('tab-13') }"
+                >
+                  {{ $t("message.profile.construction") }}
                 </li>
               </div>
               <div class="flex items-center">
                 <li
-                  class="text-[14px]"
+                  class="    text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
                   data-key="sp"
-									@click="setActive('tab-14')"
-                :class="{ active: isActive('tab-14') }"
-							>
-                
-                  Forklift trucks
+                  @click="setActive('tab-14')"
+                  :class="{ active: isActive('tab-14') }"
+                >
+                  {{ $t("message.profile.forklift") }}
                 </li>
               </div>
             </div>
           </ul>
         </div>
         <button
-          class="flex gap-[8px] items-center mt-[20px] w-[160px]"
-          @click="setActive('tab-2')"
+          class="flex gap-[3px] sm:gap-[3px] lg:gap-[8px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
+          @click="setActive('tab-2')" 
           :class="{ active: isActive('tab-2') }"
         >
           <div class="icon-settings w-[24px]">
@@ -252,10 +243,10 @@
               />
             </svg>
           </div>
-          Settings
+          {{ $t("message.profile.settings") }}
         </button>
         <button
-          class="flex gap-[8px] items-center mt-[20px] w-[160px]"
+          class="flex gap-[1px] sm:gap-[3px] text-[9px] sm:text-[12px] md:text-[14px] font-bold lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
           @click="logOut"
         >
           <div class="icon-settings w-[24px]">
@@ -272,14 +263,15 @@
               />
             </svg>
           </div>
-          Log out
+          {{ $t("message.profile.logOut") }}
         </button>
       </div>
     </div>
-		<p>{{ activeTab }}</p> <!-- Правильный способ обращения к данным хранилища -->
+    <p>{{ activeTab }}</p>
+    <!-- Правильный способ обращения к данным хранилища -->
 
     <section
-      class="tabs-content settings relative w-[350px] sm:w-[550px] lg:w-[870px] xl:w-[870px] bg-[#0000001f] flex"
+      class="tabs-content settings relative w-[200px]  xs:w-[550px] md:w-full lg:w-[800px] xl:w-[870px] bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
@@ -287,41 +279,41 @@
       <div class="" v-show="isActive('tab-2')">
         <SettingsTab />
       </div>
-      	<div class="" v-show="isActive('tab-3')">
+      <div class="" v-show="isActive('tab-3')">
         <MyAdCarsTab />
       </div>
-      	<div class="" v-show="isActive('tab-4')">
-        <MyAdMotorCycleTab/> 
+      <div class="" v-show="isActive('tab-4')">
+        <MyAdMotorCycleTab />
       </div>
-      	<div class="" v-show="isActive('tab-5')">
-        <MyAdMotorhomesTab/> 
+      <div class="" v-show="isActive('tab-5')">
+        <MyAdMotorhomesTab />
       </div>
-      	<div class="" v-show="isActive('tab-6')">
-        <MyAdTrucksTab/> 
+      <div class="" v-show="isActive('tab-6')">
+        <MyAdTrucksTab />
       </div>
-      	<div class="" v-show="isActive('tab-7')">
-        <MyAdTrailerTab/> 
+      <div class="" v-show="isActive('tab-7')">
+        <MyAdTrailerTab />
       </div>
-      	<div class="" v-show="isActive('tab-8')">
-        <MyAdVansTab/> 
+      <div class="" v-show="isActive('tab-8')">
+        <MyAdVansTab />
       </div>
-      	<div class="" v-show="isActive('tab-9')">
-        <MyAdSemiTrailerTruckTab/> 
+      <div class="" v-show="isActive('tab-9')">
+        <MyAdSemiTrailerTruckTab />
       </div>
-      	<div class="" v-show="isActive('tab-10')">
-        <MyAdSemiTrailerTab/> 
+      <div class="" v-show="isActive('tab-10')">
+        <MyAdSemiTrailerTab />
       </div>
-      	<div class="" v-show="isActive('tab-11')">
-        <MyAdCoachesTab/> 
+      <div class="" v-show="isActive('tab-11')">
+        <MyAdCoachesTab />
       </div>
-      	<div class="" v-show="isActive('tab-12')">
-        <MyAdAgriculturalTab/> 
+      <div class="" v-show="isActive('tab-12')">
+        <MyAdAgriculturalTab />
       </div>
-      	<div class="" v-show="isActive('tab-13')">
-        <MyAdConstructionTab/> 
+      <div class="" v-show="isActive('tab-13')">
+        <MyAdConstructionTab />
       </div>
-      	<div class="" v-show="isActive('tab-14')">
-        <MyAdForkliftTab/> 
+      <div class="" v-show="isActive('tab-14')">
+        <MyAdForkliftTab />
       </div>
     </section>
   </v-container>
@@ -342,22 +334,21 @@ import MyAdCoachesTab from "../components/AdsCoachesComponents/MyAdCoachesTab.vu
 import MyAdAgriculturalTab from "../components/AdsAgriculturalVehicleComponents/MyAdAgriculturalTab.vue";
 import MyAdConstructionTab from "../components/AdsConstructionMachinesComponents/MyAdConstructionsTab.vue";
 import MyAdForkliftTab from "../components/AdsForkliftTrucksComponents/MyAdForkliftTruckTab.vue";
-export default {	
+export default {
   data() {
     return {
-			 
       companyEmail: "",
       activeTab: "tab-2",
       companyProfileImg: null,
       companyProfileImgName: null,
       isOpen: false,
-			companyIcon: false
+      companyIcon: false,
     };
   },
-	computed: {
+  computed: {
     activeTab() {
       const store = useTabsStore();
-      this.activeTab = store.activeTab; 
+      this.activeTab = store.activeTab;
     },
   },
   methods: {
@@ -399,12 +390,13 @@ export default {
     },
   },
 
-
   created() {
     this.companyEmail = localStorage.getItem("u-e");
     this.companyProfileImg = localStorage.getItem("u-img-prof");
+
 		if (this.companyProfileImg === 'null') {
        this.companyIcon = true;
+
     }
     this.companyProfileImgName = localStorage.getItem("u-img-alt");
   },
@@ -412,17 +404,17 @@ export default {
     SettingsTab,
     OverviewTab,
     MyAdCarsTab,
-		MyAdMotorCycleTab,
-		MyAdVansTab,
-		MyAdMotorhomesTab,
-		MyAdTrucksTab,
-		MyAdTrailerTab,
-		MyAdSemiTrailerTab,
-		MyAdSemiTrailerTruckTab,
-		MyAdCoachesTab,
-		MyAdAgriculturalTab,
-		MyAdConstructionTab,
-		MyAdForkliftTab,
+    MyAdMotorCycleTab,
+    MyAdVansTab,
+    MyAdMotorhomesTab,
+    MyAdTrucksTab,
+    MyAdTrailerTab,
+    MyAdSemiTrailerTab,
+    MyAdSemiTrailerTruckTab,
+    MyAdCoachesTab,
+    MyAdAgriculturalTab,
+    MyAdConstructionTab,
+    MyAdForkliftTab,
   },
 };
 </script>

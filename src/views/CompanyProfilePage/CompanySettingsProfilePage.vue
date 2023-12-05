@@ -1,5 +1,5 @@
 <template>
-  <v-container class="w-[1120px]">
+  <v-container class="max-w-[1160px]">
     <PathLink>Settings</PathLink>
     <div class="sections">
       <YourAccount />
