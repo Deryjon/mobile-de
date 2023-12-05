@@ -24,7 +24,7 @@
               </g>
             </svg>
           </div>
-          <div class="profile-pic">
+          <div class="profile-pic text-[12px] sm:text-[13px] md:text-[14px]">
             <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Profile picture</p>
             <p class="font-normal">(Only visible for you)</p>
           </div>
@@ -63,7 +63,7 @@
             </div>
           </div>
           <button
-            class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+            class="complete custom-file-label bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
             @click="openDataLogin"
           >
             Change
@@ -533,7 +533,7 @@
           v-if="!contactData"
         >
           <button
-            class="complete bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
+            class="complete custom-file-label bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
             @click="openContactData"
           >
             Create company
@@ -836,7 +836,7 @@
             </div>
           </div>
           <button
-            class="complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+            class="custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
           >
             None available
           </button>
@@ -863,7 +863,7 @@
             </div>
           </div>
           <button
-            class="complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+            class=" custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
           >
             None available
           </button>
@@ -884,7 +884,7 @@
             </div>
           </div>
           <button
-            class="complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+            class="custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
           >
             None available
           </button>
