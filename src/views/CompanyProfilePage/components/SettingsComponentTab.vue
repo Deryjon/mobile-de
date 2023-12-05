@@ -196,7 +196,7 @@
       </div>
       <div class="profile mt-[30px]" v-if="changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold">Contact data</h2>
-        <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] sm:flex items-center justify-between">
+        <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] lg:flex items-center justify-between">
           <div
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
             v-if="!companyDataChange"
@@ -247,7 +247,7 @@
             </button>
           </div>
           <div class="">
-            <div class="p-[10px]" v-if="companyDataChange">
+            <div class="lg:p-[10px] " v-if="companyDataChange">
               <div class="profile">
                 <div class="">
                   <div class="">
@@ -259,7 +259,7 @@
                             <p class="text-sm lg:text-[14px]">Company Name</p>
                             <input
                               type="text "
-                              class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                              class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
                               v-model="companyName"
                             />
                           </div>
@@ -269,13 +269,13 @@
                   </div>
                   <div class="">
                     <div class="">
-                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
-                        <div class="top flex items-center gap-[40px] w-[656px]">
+                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
+                        <div class="top flex flex-wrap items-center gap-[10px] lg:gap-[40px] lg:w-[656px]">
                           <div class="mark">
-                            <div class="w-[440px] mt-2">
+                            <div class="w-full lg:w-[440px] mt-2">
                               <h2 class="text-sm lg:text-[14px]">Street</h2>
                               <input
-                                class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                                class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                                 v-model="companyAddStreet"
                               />
                             </div>
@@ -284,35 +284,35 @@
                             <p class="text-sm lg:text-[14px]">Nr</p>
                             <input
                               type="text "
-                              class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                              class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                               v-model="companyAddNr"
                             />
                           </div>
                         </div>
-                        <div class="top flex items-center gap-[40px] w-[656px]">
+                        <div class="top flex flex-wrap items-center lg:gap-[40px] lg:w-[656px]">
                           <div class="email mt-[10px]">
                             <p class="text-sm lg:text-[14px]">Zip</p>
                             <input
                               type="text "
-                              class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                              class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                               v-model="companyAddZip"
                             />
                           </div>
                           <div class="mark">
-                            <div class="w-[440px] mt-2">
+                            <div class="w-full lg:w-[440px] mt-2">
                               <h2 class="text-sm lg:text-[14px]">City</h2>
                               <input
-                                class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                                class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                                 v-model="companyAddressCity"
                               />
                             </div>
                           </div>
                         </div>
-                        <div class="top flex items-center gap-[40px] w-[656px]">
+                        <div class="top flex flex-wrap items-center lg:gap-[40px] lg:w-[656px]">
                           <div class="relative mt-2">
                             <h2 class="text-sm lg:text-[14px]">Country</h2>
                             <select
-                              class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                              class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                               v-model="companyAddCountry"
                             >
                               <optgroup>
@@ -395,7 +395,7 @@
                             <p class="text-sm lg:text-[14px]">Radius</p>
                             <input
                               type="text "
-                              class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                              class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                               v-model="companyAddRadius"
                             />
                           </div>
@@ -405,12 +405,12 @@
                   </div>
                   <div class="">
                     <div class="">
-                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
-                        <div class="mark flex gap-[15px]">
-                          <div class="relative w-[141px]">
+                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
+                        <div class="mark flex flex-wrap lg:gap-[15px]">
+                          <div class="relative w-full lg:w-[141px]">
                             <h2 class="text-sm lg:text-[14px]">Country code</h2>
                             <select
-                              class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                              class="mark-select mt-[5px] w-full  lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                               v-model="companyCountryCode"
                             >
                               <option value="1">+1 (CA)</option>
@@ -490,7 +490,7 @@
                             <p class="text-sm lg:text-[14px]">Prefix</p>
                             <input
                               type="text "
-                              class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
+                              class="input-bor px-[10px] py-[10px] w-full lg:w-[141px] rounded-md"
                               v-model="companyNumberPre"
                             />
                           </div>
@@ -498,7 +498,7 @@
                             <p class="text-sm lg:text-[14px]">Phone number</p>
                             <input
                               type="text "
-                              class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
+                              class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
                               v-model="companyNumber"
                             />
                           </div>
@@ -545,7 +545,7 @@
             <div class="">
               <div class="">
                 <div class="">
-                  <div class="changes  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
+                  <div class="changes  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
                     <div class="mark"></div>
                     <div class="flex gap-[20px]">
                       <div class="email mt-[10px]">
@@ -562,7 +562,7 @@
               </div>
               <div class="">
                 <div class="">
-                  <div class="changes xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[20px]">
+                  <div class="changes xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
                     <div class="top flex flex-wrap items-center lg:gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="mark">
                         <div class="w-full lg:w-[150px] xl:w-[440px] mt-2">
@@ -696,7 +696,7 @@
               </div>
               <div class="">
                 <div class="">
-                  <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[15px] sm:flex items-center justify-between">
+                  <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
                     <div class="mark flex flex-wrap gap-[15px]">
                       <div class="relative w-[141px]">
                         <h2 class="text-sm lg:text-[14px]">Country code</h2>
@@ -1014,20 +1014,6 @@ export default {
 				this.dialog = false
     },
     addSettingsCompany() {
-      console.log({
-        company_name: this.companyName,
-        company_mail: this.userE,
-        company_address_street: this.userAddressStreet,
-        company_address_nr: this.userAddressNr,
-        company_address_zip: this.userAddressZip,
-        company_address_city: this.userAddressCity,
-        company_address_country: this.selectedCountry,
-        company_address_radius: this.userAddressRadius,
-        company_country_code: this.userCountryCode,
-        company_number_prefix: this.userNumberPre,
-        company_phone_number: this.userPhoneNumber,
-        user_id: this.userI,
-      });
       http
         .post("/company/add", {
           company_name: this.companyName,
@@ -1046,7 +1032,7 @@ export default {
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-          console.log(responseData);
+          window.location.reload()
         });
     },
     openDataLogin() {

@@ -36,7 +36,7 @@
         </div>
       </div>
     </div>
-    <div class="profile mt-[10px] lg mt-[5px]:lg:mt-[30px]">
+    <div class="profile mt-[10px] lg:mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">
         {{ $t("message.profile.loginData") }}
       </h2>
