@@ -1,10 +1,10 @@
 <template>
   <div class="mt-[10px] p-[20px]">
     <h3>Others</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+    <div class="filter-cars flex flex-wrap   mt-[10px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] lg:w-[130px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -28,12 +28,12 @@
         ABS
       </label>
       <label
-        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] lg:w-[120px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedEmergency"
-          @click="toggleShowCheckbox(1, 'Emergency brake assist')"
+          @click="toggleShowCheckbox(1, 'Box')"
         />
         <svg
           class="icon"
@@ -49,15 +49,15 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Emergency brake assist
+        Box
       </label>
       <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] lg:w-[120px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedCentral"
-          @click="toggleShowCheckbox(2, 'Keyless central locking')"
+          @click="toggleShowCheckbox(2, 'Catalytic Converter')"
         />
         <svg
           class="icon"
@@ -73,15 +73,15 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Keyless central locking
+        Catalytic Converter
       </label>
       <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] lg:w-[120px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedSpeed"
-          @click="toggleShowCheckbox(3, '	Speed limit control system')"
+          @click="toggleShowCheckbox(3, 'Electric Starter')"
         />
         <svg
           class="icon"
@@ -97,15 +97,15 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Speed limit control system
+        Electric Starter
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] lg:w-[120px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedAdaptive"
-          @click="toggleShowCheckbox(4, 'Adaptive cornering lights')"
+          @click="toggleShowCheckbox(4, 'Kickstarter')"
         />
         <svg
           class="icon"
@@ -121,15 +121,15 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Adaptive cornering lights
+        Kickstarter
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] lg:w-[120px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedTyre"
-          @click="toggleShowCheckbox(5, 'Emergency tyre')"
+          @click="toggleShowCheckbox(5, 'Roll-over Bar')"
         />
         <svg
           class="icon"
@@ -145,15 +145,15 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Emergency tyre
+        Roll-over Bar
       </label>
       <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] lg:w-[120px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
           v-model="isCheckedLastChanges"
-          @click="toggleShowCheckbox(6, 'Lane change assist')"
+          @click="toggleShowCheckbox(6, 'Windshield')"
         />
         <svg
           class="icon"
@@ -169,32 +169,9 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Lane change assist
+        Windshield
       </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportsPackage"
-          @click="toggleShowCheckbox(7, 'Sports package')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportsPackage"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Sports package
-      </label>
+      
     </div>
   </div>
 </template>
@@ -226,7 +203,6 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      
       this.updateMotorbikeData();
     },
 		updateMotorbikeData() {
