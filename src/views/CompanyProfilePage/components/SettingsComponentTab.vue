@@ -1,26 +1,20 @@
 <template>
-  <div class="set px-[5px] sm:px-[50px] xl:px-[100px] py-[15px] lg:pt-[30px] w-[190px] xs:w-[230px] sm:w-[300px]">
+  <div
+    class="set px-[5px] sm:px-[50px] xl:px-[100px] py-[15px] lg:pt-[30px] w-[190px] xs:w-[230px] sm:w-[300px] lg:w-full">
     <div class="your-setting">
       <h2 class="text-[15px] sm:text-[18px] lg:text-[32px] font-semibold">Your company settings</h2>
     </div>
     <div class="profile w-[190px] xs:w-[230px] sm:w-[300px]  mt-[5px] lg:mt-[30px]">
-			<div
-        class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full   lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] sm:flex items-center justify-between"
-      >
+      <div
+        class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full   lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] sm:flex items-center justify-between">
         <div class="flex items-center gap-[20px]">
           <div class="icon w-[30px]">
-            <svg
-              data-v-53d99ea3=""
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              id="profile"
-            >
+            <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
               <g data-v-53d99ea3="" data-name="Layer 2">
                 <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-                <path
-                  data-v-53d99ea3=""
-                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
-                ></path>
+                <path data-v-53d99ea3=""
+                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+                </path>
               </g>
             </svg>
           </div>
@@ -31,21 +25,15 @@
         </div>
         <div class="">
           <label for="fileInput" class="custom-file-label">Complete</label>
-          <input
-            id="fileInput"
-            class="input-file"
-            type="file"
-            ref="fileInput"
-            accept="image/*"
-            @change="handleFileChange"
-          />
+          <input id="fileInput" class="input-file" type="file" ref="fileInput" accept="image/*"
+            @change="handleFileChange" />
         </div>
       </div>
       <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[20px]">Login Data</h2>
-      <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] sm:flex items-center justify-between" v-if="!changeLogin">
+      <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between"
+        v-if="!changeLogin">
         <div
-          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
-        >
+          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
           <div class="flex items-center gap-[20px]">
             <div class="profile-pic">
               <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">E-mail Address</p>
@@ -54,18 +42,15 @@
           </div>
         </div>
         <div
-          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
-        >
+          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
           <div class="flex items-center gap-[20px]">
             <div class="profile-pic">
               <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Password</p>
               <p class="font-normal text-[14px]">•••••••••••••</p>
             </div>
           </div>
-          <button
-            class="complete custom-file-label bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-            @click="openDataLogin"
-          >
+          <button class="complete custom-file-label bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+            @click="openDataLogin">
             Change
           </button>
         </div>
@@ -74,11 +59,7 @@
       <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[658px] p-[15px] box" v-if="changeLogin">
         <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Company email</p>
         <div class="email mt-[10px]">
-          <input
-            type="text "
-            class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md"
-            v-model="userECh"
-          />
+          <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="userECh" />
         </div>
         <div class="current-email mt-[30px] mb-[20px]">
           <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Change password</p>
@@ -86,39 +67,18 @@
         <label for="" class="mt-[10px] text-[14px]">New password </label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
-            <input
-              @input="validatePasswordLogin"
-              id="password"
-              :type="showPassword ? 'text' : 'password'"
-              class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md"
-              v-model="newPasswordLogin"
-            />
+            <input @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
+              class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="newPasswordLogin" />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-              <button
-                @click="toggleShowPassword"
-                class="h-5 w-5 text-gray-400 focus:outline-none"
-              >
-                <svg
-                  v-if="showPassword"
-                  class="pt-[3px]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 640 512"
-                >
+              <button @click="toggleShowPassword" class="h-5 w-5 text-gray-400 focus:outline-none">
+                <svg v-if="showPassword" class="pt-[3px]" xmlns="http://www.w3.org/2000/svg" height="1em"
+                  viewBox="0 0 640 512">
                   <path
-                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
-                  />
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z" />
                 </svg>
-                <svg
-                  v-else
-                  class="pt-[3px]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 576 512"
-                >
+                <svg v-else class="pt-[3px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
                   <path
-                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
-                  />
+                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z" />
                 </svg>
               </button>
             </div>
@@ -127,55 +87,28 @@
         <label for="" class="text-[14px]">Current password </label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
-            <input
-              @input="validatePasswordLogin"
-              id="password"
-              :type="showPassword ? 'text' : 'password'"
-              class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md"
-              v-model="currentPasswordLogin"
-            />
+            <input @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
+              class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="currentPasswordLogin" />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
-              <button
-                @click="toggleShowPassword"
-                class="h-5 w-5 text-gray-400 focus:outline-none"
-              >
-                <svg
-                  v-if="showPassword"
-                  class="pt-[3px]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 640 512"
-                >
+              <button @click="toggleShowPassword" class="h-5 w-5 text-gray-400 focus:outline-none">
+                <svg v-if="showPassword" class="pt-[3px]" xmlns="http://www.w3.org/2000/svg" height="1em"
+                  viewBox="0 0 640 512">
                   <path
-                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z"
-                  />
+                    d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c8.4-19.3 10.6-41.4 4.8-63.3c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zM373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5L373 389.9z" />
                 </svg>
-                <svg
-                  v-else
-                  class="pt-[3px]"
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="1em"
-                  viewBox="0 0 576 512"
-                >
+                <svg v-else class="pt-[3px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
                   <path
-                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z"
-                  />
+                    d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64c-7.1 0-13.9-1.2-20.3-3.3c-5.5-1.8-11.9 1.6-11.7 7.4c.3 6.9 1.3 13.8 3.2 20.7c13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-11.1-41.5-47.8-69.4-88.6-71.1c-5.8-.2-9.2 6.1-7.4 11.7c2.1 6.4 3.3 13.2 3.3 20.3z" />
                 </svg>
               </button>
             </div>
           </div>
         </div>
         <div class="btns flex gap-[10px] justify-end">
-          <button
-            class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-            @click="openDataLogin"
-          >
+          <button class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]" @click="openDataLogin">
             Cancel
           </button>
-          <button
-            class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-            @click="changeLoginData"
-          >
+          <button class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white" @click="changeLoginData">
             Save
           </button>
         </div>
@@ -196,11 +129,11 @@
       </div>
       <div class="profile mt-[30px]" v-if="changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold">Contact data</h2>
-        <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] lg:flex items-center justify-between">
+        <div
+          class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between">
           <div
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
-            v-if="!companyDataChange"
-          >
+            v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Company Name</p>
@@ -212,8 +145,7 @@
           </div>
           <div
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
-            v-if="!companyDataChange"
-          >
+            v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Address</p>
@@ -228,8 +160,7 @@
 
           <div
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
-            v-if="!companyDataChange"
-          >
+            v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Phone number</p>
@@ -239,72 +170,56 @@
                 </p>
               </div>
             </div>
-            <button
-              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-              @click="openChangeData"
-            >
+            <button class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]" @click="openChangeData">
               Complete
             </button>
           </div>
           <div class="">
             <div class="lg:p-[10px] " v-if="companyDataChange">
               <div class="profile">
-                <div class="">
-                  <div class="">
-                    <div class="">
-                      <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
-                        <div class="mark"></div>
-                        <div class="flex gap-[20px]">
-                          <div class="email mt-[10px]">
-                            <p class="text-sm lg:text-[14px]">Company Name</p>
-                            <input
-                              type="text "
-                              class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
-                              v-model="companyName"
-                            />
-                          </div>
-                        </div>
-                      </div>
+
+                <div
+                  class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]  items-center justify-between">
+                  <div class="mark"></div>
+                  <div class="flex gap-[20px]">
+                    <div class="email mt-[10px]">
+                      <p class="text-sm lg:text-[14px]">Company Name</p>
+                      <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
+                        v-model="companyName" />
                     </div>
                   </div>
                   <div class="">
                     <div class="">
-                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
+                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  ">
                         <div class="top flex flex-wrap items-center gap-[10px] lg:gap-[40px] lg:w-[656px]">
                           <div class="mark">
-                            <div class="w-full lg:w-[440px] mt-2">
+                            <div class="w-full  mt-2">
                               <h2 class="text-sm lg:text-[14px]">Street</h2>
                               <input
                                 class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                                v-model="companyAddStreet"
-                              />
+                                v-model="companyAddStreet" />
                             </div>
                           </div>
                           <div class="email mt-[10px]">
                             <p class="text-sm lg:text-[14px]">Nr</p>
-                            <input
-                              type="text "
+                            <input type="text "
                               class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                              v-model="companyAddNr"
-                            />
+                              v-model="companyAddNr" />
                           </div>
                         </div>
                         <div class="top flex flex-wrap items-center lg:gap-[40px] lg:w-[656px]">
                           <div class="email mt-[10px]">
                             <p class="text-sm lg:text-[14px]">Zip</p>
-                            <input
-                              type="text "
+                            <input type="text "
                               class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                              v-model="companyAddZip"
-                            />
+                              v-model="companyAddZip" />
                           </div>
                           <div class="mark">
-                            <div class="w-full lg:w-[440px] mt-2">
+                            <div class="w-full  mt-2">
                               <h2 class="text-sm lg:text-[14px]">City</h2>
                               <input
                                 class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                                v-model="companyAddressCity"
-                              />
+                                v-model="companyAddressCity" />
                             </div>
                           </div>
                         </div>
@@ -313,8 +228,7 @@
                             <h2 class="text-sm lg:text-[14px]">Country</h2>
                             <select
                               class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                              v-model="companyAddCountry"
-                            >
+                              v-model="companyAddCountry">
                               <optgroup>
                                 <option value="BA">
                                   Bosnia and Herzegovina
@@ -387,32 +301,27 @@
                                 <option value="US">USA</option>
                               </optgroup>
                             </select>
-                            <span
-                              class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"
-                            ></span>
+                            <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
                           </div>
                           <div class="email">
                             <p class="text-sm lg:text-[14px]">Radius</p>
-                            <input
-                              type="text "
+                            <input type="text "
                               class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                              v-model="companyAddRadius"
-                            />
+                              v-model="companyAddRadius" />
                           </div>
                         </div>
                       </div>
-                    </div>
+                  </div>
                   </div>
                   <div class="">
                     <div class="">
-                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
-                        <div class="mark flex flex-wrap lg:gap-[15px]">
+                      <div class="changes w-[190px] xs:w-[230px] sm:w-[300px] md:w-full  ">
+                        <div class="mark flex flex-wrap lg:gap-x-[50px]">
                           <div class="relative w-full lg:w-[141px]">
                             <h2 class="text-sm lg:text-[14px]">Country code</h2>
                             <select
                               class="mark-select mt-[5px] w-full  lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                              v-model="companyCountryCode"
-                            >
+                              v-model="companyCountryCode">
                               <option value="1">+1 (CA)</option>
                               <option value="+1">+1 (US)</option>
                               <option value="+7">+7 (RU)</option>
@@ -481,26 +390,18 @@
                               <option value="+971">+971 (AE)</option>
                               <option value="+972">+972 (IL)</option>
                             </select>
-                            <span
-                              class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
-                            ></span>
+                            <span class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"></span>
                           </div>
 
                           <div class="email mt-[5px]">
                             <p class="text-sm lg:text-[14px]">Prefix</p>
-                            <input
-                              type="text "
-                              class="input-bor px-[10px] py-[10px] w-full lg:w-[141px] rounded-md"
-                              v-model="companyNumberPre"
-                            />
+                            <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[141px] rounded-md"
+                              v-model="companyNumberPre" />
                           </div>
                           <div class="email mt-[5px]">
                             <p class="text-sm lg:text-[14px]">Phone number</p>
-                            <input
-                              type="text "
-                              class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
-                              v-model="companyNumber"
-                            />
+                            <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
+                              v-model="companyNumber" />
                           </div>
                         </div>
                       </div>
@@ -509,16 +410,12 @@
                 </div>
               </div>
               <div class="btns flex gap-[10px] justify-end">
-                <button
-                  class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-                  @click="openChangeData"
-                >
+                <button class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                  @click="openChangeData">
                   Cancel
                 </button>
-                <button
-                  class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-                  @click="changeDataContactCompany"
-                >
+                <button class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                  @click="changeDataContactCompany">
                   Save
                 </button>
               </div>
@@ -528,19 +425,17 @@
       </div>
       <div class="" v-if="!changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[50px]">Create company</h2>
-        <div
-          class="h-[80px] flex justify-end pt-[15px] p-[15px]"
-          v-if="!contactData"
-        >
+        <div class="h-[80px] flex justify-end pt-[15px] p-[15px]" v-if="!contactData">
           <button
             class="complete custom-file-label bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
-            @click="openContactData"
-          >
+            @click="openContactData">
             Create company
           </button>
         </div>
 
-        <div class=" box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] lg:p-[15px] sm:flex items-center justify-between p-[0px] mt-[20px]" v-if="contactData">
+        <div
+          class=" box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] lg:p-[15px] sm:flex items-center justify-between p-[0px] mt-[20px]"
+          v-if="contactData">
           <div class="profile">
             <div class="">
               <div class="">
@@ -550,11 +445,8 @@
                     <div class="flex gap-[20px]">
                       <div class="email mt-[10px]">
                         <p class="text-sm lg:text-[14px]">Company Name</p>
-                        <input
-                          type="text "
-                          class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
-                          v-model="companyName"
-                        />
+                        <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
+                          v-model="companyName" />
                       </div>
                     </div>
                   </div>
@@ -563,41 +455,37 @@
               <div class="">
                 <div class="">
                   <div class="changes xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
-                    <div class="top flex flex-wrap items-center lg:gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+                    <div
+                      class="top flex flex-wrap items-center lg:gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="mark">
                         <div class="w-full lg:w-[150px] xl:w-[440px] mt-2">
                           <h2 class="text-sm lg:text-[14px]">Street</h2>
                           <input
                             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                            v-model="userAddressStreet"
-                          />
+                            v-model="userAddressStreet" />
                         </div>
                       </div>
                       <div class="email mt-[10px]">
                         <p class="text-sm lg:text-[14px]">Nr</p>
-                        <input
-                          type="text "
+                        <input type="text "
                           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="userAddressNr"
-                        />
+                          v-model="userAddressNr" />
                       </div>
                     </div>
-                    <div class="top flex flex-wrap lg:no-wrap  items-center gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+                    <div
+                      class="top flex flex-wrap lg:no-wrap  items-center gap-[40px]  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
                       <div class="email mt-[10px]">
                         <p class="text-sm lg:text-[14px]">Zip</p>
-                        <input
-                          type="text "
+                        <input type="text "
                           class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="userAddressZip"
-                        />
+                          v-model="userAddressZip" />
                       </div>
                       <div class="mark">
                         <div class="lg:w-[440px] lg:mt-2">
                           <h2 class="text-sm lg:text-[14px]">City</h2>
                           <input
                             class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                            v-model="userAddressCity"
-                          />
+                            v-model="userAddressCity" />
                         </div>
                       </div>
                     </div>
@@ -606,8 +494,7 @@
                         <h2 class="text-sm lg:text-[14px]">Country</h2>
                         <select
                           class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="selectedCountry"
-                        >
+                          v-model="selectedCountry">
                           <optgroup>
                             <option value="BA">Bosnia and Herzegovina</option>
                             <option value="AL">Albania</option>
@@ -678,17 +565,13 @@
                             <option value="US">USA</option>
                           </optgroup>
                         </select>
-                        <span
-                          class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"
-                        ></span>
+                        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
                       </div>
                       <div class="email">
                         <p class="text-sm lg:text-[14px]">Radius</p>
-                        <input
-                          type="text "
+                        <input type="text "
                           class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="userAddressRadius"
-                        />
+                          v-model="userAddressRadius" />
                       </div>
                     </div>
                   </div>
@@ -696,14 +579,14 @@
               </div>
               <div class="">
                 <div class="">
-                  <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
+                  <div
+                    class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
                     <div class="mark flex flex-wrap gap-[15px]">
                       <div class="relative w-[141px]">
                         <h2 class="text-sm lg:text-[14px]">Country code</h2>
                         <select
                           class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                          v-model="userCountryCode"
-                        >
+                          v-model="userCountryCode">
                           <option value="1">+1 (CA)</option>
                           <option value="+1">+1 (US)</option>
                           <option value="+7">+7 (RU)</option>
@@ -772,26 +655,18 @@
                           <option value="+971">+971 (AE)</option>
                           <option value="+972">+972 (IL)</option>
                         </select>
-                        <span
-                          class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"
-                        ></span>
+                        <span class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"></span>
                       </div>
 
                       <div class="email mt-[5px]">
                         <p class="text-sm lg:text-[14px]">Prefix</p>
-                        <input
-                          type="text "
-                          class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
-                          v-model="userNumberPre"
-                        />
+                        <input type="text " class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
+                          v-model="userNumberPre" />
                       </div>
                       <div class="email mt-[5px]">
                         <p class="text-sm lg:text-[14px]">Phone number</p>
-                        <input
-                          type="text "
-                          class="input-bor px-[10px] py-[10px] w-[130px]  lg:w-[300px] rounded-md"
-                          v-model="userPhoneNumber"
-                        />
+                        <input type="text " class="input-bor px-[10px] py-[10px] w-[130px]  lg:w-[300px] rounded-md"
+                          v-model="userPhoneNumber" />
                       </div>
                     </div>
                   </div>
@@ -800,16 +675,11 @@
             </div>
           </div>
           <div class="btns flex gap-[10px] justify-end">
-            <button
-              class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-              @click="openContactData"
-            >
+            <button class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]" @click="openContactData">
               Cancel
             </button>
-            <button
-              class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-              @click="addSettingsCompany"
-            >
+            <button class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+              @click="addSettingsCompany">
               Save
             </button>
           </div>
@@ -818,17 +688,16 @@
     </div>
     <div class="profile mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Documents</h2>
-      <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] sm:flex items-center justify-between">
-        <div
-          class=""
-        >
+      <div
+        class="box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
+        <div class="flex w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]  p-[5px]   items-center justify-between">
           <div
-            class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between"
-          >
+            class="w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]  p-[5px]">
             <div class="flex items-center gap-[20px]">
-              <div class="profile-pic">
+              <div class="profile
+              -pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">My invoices</p>
-                <p class="font-normal text-[14px]">
+                <p class="font-norm al text-[14px]">
                   Here you will find an overview of your booked packages and
                   options
                 </p>
@@ -836,8 +705,7 @@
             </div>
           </div>
           <button
-            class="custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-          >
+            class="custom-file-label  bg-[#fff] w-[141px] py-[6px]   rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
             None available
           </button>
         </div>
@@ -845,11 +713,11 @@
     </div>
     <div class="profile mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Privacy</h2>
-      <div class="box">
+      <div class="box  w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
         <div
-          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between"
-        >
-          <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
+          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
+          <div
+            class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Newsletter</p>
@@ -863,17 +731,16 @@
             </div>
           </div>
           <button
-            class=" custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-          >
+            class=" custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
             None available
           </button>
         </div>
       </div>
-      <div class="box">
+      <div class=" box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
         <div
-          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between"
-        >
-          <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[15px] flex items-center justify-between">
+          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
+          <div
+            class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[15px] flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Market research</p>
@@ -884,61 +751,55 @@
             </div>
           </div>
           <button
-            class="custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-          >
+            class="custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
             None available
           </button>
         </div>
       </div>
     </div>
-    <div class="profile x] mt-[30px]">
+    <div class="profile  w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px] mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Delete account</h2>
-      <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between">
+      <div
+        class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between">
         <div class="sm:flex items-center gap-[20px]">
           <div class="icon w-[30px]">
-            <svg
-              data-v-53d99ea3=""
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              id="profile"
-            >
+            <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
               <g data-v-53d99ea3="" data-name="Layer 2">
                 <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-                <path
-                  data-v-53d99ea3=""
-                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
-                ></path>
+                <path data-v-53d99ea3=""
+                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+                </path>
               </g>
             </svg>
           </div>
           <div class="profile-pic">
             <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{ userE }}</p>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">Private Account, registered since 2023</p>
+            <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">Private Account, registered
+              since 2023</p>
           </div>
         </div>
         <v-dialog v-model="dialog" width="200px">
-              <template v-slot:activator="{ props }">
-								<button
-									class="complete bg-[#094559] p-[6px] text-[12px] sm:text-[13px] md:text-[14px] lg:px-[10px]  lg:py-[8px] rounded-[8px] text-[#fff]"
-									v-bind="props"
-								>
-									Delete account
-								</button>
-              </template>
+          <template v-slot:activator="{ props }">
+            <button
+              class="complete bg-[#094559] p-[6px] text-[12px] sm:text-[13px] md:text-[14px] lg:px-[10px]  lg:py-[8px] rounded-[8px] text-[#fff]"
+              v-bind="props">
+              Delete account
+            </button>
+          </template>
 
-              <v-card>
-                <v-card-text class="mx-auto"> Are you sure? </v-card-text>
-								<div class=" flex items-center w-[120px] mx-auto">
+          <v-card>
+            <v-card-text class="mx-auto"> Are you sure? </v-card-text>
+            <div class=" flex items-center w-[120px] mx-auto">
 
-									<v-card-actions>
-						<v-btn color="error" block @click="dialog = false">No</v-btn>
-					</v-card-actions>
-							 <v-card-actions>
-						<v-btn color="success" block @click="deleteCompany">Yes</v-btn>
-							 </v-card-actions>
-								</div>
-              </v-card>
-            </v-dialog>
+              <v-card-actions>
+                <v-btn color="error" block @click="dialog = false">No</v-btn>
+              </v-card-actions>
+              <v-card-actions>
+                <v-btn color="success" block @click="deleteCompany">Yes</v-btn>
+              </v-card-actions>
+            </div>
+          </v-card>
+        </v-dialog>
       </div>
     </div>
   </div>
@@ -985,11 +846,11 @@ export default {
       changeContactData: false,
       companyDataChange: false,
       companyAddRadius: "",
-			dialog: false,
+      dialog: false,
     };
   },
   methods: {
-		handleFileChange() {
+    handleFileChange() {
       const formData = new FormData();
       const file = this.$refs.fileInput.files[0];
       formData.append("photo", file);
@@ -1000,18 +861,18 @@ export default {
         const responseData = response.data;
         localStorage.setItem("com-img-prof", responseData.data.user_image_url);
         localStorage.setItem("com-img-alt", responseData.data.user_image_name);
-       
+
       });
     },
     deleteCompany() {
       http
         .delete(`/company/delete/${this.companyI}`)
         .then((response) => {
-					console.log(this.companyI);
-					localStorage.clear()
-					this.$router.push({ name: "home" });
+          console.log(this.companyI);
+          localStorage.clear()
+          this.$router.push({ name: "home" });
         });
-				this.dialog = false
+      this.dialog = false
     },
     addSettingsCompany() {
       http
@@ -1127,9 +988,11 @@ export default {
 .box {
   border: 1px solid gray;
 }
+
 .input-bor {
   border: 1px solid #000;
 }
+
 .custom-file-label {
   cursor: pointer;
   padding: 5px 10px;
@@ -1148,6 +1011,7 @@ export default {
   border-radius: 4px;
   cursor: pointer;
 }
+
 .input-file {
   display: none;
 }
