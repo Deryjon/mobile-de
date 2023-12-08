@@ -223,7 +223,7 @@
         </div>
         <button
           class="flex gap-[3px] sm:gap-[3px] lg:gap-[8px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
-          @click="setActive('tab-2')" 
+          @click="setActive('tab-2')"
           :class="{ active: isActive('tab-2') }"
         >
           <div class="icon-settings w-[24px]">
@@ -268,15 +268,13 @@
       </div>
     </div>
     <p>{{ activeTab }}</p>
-    <!-- Правильный способ обращения к данным хранилища -->
-
     <section
       class="tabs-content settings relative w-[210px] xs:w-full sm:w-[500px] md:w-full  bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
       </div>
-      <div class="" v-show="isActive('tab-2')">git a
+      <div class="" v-show="isActive('tab-2')">
         <SettingsTab />
       </div>
       <div class="" v-show="isActive('tab-3')">
