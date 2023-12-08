@@ -1,6 +1,6 @@
 <template>
   <BasicFilterSection />
-	<!-- <TechnicalFilterSection/> -->
+	<TechnicalFilterSection/>
 	<ExteriorFilterSection/>
 	<OfferDetailsSection/>
 	<v-container class="max-w-[1140px]">

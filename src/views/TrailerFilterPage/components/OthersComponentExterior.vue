@@ -1,10 +1,10 @@
 <template>
   <div class="mt-[10px] lg:p-[20px]">
     <h3>Security</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+    <div class="filter-cars flex flex-wrap  mt-[10px]">
       <!-- cabrio -->
       <label
-        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[100px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"
@@ -28,7 +28,7 @@
         ABS
       </label>
       <label
-        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[100px] items-center h-[40px] pb-[20px]"
       >
         <input
           type="checkbox"

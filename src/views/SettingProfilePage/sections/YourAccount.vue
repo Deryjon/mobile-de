@@ -1,7 +1,7 @@
 --
 <template>
   <v-container class="max-w-[1140px] flex lg:justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[130px]  xs:w-[200px] sm:w-[200px] md:w-[350px] lg:w-[400px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] ">
+    <div class="tabs w-[130px] xs:w-[200px] sm:w-[200px] md:w-[350px] lg:w-[400px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] ">
       <div class="top flex gap-[10px] items-center mt-[10px]">
         <div class="profile-img" v-if="!userIcon">
           <img
@@ -271,12 +271,12 @@
     <!-- Правильный способ обращения к данным хранилища -->
 
     <section
-      class="tabs-content settings relative w-full  xs:w-[550px] md:w-full lg:w-[800px] xl:w-[870px] bg-[#0000001f] flex"
+      class="tabs-content settings relative w-[210px] xs:w-full sm:w-[500px] md:w-full  bg-[#0000001f] flex"
     >
       <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
       </div>
-      <div class="" v-show="isActive('tab-2')">
+      <div class="" v-show="isActive('tab-2')">git a
         <SettingsTab />
       </div>
       <div class="" v-show="isActive('tab-3')">

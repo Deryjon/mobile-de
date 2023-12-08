@@ -15,7 +15,7 @@
         <div class="line h-[1px] border mt-[10px]"></div>
 				<ConditionComponent/>
         <div
-          class="top flex flex-wrap gap-[20px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
+          class="top flex flex-wrap gap-[20px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -229,28 +229,6 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-  },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-		activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
   },
 };
 </script>

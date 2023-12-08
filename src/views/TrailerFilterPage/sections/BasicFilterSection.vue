@@ -15,7 +15,7 @@
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
         <div
-          class="top flex flex-wrap gap-[10px]  sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
+          class="top flex flex-wrap gap-[10px]   items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -27,7 +27,7 @@
                 v-model="selectedMark"
                 @change="fetchModels()"
               >
-                <option value="14600" selected>Beliebig</option>
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option
                     v-for="make in makes"

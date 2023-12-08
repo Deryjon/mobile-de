@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEmergency"
-          @click="toggleShowCheckbox(1, 'Emergency brake assist')"
+          @click="toggleShowCheckbox(1, 'Four wheel drive')"
         />
         <svg
           class="icon"
@@ -49,7 +49,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Emergency brake assist
+        Four wheel drive
       </label>
       <label
         class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedCentral"
-          @click="toggleShowCheckbox(2, 'Keyless central locking')"
+          @click="toggleShowCheckbox(2, 'Lane change assist')"
         />
         <svg
           class="icon"
@@ -73,7 +73,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Keyless central locking
+        Lane change assist
       </label>
       <label
         class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -81,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSpeed"
-          @click="toggleShowCheckbox(3, '	Speed limit control system')"
+          @click="toggleShowCheckbox(3, 'Tyre pressure monitoring')"
         />
         <svg
           class="icon"
@@ -97,7 +97,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Speed limit control system
+        Tyre pressure monitoring
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -105,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAdaptive"
-          @click="toggleShowCheckbox(4, 'Adaptive cornering lights')"
+          @click="toggleShowCheckbox(4, 'Emergency brake assist')"
         />
         <svg
           class="icon"
@@ -121,7 +121,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Adaptive cornering lights
+        Emergency brake assist
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -129,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTyre"
-          @click="toggleShowCheckbox(5, 'Emergency tyre')"
+          @click="toggleShowCheckbox(5, 'Headlight washer system')"
         />
         <svg
           class="icon"
@@ -145,7 +145,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Emergency tyre
+        Headlight washer system
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -153,7 +153,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLastChanges"
-          @click="toggleShowCheckbox(6, 'Lane change assist')"
+          @click="toggleShowCheckbox(6, 'Light sensor')"
         />
         <svg
           class="icon"
@@ -169,7 +169,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Lane change assist
+        Light sensor
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -177,7 +177,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSportsPackage"
-          @click="toggleShowCheckbox(7, 'Sports package')"
+          @click="toggleShowCheckbox(7, 'ESP')"
         />
         <svg
           class="icon"
@@ -193,7 +193,31 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Sports package
+        ESP
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedHighBeamAssist"
+          @click="toggleShowCheckbox(7, 'High beam assist')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedHighBeamAssist"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        High beam assist
       </label>
     </div>
   </div>
@@ -212,6 +236,7 @@ export default {
       isCheckedTyre: false,
       isCheckedLastChanges: false,
       isCheckedSportsPackage: false,
+      isCheckedHighBeamAssist: false,
       selectedOthers: [],
     };
   },

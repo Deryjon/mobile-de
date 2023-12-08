@@ -6,7 +6,7 @@
       >
         <h3 class="basic-title text-[25px] font-semibold">Features</h3>
         <div class="line h-[1px] border mt-[10px]"></div>	
-        <CarFilterComponentExteriror />       
+        <CarFilterComponentExteriror />
       </div>
     </v-container>
   </section>
