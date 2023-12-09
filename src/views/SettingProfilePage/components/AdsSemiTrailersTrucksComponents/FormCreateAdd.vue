@@ -815,268 +815,140 @@
           <label
             class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedEmergency"
-              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')" />
+              @click="toggleShowCheckboxOthers(1, 'EBS')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedEmergency" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Emergency brake assist
+            EBS
           </label>
           <label
             class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedCentral"
-              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')" />
+              @click="toggleShowCheckboxOthers(2, 'ESP')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedCentral" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Keyless central locking
+            ESP
           </label>
           <label
             class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')" />
+              @click="toggleShowCheckboxOthers(3, '	Four wheel drive')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSpeed" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Speed limit control system
-          </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedAdaptive"
-              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
-              <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedAdaptive" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-            </svg>
-            Adaptive cornering lights
-          </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedTyre" @click="toggleShowCheckboxOthers(5, 'Emergency tyre')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
-              <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedTyre" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-            </svg>
-            Emergency tyre
-          </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedLastChanges"
-              @click="toggleShowCheckboxOthers(6, 'Lane change assist')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
-              <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedLastChanges" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-            </svg>
-            Lane change assist
-          </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSportsPackage"
-              @click="toggleShowCheckboxOthers(7, 'Sports package')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
-              <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedSportsPackage" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-            </svg>
-            Sports package
+            Four wheel drive
           </label>
         </div>
       </div>
-      <div class="condition mt-[40px]">
-        <h3 class="text-[16px]">Air conditioning</h3>
-        <div class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]">
-          <label class="w-[250px]" for="manual">
-            <input type="radio" id="manual" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Manual',
-              'bg-orange': selectedConditioning === 'Manual',
-            }" @click="selectAirConditioning('Manual')" />
-            <span class="ml-[10px] text-[14px]">Manual or automatic climatisation
-            </span>
-          </label>
-          <label class="w-[250px]" for="auto-climat">
-            <input type="radio" id="auto-climat" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat',
-              'bg-orange': selectedConditioning === 'Auto-Climat',
-            }" @click="selectAirConditioning('Auto-Climat')" />
-            <span class="ml-[10px] text-[14px]">Automatic climatisation, 2 zones
-            </span>
-          </label>
-
-          <label class="w-[250px]" for="auto2">
-            <input type="radio" id="auto2" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat2',
-              'bg-orange': selectedConditioning === 'Auto-Climat2',
-            }" @click="selectAirConditioning('Auto-Climat2')" />
-            <span class="ml-[10px] text-[14px]">Automatic climatisation, 4 zones</span>
-          </label>
-          <label class="w-[200px]">
-            <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'NoClimat',
-              'bg-orange': selectedConditioning === 'NoClimat',
-            }" @click="selectAirConditioning('NoClimat')" />
-            <span class="ml-[10px] text-[14px]">No climatisation</span>
-          </label>
-          <label class="w-[200px]">
-            <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'AutoClimat',
-              'bg-orange': selectedConditioning === 'AutoClimat',
-            }" @click="selectAirConditioning('AutoClimat')" />
-            <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
-          </label>
-          <label class="w-[250px]">
-            <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat3',
-              'bg-orange': selectedConditioning === 'Auto-Climat3',
-            }" @click="selectAirConditioning('Auto-Climat3')" />
-            <span class="ml-[10px] text-[14px]">Automatic climatisation, 3 zones
-            </span>
-          </label>
-        </div>
-        <div class="text-[16px] condition mt-[20px]">
-          <h3>Trailer coupling</h3>
-          <div class="text-[14px] radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-                'bg-transparent': selectedTrailer !== 'Fix',
-                'bg-orange': selectedTrailer === 'Fix',
-              }" @click="selectTrailer('Fix')" />
-              <span class="ml-[10px]">Fix, detachable or swiveling</span>
-            </label>
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-                'bg-transparent': selectedTrailer !== 'Detachable',
-                'bg-orange': selectedTrailer === 'Detachable',
-              }" @click="selectTrailer('Detachable')" />
-              <span class="ml-[10px]">Detachable or swiveling </span>
-            </label>
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-                'bg-transparent': selectedTrailer !== 'Swiveling',
-                'bg-orange': selectedTrailer === 'Swiveling',
-              }" @click="selectTrailer('Swiveling')" />
-              <span class="ml-[10px]">Swiveling</span>
-            </label>
-          </div>
-        </div>
-        <div class="condition mt-[20px]">
-          <h3 class="text-[16px]">Cruise control</h3>
-          <div class="text-[14px] radios-type flex gap-[30px] mt-[10px]">
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedCruise" :class="{
-                'bg-transparent': selectedCruise !== 'Cruise',
-                'bg-orange': selectedCruise === 'Cruise',
-              }" @click="selectCruise('Cruise')" />
-              <span class="ml-[10px]">Cruise control </span>
-            </label>
-            <label>
-              <input type="radio" id="condition-adap" v-model="selectedCruise" :class="{
-                'bg-transparent': selectedCruise !== 'Adaptive',
-                'bg-orange': selectedCruise === 'Adaptive',
-              }" @click="selectCruise('Adaptive')" />
-              <span class="ml-[10px]">Adaptive Cruise Control</span>
-            </label>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-x-[40px]">
-          <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">Axles</h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedAxles">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <spanw class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></spanw>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">
-              Permissible Gross Vehicle Weight (GVW)
-            </h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedGvw">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">Wheel Formula</h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedWheelFormula">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">Hydraulic Installation</h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedHydraulic">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="classEmision">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">Municipal</h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedMunicipal">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-            <h2 class="text-sm lg:text-[14px]">Driving Cab</h2>
-            <select
-              class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedDriving">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-        </div>
-      </div>
+      <div class="mt-[10px]">
+    <h3 class="text-[16px]">Interior features</h3>
+    <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
+      <!-- cabrio -->
+      <label
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAlarmSystem"
+          @click="toggleShowCheckboxExtras(0, 'Auxiliary heating')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAlarmSystem"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Auxiliary heating
+      </label>
+      <label
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedDisable"
+          @click="toggleShowCheckboxExtras(1, 'Navigation system')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedDisable"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Navigation system
+      </label>
+      <label
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedHeated"
+          @click="toggleShowCheckboxExtras(2, 'Retarder/Intarder')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedHeated"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Retarder/Intarder
+      </label>
+      <label
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSeat"
+          @click="toggleShowCheckboxExtras(3, 'Secondary Air Conditioning')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedSeat"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Secondary Air Conditioning
+      </label>
+    </div>
+  </div>
     </div>
     <div class="interior">
       <div class="condition mt-[30px]">
