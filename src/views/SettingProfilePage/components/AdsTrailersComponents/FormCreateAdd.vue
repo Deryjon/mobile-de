@@ -1,6 +1,6 @@
 <template>
   	<div class="">
-    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[850px] text-[12px] lg:text-[14px]">
       <div class="flex items-center gap-[20px]">
         <input
           type="file"

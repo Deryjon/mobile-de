@@ -129,7 +129,7 @@ export default {
   },
   data() {
     return {
-      forkliftStore: useForkliftStore(),		
+      forkliftStore: useForkliftStore(),
       makes: [],
       models: [],
       selectedMark: "",
@@ -256,6 +256,7 @@ export default {
     },
   },
   mounted() {
+    this.count = this.forkliftStore.count;
     http
       .get("/forklift/marks")
       .then((response) => {

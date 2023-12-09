@@ -26,6 +26,9 @@ export default {
 		count: "",
 	  };
 	},
+	mounted() {
+    this.count = this.semitruckStore.count;
+  },
 	methods:{
 		goSemiTruck(){
 			this.$router.push({name: "semitruck-list"})

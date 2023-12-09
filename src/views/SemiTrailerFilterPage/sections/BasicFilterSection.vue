@@ -271,7 +271,7 @@ this.$router.push({name: "semitrailer-list"})
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.semitrailerStore.count;
 
     http
       .get("/trailer/marks")

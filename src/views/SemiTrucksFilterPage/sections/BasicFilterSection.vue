@@ -249,6 +249,7 @@ export default {
     },
   },
   mounted() {
+    this.count = this.semitruckStore.count;
     http
       .get("/truck/marks")
       .then((response) => {

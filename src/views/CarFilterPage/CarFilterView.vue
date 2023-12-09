@@ -21,9 +21,6 @@ import TechnicalFilterSection from "./sections/TechnicalFilterSection.vue";
 import FilterBtn from "../../components/FilterBtn.vue";
 import { useCarStore } from "@/store/carDataStore";
 export default {
-  setup() {
-    const carStore = useCarStore();
-  },
   data() {
     return {
       carStore: useCarStore(),
@@ -39,6 +36,9 @@ export default {
     "carStore.count": function (newCount, oldCount) {
       this.count = newCount;
     },
+  },
+  mounted() {
+    this.count = this.carStore.count;
   },
   components: {
     BasicFilterSection,

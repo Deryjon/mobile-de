@@ -35,6 +35,9 @@ export default {
 			this.count = newCount;
 		},
 	},
+	mounted() {
+    this.count = this.vehicleStore.count;
+  },
   components: { BasicFilterSection, TechnicalFilterSection, ExteriorFilterSection, OfferDetailsSection, FilterBtn },
 };
 </script>

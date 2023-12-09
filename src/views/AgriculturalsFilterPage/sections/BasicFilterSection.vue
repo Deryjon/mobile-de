@@ -214,7 +214,7 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.vehicleStore.count;
 
     http
       .get("/motorhome/marks")

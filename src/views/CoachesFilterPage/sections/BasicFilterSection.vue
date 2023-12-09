@@ -249,8 +249,7 @@ export default {
     },
   },
   mounted() {
-    this.count = this.coacheStore.count
-
+    this.count = this.coacheStore.count;
     http
       .get("/coache/marks")
       .then((response) => {

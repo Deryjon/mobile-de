@@ -125,7 +125,6 @@ import axios from "axios";
 import { useCarStore } from "@/store/carDataStore";
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
-import { watch, ref } from "vue";
 export default {
   components: {
     PathLink,
@@ -135,9 +134,6 @@ export default {
     CarFilterComponentBasic,
     ConditionComponent,
     PaymentTab1Component,
-  },
-	setup() {
-    const carStore = useCarStore();
   },
   data() {
     return {
