@@ -705,7 +705,85 @@
       
       
       <div class="mt-[30px]">
-        <h3>Features</h3>
+        <h3>Interior Features</h3>
+        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+          <!-- cabrio -->
+          <label
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedABS"
+              @click="toggleShowCheckboxOthers(0, 'Auxiliary heating')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedABS"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+            Auxiliary heating
+          </label>
+          <label
+            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedEmergency"
+              @click="toggleShowCheckboxOthers(1, 'Four wheel drive')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedEmergency"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+            Four wheel drive
+          </label>
+          <label
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedCentral"
+              @click="toggleShowCheckboxOthers(2, 'Power Assisted Steering')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
+              <!-- Insert your SVG arrow icon here -->
+              <path
+                v-if="isCheckedCentral"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
+            </svg>
+            Power Assisted Steering
+          </label>
+        </div>
+      </div>
+      <div class="mt-[30px]">
+        <h3>Extras</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
@@ -738,7 +816,7 @@
             <input
               type="checkbox"
               v-model="isCheckedEmergency"
-              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')"
+              @click="toggleShowCheckboxOthers(1, 'Four wheel drive')"
             />
             <svg
               class="icon"
@@ -754,7 +832,7 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Emergency brake assist
+            Four wheel drive
           </label>
           <label
             class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -762,7 +840,7 @@
             <input
               type="checkbox"
               v-model="isCheckedCentral"
-              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')"
+              @click="toggleShowCheckboxOthers(2, 'Power Assisted Steering')"
             />
             <svg
               class="icon"
@@ -778,127 +856,7 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Keyless central locking
-          </label>
-          <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSpeed"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Speed limit control system
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedAdaptive"
-              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedAdaptive"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Adaptive cornering lights
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedTyre"
-              @click="toggleShowCheckboxOthers(5, 'Emergency tyre')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedTyre"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Emergency tyre
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedLastChanges"
-              @click="toggleShowCheckboxOthers(6, 'Lane change assist')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedLastChanges"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Lane change assist
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedSportsPackage"
-              @click="toggleShowCheckboxOthers(7, 'Sports package')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSportsPackage"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Sports package
+            Power Assisted Steering
           </label>
         </div>
       </div>
@@ -945,7 +903,6 @@
         <label
           class="w-[250px]"
           for="auto2"
-          
         >
           <input
             type="radio"
@@ -999,120 +956,6 @@
             >Automatic climatisation, 3 zones
           </span>
         </label>
-      </div>
-			<div class="text-[16px] condition mt-[20px]">
-        <h3>Trailer coupling</h3>
-        <div class="text-[14px] radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedTrailer"
-              :class="{
-                'bg-transparent': selectedTrailer !== 'Fix',
-                'bg-orange': selectedTrailer === 'Fix',
-              }"
-              @click="selectTrailer('Fix')"
-            />
-            <span class="ml-[10px]">Fix, detachable or swiveling</span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedTrailer"
-              :class="{
-                'bg-transparent': selectedTrailer !== 'Detachable',
-                'bg-orange': selectedTrailer === 'Detachable',
-              }"
-              @click="selectTrailer('Detachable')"
-            />
-            <span class="ml-[10px]">Detachable or swiveling </span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedTrailer"
-              :class="{
-                'bg-transparent': selectedTrailer !== 'Swiveling',
-                'bg-orange': selectedTrailer === 'Swiveling',
-              }"
-              @click="selectTrailer('Swiveling')"
-            />
-            <span class="ml-[10px]">Swiveling</span>
-          </label>
-        </div>
-      </div>
-			<div class="condition mt-[20px]">
-        <h3 class="text-[16px]">Cruise control</h3>
-        <div class="text-[14px] radios-type flex gap-[30px] mt-[10px]">
-          <label>
-            <input
-              type="radio"
-              id="condition-any"
-              v-model="selectedCruise"
-              :class="{
-                'bg-transparent': selectedCruise !== 'Cruise',
-                'bg-orange': selectedCruise === 'Cruise',
-              }"
-              @click="selectCruise('Cruise')"
-            />
-            <span class="ml-[10px]">Cruise control </span>
-          </label>
-          <label>
-            <input
-              type="radio"
-              id="condition-adap"
-              v-model="selectedCruise"
-              :class="{
-                'bg-transparent': selectedCruise !== 'Adaptive',
-                'bg-orange': selectedCruise === 'Adaptive',
-              }"
-              @click="selectCruise('Adaptive')"
-            />
-            <span class="ml-[10px]">Adaptive Cruise Control</span>
-          </label>
-        </div>
-      </div>
-			<div class="flex flex-wrap gap-x-[40px]">
-        <div class="seats dropdown-container mt-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
-          <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
-              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="numberSeats"
-              @focus="openSeatsDropdown"
-              @blur="openSeatsDropdown"
-            />
-
-            <div
-              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openSeatsDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
-            </div>
-          </div>
-          <ul
-            v-if="seatsOpen"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-          >
-            <ul>
-              <li key="2" @click="selectNumberSeats('2')">2</li>
-              <li key="3" @click="selectNumberSeats('3')">3</li>
-              <li key="4" @click="selectNumberSeats('4')">4</li>
-              <li key="5" @click="selectNumberSeats('5')">5</li>
-              <li key="6" @click="selectNumberSeats('6')">6</li>
-              <li key="7" @click="selectNumberSeats('7')">7</li>
-              <li key="8" @click="selectNumberSeats('8')">8</li>
-              <li key="9" @click="selectNumberSeats('9')">9</li>
-            </ul>
-          </ul>
-        </div>
       </div>
     </div>
     </div>
