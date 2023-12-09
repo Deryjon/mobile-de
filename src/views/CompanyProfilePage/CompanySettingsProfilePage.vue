@@ -44,13 +44,16 @@ export default {
     PathLink,
     YourAccount,
   },
-  mounted() {
+  created() {
     this.userId = localStorage.getItem("u-i");
 
     const isLoggedIn = localStorage.getItem("logged-in");
     const isLoggedCompany = localStorage.getItem("u-com");
     const comI = localStorage.getItem("com-i");
     if (isLoggedCompany === "false") {
+      this.$router.push({ name: "home" });
+    }
+    if (isLoggedIn === "false") {
       this.$router.push({ name: "home" });
     }
 

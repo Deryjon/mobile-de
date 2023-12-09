@@ -425,7 +425,7 @@
       </div>
       <div class="" v-if="!changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[50px]">Create company</h2>
-        <div class="h-[80px] flex justify-end pt-[15px] p-[15px]" v-if="!contactData">
+        <div class="h-[80px] flex justify-end pt-[15px] p-[15px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="!contactData">
           <button
             class="complete custom-file-label bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
             @click="openContactData">

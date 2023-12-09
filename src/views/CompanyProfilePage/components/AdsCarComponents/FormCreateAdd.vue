@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]" v-if="basicAdd">
+    <div class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[800px] text-[12px] lg:text-[14px]" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
@@ -504,7 +504,6 @@
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
-        
       </div>
       <div class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]">
         <div class="relative mt-2">

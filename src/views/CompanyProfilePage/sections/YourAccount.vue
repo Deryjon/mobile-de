@@ -264,8 +264,9 @@ export default {
 
     logOut() {
       localStorage.removeItem("r-tok");
+      localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
-      localStorage.clear()
+      localStorage.removeItem("logged-in");
       localStorage.setItem("logged-in", "false");
       this.$router.push({ name: "home" });
       window.location.reload();
