@@ -37,13 +37,13 @@
           <div class="flex items-center gap-[20px]">
             <div class="profile-pic">
               <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">E-mail Address</p>
-              <p class="font-normal text-[14px]">{{ userE }}</p>
+              <p class="font-normal text-[12px] lg:text-[14px]">{{ userE }}</p>
             </div>
           </div>
         </div>
         <div
-          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
-          <div class="flex items-center gap-[20px]">
+          class="w-[170px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
+          <div class="flex items-center lg:gap-[20px]">
             <div class="profile-pic">
               <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Password</p>
               <p class="font-normal text-[14px]">•••••••••••••</p>
@@ -690,7 +690,7 @@
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Documents</h2>
       <div
         class="box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
-        <div class="flex w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]  p-[5px]   items-center justify-between">
+        <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
           <div
             class="w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]  p-[5px]">
             <div class="flex items-center gap-[20px]">

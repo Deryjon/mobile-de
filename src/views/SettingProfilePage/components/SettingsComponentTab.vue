@@ -44,9 +44,9 @@
         <div
           class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
           <div class="flex items-center gap-[20px] text-[12px] sm:text-[13px] md:text-[14px]">
-            <div class="profile-pic">
-              <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">{{ $t("message.register.email") }}</p>
-              <p class="font-normal text-[14px]">{{ userE }}</p>
+            <div class="profile-pic w-full">
+              <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium ">{{ $t("message.register.email") }}</p>
+              <p class="font-normal text-[12px] lg:text-[14px]">{{ userE }}</p>
             </div>
           </div>
         </div>
@@ -551,7 +551,7 @@
                 </div>
               </div>
               <button
-                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+                class="complete bg-[#fff] w-[100px] lg:w-[141px] p-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
               >
                 {{ $t("message.profile.none") }}
               </button>
@@ -576,7 +576,7 @@
                 </div>
               </div>
               <button
-                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium">
+                class="complete bg-[#fff] w-[100px] lg:w-[141px] p-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                 {{ $t("message.profile.none") }}
               </button>
             </div>

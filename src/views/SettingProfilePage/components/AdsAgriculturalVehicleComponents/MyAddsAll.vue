@@ -2,7 +2,7 @@
   <div class="flex flex-wrap gap-[40px] justify-between mt-[20px] p-[5px]">
     <div v-for="agricultural in agriculturals" :key="agricultural.vehicle_id"
       class="card bor bg-white md:flex justify-between w-full lg:h-[300px] p-[20px]">
-      <div class="img w-[500px]  h-[200px] mr-[20px] m-0">
+      <div class="img lg:w-[500px]  h-[200px] mr-[20px] m-0">
         <img :src="agricultural.vehicle_images_url[0]" alt="" class="object-cover w-full h-full" />
       </div>
       <div class="text lg:w-[520px]">
