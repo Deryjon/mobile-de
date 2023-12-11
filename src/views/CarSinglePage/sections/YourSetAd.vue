@@ -40,9 +40,9 @@
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
-      <div class="flex items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
+      <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
-          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
+          class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
           @click="goWriteEmail(car.user_email)">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
@@ -52,7 +52,7 @@
         </button>
         <div>
           <button @click="toggleShareMenu" v-if="!isShareMenuOpen"
-            class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px] py-[6px] lg:py-[12px] px-[15px]  lg:px-[13%] lg:w-[50%] text-white">
+            class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px]  lg:py-[12px] p-[10px]  lg:px-[13%] lg:w-[50%] text-white">
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
@@ -61,23 +61,23 @@
             </svg>
             Share
           </button>
-          <div v-if="isShareMenuOpen" class="share-menu">
+          <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[5px]">
             <button @click="shareOnWhatsApp">
-              <i class="fab fa-whatsapp"></i>
+              <img src="../../../assets/icons/whatsapp.svg" alt="" class="w-[25px] ">
             </button>
             <button @click="shareOnTelegram">
-              <i class="fab fa-telegram"></i>
+              <img src="../../../assets/icons/telegram.svg" alt="" class="w-[25px] ">
             </button>
             <button @click="shareOnFacebook">
-              <i class="fab fa-facebook"></i>
+              <img src="../../../assets/icons/facebook.svg" alt="" class="w-[25px] ">
             </button>
             <button @click="shareOnTwitter">
-              <i class="fab fa-twitter"></i>
+              <img src="../../../assets/icons/twitter.svg" alt="" class="w-[25px] ">
             </button>
             <button @click="shareOnLinkedIn">
-              <i class="fab fa-linkedin"></i>
+              <img src="../../../assets/icons/linkedin.svg" alt="" class="w-[25px] ">
             </button>
-            <button @click="copyLinkToClipboard">
+            <button @click="copyLinkToClipboard" class="w-[25px] ">
               <i class="far fa-copy"></i>
             </button>
 
@@ -361,8 +361,8 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[130px]': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[120px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[220px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="car-mark">{{ car.car_make }}</p>
@@ -380,12 +380,12 @@
         <p class="name">{{ car.car_vendor }}</p>
       </div>
       <div class="name-seller">
-        <p class="name">DE-33602 Bielefeld</p>
+        <p class="name">{{ car.user_name   }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
-      <div class="flex    gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
+      <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
           @click="goWriteEmail(car.user_email)">
@@ -397,7 +397,7 @@
         </button>
         <div>
           <button
-            class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] lg:w-[160px]  text-white"
+            class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[170px]  text-white"
             @click="toggleShareMenu" v-if="!isShareMenuOpen">
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -407,7 +407,7 @@
             </svg>
             Share
           </button>
-          <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[5px]">
+          <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[2px]">
             <button @click="shareOnWhatsApp">
               <img src="../../../assets/icons/whatsapp.svg" alt="" class="w-[25px] ">
             </button>

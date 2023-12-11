@@ -280,25 +280,23 @@ class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-ful
       <div class="features bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">Features</p>
         <div class="line mt-[10px]"></div>
-        <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
-          <div class="w-[297px]">ABS</div>
-          <div class="w-[297px]">Adaptive Cruise Control</div>
-          <div class="w-[297px]">Adaptive lighting</div>
-          <div class="w-[297px]">Air suspension</div>
-          <div class="w-[297px]">Alloy wheels</div>
-          <div class="w-[297px]">Ambient lighting</div>
-          <div class="w-[297px]">Android Auto</div>
-          <div class="w-[297px]">Apple CarPlay</div>
-          <div class="w-[297px]">Arm rest</div>
-          <div class="w-[297px]">Autom. dimming interior mirror</div>
-          <div class="w-[297px]">Blind spot assist</div>
-          <div class="w-[297px]">Bluetooth</div>
+        <div class="flex flex-wrap  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
+          <div v-for="item in car.others" class="flex justify-between w-[297px]">
+            <p class="">{{ item }} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+          </div>
+          <div v-for="item in car.extras" class="flex justify-between w-[297px]">
+            <p class="">{{ item }} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+          </div>
         </div>
-        <div class="btn show-more w-[8%] mx-auto cursor-pointer">
-          <p class="show text-[#e04b00] mt-[20px] text-[11px] lg:text-[14px] underline">
-            Show all
-          </p>
-        </div>
+        
       </div>
       <div class="description bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">
