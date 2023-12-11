@@ -35,52 +35,53 @@
         <p class="name">{{ car.car_vendor }}</p>
       </div>
       <div class="name-seller">
-        <p class="name">{{car.user_name}}</p>
+        <p class="name">{{ car.user_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
       <div class="flex items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
-        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
-        @click="goWriteEmail(car.user_email)">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
-          <path
-            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
-        </svg>
-        Write Email
-      </button>
-        <div>
-          <button @click="toggleShareMenu" v-if="!isShareMenuOpen" class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px] py-[6px] lg:py-[12px] px-[15px]  lg:px-[13%] lg:w-[50%] text-white">
-            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-              fill="currentColor"></path>
+          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
+          @click="goWriteEmail(car.user_email)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
+            <path
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Share
+          Write Email
+        </button>
+        <div>
+          <button @click="toggleShareMenu" v-if="!isShareMenuOpen"
+            class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px] py-[6px] lg:py-[12px] px-[15px]  lg:px-[13%] lg:w-[50%] text-white">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
+                fill="currentColor"></path>
+            </svg>
+            Share
           </button>
           <div v-if="isShareMenuOpen" class="share-menu">
-        <button @click="shareOnWhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </button>
-        <button @click="shareOnTelegram">
-          <i class="fab fa-telegram"></i>
-        </button>
-        <button @click="shareOnFacebook">
-          <i class="fab fa-facebook"></i>
-        </button>
-        <button @click="shareOnTwitter">
-          <i class="fab fa-twitter"></i>
-        </button>
-        <button @click="shareOnLinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </button>
-        <button @click="copyLinkToClipboard">
-          <i class="far fa-copy"></i>
-        </button>
+            <button @click="shareOnWhatsApp">
+              <i class="fab fa-whatsapp"></i>
+            </button>
+            <button @click="shareOnTelegram">
+              <i class="fab fa-telegram"></i>
+            </button>
+            <button @click="shareOnFacebook">
+              <i class="fab fa-facebook"></i>
+            </button>
+            <button @click="shareOnTwitter">
+              <i class="fab fa-twitter"></i>
+            </button>
+            <button @click="shareOnLinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </button>
+            <button @click="copyLinkToClipboard">
+              <i class="far fa-copy"></i>
+            </button>
 
-      </div>
+          </div>
         </div>
       </div>
     </div>
@@ -384,9 +385,9 @@
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
-      <div class="flex flex-wrap    gap-[2px] md:gap-[10px] lg:gap-[10px]  mt-[25px]">
+      <div class="flex    gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
-          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-[140px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
+          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
           @click="goWriteEmail(car.user_email)">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
@@ -394,40 +395,40 @@
           </svg>
           Write Email
         </button>
-      <div>
-        <button
-          class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] lg:w-[160px]  text-white"
-          @click="toggleShareMenu" v-if="!isShareMenuOpen" >
-          <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-              fill="currentColor"></path>
-          </svg>
-          Share
-        </button>
-        <div v-if="isShareMenuOpen" class="share-menu py-[6px] px-[5%] lg:p-[10px]">
-        <button @click="shareOnWhatsApp">
-          <i class="fab fa-whatsapp"></i>
-        </button>
-        <button @click="shareOnTelegram">
-          <i class="fab fa-telegram"></i>
-        </button>
-        <button @click="shareOnFacebook">
-          <i class="fab fa-facebook"></i>
-        </button>
-        <button @click="shareOnTwitter">
-          <i class="fab fa-twitter"></i>
-        </button>
-        <button @click="shareOnLinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </button>
-        <button @click="copyLinkToClipboard">
-          <i class="far fa-copy"></i>
-        </button>
+        <div>
+          <button
+            class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] lg:w-[160px]  text-white"
+            @click="toggleShareMenu" v-if="!isShareMenuOpen">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
+                fill="currentColor"></path>
+            </svg>
+            Share
+          </button>
+          <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[5px]">
+            <button @click="shareOnWhatsApp">
+              <img src="../../../assets/icons/whatsapp.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnTelegram">
+              <img src="../../../assets/icons/telegram.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnFacebook">
+              <img src="../../../assets/icons/facebook.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnTwitter">
+              <img src="../../../assets/icons/twitter.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnLinkedIn">
+              <img src="../../../assets/icons/linkedin.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="copyLinkToClipboard">
+              <i class="far fa-copy"></i>
+            </button>
 
-      </div>
-      </div>
+          </div>
+        </div>
       </div>
     </div>
   </v-container>
@@ -726,9 +727,9 @@ export default {
   border: 1px solid #ccc;
 }
 
-i.fab, i.far {
+i.fab,
+i.far {
   font-size: 24px;
   color: #333;
 }
-
 </style>
