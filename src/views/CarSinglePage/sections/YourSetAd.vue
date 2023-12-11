@@ -35,13 +35,14 @@
         <p class="name">{{ car.car_vendor }}</p>
       </div>
       <div class="name-seller">
-        <p class="name">DE-33602 Bielefeld</p>
+        <p class="name">{{car.user_name}}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
-      <button
-        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]"
+      <div class="flex items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
+        <button
+        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
         @click="goWriteEmail(car.user_email)">
         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
           <path
@@ -49,28 +50,38 @@
         </svg>
         Write Email
       </button>
-      <div class="flex gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
-        <button
-          class="bg-transparent m-0 bor rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[15%] lg:w-[50%] text-[#08829a] flex items-center gap-[1px] lg:gap-[5px]">
-          <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M5 1h14a1 1 0 011 1v20.191a.5.5 0 01-.724.447L12 19l-7.276 3.638A.5.5 0 014 22.191V2a1 1 0 011-1zm4 4v10h2v-3h2c3 0 3-2 3-3.5S16 5 13 5H9zm2 2h2c1 0 1 1 1 1.5s0 1.5-1 1.5h-2V7z"
-              fill="currentColor"></path>
-          </svg>
-          Park
-        </button>
-        <button
-          class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[13%] lg:w-[50%] text-white"
-          @click="contactAd">
-          <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
+        <div>
+          <button @click="toggleShareMenu" v-if="!isShareMenuOpen" class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px] py-[6px] lg:py-[12px] px-[15px]  lg:px-[13%] lg:w-[50%] text-white">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
             <path fill-rule="evenodd" clip-rule="evenodd"
               d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
               fill="currentColor"></path>
           </svg>
           Share
+          </button>
+          <div v-if="isShareMenuOpen" class="share-menu">
+        <button @click="shareOnWhatsApp">
+          <i class="fab fa-whatsapp"></i>
         </button>
+        <button @click="shareOnTelegram">
+          <i class="fab fa-telegram"></i>
+        </button>
+        <button @click="shareOnFacebook">
+          <i class="fab fa-facebook"></i>
+        </button>
+        <button @click="shareOnTwitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button @click="shareOnLinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </button>
+        <button @click="copyLinkToClipboard">
+          <i class="far fa-copy"></i>
+        </button>
+
+      </div>
+        </div>
       </div>
     </div>
     <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:max-w-[700px]  rounded-[4px] mt-[10px]">
@@ -294,24 +305,21 @@
       <div class="features bor p-[20px]">
         <p class="title font-semibold">Features</p>
         <div class="line mt-[10px]"></div>
-        <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
-          <div class="w-[297px]">ABS</div>
-          <div class="w-[297px]">Adaptive Cruise Control</div>
-          <div class="w-[297px]">Adaptive lighting</div>
-          <div class="w-[297px]">Air suspension</div>
-          <div class="w-[297px]">Alloy wheels</div>
-          <div class="w-[297px]">Ambient lighting</div>
-          <div class="w-[297px]">Android Auto</div>
-          <div class="w-[297px]">Apple CarPlay</div>
-          <div class="w-[297px]">Arm rest</div>
-          <div class="w-[297px]">Autom. dimming interior mirror</div>
-          <div class="w-[297px]">Blind spot assist</div>
-          <div class="w-[297px]">Bluetooth</div>
-        </div>
-        <div class="btn show-more w-[8%] mx-auto cursor-pointer">
-          <p class="show text-[#e04b00] mt-[20px] text-[11px] lg:text-[14px] underline">
-            Show all
-          </p>
+        <div class="flex flex-wrap  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
+          <div v-for="item in car.others" class="flex justify-between w-[297px]">
+            <p class="">{{ item }} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+          </div>
+          <div v-for="item in car.extras" class="flex justify-between w-[297px]">
+            <p class="">{{ item }} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+          </div>
         </div>
       </div>
       <div class="description bor p-[20px]">
@@ -353,7 +361,7 @@
     </div>
     <div
       class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[130px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="car-mark">{{ car.car_make }}</p>
@@ -376,29 +384,20 @@
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">Phone: {{ car.user_phone }}</p>
       </div>
-      <button
-        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]"
-        @click="goWriteEmail(car.user_email)">
-        <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
-          <path
-            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
-        </svg>
-        Write Email
-      </button>
-      <div class="flex gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
+      <div class="flex flex-wrap    gap-[2px] md:gap-[10px] lg:gap-[10px]  mt-[25px]">
         <button
-          class="bg-transparent m-0 bor rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[15%] lg:w-[50%] text-[#08829a] flex items-center gap-[1px] lg:gap-[5px]">
-          <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
-            <path fill-rule="evenodd" clip-rule="evenodd"
-              d="M5 1h14a1 1 0 011 1v20.191a.5.5 0 01-.724.447L12 19l-7.276 3.638A.5.5 0 014 22.191V2a1 1 0 011-1zm4 4v10h2v-3h2c3 0 3-2 3-3.5S16 5 13 5H9zm2 2h2c1 0 1 1 1 1.5s0 1.5-1 1.5h-2V7z"
-              fill="currentColor"></path>
+          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-[140px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
+          @click="goWriteEmail(car.user_email)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
+            <path
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Park
+          Write Email
         </button>
+      <div>
         <button
-          class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[13%] lg:w-[50%] text-white"
-          @click="contactAd">
+          class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] lg:w-[160px]  text-white"
+          @click="toggleShareMenu" v-if="!isShareMenuOpen" >
           <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -407,6 +406,28 @@
           </svg>
           Share
         </button>
+        <div v-if="isShareMenuOpen" class="share-menu py-[6px] px-[5%] lg:p-[10px]">
+        <button @click="shareOnWhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </button>
+        <button @click="shareOnTelegram">
+          <i class="fab fa-telegram"></i>
+        </button>
+        <button @click="shareOnFacebook">
+          <i class="fab fa-facebook"></i>
+        </button>
+        <button @click="shareOnTwitter">
+          <i class="fab fa-twitter"></i>
+        </button>
+        <button @click="shareOnLinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </button>
+        <button @click="copyLinkToClipboard">
+          <i class="far fa-copy"></i>
+        </button>
+
+      </div>
+      </div>
       </div>
     </div>
   </v-container>
@@ -416,6 +437,7 @@ import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/MyAdCarsTab.vue";
 import TheLoader from "../../../components/TheLoader.vue"
+import Clipboard from 'clipboard';
 import { format } from "date-fns";
 import http from "../../../axios.config";
 export default {
@@ -430,6 +452,7 @@ export default {
       contactUser: false,
       isLoading: true,
       horsepower: "",
+      isShareMenuOpen: false,
       isScrolled: false,
       scrollThresholdReached: false,
       userCreatedAt: null,
@@ -437,6 +460,8 @@ export default {
       activeIndex: 0,
       images: [],
       intervalId: null,
+      currentUrl: window.location.href,
+
     };
   },
   methods: {
@@ -464,7 +489,7 @@ export default {
       window.location.href = websiteUrl;
 
     },
-    // 
+    //
     contactAd() {
       this.contactUser = !this.contactUser;
     },
@@ -501,6 +526,63 @@ export default {
     },
     removeScrollListener() {
       window.removeEventListener("scroll", this.handleScroll);
+    },
+    toggleShareMenu() {
+      this.isShareMenuOpen = !this.isShareMenuOpen;
+    },
+    closeShareMenu() {
+      this.isShareMenuOpen = false;
+    },
+    shareOnWhatsApp() {
+      const url = `https://wa.me/?text=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnInstagram() {
+      const caption = encodeURIComponent('Check out this link: ' + this.currentUrl);
+      const url = `https://www.instagram.com/create/caption/?text=${caption}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnFacebook() {
+      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnTelegram() {
+      const url = `https://t.me/share/url?url=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnTwitter() {
+      const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnLinkedIn() {
+      const url = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    copyLinkToClipboard() {
+      const el = document.createElement('textarea');
+      el.value = this.currentUrl;
+      document.body.appendChild(el);
+
+      // Создаем Range и выделяем текст
+      const range = document.createRange();
+      range.selectNode(el);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+
+      // Копируем текст в буфер обмена
+      document.execCommand('copy');
+
+      // Убираем созданный элемент
+      document.body.removeChild(el);
+
+      console.log('Link copied to clipboard');
+      this.closeShareMenu();
     },
   },
   mounted() {
@@ -638,4 +720,15 @@ export default {
 .checksvg {
   margin-right: 4px;
 }
+
+.share-menu {
+  background: white;
+  border: 1px solid #ccc;
+}
+
+i.fab, i.far {
+  font-size: 24px;
+  color: #333;
+}
+
 </style>

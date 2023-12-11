@@ -866,7 +866,7 @@
           </label>
         </div>
       </div>
-      <div class="md:flex items-center gap-[50px]">
+      <div class="md:flex items-center lg:gap-[50px]">
         <div class="relative mt-2 w-[200px]">
           <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
           <select
