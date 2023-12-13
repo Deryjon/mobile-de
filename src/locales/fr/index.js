@@ -201,5 +201,29 @@ export default {
       construction: "Machines de construction",
       forklift: "Chariots élévateurs à fourche",
     },
+    about: {
+      about: `Sellcenter.com est la plus grande plateforme de vente où vous pouvez trouver tout ce dont vous avez besoin ! Nous avons des millions de produits dans une variété de catégories, y compris l'électronique, les vêtements, les accessoires, les cosmétiques et plus encore.
+      Nous sommes fiers d'offrir commodité et fiabilité à nos clients. Plus de 50 000 vendeurs enregistrés choisissent Sellcenter.com pour mettre en vente leurs articles. Nous avons créé une interface conviviale qui permet de trouver rapidement et facilement ce que vous cherchez - il suffit de saisir des mots-clés ou de parcourir les sections de produits.
+      Sellcenter.com offre également une variété d'options de paiement et d'expédition afin de rendre le processus d'achat aussi pratique que possible pour vous. Nous offrons une garantie sur tous les articles, assurant la qualité et la fiabilité de chaque achat.
+      Rejoignez-nous sur Sellcenter.com et vivez une expérience d'achat incroyable. Nous vous garantissons que vous trouverez tout ce dont vous avez besoin et que vous ferez de bonnes affaires. Notre objectif est d'être un leader de l'industrie et nous nous efforçons de vous offrir le meilleur service et les produits les plus étonnants. Choisissez Sellcenter.com pour tous vos achats en ligne !`,
+      withUs: "AVEC NOUS",
+      employees: "Employés",
+    },
+    payment: {
+      completed: "Votre paiement a été effectué avec succès !",
+      text: "Paiement par texte",
+      price: "Prix",
+      back: "Rentrer à la maison",
+      agriculturalFilter: "Filtre agricole",
+      detailedSearch: "Recherche détaillée : Voiture - neuve ou d'occasion",
+      basicData: "Données de base",
+      features: "Caractéristiques",
+      offerDetails: "Détails de l'offre",
+      searchDescription: "Recherche de la description du véhicule",
+      engine: "Moteur",
+      whriteEmail: "Écrire un courriel",
+      phone: "Téléphone",
+      share: "Partager",
+    },
   },
 };
