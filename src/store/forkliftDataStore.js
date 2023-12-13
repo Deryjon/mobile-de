@@ -3,7 +3,6 @@ import http from "../axios.config"
 export const useForkliftStore = defineStore('forklift', {
   state: () => ({
     forkliftData: {
-			forklift: "",
     },
 		count: "0"
   }),

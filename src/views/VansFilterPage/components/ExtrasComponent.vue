@@ -201,6 +201,7 @@
 <script>
 import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import { useVanStore } from "../../../store/vanDataStore";
 
 export default {
   data() {
@@ -218,18 +219,11 @@ export default {
     };
   },
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          extras: this.extras,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.features =
+       this.extras)
+        vanStore.updateVanData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
@@ -242,7 +236,7 @@ export default {
         }
       }
       console.log("extras изменен:", this.extras)
-			this.fetchData()
+			this.updateVanData()
     },
 	},
   components: { TrailerCoupling },

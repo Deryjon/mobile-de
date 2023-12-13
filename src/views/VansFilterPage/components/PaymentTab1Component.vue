@@ -724,7 +724,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
-import { useVanStore } from "../../../store/vanDataStore";
+import { useVanStore } from "@/store/vanDataStore";
 export default {
   setup() {
     const isCheckedHistory = ref(false);

@@ -3,7 +3,7 @@ import http from "../axios.config"
 export const useSemiTruckStore = defineStore('semitruck', {
   state: () => ({
     semitruckData: {
-			truck: "",
+			
     },
 		count: "0"
   }),

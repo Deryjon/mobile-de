@@ -1,5 +1,5 @@
 <template>
-  <div class="condition lg:p-[20px]">
+  <div class="condition lg:p-[20px] mt-[10px]">
     <h3>Cruise control
 </h3>
     <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[30px] mt-[10px] text-[14px]">
@@ -48,6 +48,8 @@
 </template>
 <script>
 import http from "../../../axios.config"
+import { useVanStore } from "../../../store/vanDataStore";
+
 export default {
   data() {
     return {
@@ -57,20 +59,16 @@ export default {
 	watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          car_city_zipcode: this.selectedCities,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.van_cruise_control =
+        this.selectedCondition),
+        vanStore.updateVanData();
     },
     selectCondition(condition) {
       this.selectedCondition = condition;

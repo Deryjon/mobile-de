@@ -296,6 +296,7 @@
 import http from "../../../axios.config";
 import PowerComponentTechnic from "./PowerComponentTechnic.vue";
 import RangeComponentTechnic from "./RangeComponentTechnical.vue";
+import { useCoacheStore } from "../../../store/coacheDataStore";
 
 export default {
   data() {
@@ -318,18 +319,11 @@ export default {
     };
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          fuel_type: this.selectedFuel,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.fuel_type =
+      this.selectedFuel),
+        coacheStore.updateCoacheData();
     },
 		toggleShowCheckbox(index, fuelName) {
 			this.showTab1 = index === 0;
