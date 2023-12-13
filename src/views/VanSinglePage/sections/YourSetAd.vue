@@ -550,7 +550,7 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       isShareMenuOpen: false,
-      userCreatedAt: null,
+      currentUrl: window.location.href,      userCreatedAt: null,
       formattedDate: "",
       activeIndex: 0,
       images: [],

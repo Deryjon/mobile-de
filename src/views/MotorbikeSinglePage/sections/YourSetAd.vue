@@ -433,7 +433,6 @@ export default {
       userI: "",
       activeTab: "tab-2",
       isOpen: false,
-      isShareMenuOpen: false,
       motorcycle: [],
       user: [],
       contactUser: false,
@@ -446,6 +445,9 @@ export default {
       activeIndex: 0,
       images: [],
       intervalId: null,
+      isShareMenuOpen: false,
+      currentUrl: window.location.href,
+
     };
   },
   methods: {

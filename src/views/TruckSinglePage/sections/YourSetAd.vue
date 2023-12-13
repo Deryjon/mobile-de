@@ -444,6 +444,7 @@ export default {
       images: [],
       intervalId: null,
       isShareMenuOpen: false,
+      currentUrl: window.location.href,
     };
   },
   methods: {
