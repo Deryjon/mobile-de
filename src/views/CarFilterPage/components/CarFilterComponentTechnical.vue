@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-[10px] p-[20px]">
+  <div class="mt-[10px] lg:p-[20px]">
     <h3 class="text-[16px]">Fuel Type</h3>
     <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
       <!-- cabrio -->

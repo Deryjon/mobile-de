@@ -1,8 +1,8 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition lg:p-[20px]">
     <h3>Trailer coupling</h3>
     <div
-      class="radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px] text-[14px]"
+      class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]"
     >
       <label for="trai" @click="selectCondition('AnyTrai')">
         <input

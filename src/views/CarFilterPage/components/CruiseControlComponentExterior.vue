@@ -1,8 +1,8 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition lg:p-[20px]">
     <h3>Cruise control
 </h3>
-    <div class="radios-type flex gap-[30px] mt-[10px] text-[14px]">
+    <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
       <label for="condition-ext" @click="selectCondition('AnyExterior')">
         <input
           type="radio"

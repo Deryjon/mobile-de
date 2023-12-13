@@ -3,8 +3,6 @@ import http from "../axios.config"
 export const useTrailerStore = defineStore('trailer', {
   state: () => ({
     trailerData: {
-			trailer: "",
-			
     },
 		count: "0"
   }),

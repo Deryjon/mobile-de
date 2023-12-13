@@ -1,7 +1,7 @@
 <template>
   <div class="condition lg:p-[20px]">
     <h3 class="text-[16px]">Vendor</h3>
-    <div class="radios-type flex gap-[40px] mt-[20px]">
+    <div class="radios-type flex flex-wrap gap-[40px] mt-[20px]">
       <label for="vendor-any" @click="selectVendor('Any')">
         <input
           type="radio"
@@ -56,7 +56,7 @@
       <h3>Dealer rating</h3>
       <div class="flex flex-wrap gap-[10px] lg:gap-[60px] mt-[20px]">
         <label
-          class="custom-checkbox flex items-center h-10 w-[100px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 lg:w-[100px] pb-[23px]"
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -85,7 +85,7 @@
           <span class="text-sm">Any</span>
         </label>
         <label
-          class="custom-checkbox flex items-center h-10 w-[145px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 lg:w-[145px] pb-[23px]"
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -165,7 +165,7 @@
           </div>
         </label>
         <label
-          class="custom-checkbox flex items-center h-10 w-[134px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 lg:w-[134px] pb-[23px]"
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input
@@ -245,7 +245,7 @@
           </div>
         </label>
         <label
-          class="custom-checkbox flex items-center h-10 w-[190px] pb-[23px]"
+          class="custom-checkbox flex items-center h-10 lg:w-[190px] pb-[23px]"
           :class="{ 'opacity-20': isRadioNewSelected }"
         >
           <input

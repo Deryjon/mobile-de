@@ -1,5 +1,5 @@
 <template>
-  <div class="pl-[20px]">
+  <div class="lg:pl-[20px]">
     <div class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[80px]">
       <div class="power dropdown-container">
         <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>

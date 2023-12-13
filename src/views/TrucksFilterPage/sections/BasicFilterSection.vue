@@ -21,8 +21,8 @@
               </h2>
               <select
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                v-model="selectedMark" @change="fetchModels()">
-                <option value="14600" selected>Beliebig</option>
+                v-model="selectedMark"  >
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option v-for="make in makes" :key="make" :value="make.truck_make_name">
                     {{ make.truck_make_name }}
@@ -131,7 +131,7 @@ export default {
       makes: [],
       truckStore: useTruckStore(),
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",

@@ -127,7 +127,8 @@
 </template>
 <script>
 import axios from "axios";
-import http from "../../../axios.config";
+import { useMotorhomeStore } from "@/store/motorhomeDataStore";
+
 export default {
   data() {
     return {
@@ -164,39 +165,29 @@ export default {
     };
   },
   watch: {
-    power(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    powerTo(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
     cubic(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     cubicTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     consumptionFuel(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     stickerEmission(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
     classEmision(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMotorhomeData();
       }
     },
   },
@@ -211,25 +202,13 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-      console.log("selectedtranss изменен:", this.selectedTransmision)
-			this.fetchData()
+      this.updateMotorhomeData();
     },
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.power,
-          car_power_up_to: this.powerTo,
-          car_cubic_capacity_from: this.cubic,
-          car_cubic_capacity_to: this.cubicTo,
-          transmission: this.inputKilometer,
-          car_fuel_consumption: this.consumptionFuel,
-          car_emissions_sticker: this.stickerEmission,
-          car_emission_class: this.classEmision,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateMotorhomeData() {
+      const motorhomeStore = useMotorhomeStore();
+      const motorhomeData = motorhomeStore.motorhomeData;
+      motorhomeData.transmission = this.selectedTransmision ;
+      motorhomeStore.updateMotorhomeData();
     },
     openCubicToDropdown() {
       this.isOpenCubicTo = true;
