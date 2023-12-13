@@ -453,7 +453,6 @@ export default {
       contactUser: false,
       isLoading: true,
       horsepower: "",
-      isShareMenuOpen: false,
       isScrolled: false,
       scrollThresholdReached: false,
       userCreatedAt: null,
@@ -461,6 +460,7 @@ export default {
       activeIndex: 0,
       images: [],
       intervalId: null,
+      isShareMenuOpen: false,
       currentUrl: window.location.href,
 
     };
