@@ -201,6 +201,7 @@
 <script>
 import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import { useCoacheStore } from "../../../store/coacheDataStore";
 
 export default {
   data() {
@@ -218,18 +219,11 @@ export default {
     };
   },
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          extras: this.extras,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.interior_features =
+      this.selectedFuel),
+        coacheStore.updateCoacheData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);

@@ -3,7 +3,6 @@ import http from "../axios.config"
 export const useVehicleStore = defineStore('vehicle', {
   state: () => ({
     vehicleData: {
-      
     },
 		count: "0"
   }),
@@ -13,7 +12,6 @@ export const useVehicleStore = defineStore('vehicle', {
 				.post('/agriculturals/count', this.vehicleData)
 				.then(response => {
 					this.count = response.data.data.count
-					console.log(response.data.data.count);
 				})
 			
     },

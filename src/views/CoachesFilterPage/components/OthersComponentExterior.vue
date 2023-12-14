@@ -81,6 +81,8 @@
 <script>
 import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import { useCoacheStore } from "../../../store/coacheDataStore";
+
 export default {
   data() {
     return {
@@ -96,18 +98,11 @@ export default {
     };
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          body: this.selectedOthers,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.features =
+      this.selectedOthers),
+        coacheStore.updateCoacheData();
     },
     toggleShowCheckbox(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
@@ -119,8 +114,7 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      console.log("selectedOthers изменен:", this.selectedOthers);
-      this.fetchData();
+      this.updateCoacheData();
     },
   },
   components: { TrailerCoupling },

@@ -337,8 +337,7 @@ export default {
           this.selectedFuel.splice(fuelIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedFuel	)
-			this.fetchData()
+			this.updateCoacheData()
     },
     // toggleShowCheckbox(index) {
     // 

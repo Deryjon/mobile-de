@@ -29,7 +29,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedMake: "",
       selectedPrice: "",
       isModelSelectDisabled: false,

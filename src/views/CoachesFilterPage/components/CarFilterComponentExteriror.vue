@@ -379,6 +379,7 @@ import ParkingResorComponentExterior from "./ParkingResorComponentExterior.vue";
 import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue";
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 import ExtrasComponent from "./ExtrasComponent.vue";
+import { useCoacheStore } from "../../../store/coacheDataStore";
 
 export default {
   data() {
@@ -401,6 +402,12 @@ export default {
     };
   },
 	methods:{
+    updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.fuel_type =
+      this.selectedFuel),
+        coacheStore.updateCoacheData();
+    },
 		toggleShowCheckbox(index, colorName) {
       const isChecked = !this.selectedColors.includes(colorName);
       if (isChecked) {
@@ -411,21 +418,7 @@ export default {
           this.selectedColors.splice(colorIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedColors)
-			this.fetchData()
-    },
-		fetchData() {
-      http
-        .get("/cars/count", {
-          exterior_colour: this.selectedColors,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+			this.updateCoacheData()
     },
 	},
   components: {

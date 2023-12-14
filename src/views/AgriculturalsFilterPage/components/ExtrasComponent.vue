@@ -79,12 +79,13 @@
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import {useVehicleStore} from "@/store/agriculturalDataStore"
 
 export default {
   data() {
     return {
+      vehicleStore: useVehicleStore(),
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -97,19 +98,19 @@ export default {
 			extras: []
     };
   },
+  watch: {
+    extras(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateAgriculturalData();
+      }
+    },
+	},
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          extras: this.extras,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateAgriculturalData() {
+      const vehicleStore = useVehicleStore();
+      (vehicleStore.vehicleData.vehicle_make =
+        this.extras),
+        vehicleStore.updateAgriculturalData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
@@ -121,8 +122,7 @@ export default {
           this.extras.splice(carIndex, 1);
         }
       }
-      console.log("extras изменен:", this.extras)
-			this.fetchData()
+			this.updateAgriculturalData()
     },
 	},
   components: { TrailerCoupling },

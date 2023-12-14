@@ -1,5 +1,5 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition lg:p-[20px]">
     <h3 class="text-[16px]">Air conditioning</h3>
     <div class="radios-type flex flex-wrap gap-x-[60px] gap-y-[10px] mt-[20px]">
       <label class="w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
