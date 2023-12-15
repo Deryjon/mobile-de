@@ -25,7 +25,7 @@
       </div>
       <div class="line mt-[20px] w-full"></div>
       <div class="tabs-btn">
-        <button
+        <!-- <button
           class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
           @click="setActive('tab-1')" :class="{ active: isActive('tab-1') }">
           <svg class="SvgIcon___NxY1e" width="20" height="20" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
@@ -46,7 +46,7 @@
             </g>
           </svg>
           {{ $t("message.profile.overview") }}
-        </button>
+        </button> -->
         <div class="adds">
           <button
             class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
@@ -176,9 +176,9 @@
 
     <section
       class="tabs-content settings relative w-[220px]  xs:w-[550px] md:w-full lg:w-[800px] xl:w-[870px] bg-[#0000001f] flex">
-      <div class="" v-show="isActive('tab-1')">
+      <!-- <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
-      </div>
+      </div> -->
       <div class="" v-show="isActive('tab-2')">
         <SettingsTab />
       </div>
