@@ -1,40 +1,23 @@
 <template>
   <div class="">
-    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
-      <div class="flex items-center gap-[20px]">
-        <input
-          type="file"
-          ref="fileInput"
-          accept="image/*"
-          multiple
-          style="display: none"
-          @change="handleFileChange"
-        />
-        <button
-          @click="openFileInput"
-          class="bg-blue-500 p-[10px] rounded-[8px]"
-        >
+    <div class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[850px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0">
+      <div class="md:flex items-center gap-[20px]">
+        <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
+        <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
           + Add image
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
-          <div
-            v-for="(file, index) in selectedFiles"
-            :key="index"
-            class="file-item relative"
-          >
+          <div v-for="(file, index) in previewImages" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
-              <img class="w-full h-full" :src="file.url" :alt="file.name" />
+              <img class="w-full h-full" :src="file.previewUrl" :alt="file.name" />
             </div>
-            <button
-              @click="removeFile(index)"
-              class="absolute top-0 right-0 w-[20px]"
-            >
+            <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">
               X
             </button>
           </div>
-          <span v-if="selectedFiles.length === 0">No Images</span>
+          <span v-if="previewImages.length === 0">No Images</span>
         </div>
-      </div>
+      </div>  
       <div class="video-link mt-[30px]">
         <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
         <input
@@ -631,206 +614,8 @@
           </div>
         </div>
       </div>
-      <div class="mt-[30px]">
-        <h3>Features</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
-          <!-- cabrio -->
-          <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedABS"
-              @click="toggleShowCheckboxOthers(0, 'ABS')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedABS"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            ABS
-          </label>
-          <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedEmergency"
-              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedEmergency"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Emergency brake assist
-          </label>
-          <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedCentral"
-              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedCentral"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Keyless central locking
-          </label>
-          <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSpeed"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Speed limit control system
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedAdaptive"
-              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedAdaptive"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Adaptive cornering lights
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedTyre"
-              @click="toggleShowCheckboxOthers(5, 'Emergency tyre')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedTyre"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Emergency tyre
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedLastChanges"
-              @click="toggleShowCheckboxOthers(6, 'Lane change assist')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedLastChanges"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Lane change assist
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedSportsPackage"
-              @click="toggleShowCheckboxOthers(7, 'Sports package')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSportsPackage"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Sports package
-          </label>
-        </div>
-      </div>
 			<div class="mt-[10px]">
-      <h3 class="text-[16px]">Extras</h3>
+      <h3 class="text-[16px]">Secutrity</h3>
       <div
         class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]"
       >
@@ -841,7 +626,7 @@
           <input
             type="checkbox"
             v-model="isCheckedAlarmSystem"
-            @click="toggleShowCheckboxExtras(0, 'Alarm System')"
+            @click="toggleShowCheckboxExtras(0, 'ABS')"
           />
           <svg
             class="icon"
@@ -857,7 +642,7 @@
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
             />
           </svg>
-          Alarm System
+          ABS
         </label>
         <label
           class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -865,7 +650,7 @@
           <input
             type="checkbox"
             v-model="isCheckedDisable"
-            @click="toggleShowCheckboxExtras(1, 'Disabled accessible')"
+            @click="toggleShowCheckboxExtras(1, 'EBS')"
           />
           <svg
             class="icon"
@@ -881,153 +666,7 @@
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
             />
           </svg>
-          Disabled accessible
-        </label>
-        <label
-          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedHeated"
-            @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedHeated"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Heated steering whee
-        </label>
-        <label
-          class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedSeat"
-            @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedSeat"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Seat ventilation
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedAmbient"
-            @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedAmbient"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Ambient lighting
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedElectric"
-            @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedElectric"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Electric backseat adjustment
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedInduction"
-            @click="
-              toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
-            "
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedInduction"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Induction charging for smartphones
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedSki"
-            @click="toggleShowCheckboxExtras(7, 'Ski bag')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedSki"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Ski bag
+          EBS
         </label>
       </div>
       </div>
@@ -1519,7 +1158,7 @@
           </label>
         </div>
       </div>
-      <div class="">
+      <div class="pr-[5px]">
         <h2 class="mt-[30px] text-[16px]">Description</h2>
         <textarea
           class="bg-[#ccc] mt-[10px] p-[20px] w-full"
@@ -1659,6 +1298,7 @@ export default {
       isCheckedSportsPackage: false,
       selectedOthers: [],
       isCheckedBeige: false,
+      previewImages: [],
       isCheckedBrown: false,
       isCheckedGrey: false,
       isCheckedBlack: false,
@@ -1767,10 +1407,29 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
+      const files = event.target.files;
       this.selectedFiles = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const previewUrl = e.target.result;
+          this.previewImages.push({
+            name: file.name,
+            previewUrl: previewUrl,
+            file: file, // You can also store the actual File object if needed
+          });
+
+          // Добавьте здесь код для отправки файла на бэкенд, если требуется
+        };
+
+        reader.readAsDataURL(file);
+      }
     },
+
     removeFile(index) {
-      this.selectedFiles.splice(index, 1);
+      this.previewImages.splice(index, 1);
     },
     toggleShowCheckboxRating(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);

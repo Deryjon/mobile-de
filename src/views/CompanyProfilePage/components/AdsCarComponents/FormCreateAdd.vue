@@ -1,21 +1,23 @@
 <template>
   <div class="">
-    <div class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[800px] text-[12px] lg:text-[14px]" v-if="basicAdd">
-      <div class="flex items-center gap-[20px]">
+    <div
+      class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[850px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0"
+      v-if="basicAdd">
+      <div class="md:flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
           + Add image
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
-          <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
+          <div v-for="(file, index) in previewImages" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
-              <img class="w-full h-full" :src="file.url" :alt="file.name" />
+              <img class="w-full h-full" :src="file.previewUrl" :alt="file.name" />
             </div>
             <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">
               X
             </button>
           </div>
-          <span v-if="selectedFiles.length === 0">No Images</span>
+          <span v-if="previewImages.length === 0">No Images</span>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -72,55 +74,55 @@
         </div>
       </div>
 
-      <div class="filter-cars flex flex-wrap gap-[50px] mt-[0px] lg:mt-[50px]">
+      <div class="filter-cars flex flex-wrap gap-[20px] lg:gap-[50px] mt-[40px] lg:mt-[50px]">
         <!-- cabrio -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-[40px] w-[230px]">
+        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-[30px] lg:h-[40px] w-[230px]">
           <input type="radio" v-model="selectedCar" :class="{
             'bg-transparent': selectedCar !== 'Cabrio / Roadster',
             'bg-orange': selectedCar === 'Cabrio / Roadster',
           }" @click="selectCar('Cabrio / Roadster')" />
           <img src="../../../../assets/icons/cabriolet-icon.svg" alt="" class="w-[90px] pt-[20px]" />
-          <span class="text-sm"> Cabrio / Roadster</span>
+          <span class="text-[12px] lg:text-sm"> Cabrio / Roadster</span>
         </label>
         <!-- estate -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]">
+        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-10 w-[230px]">
           <input @click="selectCar('Estate Car')" type="radio" v-model="selectedCar" :class="{
             'bg-transparent': selectedCar !== 'Estate Car',
             'bg-orange': selectedCar === 'Estate Car',
           }" />
           <img src="../../../../assets/icons/estate-car-icon.svg" alt="" class="w-24 pt-[20px]" />
-          <span class="text-sm">Estate Car</span>
+          <span class="text-[12px] lg:text-sm">Estate Car</span>
         </label>
 
         <!-- saloon -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[230px]">
+        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-10 w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Saloon')" :class="{
             'bg-transparent': selectedCar !== 'Saloon',
             'bg-orange': selectedCar === 'Saloon',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../../assets/icons/saloon-car-icon.svg" alt="" class="w-24 pt-[20px]" />
-          <span class="text-sm">Saloon</span>
+          <span class="text-[12px] lg:text-sm">Saloon</span>
         </label>
         <!-- small -->
-        <label class="custom-checkbox p-[0] flex gap-[10px] items-center h-10 w-[210px]20px]">
+        <label class="custom-checkbox p-[0] flex lg:gap-[10px] items-center h-10 w-[210px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Small Car')" :class="{
             'bg-transparent': selectedCar !== 'Small Car',
             'bg-orange': selectedCar === 'Small Car',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../../assets/icons/small-car-icon.svg" alt="" class="w-[75px] pt-[10px]" />
-          <span class="text-sm">Small Car</span>
+          <span class="text-[12px] lg:text-sm">Small Car</span>
         </label>
         <!-- sports -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-8 w-[280px]20px]">
+        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-8 w-[280px]">
           <input type="radio" v-model="selectedCar" @click="selectCar(' Sports Car / Coupe')" :class="{
             'bg-transparent': selectedCar !== ' Sports Car / Coupe',
             'bg-orange': selectedCar === ' Sports Car / Coupe',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-          <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-28 pt-[18px]" />
-          <span class="text-sm"> Sports Car / Coupe</span>
+          <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-24   lg:w-28 pt-[18px]" />
+          <span class="text-[12px] lg:text-sm"> Sports Car / Coupe</span>
         </label>
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
@@ -130,10 +132,10 @@
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../../assets/icons/car-minibus-icon.svg" alt="" class="w-[70px] pt-[8px]" />
-          <span class="text-sm">Van / Minibus</span>
+          <span class="text-[12px] lg:text-sm">Van / Minibus</span>
         </label>
         <!-- off-road -->
-        <label class="custom-checkbox p-[0] gap-[10px] flex items-center h-10 w-[350px]">
+        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-10 w-[350px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('SUV / Off-road Vehicle / Pickup Truck')" :class="{
             'bg-transparent':
               selectedCar !== 'SUV / Off-road Vehicle / Pickup Truck',
@@ -142,7 +144,7 @@
           }" class="form-checkbox h-7 w-7 text-indigo-600" />
 
           <img src="../../../../assets/icons/car-suv-icon.svg" alt="" class="w-20 pt-[18px]" />
-          <span class="text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
+          <span class="text-[12px] lg:text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
         </label>
       </div>
       <div class="flex flex-wrap lg:gap-[30px]">
@@ -504,6 +506,7 @@
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
+
       </div>
       <div class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]">
         <div class="relative mt-2">
@@ -631,7 +634,8 @@
         <h3 class="text-[14px] lg:text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Diesel',
               'bg-orange': selectedFuel === 'Diesel',
@@ -639,7 +643,8 @@
 
             Diesel
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
               'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
@@ -647,7 +652,8 @@
 
             Hybrid (diesel/electric)
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Natural Gas',
               'bg-orange': selectedFuel === 'Natural Gas',
@@ -655,7 +661,8 @@
 
             Natural Gas
           </label>
-          <label class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px] p-0">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Other',
               'bg-orange': selectedFuel === 'Other',
@@ -663,7 +670,8 @@
 
             Other
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Petrol',
               'bg-orange': selectedFuel === 'Petrol',
@@ -671,7 +679,8 @@
 
             Petrol
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Electric',
               'bg-orange': selectedFuel === 'Electric',
@@ -958,7 +967,8 @@
 
             Silver
           </label>
-          <label class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[80px] lg:w-[100px] pb-4 p-0">
+          <label
+            class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[80px] lg:w-[100px] pb-4 p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'White',
               'bg-orange': selectedExteriorColour === 'White',
@@ -1020,7 +1030,8 @@
             <span class="text-sm">Purple</span>
           </label>
 
-          <label class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] lg:w-[100px] pb-[23px] p-0">
+          <label
+            class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] lg:w-[100px] pb-[23px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Metallic',
               'bg-orange': selectedExteriorColour === 'Metallic',
@@ -1722,6 +1733,7 @@ export default {
       isCheckedfromFour: false,
       isCheckedFive: false,
       rating: [],
+      previewImages: [],
       numDoor: "",
       slidingDoor: "",
       isOpenKilometer: "",
@@ -1783,6 +1795,7 @@ export default {
       isCheckedTyre: false,
       isCheckedInduction: false,
       isCheckedSki: false,
+      isCheckedParticulate: false,
       extras: [],
       others: [],
       power: [],
@@ -1921,10 +1934,29 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-  this.selectedFiles = event.target.files;
-},
+      const files = event.target.files;
+      this.selectedFiles = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const previewUrl = e.target.result;
+          this.previewImages.push({
+            name: file.name,
+            previewUrl: previewUrl,
+            file: file, // You can also store the actual File object if needed
+          });
+
+          // Добавьте здесь код для отправки файла на бэкенд, если требуется
+        };
+
+        reader.readAsDataURL(file);
+      }
+    },
+
     removeFile(index) {
-      this.selectedFiles.splice(index, 1);
+      this.previewImages.splice(index, 1);
     },
     toggleShowCheckboxRating(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
@@ -2373,5 +2405,4 @@ input[type="checkbox"]:disabled {
   background-color: #fffaf6;
   border: 1px solid #eaccb4;
   color: #000;
-}
-</style>
+}</style>
