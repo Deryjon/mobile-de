@@ -14,7 +14,6 @@ export const useMachineStore = defineStore('construction', {
 				.post('/constructions/count', this.machineData)
 				.then(response => {
 					this.count = response.data.data.count
-					console.log(response.data.data.count);
 				})
 			
     },

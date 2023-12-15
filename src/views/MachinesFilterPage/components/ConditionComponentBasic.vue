@@ -47,9 +47,11 @@
 </template>
 <script>
 import http from "../../../axios.config";
+import {useMachineStore} from "@/store/machineDataStore"
 export default {
   data() {
     return {
+      machineStore: useMachineStore(),
       isAnySelected: false,
       isNewSelected: false,
       isUsedSelected: false,
@@ -66,21 +68,16 @@ export default {
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_condition: this.selectedCondition,
-					type: this.type
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateMachineData() {
+      const machineStore = useMachineStore();
+      (machineStore.machineData.machine_condition =
+        this.selectedCondition),
+        machineStore.updateMachineData();
     },
 		toggleShowCheckbox(index, typeName) {
       const isChecked = !this.type.includes(typeName);
@@ -92,8 +89,7 @@ export default {
           this.type.splice(typeIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.type)
-			this.fetchData()
+			this.updateMachineData()
     },
     selectCondition(condition) {
       this.selectedCondition = condition;
