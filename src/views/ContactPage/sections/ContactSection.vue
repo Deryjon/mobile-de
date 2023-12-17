@@ -1,11 +1,8 @@
 <template>
   <div class=" ">
-    <v-container class=" max-w-[1140px]">
+    <v-container class="max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
-        <!-- Status Date-->
-        <div class="breadcrumbs flex items-center text-gray-500 text-sm"></div>
-        <!-- breadcrumbs -->
         <div class="headerLabel">Contact</div>
         <div class="ContentDesc">
           Есть ли у вас дополнительные вопросы или вы предпочитаете обсудить
@@ -22,13 +19,16 @@
           Если вы предпочитаете написать сообщение, просто заполните контактную
           форму.
         </div>
-        <div class="contactff">
-          <div class="FFCARD">
-            <di class="FFICON">
-              <i class="fas fa-phone"></i>
-            </di>
+        <div class="contactff ">
+          <div class="flex items-center flex-wrap border p-3 ">
+            <div class="flex ">
 
-            <div class="FFHeader">00212 6 45 17 00 81</div>
+              <di class="FFICON">
+                <i class="fas fa-phone"></i>
+              </di>
+  
+              <div class="FFHeader ">00212 6 45 17 00 81</div>
+            </div>
 
             <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
 
@@ -103,7 +103,6 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 20px;
-  width: 100%;
 }
 
 .FFICON {
@@ -165,10 +164,6 @@ export default {
     max-width: 100%;
   }
 
-  .FFCARD {
-    width: auto;
-    flex: 1 0 100%;
-  }
 
   .FFICON {
     font-size: 24px;

@@ -28,13 +28,16 @@ Every year, thousands of deals are made via Sellcenter. Anywhere payments are ma
 
 All ads are reviewed by Sellcenter's own rules. Every day we refrain from publishing 1000's of ads. We allow e.g. not the sale of medicines, soft air guns or content that can be perceived as offensive as well as sex toys or the like.
         </div>
-        <div class="contactff">
-          <div class="FFCARD">
-            <di class="FFICON">
-              <i class="fas fa-phone"></i>
-            </di>
+        <div class="contactff ">
+          <div class="flex items-center flex-wrap border p-3 ">
+            <div class="flex ">
 
-            <div class="FFHeader">00212 6 45 17 00 81</div>
+              <di class="FFICON">
+                <i class="fas fa-phone"></i>
+              </di>
+  
+              <div class="FFHeader ">00212 6 45 17 00 81</div>
+            </div>
 
             <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
 
