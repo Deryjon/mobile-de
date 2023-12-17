@@ -2,7 +2,9 @@
   <div
     class="set px-[5px] sm:px-[50px] xl:px-[100px] py-[15px] lg:pt-[30px] w-[190px] xs:w-[230px] sm:w-[300px] lg:w-full">
     <div class="your-setting">
-      <h2 class="text-[15px] sm:text-[18px] lg:text-[32px] font-semibold">Your company settings</h2>
+      <h2 class="text-[15px] sm:text-[18px] lg:text-[32px] font-semibold">
+        Your company settings
+      </h2>
     </div>
     <div class="profile w-[190px] xs:w-[230px] sm:w-[300px]  mt-[5px] lg:mt-[30px]">
       <div
@@ -19,7 +21,9 @@
             </svg>
           </div>
           <div class="profile-pic text-[12px] sm:text-[13px] md:text-[14px]">
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Profile picture</p>
+            <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+              Profile picture
+            </p>
             <p class="font-normal">(Only visible for you)</p>
           </div>
         </div>
@@ -45,7 +49,11 @@
           class="w-[170px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
           <div class="flex items-center lg:gap-[20px]">
             <div class="profile-pic">
-              <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Password</p>
+              <p
+                class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+              >
+                Password
+              </p>
               <p class="font-normal text-[14px]">•••••••••••••</p>
             </div>
           </div>
@@ -56,13 +64,20 @@
         </div>
       </div>
 
-      <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[658px] p-[15px] box" v-if="changeLogin">
-        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Company email</p>
+      <div
+        class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[658px] p-[15px] box"
+        v-if="changeLogin"
+      >
+        <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+          Company email
+        </p>
         <div class="email mt-[10px]">
           <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="userECh" />
         </div>
         <div class="current-email mt-[30px] mb-[20px]">
-          <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Change password</p>
+          <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+            Change password
+          </p>
         </div>
         <label for="" class="mt-[10px] text-[14px]">New password </label>
         <div class="new flex mb-[30px]">
@@ -112,20 +127,6 @@
             Save
           </button>
         </div>
-        <!-- <div class="btns flex gap-[10px] justify-end">
-					<button
-						class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-						@click="openDataLogin"
-					>
-						Cancel
-					</button>
-					<button
-						class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-						@click="changeLoginData"
-					>
-						Save
-					</button>
-				</div> -->
       </div>
       <div class="profile mt-[30px]" v-if="changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold">Contact data</h2>
@@ -136,7 +137,11 @@
             v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Company Name</p>
+                <p
+                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+                >
+                  Company Name
+                </p>
                 <p class="font-normal text-[14px]">
                   {{ companyName }}
                 </p>
@@ -148,7 +153,11 @@
             v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Address</p>
+                <p
+                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+                >
+                  Address
+                </p>
                 <p class="font-normal text-[14px]">
                   {{ companyAddStreet }} {{ companyAddNr }} {{ companyAddZip }}
                   {{ companyAddressCity }}
@@ -163,7 +172,11 @@
             v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Phone number</p>
+                <p
+                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+                >
+                  Phone number
+                </p>
                 <p class="font-normal text-[14px]">
                   {{ companyCountryCode }} {{ companyNumberPre }}
                   {{ companyNumber }}
@@ -439,7 +452,7 @@
           <div class="profile">
             <div class="">
               <div class="">
-                <div class="">
+                
                   <div class="changes  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
                     <div class="mark"></div>
                     <div class="flex gap-[20px]">
@@ -450,7 +463,6 @@
                       </div>
                     </div>
                   </div>
-                </div>
               </div>
               <div class="">
                 <div class="">
@@ -720,7 +732,11 @@
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Newsletter</p>
+                <p
+                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+                >
+                  Newsletter
+                </p>
                 <p class="font-normal text-[12px]">
                   I would like to receive emails from mobile.de about offers,
                   surveys and information on products and services from
@@ -743,7 +759,11 @@
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[15px] flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">Market research</p>
+                <p
+                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
+                >
+                  Market research
+                </p>
                 <p class="font-normal text-[12px]">
                   I agree that my data is used for market research.
                 </p>
@@ -760,7 +780,10 @@
     <div class="profile  w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px] mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Delete account</h2>
       <div
+        class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between"
+      >
         class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between">
+
         <div class="sm:flex items-center gap-[20px]">
           <div class="icon w-[30px]">
             <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
@@ -861,6 +884,7 @@ export default {
         const responseData = response.data;
         localStorage.setItem("com-img-prof", responseData.data.user_image_url);
         localStorage.setItem("com-img-alt", responseData.data.user_image_name);
+
 
       });
     },

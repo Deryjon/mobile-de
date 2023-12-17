@@ -1,19 +1,21 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="max-w-[1140px]">
-      <PathLink>Agricultural Filter</PathLink>
-      <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
+      <PathLink>{{ $t("message.payment.agriculturalFilter") }}</PathLink>
+      <FilterTitle>{{ $t("message.payment.detailedSearch") }}</FilterTitle>
       <FilterBtn class="ml-auto" @click="goMotorhomeList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
         </p>
       </FilterBtn>
       <div
-        class="relative filter  md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
+        <h3 class="basic-title text-[25px] font-semibold">
+          {{ $t("message.payment.basicData") }}
+        </h3>
         <div class="line h-[1px] border mt-[10px]"></div>
-				<ConditionComponent/>
+        <ConditionComponent />
         <div
           class="top flex flex-wrap gap-[20px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
         >
@@ -26,7 +28,9 @@
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
               >
-                <option value="" selected>Beliebig</option>
+                <option value="" selected>
+                  {{ $t("message.filter.any") }}
+                </option>
                 <optgroup>
                   <option
                     v-for="make in makes"
@@ -50,12 +54,11 @@
             </h2>
             <input
               class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-             type="text"
+              type="text"
               v-model="selectedModel"
-           />
-                        </div>
+            />
+          </div>
         </div>
-        <!-- <CarFilterComponentBasic /> -->
         <div class="tab-content lg:mt-[-10px] xl:mt-[0px]">
           <div class="buy">
             <PaymentTab1Component />
@@ -101,7 +104,7 @@ export default {
       selectedtoYear: "",
       years: "",
       modelYears: [],
-			inputVariant: "",
+      inputVariant: "",
       modeltoYears: [],
       killometres: "",
       selectedModel: "",

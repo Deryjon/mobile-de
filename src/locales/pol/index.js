@@ -197,5 +197,29 @@ export default {
       construction: "Maszyny budowlane",
       forklift: "Wózki widłowe",
     },
+    about: {
+      about: `Sellcenter.com to największa platforma sprzedażowa, na której znajdziesz wszystko, czego potrzebujesz! Mamy miliony produktów w różnych kategoriach, w tym elektronikę, odzież, akcesoria, kosmetyki i wiele innych.
+      Jesteśmy dumni z oferowania naszym klientom wygody i niezawodności. Ponad 50 000 zarejestrowanych sprzedawców wybiera Sellcenter.com do wystawiania swoich produktów. Stworzyliśmy przyjazny dla użytkownika interfejs, który pozwala szybko i łatwo znaleźć to, czego szukasz - wystarczy wpisać słowa kluczowe lub przejrzeć sekcje produktów.
+      Sellcenter.com oferuje również różne opcje płatności i wysyłki, aby proces zakupów był dla Ciebie jak najwygodniejszy. Na wszystkie produkty udzielamy gwarancji, zapewniając jakość i niezawodność każdego zakupu.
+      Dołącz do nas na Sellcenter.com i spróbuj niesamowitych zakupów. Gwarantujemy, że znajdziesz wszystko, czego potrzebujesz i dokonasz świetnych okazyjnych zakupów. Bycie liderem w branży jest naszym celem i staramy się oferować najlepszą obsługę i najbardziej niesamowite produkty. Wybierz Sellcenter.com dla wszystkich swoich potrzeb związanych z zakupami online!`,
+      withUs: "Z NAMI",
+      employees: "Pracownicy",
+    },
+    payment: {
+      completed: "Płatność została pomyślnie zakończona!",
+      text: "Płatność tekstowa",
+      price: "Cena",
+      back: "Idź do domu",
+      agriculturalFilter: "Filtr rolniczy",
+      detailedSearch: "Wyszukiwanie szczegółowe: Samochody - nowe lub używane",
+      basicData: "Podstawowe dane",
+      features: "Cechy",
+      offerDetails: "Szczegóły oferty",
+      searchDescription: "Wyszukaj opis pojazdu",
+      engine: "Silnik",
+      whriteEmail: "Napisz e-mail",
+      phone: "Telefon",
+      share: "Udział",
+    },
   },
 };
