@@ -14,7 +14,7 @@
         </div>
         <div class="">
           <img
-            src="https://images.prismic.io/shacarlacca/NWQ1Yjc5ZWItYTUxOC00ZDAwLTk5NjMtMzE4MzgyZmJhZWY3__10.jpg?auto=compress%2Cformat&rect=0%2C0%2C1600%2C900&w=1920&ar=1600%3A900"
+            src="../../../assets/images/contact-img.avif"
           />
         </div>
         <div class="ContentDesc">
@@ -28,7 +28,7 @@
               <i class="fas fa-phone"></i>
             </di>
 
-            <div class="FFHeader">030 81097-601</div>
+            <div class="FFHeader">00212 6 45 17 00 81</div>
 
             <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
 
