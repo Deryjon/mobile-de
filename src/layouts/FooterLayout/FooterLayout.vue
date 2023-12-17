@@ -4,13 +4,13 @@
     :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
   >
     <v-container class=" xl:w-[1100px] flex justify-between items-center">
-      <div class="actions flex flex-col  gap-[20px]">
+      <div class="actions flex flex-col lg:gap-[20px]">
         <FooterSocialLinks/>
 				<FooterActions class="hidden lg:flex "/>
         <FooterSwitcherTheme class="hidden lg:flex" />
       </div>
 			<FooterCompanyLinks/>
-			<FooterDealerLogin/>
+			<FooterDealerLogin class="hidden lg:flex"/>
     </v-container>
   </footer>
 </template>

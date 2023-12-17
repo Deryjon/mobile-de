@@ -333,11 +333,11 @@ const router = createRouter({
       name: "constructions-single",
       component: ConstructionSinglePage,
     },
-      {
-        path: "/forklift/:id",
-        name: "forklift-single",
-        component: ForkliftSinglePage,
-      },
+    {
+      path: "/forklift/:id",
+      name: "forklift-single",
+      component: ForkliftSinglePage,
+    },
     {
       path: "/fullnews/:id",
       name: "full-news",
@@ -357,6 +357,12 @@ const router = createRouter({
       path: "/failed-pay",
       name: "failed-pay",
       component: AfterFailedPaymentPage,
+    },
+    {
+      path: "/security-customer",
+      name: "secutiry-customer",
+      component: () =>
+        import("../views/SecurityCustomersPage/SecurityCustomer.vue"),
     },
     {
       path: "/:catchAll(.*)",
