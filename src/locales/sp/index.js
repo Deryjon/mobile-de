@@ -196,5 +196,29 @@ export default {
       construction: "Máquinas de construcción",
       forklift: "Carretillas elevadoras",
     },
+    about: {
+      about: `¡Sellcenter.com es la mayor plataforma de venta donde puedes encontrar todo lo que necesitas! Tenemos millones de productos en una gran variedad de categorías, incluyendo electrónica, ropa, accesorios, cosméticos y mucho más.
+      Nos enorgullecemos de ofrecer comodidad y fiabilidad a nuestros clientes. Más de 50.000 vendedores registrados eligen Sellcenter.com para anunciar sus artículos. Hemos creado una interfaz fácil de usar que hace que sea rápido y sencillo encontrar lo que buscas: sólo tienes que introducir palabras clave o navegar por las secciones de productos.
+      Sellcenter.es también ofrece una variedad de opciones de pago y envío para que el proceso de compra sea lo más cómodo posible para usted. Tenemos garantía en todos los artículos, asegurando la calidad y fiabilidad de cada compra.
+      Únase a nosotros en Sellcenter.com y pruebe una experiencia de compra increíble. Te garantizamos que encontrarás todo lo que necesitas y harás compras a buen precio. Ser líderes del sector es nuestro objetivo y nos esforzamos por ofrecerte el mejor servicio y los productos más sorprendentes. ¡Elija Sellcenter.com para todas sus compras en línea!`,
+      withUs: "CON NOSOTROS",
+      employees: "Empleados",
+    },
+    payment: {
+      completed: "El pago se ha realizado correctamente.",
+      text: "Pago por SMS",
+      price: "Precio",
+      back: "Volver a casa",
+      agriculturalFilter: "Filtro agrícola",
+      detailedSearch: "Búsqueda detallada: Coches - nuevos o usados",
+      basicData: "Datos básicos",
+      features: "Características",
+      offerDetails: "Detalles de la oferta",
+      searchDescription: "Buscar descripción del vehículo",
+      engine: "Motor",
+      whriteEmail: "Escribir correo electrónico",
+      phone: "Teléfono",
+      share: "Compartir",
+    },
   },
 };

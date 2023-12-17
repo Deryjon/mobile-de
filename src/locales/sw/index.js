@@ -197,5 +197,29 @@ export default {
       construction: "Entreprenadmaskiner",
       forklift: "Gaffeltruckar",
     },
+    about: {
+      about: `Sellcenter.com är den största försäljningsplattformen där du kan hitta allt du behöver! Vi har miljontals produkter i en mängd olika kategorier, inklusive elektronik, kläder, accessoarer, kosmetika och mer.
+      Vi är stolta över att erbjuda bekvämlighet och tillförlitlighet till våra kunder. Över 50 000 registrerade säljare väljer Sellcenter.com för att lista sina objekt. Vi har skapat ett användarvänligt gränssnitt som gör det snabbt och enkelt att hitta vad du letar efter - ange bara nyckelord eller bläddra bland produktsektioner.
+      Sellcenter.com erbjuder också en mängd olika betalnings- och fraktalternativ för att göra shoppingprocessen så bekväm som möjligt för dig. Vi har en garanti på alla artiklar, vilket säkerställer kvaliteten och tillförlitligheten för varje köp.
+      Gå med oss på Sellcenter.com och prova en fantastisk shoppingupplevelse. Vi garanterar att du kommer att hitta allt du behöver och göra fantastiska fyndköp. Att vara branschledande är vårt mål och vi strävar efter att erbjuda dig den bästa servicen och de mest fantastiska produkterna. Välj Sellcenter.com för alla dina online shopping behov!`,
+      withUs: "MED OSS",
+      employees: "Anställda",
+    },
+    payment: {
+      completed: "Din betalning har genomförts framgångsrikt!",
+      text: "Betalning av text",
+      price: "Pris",
+      back: "Gå hem",
+      agriculturalFilter: "Filter för jordbruk",
+      detailedSearch: "Detaljerad sökning: Bilar - nya eller begagnade",
+      basicData: "Grundläggande data",
+      features: "Funktioner",
+      offerDetails: "Detaljer om erbjudandet",
+      searchDescription: "Sök efter fordonsbeskrivning",
+      engine: "Motor",
+      whriteEmail: "Skriv e-post",
+      phone: "Telefon",
+      share: "Andel",
+    },
   },
 };

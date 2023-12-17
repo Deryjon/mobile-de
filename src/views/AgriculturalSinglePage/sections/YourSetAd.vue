@@ -1,30 +1,26 @@
 <template>
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
-    <div class=" relative md:hidden  h-[230px] lg:h-[500px] w-full lg:max-w-[700px]">
-
-
-      <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
+    <div class="relative md:hidden h-[230px] lg:h-[500px] w-full lg:max-w-[700px]">
+      <div class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
-
-          <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+          <div class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
             <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
           </div>
-          <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+          <div class="right absolute right-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
             <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
           </div>
         </div>
-
       </div>
-    </div>  
+    </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="agricultural-mark ">{{ agricultural.vehicle_make }}</p>
-        <p class="agricultural-model ">{{ agricultural.vehicle_model }}</p>
+        <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
+        <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
       </div>
       <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
         €
@@ -38,7 +34,9 @@
         <p class="name">DE-33602 Bielefeld</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">Phone: {{ agricultural.user_phone }}</p>
+        <p class="name">
+          {{ $t("message.payment.phone") }}: {{ agricultural.user_phone }}
+        </p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
@@ -48,7 +46,7 @@
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Write Email
+          {{ $t("message.payment.whriteEmail") }}
         </button>
         <div>
           <button @click="toggleShareMenu" v-if="!isShareMenuOpen"
@@ -59,7 +57,7 @@
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
             </svg>
-            Share
+            {{ $t("message.payment.share") }}
           </button>
           <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[5px]">
             <button @click="shareOnWhatsApp">
@@ -83,30 +81,25 @@
 
           </div>
         </div>
-      </div>  
+      </div>
     </div>
-    <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:lg:max-w-[700px] rounded-[4px] mt-[10px] ">
-
-      <div class=" relative hidden md:block  h-[230px] lg:h-[400px] w-full lg:lg:max-w-[700px]">
-
-
-        <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
+    <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:lg:max-w-[700px] rounded-[4px] mt-[10px]">
+      <div class="relative hidden md:block h-[230px] lg:h-[400px] w-full lg:lg:max-w-[700px]">
+        <div class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:max-w-[700px]">
           <img v-for="(image, index) in images" :key="index" :src="image"
             :class="{ 'slider-item': true, active: activeIndex === index }"
-            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute duration-500 object-cover" />
           <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
-
-            <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+            <div class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
               <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
             </div>
-            <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+            <div class="right absolute right-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
               <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
             </div>
           </div>
-
         </div>
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-0">
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[60px] lg:mt-0">
         <div class="registration flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -121,7 +114,9 @@
           </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">First Registration</p>
-            <p class="text-[12px] font-medium lg:font-bold">{{ agricultural.vehicle_firt_date }}</p>
+            <p class="text-[12px] font-medium lg:font-bold">
+              {{ agricultural.vehicle_firt_date }}
+            </p>
           </div>
         </div>
         <div class="power flex w-[150px] gap-[5px]">
@@ -147,7 +142,9 @@
           </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">Power</p>
-            <p class="text-[12px] font-medium lg:font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
+            <p class="text-[12px] font-medium lg:font-bold">
+              {{ powerInkW }} kW ({{ powerInHp }} Hp)
+            </p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
@@ -166,41 +163,57 @@
           </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">Operating Hours</p>
-            <p class="text-[12px] font-medium lg:font-bold">{{ agricultural.vehicle_operating_hours }}</p>
+            <p class="text-[12px] font-medium lg:font-bold">
+              {{ agricultural.vehicle_operating_hours }}
+            </p>
           </div>
         </div>
       </div>
       <div class="technical-data bor p-[20px]">
-        <p class="title text-[16px] lg:text-[22px] font-semibold">Technical data</p>
+        <p class="title text-[16px] lg:text-[22px] font-semibold">
+          Technical data
+        </p>
         <div class="line mt-[10px]"></div>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Category</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              Category
+            </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ agricultural.vehicle_category }}
             </p>
           </div>
           <div class="cubic flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Air Conditioning</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              Air Conditioning
+            </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ agricultural.vehicle_air_conditioning }}
             </p>
           </div>
           <div class="power flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Power</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              Power
+            </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ powerInkW }} kW ({{ powerInHp }} Hp)
             </p>
           </div>
           <div class="availability flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Emissions Sticker</p>
-            <p class="w-[288px] text-[11px] lg:text-[14px]">{{ agricultural.vehicle_emissions_sticker }}</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              Emissions Sticker
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ agricultural.vehicle_emissions_sticker }}
+            </p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
               First Registration
             </p>
-            <p class="w-[288px] text-[11px] lg:text-[14px]">{{ agricultural.vehicle_firt_date }}</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ agricultural.vehicle_firt_date }}
+            </p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">HU</p>
@@ -229,9 +242,7 @@
         </div>
       </div>
       <div class="description bor p-[20px]">
-        <p class="font-semibold">
-          Vehicle description according to seller
-        </p>
+        <p class="font-semibold">Vehicle description according to seller</p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px]">
           <P class=""> {{ agricultural.vehicle_describtion }} </P>
@@ -255,7 +266,9 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">Phone: {{ agricultural.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">
+            Phone: {{ agricultural.user_phone }}
+          </p>
         </div>
         <div class="line mt-[10px]"></div>
 
@@ -266,9 +279,14 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[65px] xl:right-[225px]': isScrolled }"
-      :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
+      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[189px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{
+        'fixed right-[25px]  w-[120px] lg:right-[65px] xl:right-[225px]':
+          isScrolled,
+      }" :style="{
+  position: isScrolled ? 'fixed' : 'static',
+  top: isScrolled ? '0' : 'auto',
+}">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
@@ -284,9 +302,6 @@
       <div class="name-seller mt-[20px]">
         <p class="name">{{ agricultural.vehicler_vendor }}</p>
       </div>
-      <div class="name-seller">
-        <p class="name">DE-33602 Bielefeld</p>
-      </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">Phone: {{ agricultural.user_phone }}</p>
       </div>
@@ -298,7 +313,7 @@
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Write Email
+          {{ $t("message.payment.whriteEmail") }}
         </button>
         <div>
           <button
@@ -310,7 +325,7 @@
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
             </svg>
-            Share
+            {{ $t("message.payment.share") }}
           </button>
           <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[2px]">
             <button @click="shareOnWhatsApp">
@@ -391,7 +406,6 @@ export default {
     goWriteEmail(userEmail) {
       const websiteUrl = `mailto:${userEmail}`;
       window.location.href = websiteUrl;
-
     },
     // codes
     contactAd() {
@@ -403,7 +417,7 @@ export default {
         this.agricultural = res.data.data;
         this.horsepower = this.agricultural.vehicle_power;
         this.images = this.agricultural.vehicle_images_url;
-        this.isLoading = false
+        this.isLoading = false;
       });
     },
     fetchUser() {
@@ -422,10 +436,12 @@ export default {
     handleScroll() {
       if (window.scrollY >= 150 && window.scrollY <= 1750 && !this.isScrolled) {
         this.isScrolled = true;
-      } else if ((window.scrollY < 150 || window.scrollY > 1750) && this.isScrolled) {
+      } else if (
+        (window.scrollY < 150 || window.scrollY > 1750) &&
+        this.isScrolled
+      ) {
         this.isScrolled = false;
       }
-
     },
     removeScrollListener() {
       window.removeEventListener("scroll", this.handleScroll);
@@ -500,7 +516,7 @@ export default {
     SettingsTab,
     OverviewTab,
     MyAdCarsTab,
-    TheLoader
+    TheLoader,
   },
   created() {
     this.userI = localStorage.getItem("u-i");
@@ -595,11 +611,9 @@ export default {
   font-size: 1.3em;
 }
 
-
 .slider-item.active {
   opacity: 1;
 }
-
 
 .vat {
   font-size: 0.9em;

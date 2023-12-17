@@ -4,7 +4,9 @@
       <div
         class="relative filter xl:h-[800px] lg:h-[850px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[0] lg:mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Offer details</h3>
+        <h3 class="basic-title text-[25px] font-semibold">
+          {{ $t("message.payment.offerDetails") }}
+        </h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <VendorComponent />
         <AdOnlineSinceComponent />
@@ -12,13 +14,12 @@
         <DamagedVehiclesComponent />
         <div class="search mt-[30px] pl-[21px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">
-            Search vehicle description
+            {{ $t("message.payment.searchDescription") }}
           </h2>
           <div class="marke_select_div relative mt-[10px]">
             <input
               placeholder="e.g. drive mode switch, LTE, thermal glazing ..."
               class="mark_input mark-select w-full lg:w-[150px] xl:w-[435px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] text-[14px] font-normal pr-[30px]"
-             
             />
           </div>
         </div>
@@ -37,9 +38,7 @@ import AdOnlineSinceComponent from "../components/AdOnlineSinceComponent.vue";
 import DamagedVehiclesComponent from "../components/DamagedVehiclesComponent.vue";
 export default {
   data() {
-    return {
-
-    };
+    return {};
   },
   components: {
     PathLink,
@@ -53,7 +52,7 @@ export default {
 };
 </script>
 
-<style >
+<style>
 .arrow {
   transform: translateY(-50%);
   border-top: 2px solid #000;

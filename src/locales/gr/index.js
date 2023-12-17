@@ -197,5 +197,29 @@ export default {
       construction: "Baumaschinen",
       forklift: "Gabelstapler",
     },
+    about: {
+      about: `Sellcenter.com ist die größte Verkaufsplattform, wo Sie alles finden können, was Sie brauchen! Wir haben Millionen von Produkten in einer Vielzahl von Kategorien wie Elektronik, Kleidung, Accessoires, Kosmetik und mehr.
+      Wir sind stolz darauf, unseren Kunden Komfort und Zuverlässigkeit zu bieten. Über 50.000 registrierte Verkäufer wählen Sellcenter.com, um ihre Artikel anzubieten. Wir haben eine benutzerfreundliche Schnittstelle, die es schnell und einfach zu finden, was Sie suchen - geben Sie einfach Schlüsselwörter oder durchsuchen Sie Produktbereiche.
+      Sellcenter.com bietet auch eine Vielzahl von Zahlungs-und Versandoptionen, um den Einkaufsprozess so bequem wie möglich für Sie zu machen. Wir haben eine Garantie auf alle Artikel, um die Qualität und Zuverlässigkeit eines jeden Kaufs zu gewährleisten.
+      Schließen Sie sich uns an Sellcenter.com und versuchen Sie eine erstaunliche Einkaufserfahrung. Wir garantieren Ihnen, dass Sie alles finden werden, was Sie brauchen, und dass Sie tolle Schnäppchen machen können. Unser Ziel ist es, ein Branchenführer zu sein, und wir bemühen uns, Ihnen den besten Service und die erstaunlichsten Produkte zu bieten. Wählen Sie Sellcenter.com für alle Ihre Online-Shopping-Bedürfnisse!`,
+      withUs: "MIT UNS",
+      employees: "Mitarbeiter",
+    },
+    payment: {
+      completed: "Ihre Zahlung wurde erfolgreich abgeschlossen!",
+      text: "Text Zahlung",
+      price: "Preis",
+      back: "Nach Hause gehen",
+      agriculturalFilter: "Landwirtschaftliche Filter",
+      detailedSearch: "Detailsuche: Pkw - neu oder gebraucht",
+      basicData: "Grundlegende Daten",
+      features: "Eigenschaften",
+      offerDetails: "Details zum Angebot",
+      searchDescription: "Fahrzeugbeschreibung suchen",
+      engine: "Motor",
+      whriteEmail: "E-Mail schreiben",
+      phone: "Telefon",
+      share: "Teilen Sie",
+    },
   },
 };
