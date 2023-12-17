@@ -1,47 +1,23 @@
 <template>
   <TheLoader v-if="isLoading" />
-  <v-container
-    class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative"
-    v-else
-  >
-    <div
-      class="relative md:hidden h-[230px] lg:h-[500px] w-full lg:max-w-[700px]"
-    >
-      <div
-        class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:w-[600px]"
-      >
-        <img
-          v-for="(image, index) in images"
-          :key="index"
-          :src="image"
+  <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
+    <div class="relative md:hidden h-[230px] lg:h-[500px] w-full lg:max-w-[700px]">
+      <div class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:w-[600px]">
+        <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute duration-500 object-cover"
-        />
+          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
-          <div
-            class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]"
-            @click="prevSlide()"
-          >
-            <img
-              src="../../../assets/icons/button-icon-dark-left.svg"
-              class="w-full h-full object-cover"
-            />
+          <div class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+            <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
           </div>
-          <div
-            class="right absolute right-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]"
-            @click="nextSlide()"
-          >
-            <img
-              src="../../../assets/icons/button-icon-dark-right.svg"
-              class="w-full h-full object-cover"
-            />
+          <div class="right absolute right-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+            <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
           </div>
         </div>
       </div>
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-    >
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
@@ -62,134 +38,75 @@
           {{ $t("message.payment.phone") }}: {{ agricultural.user_phone }}
         </p>
       </div>
-      <button
-        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]"
-        @click="goWriteEmail(agricultural.user_email)"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 512 512"
-          fill="#ffffff"
-        >
-          <path
-            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-          />
-        </svg>
-        {{ $t("message.payment.whriteEmail") }}
-      </button>
-      <div class="flex gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
+      <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
-          class="bg-transparent m-0 bor rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[15%] lg:w-[50%] text-[#08829a] flex items-center gap-[1px] lg:gap-[5px]"
-        >
-          <svg
-            class="nQao3 hcDLf YgmFC"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
+          class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
+          @click="goWriteEmail(car.user_email)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M5 1h14a1 1 0 011 1v20.191a.5.5 0 01-.724.447L12 19l-7.276 3.638A.5.5 0 014 22.191V2a1 1 0 011-1zm4 4v10h2v-3h2c3 0 3-2 3-3.5S16 5 13 5H9zm2 2h2c1 0 1 1 1 1.5s0 1.5-1 1.5h-2V7z"
-              fill="currentColor"
-            ></path>
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Park
+          {{ $t("message.payment.whriteEmail") }}
         </button>
-        <button
-          class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[13%] lg:w-[50%] text-white"
-          @click="contactAd"
-        >
-          <svg
-            class="nQao3 hcDLf YgmFC"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-              fill="currentColor"
-            ></path>
-          </svg>
-          {{ $t("message.payment.share") }}
-        </button>
+        <div>
+          <button @click="toggleShareMenu" v-if="!isShareMenuOpen"
+            class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px]  lg:py-[12px] p-[10px]  lg:px-[13%] lg:w-[50%] text-white">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
+                fill="currentColor"></path>
+            </svg>
+            {{ $t("message.payment.share") }}
+          </button>
+          <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[5px]">
+            <button @click="shareOnWhatsApp">
+              <img src="../../../assets/icons/whatsapp.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnTelegram">
+              <img src="../../../assets/icons/telegram.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnFacebook">
+              <img src="../../../assets/icons/facebook.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnTwitter">
+              <img src="../../../assets/icons/twitter.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnLinkedIn">
+              <img src="../../../assets/icons/linkedin.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="copyLinkToClipboard" class="w-[25px] ">
+              <i class="far fa-copy"></i>
+            </button>
+
+          </div>
+        </div>
       </div>
     </div>
-    <div
-      class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:lg:max-w-[700px] rounded-[4px] mt-[10px]"
-    >
-      <div
-        class="relative hidden md:block h-[230px] lg:h-[400px] w-full lg:lg:max-w-[700px]"
-      >
-        <div
-          class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:max-w-[700px]"
-        >
-          <img
-            v-for="(image, index) in images"
-            :key="index"
-            :src="image"
+    <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:lg:max-w-[700px] rounded-[4px] mt-[10px]">
+      <div class="relative hidden md:block h-[230px] lg:h-[400px] w-full lg:lg:max-w-[700px]">
+        <div class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:max-w-[700px]">
+          <img v-for="(image, index) in images" :key="index" :src="image"
             :class="{ 'slider-item': true, active: activeIndex === index }"
-            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute duration-500 object-cover"
-          />
-          <div
-            class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between"
-          >
-            <div
-              class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]"
-              @click="prevSlide()"
-            >
-              <img
-                src="../../../assets/icons/button-icon-dark-left.svg"
-                class="w-full h-full object-cover"
-              />
+            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute duration-500 object-cover" />
+          <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
+            <div class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+              <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
             </div>
-            <div
-              class="right absolute right-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]"
-              @click="nextSlide()"
-            >
-              <img
-                src="../../../assets/icons/button-icon-dark-right.svg"
-                class="w-full h-full object-cover"
-              />
+            <div class="right absolute right-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+              <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
             </div>
           </div>
         </div>
       </div>
-      <div
-        class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[60px] lg:mt-0"
-      >
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[60px] lg:mt-0">
         <div class="registration flex w-[150px] gap-[5px]">
-          <svg
-            class="SvgIcon__1H1VO"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
+          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
-                d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z"
-              ></path>
+                d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z">
+              </path>
               <path d="M31 23V19H27V23H31Z"></path>
               <path d="M35 15H5"></path>
               <path d="M28 5V9M12 9V5"></path>
@@ -203,41 +120,24 @@
           </div>
         </div>
         <div class="power flex w-[150px] gap-[5px]">
-          <svg
-            class="SvgIcon__1H1VO"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
-            <g
-              stroke="currentColor"
-              stroke-linecap="round"
-              fill="none"
-              stroke-width="2"
-            >
+          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g stroke="currentColor" stroke-linecap="round" fill="none" stroke-width="2">
               <path
-                d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9"
-              ></path>
+                d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
+              </path>
               <path
-                d="M20.0001 24.55C21.4084 24.55 22.5501 23.4083 22.5501 22C22.5501 20.5917 21.4084 19.45 20.0001 19.45C18.5917 19.45 17.4501 20.5917 17.4501 22C17.4501 23.4083 18.5917 24.55 20.0001 24.55Z"
-              ></path>
+                d="M20.0001 24.55C21.4084 24.55 22.5501 23.4083 22.5501 22C22.5501 20.5917 21.4084 19.45 20.0001 19.45C18.5917 19.45 17.4501 20.5917 17.4501 22C17.4501 23.4083 18.5917 24.55 20.0001 24.55Z">
+              </path>
               <path d="M22.125 24.125L25.1 27.1"></path>
               <path
                 d="M26.4397 24.1896C26.6726 23.5011 26.8001 22.765 26.8001 22C26.8001 20.1215 26.0385 18.4215 24.8069 17.189"
-                stroke-width="1.5"
-              ></path>
+                stroke-width="1.5"></path>
               <path
                 d="M29.0186 26.7685C29.7751 25.3456 30.2001 23.7221 30.2001 22C30.2001 18.0067 27.9051 14.5489 24.562 12.8744"
-                stroke-width="1.6"
-              ></path>
-              <path
-                d="M31.5047 29.2556C32.8307 27.1561 33.6 24.6673 33.6 22C33.6 14.4886 27.5114 8.40002 20 8.40002"
-                stroke-width="1.7"
-              ></path>
+                stroke-width="1.6"></path>
+              <path d="M31.5047 29.2556C32.8307 27.1561 33.6 24.6673 33.6 22C33.6 14.4886 27.5114 8.40002 20 8.40002"
+                stroke-width="1.7"></path>
             </g>
           </svg>
           <div class="kilomet">
@@ -248,34 +148,17 @@
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
-          <svg
-            class="SvgIcon__1H1VO"
-            width="40"
-            height="40"
-            viewBox="0 0 40 40"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
-            <g
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linejoin="round"
-            >
+          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+              <path d="M31 17C31 24.1797 26.0751 30 20 30C13.9249 30 9 24.1797 9 17" stroke-linecap="round"></path>
               <path
-                d="M31 17C31 24.1797 26.0751 30 20 30C13.9249 30 9 24.1797 9 17"
-                stroke-linecap="round"
-              ></path>
-              <path
-                d="M8 13C8 6.5 13.6667 5 15.5 5C17 4.33333 18 3 23 3C28 3 32 6.5 32 12C32 15.2 31 17 31 17C30 14.5 27.2 13.5 26 13.5H17C15.8 13.5 14.8334 12.1667 14.5 11.5C14.3334 12.1667 13.7 13.8 12.5 15C11.3 16.2 9.66664 16.8333 8.99993 17C8.99993 17 8 17 8 13Z"
-              ></path>
+                d="M8 13C8 6.5 13.6667 5 15.5 5C17 4.33333 18 3 23 3C28 3 32 6.5 32 12C32 15.2 31 17 31 17C30 14.5 27.2 13.5 26 13.5H17C15.8 13.5 14.8334 12.1667 14.5 11.5C14.3334 12.1667 13.7 13.8 12.5 15C11.3 16.2 9.66664 16.8333 8.99993 17C8.99993 17 8 17 8 13Z">
+              </path>
               <path d="M17 29.5L13 34H27L23 29.5"></path>
               <path
                 d="M3 39L3.99423 36.5144C4.60168 34.9958 6.07251 34 7.70813 34H32.2919C33.9275 34 35.3983 34.9958 36.0058 36.5144L37 39"
-                stroke-linecap="round"
-              ></path>
+                stroke-linecap="round"></path>
             </g>
           </svg>
           <div class="kilomet">
@@ -341,36 +224,27 @@
       <div class="features bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">Features</p>
         <div class="line mt-[10px]"></div>
-        <div
-          class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold"
-        >
-          <div class="w-[297px]">ABS</div>
-          <div class="w-[297px]">Adaptive Cruise Control</div>
-          <div class="w-[297px]">Adaptive lighting</div>
-          <div class="w-[297px]">Air suspension</div>
-          <div class="w-[297px]">Alloy wheels</div>
-          <div class="w-[297px]">Ambient lighting</div>
-          <div class="w-[297px]">Android Auto</div>
-          <div class="w-[297px]">Apple CarPlay</div>
-          <div class="w-[297px]">Arm rest</div>
-          <div class="w-[297px]">Autom. dimming interior mirror</div>
-          <div class="w-[297px]">Blind spot assist</div>
-          <div class="w-[297px]">Bluetooth</div>
-        </div>
-        <div class="btn show-more w-[8%] mx-auto cursor-pointer">
-          <p
-            class="show text-[#e04b00] mt-[20px] text-[11px] lg:text-[14px] underline"
-          >
-            Show all
-          </p>
+        <div class="flex flex-wrap  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
+          <div v-for="item in agricultural.vehicle_features" class="flex justify-between w-[297px]">
+            <p class="">{{ item }} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+          </div>
+          <div v-for="item in agricultural.vehicle_interior_features" class="flex justify-between w-[297px]">
+            <p class="">{{ item }} </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+              <path
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+          </div>
         </div>
       </div>
       <div class="description bor p-[20px]">
         <p class="font-semibold">Vehicle description according to seller</p>
         <div class="line mt-[10px]"></div>
-        <div
-          class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px]"
-        >
+        <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px]">
           <P class=""> {{ agricultural.vehicle_describtion }} </P>
         </div>
       </div>
@@ -409,15 +283,11 @@
       :class="{
         'fixed right-[25px]  w-[120px] lg:right-[65px] xl:right-[225px]':
           isScrolled,
-      }"
-      :style="{
-        position: isScrolled ? 'fixed' : 'static',
-        top: isScrolled ? '0' : 'auto',
-      }"
-    >
-      <div
-        class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold"
-      >
+      }" :style="{
+  position: isScrolled ? 'fixed' : 'static',
+  top: isScrolled ? '0' : 'auto',
+}">
+      <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
       </div>
@@ -432,74 +302,53 @@
       <div class="name-seller mt-[20px]">
         <p class="name">{{ agricultural.vehicler_vendor }}</p>
       </div>
-      <div class="name-seller">
-        <p class="name">DE-33602 Bielefeld</p>
-      </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">Phone: {{ agricultural.user_phone }}</p>
       </div>
-      <button
-        class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] mt-[20px]"
-        @click="goWriteEmail(agricultural.user_email)"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 512 512"
-          fill="#ffffff"
-        >
-          <path
-            d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"
-          />
-        </svg>
-        Write Email
-      </button>
-      <div class="flex gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
+      <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
-          class="bg-transparent m-0 bor rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[15%] lg:w-[50%] text-[#08829a] flex items-center gap-[1px] lg:gap-[5px]"
-        >
-          <svg
-            class="nQao3 hcDLf YgmFC"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
+          class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
+          @click="goWriteEmail(car.user_email)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M5 1h14a1 1 0 011 1v20.191a.5.5 0 01-.724.447L12 19l-7.276 3.638A.5.5 0 014 22.191V2a1 1 0 011-1zm4 4v10h2v-3h2c3 0 3-2 3-3.5S16 5 13 5H9zm2 2h2c1 0 1 1 1 1.5s0 1.5-1 1.5h-2V7z"
-              fill="currentColor"
-            ></path>
+              d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Park
+          {{ $t("message.payment.whriteEmail") }}
         </button>
-        <button
-          class="mt-0 flex items-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px] lg:py-[12px] px-[5%] lg:px-[13%] lg:w-[50%] text-white"
-          @click="contactAd"
-        >
-          <svg
-            class="nQao3 hcDLf YgmFC"
-            width="16"
-            height="16"
-            viewBox="0 0 24 24"
-            focusable="false"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-              fill="currentColor"
-            ></path>
-          </svg>
-          Share
-        </button>
+        <div>
+          <button
+            class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[170px]  text-white"
+            @click="toggleShareMenu" v-if="!isShareMenuOpen">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg" fill="none">
+              <path fill-rule="evenodd" clip-rule="evenodd"
+                d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
+                fill="currentColor"></path>
+            </svg>
+            {{ $t("message.payment.share") }}
+          </button>
+          <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[2px]">
+            <button @click="shareOnWhatsApp">
+              <img src="../../../assets/icons/whatsapp.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnTelegram">
+              <img src="../../../assets/icons/telegram.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnFacebook">
+              <img src="../../../assets/icons/facebook.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnTwitter">
+              <img src="../../../assets/icons/twitter.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="shareOnLinkedIn">
+              <img src="../../../assets/icons/linkedin.svg" alt="" class="w-[25px] ">
+            </button>
+            <button @click="copyLinkToClipboard">
+              <i class="far fa-copy"></i>
+            </button>
+
+          </div>
+        </div>
       </div>
     </div>
   </v-container>
@@ -530,6 +379,8 @@ export default {
       activeIndex: 0,
       images: [],
       intervalId: null,
+      isShareMenuOpen: false,
+      currentUrl: window.location.href,
     };
   },
   methods: {
@@ -594,6 +445,63 @@ export default {
     },
     removeScrollListener() {
       window.removeEventListener("scroll", this.handleScroll);
+    },
+    toggleShareMenu() {
+      this.isShareMenuOpen = !this.isShareMenuOpen;
+    },
+    closeShareMenu() {
+      this.isShareMenuOpen = false;
+    },
+    shareOnWhatsApp() {
+      const url = `https://wa.me/?text=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnInstagram() {
+      const caption = encodeURIComponent('Check out this link: ' + this.currentUrl);
+      const url = `https://www.instagram.com/create/caption/?text=${caption}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnFacebook() {
+      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnTelegram() {
+      const url = `https://t.me/share/url?url=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnTwitter() {
+      const url = `https://twitter.com/intent/tweet?url=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    shareOnLinkedIn() {
+      const url = `https://www.linkedin.com/shareArticle?url=${encodeURIComponent(this.currentUrl)}`;
+      window.open(url, '_blank');
+      this.closeShareMenu();
+    },
+    copyLinkToClipboard() {
+      const el = document.createElement('textarea');
+      el.value = this.currentUrl;
+      document.body.appendChild(el);
+
+      // Создаем Range и выделяем текст
+      const range = document.createRange();
+      range.selectNode(el);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+
+      // Копируем текст в буфер обмена
+      document.execCommand('copy');
+
+      // Убираем созданный элемент
+      document.body.removeChild(el);
+
+      console.log('Link copied to clipboard');
+      this.closeShareMenu();
     },
   },
   mounted() {

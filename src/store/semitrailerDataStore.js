@@ -3,7 +3,6 @@ import http from "../axios.config"
 export const useSemiTrailerStore = defineStore('semitrailer', {
   state: () => ({
     semitrailerData: {
-			truck: "",
     },
 		count: "0"
   }),

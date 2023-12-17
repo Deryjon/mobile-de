@@ -15,7 +15,7 @@
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
         <div
-          class="top flex flex-wrap gap-[10px]  sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
+          class="top flex flex-wrap gap-[10px]   items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -25,9 +25,8 @@
               <select
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
-                @change="fetchModels()"
               >
-                <option value="14600" selected>Beliebig</option>
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option
                     v-for="make in makes"
@@ -204,8 +203,6 @@ export default {
         this.selectedCategory),
       (trailerStore.trailerData.trailer_make =
         this.selectedMark),
-      (trailerStore.trailerData.trailer_model =
-        this.selectedModel),
       (trailerStore.trailerData.trailer_model =
         this.selectedModel),
         trailerStore.updateTrailerData();

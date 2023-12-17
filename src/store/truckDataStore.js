@@ -3,7 +3,6 @@ import http from "../axios.config"
 export const useTruckStore = defineStore('truck', {
   state: () => ({
     truckData: {
-			truck: "",
     },
 		count: "0"
   }),

@@ -107,6 +107,7 @@
   </div>
 </template>
 <script>
+import { useVanStore } from "../../../store/vanDataStore";
 import http from "../../../axios.config";
 export default {
   data() {
@@ -117,20 +118,16 @@ export default {
   watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateVanData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_air_conditioning: this.selectedCondition,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.van_air_conditioning =
+        this.selectedTransmision),
+        vanStore.updateVanData();
     },
     selectAirbag(condition) {
       this.selectedCondition = condition;

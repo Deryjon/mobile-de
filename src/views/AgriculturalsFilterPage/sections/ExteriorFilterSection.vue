@@ -4,10 +4,9 @@
       <div
         class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[5px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">
-          {{ $t("message.payment.features") }}
-        </h3>
-        <div class="line h-[1px] border mt-[10px]"></div>
+
+        <h3 class="basic-title text-[25px] font-semibold">{{ $t("message.payment.features") }}</h3>
+        <div class="line h-[1px] border mt-[10px]"></div>	
         <CarFilterComponentExteriror />
       </div>
     </v-container>
@@ -29,7 +28,7 @@ export default {
     return {
       makes: [],
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedMake: "",
       selectedPrice: "",
       isModelSelectDisabled: false,

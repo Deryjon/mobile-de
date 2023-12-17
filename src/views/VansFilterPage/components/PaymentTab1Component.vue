@@ -224,7 +224,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[170px]  h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="yearsTo"
             @focus="openYearsToDropdown"
@@ -724,7 +724,7 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
-import { useVanStore } from "../../../store/vanDataStore";
+import { useVanStore } from "@/store/vanDataStore";
 export default {
   setup() {
     const isCheckedHistory = ref(false);

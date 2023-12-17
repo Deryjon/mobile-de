@@ -36,17 +36,17 @@
         </div>
       </div>
     </div>
-    <div class="profile mt-[10px] lg mt-[5px]:lg:mt-[30px]">
+    <div class="profile mt-[10px] lg:mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">
         {{ $t("message.profile.loginData") }}
       </h2>
-      <div class="box" v-if="!changeLogin">
+      <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="!changeLogin">
         <div
           class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
           <div class="flex items-center gap-[20px] text-[12px] sm:text-[13px] md:text-[14px]">
-            <div class="profile-pic">
-              <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">{{ $t("message.register.email") }}</p>
-              <p class="font-normal text-[14px]">{{ userE }}</p>
+            <div class="profile-pic w-full">
+              <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium ">{{ $t("message.register.email") }}</p>
+              <p class="font-normal text-[12px] lg:text-[14px]">{{ userE }}</p>
             </div>
           </div>
         </div>
@@ -144,9 +144,9 @@
         <h2 class="text-[14px] lg:text-[26px] font-semibold">
           {{ $t("message.profile.cantactData") }}
         </h2>
-        <div class="box">
+        <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
           <div
-            class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] h-[84px] p-[5px] sm:flex items-center justify-between"
+            class=" h-[84px] p-[5px] sm:flex items-center justify-between"
             v-if="!nameChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
@@ -163,8 +163,8 @@
               {{ $t("message.profile.complete") }}
             </button>
           </div>
-          <div class="" v-if="nameChange">
-            <div class="  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full  lg:w-[656px]  p-[5px] lg:p-[15px]">
+          <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="nameChange">
+            <div class="p-[5px] lg:p-[15px]">
               <div class="complete ">
                 <p>{{ $t("message.profile.completeName") }}</p>
               </div>
@@ -243,8 +243,7 @@
               <div class="changes w-full lg:w-[600px]  p-[20px]">
                 <div class="top lg:flex lg:flex-wrap items-center gap-[40px] w-full lg:w-[600px]">
 
-                  <div class=" w-
-                    [120px] lg:w-[140px] mt-2">
+                  <div class=" w-[120px] lg:w-[140px] mt-2">
                     <h2 class="text-sm lg:text-[14px]">
                       {{ $t("message.profile.street") }}
                     </h2>
@@ -357,9 +356,6 @@
                   <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
                 </div>
                 </div>
-
-                
-
                 <div class="btns flex sm:gap-[10px] justify-between  sm:justify-end mt-[40px]">
                   <button
                     class="custom-file-label bg-[#fff] p-[5px] sm:px-[10px]  sm:py-[8px] rounded-[8px] text-[#094559]"
@@ -509,7 +505,7 @@
             </div>
           </div>
         </div>
-        <div class="profile mt-[5px] lg:mt-[30px]">
+        <div class="profile mt-[5px] lg:mt-[30px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
           <h2 class="text-[14px] lg:text-[26px] font-semibold">
             {{ $t("message.profile.docs") }}
           </h2>
@@ -535,11 +531,11 @@
             </div>
           </div>
         </div>
-        <div class="profile mt-[5px] lg:mt-[30px]">
+        <div class="profile mt-[5px] lg:mt-[30px] ">
           <h2 class="text-[14px] lg:text-[26px] font-semibold">
             {{ $t("message.profile.privacy") }}
           </h2>
-          <div class="box">
+          <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
             <div
               class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[120px] p-[5px] sm:flex items-center justify-between">
               <div class=" lg:w-[656px] lg:p-[15px] flex items-center justify-between">
@@ -555,18 +551,18 @@
                 </div>
               </div>
               <button
-                class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
+                class="complete bg-[#fff] w-[100px] lg:w-[141px] p-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
               >
                 {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
-          <div class="box">
+          <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
             <div
-              class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
+              class="lg:w-[656px] h-[120px] p-[5px] lg:p-[15px] lg:flex items-center justify-between"
             >
-              <div class="w-[656px] p-[15px] flex items-center justify-between">
-                <div class="flex items-center gap-[20px]">
+              <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:p-[15px] flex items-center justify-between">
+                <div class="md:flex items-center gap-[20px]">
 
                   <div class="profile-pic w-[185px] lg:w-[250px]">
                     <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
@@ -580,13 +576,13 @@
                 </div>
               </div>
               <button
-                class="complete bg-[#fff] w-[100px] lg:w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+                class="complete bg-[#fff] w-[100px] lg:w-[141px] p-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                 {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
         </div>
-        <div class="profile mt-[5px] lg mt-[5px]:lg:mt-[30px]">
+        <div class="profile mt-[5px] lg mt-[5px]:lg:mt-[30px] ">
           <h2 class="text-[14px] lg:text-[26px] font-semibold">
             {{ $t("message.profile.delete") }}
           </h2>

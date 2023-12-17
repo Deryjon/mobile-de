@@ -13,7 +13,7 @@
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
-        <div class="top flex flex-wrap gap-[15px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]">
+        <div class="top flex flex-wrap gap-[15px]  items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]">
           <div class="mark">
             <div class="relative mt-2">
               <h2 class="text-sm lg:text-[14px]">
@@ -129,7 +129,7 @@ export default {
   },
   data() {
     return {
-      forkliftStore: useForkliftStore(),		
+      forkliftStore: useForkliftStore(),
       makes: [],
       models: [],
       selectedMark: "",
@@ -256,6 +256,7 @@ export default {
     },
   },
   mounted() {
+    this.count = this.forkliftStore.count;
     http
       .get("/forklift/marks")
       .then((response) => {

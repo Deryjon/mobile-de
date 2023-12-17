@@ -13,7 +13,7 @@
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
-        <div class="top flex flex-wrap gap-[10px]  sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]">
+        <div class="top flex flex-wrap gap-[10px]   items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]">
           <div class="mark">
             <div class="relative mt-2">
               <h2 class="text-sm lg:text-[14px]">
@@ -21,8 +21,8 @@
               </h2>
               <select
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-                v-model="selectedMark" @change="fetchModels()">
-                <option value="14600" selected>Beliebig</option>
+                v-model="selectedMark"  >
+                <option value="" selected>Beliebig</option>
                 <optgroup>
                   <option v-for="make in makes" :key="make" :value="make.truck_make_name">
                     {{ make.truck_make_name }}
@@ -34,7 +34,7 @@
             </div>
           </div>
 
-          <div class="rela tive">
+          <div class="rela  tive">
             <h2 class="text-sm lg:text-[14px] mt-2">
               {{ $t("message.selects.model") }}
             </h2>
@@ -131,7 +131,7 @@ export default {
       makes: [],
       truckStore: useTruckStore(),
       models: [],
-      selectedMark: "14600",
+      selectedMark: "",
       selectedPrice: "",
       isModelSelectDisabled: false,
       activeTab: "buy",

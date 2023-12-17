@@ -17,7 +17,7 @@
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
         <div
-          class="top flex flex-wrap gap-[20px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
+          class="top flex flex-wrap gap-[20px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -27,7 +27,6 @@
               <select
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 v-model="selectedMark"
-                @change="fetchModels()"
               >
                 <option value="" selected>
                   {{ $t("message.filter.any") }}
@@ -36,9 +35,9 @@
                   <option
                     v-for="make in makes"
                     :key="make"
-                    :value="make.motor_home_make_name"
+                    :value="make.agricultural_vehicle_make_name"
                   >
-                    {{ make.motor_home_make_name }}
+                    {{ make.agricultural_vehicle_make_name }}
                   </option>
                   <option value="other">other</option>
                 </optgroup>
@@ -79,6 +78,7 @@ import FilterBtn from "../../../components/FilterBtn.vue";
 import SeatsComponent from "../components/SeatsComponentBasicSection.vue";
 import axios from "axios";
 import http from "../../../axios.config";
+import {useVehicleStore} from "@/store/agriculturalDataStore"
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
 export default {
   components: {
@@ -92,6 +92,7 @@ export default {
   },
   data() {
     return {
+     vehicleStore: useVehicleStore(),
       makes: [],
       models: [],
       selectedMark: "",
@@ -109,51 +110,57 @@ export default {
       selectedModel: "",
     };
   },
+  watch: {
+    selectedMark(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateAgriculturalData();
+      }
+    },
+    selectedModel(newValue, oldValue) {
+      if (newValue !== oldValue) {
+        this.updateAgriculturalData();
+      }
+    },
+		"vehicleStore.count": function (newCount, oldCount) {
+			this.count = newCount;
+		},
+	},
   methods: {
-    data() {
-      return {
-        vehicleStore: useVehicleStore(),
-        count: "",
-      };
+    goMotorhomeList() {
+			this.$router.push({ name: "agricultural-list" })
+		},
+    updateAgriculturalData() {
+      const vehicleStore = useVehicleStore();
+      (vehicleStore.vehicleData.vehicle_make =
+        this.selectedMark),
+        (vehicleStore.vehicleData.vehicle_model =
+          this.selectedModel),
+        (vehicleStore.vehicleData.vehicle_category =
+          this.selectedCategory),
+        vehicleStore.updateAgriculturalData();
     },
-    methods: {
-      goMotorhomeList() {
-        this.$router.push({ name: "agricultural-list" });
-      },
-    },
-    watch: {
-      "vehicleStore.count": function (newCount, oldCount) {
-        this.count = newCount;
-      },
-    },
-    fetchModels() {
+    async fetchModels() {
       if (!this.selectedMark) {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
 
       // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `https://sellcenter.onrender.com/api/v1/car/model?mark_id=${this.selectedMark}`;
+      const apiUrl = `/v1/car/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
-      axios
+    await  http
         .get(apiUrl)
         .then((response) => {
           // Получаем данные из ответа
           const data = response.data.data;
           if (data) {
             this.models = data;
-            console.log(this.models);
             this.isModelSelectDisabled = false;
           } else {
-            console.error("Некорректный формат ответа API.");
             this.isModelSelectDisabled = true; // Disable the model select on error
           }
         })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -217,10 +224,9 @@ export default {
     },
   },
   mounted() {
-    this.selectedMark = localStorage.getItem("mark");
+    this.count = this.vehicleStore.count;
 
-    http
-      .get("/motorhome/marks")
+    http.get("/agricultural/marks")
       .then((response) => {
         const data = response.data.data;
         if (data) {
@@ -232,28 +238,6 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-  },
-  watch: {
-    selectedMark(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    selectedModel(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    inputVariant(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
-    activeTab(newValue, oldValue) {
-      if (newValue !== oldValue) {
-        this.fetchData();
-      }
-    },
   },
 };
 </script>

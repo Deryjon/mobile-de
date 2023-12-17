@@ -1,38 +1,21 @@
 <template>
   	<div class="">
-    <div class="basic-add w-[210px] xs:w-full lg:w-[750px] xl:w-[900px] text-[12px] lg:text-[14px]">
-      <div class="flex items-center gap-[20px]">
-        <input
-          type="file"
-          ref="fileInput"
-          accept="image/*"
-          multiple
-          style="display: none"
-          @change="handleFileChange"
-        />
-        <button
-          @click="openFileInput"
-          class="bg-blue-500 p-[10px] rounded-[8px]"
-        >
+    <div class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[850px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0">
+      <div class="md:flex items-center gap-[20px]">
+        <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
+        <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
           + Add image
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
-          <div
-            v-for="(file, index) in selectedFiles"
-            :key="index"
-            class="file-item relative"
-          >
+          <div v-for="(file, index) in previewImages" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
-              <img class="w-full h-full" :src="file.url" :alt="file.name" />
+              <img class="w-full h-full" :src="file.previewUrl" :alt="file.name" />
             </div>
-            <button
-              @click="removeFile(index)"
-              class="absolute top-0 right-0 w-[20px]"
-            >
+            <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">
               X
             </button>
           </div>
-          <span v-if="selectedFiles.length === 0">No Images</span>
+          <span v-if="previewImages.length === 0">No Images</span>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -1517,7 +1500,7 @@
           </label>
         </div>
       </div>
-      <div class="">
+      <div class="pr-[5px]">
         <h2 class="mt-[30px] text-[16px]">Description</h2>
         <textarea
           class="bg-[#ccc] mt-[10px] p-[20px] w-full"
@@ -1680,6 +1663,7 @@ export default {
       isCheckedInduction: false,
       isCheckedSki: false,
       extras: [],
+      previewImages: [],
       others: [],
       security: [],
       selectedType: "",
@@ -1766,10 +1750,29 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
+      const files = event.target.files;
       this.selectedFiles = event.target.files;
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const previewUrl = e.target.result;
+          this.previewImages.push({
+            name: file.name,
+            previewUrl: previewUrl,
+            file: file, // You can also store the actual File object if needed
+          });
+
+          // Добавьте здесь код для отправки файла на бэкенд, если требуется
+        };
+
+        reader.readAsDataURL(file);
+      }
     },
+
     removeFile(index) {
-      this.selectedFiles.splice(index, 1);
+      this.previewImages.splice(index, 1);
     },
     toggleShowCheckboxRating(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
@@ -1809,7 +1812,6 @@ export default {
           this.extras.splice(carIndex, 1); // Удаляем extrasName из массива
         }
       }
-      console.log(this.extras);
     },
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;

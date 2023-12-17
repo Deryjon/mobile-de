@@ -1,7 +1,7 @@
 --
 <template>
   <v-container class="max-w-[1140px] flex lg:justify-between pl-0 ml-[4px]">
-    <div class="tabs w-[130px]  xs:w-[200px] sm:w-[200px] md:w-[350px] lg:w-[400px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] ">
+    <div class="tabs w-[130px] xs:w-[200px] sm:w-[200px] md:w-[350px] lg:w-[400px] lg:h-[750px] bg-[#0000001f] p-[5px] lg:p-[20px] ">
       <div class="top flex gap-[10px] items-center mt-[10px]">
         <div class="profile-img" v-if="!userIcon">
           <img
@@ -33,7 +33,7 @@
       </div>
       <div class="line mt-[20px] w-full"></div>
       <div class="tabs-btn">
-        <button
+        <!-- <button
           class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
           @click="setActive('tab-1')"
           :class="{ active: isActive('tab-1') }"
@@ -64,7 +64,7 @@
             </g>
           </svg>
           {{ $t("message.profile.overview") }}
-        </button>
+        </button> -->
         <div class="adds">
           <button
             class="flex gap-[1px] sm:gap-[3px] lg:gap-[8px] items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold"
@@ -223,7 +223,7 @@
         </div>
         <button
           class="flex gap-[3px] sm:gap-[3px] lg:gap-[8px] text-[10px] sm:text-[12px] md:text-[14px]  font-semibold items-center mt-[20px] w-[110px] sm:w-[180px] lg:w-[170px]"
-          @click="setActive('tab-2')" 
+          @click="setActive('tab-2')"
           :class="{ active: isActive('tab-2') }"
         >
           <div class="icon-settings w-[24px]">
@@ -268,14 +268,12 @@
       </div>
     </div>
     <p>{{ activeTab }}</p>
-    <!-- Правильный способ обращения к данным хранилища -->
-
     <section
-      class="tabs-content settings relative w-full  xs:w-[550px] md:w-full lg:w-[800px] xl:w-[870px] bg-[#0000001f] flex"
+      class="tabs-content settings relative w-[210px] xs:w-full sm:w-[500px] md:w-full  bg-[#0000001f] flex"
     >
-      <div class="" v-show="isActive('tab-1')">
+      <!-- <div class="" v-show="isActive('tab-1')">
         <OverviewTab />
-      </div>
+      </div> -->
       <div class="" v-show="isActive('tab-2')">
         <SettingsTab />
       </div>

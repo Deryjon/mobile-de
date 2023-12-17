@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDisabledAccessible"
-          @click="toggleShowCheckbox(1, 'DisabledAccessible')"
+          @click="toggleShowCheckbox(1, 'Disabled accessible')"
         />
         <svg
           class="icon"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRearGarage"
-          @click="toggleShowCheckbox(2, 'RearGarage')"
+          @click="toggleShowCheckbox(2, 'Rear Garage')"
         />
         <svg
           class="icon"
@@ -105,6 +105,7 @@
 <script>
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
 import http from '../../../axios.config'
+import { useVanStore } from "@/store/vanDataStore";
 export default {
   data() {
     return {
@@ -117,18 +118,11 @@ export default {
     };
   },
 	methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          parking_sensors: this.selectedParking,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+    updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.van_parking_sensors =
+        this.selectedParking),
+        vanStore.updateVanData();
     },
     toggleShowCheckbox(index, parkingName) {
       const isChecked = !this.selectedParking.includes(parkingName);
@@ -140,8 +134,7 @@ export default {
           this.selectedParking.splice(index, 1);
         }
       }
-      console.log("selectedParking изменен:", this.selectedParking)
-			this.fetchData()
+			this.updateVanData()
     },
   },
   components: { TrailerCoupling },

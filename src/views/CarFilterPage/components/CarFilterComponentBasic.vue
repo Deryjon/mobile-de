@@ -1,6 +1,6 @@
 <template>
   <div
-    class="filter-cars flex flex-wrap gap-[40px] mt-[0px] lg:mt-[50px] p-[20px]"
+    class="filter-cars flex flex-wrap gap-[40px] mt-[20px] lg:mt-[50px] lg:p-[20px]"
   >
     <!-- cabrio -->
     <label

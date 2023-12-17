@@ -383,6 +383,7 @@ import CruiseControlComponentExterior from "./CruiseControlComponentExterior.vue
 import OthersComponentExterior from "./OthersComponentExterior.vue";
 import ExtrasComponent from "./ExtrasComponent.vue";
 import AirConditioningComponent from "./AirConditioningComponent.vue";
+import { useVanStore } from "../../../store/vanDataStore";
 
 export default {
   data() {
@@ -415,21 +416,13 @@ export default {
           this.selectedColors.splice(colorIndex, 1);
         }
       }
-      console.log("selectedCars изменен:", this.selectedColors)
-			this.fetchData()
+			this.updateVanData()
     },
-		fetchData() {
-      http
-        .get("/cars/count", {
-          exterior_colour: this.selectedColors,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateVanData() {
+      const vanStore = useVanStore();
+      (vanStore.vanData.exterior_colour =
+        this.selectedColors),
+        vanStore.updateVanData();
     },
 	},
   components: {

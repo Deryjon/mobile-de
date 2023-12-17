@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-[10px] p-[20px]">
+  <div class="mt-[10px] lg:p-[20px]">
     <h3 class="text-[16px]">Extras</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
       <!-- cabrio -->
@@ -197,6 +197,582 @@
         </svg>
         Ski bag
       </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAndroidAuto"
+          @click="toggleShowCheckboxExtras(7, 'Android Auto')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAndroidAuto"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Android Auto
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedElectricSeat"
+          @click="toggleShowCheckboxExtras(7, 'Electric seat adjustment')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedElectricSeat"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Electric seat adjustment
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedIntegratedMusicStreaming"
+          @click="toggleShowCheckboxExtras(7, 'Integrated music streaming')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedIntegratedMusicStreaming"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Integrated music streaming
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSmokersPackage"
+          @click="toggleShowCheckboxExtras(7, 'Smokers package')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedSmokersPackage"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Smokers package
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAppleCarPlay"
+          @click="toggleShowCheckboxExtras(7, 'Apple CarPlay')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAppleCarPlay"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Apple CarPlay
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedElectricSideMirror"
+          @click="toggleShowCheckboxExtras(7, 'Electric side mirror')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedElectricSideMirror"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Electric side mirror
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedIsofix"
+          @click="toggleShowCheckboxExtras(7, 'Isofix')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedIsofix"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Isofix
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSoundSystem"
+          @click="toggleShowCheckboxExtras(7, 'Sound system')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedSoundSystem"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Sound system
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedArmRest"
+          @click="toggleShowCheckboxExtras(7, 'Arm rest')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedArmRest"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Arm rest
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedElectricWindows"
+          @click="toggleShowCheckboxExtras(7, 'Electric windows')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedElectricWindows"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Electric windows
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedLeatherSteeringWheel"
+          @click="toggleShowCheckboxExtras(7, 'Leather steering wheel')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedLeatherSteeringWheel"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Leather steering wheel
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSportSeats"
+          @click="toggleShowCheckboxExtras(7, 'Sport seats')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedSportSeats"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Sport seats
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAutomInteriorMirror"
+          @click="toggleShowCheckboxExtras(7, 'Autom. dimming interior mirror')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAutomInteriorMirror"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Autom. dimming interior mirror
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedEmergencyCallSystem"
+          @click="toggleShowCheckboxExtras(7, 'Emergency call system')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedEmergencyCallSystem"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Emergency call system
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedLumbarSupport"
+          @click="toggleShowCheckboxExtras(7, 'Lumbar support')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedLumbarSupport"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Lumbar support
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedTouchscreen"
+          @click="toggleShowCheckboxExtras(7, 'Touchscreen')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedTouchscreen"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Touchscreen
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedAuxiliaryHeating"
+          @click="toggleShowCheckboxExtras(7, 'Auxiliary heating')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedAuxiliaryHeating"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Auxiliary heating
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedFatigueWarning"
+          @click="toggleShowCheckboxExtras(7, 'Fatigue warning system')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedFatigueWarning"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Fatigue warning system
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedMassageSeats"
+          @click="toggleShowCheckboxExtras(7, 'Massage seats')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedMassageSeats"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Massage seats
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedTunerRadio"
+          @click="toggleShowCheckboxExtras(7, 'Tuner/radio')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedTunerRadio"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Tuner/radio
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedBluetooth"
+          @click="toggleShowCheckboxExtras(7, 'Bluetooth')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedBluetooth"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Bluetooth
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedFoldFlatPassenger"
+          @click="toggleShowCheckboxExtras(7, 'Fold flat passenger seat')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedFoldFlatPassenger"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Fold flat passenger seat
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedMultifunctionWheel"
+          @click="toggleShowCheckboxExtras(7, 'Multifunction steering wheel')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedMultifunctionWheel"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        Multifunction steering wheel
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedTV"
+          @click="toggleShowCheckboxExtras(7, 'TV')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedTV"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        TV
+      </label>
     </div>
   </div>
 </template>
@@ -213,8 +789,32 @@ export default {
       isCheckedAmbient: false,
       isCheckedTyre: false,
       isCheckedInduction: false,
-      isCheckedSki: false,
       isCheckedElectric: false,
+      isCheckedSki: false,
+      isCheckedAndroidAuto: false,
+      isCheckedElectricSeat: false,
+      isCheckedIntegratedMusicStreaming: false,
+      isCheckedSmokersPackage: false,
+      isCheckedAppleCarPlay: false,
+      isCheckedElectricSideMirror: false,
+      isCheckedIsofix: false,
+      isCheckedSoundSystem: false,
+      isCheckedArmRest: false,
+      isCheckedElectricWindows: false,
+      isCheckedLeatherSteeringWheel: false,
+      isCheckedSportSeats: false,
+      isCheckedAutomInteriorMirror: false,
+      isCheckedEmergencyCallSystem: false,
+      isCheckedLumbarSupport: false,
+      isCheckedTouchscreen: false,
+      isCheckedAuxiliaryHeating: false,
+      isCheckedFatigueWarning: false,
+      isCheckedMassageSeats: false,
+      isCheckedTunerRadio: false,
+      isCheckedBluetooth: false,
+      isCheckedFoldFlatPassenger: false,
+      isCheckedMultifunctionWheel: false,
+      isCheckedTV: false,
       extras: [],
     };
   },

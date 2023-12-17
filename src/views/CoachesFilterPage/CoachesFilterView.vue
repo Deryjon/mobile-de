@@ -31,6 +31,9 @@ export default {
 			this.$router.push({ name: "coache-list" })
 		}
 	},
+	mounted() {
+    this.count = this.coacheStore.count;
+  },
 	watch: {
 		"coacheStore.count": function (newCount, oldCount) {
 			this.count = newCount;

@@ -31,6 +31,9 @@ export default {
 			this.$router.push({name: "semitrailer-list"})
 		}
 	},
+	mounted() {
+    this.count = this.semitrailerStore.count;
+  },
 	watch: {
 	  "semitrailerStore.count": function (newCount, oldCount) {
 		this.count = newCount;

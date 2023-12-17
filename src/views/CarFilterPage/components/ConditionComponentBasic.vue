@@ -1,5 +1,5 @@
 <template>
-  <div class="condition p-[20px]">
+  <div class="condition mt-[10px] lg:p-[20px]">
     <h3 class="text-[14px]">Type and condition</h3>
     <div
       class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]"

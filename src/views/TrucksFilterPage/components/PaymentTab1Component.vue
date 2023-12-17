@@ -1,6 +1,6 @@
 <template>
   <div class="lg:pl-[20px]">
-    <div class="price-tab flex flex-wrap items-center gap-[20px] lg:gap-[80px]">
+    <div class="price-tab flex flex-wrap lg:flex-nowrap items-center gap-[20px] lg:gap-[80px]">
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="input-container flex relative mt-[10px]">
@@ -224,7 +224,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[180px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="yearsTo"
             @focus="openYearsToDropdown"

@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] lg:p-[20px]">
-    <h3 class="text-[16px]">Extras</h3>
+    <h3 class="text-[16px]">Interior Features</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -9,7 +9,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAlarmSystem"
-          @click="toggleShowCheckboxExtras(0, 'Alarm System')"
+          @click="toggleShowCheckboxExtras(0, 'Auxiliary heating')"
         />
         <svg
           class="icon"
@@ -25,7 +25,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Alarm System
+        Auxiliary heating
       </label>
       <label
         class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -33,7 +33,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDisable"
-          @click="toggleShowCheckboxExtras(1, 'Disabled accessible')"
+          @click="toggleShowCheckboxExtras(1, 'Cold store')"
         />
         <svg
           class="icon"
@@ -49,7 +49,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Disabled accessible
+        Cold store
       </label>
       <label
         class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -57,7 +57,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHeated"
-          @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
+          @click="toggleShowCheckboxExtras(2, 'Drivers sleeping compartment')"
         />
         <svg
           class="icon"
@@ -73,7 +73,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Heated steering whee
+        Drivers sleeping compartment
       </label>
       <label
         class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -81,7 +81,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSeat"
-          @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
+          @click="toggleShowCheckboxExtras(3, 'Kitchen')"
         />
         <svg
           class="icon"
@@ -97,7 +97,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Seat ventilation
+        Kitchen
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -105,7 +105,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAmbient"
-          @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
+          @click="toggleShowCheckboxExtras(4, 'Navigation system')"
         />
         <svg
           class="icon"
@@ -121,7 +121,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Ambient lighting
+        Navigation system
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -129,7 +129,7 @@
         <input
           type="checkbox"
           v-model="isCheckedElectric"
-          @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
+          @click="toggleShowCheckboxExtras(5, 'Secondary Air Conditioning')"
         />
         <svg
           class="icon"
@@ -145,7 +145,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Electric backseat adjustment
+        Secondary Air Conditioning
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -153,7 +153,7 @@
         <input
           type="checkbox"
           v-model="isCheckedInduction"
-          @click="toggleShowCheckboxExtras(6, 'Induction charging for smartphones')"
+          @click="toggleShowCheckboxExtras(6, 'Sleeper seats')"
         />
         <svg
           class="icon"
@@ -169,7 +169,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Induction charging for smartphones
+        Sleeper seats
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -177,7 +177,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSki"
-          @click="toggleShowCheckboxExtras(7, 'Ski bag')"
+          @click="toggleShowCheckboxExtras(7, 'TV')"
         />
         <svg
           class="icon"
@@ -193,7 +193,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Ski bag
+        TV
       </label>
     </div>
   </div>
@@ -201,6 +201,7 @@
 <script>
 import http from "../../../axios.config";
 import TrailerCoupling from "./TrailerCouplingComponentExterior.vue";
+import { useCoacheStore } from "../../../store/coacheDataStore";
 
 export default {
   data() {
@@ -218,18 +219,11 @@ export default {
     };
   },
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          extras: this.extras,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error);
-        });
+		updateCoacheData() {
+      const coacheStore = useCoacheStore();
+      (coacheStore.coacheData.interior_features =
+      this.selectedFuel),
+        coacheStore.updateCoacheData();
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);

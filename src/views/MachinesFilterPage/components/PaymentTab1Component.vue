@@ -4,28 +4,17 @@
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="price"
-            @focus="openPriceDropdown"
-            @blur="openPriceDropdown"
-          />
+            placeholder="from" v-model="price" @focus="openPriceDropdown" @blur="openPriceDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openPriceDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openPriceDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="priceOpen"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="priceOpen" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
           <ul>
             <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
             <li data-value="100" @click="selectNumberPrice('100')">
@@ -75,28 +64,17 @@
       </div> -->
       <div class="price-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="priceTo"
-            @focus="openPriceToDropdown"
-            @blur="openPriceToDropdown"
-          />
+            placeholder="from" v-model="priceTo" @focus="openPriceToDropdown" @blur="openPriceToDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openPriceToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openPriceToDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="priceToOpen"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="priceToOpen" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
           <ul>
             <li data-value="50" @click="selectNumberPriceTo('50')">50 € mtl</li>
             <li data-value="100" @click="selectNumberPriceTo('100')">
@@ -143,43 +121,24 @@
       </div> -->
     </div>
     <div class="line mt-[30px]"></div>
-    <div
-      class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
-    >
+    <div class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]">
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputValue"
-            @focus="openDropdown"
-            @input="filterOptions"
-            @blur="openDropdown"
-          />
+            placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions" @blur="openDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpen"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
-          <li
-            v-for="option in filteredOptions"
-            :key="option"
-            @click="selectOption(option)"
-            class=""
-          >
+        <ul v-if="isOpen" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
+          <li v-for="option in filteredOptions" :key="option" @click="selectOption(option)" class="">
             {{ option }}
           </li>
           <li key="1985" @click="selectOption('1985')">1985</li>
@@ -226,35 +185,19 @@
       </div> -->
       <div class="years-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="yearsTo"
-            @focus="openYearsToDropdown"
-            @input="filterOptions"
-            @blur="openYearsToDropdown"
-          />
+            placeholder="from" v-model="yearsTo" @focus="openYearsToDropdown" @input="filterOptions"
+            @blur="openYearsToDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openYearsToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openYearsToDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenYearsTo"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
-          <li
-            v-for="option in filteredOptions"
-            :key="option"
-            @click="selectYearsToOption(option)"
-            class=""
-          >
+        <ul v-if="isOpenYearsTo" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
+          <li v-for="option in filteredOptions" :key="option" @click="selectYearsToOption(option)" class="">
             {{ option }}
           </li>
           <li key="1985" @click="selectYearsToOption('1985')">1985</li>
@@ -296,37 +239,24 @@
         ></span>
       </div> -->
     </div>
-    <div
-      class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
-    >
+    <div class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]">
       <div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputKilometer"
-            @focus="openKilmeterDropdown"
-            @input="filterOptions"
-            @blur="openKilmeterDropdown"
-          />
+            placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
+            @blur="openKilmeterDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openKilmeterDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openKilmeterDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenKilometer"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenKilometer" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
           <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometer('10000')">10.000 km</li>
           <li data-key="20000" @click="selectKilometer('20000')">20.000 km</li>
@@ -397,29 +327,18 @@
       </div>  -->
       <div class="kilometer-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="killometresTo"
-            @focus="openKilometerToDropdown"
-            @input="filterOptions"
-            @blur="openKilometerToDropdown"
-          />
+            placeholder="from" v-model="killometresTo" @focus="openKilometerToDropdown" @input="filterOptions"
+            @blur="openKilometerToDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openKilometerToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openKilometerToDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenKilometerTo"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenKilometerTo" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
           <li data-key="5000" @click="selectKilometerTo('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometerTo('10000')">
             10.000 km
@@ -502,16 +421,13 @@
       </div> -->
     </div>
     <!-- valid -->
-    <div
-      class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
-    >
+    <div class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]">
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="huValid"
-        >
-          <option value="14600" selected>Any</option>
+          v-model="huValid">
+          <option value="" selected>Any</option>
           <option value="new">New</option>
           <option value="18">18</option>
           <option value="12">12</option>
@@ -525,8 +441,7 @@
         <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="preOwners"
-        >
+          v-model="preOwners">
           <option value="any" selected>Any</option>
           <option value="1">Up to 1</option>
           <option value="2">Up to 2</option>
@@ -535,73 +450,40 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-      <label
-        class="custom-checkbox flex items-center h-10 lg:w-[170px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHistory"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
+      <label class="custom-checkbox flex items-center h-10 lg:w-[170px] mt-[25px]"
+        :class="{ 'opacity-20': isRadioNewSelected }">
+        <input type="checkbox" v-model="isCheckedHistory" @click="toggleShowCheckbox"
+          class="form-checkbox h-5 w-5 text-indigo-600" />
+        <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
           <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHistory"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
+          <path v-if="isCheckedHistory" fill="#FFFFFF"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
 
         <span class="text-sm p]b-[20px">Full Service History</span>
       </label>
-      <label
-        class="custom-checkbox flex items-center h-10 lg:w-[145px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRoad"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
+      <label class="custom-checkbox flex items-center h-10 lg:w-[145px] mt-[25px]"
+        :class="{ 'opacity-20': isRadioNewSelected }">
+        <input type="checkbox" v-model="isCheckedRoad" @click="toggleShowCheckbox"
+          class="form-checkbox h-5 w-5 text-indigo-600" />
+        <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
           <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRoad"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
+          <path v-if="isCheckedRoad" fill="#FFFFFF"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
 
         <span class="text-sm">Roadworthy</span>
       </label>
     </div>
     <!-- country -->
-    <div
-      class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
-    >
-		<div class="relative mt-2">
+    <div class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]">
+      <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="selectedCountry"
-        >
+          v-model="selectedCountry">
           <optgroup>
-            <option value="14600" selected>Any</option>
+            <option value="" selected>Any</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>
@@ -679,10 +561,7 @@
         <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
         <input
           class="mark_input mt-[10px] text-[14px] mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
-          type="text"
-          pattern="\d*"
-					v-model="zipCode"
-        />
+          type="text" pattern="\d*" v-model="zipCode" />
       </div>
       <!-- <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
@@ -691,7 +570,7 @@
           v-model="selectedCountry"
         >
           <optgroup>
-            <option value="14600" selected>Any</option>
+            <option value="" selected>Any</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>
@@ -778,29 +657,18 @@
       <div class="radius dropdown-container">
         <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="radius"
-            @focus="openRadiusDropdown"
-            @input="filterOptions"
-            @blur="openRadiusDropdown"
-          />
+            placeholder="from" v-model="radius" @focus="openRadiusDropdown" @input="filterOptions"
+            @blur="openRadiusDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openRadiusDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openRadiusDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenRadius"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenRadius" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
           <li data-key="10" @click="selectRadius('10')">10 km</li>
           <li data-key="20" @click="selectRadius('20')">20 km</li>
           <li data-key="50" @click="selectRadius('50')">50 km</li>
@@ -845,6 +713,8 @@
 import axios from "axios";
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useMachineStore } from "@/store/machineDataStore"
+
 export default {
   setup() {
     const isCheckedHistory = ref(false);
@@ -862,6 +732,7 @@ export default {
   },
   data() {
     return {
+      machineStore: useMachineStore(),
       price: "",
       radius: "",
       priceTo: "",
@@ -882,10 +753,10 @@ export default {
       selectedPrice: "",
       selectedPriceTo: "",
       inputValue: "",
-      huValid: "14600",
+      huValid: "",
       preOwners: "any",
-      selectedCountry: "14600",
-			zipCode: "",
+      selectedCountry: "",
+      zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
       priceToOpen: false,
@@ -896,92 +767,91 @@ export default {
   watch: {
     price(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     priceTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     inputValue(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     yearsTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     inputKilometer(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     killometresTo(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     huValid(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     preOwners(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     isCheckedHistory(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     isCheckedRoad(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     selectedCountry(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     zipCode(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
     radius(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
+        this.updateMachineData();
       }
     },
   },
   methods: {
-    fetchData() {
-      http
-        .get("/cars/count", {
-          car_price_from: this.price,
-          car_price_up_to: this.priceTo,
-          car_firt_date_year_from: this.inputValue,
-          car_firt_date_year_up_to: this.yearsTo,
-          car_mileage_from: this.inputKilometer,
-          car_mileage_up_to: this.killometresTo,
-          car_hu_valid_until: this.huValid,
-          car_previous_owners: this.preOwners,
-          car_full_service_history: this.isCheckedHistory,
-          car_roadworthy: this.isCheckedRoad,
-          car_country: this.selectedCountry,
-          car_city_zipcode: this.zipCode,
-          car_radius: this.radius,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
+    updateMachineData() {
+      (this.machineStore.machineData.machine_price_from =
+        parseInt(this.price)),
+        (this.machineStore.machineData.machine_price_to =
+          parseInt(this.priceTo)),
+        (this.machineStore.machineData.machine_construction_year_from =
+          parseInt(this.inputValue)),
+        (this.machineStore.machineData.machine_construction_year_to =
+          parseInt(this.yearsTo)),
+        (this.machineStore.machineData.machine_operating_hours_from =
+          parseInt(this.inputKilometer)),
+        (this.machineStore.machineData.machine_operating_hours_to =
+          parseInt(this.killometresTo)),
+        (this.machineStore.machineData.machine_country =
+          this.selectedCountry),
+        (this.machineStore.machineData.zipcode =
+          this.zipCode),
+        (this.machineStore.machineData.machine_radius =
+          this.radius),
+        this.machineStore.updateMachineData();
     },
     openRadiusDropdown() {
       this.isOpenRadius = true;
@@ -1195,9 +1065,6 @@ export default {
     },
   },
   mounted() {
-    this.price = localStorage.getItem("price");
-    this.inputValue = localStorage.getItem("reg-year");
-    this.inputKilometer = localStorage.getItem("kilometer");
     this.fetchModelYears();
   },
 };
@@ -1211,6 +1078,7 @@ input[type="checkbox"]:disabled {
   /* Убираем указатель курсора */
   cursor: none;
 }
+
 .custom-checkbox {
   position: relative;
   padding-left: 30px;
@@ -1228,20 +1096,24 @@ input[type="checkbox"]:disabled {
   border-radius: 4px;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .icon {
+.custom-checkbox input[type="checkbox"]:checked+.icon {
   fill: #ffffff;
   background: #e04b00;
 }
+
 .custom-checkbox input[type="checkbox"] {
   display: none;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 .mark-input2 {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 select::-webkit-scrollbar {
   width: 0;
 }
@@ -1250,10 +1122,12 @@ select::-webkit-scrollbar {
 ::-webkit-scrollbar {
   width: 0;
 }
+
 .line {
   border: 1px solid grey;
   height: 1px;
 }
+
 .dropdown-container {
   position: relative;
   display: inline-block;

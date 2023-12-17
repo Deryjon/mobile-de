@@ -14,7 +14,7 @@
         <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <div
-          class="top flex flex-wrap gap-x-[10px] sm:w-[350px] items-center sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]"
+          class="top flex flex-wrap lg:flex-nowrap gap-x-[10px] items-center sm:gap-[20px]  mt-[10px] lg:p-[20px]"
         >
           <div class="mark">
             <div class="relative mt-2">
@@ -125,7 +125,6 @@ import axios from "axios";
 import { useCarStore } from "@/store/carDataStore";
 import http from "../../../axios.config";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
-import { watch, ref } from "vue";
 export default {
   components: {
     PathLink,
@@ -135,9 +134,6 @@ export default {
     CarFilterComponentBasic,
     ConditionComponent,
     PaymentTab1Component,
-  },
-	setup() {
-    const carStore = useCarStore();
   },
   data() {
     return {

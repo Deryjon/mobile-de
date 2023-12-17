@@ -26,6 +26,9 @@ export default {
       count: "",
     };
   },
+  mounted() {
+    this.count = this.motorhomeStore.count;
+  },
   methods:{
     goMotorhomeList(){
       this.$router.push({name: "motorhome-list"})

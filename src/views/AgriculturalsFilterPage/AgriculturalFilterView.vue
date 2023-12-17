@@ -17,7 +17,7 @@ import ExteriorFilterSection from "./sections/ExteriorFilterSection.vue";
 import OfferDetailsSection from "./sections/OfferDetailsSection.vue";
 import TechnicalFilterSection from "./sections/TechnicalFilterSection.vue";
 import FilterBtn from "../../components/FilterBtn.vue";
-import {useVehicleStore} from "../../store/agriculturalDataStore"
+import {useVehicleStore} from "@/store/agriculturalDataStore"
 export default {
 	data() {
 		return {
@@ -35,6 +35,9 @@ export default {
 			this.count = newCount;
 		},
 	},
+	mounted() {
+    this.count = this.vehicleStore.count;
+  },
   components: { BasicFilterSection, TechnicalFilterSection, ExteriorFilterSection, OfferDetailsSection, FilterBtn },
 };
 </script>

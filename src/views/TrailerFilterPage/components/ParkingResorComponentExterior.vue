@@ -308,7 +308,8 @@ export default {
       const trailerData = trailerStore.trailerData;
       trailerData.trailer_axles = this.axles;
       trailerData.trailer_gvw_from = this.lengthGVW;
-      trailerData.trailer_gvw_to = this.lengthGVWTo;
+      trailerData.trailer_gvw_to
+       = this.lengthGVWTo;
       trailerData.trailer_load_capacity_from = this.numberBunks;
       trailerData.trailer_load_capacity_to = this.numberBunksTo;
       trailerStore.updateTrailerData();
