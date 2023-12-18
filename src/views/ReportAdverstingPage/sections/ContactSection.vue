@@ -3,18 +3,14 @@
     <v-container class=" max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
-        <div class="headerLabel"> Why do I get annoying ads?</div>
-        <div class="">
+        <div class="headerLabel">{{ $t("message.report.report_title") }}</div>
+        <div class="mt-[20px]">
           <img
             src="../../../assets/images/Sakerhetsarbete.avif"
           />
         </div>
         <div class="ContentDesc">
-        
-          It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images. 
-It can also be about technical problems related to advertising on Sellcenter. 
-Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot).
-Have you received shady emails about account or card details from Sellcenter? It's fraud!
+          {{ $t("message.report.report_desc") }}
         </div>
         <div class="contactff ">
           <div class="flex items-center flex-wrap border p-3 ">

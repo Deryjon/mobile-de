@@ -220,5 +220,9 @@ export default {
       phone: "Teléfono",
       share: "Compartir",
     },
+    report:{
+      report_title: "Por qué recibo anuncios molestos?",
+      report_desc: "Sucede que recibimos preguntas y comentarios de nuestros usuarios sobre banners y publicidad en Sellcenter que contienen mensajes e imágenes inapropiados. También puede tratarse de problemas técnicos relacionados con la publicidad en Sellcenter.   Dado que este es contenido que no publicamos nosotros y que solo es visible para algunos, solicitamos ver un ejemplo de cómo se ve (preferiblemente una captura de pantalla)."
+    },
   },
 };

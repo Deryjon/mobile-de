@@ -221,5 +221,9 @@ export default {
       phone: "Telefon",
       share: "Teilen Sie",
     },
+    report:{
+      report_title: "Warum erhalte ich nervige Werbung?",
+      report_desc: " Es kommt vor, dass wir von unseren Benutzern Fragen und Kommentare zu Bannern und Werbung auf Sellcenter erhalten, die unangemessene Nachrichten und Bilder enthalten. Es kann sich auch um technische Probleme im Zusammenhang mit der Werbung auf Sellcenter handeln. Da es sich um Inhalte handelt, die nicht von uns gepostet wurden und nur für einige sichtbar sind, bitten wir um ein Beispiel dafür, wie es aussieht (vorzugsweise einen Screenshot)."
+    },
   },
 };

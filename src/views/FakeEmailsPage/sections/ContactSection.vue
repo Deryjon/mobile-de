@@ -3,22 +3,14 @@
     <v-container class=" max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
-        <div class="headerLabel">   Fake emails</div>
-        <div class="">
+        <div class="headerLabel">  {{ $t("message.fake_email.fake_title") }}</div>
+        <div class="mt-[20px]">
           <img
-            src="../../../assets/images/Sakerhetsarbete.avif"
+            src="../../../assets/images/falska_mejl.avif"
           />
         </div>
         <div class="ContentDesc">
-
-We will never contact you via email, SMS or phone and ask for card numbers, passwords or login details.
- If you are contacted by someone claiming to be from Sellcenter and asking you to pay for an ad again, or claiming to get a refund due to incorrect payment, this is a scam. Report this to us immediately.
-If you have given away your card details, we invite you to:
-Contact your bank to block your card
-File a police report
-Tips for safe card payments
-When you pay by card and give out your card details online, always check that the page is secure by looking to see if it is certified in the address bar of your browser. A certified page always contains "https://" in the url. No serious companies or banks ask for card details or login information by email, text or call.
-If you have been contacted by "Sellcenter" via email, SMS or phone where someone has asked you to log in to receive a refund, pay the ad again or give out your login details, this is guaranteed to be a fraud attempt
+          {{ $t("message.fake_email.fake_desc") }}
         </div>
         <div class="contactff ">
           <div class="flex items-center flex-wrap border p-3 ">

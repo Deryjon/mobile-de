@@ -221,5 +221,13 @@ export default {
       phone: "Telefon",
       share: "Andel",
     },
+    report:{
+      report_title: " Varför får jag störande reklam?",
+      report_desc: " Det händer att vi får frågor och kommentarer från våra användare gällande banners och reklam på Sellcenter som innehåller olämpliga budskap och bilder.Det kan också handla om tekniska problem relaterat till reklam på Sellcenter. Eftersom det är innehåll som inte lagts upp av oss och som bara syns för vissa, ber vi om att få se ett exempel på hur det ser ut (gärna en skärmdump)."
+    },
+    fake_email:{
+      fake_title: "Falska mail",
+      fake_desc: "Har du fått skumma mejl om konto- eller  kortuppgifter från Sellcenter? Det är bedrägeri  ! Vi kommer aldrig att kontakta er via mejl, sms eller telefon och be om kortnummer, lösenord eller inloggningsuppgifter.  Om du blir kontaktad av någon som påstår sig vara från Sellcenter och ber dig betala en annons på nytt, eller påstår att du ska få pengar tillbaka på grund av felaktig betalning är detta ett bedrägeri. Anmäl detta omgående till oss.   Om du har lämnat ifrån dig dina kortuppgifter uppmanar vi dig att: Kontakta din bank för att spärra ditt kort Göra en polisanmälan  Tips för trygg kortbetalning  När du betalar med kort och lämnar ut dina kortuppgifter på nätet, kolla alltid att sidan är säker genom titta om den är certifierad i adressfältet i din browser. En certifierad sida innehåller alltid i url:en. Inga seriösa företag eller banker ber om kortuppgifter eller inloggningsinformation genom att mejla, sms:a eller ringa. Om du har blivit kontaktad av “Sellcenter ” via mejl, sms eller telefon där någon har bett dig att logga in för att ta emot återbetalning, betala annonsen igen eller lämna ut dina inloggningsuppgifter är detta garanterat ett bedrägeriförsök",
+    }
   },
 };

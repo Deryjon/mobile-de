@@ -20,7 +20,7 @@
 			>Fake emails</router-link
 		  >
 		  <li class="text text-[10px] lg:text-[14px]"><a href="">Our Offer</a></li>
-		  <router-link class="text text-[10px] lg:text-[14px]" :to="{ name: 'price-list' }"
+		  <router-link class="text text-[10px] lg:text-[14px]" :to="{ name: 'report-adversting' }"
 			>Report annoying advertising</router-link
 		  >
 		</ul>

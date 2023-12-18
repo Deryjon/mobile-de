@@ -4,7 +4,7 @@
       <div class="content">
         <div class="StatusDate"></div>
         <div class="headerLabel">Our security work</div>
-        <div class="">
+        <div class="mt-[20px]">
           <img
             src="../../../assets/images/Sakerhetsarbete.avif"
           />

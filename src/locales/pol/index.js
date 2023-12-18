@@ -221,5 +221,9 @@ export default {
       phone: "Telefon",
       share: "Udział",
     },
+    report:{
+      report_title: "Dlaczego otrzymuję irytujące reklamy?",
+      report_desc: " Zdarza się, że otrzymujemy od naszych użytkowników pytania i komentarze dotyczące banerów i reklam w Sellcenter, które zawierają nieodpowiednie komunikaty i obrazy. Może to dotyczyć również problemów technicznych związanych z reklamą w Sellcenter.  Ponieważ jest to treść, która nie jest przez nas publikowana i jest widoczna tylko dla niektórych, prosimy o pokazanie przykładowego jej wyglądu (najlepiej zrzutu ekranu)."
+    },
   },
 };
