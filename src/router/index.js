@@ -365,6 +365,18 @@ const router = createRouter({
         import("../views/SecurityCustomersPage/SecurityCustomer.vue"),
     },
     {
+      path: "/fake-emails",
+      name: "fake-emails",
+      component: () =>
+        import("../views/FakeEmailsPage/SecurityCustomer.vue"),
+    },
+    {
+      path: "/report-adversting",
+      name: "report-adversting",
+      component: () =>
+        import("../views/ReportAdverstingPage/SecurityCustomer.vue"),
+    },
+    {
       path: "/:catchAll(.*)",
       component: NotFound,
     },

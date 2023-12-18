@@ -16,7 +16,7 @@
 		  <router-link class="text text-[10px] lg:text-[14px]" :to="{ name: 'secutiry-customer' }"
 			>Customer security</router-link
 		  >
-		  <router-link class="text text-[10px] lg:text-[14px]" :to="{ name: 'login' }"
+		  <router-link class="text text-[10px] lg:text-[14px]" :to="{ name: 'fake-emails' }"
 			>Fake emails</router-link
 		  >
 		  <li class="text text-[10px] lg:text-[14px]"><a href="">Our Offer</a></li>
