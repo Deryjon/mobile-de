@@ -1,50 +1,31 @@
 <template>
   <div class=" ">
-    <v-container class=" max-w-[1140px]">
+    <v-container class="max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
-        <div class="headerLabel">Our security work</div>
+        <div class="headerLabel">{{ $t("message.footer.securityWork") }}</div>
         <div class="">
-          <img
-            src="../../../assets/images/Sakerhetsarbete.avif"
-          />
+          <img src="../../../assets/images/Sakerhetsarbete.avif" />
         </div>
         <div class="ContentDesc">
-          You should of course always be able to shop safely on the Sellcenter website.
-
-We review ads and make ongoing checks of ads and users.
-We inform and guide our users on how to conduct safe transactions in all categories.
-
-Sellcenter only accepts Motor market ads.
-
-We develop and offer features for secure payments, temporary phone numbers and other security services.
-We filter messages between users to prevent spam and offensive or offensive content.
-
-We cooperate with the police and other authorities to prevent illegal activities in the best possible way.
-
-If necessary, we share information about users with the Police and other authorities, in connection with investigations and preliminary investigations.
-We prevent fraud.
-Every year, thousands of deals are made via Sellcenter. Anywhere payments are made, fraudsters can be enticed to try to commit crime, but this accounts for less than one per thousand of all business with us. If someone falls victim to a scam, we take it very seriously. However, we are not on site when the deal is carried out and a large part of our work is therefore about informing about how to shop safely at Sellcenter.
-
-All ads are reviewed by Sellcenter's own rules. Every day we refrain from publishing 1000's of ads. We allow e.g. not the sale of medicines, soft air guns or content that can be perceived as offensive as well as sex toys or the like.
+          {{ $t("message.footer.guid") }}
         </div>
-        <div class="contactff ">
-          <div class="flex items-center flex-wrap border p-3 ">
-            <div class="flex ">
-
+        <div class="contactff">
+          <div class="flex items-center flex-wrap border p-3">
+            <div class="flex">
               <di class="FFICON">
                 <i class="fas fa-phone"></i>
               </di>
-  
-              <div class="FFHeader ">00212 6 45 17 00 81</div>
+
+              <div class="FFHeader">00212 6 45 17 00 81</div>
             </div>
 
-            <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
+            <div class="FFDesc">{{ $t("message.footer.workTime") }}</div>
 
             <div class="FFButton">
               <a>
                 <button type="button">
-                  <span> Обратиться </span>
+                  <span> {{ $t("message.footer.turn") }} </span>
                 </button>
               </a>
             </div>
@@ -65,7 +46,6 @@ export default {
 </script>
 
 <style scoped>
-
 .content {
   margin: 36px;
   display: flex;
