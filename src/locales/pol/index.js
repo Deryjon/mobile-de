@@ -225,5 +225,9 @@ export default {
       report_title: "Dlaczego otrzymuję irytujące reklamy?",
       report_desc: " Zdarza się, że otrzymujemy od naszych użytkowników pytania i komentarze dotyczące banerów i reklam w Sellcenter, które zawierają nieodpowiednie komunikaty i obrazy. Może to dotyczyć również problemów technicznych związanych z reklamą w Sellcenter.  Ponieważ jest to treść, która nie jest przez nas publikowana i jest widoczna tylko dla niektórych, prosimy o pokazanie przykładowego jej wyglądu (najlepiej zrzutu ekranu)."
     },
+    fake_email:{
+      fake_title: "  Fałszywe e-maile",
+      fake_desc: "Czy otrzymałeś podejrzane e-maile dotyczące danych konta lub karty z Sellcenter? To oszustwo! Nigdy nie skontaktujemy się z Tobą e-mailem, SMS-em ani telefonicznie i nie poprosimy o numery kart, hasła lub dane do logowania.  Jeśli skontaktuje się z Tobą ktoś podający się za z Sellcenter i proszenie Cię o ponowną płatność za reklamę lub żądanie zwrotu pieniędzy w związku z błędną płatnością, jest to oszustwo. Zgłoś to nam natychmiast. Jeśli podałeś dane swojej karty, zapraszamy do: Skontaktuj się ze swoim bank zablokował Twoją kartę Złóż raport na policji Wskazówki dotyczące bezpiecznych płatności kartą Kiedy płacisz kartą i podajesz dane swojej karty w Internecie, zawsze sprawdzaj, czy strona jest bezpieczna, sprawdzając, czy jest certyfikowana w pasku adresu przeglądarki. Certyfikowana strona zawsze zawiera adres URL. Żadne poważne firmy ani banki nie proszą o dane karty ani dane do logowania e-mailem, SMS-em lub telefonicznie. Jeśli skontaktowano się z Tobą za pośrednictwem poczty elektronicznej, SMS-a lub telefonu i ktoś poprosił Cię o zalogowanie się w celu otrzymania zwrotu pieniędzy, opłać ogłoszenie ponownie lub podaj dane do logowania, z całą pewnością będzie to próba oszustwa",
+    }
   },
 };

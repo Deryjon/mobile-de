@@ -224,5 +224,9 @@ export default {
       report_title: "Por qué recibo anuncios molestos?",
       report_desc: "Sucede que recibimos preguntas y comentarios de nuestros usuarios sobre banners y publicidad en Sellcenter que contienen mensajes e imágenes inapropiados. También puede tratarse de problemas técnicos relacionados con la publicidad en Sellcenter.   Dado que este es contenido que no publicamos nosotros y que solo es visible para algunos, solicitamos ver un ejemplo de cómo se ve (preferiblemente una captura de pantalla)."
     },
+    fake_email:{
+      fake_title: " Correos electrónicos falsos",
+      fake_desc: "¿Ha recibido correos electrónicos sospechosos sobre detalles de cuenta o tarjeta de Sellcenter? ¡Es un fraude! Nunca nos comunicaremos con usted por correo electrónico, SMS o teléfono para pedirle números de tarjeta, contraseñas o detalles de inicio de sesión. Si alguien se comunica con usted y dice ser de Sellcenter y pedirle que pague nuevamente por un anuncio, o afirmar que recibe un reembolso debido a un pago incorrecto, esto es una estafa. Infórmenos de esto inmediatamente. Si ha revelado los datos de su tarjeta, lo invitamos a: Contactar a su banco para bloquear su tarjeta Presente un informe policial Consejos para pagos seguros con tarjeta Cuando paga con tarjeta y proporciona los datos de su tarjeta en línea, siempre verifique que la página sea segura mirando si está certificada en la barra de direcciones de su navegador. Una página certificada siempre contiene en la URL. Ninguna empresa o banco serio solicita detalles de la tarjeta o información de inicio de sesión por correo electrónico, mensaje de texto o llamada. Si ha sido contactado por correo electrónico, SMS o teléfono donde alguien le ha pedido que inicie sesión para recibir un reembolso, volver a pagar el anuncio o facilitar sus datos de acceso, se garantiza que se trata de un intento de fraude",
+    }
   },
 };
