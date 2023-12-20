@@ -152,7 +152,7 @@
       </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
-        <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
+        <div class="radios-type flex flex-wrap gap-[10px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
           <label>
             <input type="radio" v-model="selectedCondition" :class="{
               'bg-transparent': selectedCondition !== 'Any',
@@ -866,7 +866,7 @@
       </div>
       <div class="condition mt-[20px] text-[15px]">
         <h3>Trailer coupling</h3>
-        <div class="radios-type flex flex-wrap gap-x-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
+        <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
           <label>
             <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
               'bg-transparent': selectedTrailer !== 'Fix',
