@@ -6,7 +6,7 @@
         <div class="headerLabel">  {{ $t("message.fake_email.fake_title") }}</div>
         <div class="mt-[20px]">
           <img
-            src="../../../assets/images/falska_mejl.avif"
+            src="https://qph.cf2.quoracdn.net/main-qimg-30c5fd1955714a5d122db783820d0c89"
           />
         </div>
         <div class="ContentDesc">

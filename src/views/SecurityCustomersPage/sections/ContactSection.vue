@@ -6,7 +6,7 @@
         <div class="headerLabel">Our security work</div>
         <div class="mt-[20px]">
           <img
-            src="../../../assets/images/Sakerhetsarbete.avif"
+            src="https://d1d81vmw1yvc7o.cloudfront.net/wp-content/uploads/sites/190/2014/09/08203031/bigstock-Call-Center-79077622.jpg"
           />
         </div>
         <div class="ContentDesc">
