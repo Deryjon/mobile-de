@@ -6,7 +6,7 @@
         <div class="headerLabel">{{ $t("message.report.report_title") }}</div>
         <div class="mt-[20px]">
           <img
-            src="../../../assets/images/Sakerhetsarbete.avif"
+            src="../../../assets/images/ads-annoying.jpg"
           />
         </div>
         <div class="ContentDesc">

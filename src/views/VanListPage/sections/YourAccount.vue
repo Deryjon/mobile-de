@@ -7,7 +7,7 @@
           @click="goToSinglePageAd(van.van_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
-            <img class="w-[100%] h-full sm:object-cover" :src="van.van_images_url" />
+            <img class="w-[100%] h-full object-cover" :src="van.van_images_url" />
           </div>
           <div class="text lg:h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">

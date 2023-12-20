@@ -593,7 +593,7 @@
           <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
           <input
             class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
-            type="text" pattern="\d*" v-model="zipCode" />
+            type="text" v-model="zipCode" />
         </div>
         <!--  -->
         <div class="radius dropdown-container">
