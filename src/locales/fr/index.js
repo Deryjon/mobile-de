@@ -225,6 +225,7 @@ export default {
       phone: "Téléphone",
       share: "Partager",
     },
+
     footer: {
       about: "A propos de Sellcenter",
       press: "Presse",
@@ -250,4 +251,13 @@ export default {
       exterior: "Extérieur",
     },
   },
+    report:{
+      report_title: "Why do I get annoying ads?",
+      report_desc: " It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images.  It can also be about technical problems related to advertising on Sellcenter.  Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot). Have you received shady emails about account or card details from Sellcenter? It's fraud!"
+    },
+
+    fake_email:{
+      fake_title: "Faux e-mails",
+      fake_desc: "Avez-vous reçu des e-mails douteux concernant les détails de votre compte ou de votre carte de la part de Sellcenter ? C'est une fraude ! Nous ne vous contacterons jamais par e-mail, SMS ou téléphone pour vous demander des numéros de carte, des mots de passe ou des informations de connexion. Si vous êtes contacté par quelqu'un prétendant être de Sellcenter et vous demandant de payer à nouveau une annonce, ou prétendant obtenir un remboursement en raison d'un paiement incorrect, il s'agit d'une arnaque. Signalez-le-nous immédiatement. Si vous avez divulgué les détails de votre carte, nous vous invitons à : Contacter votre banque pour bloquer votre carte Déposer un rapport de police Conseils pour payer par carte en toute sécurité Lorsque vous payez par carte et communiquez les détails de votre carte en ligne, vérifiez toujours que la page est sécurisée en regardant si elle est certifiée dans la barre d'adresse de votre navigateur. Une page certifiée contient toujours dans l'URL. Aucune entreprise ou banque sérieuse ne demande les détails de la carte ou les informations de connexion par e-mail, SMS ou appel. Si vous avez été contacté par e-mail, SMS ou téléphone où quelqu'un vous a demandé de vous connecter pour recevoir un remboursement, payer à nouveau l'annonce ou donner vos identifiants, il s'agit certainement d'une tentative de fraude",
+    }  },
 };
