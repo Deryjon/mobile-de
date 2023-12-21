@@ -225,13 +225,41 @@ export default {
       phone: "Téléphone",
       share: "Partager",
     },
-    report:{
-      report_title: "Why do I get annoying ads?",
-      report_desc: " It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images.  It can also be about technical problems related to advertising on Sellcenter.  Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot). Have you received shady emails about account or card details from Sellcenter? It's fraud!"
-    },
 
-    fake_email:{
-      fake_title: "Faux e-mails",
-      fake_desc: "Avez-vous reçu des e-mails douteux concernant les détails de votre compte ou de votre carte de la part de Sellcenter ? C'est une fraude ! Nous ne vous contacterons jamais par e-mail, SMS ou téléphone pour vous demander des numéros de carte, des mots de passe ou des informations de connexion. Si vous êtes contacté par quelqu'un prétendant être de Sellcenter et vous demandant de payer à nouveau une annonce, ou prétendant obtenir un remboursement en raison d'un paiement incorrect, il s'agit d'une arnaque. Signalez-le-nous immédiatement. Si vous avez divulgué les détails de votre carte, nous vous invitons à : Contacter votre banque pour bloquer votre carte Déposer un rapport de police Conseils pour payer par carte en toute sécurité Lorsque vous payez par carte et communiquez les détails de votre carte en ligne, vérifiez toujours que la page est sécurisée en regardant si elle est certifiée dans la barre d'adresse de votre navigateur. Une page certifiée contient toujours dans l'URL. Aucune entreprise ou banque sérieuse ne demande les détails de la carte ou les informations de connexion par e-mail, SMS ou appel. Si vous avez été contacté par e-mail, SMS ou téléphone où quelqu'un vous a demandé de vous connecter pour recevoir un remboursement, payer à nouveau l'annonce ou donner vos identifiants, il s'agit certainement d'une tentative de fraude",
-    }  },
+    footer: {
+      about: "A propos de Sellcenter",
+      press: "Presse",
+      blocket: "Travailler à Blocket",
+      contact: "Nous contacter",
+      inspiration: "Inspiration",
+      tips: "Conseils et guides",
+      security: "Sécurité",
+      customerSecurity: "Sécurité des clients",
+      fakeEmails: "Faux courriels",
+      offer: "Notre offre",
+      report: "Signaler une publicité gênante",
+      terms: "Conditions",
+      useTerms: "Conditions d'utilisation",
+      data: "Gestion des données personnelles",
+      cookies: "Cookies",
+      settings: "Paramètres des cookies",
+      company: "Pour les entreprises",
+      securityWork: "Notre travail en matière de sécurité",
+      guid: `Il va de soi que vous devez toujours pouvoir faire vos achats en toute sécurité sur le site Sellcenter en toute sécurité. Nous examinons les annonces et effectuons des contrôles continus des annonces et des utilisateurs. Nous Nous informons et guidons nos utilisateurs sur la manière d'effectuer des transactions sûres dans toutes les catégories. catégories. Sellcenter n'accepte que les annonces du marché automobile. Nous développons et des paiements sécurisés, des numéros de téléphone temporaires et d'autres services de sécurité. Nous filtrons les messages entre utilisateurs pour éviter le spam et les contenus offensants ou choquants. Nous coopérons avec la police et autres autorités pour prévenir les activités illégales de la meilleure façon possible. meilleure façon possible. Si nécessaire, nous partageons des informations sur les utilisateurs avec la police et d'autres autorités, dans le cadre d'enquêtes et d'investigations enquêtes préliminaires. Nous prévenons la fraude. Chaque année, des milliers de transactions sont effectuées via Sellcenter. Partout où des paiements sont effectués, les fraudeurs peuvent être incités à tenter de commettre un délit, mais cela représente moins de Cela représente moins d'un pour mille de toutes les affaires que nous traitons. Si quelqu'un est victime d'une d'une escroquerie, nous prenons cela très au sérieux. Cependant, nous ne sommes pas sur place lorsque la transaction et une grande partie de notre travail consiste donc à d'informer sur la manière d'acheter en toute sécurité sur Sellcenter. Toutes les annonces sont examinées par les propres règles de Sellcenter. Chaque jour, nous nous abstenons de publier des milliers d'annonces. d'annonces. Nous n'autorisons pas, par exemple, la vente de médicaments, d'armes à air comprimé ou de contenu pouvant être perçu comme offensant, ainsi que de jouets sexuels. contenu pouvant être perçu comme offensant, ainsi que les jouets sexuels ou autres. similaires.`,
+      workTime: "Du lundi au vendredi de 8h00 à 18h00.",
+      turn: "Circuler",
+      exterior: "Extérieur",
+    },
+  },
+  report: {
+    report_title: "Why do I get annoying ads?",
+    report_desc:
+      " It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images.  It can also be about technical problems related to advertising on Sellcenter.  Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot). Have you received shady emails about account or card details from Sellcenter? It's fraud!",
+  },
+
+  fake_email: {
+    fake_title: "Faux e-mails",
+    fake_desc:
+      "Avez-vous reçu des e-mails douteux concernant les détails de votre compte ou de votre carte de la part de Sellcenter ? C'est une fraude ! Nous ne vous contacterons jamais par e-mail, SMS ou téléphone pour vous demander des numéros de carte, des mots de passe ou des informations de connexion. Si vous êtes contacté par quelqu'un prétendant être de Sellcenter et vous demandant de payer à nouveau une annonce, ou prétendant obtenir un remboursement en raison d'un paiement incorrect, il s'agit d'une arnaque. Signalez-le-nous immédiatement. Si vous avez divulgué les détails de votre carte, nous vous invitons à : Contacter votre banque pour bloquer votre carte Déposer un rapport de police Conseils pour payer par carte en toute sécurité Lorsque vous payez par carte et communiquez les détails de votre carte en ligne, vérifiez toujours que la page est sécurisée en regardant si elle est certifiée dans la barre d'adresse de votre navigateur. Une page certifiée contient toujours dans l'URL. Aucune entreprise ou banque sérieuse ne demande les détails de la carte ou les informations de connexion par e-mail, SMS ou appel. Si vous avez été contacté par e-mail, SMS ou téléphone où quelqu'un vous a demandé de vous connecter pour recevoir un remboursement, payer à nouveau l'annonce ou donner vos identifiants, il s'agit certainement d'une tentative de fraude",
+  },
 };

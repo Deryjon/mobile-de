@@ -220,13 +220,39 @@ export default {
       phone: "Teléfono",
       share: "Compartir",
     },
-    report:{
-      report_title: "Por qué recibo anuncios molestos?",
-      report_desc: "Sucede que recibimos preguntas y comentarios de nuestros usuarios sobre banners y publicidad en Sellcenter que contienen mensajes e imágenes inapropiados. También puede tratarse de problemas técnicos relacionados con la publicidad en Sellcenter.   Dado que este es contenido que no publicamos nosotros y que solo es visible para algunos, solicitamos ver un ejemplo de cómo se ve (preferiblemente una captura de pantalla)."
+    footer: {
+      about: "Acerca de Sellcenter",
+      press: "Pulse",
+      blocket: "Trabajar en Blocket",
+      contact: "Contacte con nosotros",
+      inspiration: "Inspiración",
+      tips: "Consejos y guías",
+      security: "Seguridad",
+      customerSecurity: "Seguridad del cliente",
+      fakeEmails: "Correos electrónicos falsos",
+      offer: "Nuestra oferta",
+      report: "Denunciar la publicidad molesta",
+      terms: "Términos",
+      useTerms: "Condiciones de uso",
+      data: "Gestión de datos personales",
+      cookies: "Cookies",
+      settings: "Configuración de cookies",
+      company: "Para las empresas",
+      securityWork: "Nuestro trabajo de seguridad",
+      guid: `Por supuesto, siempre podrá comprar de forma segura en el sitio web de Sellcenter. Revisamos los anuncios y realizamos comprobaciones continuas de anuncios y usuarios. Informamos y guiamos a nuestros usuarios sobre cómo realizar transacciones seguras en todas las categorías. Sellcenter sólo acepta anuncios de Motor market. Desarrollamos y ofrecemos funciones para pagos seguros, números de teléfono temporales y otros servicios de seguridad. Filtramos los mensajes entre usuarios para evitar el spam y los contenidos ofensivos o injuriosos. Cooperamos con la policía y otras autoridades para prevenir actividades ilegales de la mejor manera posible. Si es necesario, compartimos información sobre los usuarios con la Policía y otras autoridades, en relación con investigaciones y pesquisas preliminares. Prevenimos el fraude. Cada año se realizan miles de transacciones a través de Sellcenter. En cualquier lugar donde se realicen pagos, los defraudadores pueden verse tentados a intentar cometer un delito, pero esto supone menos del uno por mil de todos los negocios con nosotros. Si alguien es víctima de una estafa, nos lo tomamos muy en serio. Sin embargo, no estamos in situ cuando se lleva a cabo la transacción, por lo que gran parte de nuestro trabajo consiste en informar sobre cómo comprar de forma segura en Sellcenter. Todos los anuncios son revisados por las propias reglas de Sellcenter. Cada día nos abstenemos de publicar 1000's anuncios. Por ejemplo, no permitimos la venta de medicamentos, pistolas de aire comprimido o contenidos que puedan ser percibidos como ofensivos, así como juguetes sexuales o similares.`,
+      workTime: "De lunes a viernes, de 8.00 a 18.00 horas.",
+      turn: "Haga circular",
+      exterior: "Exterior",
     },
-    fake_email:{
+    report: {
+      report_title: "Por qué recibo anuncios molestos?",
+      report_desc:
+        "Sucede que recibimos preguntas y comentarios de nuestros usuarios sobre banners y publicidad en Sellcenter que contienen mensajes e imágenes inapropiados. También puede tratarse de problemas técnicos relacionados con la publicidad en Sellcenter.   Dado que este es contenido que no publicamos nosotros y que solo es visible para algunos, solicitamos ver un ejemplo de cómo se ve (preferiblemente una captura de pantalla).",
+    },
+    fake_email: {
       fake_title: " Correos electrónicos falsos",
-      fake_desc: "¿Ha recibido correos electrónicos sospechosos sobre detalles de cuenta o tarjeta de Sellcenter? ¡Es un fraude! Nunca nos comunicaremos con usted por correo electrónico, SMS o teléfono para pedirle números de tarjeta, contraseñas o detalles de inicio de sesión. Si alguien se comunica con usted y dice ser de Sellcenter y pedirle que pague nuevamente por un anuncio, o afirmar que recibe un reembolso debido a un pago incorrecto, esto es una estafa. Infórmenos de esto inmediatamente. Si ha revelado los datos de su tarjeta, lo invitamos a: Contactar a su banco para bloquear su tarjeta Presente un informe policial Consejos para pagos seguros con tarjeta Cuando paga con tarjeta y proporciona los datos de su tarjeta en línea, siempre verifique que la página sea segura mirando si está certificada en la barra de direcciones de su navegador. Una página certificada siempre contiene en la URL. Ninguna empresa o banco serio solicita detalles de la tarjeta o información de inicio de sesión por correo electrónico, mensaje de texto o llamada. Si ha sido contactado por correo electrónico, SMS o teléfono donde alguien le ha pedido que inicie sesión para recibir un reembolso, volver a pagar el anuncio o facilitar sus datos de acceso, se garantiza que se trata de un intento de fraude",
-    }
+      fake_desc:
+        "¿Ha recibido correos electrónicos sospechosos sobre detalles de cuenta o tarjeta de Sellcenter? ¡Es un fraude! Nunca nos comunicaremos con usted por correo electrónico, SMS o teléfono para pedirle números de tarjeta, contraseñas o detalles de inicio de sesión. Si alguien se comunica con usted y dice ser de Sellcenter y pedirle que pague nuevamente por un anuncio, o afirmar que recibe un reembolso debido a un pago incorrecto, esto es una estafa. Infórmenos de esto inmediatamente. Si ha revelado los datos de su tarjeta, lo invitamos a: Contactar a su banco para bloquear su tarjeta Presente un informe policial Consejos para pagos seguros con tarjeta Cuando paga con tarjeta y proporciona los datos de su tarjeta en línea, siempre verifique que la página sea segura mirando si está certificada en la barra de direcciones de su navegador. Una página certificada siempre contiene en la URL. Ninguna empresa o banco serio solicita detalles de la tarjeta o información de inicio de sesión por correo electrónico, mensaje de texto o llamada. Si ha sido contactado por correo electrónico, SMS o teléfono donde alguien le ha pedido que inicie sesión para recibir un reembolso, volver a pagar el anuncio o facilitar sus datos de acceso, se garantiza que se trata de un intento de fraude",
+    },
   },
 };

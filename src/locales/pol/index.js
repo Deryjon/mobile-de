@@ -221,13 +221,39 @@ export default {
       phone: "Telefon",
       share: "Udział",
     },
-    report:{
-      report_title: "Dlaczego otrzymuję irytujące reklamy?",
-      report_desc: " Zdarza się, że otrzymujemy od naszych użytkowników pytania i komentarze dotyczące banerów i reklam w Sellcenter, które zawierają nieodpowiednie komunikaty i obrazy. Może to dotyczyć również problemów technicznych związanych z reklamą w Sellcenter.  Ponieważ jest to treść, która nie jest przez nas publikowana i jest widoczna tylko dla niektórych, prosimy o pokazanie przykładowego jej wyglądu (najlepiej zrzutu ekranu)."
+    footer: {
+      about: "Informacje o Sellcenter",
+      press: "Prasa",
+      blocket: "Praca w Blocket",
+      contact: "Kontakt",
+      inspiration: "Inspiracja",
+      tips: "Wskazówki i przewodniki",
+      security: "Bezpieczeństwo",
+      customerSecurity: "Bezpieczeństwo klientów",
+      fakeEmails: "Fałszywe wiadomości e-mail",
+      offer: "Nasza oferta",
+      report: "Zgłaszanie irytujących reklam",
+      terms: "Warunki",
+      useTerms: "Warunki użytkowania",
+      data: "Zarządzanie danymi osobowymi",
+      cookies: "Pliki cookie",
+      settings: "Ustawienia plików cookie",
+      company: "Dla firm",
+      securityWork: "Nasza praca w zakresie bezpieczeństwa",
+      guid: `Oczywiście zakupy w witrynie Sellcenter powinny być zawsze bezpieczne. Sprawdzamy ogłoszenia i na bieżąco kontrolujemy ogłoszenia i użytkowników. Informujemy i prowadzimy naszych użytkowników, jak przeprowadzać bezpieczne transakcje we wszystkich kategoriach. Sellcenter akceptuje wyłącznie ogłoszenia z rynku motoryzacyjnego. Opracowujemy i oferujemy funkcje bezpiecznych płatności, tymczasowe numery telefonów i inne usługi bezpieczeństwa. Filtrujemy wiadomości między użytkownikami, aby zapobiec spamowi i obraźliwym lub obraźliwym treściom. Współpracujemy z policją i innymi organami w celu zapobiegania nielegalnym działaniom w najlepszy możliwy sposób. W razie potrzeby udostępniamy informacje o użytkownikach policji i innym organom w związku z dochodzeniami i postępowaniami przygotowawczymi. Zapobiegamy oszustwom. Każdego roku za pośrednictwem Sellcenter zawierane są tysiące transakcji. Wszędzie tam, gdzie dokonywane są płatności, oszuści mogą zostać nakłonieni do próby popełnienia przestępstwa, ale stanowi to mniej niż jeden na tysiąc wszystkich transakcji z nami. Jeśli ktoś padnie ofiarą oszustwa, traktujemy to bardzo poważnie. Nie jesteśmy jednak na miejscu, gdy transakcja jest przeprowadzana, dlatego duża część naszej pracy polega na informowaniu o tym, jak bezpiecznie robić zakupy w Sellcenter. Wszystkie reklamy są weryfikowane zgodnie z zasadami Sellcenter. Każdego dnia powstrzymujemy się od publikowania 1000 reklam. Nie zezwalamy np. na sprzedaż leków, miękkich pistoletów pneumatycznych lub treści, które mogą być postrzegane jako obraźliwe, a także zabawek erotycznych itp.`,
+      workTime: "Od poniedziałku do piątku od 8:00 do 18:00.",
+      turn: "Krążyć",
+      exterior: "Na zewnątrz",
     },
-    fake_email:{
+    report: {
+      report_title: "Dlaczego otrzymuję irytujące reklamy?",
+      report_desc:
+        " Zdarza się, że otrzymujemy od naszych użytkowników pytania i komentarze dotyczące banerów i reklam w Sellcenter, które zawierają nieodpowiednie komunikaty i obrazy. Może to dotyczyć również problemów technicznych związanych z reklamą w Sellcenter.  Ponieważ jest to treść, która nie jest przez nas publikowana i jest widoczna tylko dla niektórych, prosimy o pokazanie przykładowego jej wyglądu (najlepiej zrzutu ekranu).",
+    },
+    fake_email: {
       fake_title: "  Fałszywe e-maile",
-      fake_desc: "Czy otrzymałeś podejrzane e-maile dotyczące danych konta lub karty z Sellcenter? To oszustwo! Nigdy nie skontaktujemy się z Tobą e-mailem, SMS-em ani telefonicznie i nie poprosimy o numery kart, hasła lub dane do logowania.  Jeśli skontaktuje się z Tobą ktoś podający się za z Sellcenter i proszenie Cię o ponowną płatność za reklamę lub żądanie zwrotu pieniędzy w związku z błędną płatnością, jest to oszustwo. Zgłoś to nam natychmiast. Jeśli podałeś dane swojej karty, zapraszamy do: Skontaktuj się ze swoim bank zablokował Twoją kartę Złóż raport na policji Wskazówki dotyczące bezpiecznych płatności kartą Kiedy płacisz kartą i podajesz dane swojej karty w Internecie, zawsze sprawdzaj, czy strona jest bezpieczna, sprawdzając, czy jest certyfikowana w pasku adresu przeglądarki. Certyfikowana strona zawsze zawiera adres URL. Żadne poważne firmy ani banki nie proszą o dane karty ani dane do logowania e-mailem, SMS-em lub telefonicznie. Jeśli skontaktowano się z Tobą za pośrednictwem poczty elektronicznej, SMS-a lub telefonu i ktoś poprosił Cię o zalogowanie się w celu otrzymania zwrotu pieniędzy, opłać ogłoszenie ponownie lub podaj dane do logowania, z całą pewnością będzie to próba oszustwa",
-    }
+      fake_desc:
+        "Czy otrzymałeś podejrzane e-maile dotyczące danych konta lub karty z Sellcenter? To oszustwo! Nigdy nie skontaktujemy się z Tobą e-mailem, SMS-em ani telefonicznie i nie poprosimy o numery kart, hasła lub dane do logowania.  Jeśli skontaktuje się z Tobą ktoś podający się za z Sellcenter i proszenie Cię o ponowną płatność za reklamę lub żądanie zwrotu pieniędzy w związku z błędną płatnością, jest to oszustwo. Zgłoś to nam natychmiast. Jeśli podałeś dane swojej karty, zapraszamy do: Skontaktuj się ze swoim bank zablokował Twoją kartę Złóż raport na policji Wskazówki dotyczące bezpiecznych płatności kartą Kiedy płacisz kartą i podajesz dane swojej karty w Internecie, zawsze sprawdzaj, czy strona jest bezpieczna, sprawdzając, czy jest certyfikowana w pasku adresu przeglądarki. Certyfikowana strona zawsze zawiera adres URL. Żadne poważne firmy ani banki nie proszą o dane karty ani dane do logowania e-mailem, SMS-em lub telefonicznie. Jeśli skontaktowano się z Tobą za pośrednictwem poczty elektronicznej, SMS-a lub telefonu i ktoś poprosił Cię o zalogowanie się w celu otrzymania zwrotu pieniędzy, opłać ogłoszenie ponownie lub podaj dane do logowania, z całą pewnością będzie to próba oszustwa",
+    },
   },
 };

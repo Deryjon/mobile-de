@@ -221,13 +221,40 @@ export default {
       phone: "Telefon",
       share: "Andel",
     },
-    report:{
-      report_title: " Varför får jag störande reklam?",
-      report_desc: " Det händer att vi får frågor och kommentarer från våra användare gällande banners och reklam på Sellcenter som innehåller olämpliga budskap och bilder.Det kan också handla om tekniska problem relaterat till reklam på Sellcenter. Eftersom det är innehåll som inte lagts upp av oss och som bara syns för vissa, ber vi om att få se ett exempel på hur det ser ut (gärna en skärmdump)."
+    footer: {
+      about: "Om Sellcenter",
+      press: "Tryck på",
+      blocket: "Arbeta på Blocket",
+      contact: "Kontakta oss",
+      inspiration: "Inspiration",
+      tips: "Tips och vägledningar",
+      security: "Säkerhet",
+      customerSecurity: "Säkerhet för kunder",
+      fakeEmails: "Falska e-postmeddelanden",
+      offer: "Vårt erbjudande",
+      report: "Anmäl irriterande reklam",
+      terms: "Villkor",
+      useTerms: "Användarvillkor",
+      data: "Hantering av personuppgifter",
+      cookies: "Cookies",
+      settings: "Inställningar för cookies",
+      company: "För företag",
+      securityWork: "Vårt säkerhetsarbete",
+      guid: `Du ska naturligtvis alltid kunna handla tryggt på Sellcenters webbplats. Vi granskar annonser och gör löpande kontroller av annonser och användare. Vi informerar och vägleder våra användare om hur man gör säkra affärer inom alla kategorier. Sellcenter accepterar endast annonser från motormarknaden. Vi utvecklar och erbjuder funktioner för säkra betalningar, tillfälliga telefonnummer och andra säkerhetstjänster. Vi filtrerar meddelanden mellan användare för att förhindra skräppost och stötande eller kränkande innehåll. Vi samarbetar med polis och andra myndigheter för att på bästa sätt förhindra olaglig verksamhet. Vid behov delar vi information om användare med Polisen och andra myndigheter, i samband med utredningar och förundersökningar. Vi förhindrar bedrägerier. Varje år görs tusentals affärer via Sellcenter. Överallt där betalningar görs kan bedragare lockas att försöka begå brott, men detta står för mindre än en promille av alla affärer med oss. Om någon faller offer för ett bedrägeri tar vi det på största allvar. Vi är dock inte på plats när affären genomförs och en stor del av vårt arbete handlar därför om att informera om hur man handlar tryggt på Sellcenter. Alla annonser granskas enligt Sellcenters egna regler. Varje dag avstår vi från att publicera 1000-tals annonser. Vi tillåter t.ex. inte försäljning av läkemedel, soft air guns eller innehåll som kan uppfattas som stötande samt sexleksaker eller liknande.`,
+      workTime: "Måndag till fredag från kl. 8.00 till kl. 18.00.",
+      turn: "Cirkulera",
+      exterior: "Exteriör",
     },
-    fake_email:{
+
+    report: {
+      report_title: " Varför får jag störande reklam?",
+      report_desc:
+        " Det händer att vi får frågor och kommentarer från våra användare gällande banners och reklam på Sellcenter som innehåller olämpliga budskap och bilder.Det kan också handla om tekniska problem relaterat till reklam på Sellcenter. Eftersom det är innehåll som inte lagts upp av oss och som bara syns för vissa, ber vi om att få se ett exempel på hur det ser ut (gärna en skärmdump).",
+    },
+    fake_email: {
       fake_title: "Falska mail",
-      fake_desc: "Har du fått skumma mejl om konto- eller  kortuppgifter från Sellcenter? Det är bedrägeri  ! Vi kommer aldrig att kontakta er via mejl, sms eller telefon och be om kortnummer, lösenord eller inloggningsuppgifter.  Om du blir kontaktad av någon som påstår sig vara från Sellcenter och ber dig betala en annons på nytt, eller påstår att du ska få pengar tillbaka på grund av felaktig betalning är detta ett bedrägeri. Anmäl detta omgående till oss.   Om du har lämnat ifrån dig dina kortuppgifter uppmanar vi dig att: Kontakta din bank för att spärra ditt kort Göra en polisanmälan  Tips för trygg kortbetalning  När du betalar med kort och lämnar ut dina kortuppgifter på nätet, kolla alltid att sidan är säker genom titta om den är certifierad i adressfältet i din browser. En certifierad sida innehåller alltid i url:en. Inga seriösa företag eller banker ber om kortuppgifter eller inloggningsinformation genom att mejla, sms:a eller ringa. Om du har blivit kontaktad av “Sellcenter ” via mejl, sms eller telefon där någon har bett dig att logga in för att ta emot återbetalning, betala annonsen igen eller lämna ut dina inloggningsuppgifter är detta garanterat ett bedrägeriförsök",
-    }
+      fake_desc:
+        "Har du fått skumma mejl om konto- eller  kortuppgifter från Sellcenter? Det är bedrägeri  ! Vi kommer aldrig att kontakta er via mejl, sms eller telefon och be om kortnummer, lösenord eller inloggningsuppgifter.  Om du blir kontaktad av någon som påstår sig vara från Sellcenter och ber dig betala en annons på nytt, eller påstår att du ska få pengar tillbaka på grund av felaktig betalning är detta ett bedrägeri. Anmäl detta omgående till oss.   Om du har lämnat ifrån dig dina kortuppgifter uppmanar vi dig att: Kontakta din bank för att spärra ditt kort Göra en polisanmälan  Tips för trygg kortbetalning  När du betalar med kort och lämnar ut dina kortuppgifter på nätet, kolla alltid att sidan är säker genom titta om den är certifierad i adressfältet i din browser. En certifierad sida innehåller alltid i url:en. Inga seriösa företag eller banker ber om kortuppgifter eller inloggningsinformation genom att mejla, sms:a eller ringa. Om du har blivit kontaktad av “Sellcenter ” via mejl, sms eller telefon där någon har bett dig att logga in för att ta emot återbetalning, betala annonsen igen eller lämna ut dina inloggningsuppgifter är detta garanterat ett bedrägeriförsök",
+    },
   },
 };

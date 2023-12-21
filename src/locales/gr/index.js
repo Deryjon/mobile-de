@@ -221,13 +221,39 @@ export default {
       phone: "Telefon",
       share: "Teilen Sie",
     },
-    report:{
-      report_title: "Warum erhalte ich nervige Werbung?",
-      report_desc: " Es kommt vor, dass wir von unseren Benutzern Fragen und Kommentare zu Bannern und Werbung auf Sellcenter erhalten, die unangemessene Nachrichten und Bilder enthalten. Es kann sich auch um technische Probleme im Zusammenhang mit der Werbung auf Sellcenter handeln. Da es sich um Inhalte handelt, die nicht von uns gepostet wurden und nur für einige sichtbar sind, bitten wir um ein Beispiel dafür, wie es aussieht (vorzugsweise einen Screenshot)."
+    footer: {
+      about: "Über Sellcenter",
+      press: "Presse",
+      blocket: "Arbeiten bei Blocket",
+      contact: "Kontakt",
+      inspiration: "Inspiration",
+      tips: "Tipps und Leitfäden",
+      security: "Sicherheit",
+      customerSecurity: "Sicherheit der Kunden",
+      fakeEmails: "Gefälschte E-Mails",
+      offer: "Unser Angebot",
+      report: "Lästige Werbung melden",
+      terms: "Bedingungen",
+      useTerms: "Nutzungsbedingungen",
+      data: "Verwaltung persönlicher Daten",
+      cookies: "Cookies",
+      settings: "Cookie-Einstellungen",
+      company: "Für Unternehmen",
+      securityWork: "Unsere Sicherheitsarbeit",
+      guid: `Natürlich sollten Sie auf der Sellcenter-Website immer sicher einkaufen können. Wir überprüfen die Anzeigen und führen laufend Kontrollen der Anzeigen und Nutzer durch. Wir informieren und leiten unsere Nutzer an, wie sie sichere Transaktionen in allen Kategorien durchführen können. Sellcenter akzeptiert nur Motormarkt-Anzeigen. Wir entwickeln und bieten Funktionen für sichere Zahlungen, temporäre Telefonnummern und andere Sicherheitsdienste. Wir filtern Nachrichten zwischen Nutzern, um Spam und beleidigende oder anstößige Inhalte zu verhindern. Wir arbeiten mit der Polizei und anderen Behörden zusammen, um illegale Aktivitäten bestmöglich zu verhindern. Falls erforderlich, geben wir im Zusammenhang mit Ermittlungen und Voruntersuchungen Informationen über Nutzer an die Polizei und andere Behörden weiter. Wir verhindern Betrug. Jedes Jahr werden Tausende von Geschäften über Sellcenter getätigt. Überall, wo Zahlungen getätigt werden, können Betrüger dazu verleitet werden, Straftaten zu begehen, aber dies macht weniger als ein Promille aller Geschäfte mit uns aus. Wenn jemand einem Betrug zum Opfer fällt, nehmen wir das sehr ernst. Wir sind jedoch nicht vor Ort, wenn das Geschäft abgewickelt wird, und ein großer Teil unserer Arbeit besteht daher darin, darüber zu informieren, wie man sicher bei Sellcenter einkauft. Alle Anzeigen werden nach Sellcenters eigenen Regeln geprüft. Jeden Tag verzichten wir auf die Veröffentlichung von 1000en von Anzeigen. Wir erlauben z.B. nicht den Verkauf von Medikamenten, Luftdruckwaffen oder Inhalten, die als anstößig empfunden werden können, sowie Sexspielzeug oder ähnliches.`,
+      workTime: "Montag bis Freitag von 8:00 Uhr bis 18:00 Uhr.",
+      turn: "Verbreiten",
+      exterior: "Äußeres",
     },
-    fake_email:{
+    report: {
+      report_title: "Warum erhalte ich nervige Werbung?",
+      report_desc:
+        " Es kommt vor, dass wir von unseren Benutzern Fragen und Kommentare zu Bannern und Werbung auf Sellcenter erhalten, die unangemessene Nachrichten und Bilder enthalten. Es kann sich auch um technische Probleme im Zusammenhang mit der Werbung auf Sellcenter handeln. Da es sich um Inhalte handelt, die nicht von uns gepostet wurden und nur für einige sichtbar sind, bitten wir um ein Beispiel dafür, wie es aussieht (vorzugsweise einen Screenshot).",
+    },
+    fake_email: {
       fake_title: "Gefälschte E-Mails",
-      fake_desc: "Haben Sie von Sellcenter zwielichtige E-Mails zu Konto- oder Kartendaten erhalten? Das ist Betrug! Wir werden Sie niemals per E-Mail, SMS oder Telefon kontaktieren und Sie nach Kartennummern, Passwörtern oder Anmeldedaten fragen. Wenn Sie von jemandem kontaktiert werden, der dies vorgibt von Sellcenter senden und Sie auffordern, für eine Anzeige erneut zu bezahlen, oder eine Rückerstattung aufgrund einer falschen Zahlung fordern, ist dies ein Betrug. Melden Sie uns dies umgehend. Wenn Sie Ihre Kartendaten preisgegeben haben, laden wir Sie ein: Kontaktieren Sie Ihren Bank, um Ihre Karte zu sperren. Erstatten Sie Anzeige bei der Polizei. Tipps für sichere Kartenzahlungen. Wenn Sie mit Karte bezahlen und Ihre Kartendaten online preisgeben, prüfen Sie immer, ob die Seite sicher ist, indem Sie in der Adressleiste Ihres Browsers nachsehen, ob sie zertifiziert ist. Eine zertifizierte Seite enthält immer die URL. Keine seriösen Unternehmen oder Banken fragen per E-Mail, SMS oder Anruf nach Kartendaten oder Anmeldeinformationen. Wenn Sie per E-Mail, SMS oder Telefon kontaktiert wurden und jemand Sie gebeten hat, sich für den Empfang anzumelden eine Rückerstattung, zahlen Sie die Anzeige erneut oder geben Sie Ihre Zugangsdaten preis, es handelt sich garantiert um einen Betrugsversuch",
-    }
+      fake_desc:
+        "Haben Sie von Sellcenter zwielichtige E-Mails zu Konto- oder Kartendaten erhalten? Das ist Betrug! Wir werden Sie niemals per E-Mail, SMS oder Telefon kontaktieren und Sie nach Kartennummern, Passwörtern oder Anmeldedaten fragen. Wenn Sie von jemandem kontaktiert werden, der dies vorgibt von Sellcenter senden und Sie auffordern, für eine Anzeige erneut zu bezahlen, oder eine Rückerstattung aufgrund einer falschen Zahlung fordern, ist dies ein Betrug. Melden Sie uns dies umgehend. Wenn Sie Ihre Kartendaten preisgegeben haben, laden wir Sie ein: Kontaktieren Sie Ihren Bank, um Ihre Karte zu sperren. Erstatten Sie Anzeige bei der Polizei. Tipps für sichere Kartenzahlungen. Wenn Sie mit Karte bezahlen und Ihre Kartendaten online preisgeben, prüfen Sie immer, ob die Seite sicher ist, indem Sie in der Adressleiste Ihres Browsers nachsehen, ob sie zertifiziert ist. Eine zertifizierte Seite enthält immer die URL. Keine seriösen Unternehmen oder Banken fragen per E-Mail, SMS oder Anruf nach Kartendaten oder Anmeldeinformationen. Wenn Sie per E-Mail, SMS oder Telefon kontaktiert wurden und jemand Sie gebeten hat, sich für den Empfang anzumelden eine Rückerstattung, zahlen Sie die Anzeige erneut oder geben Sie Ihre Zugangsdaten preis, es handelt sich garantiert um einen Betrugsversuch",
+    },
   },
 };
