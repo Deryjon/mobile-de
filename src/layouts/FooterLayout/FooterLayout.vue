@@ -3,7 +3,7 @@
     class=""
     :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }"
   >
-    <v-container class="max-w-[1140px] lg:flex `justify-between` items-center">
+    <v-container class="max-w-[1140px] lg:flex justify-between items-center">
       <div class="actions flex flex-col lg:gap-[20px]">
         <FooterSocialLinks class="hidden lg:flex"/>
 				<FooterActions class="hidden lg:flex "/>
