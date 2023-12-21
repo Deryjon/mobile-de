@@ -227,6 +227,32 @@ you will find car tips, tests, guides and much more.`,
       phone: "Phone",
       share: "Share",
     },
+
+    footer: {
+      about: "About Sellcenter",
+      press: "Press",
+      blocket: "Work at Blocket",
+      contact: "Contact Us",
+      inspiration: "Inspiration",
+      tips: "Tips and guides",
+      security: "Security",
+      customerSecurity: "Customer security",
+      fakeEmails: "Fake emails",
+      offer: "Our Offer",
+      report: "Report annoying advertising",
+      terms: "Terms",
+      useTerms: "Terms of Use",
+      data: "Personal data management",
+      cookies: "Cookies",
+      settings: "Cookie settings",
+      company: "For companies",
+      securityWork: "Our security work",
+      guid: `You should of course always be able to shop safely on the Sellcenter website. We review ads and make ongoing checks of ads and users. We inform and guide our users on how to conduct safe transactions in all categories. Sellcenter only accepts Motor market ads. We develop and offer features for secure payments, temporary phone numbers and other security services. We filter messages between users to prevent spam and offensive or offensive content. We cooperate with the police and other authorities to prevent illegal activities in the best possible way. If necessary, we share information about users with the Police and other authorities, in connection with investigations and preliminary investigations. We prevent fraud. Every year, thousands of deals are made via Sellcenter. Anywhere payments are made, fraudsters can be enticed to try to commit crime, but this accounts for less than one per thousand of all business with us. If someone falls victim to a scam, we take it very seriously. However, we are not on site when the deal is carried out and a large part of our work is therefore about informing about how to shop safely at Sellcenter. All ads are reviewed by Sellcenter's own rules. Every day we refrain from publishing 1000's of ads. We allow e.g. not the sale of medicines, soft air guns or content that can be perceived as offensive as well as sex toys or the like.`,
+      workTime: "Monday to Friday from 8:00am to 6:00pm.",
+      turn: "Circulate",
+      exterior: "Exterior",
+    },
+
     report:{
       report_title: "Why do I get annoying ads?",
       report_desc: " It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images.  It can also be about technical problems related to advertising on Sellcenter.  Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot). Have you received shady emails about account or card details from Sellcenter? It's fraud!"
@@ -235,6 +261,5 @@ you will find car tips, tests, guides and much more.`,
       fake_title: "   Fake emails",
       fake_desc: "Have you received shady emails about account or card details from Sellcenter? It's fraud!   We will never contact you via email, SMS or phone and ask for card numbers, passwords or login details.   If you are contacted by someone claiming to be from Sellcenter and asking you to pay for an ad again, or claiming to get a refund due to incorrect payment, this is a scam. Report this to us immediately. If you have given away your card details, we invite you to:  Contact your bank to block your card File a police report Tips for safe card payments When you pay by card and give out your card details online, always check that the page is secure by looking to see if it is certified in the address bar of your browser. A certified page always contains  in the url. No serious companies or banks ask for card details or login information by email, text or call.If you have been contacted by  via email, SMS or phone where someone has asked you to log in to receive a refund, pay the ad again or give out your login details, this is guaranteed to be a fraud attempt",
     }
-
   },
 };
