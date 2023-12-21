@@ -2,11 +2,13 @@
   <section class="basic-filter">
     <v-container class="max-w-[1140px]">
       <div
-        class="relative filter   md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[5px] rounded p-[10px] lg:p-[27px]"
+        class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[5px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Exterior</h3>
-        <div class="line h-[1px] border mt-[10px]"></div>	
-        <CarFilterComponentExteriror />       
+        <h3 class="basic-title text-[25px] font-semibold">
+          {{ $t("message.payment.exterior") }}
+        </h3>
+        <div class="line h-[1px] border mt-[10px]"></div>
+        <CarFilterComponentExteriror />
       </div>
     </v-container>
   </section>
@@ -17,7 +19,7 @@ import PathLink from "../../../ui/PathLink.vue";
 import FilterTitle from "../../../ui/FilterTitle.vue";
 import FilterBtn from "../../../components/FilterBtn.vue";
 import PowerComponent from "../components/PowerComponentTechnic.vue";
-import axios from 'axios';
+import axios from "axios";
 import CarFilterComponentBasic from "../components/CarFilterComponentBasic.vue";
 import ConditionComponent from "../components/ConditionComponentBasic.vue";
 import PaymentTab1Component from "../components/PaymentTab1Component.vue";
@@ -50,8 +52,8 @@ export default {
     CarFilterComponentBasic,
     ConditionComponent,
     PaymentTab1Component,
-    CarFilterComponentExteriror	
-},
+    CarFilterComponentExteriror,
+  },
   methods: {
     updateSelect() {
       this.killometres = this.selectedMake;
