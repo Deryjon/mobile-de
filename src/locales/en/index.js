@@ -253,13 +253,15 @@ you will find car tips, tests, guides and much more.`,
       exterior: "Exterior",
     },
 
-    report:{
+    report: {
       report_title: "Why do I get annoying ads?",
-      report_desc: " It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images.  It can also be about technical problems related to advertising on Sellcenter.  Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot). Have you received shady emails about account or card details from Sellcenter? It's fraud!"
+      report_desc:
+        " It happens that we receive questions and comments from our users regarding banners and advertising on Sellcenter that contain inappropriate messages and images.  It can also be about technical problems related to advertising on Sellcenter.  Since this is content not posted by us and only visible to some, we ask to see an example of what it looks like (preferably a screenshot). Have you received shady emails about account or card details from Sellcenter? It's fraud!",
     },
-    fake_email:{
-      fake_title: "   Fake emails",
-      fake_desc: "Have you received shady emails about account or card details from Sellcenter? It's fraud!   We will never contact you via email, SMS or phone and ask for card numbers, passwords or login details.   If you are contacted by someone claiming to be from Sellcenter and asking you to pay for an ad again, or claiming to get a refund due to incorrect payment, this is a scam. Report this to us immediately. If you have given away your card details, we invite you to:  Contact your bank to block your card File a police report Tips for safe card payments When you pay by card and give out your card details online, always check that the page is secure by looking to see if it is certified in the address bar of your browser. A certified page always contains  in the url. No serious companies or banks ask for card details or login information by email, text or call.If you have been contacted by  via email, SMS or phone where someone has asked you to log in to receive a refund, pay the ad again or give out your login details, this is guaranteed to be a fraud attempt",
-    }
+    fake_email: {
+      fake_title: "Fake emails",
+      fake_desc:
+        "Have you received shady emails about account or card details from Sellcenter? It's fraud!   We will never contact you via email, SMS or phone and ask for card numbers, passwords or login details.   If you are contacted by someone claiming to be from Sellcenter and asking you to pay for an ad again, or claiming to get a refund due to incorrect payment, this is a scam. Report this to us immediately. If you have given away your card details, we invite you to:  Contact your bank to block your card File a police report Tips for safe card payments When you pay by card and give out your card details online, always check that the page is secure by looking to see if it is certified in the address bar of your browser. A certified page always contains  in the url. No serious companies or banks ask for card details or login information by email, text or call.If you have been contacted by  via email, SMS or phone where someone has asked you to log in to receive a refund, pay the ad again or give out your login details, this is guaranteed to be a fraud attempt",
+    },
   },
 };
