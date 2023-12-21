@@ -224,7 +224,7 @@ export default {
     footer: {
       about: "Om Sellcenter",
       press: "Tryck på",
-      blocket: "Arbeta på Blocket",
+      blocket: "Arbeta på Sellcenter  ",
       contact: "Kontakta oss",
       inspiration: "Inspiration",
       tips: "Tips och vägledningar",

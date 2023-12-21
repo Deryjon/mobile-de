@@ -231,7 +231,7 @@ you will find car tips, tests, guides and much more.`,
     footer: {
       about: "About Sellcenter",
       press: "Press",
-      blocket: "Work at Blocket",
+      blocket: "Work at Sellcenter",
       contact: "Contact Us",
       inspiration: "Inspiration",
       tips: "Tips and guides",

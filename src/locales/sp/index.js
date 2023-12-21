@@ -223,7 +223,7 @@ export default {
     footer: {
       about: "Acerca de Sellcenter",
       press: "Pulse",
-      blocket: "Trabajar en Blocket",
+      blocket: "Trabajar en Sellcenter",
       contact: "Contacte con nosotros",
       inspiration: "Inspiración",
       tips: "Consejos y guías",

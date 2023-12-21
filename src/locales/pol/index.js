@@ -224,7 +224,7 @@ export default {
     footer: {
       about: "Informacje o Sellcenter",
       press: "Prasa",
-      blocket: "Praca w Blocket",
+      blocket: "Praca w Sellcenter",
       contact: "Kontakt",
       inspiration: "Inspiracja",
       tips: "Wskazówki i przewodniki",

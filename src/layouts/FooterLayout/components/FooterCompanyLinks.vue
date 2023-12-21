@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap gap-[40px] lg:mt-[0px]">
+  <div class="flex flex-wrap gap-[20px] lg:mt-[0px]">
     <div class="socials">
       <h3 class="font-bold">{{ $t("message.footer.about") }}</h3>
       <ul class="flex flex-col">
@@ -67,36 +67,7 @@
       </ul>
     </div>
 
-    <div class="socials">
-      <h3 class="font-bold">About Sellcenter</h3>
-      <ul class="flex flex-col">
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'about-us' }"
-          >Press</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'news' }"
-          >Work at Sellcenter</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'contact' }"
-          >Contact Us</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'home' }"
-          >Inspiration</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'home' }"
-          >Tips and guides</router-link
-        >
-      </ul>
-    </div>
+    
     <div class="socials">
       <h3 class="font-bold">{{ $t("message.footer.cookies") }}</h3>
       <ul class="flex flex-col">
