@@ -16,7 +16,7 @@
             class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0"
           >
             <img
-              class="w-[100%] h-full sm:object-cover"
+              class="w-[100%] h-full object-cover"
               :src="vehicle.vehicle_images_url[0]"
             />
           </div>

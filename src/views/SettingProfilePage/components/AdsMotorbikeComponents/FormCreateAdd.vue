@@ -412,7 +412,7 @@
       <div class="condition mt-[30px]">
         <h3 class="text-[10px] lg:text-[14px]">Type and condition</h3>
         <div
-          class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
+          class="radios-type flex flex-wrap gap-[10px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
         >
           <label>
             <input
@@ -851,10 +851,10 @@
     <div class="fuel-add">
       <div class="mt-[10px]">
         <h3 class="text-[16px]">Fuel Type</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
+        <div class="filter-cars flex flex-wrap gap-[10px] lg:gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-4 lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -869,7 +869,7 @@
             Diesel
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-4 lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -884,7 +884,7 @@
             Hybrid (diesel/electric)
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-4 lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -899,7 +899,7 @@
             Natural Gas
           </label>
           <label
-            class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
+            class="custom-checkbox flex gap-4 lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0"
           >
             <input
               type="radio"
@@ -914,7 +914,7 @@
             Other
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-4 lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
@@ -929,7 +929,7 @@
             Petrol
           </label>
           <label
-            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
+            class="custom-checkbox p-0 flex gap-4 lg:gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
           >
             <input
               type="radio"
