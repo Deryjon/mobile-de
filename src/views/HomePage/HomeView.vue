@@ -7,7 +7,7 @@
 		 <MagazinSection/>
  <ElectroCarsSection/>
 	  	<FinanceSection/>
-		  <CarModelsSection/>
+		 
 		
   </main>
 </template>
