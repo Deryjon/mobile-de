@@ -1,6 +1,6 @@
 <template>
   <v-container class="max-w-[1140px]">
-    <PathLink>Semitrailer Single</PathLink>
+    <PathLink>Semitrailer {{ $t("message.single_page.single") }}</PathLink>
     <div class="sections">
       <YourSetAd />
     </div>

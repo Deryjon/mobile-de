@@ -33,11 +33,8 @@
       <div class="name-seller mt-[20px]">
         <p class="name">{{ construction.machine_vendor }}</p>
       </div>
-      <div class="name-seller">
-        <p class="name">DE-33602 Bielefeld</p>
-      </div>
       <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">Phone: {{ construction.user_phone }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
@@ -47,7 +44,7 @@
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Write Email
+          {{ $t("message.single_page.email") }}
         </button>
         <div>
           <button @click="toggleShareMenu" v-if="!isShareMenuOpen"
@@ -58,7 +55,7 @@
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
             </svg>
-            Share
+            {{ $t("message.single_page.share") }}
           </button>
           <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[5px]">
             <button @click="shareOnWhatsApp">
@@ -118,7 +115,7 @@
             </g>
           </svg>
           <div class="kilomet">
-            <p class="text-[10px] lg:text-[12px]">First Registration</p>
+            <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.first") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ construction.machine_firt_date }}</p>
           </div>
         </div>
@@ -144,7 +141,7 @@
             </g>
           </svg>
           <div class="kilomet">
-            <p class="text-[10px] lg:text-[12px]">Power</p>
+            <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.power") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
           </div>
         </div>
@@ -163,33 +160,33 @@
             </g>
           </svg>
           <div class="kilomet">
-            <p class="text-[10px] lg:text-[12px]">Operating Hours</p>
+            <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.operatinghour") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ construction.machine_operating_hours }}</p>
           </div>
         </div>
       </div>
       <div class="technical-data bor p-[20px]">
-        <p class="title text-[16px] lg:font-semibold">Technical data</p>
+        <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="td-box mt-[20px] flex flex-col gap-[20px]">
           <div class="category flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Category</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.category") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ construction.machine_category }}
             </p>
           </div>
           <div class="power flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Power</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.power") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ powerInkW }} kW ({{ powerInHp }} Hp)
             </p>
           </div>
           <div class="availability flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Emissions Sticker</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.sticker") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ construction.machine_emissions_sticker }}</p>
           </div>
           <div class="availability flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">Condition</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.condtion") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ construction.machine_condition }}</p>
           </div>
           <div class="availability flex justify-between">
@@ -205,7 +202,7 @@
         </div>
       </div>
       <div class="features bor p-[20px]">
-        <p class="title font-semibold">Features</p>
+        <p class="title font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
           <div v-for="item in construction.machine_features" class="flex justify-between w-[297px]">
@@ -219,38 +216,31 @@
       </div>
       <div class="description bor p-[20px]">
         <p class="font-semibold">
-          Vehicle description according to seller
-        </p>
+          {{ $t("message.single_page.description") }}        </p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px]">
           <P class=""> {{ construction.machine_describtion }} </P>
         </div>
       </div>
       <div class="description bor p-[20px]">
-        <p class="title text-[16px] lg:text-[22px] font-semibold">Dealer</p>
+        <p class="title text-[16px] lg:text-[22px] font-semibold">{{ $t("message.single_page.dealer") }}</p>
         <div class="line mt-[10px]"></div>
 
         <div class="profile-img lg:w-[200px]">
           <img src="../../../assets/images/family.jpg" alt="" />
         </div>
-        <div class="name">
-          <p class="name text-[11px] lg:text-[14px] font-semibold">
-            Abuto Bierschneider Aalen GmbH
-          </p>
-        </div>
         <div class="since mt-[10px]">
           <p class="since text-[11px] lg:text-[14px]">
-            With mobile.de since: {{ formattedDate }}
+            {{ $t("message.single_page.with") }}: {{ formattedDate }}
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">Phone: {{ construction.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
         </div>
         <div class="line mt-[10px]"></div>
 
         <p class="show mt-[20px] text-[10px] lg:text-[12px]">
-          This information is based exclusively on data from mobile.de and
-          reviews by other users. All content is independent and not for sale.
+          {{ $t("message.single_page.information") }}
         </p>
       </div>
     </div>
@@ -274,7 +264,7 @@
         <p class="name">{{ construction.machine_vendor }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">Phone: {{ construction.user_phone }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
@@ -284,7 +274,7 @@
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          Write Email
+          {{ $t("message.single_page.email") }}
         </button>
         <div>
           <button
@@ -296,7 +286,7 @@
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
             </svg>
-            Share
+            {{ $t("message.single_page.share") }}
           </button>
           <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[2px]">
             <button @click="shareOnWhatsApp">
