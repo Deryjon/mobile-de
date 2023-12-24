@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px]">
-    <h3 class="text-[16px]">Type and condition</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.condition") }}</h3>
     <div class="radios-type flex flex-wrap gap-x-[20px] lg:gap-x-[100px] mt-[10px] ">
       <label>
         <input type="radio" v-model="selectedCondition" :class="{

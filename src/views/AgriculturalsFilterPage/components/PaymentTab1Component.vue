@@ -2,7 +2,7 @@
   <div class="lg:pl-[20px]">
     <div class="price-tab flex items-center gap-[20px] lg:gap-[80px]">
       <div class="price dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.price") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -423,7 +423,7 @@
     <!-- valid -->
     <div class="valid-until mt-[20px] lg:mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]">
       <div class="relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.hu_valid") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="huValid">
@@ -438,11 +438,11 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.previous") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="preOwners">
-          <option value="any" selected>Any</option>
+          <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
           <option value="1">Up to 1</option>
           <option value="2">Up to 2</option>
           <option value="3">Up to 3</option>
@@ -460,7 +460,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
 
-        <span class="text-sm p]b-[20px">Full Service History</span>
+        <span class="text-sm p]b-[20px">{{ $t("message.filter_page.history") }}</span>
       </label>
       <label class="custom-checkbox flex items-center h-10 lg:w-[145px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }">
@@ -472,18 +472,18 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
 
-        <span class="text-sm">Roadworthy</span>
+        <span class="text-sm">{{ $t("message.filter_page.road") }}</span>
       </label>
     </div>
     <!-- country -->
     <div class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]">
       <div class="relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">Country</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.country") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="selectedCountry">
           <optgroup>
-            <option value="" selected>Any</option>
+            <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>
@@ -558,7 +558,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.postcode") }}</h2>
         <input
           class="mark_input mt-[10px] text-[14px] mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="text" pattern="\d*" v-model="zipCode" />
@@ -655,7 +655,7 @@
       </div> -->
       <!--  -->
       <div class="radius dropdown-container">
-        <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.radius") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"

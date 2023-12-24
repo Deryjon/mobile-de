@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px]">
-    <h3>Airbags</h3>
+    <h3>{{ $t("message.filter_page.airbags") }}</h3>
     <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[30px] mt-[10px] xl:mt-[20px]">
       <label for="condition-ext" @click="selectAirbag('AnyExterior')">
         <input
@@ -12,7 +12,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[2px] xl:ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[2px] xl:ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
       <label for="driver-airbag" @click="selectAirbag('Driver')">
         <input
@@ -23,7 +23,7 @@
             'bg-orange': selectedAirbag === 'Driver',
           }"
         />
-        <span class="ml-[2px] xl:ml-[10px] text-[14px]">Driver Airbag </span>
+        <span class="ml-[2px] xl:ml-[10px] text-[14px]">{{ $t("message.filter_page.driveair") }}</span>
       </label>
       <label for="front-airbag" @click="selectAirbag('Front')">
         <input
@@ -34,7 +34,7 @@
             'bg-orange': selectedAirbag === 'Front',
           }"
         />
-        <span class="ml-[2px] xl:ml-[10px] text-[14px]">Front Airbags</span>
+        <span class="ml-[2px] xl:ml-[10px] text-[14px]">{{ $t("message.filter_page.frontair") }}</span>
       </label>
 
       <label for="side-airbag" @click="selectAirbag('FrontAndSide')">
@@ -47,7 +47,7 @@
           }"
         />
         <span class="ml-[2px] xl:ml-[10px] text-[14px]"
-          >Front and Side Airbags
+          >{{ $t("message.filter_page.frontside") }}
         </span>
       </label>
       <label for="more-airbag" @click="selectAirbag('FrontAndSideMore')">
@@ -60,14 +60,13 @@
           }"
         />
         <span class="ml-[2px] xl:ml-[10px] text-[14px]"
-          >Front and Side and More Airbags
+          >{{ $t("message.filter_page.frontmore") }}
         </span>
       </label>
     </div>
   </div>
 </template>
 <script>
-import http from "../../../axios.config";
 import { useCarStore } from "@/store/carDataStore";
 export default {
   data() {

@@ -11,7 +11,7 @@
       <div
         class="relative filter xl:h-[1600px] lg:h-[1500px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
+        <h3 class="basic-title text-[25px] font-semibold">{{ $t("message.filter_page.titles.basic") }}</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <div
           class="top flex flex-wrap lg:flex-nowrap gap-x-[10px] items-center sm:gap-[20px]  mt-[10px] lg:p-[20px]"
@@ -35,7 +35,7 @@
                   >
                     {{ make.car_make_name }}
                   </option>
-                  <option value="other">other</option>
+                  <option value="other">{{ $t("message.filter_page.other") }}</option>
                 </optgroup>
               </select>
               <span
@@ -72,7 +72,7 @@
           </div>
           <div class="mark">
             <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[14px]">Variant</h2>
+              <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.features.variant") }}</h2>
               <input
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 placeholder="e.g. GTI..."
@@ -86,7 +86,7 @@
         <ConditionComponent />
         <div class="line h-[1px] border lg:mt-[-10px] xl:mt-[50px]"></div>
         <div class="lg:mt-[-10px] xl:mt-[30px] p-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+          <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.payment") }}</h2>
           <div class="Kaufen_div mt-[10px]">
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"

@@ -724,9 +724,6 @@
   </v-container>
 </template>
 <script>
-import SettingsTab from "../components/SettingsComponentTab.vue";
-import OverviewTab from "../components/OverviewComponentTab.vue";
-import MyAdCarsTab from "../components/MyAdCarsTab.vue";
 import TheLoader from "../../../components/TheLoader.vue";
 // import Clipboard from 'clipboard';
 import { format } from "date-fns";
@@ -894,9 +891,6 @@ export default {
   },
 
   components: {
-    SettingsTab,
-    OverviewTab,
-    MyAdCarsTab,
     TheLoader,
   },
 

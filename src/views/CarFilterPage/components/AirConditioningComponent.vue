@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px] mt-[15px]">
-    <h3 class="text-[16px]">Air conditioning</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.conditioning.title") }}</h3>
     <div class="radios-type flex flex-wrap gap-x-[60px] gap-y-[10px] mt-[20px]">
       <label class="w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
         <input
@@ -13,7 +13,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
       <label class="w-[200px]" for="manual" @click="selectAirbag('Manual')">
         <input
@@ -27,7 +27,7 @@
           
         />
         <span class="ml-[10px] text-[14px]"
-          >Manual or automatic climatisation
+          >{{ $t("message.filter_page.conditioning.manual") }}
         </span>
       </label>
       <label
@@ -45,7 +45,7 @@
           }"
         />
         <span class="ml-[10px] text-[14px]"
-          >Automatic climatisation, 2 zones
+          >{{ $t("message.filter_page.conditioning.zone2") }}
         </span>
       </label>
 
@@ -64,7 +64,7 @@
           }"
         />
         <span class="ml-[10px] text-[14px]"
-          >Automatic climatisation, 4 zones</span
+          >{{ $t("message.filter_page.conditioning.zone4") }}</span
         >
       </label>
       <label for='noclimat' class="w-[200px]" @click="selectAirbag('NoClimat')">

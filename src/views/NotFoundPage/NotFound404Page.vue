@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped>
-.not-found-container {
+.not-found-container {  
   display: flex;
   flex-direction: column;
   align-items: center;
