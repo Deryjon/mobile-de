@@ -1,7 +1,7 @@
 <template>
   <div class="not-found-container">
-    <h1 class="not-found-title">404 - Page not found</h1>
-    <p class="not-found-message">Sorry, the page you requested does not exist.</p>
+    <h1 class="not-found-title">{{ $t("message.found_page.title") }}</h1>
+    <p class="not-found-message">{{ $t("message.single_page.message") }}</p>
     <!-- Добавьте здесь любое дополнительное содержимое или ссылки -->
   </div>
 </template>

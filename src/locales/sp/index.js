@@ -289,7 +289,12 @@ export default {
       information: "Esta información se basa exclusivamente en datos de mobile.de y revisiones de otros usuarios. Todo el contenido es independiente y no está a la venta.",
       single: "Único",
       description: "Descripción del vehículo según el vendedor"
+  },
+  found_page:{
+    title: "404 - Página no encontrada",
+    message: "Lo siento, la página que solicitaste no existe."
   }
+  
   
   },
 };

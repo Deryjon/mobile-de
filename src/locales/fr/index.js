@@ -297,5 +297,10 @@ export default {
       single: "Unique",
       description: "Description du véhicule selon le vendeur",
     },
+    found_page:{
+      title: "404 - Page not found",
+      message: "Désolé, la page que vous avez demandée n'existe pas."
+    }
+    
   },
 };

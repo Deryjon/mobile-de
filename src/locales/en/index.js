@@ -300,6 +300,10 @@ you will find car tips, tests, guides and much more.`,
       single: "Single",
       description: "Vehicle description according to seller"
 
+    },
+    found_page:{
+      title: "404 - Page not found",
+      message: "Sorry, the page you requested does not exist."
     }
   },
 };

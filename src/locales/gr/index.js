@@ -290,7 +290,12 @@ export default {
       information: "Diese Informationen basieren ausschließlich auf Daten von mobile.de und Bewertungen anderer Benutzer. Alle Inhalte sind unabhängig und nicht zum Verkauf bestimmt.",
       single: "Einzigartig",
       description: "Fahrzeugbeschreibung nach Verkäufer"
+  },
+  found_page:{
+    title: "404 - Seite nicht gefunden",
+    message: "Entschuldigung, die von Ihnen angeforderte Seite existiert nicht."
   }
+  
   
   },
 };

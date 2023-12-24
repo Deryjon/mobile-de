@@ -291,7 +291,12 @@ export default {
       information: "Denna information baseras uteslutande på data från mobile.de och recensioner från andra användare. Allt innehåll är oberoende och inte till salu.",
       single: "Ensam ägare",
       description: "Fordonsbeskrivning enligt säljaren"
+  },
+  found_page:{
+    title: "404 - Sida ej hittad",
+    message: "Tyvärr, den begärda sidan finns inte."
   }
+  
   
   },
 };
