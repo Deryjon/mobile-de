@@ -1,13 +1,17 @@
 <template>
   <div class="set p-[40px]">
     <div class="your-setting">
-      <h2 class="text-[32px] font-semibold">Your account settings</h2>
+      <h2 class="text-[32px] font-semibold">
+        {{ $t("message.profile.accSetting") }}
+      </h2>
       <p class="mt-[5px] font-normal text-gray-600">
         Your customer number: {{ userI }}
       </p>
     </div>
     <div class="profile mt-[30px]">
-      <h2 class="text-[26px] font-semibold">Profile</h2>
+      <h2 class="text-[26px] font-semibold">
+        {{ $t("message.profile.profile") }}
+      </h2>
       <div
         class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
       >
@@ -29,26 +33,28 @@
             </svg>
           </div>
           <div class="profile-pic">
-            <p class="font-medium">Profile picture</p>
-            <p class="font-normal">(Only visible for you)</p>
+            <p class="font-medium">{{ $t("message.profile.picture") }}</p>
+            <p class="font-normal">{{ $t("message.profile.visible") }}</p>
           </div>
         </div>
         <button
           class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
         >
-          Complete
+          {{ $t("message.profile.complete") }}
         </button>
       </div>
     </div>
-    <div class="profile  mt-[30px]">
-      <h2 class="text-[26px] font-semibold">Login Data</h2>
+    <div class="profile mt-[30px]">
+      <h2 class="text-[26px] font-semibold">
+        {{ $t("message.profile.loginData") }}
+      </h2>
       <div class="box" v-if="!changeLogin">
         <div
           class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
         >
           <div class="flex items-center gap-[20px]">
             <div class="profile-pic">
-              <p class="font-medium">E-mail Address</p>
+              <p class="font-medium">{{ $t("message.register.email") }}</p>
               <p class="font-normal text-[14px]">{{ userE }}</p>
             </div>
           </div>
@@ -58,7 +64,7 @@
         >
           <div class="flex items-center gap-[20px]">
             <div class="profile-pic">
-              <p class="font-medium">Password</p>
+              <p class="font-medium">{{ $t("message.register.password") }}</p>
               <p class="font-normal text-[14px]">•••••••••••••</p>
             </div>
           </div>
@@ -66,14 +72,14 @@
             class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
             @click="openDataLogin"
           >
-            Change
+            {{ $t("message.profile.change") }}
           </button>
         </div>
       </div>
       <div class="box w-[658px] h-[500px] p-[15px]" v-if="changeLogin">
-        <p class="font-medium">Change email</p>
+        <p class="font-medium">{{ $t("message.profile.changeEmail") }}</p>
         <div class="box w-[220px] current-email mt-[20px] px-[10px]">
-          <p class="text-[14px]">Current e-mail address</p>
+          <p class="text-[14px]">{{ $t("message.profile.currentEmail") }}</p>
           <p class="current-email font-normal text-[14px]">{{ userE }}</p>
         </div>
         <div class="email mt-[10px]">
@@ -84,9 +90,11 @@
           />
         </div>
         <div class="current-email mt-[30px] mb-[20px]">
-          <p class="font-medium">Change password</p>
+          <p class="font-medium">{{ $t("message.profile.changePassword") }}</p>
         </div>
-        <label for="" class="mt-[10px] text-[14px]">New password </label>
+        <label for="" class="mt-[10px] text-[14px]">{{
+          $t("message.profile.newPassword")
+        }}</label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
             <input
@@ -129,7 +137,9 @@
             </div>
           </div>
         </div>
-        <label for="" class="text-[14px]">Current password </label>
+        <label for="" class="text-[14px]">{{
+          $t("message.profile.currentPassword")
+        }}</label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
             <input
@@ -178,18 +188,20 @@
             class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
             @click="openDataLogin"
           >
-            Cancel
+            {{ $t("message.profile.cancel") }}
           </button>
           <button
             class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
             @click="changeLoginData"
           >
-            Save
+            {{ $t("message.profile.save") }}
           </button>
         </div>
       </div>
       <div class="profile mt-[30px]">
-        <h2 class="text-[26px] font-semibold">Contact data</h2>
+        <h2 class="text-[26px] font-semibold">
+          {{ $t("message.profile.contactData") }}
+        </h2>
         <div class="box">
           <div
             class="w-[656px] h-[84px] p-[15px] flex items-center justify-between"
@@ -197,7 +209,7 @@
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="font-medium">Name</p>
+                <p class="font-medium">{{ $t("message.profile.name") }}</p>
                 <p class="font-normal text-[14px]">
                   {{ selectedGender }} {{ userName }} {{ userLastName }}
                 </p>
@@ -207,18 +219,20 @@
               class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
               @click="openChangeName"
             >
-              Complete
+              {{ $t("message.profile.complete") }}
             </button>
           </div>
           <div class="" v-if="nameChange">
             <div class="box">
               <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
-                <p>Complete name</p>
+                <p>{{ $t("message.profile.completeName") }}</p>
               </div>
               <div class="changes w-[656px] h-[292px] p-[20px]">
                 <div class="mark">
                   <div class="relative w-[300px] mt-2">
-                    <h2 class="text-sm lg:text-[14px]">Form of Address</h2>
+                    <h2 class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.formAddress") }}
+                    </h2>
                     <select
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[300px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                       v-model="selectedGender"
@@ -234,7 +248,9 @@
                 </div>
                 <div class="flex gap-[20px] mt-[20px]">
                   <div class="email mt-[10px]">
-                    <p class="text-sm lg:text-[14px]">First Name</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.firstName") }}
+                    </p>
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
@@ -242,7 +258,9 @@
                     />
                   </div>
                   <div class="email mt-[10px]">
-                    <p class="text-sm lg:text-[14px]">Last Name</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.lastName") }}
+                    </p>
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
@@ -255,13 +273,13 @@
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
                     @click="openChangeName"
                   >
-                    Cancel
+                    {{ $t("message.profile.cancel") }}
                   </button>
                   <button
                     class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
                     @click="changeContactDataName"
                   >
-                    Save
+                    {{ $t("message.profile.save") }}
                   </button>
                 </div>
               </div>
@@ -273,7 +291,7 @@
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="font-medium">Address</p>
+                <p class="font-medium">{{ $t("message.profile.address") }}</p>
                 <p class="font-normal text-[14px]">
                   {{ userAddressStreet }} {{ userAddressNr }}
                   {{ userAddressZip }} {{ userAddressCity }}
@@ -285,7 +303,7 @@
               class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
               @click="openAddressChange"
             >
-              Complete
+              {{ $t("message.profile.complete") }}
             </button>
           </div>
           <div class="" v-if="addressChange">
@@ -418,13 +436,13 @@
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
                     @click="openAddressChange"
                   >
-                    Cancel
+                    {{ $t("message.profile.cancel") }}
                   </button>
                   <button
                     class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
                     @click="changeContactDataAddress"
                   >
-                    Save
+                    {{ $t("message.profile.save") }}
                   </button>
                 </div>
               </div>
@@ -436,7 +454,9 @@
           >
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p class="font-medium">Phone number</p>
+                <p class="font-medium">
+                  {{ $t("message.profile.phoneNumber") }}
+                </p>
                 <p class="font-normal text-[14px]">
                   {{ userCountryCode }} {{ userNumberPre }} {{ userNumber }}
                 </p>
@@ -446,18 +466,20 @@
               class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
               @click="openNumberChange"
             >
-              Complete
+              {{ $t("message.profile.complete") }}
             </button>
           </div>
           <div class="" v-if="numberChanges">
             <div class="box">
               <div class="complete w-[656px] py-[20px] px-[20px] bg-[#f1f1f1]">
-                <p>Complete name</p>
+                <p>{{ $t("message.profile.completeName") }}</p>
               </div>
               <div class="changes w-[656px] h-[200px] p-[20px]">
                 <div class="mark flex gap-[15px]">
                   <div class="relative w-[141px]">
-                    <h2 class="text-sm lg:text-[14px]">Country code</h2>
+                    <h2 class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.countryCode") }}
+                    </h2>
                     <select
                       class="mark-select mt-[5px] w-[200px] lg:w-[150px] xl:w-[141px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                       v-model="userCountryCode"
@@ -536,7 +558,9 @@
                   </div>
 
                   <div class="email mt-[5px]">
-                    <p class="text-sm lg:text-[14px]">Prefix</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.prefix") }}
+                    </p>
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
@@ -544,7 +568,9 @@
                     />
                   </div>
                   <div class="email mt-[5px]">
-                    <p class="text-sm lg:text-[14px]">Phone number</p>
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.phoneNUmber") }}
+                    </p>
                     <input
                       type="text "
                       class="input-bor px-[10px] py-[10px] w-[300px] rounded-md"
@@ -557,13 +583,13 @@
                     class="complete bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
                     @click="openNumberChange"
                   >
-                    Cancel
+                    {{ $t("message.profile.cancel") }}
                   </button>
                   <button
                     class="complete bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
                     @click="changeContactDataNumber"
                   >
-                    Save
+                    {{ $t("message.profile.save") }}
                   </button>
                 </div>
               </div>
@@ -571,7 +597,9 @@
           </div>
         </div>
         <div class="profile mt-[30px]">
-          <h2 class="text-[26px] font-semibold">Documents</h2>
+          <h2 class="text-[26px] font-semibold">
+            {{ $t("message.profile.docs") }}
+          </h2>
           <div class="box">
             <div
               class="w-[656px] h-[84px] p-[10px] flex items-center justify-between"
@@ -581,10 +609,11 @@
               >
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">My invoices</p>
+                    <p class="font-medium">
+                      {{ $t("message.profile.invoices") }}
+                    </p>
                     <p class="font-normal text-[14px]">
-                      Here you will find an overview of your booked packages and
-                      options
+                      {{ $t("message.profile.packages") }}
                     </p>
                   </div>
                 </div>
@@ -592,13 +621,15 @@
               <button
                 class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
               >
-                None available
+                {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
         </div>
         <div class="profile mt-[30px]">
-          <h2 class="text-[26px] font-semibold">Privacy</h2>
+          <h2 class="text-[26px] font-semibold">
+            {{ $t("message.profile.privacy") }}
+          </h2>
           <div class="box">
             <div
               class="w-[656px] h-[120px] p-[15px] flex items-center justify-between"
@@ -606,12 +637,11 @@
               <div class="w-[656px] p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">Newsletter</p>
+                    <p class="font-medium">
+                      {{ $t("message.profile.newsletter") }}
+                    </p>
                     <p class="font-normal text-[12px]">
-                      I would like to receive emails from mobile.de about
-                      offers, surveys and information on products and services
-                      from mobile.de and Kleinanzeigen (can be cancelled at any
-                      time in the account settings).
+                      {{ $t("message.register.recieveEmails") }}
                     </p>
                   </div>
                 </div>
@@ -619,7 +649,7 @@
               <button
                 class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
               >
-                None available
+                {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
@@ -630,11 +660,11 @@
               <div class="w-[656px] p-[15px] flex items-center justify-between">
                 <div class="flex items-center gap-[20px]">
                   <div class="profile-pic">
-                    <p class="font-medium">Market research
-</p>
+                    <p class="font-medium">
+                      {{ $t("message.profile.market") }}
+                    </p>
                     <p class="font-normal text-[12px]">
-											I agree that my data is used for market research.
-
+                      {{ $t("message.profile.agree") }}
                     </p>
                   </div>
                 </div>
@@ -642,46 +672,49 @@
               <button
                 class="complete bg-[#fff] w-[141px] py-[6px] text-[14px] rounded-[4px] text-[#094559] font-medium"
               >
-                None available
+                {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
         </div>
         <div class="profile mt-[30px]">
-      <h2 class="text-[26px] font-semibold">Delete account</h2>
-      <div
-        class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
-      >
-        <div class="flex items-center gap-[20px]">
-          <div class="icon w-[30px]">
-            <svg
-              data-v-53d99ea3=""
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 32 32"
-              id="profile"
-            >
-              <g data-v-53d99ea3="" data-name="Layer 2">
-                <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-                <path
+          <h2 class="text-[26px] font-semibold">
+            {{ $t("message.profile.delete") }}
+          </h2>
+          <div
+            class="box w-[656px] h-[84px] p-[15px] flex items-center justify-between"
+          >
+            <div class="flex items-center gap-[20px]">
+              <div class="icon w-[30px]">
+                <svg
                   data-v-53d99ea3=""
-                  d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
-                ></path>
-              </g>
-            </svg>
-          </div>
-          <div class="profile-pic">
-            <p class="font-medium">{{userE}}</p>
-            <p class="font-normal">Private Account, registered since 2023
-</p>
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 32 32"
+                  id="profile"
+                >
+                  <g data-v-53d99ea3="" data-name="Layer 2">
+                    <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+                    <path
+                      data-v-53d99ea3=""
+                      d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z"
+                    ></path>
+                  </g>
+                </svg>
+              </div>
+              <div class="profile-pic">
+                <p class="font-medium">{{ userE }}</p>
+                <p class="font-normal">
+                  {{ $t("message.profile.since") }}
+                </p>
+              </div>
+            </div>
+            <button
+              class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
+            >
+              {{ $t("message.profile.delete") }}
+            </button>
           </div>
         </div>
-        <button
-          class="complete bg-[#094559] px-[10px] py-[8px] rounded-[8px] text-[#fff]"
-        >
-          Delete account
-        </button>
-      </div>
-    </div>
       </div>
     </div>
   </div>
