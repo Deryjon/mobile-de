@@ -243,6 +243,10 @@ export default {
       workTime: "De lunes a viernes, de 8.00 a 18.00 horas.",
       turn: "Haga circular",
       exterior: "Exterior",
+      question:
+        "¿Tiene más preguntas o prefiere hablar por teléfono? Aquí encontrará toda la información que necesita.",
+      service:
+        "Si prefiere escribir un mensaje, rellene el formulario de contacto.",
     },
     report: {
       report_title: "Por qué recibo anuncios molestos?",

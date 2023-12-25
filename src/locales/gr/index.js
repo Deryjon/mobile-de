@@ -244,6 +244,10 @@ export default {
       workTime: "Montag bis Freitag von 8:00 Uhr bis 18:00 Uhr.",
       turn: "Verbreiten",
       exterior: "Äußeres",
+      question:
+        "Haben Sie weitere Fragen oder möchten Sie Ihr Anliegen lieber am Telefon besprechen? Dann finden Sie hier alle Informationen, die Sie brauchen!",
+      service:
+        "Hier finden Sie die Telefonnummern und Öffnungszeiten unseres Kundendienstes, und wenn Sie uns eine Nachricht schreiben möchten, füllen Sie einfach das Kontaktformular aus.",
     },
     report: {
       report_title: "Warum erhalte ich nervige Werbung?",

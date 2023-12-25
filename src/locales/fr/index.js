@@ -249,6 +249,10 @@ export default {
       workTime: "Du lundi au vendredi de 8h00 à 18h00.",
       turn: "Circuler",
       exterior: "Extérieur",
+      question:
+        "Vous avez des questions supplémentaires ou vous préférez discuter de vos préoccupations par téléphone ? Vous trouverez ici toutes les informations dont vous avez besoin !",
+      service:
+        "Si vous préférez écrire un message, il vous suffit de remplir le formulaire de contact.",
     },
     report: {
       report_title: "Why do I get annoying ads?",

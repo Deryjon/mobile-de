@@ -3,39 +3,32 @@
     <v-container class="max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
-        <div class="headerLabel">Contact</div>
+        <div class="headerLabel">{{ $t("message.header.contact") }}</div>
         <div class="ContentDesc">
-          Есть ли у вас дополнительные вопросы или вы предпочитаете обсудить
-          свои опасения по телефону? Тогда вы найдете здесь всю необходимую
-          информацию!
+          {{ $t("message.footer.question") }}
         </div>
         <div class="">
-          <img
-            src="../../../assets/images/contact-img.avif"
-          />
+          <img src="../../../assets/images/contact-img.avif" />
         </div>
         <div class="ContentDesc">
-          Здесь указаны номера наших служб поддержки клиентов и время их работы.
-          Если вы предпочитаете написать сообщение, просто заполните контактную
-          форму.
+          {{ $t("message.footer.service") }}
         </div>
-        <div class="contactff ">
-          <div class="flex items-center flex-wrap border p-3 ">
-            <div class="flex ">
-
+        <div class="contactff">
+          <div class="flex items-center flex-wrap border p-3">
+            <div class="flex">
               <di class="FFICON">
                 <i class="fas fa-phone"></i>
               </di>
-  
-              <div class="FFHeader ">00212 6 45 17 00 81</div>
+
+              <div class="FFHeader">00212 6 45 17 00 81</div>
             </div>
 
-            <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
+            <div class="FFDesc">{{ $t("message.footer.workTime") }}</div>
 
             <div class="FFButton">
               <a>
                 <button type="button">
-                  <span> Обратиться </span>
+                  <span> {{ $t("message.footer.turn") }} </span>
                 </button>
               </a>
             </div>
@@ -56,7 +49,6 @@ export default {
 </script>
 
 <style scoped>
-
 .content {
   margin: 36px;
   display: flex;
@@ -163,7 +155,6 @@ export default {
   .contentImg img {
     max-width: 100%;
   }
-
 
   .FFICON {
     font-size: 24px;

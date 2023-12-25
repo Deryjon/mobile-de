@@ -251,6 +251,10 @@ you will find car tips, tests, guides and much more.`,
       workTime: "Monday to Friday from 8:00am to 6:00pm.",
       turn: "Circulate",
       exterior: "Exterior",
+      question:
+        "Do you have additional questions or would you prefer to discuss your concerns over the phone? Then you will find all the information you need here!",
+      service:
+        "Here are our customer service numbers and opening times. If you prefer to write a message, simply fill in the contact form. form.",
     },
 
     report: {

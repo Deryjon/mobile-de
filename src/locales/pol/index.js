@@ -244,6 +244,10 @@ export default {
       workTime: "Od poniedziałku do piątku od 8:00 do 18:00.",
       turn: "Krążyć",
       exterior: "Na zewnątrz",
+      question:
+        "Masz dodatkowe pytania lub wolisz omówić swoje wątpliwości przez telefon? Wszystkie potrzebne informacje znajdziesz tutaj!",
+      service:
+        "Jeśli wolisz napisać wiadomość, po prostu wypełnij formularz kontaktowy.",
     },
     report: {
       report_title: "Dlaczego otrzymuję irytujące reklamy?",

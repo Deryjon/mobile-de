@@ -1,34 +1,33 @@
 <template>
   <div class=" ">
-    <v-container class=" max-w-[1140px]">
+    <v-container class="max-w-[1140px]">
       <div class="content">
         <div class="StatusDate"></div>
-        <div class="headerLabel">  {{ $t("message.fake_email.fake_title") }}</div>
+        <div class="headerLabel">
+            {{ $t("message.fake_email.fake_title") }}
+        </div>
         <div class="mt-[20px]">
-          <img
-            src="../../../assets/images/fake-email.jpg"
-          />
+          <img src="../../../assets/images/fake-email.jpg" />
         </div>
         <div class="ContentDesc">
           {{ $t("message.fake_email.fake_desc") }}
         </div>
-        <div class="contactff ">
-          <div class="flex items-center flex-wrap border p-3 ">
-            <div class="flex ">
-
+        <div class="contactff">
+          <div class="flex items-center flex-wrap border p-3">
+            <div class="flex">
               <di class="FFICON">
                 <i class="fas fa-phone"></i>
               </di>
-  
-              <div class="FFHeader ">00212 6 45 17 00 81</div>
+
+              <div class="FFHeader">00212 6 45 17 00 81</div>
             </div>
 
-            <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
+            <div class="FFDesc">{{ $t("message.footer.workTime") }}</div>
 
             <div class="FFButton">
               <a>
                 <button type="button">
-                  <span> Обратиться </span>
+                  <span> {{ $t("message.footer.turn") }} </span>
                 </button>
               </a>
             </div>
@@ -49,7 +48,6 @@ export default {
 </script>
 
 <style scoped>
-
 .content {
   margin: 36px;
   display: flex;

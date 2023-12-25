@@ -244,6 +244,10 @@ export default {
       workTime: "Måndag till fredag från kl. 8.00 till kl. 18.00.",
       turn: "Cirkulera",
       exterior: "Exteriör",
+      question:
+        "Har du ytterligare frågor eller föredrar du att diskutera dina problem över telefon? Då hittar du all information du behöver här!",
+      service:
+        "Här hittar du telefonnummer och öppettider till vår kundtjänst. Om du föredrar att skriva ett meddelande fyller du bara i kontaktformuläret.",
     },
 
     report: {
