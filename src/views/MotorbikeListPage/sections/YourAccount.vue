@@ -2,14 +2,21 @@
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1120px]" v-else>
     <div
-      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px] mx-auto settings relative bg-[#0000001f] py-[20px] lg:p-[40px]"
+    >
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
-        <div v-for="motorcycle in motorcycles"
+        <div
+          v-for="motorcycle in motorcycles"
           class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
-          @click="goToSinglePageAd(motorcycle.motorcycle_id)">
-          <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
-
-            <img class="w-[100%] h-full object-cover" :src="motorcycle.motorcycle_images_url" />
+          @click="goToSinglePageAd(motorcycle.motorcycle_id)"
+        >
+          <div
+            class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0"
+          >
+            <img
+              class="w-[100%] h-full object-cover"
+              :src="motorcycle.motorcycle_images_url"
+            />
           </div>
           <div class="text lg:h-[260px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
@@ -38,7 +45,9 @@
                 Hp
               </div>
             </div>
-            <div class="motorcycle-body hidden lg:flex flex-wrap gap-x-[5px] text-[14px]">
+            <div
+              class="motorcycle-body hidden lg:flex flex-wrap gap-x-[5px] text-[14px]"
+            >
               <div class="motorcycle-body">
                 {{ motorcycle.motorcycle_type }}
               </div>
@@ -63,14 +72,27 @@
               <div class="">
                 <button
                   class="flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white"
-                  @click="contactAd" v-if="!contactUser">
-                  <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false"
-                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
+                  @click="contactAd"
+                  v-if="!contactUser"
+                >
+                  <svg
+                    class="nQao3 hcDLf YgmFC"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 24 24"
+                    focusable="false"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
                       d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                      fill="currentColor"></path>
+                      fill="currentColor"
+                    ></path>
                   </svg>
-                  Contact
+                  {{ $t("message.header.contact") }}
                 </button>
                 <!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
 <p>+998946120844</p>
@@ -85,10 +107,9 @@
   </v-container>
 </template>
 <script>
-
 import http from "../../../axios.config";
 import TheLoader from "../../../components/TheLoader.vue";
-import { useMotorbikeStore } from "../../../store/motorbikeDataStore"
+import { useMotorbikeStore } from "../../../store/motorbikeDataStore";
 export default {
   data() {
     return {
@@ -107,21 +128,26 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-      const motorbikeData = this.motorbikeStore.motorcycleData
-      http.post(`/motorcycles/list?limit=100&offset=0`, motorbikeData).then((res) => {
-        this.motorcycles = res.data.data;
-        this.isLoading = false
-      });
+      const motorbikeData = this.motorbikeStore.motorcycleData;
+      http
+        .post(`/motorcycles/list?limit=100&offset=0`, motorbikeData)
+        .then((res) => {
+          this.motorcycles = res.data.data;
+          this.isLoading = false;
+        });
     },
     goToSinglePageAd(motorcycleId) {
-      this.$router.push({ name: "motorcycle-single", params: { id: motorcycleId } });
+      this.$router.push({
+        name: "motorcycle-single",
+        params: { id: motorcycleId },
+      });
     },
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-    TheLoader
+    TheLoader,
   },
   created() {
     this.fetchAds();

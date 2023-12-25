@@ -362,9 +362,13 @@ you will find car tips, tests, guides and much more.`,
         abs: "ABS",
       },
       other: "other",
-      titles:{
-basic: "Basic Data",
-      }
+      titles: {
+        basic: "Basic Data",
+      },
+    },
+    list_page: {
+      seats: "Seats",
+      doors: "Doors",
     },
   },
 };

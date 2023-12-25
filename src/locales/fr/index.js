@@ -297,10 +297,13 @@ export default {
       single: "Unique",
       description: "Description du véhicule selon le vendeur",
     },
-    found_page:{
+    found_page: {
       title: "404 - Page not found",
-      message: "Désolé, la page que vous avez demandée n'existe pas."
-    }
-    
+      message: "Désolé, la page que vous avez demandée n'existe pas.",
+    },
+    list_page: {
+      seats: "Sièges",
+      doors: "Portes",
+    },
   },
 };

@@ -287,15 +287,19 @@ export default {
       liftheight: "Wysokość podnoszenia",
       dealer: "Dealer",
       with: "Z mobile.de od",
-      information: "Te informacje oparte są wyłącznie na danych z mobile.de oraz recenzjach innych użytkowników. Wszystkie treści są niezależne i nie są na sprzedaż.",
+      information:
+        "Te informacje oparte są wyłącznie na danych z mobile.de oraz recenzjach innych użytkowników. Wszystkie treści są niezależne i nie są na sprzedaż.",
       single: "Jedyny",
-      description: "Opis pojazdu według sprzedawcy"
-  },
-  found_page:{
-    title: "404 - Strona nie znaleziona",
-    message: "Przepraszamy, ale strona, którą próbujesz odnaleźć, nie istnieje."
-  }
-  
-  
+      description: "Opis pojazdu według sprzedawcy",
+    },
+    found_page: {
+      title: "404 - Strona nie znaleziona",
+      message:
+        "Przepraszamy, ale strona, którą próbujesz odnaleźć, nie istnieje.",
+    },
+    list_page: {
+      seats: "Siedzenia",
+      doors: "Drzwi",
+    },
   },
 };

@@ -287,15 +287,19 @@ export default {
       liftheight: "Hubhöhe",
       dealer: "Händler",
       with: "Mit mobile.de seit",
-      information: "Diese Informationen basieren ausschließlich auf Daten von mobile.de und Bewertungen anderer Benutzer. Alle Inhalte sind unabhängig und nicht zum Verkauf bestimmt.",
+      information:
+        "Diese Informationen basieren ausschließlich auf Daten von mobile.de und Bewertungen anderer Benutzer. Alle Inhalte sind unabhängig und nicht zum Verkauf bestimmt.",
       single: "Einzigartig",
-      description: "Fahrzeugbeschreibung nach Verkäufer"
-  },
-  found_page:{
-    title: "404 - Seite nicht gefunden",
-    message: "Entschuldigung, die von Ihnen angeforderte Seite existiert nicht."
-  }
-  
-  
+      description: "Fahrzeugbeschreibung nach Verkäufer",
+    },
+    found_page: {
+      title: "404 - Seite nicht gefunden",
+      message:
+        "Entschuldigung, die von Ihnen angeforderte Seite existiert nicht.",
+    },
+    list_page: {
+      seats: "Sitze",
+      doors: "Türen",
+    },
   },
 };
