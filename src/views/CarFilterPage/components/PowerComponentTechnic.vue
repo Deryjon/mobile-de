@@ -2,7 +2,7 @@
   <div class="lg:pl-[20px]">
     <div class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[80px]">
       <div class="power dropdown-container">
-        <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.power") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -151,7 +151,7 @@
 
     <div class="duration flex flex-wrap items-center gap-x-[20px] lg:gap-[80px] mt-[20px] lg:mt-[40px]">
       <div>
-        <h2 class="text-sm lg:text-[14px] mt-2">Cubic capacity</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.cubcap") }}</h2>
         <div class="cubic dropdown-container">
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
@@ -166,7 +166,7 @@
             </div>
           </div>
           <ul v-if="isOpenCubic" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <li @click="selectCubic('any')" data-key="">Any</li>
+            <li @click="selectCubic('any')" data-key="">{{ $t("message.filter_page.any") }}</li>
             <li @click="selectCubic('1000')" data-key="1000">1,000 cm³</li>
             <li @click="selectCubic('1200')" data-key="1200">1,200 cm³</li>
             <li @click="selectCubic('1400')" data-key="1400">1,400 cm³</li>
@@ -216,7 +216,7 @@
     <div class="flex flex-wrap gap-[20px] lg:gap-[100px]">
       <div class="
 			">
-        <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
+        <h3 class="mt-[20px] lg:mt-[60px]">{{ $t("message.filter_page.transmission.title") }}</h3>
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input type="checkbox" v-model="isCheckedAutomatic" @click="toggleShowCheckbox(0, 'Automatic transmission')"
             class="form-checkbox h-5 w-5 text-indigo-600" />
@@ -226,7 +226,7 @@
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
           </svg>
 
-          <span class="text-sm">Automatic transmission</span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.auto") }}</span>
         </label>
       </div>
       <div class=" lg:mt-[84px]">
@@ -239,7 +239,7 @@
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
           </svg>
 
-          <span class="text-sm">Semi-automatic</span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.semi") }}</span>
         </label>
       </div>
       <div class=" lg:mt-[84px]">
@@ -252,7 +252,7 @@
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
           </svg>
 
-          <span class="text-sm">Manual gearbox </span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.manual") }}</span>
         </label>
       </div>
     </div>
@@ -260,12 +260,12 @@
     <div class="valid-until mt-[30px] lg:mt-[80px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]">
       <div class="relative mt-2 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">
-          Fuel consumption (combined) up to
+          {{ $t("message.filter_page.consumption") }}
         </h2>
         <select
           class="mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] mt-[10px] lg:text-[12px]"
           v-model="consumptionFuel">
-          <option value="any" selected>Any</option>
+          <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
           <option value="new">New</option>
           <option value="18">18</option>
           <option value="12">12</option>
@@ -276,11 +276,11 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.stikcer") }}</h2>
         <select
           class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="stickerEmission">
-          <option value="any" selected>Any</option>
+          <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
           <option value="1">Up to 1</option>
           <option value="2">Up to 2</option>
           <option value="3">Up to 3</option>
@@ -289,11 +289,11 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[20px] lg:mt-7 w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
         <select
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="classEmision">
-          <option value="any" selected>Any</option>
+          <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
           <option value="1">Up to 1</option>
           <option value="2">Up to 2</option>
           <option value="3">Up to 3</option>

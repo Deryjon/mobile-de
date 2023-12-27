@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px]">
-    <h3 class="text-[16px]">Type and condition</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.condition") }}</h3>
     <div
       class="radios-type flex flex-wrap gap-x-[20px] lg:gap-x-[100px] mt-[10px]"
     >
@@ -15,7 +15,7 @@
           class="ml-10px"
           
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
       <label for="new-cond"  @click="selectCondition('New')">
         <input
@@ -27,7 +27,7 @@
           }"
          
         />
-        <span class="ml-[10px] text-[14px]">New</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter.new") }}</span>
       </label>
       <label for="used-cond" @click="selectCondition('Used')">
         <input
@@ -40,7 +40,7 @@
           }"
           
         />
-        <span class="ml-[10px] text-[14px]">Used</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter.used") }}</span>
       </label>
     </div>
   </div>

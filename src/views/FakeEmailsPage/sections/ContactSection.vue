@@ -23,12 +23,12 @@
               <div class="FFHeader ">00212 6 45 17 00 81</div>
             </div>
 
-            <div class="FFDesc">С понедельника по пятницу с 8:00 до 18:00.</div>
+            <div class="FFDesc">{{ $t("message.contact_page.week") }}</div>
 
             <div class="FFButton">
               <a>
                 <button type="button">
-                  <span> Обратиться </span>
+                  <span> {{ $t("message.contact_page.but") }} </span>
                 </button>
               </a>
             </div>

@@ -6,7 +6,7 @@
     </div>
   </div>
   <div class="mt-[10px] lg:p-[20px]">
-    <h3 class="text-[16px]">Exterior Colour</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.exterior_color.title") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -31,7 +31,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Beige
+        {{ $t("message.filter_page.exterior_color.beige") }}
       </label>
       <label
         class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
@@ -55,7 +55,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Brown
+        {{ $t("message.filter_page.exterior_color.brown") }}
       </label>
       <label
         class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
@@ -79,7 +79,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Gold
+        {{ $t("message.filter_page.exterior_color.gold") }}
       </label>
       <label
         class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
@@ -103,7 +103,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Green
+        {{ $t("message.filter_page.exterior_color.green") }}
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
@@ -127,7 +127,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Red
+        {{ $t("message.filter_page.exterior_color.red") }}
       </label>
       <label
         class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
@@ -151,7 +151,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Silver
+        {{ $t("message.filter_page.exterior_color.silver") }}
       </label>
       <!-- estate -->
       <label
@@ -177,7 +177,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-[14px]">White</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.white") }}</span>
       </label>
 
       <!-- saloon -->
@@ -206,7 +206,7 @@
           />
         </svg>
 
-        <span class="text-[14px]">Blue</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.blue") }}</span>
       </label>
       <!-- small -->
       <label
@@ -234,7 +234,7 @@
           />
         </svg>
 
-        <span class="text-[14px]">Yellow</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.yellow") }}</span>
       </label>
       <!-- sports -->
       <label
@@ -262,7 +262,7 @@
           />
         </svg>
 
-        <span class="text-[14px]">Grey</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.grey") }}</span>
       </label>
       <!-- off-road -->
       <label
@@ -288,7 +288,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Orange</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.orange") }}</span>
       </label>
       <!-- off-road -->
       <label
@@ -314,7 +314,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Black</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.black") }}</span>
       </label>
       <!-- off-road -->
       <label
@@ -340,7 +340,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Purple</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.purple") }}</span>
       </label>
       <!-- off-road -->
       <label
@@ -366,7 +366,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Metallic</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.metallic") }}</span>
       </label>
     </div>
   </div>

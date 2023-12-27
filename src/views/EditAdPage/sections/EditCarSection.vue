@@ -5,7 +5,7 @@
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
-          + Add image
+          + {{ $t("message.edit_page.add_image") }}
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[2px] lg:gap-[10px]">
           <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="video-link mt-[30px]">
-        <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.edit_page.link") }}</h2>
         <input type="text"
           class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo" />
@@ -39,7 +39,7 @@
                 <option v-for="make in makes" :key="make" :value="make.car_make_name">
                   {{ make.car_make_name }}
                 </option>
-                <option value="other">other</option>
+                <option value="other">{{ $t("message.edit_page.other") }}</option>
               </optgroup>
             </select>
             <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -64,7 +64,7 @@
         </div>
         <div class="mark">
           <div class="relative mt-2">
-            <h2 class="text-sm lg:text-[14px]">Variant</h2>
+            <h2 class="text-sm lg:text-[14px]">{{ $t("message.edit_page.variant") }}</h2>
             <input
               class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
               placeholder="e.g. GTI..."
@@ -82,7 +82,7 @@
             'bg-orange': selectedCar === 'Cabrio / Roadster',
           }" @click="selectCar('Cabrio / Roadster')" />
           <img src="../../../assets/icons/cabriolet-icon.svg" alt="" class="w-[60px] lg:w-[90px] pt-[20px]" />
-          <span class="text-[12px] lg:text-sm"> Cabrio / Roadster</span>
+          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car1") }}</span>
         </label>
         <!-- estate -->
         <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10 w-[150px] lg:w-[230px]">
@@ -102,7 +102,7 @@
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../assets/icons/saloon-car-icon.svg" alt="" class="w-[60px] lg:w-24 pt-[20px]" />
-          <span class="text-[12px] lg:text-sm">Saloon</span>
+          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car2") }}</span>
         </label>
         <!-- small -->
         <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-8 lg:w-[280px] ">
@@ -112,7 +112,7 @@
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../assets/icons/sports-car-icon.svg" alt="" class="w-[60px] lg:w-28 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm"> Sports Car / Coupe</span>
+          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car3") }}</span>
         </label>
         <label class="custom-checkbox p-[0] flex gap-[2px] lg:gap-[10px] items-center h-10 lg:w-[210px] ">
           <input type="radio" v-model="selectedCar" @click="selectCar('Small Car')" :class="{
@@ -121,7 +121,7 @@
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../assets/icons/small-car-icon.svg" alt="" class="w-[60px] lg:w-[75px] pt-[10px]" />
-          <span class="text-[12px] lg:text-sm">Small Car</span>
+          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car4") }}</span>
         </label>
         <!-- sports -->
        
@@ -133,7 +133,7 @@
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../assets/icons/car-minibus-icon.svg" alt="" class="w-[60px] lg:w-[70px] pt-[8px]" />
-          <span class="text-[12px] lg:text-sm">Van / Minibus</span>
+          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car5") }}</span>
         </label>
         <!-- off-road -->
         <label class="custom-checkbox p-[0] gap-[2px] lg:gap-[10px] flex items-center h-10  lg:w-[350px]">
@@ -145,12 +145,12 @@
           }" class="form-checkbox h-7 w-7 text-indigo-600" />
 
           <img src="../../../assets/icons/car-suv-icon.svg" alt="" class="w-[60px] lg:w-20 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm">SUV / Off-road Vehicle / Pickup Truck</span>
+          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car6") }}</span>
         </label>
       </div>
       <div class="flex flex-wrap items-center justify-between lg:gap-[30px]">
         <div class="seats dropdown-container mt-[20px]">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
+          <h2 class="mt-2 text-sm lg:text-[14px]"> {{ $t("message.filter_page.numseat") }}</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -176,7 +176,7 @@
           </ul>
         </div>
         <div class="seats relative mt-[28px]">
-          <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.numdoor") }}</h2>
           <select
             class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="numDoor">
@@ -189,7 +189,7 @@
         </div>
         <!-- sliding-door -->
         <div class="seats relative mt-[28px]">
-          <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sliddor") }}</h2>
           <select
             class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="slidingDoor">

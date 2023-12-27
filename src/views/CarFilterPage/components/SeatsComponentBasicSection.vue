@@ -4,7 +4,7 @@
   >
     <!-- seats -->
     <div class="seats dropdown-container">
-      <h2 class="mt-2 text-sm lg:text-[14px]">Number of seats</h2>
+      <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.numseat") }}</h2>
       <div class="input-container flex relative mt-[10px]">
         <input
           type="from"
@@ -29,7 +29,7 @@
         class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
       >
         <ul>
-          <li key="" @click="selectNumberSeats('Any')">Any</li>
+          <li key="" @click="selectNumberSeats('Any')">{{ $t("message.filter_page.any") }}</li>
           <li key="2" @click="selectNumberSeats('2')">2</li>
           <li key="3" @click="selectNumberSeats('3')">3</li>
           <li key="4" @click="selectNumberSeats('4')">4</li>
@@ -66,7 +66,7 @@
         class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
       >
         <ul>
-          <li key="" @click="selectNumberSeatsTo('Any')">Any</li>
+          <li key="" @click="selectNumberSeatsTo('Any')">{{ $t("message.filter_page.any") }}</li>
           <li key="2" @click="selectNumberSeatsTo('2')">2</li>
           <li key="3" @click="selectNumberSeatsTo('3')">3</li>
           <li key="4" @click="selectNumberSeatsTo('4')">4</li>
@@ -79,12 +79,12 @@
       </ul>
     </div>
     <div class="seats relative mt-2">
-      <h2 class="text-sm lg:text-[14px]">Number of doors</h2>
+      <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.numdoor") }}</h2>
       <select
         class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
         v-model="numDoor"
       >
-        <option value="">Any</option>
+        <option value="">{{ $t("message.filter_page.any") }}</option>
         <option value="2/3">2/3</option>
         <option value="3/5">3/5</option>
         <option value="6/7">6/7</option>
@@ -92,12 +92,12 @@
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>
     <div class="seats relative mt-2">
-      <h2 class="text-sm lg:text-[14px]">Sliding door</h2>
+      <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sliddoor") }}</h2>
       <select
         class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
         v-model="slidingDoor"
       >
-        <option value="" selected>Any</option>
+        <option value="" selected>{{ $t("message.filter_page.any") }}</option>
         <option class="Left">Left side</option>
         <option class="Right">Right side</option>
       </select>

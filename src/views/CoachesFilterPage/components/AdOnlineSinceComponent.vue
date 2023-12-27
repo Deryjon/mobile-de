@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px]">
-    <h3>Ad online since</h3>
+    <h3>{{ $t("message.filter_page.online") }}</h3>
     <div class="radios-type flex flex-wrap gap-[30px] mt-[10px]">
       <label for="offer-ad" @click="selectOnlineSince('AnyOffer')">
         <input
@@ -12,7 +12,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
       <label for="driver-airbag">
         <input
@@ -25,7 +25,7 @@
           }"
           @click="selectOnlineSince('OneDay')"
         />
-        <span class="ml-[10px] text-[14px]">1 day</span>
+        <span class="ml-[10px] text-[14px]">1 {{ $t("message.filter_page.day") }}</span>
       </label>
       <label for="front-airbag" @click="selectOnlineSince('ThreeDay')">
         <input
@@ -37,7 +37,7 @@
             'bg-orange': selectedAdOnline === 'ThreeDay',
           }"
         />
-        <span class="ml-[10px] text-[14px]">3 days </span>
+        <span class="ml-[10px] text-[14px]">3 {{ $t("message.filter_page.days") }} </span>
       </label>
 
       <label for="side-airbag" @click="selectOnlineSince('SevenDay')">
@@ -50,7 +50,7 @@
             'bg-orange': selectedAdOnline === 'SevenDay',
           }"
         />
-        <span class="ml-[10px] text-[14px]">7 days</span>
+        <span class="ml-[10px] text-[14px]">7 {{ $t("message.filter_page.days") }}</span>
       </label>
       <label  @click="selectOnlineSince('FourteenDay')">
         <input
@@ -62,7 +62,7 @@
             'bg-orange': selectedAdOnline === 'FourteenDay',
           }"
         />
-        <span class="ml-[10px] text-[14px]">14 days</span>
+        <span class="ml-[10px] text-[14px]">14 {{ $t("message.filter_page.days") }}</span>
       </label>
     </div>
   </div>
@@ -78,24 +78,11 @@ export default {
 	watch: {
     selectedAdOnline(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
       }
     },
   },
   methods: {
-		fetchData() {
-      http
-        .get("/cars/count", {
-          days: this.selectedAdOnline,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
-    },
-    selectOnlineSince(condition) {
-      this.selectedAdOnline = condition;
-    },
+		
   },
 };
 </script>

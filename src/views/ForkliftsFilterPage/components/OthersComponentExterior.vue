@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] p-[20px]">
-    <h3>Features</h3>
+    <h3>{{ $t("message.filter_page.features.feature") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
       <!-- cabrio -->
       <label

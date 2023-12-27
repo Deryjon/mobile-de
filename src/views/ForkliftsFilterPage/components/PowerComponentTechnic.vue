@@ -7,7 +7,7 @@
         class="
 			"
       >
-        <h3 class="">Transmission</h3>
+        <h3 class="">{{ $t("message.filter_page.transmission.title") }}</h3>
         <label class="custom-checkbox flex items-center h-10 w-[180px]">
           <input
             type="checkbox"
@@ -30,7 +30,7 @@
             />
           </svg>
 
-          <span class="text-sm">Automatic transmission</span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.auto") }}</span>
         </label>
       </div>
       <div class="mt-[24px]">
@@ -56,7 +56,7 @@
             />
           </svg>
 
-          <span class="text-sm">Semi-automatic</span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.semi") }}</span>
         </label>
       </div>
       <div class="mt-[24px]">
@@ -82,7 +82,7 @@
             />
           </svg>
 
-          <span class="text-sm">Manual gearbox </span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.manual") }}</span>
         </label>
       </div>
     </div>

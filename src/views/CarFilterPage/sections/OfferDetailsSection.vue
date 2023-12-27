@@ -4,7 +4,7 @@
       <div
         class="relative filter xl:h-[800px] lg:h-[850px] md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5]  mx-auto mt-[0] lg:mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Offer details</h3>
+        <h3 class="basic-title text-[25px] font-semibold">{{ $t("message.filter_page.titles.offer") }}</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <VendorComponent />
         <AdOnlineSinceComponent />
@@ -12,8 +12,7 @@
         <DamagedVehiclesComponent />
         <div class="search mt-[30px] pl-[21px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">
-            Search vehicle description
-          </h2>
+            {{ $t("message.filter_page.searchvehicle") }}          </h2>
           <div class="marke_select_div relative mt-[10px]">
             <input
               placeholder="e.g. drive mode switch, LTE, thermal glazing ..."

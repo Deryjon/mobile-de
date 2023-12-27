@@ -1,6 +1,6 @@
 <template>
   <v-container class="max-w-[1140px]">
-    <PathLink>Machine list</PathLink>
+    <PathLink>  {{ $t("message.list_page.machine") }} </PathLink>
     <div class="sections">
       <YourAccount />	
     </div>

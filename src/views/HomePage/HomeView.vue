@@ -6,7 +6,7 @@
 		 <RentSection/>
 		 <MagazinSection/>
  <ElectroCarsSection/>
-	  	<FinanceSection/>
+	  	<!-- <FinanceSection/> -->
 		 
 		
   </main>

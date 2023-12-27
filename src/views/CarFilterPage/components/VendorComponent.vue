@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px]">
-    <h3 class="text-[16px]">Vendor</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.vendor") }}</h3>
     <div class="radios-type flex flex-wrap gap-[40px] mt-[20px]">
       <label for="vendor-any" @click="selectVendor('Any')">
         <input
@@ -12,7 +12,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
       <label for="vendor-private">
         <input
@@ -25,7 +25,7 @@
           }"
           @click="selectVendor('Private')"
         />
-        <span class="ml-[10px] text-[14px]">Private seller</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.private") }}</span>
       </label>
       <label for="vendor-dealer" @click="selectVendor('Dealer')">
         <input
@@ -37,7 +37,7 @@
             'bg-orange': selectedVendor === 'Dealer',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Dealer </span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.company") }} </span>
       </label>
       <label for="vendor-company" @click="selectVendor('Company')">
         <input
@@ -49,11 +49,11 @@
             'bg-orange': selectedVendor === 'Company',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Company vehicles</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.company") }}</span>
       </label>
     </div>
     <div class="dealer-rating mt-[50px]">
-      <h3>Dealer rating</h3>
+      <h3>{{ $t("message.filter_page.rating") }}</h3>
       <div class="flex flex-wrap gap-[10px] lg:gap-[60px] mt-[20px]">
         <label
           class="custom-checkbox flex items-center h-10 lg:w-[100px] pb-[23px]"
@@ -82,7 +82,7 @@
             />
           </svg>
 
-          <span class="text-sm">Any</span>
+          <span class="text-sm">{{ $t("message.filter_page.any") }}</span>
         </label>
         <label
           class="custom-checkbox flex items-center h-10 lg:w-[145px] pb-[23px]"

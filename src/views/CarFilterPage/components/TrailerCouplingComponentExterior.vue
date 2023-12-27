@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px]">
-    <h3>Trailer coupling</h3>
+    <h3>{{ $t("message.filter_page.trailer.title") }}</h3>
     <div
       class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]"
     >
@@ -14,7 +14,7 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px]">Any</span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.title") }}</span>
       </label>
       <label for="fix" @click="selectCondition('Fix')">
         <input
@@ -25,7 +25,7 @@
             'bg-orange': selectedCondition === 'Fix',
           }"
         />
-        <span class="ml-[10px]">Fix, detachable or swiveling</span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.fix") }}</span>
       </label>
       <label for="deta" @click="selectCondition('Detachable')">
         <input
@@ -36,7 +36,7 @@
             'bg-orange': selectedCondition === 'Detachable',
           }"
         />
-        <span class="ml-[10px]">Detachable or swiveling </span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.det") }}</span>
       </label>
       <label for="swiveling" @click="selectCondition('Swiveling')">
         <input
@@ -47,7 +47,7 @@
             'bg-orange': selectedCondition === 'Swiveling',
           }"
         />
-        <span class="ml-[10px]">Swiveling</span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.swi") }}</span>
       </label>
     </div>
   </div>

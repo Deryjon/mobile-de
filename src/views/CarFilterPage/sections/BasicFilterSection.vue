@@ -1,8 +1,8 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="max-w-[1140px]">
-      <PathLink>My New Car</PathLink>
-      <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
+      <PathLink>{{ $t("message.filter_page.titles.mynew") }}</PathLink>
+      <FilterTitle>{{ $t("message.filter_page.titles.filter_title") }}</FilterTitle>
       <FilterBtn class="ml-auto" @click="goCarList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}

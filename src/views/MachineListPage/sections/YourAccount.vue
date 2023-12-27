@@ -25,7 +25,7 @@
             <div class="date-km flex gap-[5px]">
               <div class="year">
                 {{ machine.machine_operating_hours }}
-                hours
+                {{ $t("message.list_page.hour") }} 
               </div>
 
             </div>
@@ -43,7 +43,7 @@
                       d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                       fill="currentColor"></path>
                   </svg>
-                  Contact
+                  {{ $t("message.list_page.contact") }} 
                 </button>
                 <!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
 <p>+998946120844</p>

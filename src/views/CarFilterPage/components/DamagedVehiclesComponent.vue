@@ -1,31 +1,31 @@
 <template>
   <div class="flex flex-wrap items-center gap-[10px] lg:gap-[50px] lg:p-[20px]">
     <div class="relative mt-2 lg:w-[200px]">
-      <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
+      <h2 class="text-[10px] lg:text-[14px]">{{ $t("message.filter_page.damaged") }}</h2>
       <select
         class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
      v-model="damageVehicle"
 				>
-        <option value="any" selected>Any</option>
-        <option value="not">Do not show</option>
-        <option value="only">Only show</option>
+        <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
+        <option value="not">{{ $t("message.filter_page.not") }}</option>
+        <option value="only">{{ $t("message.filter_page.only") }}</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 lg:w-[200px]">
-      <h2 class="text-[10px] lg:text-[14px]">Commercial, Export/Import</h2>
+      <h2 class="text-[10px] lg:text-[14px]">{{ $t("message.filter_page.import") }}</h2>
       <select
         class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
     v-model="exportCommercial"
 				>
-        <option value="any" selected>Any</option>
-        <option value="not">Do not show</option>
-        <option value="only">Only show</option>
+        <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
+        <option value="not">{{ $t("message.filter_page.not") }}</option>
+        <option value="only">{{ $t("message.filter_page.only") }}</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
     </div>
     <div class="relative mt-2 lg:w-[200px]">
-      <h2 class="text-[10px] lg:text-[14px]">Approved Used Programme</h2>
+      <h2 class="text-[10px] lg:text-[14px]">{{ $t("message.filter_page.programme") }}</h2>
       <select
         class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
      v-model="approveUsed"
@@ -76,33 +76,19 @@ return{
 	watch:{
 		damageVehicle(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
       }
     },
 		exportCommercial(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
       }
     },
 		approveUsed(newValue, oldValue) {
       if (newValue !== oldValue) {
-        this.fetchData();
       }
     },
 	},
 	methods:{
-		fetchData() {
-      http
-        .get("/cars/count", {
-          car_power_from: this.damageVehicle,
-          car_power_up_to: this.exportCommercial,
-          car_cubic_capacity_from: this.approveUsed,
-        })
-        .then((response) => {
-          const data = response.data;
-          console.log(data);
-        });
-    },
+		
 	}
 };
 </script>

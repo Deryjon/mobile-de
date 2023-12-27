@@ -1,6 +1,6 @@
 <template>
   <div class="condition mt-[10px] lg:p-[20px]">
-    <h3 class="text-[14px]">Type and condition</h3>
+    <h3 class="text-[14px]">{{ $t("message.filter_page.condition") }}</h3>
     <div
       class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
     >
@@ -15,7 +15,7 @@
           class="ml-10px"
           @click="selectCondition('Any')"
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
       <label>
         <input
@@ -27,7 +27,7 @@
           }"
           @click="selectCondition('New')"
         />
-        <span class="ml-[10px] text-[14px]">New</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter.new") }}</span>
       </label>
       <label>
         <input
@@ -39,7 +39,7 @@
           }"
           @click="selectCondition('Used')"
         />
-        <span class="ml-[10px] text-[14px]">Used</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter.used") }}</span>
       </label>
     </div>
     <div
@@ -72,7 +72,7 @@
           />
         </svg>
 
-        <span class="text-sm">Pre-Registration</span>
+        <span class="text-sm">{{ $t("message.filter_page.pre") }}</span>
       </label>
       <label
         class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
@@ -100,7 +100,7 @@
           />
         </svg>
 
-        <span class="text-sm">Employee's Car</span>
+        <span class="text-sm">{{ $t("message.filter_page.employe") }}</span>
       </label>
       <label
         class="custom-checkbox flex items-center h-10 w-[130px] pb-[23px]"
@@ -128,7 +128,7 @@
           />
         </svg>
 
-        <span class="text-sm">Classic Vehicle</span>
+        <span class="text-sm">{{ $t("message.filter_page.classic") }}</span>
       </label>
       <label
         class="custom-checkbox flex items-center h-10 w-[190px] pb-[23px]"
@@ -156,7 +156,7 @@
           />
         </svg>
 
-        <span class="text-sm">Demonstration Vehicle</span>
+        <span class="text-sm">{{ $t("message.filter_page.demonstration") }}</span>
       </label>
     </div>
   </div>

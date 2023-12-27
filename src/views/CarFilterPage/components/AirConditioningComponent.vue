@@ -76,7 +76,7 @@
             'bg-orange': selectedCondition === 'NoClimat',
           }"
         />
-        <span class="ml-[10px] text-[14px]">No climatisation</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.no") }}</span>
       </label>
       <label class="w-[200px]" for="autoclimat" @click="selectAirbag('AutoClimat')">
         <input
@@ -87,7 +87,7 @@
             'bg-orange': selectedCondition === 'AutoClimat',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.auto") }}</span>
       </label>
       <label class="w-[200px]" for="climat4" @click="selectAirbag('Auto-Climat3')">
         <input
@@ -99,7 +99,7 @@
           }"
         />
         <span class="ml-[10px] text-[14px]"
-          >Automatic climatisation, 3 zones
+          >{{ $t("message.filter_page.conditioning.zone3") }}
         </span>
       </label>
     </div>
