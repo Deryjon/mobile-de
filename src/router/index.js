@@ -377,6 +377,12 @@ const router = createRouter({
         import("../views/ReportAdverstingPage/SecurityCustomer.vue"),
     },
     {
+      path: "/terms-of-use",
+      name: "terms-of-use",
+      component: () =>
+        import("../views/TermsOfUsePage/SecurityCustomer.vue"),
+    },
+    {
       path: "/:catchAll(.*)",
       component: NotFound,
     },

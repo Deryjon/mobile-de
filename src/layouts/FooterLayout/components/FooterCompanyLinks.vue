@@ -5,11 +5,6 @@
       <ul class="flex flex-col">
         <router-link
           class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'about-us' }"
-          >{{ $t("message.footer.press") }}</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
           :to="{ name: 'news' }"
           >{{ $t("message.footer.blocket") }}</router-link
         >
@@ -17,16 +12,6 @@
           class="text text-[10px] lg:text-[14px]"
           :to="{ name: 'contact' }"
           >{{ $t("message.footer.contact") }}</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'home' }"
-          >{{ $t("message.footer.inspiration") }}</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'home' }"
-          >{{ $t("message.footer.tips") }}</router-link
         >
       </ul>
     </div>
@@ -56,13 +41,8 @@
       <ul class="flex flex-col">
         <router-link
           class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'login' }"
+          :to="{ name: 'terms-of-use' }"
           >{{ $t("message.footer.useTerms") }}</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'login' }"
-          >{{ $t("message.footer.data") }}</router-link
         >
       </ul>
     </div>
@@ -75,11 +55,6 @@
           class="text text-[10px] lg:text-[14px]"
           :to="{ name: 'login' }"
           >{{ $t("message.footer.settings") }}</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'login' }"
-          >{{ $t("message.footer.company") }}</router-link
         >
       </ul>
     </div>

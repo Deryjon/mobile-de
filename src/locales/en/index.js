@@ -242,12 +242,52 @@ you will find car tips, tests, guides and much more.`,
       report: "Report annoying advertising",
       terms: "Terms",
       useTerms: "Terms of Use",
+      termsTitle: "Advertising terms and conditions of use.",
       data: "Personal data management",
       cookies: "Cookies",
       settings: "Cookie settings",
       company: "For companies",
       securityWork: "Our security work",
       guid: `You should of course always be able to shop safely on the Sellcenter website. We review ads and make ongoing checks of ads and users. We inform and guide our users on how to conduct safe transactions in all categories. Sellcenter only accepts Motor market ads. We develop and offer features for secure payments, temporary phone numbers and other security services. We filter messages between users to prevent spam and offensive or offensive content. We cooperate with the police and other authorities to prevent illegal activities in the best possible way. If necessary, we share information about users with the Police and other authorities, in connection with investigations and preliminary investigations. We prevent fraud. Every year, thousands of deals are made via Sellcenter. Anywhere payments are made, fraudsters can be enticed to try to commit crime, but this accounts for less than one per thousand of all business with us. If someone falls victim to a scam, we take it very seriously. However, we are not on site when the deal is carried out and a large part of our work is therefore about informing about how to shop safely at Sellcenter. All ads are reviewed by Sellcenter's own rules. Every day we refrain from publishing 1000's of ads. We allow e.g. not the sale of medicines, soft air guns or content that can be perceived as offensive as well as sex toys or the like.`,
+      guid2: `When the advertiser places an ad with Sellcenter, the advertiser accepts the following   terms and conditions as well as other terms and  conditions found on this page.
+       If you do not accept the terms/rules, you do not have the right to  advertise  on the   Sellcenter Ads page.
+      
+       The following advertising is not allowed and will be deleted and Sellcenter     reserves the right to block or suspend a user:
+      
+       *Several ads with the same content or with the same ad title.
+      
+       *Insufficient / incorrect / irrelevant / misleading information or image.
+         Which is in the wrong category / ad type / business.
+      
+       *Which refers / links to other advertising markets, etc.
+      
+       * is only intended to lead to another website.
+          Pirated copies, illegal replicas.
+      
+       *Alcohol, tobacco, drugs, narcotics, or substitutes.
+      
+       *Pornography/eroticism, services/goods of a sexual nature. Including escort     services, telephone sex lines, sex aids, erotic massage, tantra massage,         etc.
+      
+       *All types of massage services.
+         Contact and dating ads. Used underwear. Nude model / sketch model etc.
+      
+       *Divination services (fortune tellers, fortune tellers etc.), incl. horoscope,         tarot etc.
+      
+       *Lottery operations, casino, gambling, poker.
+         Weapons, ammunition, including air rifles, carbon dioxide guns, starter           guns, paintball guns, knives / axes / swords, batons, etc. Laser                         pointer. Replicas of weapons.
+      
+       * items not for sale yet).not allowed
+      
+       *Sell/buy leases/contracts,
+         Which contains or links to pages with: advertisements (for other than the       advertiser's own business), payment numbers, links that generate                   commissions per click, etc., fundraising, lending of money (by other than         known Swedish lenders), pyramid schemes, etc.
+      
+       *Ad title containing phone number, email address, web address, long                 product  numbers, price, etc.
+         Which has too little value or low quality or is unattractive to readers.
+         Lots of similar ads (with only minor differences), e.g. screws with an ad for     each length, width and type.
+         Which has an inappropriate attached picture, nude picture, etc. Or image       containing someone else's copyright name, or someone else's logo, etc.
+         Which can damage Sellcenter's ad page reputation or business.
+         Illegal activity or illegal material. Or intended to be used to commit or             facilitate an offence.
+         Which violates any of the other rules on this information page.`,
       workTime: "Monday to Friday from 8:00am to 6:00pm.",
       turn: "Circulate",
       exterior: "Exterior",
