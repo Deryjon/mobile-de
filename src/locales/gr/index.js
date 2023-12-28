@@ -232,6 +232,7 @@ export default {
       customerSecurity: "Kundensicherheit",
       fakeEmails: "Fake-E-Mails",
       offer: "Unser Angebot",
+      adver: "Werbung",
       report: "Melden Sie lästige Werbung",
       terms: "Bedingungen",
       useTerms: "Nutzungsbedingungen",

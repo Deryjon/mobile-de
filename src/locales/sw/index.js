@@ -230,6 +230,7 @@ export default {
       tips: "Tips och guider",
       security: "Säkerhet",
       customerSecurity: "Kundsäkerhet",
+      adver: "Annons",
       fakeEmails: "Falska e-postmeddelanden",
       offer: "Vårt erbjudande",
       report: "Rapportera störande reklam",

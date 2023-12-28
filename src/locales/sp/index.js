@@ -228,6 +228,7 @@ export default {
       inspiration: "Inspiración",
       tips: "Consejos y guías",
       security: "Seguridad",
+      adver: "Anuncio",
       customerSecurity: "Seguridad del cliente",
       fakeEmails: "Correos electrónicos falsos",
       offer: "Nuestra oferta",
