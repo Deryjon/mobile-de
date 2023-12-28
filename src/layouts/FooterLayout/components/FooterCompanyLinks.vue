@@ -42,11 +42,6 @@
         <router-link
           class="text text-[10px] lg:text-[14px]"
           :to="{ name: 'terms-of-use' }"
-          >{{ $t("message.footer.useTerms") }}</router-link
-        >
-        <router-link
-          class="text text-[10px] lg:text-[14px]"
-          :to="{ name: 'terms-of-use' }"
           >{{ $t("message.footer.adver") }}</router-link
         >
       </ul>

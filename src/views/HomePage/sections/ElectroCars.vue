@@ -6,7 +6,7 @@
                     class="left-rent bg-[#f5f5f5]  w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[450px] xl:w-[550px] flex items-center gap-[15px] p-[30px] mx-auto">
                     <div class="img lg:w-[200x] lg:h-[140px] ">
                         <img src="../../../assets/images/tablet-man.jpg" alt=""
-                            class="w-full h-full  mt-[-35px]" />
+                            class="w-full h-full  mt-[-35px] object-cover" />
                     </div>
                     <div class="text">
                         <h3 class="title font-bold text-[18px]">
@@ -24,7 +24,7 @@
                     class="left-rent bg-[#f5f5f5] w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[450px] xl:w-[550px] flex items-center gap-[15px] p-[30px] mx-auto">
                     <div class="img lg:w-[200x] lg:h-[140px] ">
                         <img src="../../../assets/images/car-men.jpg" alt=""
-                            class="w-full h-full  mt-[-35px]" />
+                            class="w-full h-full  mt-[-35px]  object-cover" />
                     </div>
                     <div class="text">
                         <h3 class="title font-bold text-[18px]">
