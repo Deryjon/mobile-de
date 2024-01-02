@@ -1,8 +1,10 @@
 <template>
-  <div class="condition lg:p-[20px]">
-    <h3>Trailer coupling</h3>
-    <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
-      <label for="condition-any" @click="selectCondition('AnyTrai')">
+ <div class="condition lg:p-[20px]">
+    <h3>{{ $t("message.filter_page.trailer.title") }}</h3>
+    <div
+      class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]"
+    >
+      <label for="trai" @click="selectCondition('AnyTrai')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -12,44 +14,40 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px]">Any</span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.title") }}</span>
       </label>
-      <label for="condition-any">
+      <label for="fix" @click="selectCondition('Fix')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Fix',
             'bg-orange': selectedCondition === 'Fix',
           }"
-          @click="selectCondition('Fix')"
         />
-        <span class="ml-[10px]">Fix, detachable or swiveling</span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.fix") }}</span>
       </label>
-      <label for="condition-any" @click="selectCondition('Detachable')">
+      <label for="deta" @click="selectCondition('Detachable')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Detachable',
             'bg-orange': selectedCondition === 'Detachable',
           }"
         />
-        <span class="ml-[10px]">Detachable or swiveling </span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.det") }}</span>
       </label>
-      <label for="condition-any" @click="selectCondition('Swiveling')">
+      <label for="swiveling" @click="selectCondition('Swiveling')">
         <input
           type="radio"
-          id="condition-any"
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Swiveling',
             'bg-orange': selectedCondition === 'Swiveling',
           }"
         />
-        <span class="ml-[10px]">Swiveling</span>
+        <span class="ml-[10px]">{{ $t("message.filter_page.trailer.swi") }}</span>
       </label>
     </div>
   </div>

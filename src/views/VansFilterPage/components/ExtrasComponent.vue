@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] lg:p-[20px]">
-    <h3 class="text-[16px]">Extras</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.features.extras") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -25,7 +25,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Alarm System
+        {{ $t("message.filter_page.features.alarm") }}
       </label>
       <label
         class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -49,7 +49,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Disabled accessible
+        {{ $t("message.filter_page.features.disabled") }}
       </label>
       <label
         class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -73,7 +73,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Heated steering whee
+        {{ $t("message.filter_page.features.heat") }}
       </label>
       <label
         class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -97,7 +97,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Seat ventilation
+        {{ $t("message.filter_page.features.seat") }}
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -121,7 +121,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Ambient lighting
+        {{ $t("message.filter_page.features.abm") }}
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -145,7 +145,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Electric backseat adjustment
+        {{ $t("message.filter_page.features.electric") }}
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -153,7 +153,9 @@
         <input
           type="checkbox"
           v-model="isCheckedInduction"
-          @click="toggleShowCheckboxExtras(6, 'Induction charging for smartphones')"
+          @click="
+            toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
+          "
         />
         <svg
           class="icon"
@@ -169,7 +171,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Induction charging for smartphones
+        {{ $t("message.filter_page.features.smart") }}
       </label>
       <label
         class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
@@ -193,9 +195,9 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Ski bag
+        {{ $t("message.filter_page.features.ski") }}
       </label>
-    </div>
+  </div>
   </div>
 </template>
 <script>

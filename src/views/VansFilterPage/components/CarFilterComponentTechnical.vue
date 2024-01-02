@@ -1,6 +1,6 @@
 <template>
-  <div class="mt-[10px] lg:p-[20px]">
-    <h3 class="text-[16px]">Fuel Type</h3>
+ <div class="mt-[10px] lg:p-[20px]">
+    <h3 class="text-[16px]">{{ $t("message.filter_page.fuel_type.title") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -25,7 +25,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Diesel
+        {{ $t("message.filter_page.fuel_type.diesel") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -49,7 +49,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Hybrid (diesel/electric)
+        {{ $t("message.filter_page.fuel_type.hybdis") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -73,7 +73,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Natural Gas
+        {{ $t("message.filter_page.fuel_type.natgas") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -97,7 +97,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Other
+        {{ $t("message.filter_page.fuel_type.other") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -121,7 +121,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Petrol
+        {{ $t("message.filter_page.fuel_type.petrol") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]"
@@ -145,7 +145,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Electric
+        {{ $t("message.filter_page.fuel_type.electric") }}
       </label>
       <!-- estate -->
       <label
@@ -171,7 +171,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-[14px]">Hydrogen</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.fuel_type.hydrogen") }}</span>
       </label>
 
       <!-- saloon -->
@@ -181,7 +181,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHydbrid"
-          @click="toggleShowCheckbox(7, 'Plug-in hybri')"
+          @click="toggleShowCheckbox(7, 'Plug-in hybrid')"
           class="form-checkbox h-5 w-5 text-indigo-600"
         />
 
@@ -200,7 +200,7 @@
           />
         </svg>
 
-        <span class="text-[14px]">Plug-in hybrid</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.fuel_type.hybrid") }}</span>
       </label>
       <!-- small -->
       <label
@@ -228,7 +228,7 @@
           />
         </svg>
 
-        <span class="text-[14px]">Hybrid (petrol/electric)</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.fuel_type.pethybrid") }}</span>
       </label>
       <!-- sports -->
       <label
@@ -256,7 +256,7 @@
           />
         </svg>
 
-        <span class="text-[14px]">LPG</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.fuel_type.lpg") }}</span>
       </label>
       <!-- off-road -->
       <label
@@ -282,7 +282,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Ethanol (FFV, E85, etc.)</span>
+        <span class="text-sm">{{ $t("message.filter_page.fuel_type.ethanol") }}</span>
       </label>
     </div>
   </div>

@@ -13,22 +13,53 @@
         <div class="ContentDesc">
           {{ $t("message.footer.guid2") }}
         </div>
-        <div class="contactff">
-          <div class="flex items-center flex-wrap border p-3">
-            <div class="flex">
-              <di class="FFICON">
+        <div class="contactff ">
+          <div class="flex items-center gap-[20px] flex-wrap border p-3 ">
+            <div class="flex ">
+
+              <div class="FFICON">
                 <i class="fas fa-phone"></i>
-              </di>
+              </div>
 
-              <div class="FFHeader">00212 6 45 17 00 81</div>
+              <div class="contact-modal lg:w-[350px]">
+                <div class="flex items-center gap-[10px] mx-auto w-[235px]">
+                  <p class="text-center">Morocco 00212-645-17-00-81</p>
+                </div>
+                <div class="flex items-center gap-[10px] mx-auto w-[235px]">
+                  <p class="text-center">Sweden 0046-722-56-30-02</p>
+                </div>
+                <div class="flex items-center gap-[10px] mx-auto w-[235px]">
+                  <p class="text-center">England 0044-7990-45-89-39</p>
+                </div>
+              </div>
+
             </div>
+            <div class="">
+              <div class="flex items-center gap-[10px] mx-auto w-[140px]">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                  viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                </svg>
 
-            <div class="FFDesc">{{ $t("message.footer.workTime") }}</div>
+                <p class="text-center">Adress Morocco</p>
+              </div>
+              <div class="flex items-center gap-[10px] mx-auto w-[140px]">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em"
+                  viewBox="0 0 384 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                  <path
+                    d="M215.7 499.2C267 435 384 279.4 384 192C384 86 298 0 192 0S0 86 0 192c0 87.4 117 243 168.3 307.2c12.3 15.3 35.1 15.3 47.4 0zM192 128a64 64 0 1 1 0 128 64 64 0 1 1 0-128z" />
+                </svg>
+
+                <p class="text-center">Adress Sweden</p>
+              </div>
+            </div>
+            <div class="FFDesc">{{ $t("message.contact_page.week") }}</div>
 
             <div class="FFButton">
               <a>
                 <button type="button">
-                  <span> {{ $t("message.footer.turn") }} </span>
+                  <span>{{ $t("message.contact_page.but") }}</span>
                 </button>
               </a>
             </div>
