@@ -22,13 +22,13 @@
 
               <div class="contact-modal lg:w-[350px]">
                 <div class="flex items-center gap-[10px] mx-auto w-[235px]">
-                  <p class="text-center">Morocco 00212-645-17-00-81</p>
+                  <p class="text-center">Morocco  +212 6 45 17 00 81</p>
                 </div>
                 <div class="flex items-center gap-[10px] mx-auto w-[235px]">
-                  <p class="text-center">Sweden 0046-722-56-30-02</p>
+                  <p class="text-center">England    + 44 7990 45 89 39</p>
                 </div>
                 <div class="flex items-center gap-[10px] mx-auto w-[235px]">
-                  <p class="text-center">England 0044-7990-45-89-39</p>
+                  <p class="text-center">Sweden    + 46 790 577 228</p>
                 </div>
               </div>
 
