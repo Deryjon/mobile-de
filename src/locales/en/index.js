@@ -204,7 +204,9 @@ you will find car tips, tests, guides and much more.`,
       forklift: "Forklift trucks",
     },
     about: {
-      about: `Sellcenter.com is the largest selling platform where you can find everything you need! We have millions of products in a variety of categories including electronics, clothing, accessories, cosmetics and more.
+      about: `Welcome to the whole Europe marketplace! On these pages you can read more - about our history, 
+           how and where we work - as well as find our customer service.
+           Sellcenter marketplace does its best to ensure that all customers are satisfied.Sellcenter.com is the largest selling platform where you can find everything you need! We have millions of products in a variety of categories including electronics, clothing, accessories, cosmetics and more.
       We pride ourselves on offering convenience and reliability to our customers. Over 50,000 registered sellers choose Sellcenter.com to list their items. We've created a user-friendly interface that makes it quick and easy to find what you're looking for - just enter keywords or browse product sections.
       Sellcenter.com also offers a variety of payment and shipping options to make the shopping process as convenient as possible for you. We have a warranty on all items, ensuring the quality and reliability of every purchase.
       Join us at Sellcenter.com and try an amazing shopping experience. We guarantee that you will find everything you need and make great bargain purchases. Being an industry leader is our goal and we strive to offer you the best service and the most amazing products. Choose Sellcenter.com for all your online shopping needs!`,
