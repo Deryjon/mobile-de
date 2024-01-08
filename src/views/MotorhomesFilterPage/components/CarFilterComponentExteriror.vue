@@ -6,157 +6,367 @@
     </div>
   </div>
   <div class="mt-[10px] lg:p-[20px]">
-    <h3 class="text-[16px]">Exterior Colour</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.exterior_color.title") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
       <!-- cabrio -->
-      <label class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedBeige" @click="toggleShowCheckbox(0, 'Beige')" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedBeige"
+          @click="toggleShowCheckbox(0, 'Beige')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedBeige" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedBeige"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        Beige
+        {{ $t("message.filter_page.exterior_color.beige") }}
       </label>
-      <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedBrown" @click="toggleShowCheckbox(1, 'Brown')" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedBrown"
+          @click="toggleShowCheckbox(1, 'Brown')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedBrown" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedBrown"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        Brown
+        {{ $t("message.filter_page.exterior_color.brown") }}
       </label>
-      <label class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedGold" @click="toggleShowCheckbox(2, 'Gold')" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedGold"
+          @click="toggleShowCheckbox(2, 'Gold')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedGold" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedGold"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        Gold
+        {{ $t("message.filter_page.exterior_color.gold") }}
       </label>
-      <label class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedGreen" @click="toggleShowCheckbox(3, 'Green')" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedGreen"
+          @click="toggleShowCheckbox(3, 'Green')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedGreen" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedGreen"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        Green
+        {{ $t("message.filter_page.exterior_color.green") }}
       </label>
-      <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedRed" @click="toggleShowCheckbox(4, 'Red')" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedRed"
+          @click="toggleShowCheckbox(4, 'Red')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedRed" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedRed"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        Red
+        {{ $t("message.filter_page.exterior_color.red") }}
       </label>
-      <label class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedSilver" @click="toggleShowCheckbox(5, 'Silver')" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedSilver"
+          @click="toggleShowCheckbox(5, 'Silver')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedSilver" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedSilver"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        Silver
+        {{ $t("message.filter_page.exterior_color.silver") }}
       </label>
       <!-- estate -->
-      <label class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4">
-        <input type="checkbox" v-model="isCheckedWhite" @click="toggleShowCheckbox(6, 'White')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedWhite"
+          @click="toggleShowCheckbox(6, 'White')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedWhite" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedWhite"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        <span class="text-[14px]">White</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.white") }}</span>
       </label>
 
       <!-- saloon -->
-      <label class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4">
-        <input type="checkbox" v-model="isCheckedBlue" @click="toggleShowCheckbox(7, 'Blue')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
+      <label
+        class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedBlue"
+          @click="toggleShowCheckbox(7, 'Blue')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
 
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedBlue" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedBlue"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
 
-        <span class="text-[14px]">Blue</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.blue") }}</span>
       </label>
       <!-- small -->
-      <label class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedYellow" @click="toggleShowCheckbox(8, 'Yellow')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
+      <label
+        class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedYellow"
+          @click="toggleShowCheckbox(8, 'Yellow')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
 
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedYellow" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedYellow"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
 
-        <span class="text-[14px]">Yellow</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.yellow") }}</span>
       </label>
       <!-- sports -->
-      <label class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px]">
-        <input type="checkbox" v-model="isCheckedGrey" @click="toggleShowCheckbox(9, 'Grey')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
+      <label
+        class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedGrey"
+          @click="toggleShowCheckbox(9, 'Grey')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
 
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedGrey" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedGrey"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
 
-        <span class="text-[14px]">Grey</span>
+        <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.grey") }}</span>
       </label>
       <!-- off-road -->
-      <label class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px]">
-        <input type="checkbox" v-model="isCheckedOrange" @click="toggleShowCheckbox(10, 'Orange')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedOrange"
+          @click="toggleShowCheckbox(10, 'Orange')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedOrange" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedOrange"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        <span class="text-sm">Orange</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.orange") }}</span>
       </label>
       <!-- off-road -->
-      <label class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px]">
-        <input type="checkbox" v-model="isCheckedBlack" @click="toggleShowCheckbox(11, 'Black')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedBlack"
+          @click="toggleShowCheckbox(11, 'Black')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedBlack" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedBlack"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        <span class="text-sm">Black</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.black") }}</span>
       </label>
       <!-- off-road -->
-      <label class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px]">
-        <input type="checkbox" v-model="isCheckedPurple" @click="toggleShowCheckbox(12, 'Purple')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedPurple"
+          @click="toggleShowCheckbox(12, 'Purple')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedPurple" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedPurple"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        <span class="text-sm">Purple</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.purple") }}</span>
       </label>
       <!-- off-road -->
-      <label class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px]">
-        <input type="checkbox" v-model="isCheckedMetallic" @click="toggleShowCheckbox(13, 'Metallic')"
-          class="form-checkbox h-5 w-5 text-indigo-600" />
-        <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+      <label
+        class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedMetallic"
+          @click="toggleShowCheckbox(13, 'Metallic')"
+          class="form-checkbox h-5 w-5 text-indigo-600"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
           <!-- Insert your SVG arrow icon here -->
-          <path v-if="isCheckedMetallic" fill="#000000"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          <path
+            v-if="isCheckedMetallic"
+            fill="#000000"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
         </svg>
-        <span class="text-sm">Metallic</span>
+        <span class="text-sm">{{ $t("message.filter_page.exterior_color.metallic") }}</span>
       </label>
     </div>
   </div>

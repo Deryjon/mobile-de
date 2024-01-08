@@ -37,7 +37,7 @@
             'bg-orange': selectedVendor === 'Dealer',
           }"
         />
-        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.company") }} </span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.dealer") }} </span>
       </label>
       <label for="vendor-company" @click="selectVendor('Company')">
         <input

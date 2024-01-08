@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] lg:p-[20px]">
-    <h3 class="text-[16px]">Vehicle type</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.vehtyp") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[40px] lg:gap-x-[60px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -25,7 +25,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Chopper/Cruiser
+        {{ $t("message.filter_page.motorbike.motor") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]"
@@ -49,7 +49,8 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Motor-assisted Bicycle/Small Moped
+        {{ $t("message.filter_page.motorbike.motor1") }}
+
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]"
@@ -73,7 +74,8 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Racing
+        {{ $t("message.filter_page.motorbike.motor2") }}
+
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]"
@@ -97,7 +99,8 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Streetfighter
+        {{ $t("message.filter_page.motorbike.motor3") }}
+
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]"
@@ -121,7 +124,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Combination/Sidecar
+        {{ $t("message.filter_page.motorbike.motor4") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]"
@@ -145,7 +148,8 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Motorcycle
+        {{ $t("message.filter_page.motorbike.motor5") }}
+
       </label>
       <!-- estate -->
       <label
@@ -171,7 +175,8 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-[14px]">Rally/Cross</span>
+        <span class="text-[14px]">        {{ $t("message.filter_page.motorbike.motor6") }}
+</span>
       </label>
 
       <!-- saloon -->
@@ -200,7 +205,8 @@
           />
         </svg>
 
-        <span class="text-[14px]">Super Moto</span>
+        <span class="text-[14px]">        {{ $t("message.filter_page.motorbike.motor7") }}
+</span>
       </label>
       <!-- small -->
       <label
@@ -228,7 +234,8 @@
           />
         </svg>
 
-        <span class="text-[14px]">Dirt Bike</span>
+        <span class="text-[14px]">        {{ $t("message.filter_page.motorbike.motor8") }}
+</span>
       </label>
       <!-- sports -->
       <label
@@ -256,241 +263,8 @@
           />
         </svg>
 
-        <span class="text-[14px]">Naked Bike</span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedScooter"
-          @click="toggleShowCheckbox(11, 'Scooter')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedScooter"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Scooter</span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTourer"
-          @click="toggleShowCheckbox(12, 'Tourer')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTourer"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Tourer</span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedEnduroTouring"
-          @click="toggleShowCheckbox(13, 'Enduro/Touring Enduro')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedEnduroTouring"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Enduro/Touring Enduro </span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedPocketbike"
-          @click="toggleShowCheckbox(14, 'Pocketbike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedPocketbike"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Pocketbike </span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportsBike"
-          @click="toggleShowCheckbox(15, 'Sports/Super Sports Bike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportsBike"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Sports/Super Sports Bike </span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTrike"
-          @click="toggleShowCheckbox(16, 'Trike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTrike"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Trike </span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLightWeight"
-          @click="toggleShowCheckbox(17, 'Lightweight Motorcycle/Motorbike')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLightWeight"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Lightweight Motorcycle/Motorbike </span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedQuad"
-          @click="toggleShowCheckbox(18, 'Quad')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedQuad"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Quad </span>
-      </label>
-      <!-- off-road -->
-      <label
-        class="custom-checkbox flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportTouring"
-          @click="toggleShowCheckbox(19, 'Sport Touring Motorcycles')"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportTouring"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        <span class="text-sm">Sport Touring Motorcycles </span>
+        <span class="text-[14px]">        {{ $t("message.filter_page.motorbike.motor9") }}
+</span>
       </label>
       <!-- off-road -->
       <label
@@ -516,7 +290,8 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        <span class="text-sm">Other </span>
+        <span class="text-sm">        {{ $t("message.filter_page.other") }}
+ </span>
       </label>
     </div>
   </div>

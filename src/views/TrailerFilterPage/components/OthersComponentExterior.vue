@@ -1,6 +1,6 @@
 <template>
   <div class="mt-[10px] lg:p-[20px]">
-    <h3>Security</h3>
+    <h3>{{ $t("message.filter_page.features.security") }}</h3>
     <div class="filter-cars flex flex-wrap  mt-[10px]">
       <!-- cabrio -->
       <label

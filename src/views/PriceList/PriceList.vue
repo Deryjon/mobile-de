@@ -92,7 +92,7 @@ onMounted(fetchData);
       <div class="swiper_wrapper hidden lg:block  w-full">
         <SwiperSection />
       </div>
-      <PathLink>PriceList</PathLink>
+      <PathLink>{{ $t("message.pricelist_page.title") }}</PathLink>
       <div class="w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px]  mx-auto xl:w-[1140px] card_box  ">
         <div class="card" v-for="item in data" :key="item.price_item_id">
           <h1 class="card__title">

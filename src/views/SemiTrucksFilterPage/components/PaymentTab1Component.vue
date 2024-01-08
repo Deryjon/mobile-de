@@ -1,8 +1,8 @@
 <template>
   <div class="lg:pl-[20px]">
-    <div class="price-tab flex flex-wrap items-center gap-[20px] lg:gap-[80px]">
+    <div class="price-tab flex items-center gap-[20px] lg:gap-[80px]">
       <div class="price dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.price") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
@@ -46,7 +46,34 @@
           </ul>
         </ul>
       </div>
-			<div class="price-to dropdown-container mt-[27px]">
+      <!-- <div class="price">
+        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+        <div class="marke_select_div relative mt-[10px]">
+          <input
+            placeholder="from"
+            class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
+            type="number" 
+            pattern="\d*"
+            v-model="price"
+          />
+          <select
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            v-model="selectedPrice"
+            @change="updateSelectPrice"
+          >
+            <option value="50">50 € mtl</option>
+            <option value="100">100 € mtl</option>
+            <option value="150">150 € mtl</option>
+            <option value="200">200 € mtl</option>
+            <option value="250">250 € mtl</option>
+            <option value="300">300 € mtl</option>
+          </select>
+          <span
+            class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+          ></span>
+        </div>
+      </div> -->
+      <div class="price-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
@@ -90,34 +117,6 @@
           </ul>
         </ul>
       </div>
-      <!-- <div class="price">
-        <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
-        <div class="marke_select_div relative mt-[10px]">
-          <input
-            placeholder="from"
-            class="mark_input text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px]"
-            type="number" 
-            pattern="\d*"
-            v-model="price"
-          />
-          <select
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            v-model="selectedPrice"
-            @change="updateSelectPrice"
-          >
-            <option value="50">50 € mtl</option>
-            <option value="100">100 € mtl</option>
-            <option value="150">150 € mtl</option>
-            <option value="200">200 € mtl</option>
-            <option value="250">250 € mtl</option>
-            <option value="300">300 € mtl</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-          ></span>
-        </div>
-      </div> -->
-      
       <!-- <div class="marke_select_div relative mt-[36px]">
         <input
           placeholder="up to"
@@ -142,7 +141,12 @@
           class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
         ></span>
       </div> -->
-			<div class="years dropdown-container">
+    </div>
+    <div class="line mt-[30px]"></div>
+    <div
+      class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
+    >
+      <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
@@ -224,7 +228,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
-            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[180px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
             placeholder="from"
             v-model="yearsTo"
             @focus="openYearsToDropdown"
@@ -243,7 +247,7 @@
         </div>
         <ul
           v-if="isOpenYearsTo"
-          class="dropdown-options w-[180px] text-[10px] lg:text-[12px]"
+          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
         >
           <li
             v-for="option in filteredOptions"
@@ -263,6 +267,34 @@
         </ul>
       </div>
 
+      <!-- <div class="relative mt-[35px]">
+        <input
+          placeholder="to"
+          class="no-spinner mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal text-[10px] lg:text-[12px]"
+          type="number"
+          pattern="\d*"
+          v-model="yearsTo"
+        />
+        <select
+          class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+          v-model="selectedtoYear"
+          @change="updateSelectYearTo"
+        >
+          <option v-for="year in modelYears" :key="year" :value="year">
+            {{ year }}
+          </option>
+          <option value="1985">1985</option>
+          <option value="1980">1980</option>
+          <option value="1975">1975</option>
+          <option value="1970">1970</option>
+          <option value="1965">1965</option>
+          <option value="1960">1960</option>
+          <option value="1900">1900</option>
+        </select>
+        <span
+          class="arrow w-[7px] h-[7px] absolute right-[7px] lg:right-[7px] xl:right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
+        ></span>
+      </div> -->
     </div>
     <div
       class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
@@ -474,12 +506,12 @@
       class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
     >
       <div class="relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">HU valid until</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.hu_valid") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="huValid"
         >
-          <option value="14600" selected>Any</option>
+          <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           <option value="new">New</option>
           <option value="18">18</option>
           <option value="12">12</option>
@@ -490,7 +522,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.previous") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="preOwners"
@@ -504,7 +536,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <label
-        class="custom-checkbox flex items-center h-10 lg:w-[170px] mt-[25px]"
+        class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
@@ -528,10 +560,10 @@
           />
         </svg>
 
-        <span class="text-sm p]b-[20px">Full Service History</span>
+        <span class="text-sm p]b-[20px">{{ $t("message.filter_page.history") }}</span>
       </label>
       <label
-        class="custom-checkbox flex items-center h-10 lg:w-[145px] mt-[25px]"
+        class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
         :class="{ 'opacity-20': isRadioNewSelected }"
       >
         <input
@@ -555,21 +587,21 @@
           />
         </svg>
 
-        <span class="text-sm">Roadworthy</span>
+        <span class="text-sm">{{ $t("message.filter_page.road") }}</span>
       </label>
     </div>
     <!-- country -->
     <div
-      class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
+      class="valid-until mt-[20px] flex flex-wrap items-center gap-[0px] lg:gap-x-[80px]"
     >
-		<div class="relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">Country</h2>
+      <div class="relative mt-2">
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.country") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="selectedCountry"
         >
           <optgroup>
-            <option value="14600" selected>Any</option>
+            <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>
@@ -644,22 +676,22 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.postcode") }}</h2>
         <input
-          class="mark_input mt-[10px] text-[14px] mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
+          class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
           type="text"
           pattern="\d*"
-					v-model="zipCode"
+          v-model="zipCode"
         />
       </div>
       <!-- <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
         <select
-          class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="selectedCountry"
         >
           <optgroup>
-            <option value="14600" selected>Any</option>
+            <option value="" selected>Any</option>
           </optgroup>
           <optgroup>
             <option value="BA">Bosnia and Herzegovina</option>
@@ -744,7 +776,7 @@
       </div> -->
       <!--  -->
       <div class="radius dropdown-container">
-        <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+        <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.radius") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input
             type="from"
@@ -807,7 +839,7 @@
         </div>
       </div> -->
     </div>
-  </div>
+  </div> 
 </template>
 <script>
 import axios from "axios";

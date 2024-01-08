@@ -9,7 +9,7 @@
           <path v-if="isCheckedAwning" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Awning
+        {{ $t("message.filter_page.parking_sensors.awning") }}
       </label>
       <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
         <input type="checkbox" v-model="isCheckedDisabledAccessible"
@@ -19,7 +19,7 @@
           <path v-if="isCheckedDisabledAccessible" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Disabled accessible
+        {{ $t("message.filter_page.parking_sensors.disabled") }}
       </label>
       <label class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
         <input type="checkbox" v-model="isCheckedRearGarage" @click="toggleShowCheckbox(2, 'RearGarage')" />
@@ -28,7 +28,7 @@
           <path v-if="isCheckedRearGarage" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Rear garage
+        {{ $t("message.filter_page.parking_sensors.rear") }}
       </label>
       <label class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
         <input type="checkbox" v-model="isCheckedSolarEnergySystem"
@@ -38,13 +38,14 @@
           <path v-if="isCheckedSolarEnergySystem" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Solar Energy System
+        {{ $t("message.filter_page.parking_sensors.solar") }}
       </label>
     </div>
     <div class="flex flex-wrap items-center gap-[10px] lg:gap-[40px]">
 
       <div class="price dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px]">Vehicle Length</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px]"> {{ $t("message.filter_page.leng") }}
+        </h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -59,18 +60,18 @@
         <ul v-if="priceOpen" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
           <ul>
             <li data-value="0" @click="selectNumberPrice('0')">0 mm</li>
-          <li data-value="2000" @click="selectNumberPrice('2000')">
-            2,000 mm
-          </li>
-          <li data-value="5000" @click="selectNumberPrice('5000')">
-            5,000 mm
-          </li>
-          <li data-value="6000" @click="selectNumberPrice(' 6000')">
-            6,000 mm
-          </li>
-          <li data-value="7000" @click="selectNumberPrice('7000')">
-            7,000 mm
-          </li>
+            <li data-value="2000" @click="selectNumberPrice('2000')">
+              2,000 mm
+            </li>
+            <li data-value="5000" @click="selectNumberPrice('5000')">
+              5,000 mm
+            </li>
+            <li data-value="6000" @click="selectNumberPrice(' 6000')">
+              6,000 mm
+            </li>
+            <li data-value="7000" @click="selectNumberPrice('7000')">
+              7,000 mm
+            </li>
 
           </ul>
         </ul>
@@ -108,7 +109,8 @@
         </ul>
       </div>
       <div class="length dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">Permissible (GVW)</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]"> {{ $t("message.filter_page.perm") }}
+        </h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -172,7 +174,8 @@
         </ul>
       </div>
       <div class="number dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">Number of Bunks</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]"> {{ $t("message.filter_page.numbun") }}
+        </h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -237,7 +240,8 @@
         </ul>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Axles</h2>
+        <h2 class="text-sm lg:text-[14px]"> {{ $t("message.filter_page.axles") }}
+        </h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="axles">
@@ -250,7 +254,7 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Radio</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.radio") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="radio">
@@ -261,55 +265,55 @@
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Cruise control</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.cruise.cruise") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="cruiseControl">
           <option value="" selected>Any</option>
-          <option value="Cruise control">Cruise control</option>
-          <option value="Adaptive Cruise control">Adaptive Cruise control</option>
+          <option value="Cruise control">{{ $t("message.filter_page.cruise.cruise") }}</option>
+          <option value="Adaptive Cruise control">{{ $t("message.filter_page.cruise.adaptive") }}</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Parking Sensors</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.parking_sensors.title") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="parking">
           <option value="" selected>Any</option>
-          <option value="Rear">Rear</option>
-          <option value="Front">Front</option>
-          <option value="Camera">Camera</option>
-          <option value="360° Camera">360° Camera</option>
-          <option value="Self-steering systems">Self-steering systems</option>
+          <option value="Rear">{{ $t("message.filter_page.parking_sensors.rear") }}</option>
+          <option value="Front">{{ $t("message.filter_page.parking_sensors.front") }}</option>
+          <option value="Camera">{{ $t("message.filter_page.parking_sensors.camera") }}</option>
+          <option value="360° Camera">{{ $t("message.filter_page.parking_sensors.camera2") }}</option>
+          <option value="Self-steering systems">{{ $t("message.filter_page.parking_sensors.self") }}</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Air conditioning</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.conditioning.title") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="airConditioning">
           <option value="" selected>Any</option>
-          <option value="No climatisation">No climatisation</option>
-          <option value="Manual or automatic climatisation">Manual or automatic climatisation</option>
+          <option value="No climatisation">{{ $t("message.filter_page.conditioning.no") }}</option>
+          <option value="Manual or automatic climatisation">{{ $t("message.filter_page.conditioning.manual") }}</option>
           <option value="Automatic air conditioning
-">Automatic air conditioning
+">{{ $t("message.filter_page.conditioning.auto") }}
           </option>
 
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Trailer coupling</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.trailer.title") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="trailerCoupling">
           <option value="" selected>Any</option>
-          <option value="Fix, detachable or swiveling">Fix, detachable or swiveling</option>
-          <option value="Detachable or swiveling">Detachable or swiveling</option>
+          <option value="Fix, detachable or swiveling">{{ $t("message.filter_page.trailer.fix") }}</option>
+          <option value="Detachable or swiveling">{{ $t("message.filter_page.trailer.det") }}</option>
           <option value="Swiveling
-">Swiveling
+">{{ $t("message.filter_page.trailer.swi") }}
 
           </option>
 
@@ -418,7 +422,7 @@ export default {
       const motorhomeStore = useMotorhomeStore();
       const motorhomeData = motorhomeStore.motorhomeData;
       motorhomeData.motor_home_length_from = parseInt(this.price);
-       motorhomeData.motor_home_length_to = this.priceTo;
+      motorhomeData.motor_home_length_to = this.priceTo;
       motorhomeData.motor_home_gvw_from = this.lengthGVW;
       motorhomeData.motor_home_gvw_to = this.lengthGVWTo;
       motorhomeData.motor_home_number_of_bunks_from = this.numberBunks;

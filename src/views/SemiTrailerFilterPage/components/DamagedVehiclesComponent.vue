@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-wrap items-center gap-[20px] lg:gap-[50px] lg:p-[20px]">
+  <!-- <div class="flex flex-wrap items-center gap-[20px] lg:gap-[50px] lg:p-[20px]">
     <div class="relative mt-2 lg:w-[200px]">
       <h2 class="text-[10px] lg:text-[14px]">Damaged Vehicles</h2>
       <select
@@ -61,7 +61,7 @@
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
     </div>
-  </div>
+  </div> -->
 </template>
 <script>
 import http from '../../../axios.config';

@@ -1,6 +1,6 @@
 <template>
   <div class="condition lg:p-[20px] mt-[20px]">
-    <h3 class="text-[14px]">Condition</h3>
+    <h3 class="text-[14px]">{{ $t("message.filter_page.condition") }}</h3>
     <div
       class="radios-type flex flex-wrap gap-[20px] lg:gap-x-[30px] mt-[10px] mb-[10px]"
     >

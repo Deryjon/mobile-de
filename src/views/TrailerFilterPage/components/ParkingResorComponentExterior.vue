@@ -9,7 +9,7 @@
           <path v-if="isCheckedAwning" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Alloy wheels
+        {{ $t("message.filter_page.features.alloy") }}
       </label>
       <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
         <input type="checkbox" v-model="isCheckedDisabledAccessible" @click="toggleShowCheckbox(1, 'Compressor')" />
@@ -18,7 +18,7 @@
           <path v-if="isCheckedDisabledAccessible" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Compressor
+        {{ $t("message.filter_page.features.kopm") }}
       </label>
       <label class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
         <input type="checkbox" v-model="isCheckedRearGarage" @click="toggleShowCheckbox(2, 'Crane')" />
@@ -27,7 +27,7 @@
           <path v-if="isCheckedRearGarage" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Crane
+        {{ $t("message.filter_page.features.crane") }}
       </label>
       <label class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]">
         <input type="checkbox" v-model="isCheckedSolarEnergySystem" @click="toggleShowCheckbox(3, 'Tail lift')" />
@@ -36,12 +36,12 @@
           <path v-if="isCheckedSolarEnergySystem" fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
-        Tail lift
+        {{ $t("message.filter_page.features.taillift") }}
       </label>
     </div>
     <div class="flex flex-wrap items-center gap-[10px] lg:gap-[40px]">
       <div class="length dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">Permissible (GVW)</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">{{ $t("message.filter_page.perm") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -105,7 +105,7 @@
         </ul>
       </div>
       <div class="number dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">Load capacity </h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">{{ $t("message.filter_page.loadcap") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -186,7 +186,7 @@
         </ul>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Axles</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.axles") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="axles">

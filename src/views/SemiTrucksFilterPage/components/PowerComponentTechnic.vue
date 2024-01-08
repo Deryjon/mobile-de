@@ -1,11 +1,12 @@
 <template>
   <div class="lg:pl-[20px]">
-    <div class="flex flex-wrap gap-[10px] lg:gap-x-[100px]">
+    
+    <div class="flex flex-wrap gap-[10px] lg:gap-[30px] lg:gap-x-[100px]">
       <div
         class="
 			"
       >
-        <h3 class="">Transmission</h3>
+        <h3 class="">{{ $t("message.filter_page.transmission.title") }}</h3>
         <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
           <input
             type="checkbox"
@@ -28,7 +29,7 @@
             />
           </svg>
 
-          <span class="text-sm">Automatic transmission</span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.auto") }}</span>
         </label>
       </div>
       <div class="mt-[24px]">
@@ -54,10 +55,10 @@
             />
           </svg>
 
-          <span class="text-sm">Semi-automatic</span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.semi") }}</span>
         </label>
       </div>
-      <div class="mt-[24px]">
+      <div class="lg:mt-[24px]">
         <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
           <input
             type="checkbox"
@@ -80,17 +81,17 @@
             />
           </svg>
 
-          <span class="text-sm">Manual gearbox </span>
+          <span class="text-sm">{{ $t("message.filter_page.transmission.manual") }}</span>
         </label>
       </div>
     </div>
     <!-- valid -->
     <div
-      class="valid-until mt-[30px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
+      class="valid-until lg:mt-[30px] flex flex-wrap  items-center gap-x-[20px] lg:gap-[60px]"
     >
       
-      <div class="marke_select_div relative mt-[14px] lg:mt-4  lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
+      <div class="marke_select_div relative mt-[14px] lg:mt-4 ">
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sticker") }}</h2>
         <select
           class="mark-select mt-[20px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="stickerEmission"
@@ -102,11 +103,11 @@
           <option value="4">Up to 4</option>
         </select>
         <span
-          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
         ></span>
       </div>
-      <div class="marke_select_div relative mt-[20px] lg:mt-7  lg:w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
+      <div class="marke_select_div relative mt-[20px] lg:mt-7 ">
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="classEmision"
@@ -118,7 +119,7 @@
           <option value="4">Up to 4</option>
         </select>
         <span
-          class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
+          class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"
         ></span>
       </div>
     </div>

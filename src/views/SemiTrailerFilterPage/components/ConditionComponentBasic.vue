@@ -1,10 +1,10 @@
 <template>
-  <div class="condition lg:p-[20px]">
-    <h3 class="text-[16px]">Type and condition</h3>
+ <div class="condition mt-[10px] lg:p-[20px]">
+    <h3 class="text-[14px]">{{ $t("message.filter_page.condition") }}</h3>
     <div
-      class="radios-type flex flex-wrap gap-x-[20px] lg:gap-x-[100px] mt-[10px]"
+      class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[50px] mt-[10px] "
     >
-      <label for="any-cond" @click="selectCondition('Any')">
+      <label>
         <input
           type="radio"
           v-model="selectedCondition"
@@ -13,11 +13,11 @@
             'bg-orange': selectedCondition === 'Any',
           }"
           class="ml-10px"
-          
+          @click="selectCondition('Any')"
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
-      <label for="new-cond"  @click="selectCondition('New')">
+      <label>
         <input
           type="radio"
           v-model="selectedCondition"
@@ -25,22 +25,21 @@
             'bg-transparent': selectedCondition !== 'New',
             'bg-orange': selectedCondition === 'New',
           }"
-         
+          @click="selectCondition('New')"
         />
-        <span class="ml-[10px] text-[14px]">New</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter.new") }}</span>
       </label>
-      <label for="used-cond" @click="selectCondition('Used')">
+      <label>
         <input
           type="radio"
-       
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Used',
             'bg-orange': selectedCondition === 'Used',
           }"
-          
+          @click="selectCondition('Used')"
         />
-        <span class="ml-[10px] text-[14px]">Used</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter.used") }}</span>
       </label>
     </div>
   </div>

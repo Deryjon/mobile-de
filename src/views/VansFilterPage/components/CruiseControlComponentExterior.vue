@@ -1,47 +1,29 @@
 <template>
-  <div class="condition lg:p-[20px] mt-[10px]">
-    <h3>Cruise control
-</h3>
-    <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[30px] mt-[10px] text-[14px]">
+ <div class="condition lg:p-[20px]">
+    <h3>{{ $t("message.filter_page.cruise.cruise") }}
+    </h3>
+    <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px] text-[14px]">
       <label for="condition-ext" @click="selectCondition('AnyExterior')">
-        <input
-          type="radio"
-          v-model="selectedCondition"
-          :class="{
-            'bg-transparent': selectedCondition !== 'AnyExterior',
-            'bg-orange': selectedCondition === 'AnyExterior',
-          }"
-          class="ml-10px"
-        />
-        <span class="ml-[10px]">Any</span>
+        <input type="radio" v-model="selectedCruiseControl" :class="{
+          'bg-transparent': selectedCruiseControl !== 'AnyExterior',
+          'bg-orange': selectedCruiseControl === 'AnyExterior',
+        }" class="ml-10px" />
+        <span class="ml-[10px]">{{ $t("message.filter_page.cruise.any") }}</span>
       </label>
-      <label >
-        <input
-          type="radio"
-          id="condition-any"
-          v-model="selectedCondition"
-          :class="{
-            'bg-transparent': selectedCondition !== 'Cruise',
-            'bg-orange': selectedCondition === 'Cruise',
-          }"
-          @click="selectCondition('Cruise')"
-        />
-        <span class="ml-[10px]">Cruise control
-</span>
+      <label>
+        <input type="radio" id="condition-any" v-model="selectedCruiseControl" :class="{
+          'bg-transparent': selectedCruiseControl !== 'Cruise',
+          'bg-orange': selectedCruiseControl === 'Cruise',
+        }" @click="selectCondition('Cruise')" />
+        <span class="ml-[10px]">{{ $t("message.filter_page.cruise.cruise") }}
+        </span>
       </label>
-      <label  >
-        <input
-          type="radio"
-					id="condition-adap"
-				
-          v-model="selectedCondition"
-          :class="{
-            'bg-transparent': selectedCondition !== 'Adaptive',
-            'bg-orange': selectedCondition === 'Adaptive',
-          }"
-					@click="selectCondition('Adaptive')"
-        />
-        <span class="ml-[10px]">Adaptive Cruise Control</span>
+      <label>
+        <input type="radio" id="condition-adap" v-model="selectedCruiseControl" :class="{
+          'bg-transparent': selectedCruiseControl !== 'Adaptive',
+          'bg-orange': selectedCruiseControl === 'Adaptive',
+        }" @click="selectCondition('Adaptive')" />
+        <span class="ml-[10px]">{{ $t("message.filter_page.cruise.adaptive") }}</span>
       </label>
     </div>
   </div>
@@ -54,9 +36,9 @@ export default {
   data() {
     return {
       selectedCondition: "AnyExterior",
-    };	
+    };
   },
-	watch: {
+  watch: {
     selectedCondition(newValue, oldValue) {
       if (newValue !== oldValue) {
         this.updateVanData();
@@ -103,6 +85,7 @@ input[type="checkbox"]:disabled {
   /* Убираем указатель курсора */
   cursor: none;
 }
+
 .custom-checkbox {
   position: relative;
   padding-left: 30px;
@@ -120,10 +103,11 @@ input[type="checkbox"]:disabled {
   border-radius: 4px;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .icon {
+.custom-checkbox input[type="checkbox"]:checked+.icon {
   fill: #ffffff;
   background: #e04b00;
 }
+
 .custom-checkbox input[type="checkbox"] {
   display: none;
 }

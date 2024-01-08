@@ -1,6 +1,6 @@
 <template>
   <v-container class="max-w-[1140px]">
-    <PathLink>Truck {{ $t("message.single_page.single") }}</PathLink>
+    <PathLink>{{ $t("message.single_page.truck") }}</PathLink>
     <div class="sections">
       <YourSetAd />
     </div>

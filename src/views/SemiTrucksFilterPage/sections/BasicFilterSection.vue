@@ -1,7 +1,7 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="max-w-[1140px]">
-      <PathLink>SemiTruck Filter</PathLink>
+      <PathLink>{{ $t("message.filter_page.vehicle.semitruck") }}</PathLink>
       <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
       <FilterBtn class="ml-auto" @click="goSemitruckList"> 
         <p class="text-white text-[18px] lg:text-[16px]">
@@ -10,7 +10,7 @@
       </FilterBtn>
       <div
         class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]">
-        <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
+        <h3 class="basic-title text-[25px] font-semibold">{{ $t("message.filter_page.vehicle.semitruck") }}</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
         <div class="top flex flex-wrap  items-center gap-[10px] sm:gap-[20px] lg:gap-[80px] mt-[10px] lg:p-[20px]">

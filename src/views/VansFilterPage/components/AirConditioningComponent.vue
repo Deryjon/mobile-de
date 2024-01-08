@@ -1,10 +1,10 @@
 <template>
-  <div class="condition lg:p-[20px] mt-[20px]">
-    <h3 class="text-[16px]">Air conditioning</h3>
+  <div class="condition lg:p-[20px] mt-[15px]">
+    <h3 class="text-[16px]">{{ $t("message.filter_page.conditioning.title") }}</h3>
     <div class="radios-type flex flex-wrap gap-x-[60px] gap-y-[10px] mt-[20px]">
-      <label class="lg:w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
+      <label class="w-[200px]" for="air-any" @click="selectAirbag('AnyAir')">
         <input
-          id="air-any"
+         
           type="radio"
           v-model="selectedCondition"
           :class="{
@@ -13,31 +13,31 @@
           }"
           class="ml-10px"
         />
-        <span class="ml-[10px] text-[14px]">Any</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
       </label>
-      <label class="lg:w-[200px]" for="manual">
+      <label class="w-[200px]" for="manual" @click="selectAirbag('Manual')">
         <input
           type="radio"
-          id="manual"
+         
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Manual',
             'bg-orange': selectedCondition === 'Manual',
           }"
-          @click="selectAirbag('Manual')"
+          
         />
         <span class="ml-[10px] text-[14px]"
-          >Manual or automatic climatisation
+          >{{ $t("message.filter_page.conditioning.manual") }}
         </span>
       </label>
       <label
-        class="lg:w-[200px]"
+        class="w-[200px]"
         for="auto-climat"
         @click="selectAirbag('Auto-Climat')"
       >
         <input
           type="radio"
-          id="auto-climat"
+        
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Auto-Climat',
@@ -45,18 +45,18 @@
           }"
         />
         <span class="ml-[10px] text-[14px]"
-          >Automatic climatisation, 2 zones
+          >{{ $t("message.filter_page.conditioning.zone2") }}
         </span>
       </label>
 
       <label
-        class="lg:w-[200px]"
+        class="w-[200px]"
         for="auto2"
         @click="selectAirbag('Auto-Climat2')"
       >
         <input
           type="radio"
-          id="auto2"
+   
           v-model="selectedCondition"
           :class="{
             'bg-transparent': selectedCondition !== 'Auto-Climat2',
@@ -64,10 +64,10 @@
           }"
         />
         <span class="ml-[10px] text-[14px]"
-          >Automatic climatisation, 4 zones</span
+          >{{ $t("message.filter_page.conditioning.zone4") }}</span
         >
       </label>
-      <label class="lg:w-[200px]" @click="selectAirbag('NoClimat')">
+      <label for='noclimat' class="w-[200px]" @click="selectAirbag('NoClimat')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -76,9 +76,9 @@
             'bg-orange': selectedCondition === 'NoClimat',
           }"
         />
-        <span class="ml-[10px] text-[14px]">No climatisation</span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.no") }}</span>
       </label>
-      <label class="lg:w-[200px]" @click="selectAirbag('AutoClimat')">
+      <label class="w-[200px]" for="autoclimat" @click="selectAirbag('AutoClimat')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -87,9 +87,9 @@
             'bg-orange': selectedCondition === 'AutoClimat',
           }"
         />
-        <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
+        <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.auto") }}</span>
       </label>
-      <label class="lg:w-[200px]" @click="selectAirbag('Auto-Climat3')">
+      <label class="w-[200px]" for="climat4" @click="selectAirbag('Auto-Climat3')">
         <input
           type="radio"
           v-model="selectedCondition"
@@ -99,7 +99,7 @@
           }"
         />
         <span class="ml-[10px] text-[14px]"
-          >Automatic climatisation, 3 zones
+          >{{ $t("message.filter_page.conditioning.zone3") }}
         </span>
       </label>
     </div>

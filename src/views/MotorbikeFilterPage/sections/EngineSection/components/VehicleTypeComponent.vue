@@ -1,6 +1,6 @@
 <template>
   <div class="lg:p-[20px]">
-    <h3 class="text-[16px]">Driving Mode</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.driving_mode.title") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
       <!-- cabrio -->
       <label
@@ -25,7 +25,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Shaft drive
+        {{ $t("message.filter_page.driving_mode.drive1") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
@@ -49,7 +49,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Chain drive
+        {{ $t("message.filter_page.driving_mode.drive2") }}
       </label>
       <label
         class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px]"
@@ -73,7 +73,7 @@
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        Belt drive
+        {{ $t("message.filter_page.driving_mode.drive3") }}
       </label>
     </div>
   </div>

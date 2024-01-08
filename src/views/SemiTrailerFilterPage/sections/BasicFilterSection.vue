@@ -1,8 +1,8 @@
 <template>
   <section class="basic-filter mt-[200px]">
     <v-container class="max-w-[1160px]">
-      <PathLink>SemiTrailer Filter</PathLink>
-      <FilterTitle>Detailsuche: Pkw - neu oder gebraucht</FilterTitle>
+      <PathLink>{{ $t("message.filter_page.vehicle.trailer") }}</PathLink>
+      <FilterTitle>{{ $t("message.filter_page.titles.filter_title") }}</FilterTitle>
       <FilterBtn   class="ml-auto" @click="goSemitrailerList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
@@ -11,7 +11,7 @@
       <div
         class="relative filter md:w-[700px] lg:w-[870px] xl:w-[1110px] bg-[#f5f5f5] mx-auto mt-[50px] rounded p-[10px] lg:p-[27px]"
       >
-        <h3 class="basic-title text-[25px] font-semibold">Basic Data</h3>
+        <h3 class="basic-title text-[25px] font-semibold">{{ $t("message.filter_page.titles.basic") }}</h3>
         <div class="line h-[1px] border mt-[10px]"></div>
         <ConditionComponent />
         <div

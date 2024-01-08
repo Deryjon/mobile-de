@@ -1,193 +1,128 @@
 <template>
   <div class="lg:pl-[20px]">
-    <div
-      class="price-tab  items-center gap-x-[20px] lg:gap-[80px]"
-    >
-     
-     
-   
-    <!-- transmision -->
-		<h3 class="">Transmission</h3>
-    <div class="flex flex-wrap gap-x-[20px] lg:gap-x-[100px]">
-      <div
-        class="
-			"
-      >
-        <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
-          <input
-            type="checkbox"
-            v-model="isCheckedAutomatic"
-            @click="toggleShowCheckbox(0, 'Automatic transmission')"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-          <svg
-            class="icon mt-[10px]"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedAutomatic"
-              fill="#FFFFFF"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
+    <div class="price-tab  items-center gap-x-[20px] lg:gap-[80px]">
 
-          <span class="text-sm">Automatic transmission</span>
-        </label>
-      </div>
-      <div class="">
-        <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
-          <input
-            type="checkbox"
-            v-model="isCheckedSemi"
-            @click="toggleShowCheckbox(1, 'Semi-automatic')"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-          <svg
-            class="icon mt-[10px]"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedSemi"
-              fill="#FFFFFF"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
 
-          <span class="text-sm">Semi-automatic</span>
-        </label>
-      </div>
-      <div class="">
-        <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
-          <input
-            type="checkbox"
-            v-model="isCheckedManual"
-            @click="toggleShowCheckbox(2, 'Manual gearbox')"
-            class="form-checkbox h-5 w-5 text-indigo-600"
-          />
-          <svg
-            class="icon mt-[10px]"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedManual"
-              fill="#FFFFFF"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
 
-          <span class="text-sm">Manual gearbox </span>
-        </label>
+      <!-- transmision -->
+      <h3 class="">        {{ $t("message.filter_page.transmission.title") }}
+</h3>
+      <div class="flex flex-wrap gap-x-[20px] lg:gap-x-[100px]">
+        <div class="
+			">
+          <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
+            <input type="checkbox" v-model="isCheckedAutomatic" @click="toggleShowCheckbox(0, 'Automatic transmission')"
+              class="form-checkbox h-5 w-5 text-indigo-600" />
+            <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAutomatic" fill="#FFFFFF"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+
+            <span class="text-sm">{{ $t("message.filter_page.transmission.auto") }}</span>
+          </label>
+        </div>
+        <div class="">
+          <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
+            <input type="checkbox" v-model="isCheckedSemi" @click="toggleShowCheckbox(1, 'Semi-automatic')"
+              class="form-checkbox h-5 w-5 text-indigo-600" />
+            <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSemi" fill="#FFFFFF"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+
+            <span class="text-sm">{{ $t("message.filter_page.transmission.semi") }}</span>
+          </label>
+        </div>
+        <div class="">
+          <label class="custom-checkbox flex items-center h-10 lg:w-[180px]">
+            <input type="checkbox" v-model="isCheckedManual" @click="toggleShowCheckbox(2, 'Manual gearbox')"
+              class="form-checkbox h-5 w-5 text-indigo-600" />
+            <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedManual" fill="#FFFFFF"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+
+            <span class="text-sm">{{ $t("message.filter_page.transmission.manual") }}</span>
+          </label>
+        </div>
       </div>
-    </div>
-		<div
-      class="duration flex items-center gap-x-[20px] lg:gap-[80px]
+      <div class="duration flex items-center gap-x-[20px] lg:gap-[80px]
 			mt-[20px]
-			"
-    >
-      <div>
-        <h2 class="text-sm lg:text-[16px] mt-2">Cubic capacity</h2>
-        <div class="cubic dropdown-container">
+			">
+        <div>
+          <h2 class="text-sm lg:text-[16px] mt-2">{{ $t("message.filter_page.cubcap") }}</h2>
+          <div class="cubic dropdown-container">
+            <div class="input-container flex relative mt-[10px]">
+              <input type="from"
+                class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                placeholder="from" v-model="cubic" @focus="openCubicDropdown" @input="filterOptions"
+                @blur="openCubicDropdown" />
+
+              <div
+                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+                @click="openCubicDropdown">
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
+              </div>
+            </div>
+            <ul v-if="isOpenCubic" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
+              <li @click="selectCubic('any')" data-key="">Any</li>
+              <li @click="selectCubic('1000')" data-key="1000">1,000 cm³</li>
+              <li @click="selectCubic('1200')" data-key="1200">1,200 cm³</li>
+              <li @click="selectCubic('1400')" data-key="1400">1,400 cm³</li>
+              <li @click="selectCubic('1600')" data-key="1600">1,600 cm³</li>
+              <li @click="selectCubic('1800')" data-key="1800">1,800 cm³</li>
+              <li @click="selectCubic('2000')" data-key="2000">2,000 cm³</li>
+              <li @click="selectCubic('2600')" data-key="2600">2,600 cm³</li>
+              <li @click="selectCubic('3000')" data-key="3000">3,000 cm³</li>
+              <li @click="selectCubic('5000')" data-key="5000">5,000 cm³</li>
+              <li @click="selectCubic('7500')" data-key="7500">7,500 cm³</li>
+              <li @click="selectCubic('8000')" data-key="8000">8,000 cm³</li>
+              <li @click="selectCubic('9000')" data-key="9000">9,000 cm³</li>
+            </ul>
+          </div>
+        </div>
+        <div class="cubic-to dropdown-container mt-[27px]">
           <div class="input-container flex relative mt-[10px]">
-            <input
-              type="from"
+            <input type="from"
               class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from"
-              v-model="cubic"
-              @focus="openCubicDropdown"
-              @input="filterOptions"
-              @blur="openCubicDropdown"
-            />
+              placeholder="from" v-model="cubicTo" @focus="openCubicToDropdown" @input="filterOptions"
+              @blur="openCubicToDropdown" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openCubicDropdown"
-            >
-              <span
-                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-              ></span>
+              @click="openCubicToDropdown">
+              <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul
-            v-if="isOpenCubic"
-            class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-          >
-            <li @click="selectCubic('any')" data-key="">Any</li>
-            <li @click="selectCubic('1000')" data-key="1000">1,000 cm³</li>
-            <li @click="selectCubic('1200')" data-key="1200">1,200 cm³</li>
-            <li @click="selectCubic('1400')" data-key="1400">1,400 cm³</li>
-            <li @click="selectCubic('1600')" data-key="1600">1,600 cm³</li>
-            <li @click="selectCubic('1800')" data-key="1800">1,800 cm³</li>
-            <li @click="selectCubic('2000')" data-key="2000">2,000 cm³</li>
-            <li @click="selectCubic('2600')" data-key="2600">2,600 cm³</li>
-            <li @click="selectCubic('3000')" data-key="3000">3,000 cm³</li>
-            <li @click="selectCubic('5000')" data-key="5000">5,000 cm³</li>
-            <li @click="selectCubic('7500')" data-key="7500">7,500 cm³</li>
-            <li @click="selectCubic('8000')" data-key="8000">8,000 cm³</li>
-            <li @click="selectCubic('9000')" data-key="9000">9,000 cm³</li>
+          <ul v-if="isOpenCubicTo" class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]">
+            <li @click="selectCubicTo('any')" data-key="">Any</li>
+            <li @click="selectCubicTo('1000')" data-key="1000">1,000 cm³</li>
+            <li @click="selectCubicTo('1200')" data-key="1200">1,200 cm³</li>
+            <li @click="selectCubicTo('1400')" data-key="1400">1,400 cm³</li>
+            <li @click="selectCubicTo('1600')" data-key="1600">1,600 cm³</li>
+            <li @click="selectCubicTo('1800')" data-key="1800">1,800 cm³</li>
+            <li @click="selectCubicTo('2000')" data-key="2000">2,000 cm³</li>
+            <li @click="selectCubicTo('2600')" data-key="2600">2,600 cm³</li>
+            <li @click="selectCubicTo('3000')" data-key="3000">3,000 cm³</li>
+            <li @click="selectCubicTo('5000')" data-key="5000">5,000 cm³</li>
+            <li @click="selectCubicTo('7500')" data-key="7500">7,500 cm³</li>
+            <li @click="selectCubicTo('8000')" data-key="8000">8,000 cm³</li>
+            <li @click="selectCubicTo('9000')" data-key="9000">9,000 cm³</li>
           </ul>
         </div>
       </div>
-      <div class="cubic-to dropdown-container mt-[27px]">
-        <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
-            class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="cubicTo"
-            @focus="openCubicToDropdown"
-            @input="filterOptions"
-            @blur="openCubicToDropdown"
-          />
 
-          <div
-            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openCubicToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
-          </div>
-        </div>
-        <ul
-          v-if="isOpenCubicTo"
-          class="dropdown-options w-[150px] lg:w-[200px] text-[10px] lg:text-[12px]"
-        >
-          <li @click="selectCubicTo('any')" data-key="">Any</li>
-          <li @click="selectCubicTo('1000')" data-key="1000">1,000 cm³</li>
-          <li @click="selectCubicTo('1200')" data-key="1200">1,200 cm³</li>
-          <li @click="selectCubicTo('1400')" data-key="1400">1,400 cm³</li>
-          <li @click="selectCubicTo('1600')" data-key="1600">1,600 cm³</li>
-          <li @click="selectCubicTo('1800')" data-key="1800">1,800 cm³</li>
-          <li @click="selectCubicTo('2000')" data-key="2000">2,000 cm³</li>
-          <li @click="selectCubicTo('2600')" data-key="2600">2,600 cm³</li>
-          <li @click="selectCubicTo('3000')" data-key="3000">3,000 cm³</li>
-          <li @click="selectCubicTo('5000')" data-key="5000">5,000 cm³</li>
-          <li @click="selectCubicTo('7500')" data-key="7500">7,500 cm³</li>
-          <li @click="selectCubicTo('8000')" data-key="8000">8,000 cm³</li>
-          <li @click="selectCubicTo('9000')" data-key="9000">9,000 cm³</li>
-        </ul>
-      </div>
-    </div>
-    
     </div>
   </div>
 </template>
 <script>
 import axios from "axios";
 import http from "@/axios.config";
-import {useMotorbikeStore} from "@/store/motorbikeDataStore"
+import { useMotorbikeStore } from "@/store/motorbikeDataStore"
 export default {
   data() {
     return {
@@ -220,7 +155,7 @@ export default {
       isCheckedParticulate: false,
       isCheckedManual: false,
       isCheckedSemi: false,
-			selectedTransmision: [],
+      selectedTransmision: [],
     };
   },
   watch: {
@@ -261,7 +196,7 @@ export default {
     },
   },
   methods: {
-		toggleShowCheckbox(index, transName) {
+    toggleShowCheckbox(index, transName) {
       const isChecked = !this.selectedTransmision.includes(transName);
       if (isChecked) {
         this.selectedTransmision.push(transName);
@@ -271,9 +206,9 @@ export default {
           this.selectedTransmision.splice(transIndex, 1);
         }
       }
-			this.updateMotorbikeData()
+      this.updateMotorbikeData()
     },
-		updateMotorbikeData() {
+    updateMotorbikeData() {
       const motorbikeStore = useMotorbikeStore();
       motorbikeStore.motorcycleData.transmission = this.selectedTransmision;
       motorbikeStore.updateMotorbikeData();
@@ -429,6 +364,7 @@ input[type="checkbox"]:disabled {
   /* Убираем указатель курсора */
   cursor: none;
 }
+
 .custom-checkbox {
   position: relative;
   padding-left: 30px;
@@ -446,16 +382,19 @@ input[type="checkbox"]:disabled {
   border-radius: 4px;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .icon {
+.custom-checkbox input[type="checkbox"]:checked+.icon {
   fill: #ffffff;
   background: #e04b00;
 }
+
 .custom-checkbox input[type="checkbox"] {
   display: none;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 input[type="radio"] {
   /* Убираем стандартные стили радиокнопок */
   -webkit-appearance: none;
