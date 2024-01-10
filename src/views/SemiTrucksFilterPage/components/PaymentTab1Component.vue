@@ -4,28 +4,17 @@
       <div class="price dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.price") }}</h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="price"
-            @focus="openPriceDropdown"
-            @blur="openPriceDropdown"
-          />
+            placeholder="from" v-model="price" @focus="openPriceDropdown" @blur="openPriceDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openPriceDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openPriceDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="priceOpen"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="priceOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
           <ul>
             <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
             <li data-value="100" @click="selectNumberPrice('100')">
@@ -75,28 +64,17 @@
       </div> -->
       <div class="price-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="priceTo"
-            @focus="openPriceToDropdown"
-            @blur="openPriceToDropdown"
-          />
+            placeholder="to" v-model="priceTo" @focus="openPriceToDropdown" @blur="openPriceToDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openPriceToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openPriceToDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="priceToOpen"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="priceToOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
           <ul>
             <li data-value="50" @click="selectNumberPriceTo('50')">50 € mtl</li>
             <li data-value="100" @click="selectNumberPriceTo('100')">
@@ -143,52 +121,149 @@
       </div> -->
     </div>
     <div class="line mt-[30px]"></div>
-    <div
-      class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]"
-    >
+    <div class="registration flex items-center gap-[20px] lg:gap-[80px] mt-[10px] xl:mt-[50px]">
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.registration") }}
         </h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputValue"
-            @focus="openDropdown"
-            @input="filterOptions"
-            @blur="openDropdown"
-          />
+            placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions" @blur="openDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpen"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
-          <li
-            v-for="option in filteredOptions"
-            :key="option"
-            @click="selectOption(option)"
-            class=""
-          >
-            {{ option }}
-          </li>
-          <li key="1985" @click="selectOption('1985')">1985</li>
-          <li key="1980" @click="selectOption('1980')">1980</li>
-          <li key="1975" @click="selectOption('1975')">1975</li>
-          <li key="1970" @click="selectOption('1970')">1970</li>
-          <li key="1965" @click="selectOption('1965')">1965</li>
+        <ul v-if="isOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <li key="1920" @click="selectOption('1920')">1920</li>
+          <li key="1921" @click="selectOption('1921')">1921</li>
+          <li key="1922" @click="selectOption('1922')">1922</li>
+          <li key="1923" @click="selectOption('1923')">1923</li>
+          <li key="1924" @click="selectOption('1924')">1924</li>
+          <li key="1925" @click="selectOption('1925')">1925</li>
+          <li key="1926" @click="selectOption('1926')">1926</li>
+          <li key="1927" @click="selectOption('1927')">1927</li>
+          <li key="1928" @click="selectOption('1928')">1928</li>
+          <li key="1929" @click="selectOption('1929')">1929</li>
+          <li key="1930" @click="selectOption('1930')">1930</li>
+          <li key="1931" @click="selectOption('1931')">1931</li>
+          <li key="1932" @click="selectOption('1932')">1932</li>
+          <li key="1933" @click="selectOption('1933')">1933</li>
+          <li key="1934" @click="selectOption('1934')">1934</li>
+          <li key="1935" @click="selectOption('1935')">1935</li>
+          <li key="1936" @click="selectOption('1936')">1936</li>
+          <li key="1937" @click="selectOption('1937')">1937</li>
+          <li key="1938" @click="selectOption('1938')">1938</li>
+          <li key="1939" @click="selectOption('1939')">1939</li>
+          <li key="1940" @click="selectOption('1940')">1940</li>
+          <li key="1941" @click="selectOption('1941')">1941</li>
+          <li key="1942" @click="selectOption('1942')">1942</li>
+          <li key="1943" @click="selectOption('1943')">1943</li>
+          <li key="1944" @click="selectOption('1944')">1944</li>
+          <li key="1945" @click="selectOption('1945')">1945</li>
+          <li key="1946" @click="selectOption('1946')">1946</li>
+          <li key="1947" @click="selectOption('1947')">1947</li>
+          <li key="1948" @click="selectOption('1948')">1948</li>
+          <li key="1949" @click="selectOption('1949')">1949</li>
+          <li key="1950" @click="selectOption('1950')">1950</li>
+          <li key="1951" @click="selectOption('1951')">1951</li>
+          <li key="1952" @click="selectOption('1952')">1952</li>
+          <li key="1953" @click="selectOption('1953')">1953</li>
+          <li key="1954" @click="selectOption('1954')">1954</li>
+          <li key="1955" @click="selectOption('1955')">1955</li>
+          <li key="1956" @click="selectOption('1956')">1956</li>
+          <li key="1957" @click="selectOption('1957')">1957</li>
+          <li key="1958" @click="selectOption('1958')">1958</li>
+          <li key="1959" @click="selectOption('1959')">1959</li>
           <li key="1960" @click="selectOption('1960')">1960</li>
-          <li key="1900" @click="selectOption('1900')">1900</li>
+          <li key="1961" @click="selectOption('1961')">1961</li>
+          <li key="1962" @click="selectOption('1962')">1962</li>
+          <li key="1963" @click="selectOption('1963')">1963</li>
+          <li key="1964" @click="selectOption('1964')">1964</li>
+          <li key="1965" @click="selectOption('1965')">1965</li>
+          <li key="1966" @click="selectOption('1966')">1966</li>
+          <li key="1967" @click="selectOption('1967')">1967</li>
+          <li key="1968" @click="selectOption('1968')">1968</li>
+          <li key="1969" @click="selectOption('1969')">1969</li>
+          <li key="1970" @click="selectOption('1970')">1970</li>
+          <li key="1971" @click="selectOption('1971')">1971</li>
+          <li key="1972" @click="selectOption('1972')">1972</li>
+          <li key="1973" @click="selectOption('1973')">1973</li>
+          <li key="1974" @click="selectOption('1974')">1974</li>
+          <li key="1975" @click="selectOption('1975')">1975</li>
+          <li key="1976" @click="selectOption('1976')">1976</li>
+          <li key="1977" @click="selectOption('1977')">1977</li>
+          <li key="1978" @click="selectOption('1978')">1978</li>
+          <li key="1979" @click="selectOption('1979')">1979</li>
+          <li key="1980" @click="selectOption('1980')">1980</li>
+          <li key="1981" @click="selectOption('1981')">1981</li>
+          <li key="1982" @click="selectOption('1982')">1982</li>
+          <li key="1983" @click="selectOption('1983')">1983</li>
+          <li key="1984" @click="selectOption('1984')">1984</li>
+          <li key="1985" @click="selectOption('1985')">1985</li>
+          <li key="1986" @click="selectOption('1986')">1986</li>
+          <li key="1987" @click="selectOption('1987')">1987</li>
+          <li key="1988" @click="selectOption('1988')">1988</li>
+          <li key="1989" @click="selectOption('1989')">1989</li>
+          <li key="1990" @click="selectOption('1990')">1990</li>
+          <li key="1991" @click="selectOption('1991')">1991</li>
+          <li key="1992" @click="selectOption('1992')">1992</li>
+          <li key="1993" @click="selectOption('1993')">1993</li>
+          <li key="1994" @click="selectOption('1994')">1994</li>
+          <li key="1995" @click="selectOption('1995')">1995</li>
+          <li key="1996" @click="selectOption('1996')">1996</li>
+          <li key="1997" @click="selectOption('1997')">1997</li>
+          <li key="1998" @click="selectOption('1998')">1998</li>
+          <li key="1999" @click="selectOption('1999')">1999</li>
+          <li key="2000" @click="selectOption('2000')">2000</li>
+          <li key="2001" @click="selectOption('2001')">2001</li>
+          <li key="2002" @click="selectOption('2002')">2002</li>
+          <li key="2003" @click="selectOption('2003')">2003</li>
+          <li key="2004" @click="selectOption('2004')">2004</li>
+          <li key="2005" @click="selectOption('2005')">2005</li>
+          <li key="2006" @click="selectOption('2006')">2006</li>
+          <li key="2007" @click="selectOption('2007')">2007</li>
+          <li key="2008" @click="selectOption('2008')">2008</li>
+          <li key="2009" @click="selectOption('2009')">2009</li>
+          <li key="2010" @click="selectOption('2010')">2010</li>
+          <li key="2011" @click="selectOption('2011')">2011</li>
+          <li key="2012" @click="selectOption('2012')">2012</li>
+          <li key="2013" @click="selectOption('2013')">2013</li>
+          <li key="2014" @click="selectOption('2014')">2014</li>
+          <li key="2015" @click="selectOption('2015')">2015</li>
+          <li key="2016" @click="selectOption('2016')">2016</li>
+          <li key="2017" @click="selectOption('2017')">2017</li>
+          <li key="2018" @click="selectOption('2018')">2018</li>
+          <li key="2019" @click="selectOption('2019')">2019</li>
+          <li key="2020" @click="selectOption('2020')">2020</li>
+          <li key="2021" @click="selectOption('2021')">2021</li>
+          <li key="2022" @click="selectOption('2022')">2022</li>
+          <li key="2023" @click="selectOption('2023')">2023</li>
+          <li key="2024" @click="selectOption('2024')">2024</li>
+          <li key="2025" @click="selectOption('2025')">2025</li>
+          <li key="2026" @click="selectOption('2026')">2026</li>
+          <li key="2027" @click="selectOption('2027')">2027</li>
+          <li key="2028" @click="selectOption('2028')">2028</li>
+          <li key="2029" @click="selectOption('2029')">2029</li>
+          <li key="2030" @click="selectOption('2030')">2030</li>
+          <li key="2031" @click="selectOption('2031')">2031</li>
+          <li key="2032" @click="selectOption('2032')">2032</li>
+          <li key="2033" @click="selectOption('2033')">2033</li>
+          <li key="2034" @click="selectOption('2034')">2034</li>
+          <li key="2035" @click="selectOption('2035')">2035</li>
+          <li key="2036" @click="selectOption('2036')">2036</li>
+          <li key="2037" @click="selectOption('2037')">2037</li>
+          <li key="2038" @click="selectOption('2038')">2038</li>
+          <li key="2039" @click="selectOption('2039')">2039</li>
+          <li key="2040" @click="selectOption('2040')">2040</li>
+          <li key="2041" @click="selectOption('2041')">2041</li>
+          <li key="2042" @click="selectOption('2042')">2042</li>
+          <li key="2043" @click="selectOption('2043')">2043</li>
+          <li key="2044" @click="selectOption('2044')">2044</li>
+          <li key="2045" @click="selectOption('2045')">2045</li>
         </ul>
       </div>
       <!-- <div>
@@ -226,44 +301,144 @@
       </div> -->
       <div class="years-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="yearsTo"
-            @focus="openYearsToDropdown"
-            @input="filterOptions"
-            @blur="openYearsToDropdown"
-          />
+            placeholder="to" v-model="yearsTo" @focus="openYearsToDropdown" @input="filterOptions"
+            @blur="openYearsToDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openYearsToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openYearsToDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenYearsTo"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
-          <li
-            v-for="option in filteredOptions"
-            :key="option"
-            @click="selectYearsToOption(option)"
-            class=""
-          >
-            {{ option }}
-          </li>
-          <li key="1985" @click="selectYearsToOption('1985')">1985</li>
-          <li key="1980" @click="selectYearsToOption('1980')">1980</li>
-          <li key="1975" @click="selectYearsToOption('1975')">1975</li>
-          <li key="1970" @click="selectYearsToOption('1970')">1970</li>
-          <li key="1965" @click="selectYearsToOption('1965')">1965</li>
+        <ul v-if="isOpenYearsTo" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <li key="1920" @click="selectYearsToOption('1920')">1920</li>
+          <li key="1921" @click="selectYearsToOption('1921')">1921</li>
+          <li key="1922" @click="selectYearsToOption('1922')">1922</li>
+          <li key="1923" @click="selectYearsToOption('1923')">1923</li>
+          <li key="1924" @click="selectYearsToOption('1924')">1924</li>
+          <li key="1925" @click="selectYearsToOption('1925')">1925</li>
+          <li key="1926" @click="selectYearsToOption('1926')">1926</li>
+          <li key="1927" @click="selectYearsToOption('1927')">1927</li>
+          <li key="1928" @click="selectYearsToOption('1928')">1928</li>
+          <li key="1929" @click="selectYearsToOption('1929')">1929</li>
+          <li key="1930" @click="selectYearsToOption('1930')">1930</li>
+          <li key="1931" @click="selectYearsToOption('1931')">1931</li>
+          <li key="1932" @click="selectYearsToOption('1932')">1932</li>
+          <li key="1933" @click="selectYearsToOption('1933')">1933</li>
+          <li key="1934" @click="selectYearsToOption('1934')">1934</li>
+          <li key="1935" @click="selectYearsToOption('1935')">1935</li>
+          <li key="1936" @click="selectYearsToOption('1936')">1936</li>
+          <li key="1937" @click="selectYearsToOption('1937')">1937</li>
+          <li key="1938" @click="selectYearsToOption('1938')">1938</li>
+          <li key="1939" @click="selectYearsToOption('1939')">1939</li>
+          <li key="1940" @click="selectYearsToOption('1940')">1940</li>
+          <li key="1941" @click="selectYearsToOption('1941')">1941</li>
+          <li key="1942" @click="selectYearsToOption('1942')">1942</li>
+          <li key="1943" @click="selectYearsToOption('1943')">1943</li>
+          <li key="1944" @click="selectYearsToOption('1944')">1944</li>
+          <li key="1945" @click="selectYearsToOption('1945')">1945</li>
+          <li key="1946" @click="selectYearsToOption('1946')">1946</li>
+          <li key="1947" @click="selectYearsToOption('1947')">1947</li>
+          <li key="1948" @click="selectYearsToOption('1948')">1948</li>
+          <li key="1949" @click="selectYearsToOption('1949')">1949</li>
+          <li key="1950" @click="selectYearsToOption('1950')">1950</li>
+          <li key="1951" @click="selectYearsToOption('1951')">1951</li>
+          <li key="1952" @click="selectYearsToOption('1952')">1952</li>
+          <li key="1953" @click="selectYearsToOption('1953')">1953</li>
+          <li key="1954" @click="selectYearsToOption('1954')">1954</li>
+          <li key="1955" @click="selectYearsToOption('1955')">1955</li>
+          <li key="1956" @click="selectYearsToOption('1956')">1956</li>
+          <li key="1957" @click="selectYearsToOption('1957')">1957</li>
+          <li key="1958" @click="selectYearsToOption('1958')">1958</li>
+          <li key="1959" @click="selectYearsToOption('1959')">1959</li>
           <li key="1960" @click="selectYearsToOption('1960')">1960</li>
-          <li key="1900" @click="selectYearsToOption('1900')">1900</li>
+          <li key="1961" @click="selectYearsToOption('1961')">1961</li>
+          <li key="1962" @click="selectYearsToOption('1962')">1962</li>
+          <li key="1963" @click="selectYearsToOption('1963')">1963</li>
+          <li key="1964" @click="selectYearsToOption('1964')">1964</li>
+          <li key="1965" @click="selectYearsToOption('1965')">1965</li>
+          <li key="1966" @click="selectYearsToOption('1966')">1966</li>
+          <li key="1967" @click="selectYearsToOption('1967')">1967</li>
+          <li key="1968" @click="selectYearsToOption('1968')">1968</li>
+          <li key="1969" @click="selectYearsToOption('1969')">1969</li>
+          <li key="1970" @click="selectYearsToOption('1970')">1970</li>
+          <li key="1971" @click="selectYearsToOption('1971')">1971</li>
+          <li key="1972" @click="selectYearsToOption('1972')">1972</li>
+          <li key="1973" @click="selectYearsToOption('1973')">1973</li>
+          <li key="1974" @click="selectYearsToOption('1974')">1974</li>
+          <li key="1975" @click="selectYearsToOption('1975')">1975</li>
+          <li key="1976" @click="selectYearsToOption('1976')">1976</li>
+          <li key="1977" @click="selectYearsToOption('1977')">1977</li>
+          <li key="1978" @click="selectYearsToOption('1978')">1978</li>
+          <li key="1979" @click="selectYearsToOption('1979')">1979</li>
+          <li key="1980" @click="selectYearsToOption('1980')">1980</li>
+          <li key="1981" @click="selectYearsToOption('1981')">1981</li>
+          <li key="1982" @click="selectYearsToOption('1982')">1982</li>
+          <li key="1983" @click="selectYearsToOption('1983')">1983</li>
+          <li key="1984" @click="selectYearsToOption('1984')">1984</li>
+          <li key="1985" @click="selectYearsToOption('1985')">1985</li>
+          <li key="1986" @click="selectYearsToOption('1986')">1986</li>
+          <li key="1987" @click="selectYearsToOption('1987')">1987</li>
+          <li key="1988" @click="selectYearsToOption('1988')">1988</li>
+          <li key="1989" @click="selectYearsToOption('1989')">1989</li>
+          <li key="1990" @click="selectYearsToOption('1990')">1990</li>
+          <li key="1991" @click="selectYearsToOption('1991')">1991</li>
+          <li key="1992" @click="selectYearsToOption('1992')">1992</li>
+          <li key="1993" @click="selectYearsToOption('1993')">1993</li>
+          <li key="1994" @click="selectYearsToOption('1994')">1994</li>
+          <li key="1995" @click="selectYearsToOption('1995')">1995</li>
+          <li key="1996" @click="selectYearsToOption('1996')">1996</li>
+          <li key="1997" @click="selectYearsToOption('1997')">1997</li>
+          <li key="1998" @click="selectYearsToOption('1998')">1998</li>
+          <li key="1999" @click="selectYearsToOption('1999')">1999</li>
+          <li key="2000" @click="selectYearsToOption('2000')">2000</li>
+          <li key="2001" @click="selectYearsToOption('2001')">2001</li>
+          <li key="2002" @click="selectYearsToOption('2002')">2002</li>
+          <li key="2003" @click="selectYearsToOption('2003')">2003</li>
+          <li key="2004" @click="selectYearsToOption('2004')">2004</li>
+          <li key="2005" @click="selectYearsToOption('2005')">2005</li>
+          <li key="2006" @click="selectYearsToOption('2006')">2006</li>
+          <li key="2007" @click="selectYearsToOption('2007')">2007</li>
+          <li key="2008" @click="selectYearsToOption('2008')">2008</li>
+          <li key="2009" @click="selectYearsToOption('2009')">2009</li>
+          <li key="2010" @click="selectYearsToOption('2010')">2010</li>
+          <li key="2011" @click="selectYearsToOption('2011')">2011</li>
+          <li key="2012" @click="selectYearsToOption('2012')">2012</li>
+          <li key="2013" @click="selectYearsToOption('2013')">2013</li>
+          <li key="2014" @click="selectYearsToOption('2014')">2014</li>
+          <li key="2015" @click="selectYearsToOption('2015')">2015</li>
+          <li key="2016" @click="selectYearsToOption('2016')">2016</li>
+          <li key="2017" @click="selectYearsToOption('2017')">2017</li>
+          <li key="2018" @click="selectYearsToOption('2018')">2018</li>
+          <li key="2019" @click="selectYearsToOption('2019')">2019</li>
+          <li key="2020" @click="selectYearsToOption('2020')">2020</li>
+          <li key="2021" @click="selectYearsToOption('2021')">2021</li>
+          <li key="2022" @click="selectYearsToOption('2022')">2022</li>
+          <li key="2023" @click="selectYearsToOption('2023')">2023</li>
+          <li key="2024" @click="selectYearsToOption('2024')">2024</li>
+          <li key="2025" @click="selectYearsToOption('2025')">2025</li>
+          <li key="2026" @click="selectYearsToOption('2026')">2026</li>
+          <li key="2027" @click="selectYearsToOption('2027')">2027</li>
+          <li key="2028" @click="selectYearsToOption('2028')">2028</li>
+          <li key="2029" @click="selectYearsToOption('2029')">2029</li>
+          <li key="2030" @click="selectYearsToOption('2030')">2030</li>
+          <li key="2031" @click="selectYearsToOption('2031')">2031</li>
+          <li key="2032" @click="selectYearsToOption('2032')">2032</li>
+          <li key="2033" @click="selectYearsToOption('2033')">2033</li>
+          <li key="2034" @click="selectYearsToOption('2034')">2034</li>
+          <li key="2035" @click="selectYearsToOption('2035')">2035</li>
+          <li key="2036" @click="selectYearsToOption('2036')">2036</li>
+          <li key="2037" @click="selectYearsToOption('2037')">2037</li>
+          <li key="2038" @click="selectYearsToOption('2038')">2038</li>
+          <li key="2039" @click="selectYearsToOption('2039')">2039</li>
+          <li key="2040" @click="selectYearsToOption('2040')">2040</li>
+          <li key="2041" @click="selectYearsToOption('2041')">2041</li>
+          <li key="2042" @click="selectYearsToOption('2042')">2042</li>
+          <li key="2043" @click="selectYearsToOption('2043')">2043</li>
+          <li key="2044" @click="selectYearsToOption('2044')">2044</li>
+          <li key="2045" @click="selectYearsToOption('2045')">2045</li>
         </ul>
       </div>
 
@@ -296,37 +471,24 @@
         ></span>
       </div> -->
     </div>
-    <div
-      class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]"
-    >
+    <div class="kilometres mt-[20px] flex items-center gap-[20px] lg:gap-[80px]">
       <div class="kilometer dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
           {{ $t("message.selects.kilometr") }}
         </h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="inputKilometer"
-            @focus="openKilmeterDropdown"
-            @input="filterOptions"
-            @blur="openKilmeterDropdown"
-          />
+            placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
+            @blur="openKilmeterDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openKilmeterDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openKilmeterDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenKilometer"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenKilometer" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
           <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometer('10000')">10.000 km</li>
           <li data-key="20000" @click="selectKilometer('20000')">20.000 km</li>
@@ -397,29 +559,18 @@
       </div>  -->
       <div class="kilometer-to dropdown-container mt-[27px]">
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="killometresTo"
-            @focus="openKilometerToDropdown"
-            @input="filterOptions"
-            @blur="openKilometerToDropdown"
-          />
+            placeholder="to" v-model="killometresTo" @focus="openKilometerToDropdown" @input="filterOptions"
+            @blur="openKilometerToDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openKilometerToDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openKilometerToDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenKilometerTo"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenKilometerTo" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
           <li data-key="5000" @click="selectKilometerTo('5000')">5.000 km</li>
           <li data-key="10000" @click="selectKilometerTo('10000')">
             10.000 km
@@ -502,15 +653,12 @@
       </div> -->
     </div>
     <!-- valid -->
-    <div
-      class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]"
-    >
+    <div class="valid-until mt-[40px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[80px]">
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.hu_valid") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="huValid"
-        >
+          v-model="huValid">
           <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           <option value="new">New</option>
           <option value="18">18</option>
@@ -525,8 +673,7 @@
         <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.previous") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="preOwners"
-        >
+          v-model="preOwners">
           <option value="any" selected>Any</option>
           <option value="1">Up to 1</option>
           <option value="2">Up to 2</option>
@@ -535,71 +682,38 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-      <label
-        class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHistory"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
+      <label class="custom-checkbox flex items-center h-10 w-[170px] mt-[25px]"
+        :class="{ 'opacity-20': isRadioNewSelected }">
+        <input type="checkbox" v-model="isCheckedHistory" @click="toggleShowCheckbox"
+          class="form-checkbox h-5 w-5 text-indigo-600" />
+        <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
           <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHistory"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
+          <path v-if="isCheckedHistory" fill="#FFFFFF"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
 
         <span class="text-sm p]b-[20px">{{ $t("message.filter_page.history") }}</span>
       </label>
-      <label
-        class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
-        :class="{ 'opacity-20': isRadioNewSelected }"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRoad"
-          @click="toggleShowCheckbox"
-          class="form-checkbox h-5 w-5 text-indigo-600"
-        />
-        <svg
-          class="icon mt-[10px]"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
+      <label class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]"
+        :class="{ 'opacity-20': isRadioNewSelected }">
+        <input type="checkbox" v-model="isCheckedRoad" @click="toggleShowCheckbox"
+          class="form-checkbox h-5 w-5 text-indigo-600" />
+        <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
           <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRoad"
-            fill="#FFFFFF"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
+          <path v-if="isCheckedRoad" fill="#FFFFFF"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
         </svg>
 
         <span class="text-sm">{{ $t("message.filter_page.road") }}</span>
       </label>
     </div>
     <!-- country -->
-    <div
-      class="valid-until mt-[20px] flex flex-wrap items-center gap-[0px] lg:gap-x-[80px]"
-    >
+    <div class="valid-until mt-[20px] flex flex-wrap items-center gap-[0px] lg:gap-x-[80px]">
       <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.country") }}</h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="selectedCountry"
-        >
+          v-model="selectedCountry">
           <optgroup>
             <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           </optgroup>
@@ -679,10 +793,7 @@
         <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.postcode") }}</h2>
         <input
           class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
-          type="text"
-          pattern="\d*"
-          v-model="zipCode"
-        />
+          type="text" pattern="\d*" v-model="zipCode" />
       </div>
       <!-- <div class="relative mt-2">
         <h2 class="text-sm lg:text-[14px]">Country</h2>
@@ -778,29 +889,18 @@
       <div class="radius dropdown-container">
         <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.radius") }}</h2>
         <div class="input-container flex relative mt-[10px]">
-          <input
-            type="from"
+          <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from"
-            v-model="radius"
-            @focus="openRadiusDropdown"
-            @input="filterOptions"
-            @blur="openRadiusDropdown"
-          />
+            placeholder="from" v-model="radius" @focus="openRadiusDropdown" @input="filterOptions"
+            @blur="openRadiusDropdown" />
 
           <div
             class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-            @click="openRadiusDropdown"
-          >
-            <span
-              class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"
-            ></span>
+            @click="openRadiusDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
           </div>
         </div>
-        <ul
-          v-if="isOpenRadius"
-          class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-        >
+        <ul v-if="isOpenRadius" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
           <li data-key="10" @click="selectRadius('10')">10 km</li>
           <li data-key="20" @click="selectRadius('20')">20 km</li>
           <li data-key="50" @click="selectRadius('50')">50 km</li>
@@ -839,7 +939,7 @@
         </div>
       </div> -->
     </div>
-  </div> 
+  </div>
 </template>
 <script>
 import axios from "axios";
@@ -886,7 +986,7 @@ export default {
       huValid: "",
       preOwners: "",
       selectedCountry: "",
-			zipCode: "",
+      zipCode: "",
       priceOpen: false,
       isOpenYearsTo: false,
       priceToOpen: false,
@@ -966,22 +1066,22 @@ export default {
       const semitruckStore = useSemiTruckStore();
       (semitruckStore.semitruckData.truck_price_from =
         parseInt(this.price)),
-      (semitruckStore.semitruckData.truck_price_to =
-        parseInt(this.priceTo)),
-      (semitruckStore.semitruckData.truck_firt_date_year_from =
-        parseInt(this.inputValue)),
-      (semitruckStore.semitruckData.truck_firt_date_year_to =
-        parseInt(this.yearsTo)),
-      (semitruckStore.semitruckData.truck_kilometre_from =
-        parseInt(this.inputKilometer)),
-      (semitruckStore.semitruckData.truck_kilometre_to =
-        parseInt(this.killometresTo)),
-      (semitruckStore.semitruckData.truck_country =
-        this.selectedCountry),
-      (semitruckStore.semitruckData.zipcode =
-        this.zipCode),
-      (semitruckStore.semitruckData.radius =
-        this.radius),
+        (semitruckStore.semitruckData.truck_price_to =
+          parseInt(this.priceTo)),
+        (semitruckStore.semitruckData.truck_firt_date_year_from =
+          parseInt(this.inputValue)),
+        (semitruckStore.semitruckData.truck_firt_date_year_to =
+          parseInt(this.yearsTo)),
+        (semitruckStore.semitruckData.truck_kilometre_from =
+          parseInt(this.inputKilometer)),
+        (semitruckStore.semitruckData.truck_kilometre_to =
+          parseInt(this.killometresTo)),
+        (semitruckStore.semitruckData.truck_country =
+          this.selectedCountry),
+        (semitruckStore.semitruckData.zipcode =
+          this.zipCode),
+        (semitruckStore.semitruckData.radius =
+          this.radius),
         semitruckStore.updateSemiTruckData();
     },
     openRadiusDropdown() {
@@ -1212,6 +1312,7 @@ input[type="checkbox"]:disabled {
   /* Убираем указатель курсора */
   cursor: none;
 }
+
 .custom-checkbox {
   position: relative;
   padding-left: 30px;
@@ -1229,20 +1330,24 @@ input[type="checkbox"]:disabled {
   border-radius: 4px;
 }
 
-.custom-checkbox input[type="checkbox"]:checked + .icon {
+.custom-checkbox input[type="checkbox"]:checked+.icon {
   fill: #ffffff;
   background: #e04b00;
 }
+
 .custom-checkbox input[type="checkbox"] {
   display: none;
 }
+
 .mark-select {
   border: 1px solid #111;
 }
+
 .mark-input2 {
   border-top-right-radius: 10px;
   border-bottom-right-radius: 10px;
 }
+
 select::-webkit-scrollbar {
   width: 0;
 }
@@ -1251,10 +1356,12 @@ select::-webkit-scrollbar {
 ::-webkit-scrollbar {
   width: 0;
 }
+
 .line {
   border: 1px solid grey;
   height: 1px;
 }
+
 .dropdown-container {
   position: relative;
   display: inline-block;

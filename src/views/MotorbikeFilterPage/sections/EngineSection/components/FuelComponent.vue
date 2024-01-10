@@ -77,7 +77,7 @@
           />
         </svg>
 
-        <span class="text-sm">{{ $t("message.filter_page.fuel_type.electic") }}</span>
+        <span class="text-sm">{{ $t("message.filter_page.fuel_type.electric") }}</span>
       </label>
       <!-- Other -->
       <label class="custom-checkbox flex gap-4 items-center h-10 pb-[20px]">

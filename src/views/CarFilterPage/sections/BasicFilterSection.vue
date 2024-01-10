@@ -72,7 +72,7 @@
           </div>
           <div class="mark">
             <div class="relative mt-2">
-              <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.features.variant") }}</h2>
+              <h2 class="text-sm lg:text-[14px]">Variant</h2>
               <input
                 class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                 placeholder="e.g. GTI..."

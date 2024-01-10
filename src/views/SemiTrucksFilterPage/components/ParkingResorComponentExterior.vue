@@ -105,7 +105,7 @@
         </ul>
       </div>
       <div class="number dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">{{ $t("message.filter_page.wheelfromula") }}</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">{{ $t("message.filter_page.wheelformula") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -121,7 +121,7 @@
           <ul>
             <li data-value="0" @click="selectNumberBunks('4x2')">4x2</li>
             <li data-value="2000" @click="selectNumberBunks('4x4')">
-              4x4 
+              4x4
             </li>
             <li data-value="6x2" @click="selectNumberBunks('6x2')">
               6x2
@@ -238,7 +238,7 @@
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-2 lg:w-[200px]">
         <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.drivecab") }}
-</h2>
+        </h2>
         <select
           class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="drivinCab">
