@@ -201,10 +201,7 @@ export default {
       about: `Witamy na rynku całej Europy! Na tych stronach możesz przeczytać więcej - o naszej historii,
       jak i gdzie pracujemy - a także znajdź naszą obsługę klienta.
       Rynek Sellcenter dokłada wszelkich starań, aby wszyscy klienci byli zadowoleni.
-      Sellcenter.com to największa platforma sprzedażowa, na której znajdziesz wszystko, czego potrzebujesz! Mamy miliony produktów w różnych kategoriach, w tym elektronikę, odzież, akcesoria, kosmetyki i wiele innych.
-      Jesteśmy dumni z oferowania naszym klientom wygody i niezawodności. Ponad 50 000 zarejestrowanych sprzedawców wybiera Sellcenter.com do wystawiania swoich produktów. Stworzyliśmy przyjazny dla użytkownika interfejs, który pozwala szybko i łatwo znaleźć to, czego szukasz - wystarczy wpisać słowa kluczowe lub przejrzeć sekcje produktów.
-      Sellcenter.com oferuje również różne opcje płatności i wysyłki, aby proces zakupów był dla Ciebie jak najwygodniejszy. Na wszystkie produkty udzielamy gwarancji, zapewniając jakość i niezawodność każdego zakupu.
-      Dołącz do nas na Sellcenter.com i spróbuj niesamowitych zakupów. Gwarantujemy, że znajdziesz wszystko, czego potrzebujesz i dokonasz świetnych okazyjnych zakupów. Bycie liderem w branży jest naszym celem i staramy się oferować najlepszą obsługę i najbardziej niesamowite produkty. Wybierz Sellcenter.com dla wszystkich swoich potrzeb związanych z zakupami online!`,
+    `,
       withUs: "Z NAMI",
       employees: "Pracownicy",
     },

@@ -200,11 +200,7 @@ export default {
     about: {
       about: `Willkommen auf dem gesamten europäischen Marktplatz! Auf diesen Seiten können Sie mehr lesen – über unsere Geschichte,
       wie und wo wir arbeiten – und wie Sie unseren Kundenservice finden.
-      Der Sellcenter-Marktplatz tut sein Bestes, um sicherzustellen, dass alle Kunden zufrieden sind.
-      Sellcenter.com ist die größte Verkaufsplattform, wo Sie alles finden können, was Sie brauchen! Wir haben Millionen von Produkten in einer Vielzahl von Kategorien wie Elektronik, Kleidung, Accessoires, Kosmetik und mehr.
-      Wir sind stolz darauf, unseren Kunden Komfort und Zuverlässigkeit zu bieten. Über 50.000 registrierte Verkäufer wählen Sellcenter.com, um ihre Artikel anzubieten. Wir haben eine benutzerfreundliche Schnittstelle, die es schnell und einfach zu finden, was Sie suchen - geben Sie einfach Schlüsselwörter oder durchsuchen Sie Produktbereiche.
-      Sellcenter.com bietet auch eine Vielzahl von Zahlungs-und Versandoptionen, um den Einkaufsprozess so bequem wie möglich für Sie zu machen. Wir haben eine Garantie auf alle Artikel, um die Qualität und Zuverlässigkeit eines jeden Kaufs zu gewährleisten.
-      Schließen Sie sich uns an Sellcenter.com und versuchen Sie eine erstaunliche Einkaufserfahrung. Wir garantieren Ihnen, dass Sie alles finden werden, was Sie brauchen, und dass Sie tolle Schnäppchen machen können. Unser Ziel ist es, ein Branchenführer zu sein, und wir bemühen uns, Ihnen den besten Service und die erstaunlichsten Produkte zu bieten. Wählen Sie Sellcenter.com für alle Ihre Online-Shopping-Bedürfnisse!`,
+      Der Sellcenter-Marktplatz tut sein Bestes, um sicherzustellen, dass alle Kunden zufrieden sind.`,
       withUs: "MIT UNS",
       employees: "Mitarbeiter",
     },

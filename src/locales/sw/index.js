@@ -200,11 +200,7 @@ export default {
     about: {
       about: `Välkommen till hela Europas marknadsplats! På dessa sidor kan du läsa mer - om vår historia,
       hur och var vi jobbar – samt hitta vår kundtjänst.
-      Sellcenter marketplace gör sitt bästa för att alla kunder ska vara nöjda.
-      Sellcenter.com är den största försäljningsplattformen där du kan hitta allt du behöver! Vi har miljontals produkter i en mängd olika kategorier, inklusive elektronik, kläder, accessoarer, kosmetika och mer.
-      Vi är stolta över att erbjuda bekvämlighet och tillförlitlighet till våra kunder. Över 50 000 registrerade säljare väljer Sellcenter.com för att lista sina objekt. Vi har skapat ett användarvänligt gränssnitt som gör det snabbt och enkelt att hitta vad du letar efter - ange bara nyckelord eller bläddra bland produktsektioner.
-      Sellcenter.com erbjuder också en mängd olika betalnings- och fraktalternativ för att göra shoppingprocessen så bekväm som möjligt för dig. Vi har en garanti på alla artiklar, vilket säkerställer kvaliteten och tillförlitligheten för varje köp.
-      Gå med oss på Sellcenter.com och prova en fantastisk shoppingupplevelse. Vi garanterar att du kommer att hitta allt du behöver och göra fantastiska fyndköp. Att vara branschledande är vårt mål och vi strävar efter att erbjuda dig den bästa servicen och de mest fantastiska produkterna. Välj Sellcenter.com för alla dina online shopping behov!`,
+      Sellcenter marketplace gör sitt bästa för att alla kunder ska vara nöjda.`,
       withUs: "MED OSS",
       employees: "Anställda",
     },
