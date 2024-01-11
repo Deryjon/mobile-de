@@ -198,9 +198,10 @@ export default {
       forklift: "Gabelstapler",
     },
     about: {
-      about: `Willkommen auf dem gesamten europäischen Marktplatz! Auf diesen Seiten können Sie mehr lesen – über unsere Geschichte,
-      wie und wo wir arbeiten – und wie Sie unseren Kundenservice finden.
-      Der Sellcenter-Marktplatz tut sein Bestes, um sicherzustellen, dass alle Kunden zufrieden sind.`,
+      about: `Willkommen auf dem gesamten europäischen Marktplatz! Auf diesen Seiten können Sie mehr lesen – über unsere Geschichte, wie und wo wir arbeiten – und unseren Kundenservice finden. Der Sellcenter-Marktplatz tut sein Bestes, um sicherzustellen, dass alle Kunden zufrieden sind. Sellcenter.eu ist die größte Verkaufsplattform, auf der Sie alles finden, was Sie brauchen!
+      Über 1.000 registrierte Verkäufer wählen Sellcenter.eu, um ihre Autos, Lastwagen, Maschinen, MCs und mehr anzubieten.
+      Wir haben eine benutzerfreundliche Oberfläche erstellt, mit der Sie schnell und einfach finden, wonach Sie suchen. Geben Sie einfach Schlüsselwörter ein oder durchsuchen Sie die Produktabschnitte. Wir garantieren, dass Sie alles finden, was Sie für den Automobilmarkt benötigen.
+`,
       withUs: "MIT UNS",
       employees: "Mitarbeiter",
     },

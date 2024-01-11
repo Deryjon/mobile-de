@@ -198,10 +198,10 @@ export default {
       forklift: "Wózki widłowe",
     },
     about: {
-      about: `Witamy na rynku całej Europy! Na tych stronach możesz przeczytać więcej - o naszej historii,
-      jak i gdzie pracujemy - a także znajdź naszą obsługę klienta.
-      Rynek Sellcenter dokłada wszelkich starań, aby wszyscy klienci byli zadowoleni.
-    `,
+      about: `Witamy na całym rynku europejskim! Na tych stronach możesz przeczytać więcej – o naszej historii, o tym, jak i gdzie pracujemy – oraz znaleźć naszą obsługę klienta. Marketplace Sellcenter dokłada wszelkich starań, aby wszyscy klienci byli usatysfakcjonowani. Sellcenter.eu to największa platforma sprzedażowa, na której znajdziesz wszystko, czego potrzebujesz!
+      Ponad 1000 zarejestrowanych sprzedawców wybiera Sellcenter.eu, aby wystawiać swoje samochody, ciężarówki, maszyny, motocykle i nie tylko.
+      Stworzyliśmy przyjazny dla użytkownika interfejs, dzięki któremu szybko i łatwo znajdziesz to, czego szukasz - wystarczy wpisać słowa kluczowe lub przeglądać sekcje produktów, a gwarantujemy, że znajdziesz wszystko, czego potrzebujesz, jeśli chodzi o rynek motoryzacyjny.
+`,
       withUs: "Z NAMI",
       employees: "Pracownicy",
     },

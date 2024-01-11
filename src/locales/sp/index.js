@@ -48,9 +48,9 @@ export default {
       market: "SellCenter es el mayor mercado de vehículos de Alemania",
     },
     text: {
-      about: `Eléctricos, sostenibles y a buen precio: siete sólidos
-      que puedes comprar de segunda mano. Descubre también
-      qué debes buscar en un coche eléctrico usado.`,
+      about: `¡Bienvenido a todo el mercado europeo! En estas páginas puede leer más (sobre nuestra historia, cómo y dónde trabajamos) y encontrar nuestro servicio de atención al cliente. Sellcenter Marketplace hace todo lo posible para garantizar que todos los clientes estén satisfechos. ¡Sellcenter.eu es la plataforma de ventas más grande donde puede encontrar todo lo que necesita!
+      Más de 1.000 vendedores registrados eligen Sellcenter.eu para publicar sus coches, camiones, máquinas, MC y más.
+      Hemos creado una interfaz fácil de usar que hace que sea fácil y rápido encontrar lo que está buscando: simplemente escriba palabras clave o explore las secciones de productos; le garantizamos que encontrará todo lo que necesita cuando se trata del mercado automotriz.`,
       sell: `Entonces puede vender aquí su coche usado de forma gratuita.
       De forma sencilla y cómoda. Al precio máximo por anuncio o rápidamente mediante venta exprés en un centro de compraventa.`,
       compare: `A continuación, puede comparar aquí numerosas ofertas y ponerse en contacto con los vendedores

@@ -198,9 +198,9 @@ export default {
       forklift: "Gaffeltruckar",
     },
     about: {
-      about: `Välkommen till hela Europas marknadsplats! På dessa sidor kan du läsa mer - om vår historia,
-      hur och var vi jobbar – samt hitta vår kundtjänst.
-      Sellcenter marketplace gör sitt bästa för att alla kunder ska vara nöjda.`,
+      about: `Välkommen till hela den europeiska marknaden! På dessa sidor kan du läsa mer - om vår historia, hur och var vi jobbar - och hitta vår kundtjänst. Sellcenter marketplace gör sitt bästa för att se till att alla kunder är nöjda.Sellcenter.eu är den största försäljningsplattformen där du kan hitta allt du behöver!
+      Över 1 000 registrerade säljare väljer Sellcenter.eu för att lista sina bilar, lastbilar, maskiner, MC:er och mer.
+      Vi har skapat ett användarvänligt gränssnitt som gör det snabbt och enkelt att hitta det du letar efter - skriv bara in nyckelord eller bläddra i produktsektioner, vi garanterar att du hittar allt du behöver när det kommer till fordonsmarknaden.`,
       withUs: "MED OSS",
       employees: "Anställda",
     },

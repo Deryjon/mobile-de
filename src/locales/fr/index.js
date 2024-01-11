@@ -202,8 +202,10 @@ export default {
       forklift: "Chariots élévateurs à fourche",
     },
     about: {
-      about: `Bienvenue sur tout le marché européen ! Sur ces pages, vous pouvez en savoir plus - sur notre histoire,
-      comment et où nous travaillons - ainsi que notre service client.`,
+      about: `Bienvenue sur l'ensemble du marché européen ! Sur ces pages, vous pouvez en savoir plus - sur notre histoire, comment et où nous travaillons - et trouver notre service client. La place de marché Sellcenter fait de son mieux pour garantir la satisfaction de tous les clients. Sellcenter.eu est la plus grande plateforme de vente sur laquelle vous pouvez trouver tout ce dont vous avez besoin !
+      Plus de 1 000 vendeurs enregistrés choisissent Sellcenter.eu pour répertorier leurs voitures, camions, machines, MC et plus encore.
+      Nous avons créé une interface conviviale qui permet de trouver rapidement et facilement ce que vous recherchez : il vous suffit de saisir des mots clés ou de parcourir les sections de produits, nous vous garantissons que vous trouverez tout ce dont vous avez besoin sur le marché automobile.
+`,
       withUs: "AVEC NOUS",
       employees: "Employés",
     },

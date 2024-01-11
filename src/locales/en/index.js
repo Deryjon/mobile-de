@@ -204,8 +204,9 @@ you will find car tips, tests, guides and much more.`,
       forklift: "Forklift trucks",
     },
     about: {
-      about: `Welcome to the whole Europe marketplace! On these pages you can read more - about our history, 
-           how and where we work - as well as find our customer service.`,
+      about: `Welcome to the entire European marketplace! On these pages you can read more - about our history, how and where we work - and find our customer service. Sellcenter marketplace does its best to ensure that all customers are satisfied.Sellcenter.eu is the largest sales platform where you can find everything you need!
+        Over 1,000 registered sellers choose Sellcenter.eu to list their Cars, Trucks, Machines, MCs and more.
+      We've created a user-friendly interface that makes it quick and easy to find what you're looking for - just type in keywords or browse product sections, we guarantee you'll find everything you need when it comes to the Automotive market.`,
       withUs: "WITH US",
       employees: "Employees",
     },
