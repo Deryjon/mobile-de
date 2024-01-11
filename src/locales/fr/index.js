@@ -455,7 +455,7 @@ export default {
       trailer: "Attelage de remorque",
       numseat: "Nombre de sièges",
       numdoor: "Nombre de portes",
-      sliddoor: "Porte coulissante",
+      sliddoor: "Côté conduite",
       searchvehicle: "Rechercher la description du véhicule",
       consumption: "Consommation de carburant (combinée jusqu'à)",
       exterior_color: {

@@ -397,7 +397,7 @@ export default {
     trailer: "Hak do przyczepy",
     numseat: "Liczba miejsc siedzących",
     numdoor: "Liczba drzwi",
-    sliddoor: "Drzwi przesuwane",
+    sliddoor: "Strona jazdy    ",
     searchvehicle: "Szukaj opisu pojazdu",
     consumption: "Zużycie paliwa (średnie do)",
     exterior_color: {

@@ -401,7 +401,7 @@ export default {
       trailer: "Сцепное устройство",
       numseat: "Количество мест",
       numdoor: "Количество дверей",
-      sliddoor: "Сдвижная дверь",
+      sliddoor: "Ведущая сторона      ",
       searchvehicle: "Поиск описания транспортного средства",
       consumption: "Расход топлива (средний до)",
       exterior_color: {

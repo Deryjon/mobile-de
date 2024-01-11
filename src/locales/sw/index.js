@@ -399,7 +399,7 @@ export default {
     trailer: "Dragkrok",
     numseat: "Antal säten",
     numdoor: "Antal dörrar",
-    sliddoor: "Skjutdörr",
+    sliddoor: "Körsidan",
     searchvehicle: "Sök fordonets beskrivning",
     consumption: "Bränsleförbrukning (kombinerad upp till)",
     exterior_color: {

@@ -415,7 +415,7 @@ you will find car tips, tests, guides and much more.`,
       trailer: "Trailer Coupling",
       numseat: "Number of seats",
       numdoor: "Number of doors",
-      sliddoor: "Sliding door",
+      sliddoor: "Driving side",
       searchvehicle: "Search vehicle description",
       consumption: "Fuel consumption (compined up to)",
       exterior_color: {

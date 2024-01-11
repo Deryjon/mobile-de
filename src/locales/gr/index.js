@@ -398,7 +398,7 @@ export default {
       trailer: "Anhängerkupplung",
       numseat: "Anzahl der Sitze",
       numdoor: "Anzahl der Türen",
-      sliddoor: "Schiebetür",
+      sliddoor: "Fahrerseite      ",
       searchvehicle: "Fahrzeugbeschreibung durchsuchen",
       consumption: "Kraftstoffverbrauch (kombiniert bis)",
       exterior_color: {

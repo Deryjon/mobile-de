@@ -397,7 +397,7 @@ export default {
     trailer: "Enganche para remolque",
     numseat: "Número de asientos",
     numdoor: "Número de puertas",
-    sliddoor: "Puerta corrediza",
+    sliddoor: "Lado del conductor    ",
     searchvehicle: "Buscar descripción del vehículo",
     consumption: "Consumo de combustible (combinado hasta)",
     exterior_color: {
