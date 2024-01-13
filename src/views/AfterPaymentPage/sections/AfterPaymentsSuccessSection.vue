@@ -1,14 +1,13 @@
 <template>
-  <main>
-    <v-container class="max-w-[1110px]">
+  <main >
+    <v-container class="max-w-[1110px] h-[100vh]">
       <div
-        class="div rounded-lg bg-[#AFE1AF] h-[300px] w-[600px] mx-auto p-10 flex flex-col gap-[20px] justify-center items-center"
+        class="div rounded-lg bg-[#AFE1AF] h-[300px] w-[600px] mt-[200px] mx-auto p-10 flex flex-col gap-[20px] justify-center items-center"
       >
         <p class="mx-auto text-black w-[300px] text-center">
           {{ $t("message.payment.completed") }}
         </p>
-        <p>{{ $t("message.payment.text") }}</p>
-        <p>{{ $t("message.payment.price") }}</p>
+       
         <button
           class="bg-[#008080] px-[20px] py-[10px] text-white"
           @click="goHome"
