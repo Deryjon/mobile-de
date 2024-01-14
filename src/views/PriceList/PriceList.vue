@@ -55,7 +55,6 @@ function formatPrice(price) {
 }
 async function goPayment(item) {
   if (item.price_item_price === 0) {
-    console.log("Price is 0, no payment needed.");
     return;
   }
 
@@ -64,12 +63,10 @@ async function goPayment(item) {
     const res = await http.post(
       `/pay`,
       {
-        "items": [
-          {
-            "price_item_title": item.price_item_title,
-            "price_item_price": item.price_item_price,
-          }
-        ]
+        item: {
+          "price_item_title": item.price_item_title,
+          "price_item_price": item.price_item_price,
+        },
       }
     );
     localStorage.setItem("price-pay", item.price_item_price);
@@ -101,7 +98,7 @@ onMounted(fetchData);
           <p class="card__text">
             {{ item.price_item_desc }}
           </p>
-          <div class="price">{{ formatPrice(item.price_item_price) }}</div>
+          <div class="price">{{ item.price_item_price }}</div>
           <div class="btn">
 
             <button @click="goPayment(item)">{{ $t("message.btn.try") }}</button>
