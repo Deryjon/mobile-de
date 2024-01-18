@@ -349,6 +349,7 @@ export default {
     demonstration: "Vehículo de demostración",
     private: "Vendedor privado",
     dealer: "Concesionario",
+    payment: "Tipo de pago",
     category: "Categoría",
     company: "Vehículos de empresa",
     online: "Anuncio en línea desde",

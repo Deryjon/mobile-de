@@ -349,6 +349,8 @@ export default {
       classic: "Oldtimer",
       demonstration: "Vorführwagen",
       private: "Privatanbieter",
+        payment: "Zahlungsart",
+          
       dealer: "Händler",
       category: "Kategorie",
       company: "Firmenfahrzeuge",

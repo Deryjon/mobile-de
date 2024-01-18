@@ -404,6 +404,10 @@ export default {
       pre: "Pré-enregistrement",
       employe: "Véhicule d'employés",
       classic: "Véhicule classique",
+      
+        payment: "Type de paiement",
+      
+      
       demonstration: "Véhicule de démonstration",
       private: "Vendeur privé",
       dealer: "Concessionnaire",
