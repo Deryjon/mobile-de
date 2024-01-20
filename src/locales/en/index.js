@@ -85,7 +85,7 @@ you will find car tips, tests, guides and much more.`,
     },
     btn: {
       sell: "Sell",
-      buy: "Buy",
+      buy: "Rent Car",
       continue: "Continue",
       try: "Try now",
       discover: "Discover more",

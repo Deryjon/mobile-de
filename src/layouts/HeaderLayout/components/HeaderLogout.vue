@@ -135,6 +135,7 @@ export default defineComponent({
       localStorage.setItem("logged-in", "false");
       localStorage.clear()
       this.$router.push({ name: "home" });
+      window.location.reload()
     },
     openProfileDropdown() {
       this.isProfileSetting = !this.isProfileSetting;

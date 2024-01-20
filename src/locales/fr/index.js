@@ -85,7 +85,7 @@ export default {
     },
     btn: {
       sell: "Vendre",
-      buy: "Acheter",
+      buy: "Voiture de location",
       continue: "Continuer à lire",
       try: "Essayer",
       discover: "En savoir plus",

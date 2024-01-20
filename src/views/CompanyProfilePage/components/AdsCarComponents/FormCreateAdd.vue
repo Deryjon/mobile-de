@@ -1,7 +1,7 @@
 <template>
   <div class="">
     <div
-      class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[850px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0"
+      class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[80  0px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0"
       v-if="basicAdd">
       <div class="md:flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
@@ -201,7 +201,7 @@
       </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">Type and condition</h3>
-        <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
+        <div class="radios-type flex flex-wrap gap-[10px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
           <label>
             <input type="radio" v-model="selectedCondition" :class="{
               'bg-transparent': selectedCondition !== 'Any',
@@ -593,7 +593,7 @@
           <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
           <input
             class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
-            type="text" pattern="\d*" v-model="zipCode" />
+            type="text" v-model="zipCode" />
         </div>
         <!--  -->
         <div class="radius dropdown-container">
@@ -632,7 +632,7 @@
     <div class="fuel-add" v-if="fuelAdd">
       <div class="mt-[10px]">
         <h3 class="text-[14px] lg:text-[16px]">Fuel Type</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
+        <div class="filter-cars flex flex-wrap gap-[20px] lg:gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
           <label
             class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[20px] lg:h-[40px] w-[206px] pb-[20px]">
@@ -689,7 +689,7 @@
             Electric
           </label>
           <!-- estate -->
-          <label class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4">
+          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[10px] lg:h-10 w-[206px] pb-4 ">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hydrogen',
               'bg-orange': selectedFuel === 'Hydrogen',
@@ -699,7 +699,7 @@
           </label>
 
           <!-- saloon -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4">
+          <label class="custom-checkbox p-0 flex gap-[10px] items-center h-[10px] lg:h-10 w-[200px] pb-4">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Plug-in hybrid',
               'bg-orange': selectedFuel === 'Plug-in hybrid',
@@ -708,7 +708,7 @@
             <span class="text-[14px]">Plug-in hybrid</span>
           </label>
           <!-- small -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-[10px] items-center h-[10px] lg:h-10 w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (petrol/electric)',
               'bg-orange': selectedFuel === 'Hybrid (petrol/electric)',
@@ -717,7 +717,7 @@
             <span class="text-[14px]">Hybrid (petrol/electric)</span>
           </label>
           <!-- sports -->
-          <label class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-3 items-center h-[10px] lg:h-10 w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'LPG',
               'bg-orange': selectedFuel === 'LPG',
@@ -726,7 +726,7 @@
             <span class="text-[14px]">LPG</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px]">
+          <label class="custom-checkbox p-0 flex gap-[10px] items-center h-[10px] lg:h-10 w-[206px] pb-[23px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Ethanol (FFV, E85, etc.)',
               'bg-orange': selectedFuel === 'Ethanol (FFV, E85, etc.)',
@@ -1041,9 +1041,9 @@
           </label>
         </div>
       </div>
-      <div class="condition mt-[20px]">
+      <div class="condition mt-[20px] text-[14px]">
         <h3>Trailer coupling</h3>
-        <div class="radios-type flex flex-wrap gap-x-[10px] lg:gap-[30px] mt-[10px]">
+        <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
           <label>
             <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
               'bg-transparent': selectedTrailer !== 'Fix',
@@ -1113,9 +1113,9 @@
           </label>
         </div>
       </div>
-      <div class="condition">
+      <div class="condition text-[14px]">
         <h3>Cruise control</h3>
-        <div class="radios-type flex gap-[30px] mt-[10px]">
+        <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
           <label>
             <input type="radio" id="condition-any" v-model="selectedCruise" :class="{
               'bg-transparent': selectedCruise !== 'Cruise',

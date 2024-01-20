@@ -82,7 +82,7 @@ export default {
     },
     btn: {
       sell: "Sälja",
-      buy: "Köpa ",
+      buy: "Hyrbil",
       continue: "Läs mer",
       try: "Prova nu",
       discover: "Upptäck mer",
