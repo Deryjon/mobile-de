@@ -10,10 +10,10 @@
 
             <img class="w-[100%] h-full object-cover" :src="trailer.trailer_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ trailer.trailer_make_name }}
+                {{ trailer.trailer_make }}
               </div>
               <div class="model">
                 {{ trailer.trailer_model }}
@@ -42,6 +42,11 @@
                 GVW
               </div>
             </div>
+            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="car-body">
+                  {{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ trailer.trailer_price }}</p>

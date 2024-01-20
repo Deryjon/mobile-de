@@ -328,7 +328,7 @@ export default {
       operatinghour: "Betriebsstunden",
       liftheight: "Hubhöhe",
       dealer: "Händler",
-      with: "Mit mobile.de seit",
+      with: "Mit SellCenter seit",
       information:
         "Diese Informationen basieren ausschließlich auf Daten von mobile.de und Bewertungen anderer Benutzer. Alle Inhalte sind unabhängig und nicht zum Verkauf bestimmt.",
       single: "Einzigartig",
@@ -656,7 +656,7 @@ export default {
       truck: "Lkw-Liste",
       trailer: "Anhängerliste",
       semitruck: "Sattelzugliste",
-      semitruck: "Semitrailer-Liste",
+      semitrailer: "Semitrailer-Liste",
     },
 
     contact_page: {

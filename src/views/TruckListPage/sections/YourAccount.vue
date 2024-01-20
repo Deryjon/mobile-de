@@ -9,10 +9,10 @@
 
             <img class="w-[100%] h-full object-cover" :src="truck.truck_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
-                {{ truck.truck_make_name }}
+                {{ truck.truck_make }}
               </div>
               <div class="model">
                 {{ truck.truck_model }}
@@ -36,7 +36,7 @@
                 Hp
               </div>
             </div>
-            <div class="car-body hidden lg:flex gap-[5px] text-[14px]">
+            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px]">
               <div class="truck-body">
                 {{ truck.truck_category }}
               </div>
@@ -59,6 +59,18 @@
                 GVW
               </div>
             </div>
+            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+          
+                <div class="transmission">
+                  {{ $t("message.filter_page.exterior_color.title") }}:
+                  {{ truck.truck_exterior_colour }}
+                </div>
+              </div>
+              <div class="truck-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="truck-body">
+                  {{ $t("message.single_page.phone") }}: {{ truck.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ truck.truck_price }}</p>

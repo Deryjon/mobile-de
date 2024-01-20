@@ -19,6 +19,7 @@
         </div>
 
       </div>
+
     </div>
     <div
       class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
@@ -101,8 +102,11 @@
           </div>
 
         </div>
+      
+        <p class="">{{ this.formattedCreat }}</p>
+
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-0">
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-[10px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -428,7 +432,10 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
+
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -471,6 +478,9 @@ export default {
         this.horsepower = this.truck.truck_power;
         this.userI = this.truck.user_id;
         this.images = this.truck.truck_images_url;
+        this.adCreatedAt = this.truck.truck_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.fetchUser();
         this.isLoading = false
       });

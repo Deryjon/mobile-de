@@ -10,7 +10,7 @@
 
             <img class="w-[100%] h-full object-cover" :src="motorhome.motor_home_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ motorhome.motor_home_make }}
@@ -55,6 +55,30 @@
           </div>
 
         </div>
+        <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+                <div class="car-body">
+                  {{ $t("message.filter_page.cruise.cruise") }}:  {{ motorhome.motor_home_cruise_control }}
+                </div>
+                •
+                <div class="fuel">
+                  {{ $t("message.filter_page.material.title") }}:    {{ motorhome.motor_home_interior_material }}
+                </div>
+                •
+                <div class="transmission">
+                  {{ $t("message.filter_page.exterior_color.title") }}:
+                  {{ motorhome.motor_home_exterior_colour }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.parking_sensors.title") }}:
+                  {{ motorhome.motor_home_parking_sensors }}
+                </div>
+              </div>
+              <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="car-body">
+                  {{ $t("message.single_page.phone") }}: {{ motorhome.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ motorhome.motor_home_price }}</p>

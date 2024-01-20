@@ -19,6 +19,7 @@
         </div>
 
       </div>
+      
     </div>
     <div
       class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
@@ -99,8 +100,9 @@
               <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
             </div>
           </div>
-
+          
         </div>
+        <p class="">{{ this.formattedCreat }}</p>
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between  p-[20px]">
         <div class="registration flex w-[186px] gap-[5px]">
@@ -345,7 +347,9 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -387,7 +391,10 @@ export default {
       http.get(`/forklifts/${this.carId}`).then((res) => {
         this.forklifts = res.data.data;
         this.horsepower = this.forklifts.forklift_power;
-        this.images = this.forklifts.forklift_images_url
+        this.images = this.forklifts.forklift_images_url;
+        this.adCreatedAt = this.forklifts.forklift_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.isLoading = false
 
       });

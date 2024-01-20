@@ -105,7 +105,7 @@
         </ul>
       </div>
       <div class="number dropdown-container">
-        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">{{ $t("message.filter_page.wheelfromula") }}</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px] lg:w-[200px]">{{ $t("message.filter_page.wheelformula") }}</h2>
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"

@@ -332,7 +332,7 @@ export default {
       operatinghour: "Наработка",
       liftheight: "Высота подъема",
       dealer: "Дилер",
-      with: "На mobile.de с",
+      with: "На SellCenter с",
       information:
         "Эта информация основана исключительно на данных от mobile.de и отзывах других пользователей. Весь контент независим и не предназначен для продажи.",
       single: "Один владелец",
@@ -692,7 +692,7 @@ export default {
       truck: "Список грузовиков",
       trailer: "Список прицепов",
       semitruck: "Список полуприцепов",
-      semitruck: "Список полуприцепов",
+      semitrailer: "Список полуприцепов",
     },
 
     contact_page: {

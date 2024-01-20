@@ -1,7 +1,7 @@
 <template>
-  <v-container class="max-w-[1120px]">
-    <section
-      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+  <TheLoader v-if="isLoading"/>
+  <v-container class="max-w-[1120px]" v-else>
+    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="trailer in trailers"
           class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
@@ -10,7 +10,7 @@
 
             <img class="w-[100%] h-full object-cover" :src="trailer.trailer_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ trailer.trailer_make }}
@@ -22,32 +22,31 @@
                 {{ trailer.trailer_variant }}
               </div>
             </div>
-            <div class="date-km flex gap-[5px]">
+            <div class="date-km hidden lg:flex gap-[5px] text-[14px]">
               <div class="year">
                 {{ trailer.trailer_firt_date_year }}
               </div>
-            </div>
-            <div class="trailer-body hidden lg:flex gap-[5px] text-[14px]">
+              •
+
               <div class="trailer-body">
                 {{ trailer.trailer_category }}
               </div>
-              •
+              • 
               <div class="fuel">
+                {{ trailer.trailer_axles }}
+                Axles
+              </div>
+              •
+              <div class="trailer-body">
                 {{ trailer.trailer_gvw }}
                 GVW
               </div>
-              •
-              <div class="transmission">
-                {{ trailer.trailer_load_capacity }}
-                capacity
-              </div>
-              •
-              <div class="hu">
-
-                {{ trailer.trailer_axles }}
-                axles
-              </div>
             </div>
+            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="car-body">
+                  {{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ trailer.trailer_price }}</p>
@@ -69,12 +68,11 @@
 <p>lonewolf@gmail.com</p>
 						</div> -->
               </div>
-             
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </v-container>
 </template>
 <script>

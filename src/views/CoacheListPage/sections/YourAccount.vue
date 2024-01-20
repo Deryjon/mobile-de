@@ -9,7 +9,7 @@
 
             <img class="w-[100%] h-full object-cover" :src="coache.coache_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ coache.coache_make }}
@@ -36,7 +36,7 @@
                 Hp
               </div>
             </div>
-            <div class="coache-coachey hidden lg:flex gap-[5px] text-[14px]">
+            <div class="coache-coachey hidden lg:flex lg:flex-wrap   gap-[5px] text-[14px]">
               <div class="coache-coachey">
                 {{ coache.coache_category }}
               </div>
@@ -54,7 +54,19 @@
                 {{ coache.coache_number_of_seats }}
                 {{ $t("message.list_page.seats") }}
               </div>
-            </div>  
+            </div> 
+            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+                <div class="transmission">
+                  {{ $t("message.filter_page.exterior_color.title") }}:
+                  {{ coache.coache_exterior_colour }}
+                </div>
+                
+              </div>  
+              <div class="coache-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="coache-body">
+                  {{ $t("message.single_page.phone") }}: {{ coache.user_phone }}
+                </div>
+              </div> 
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ coache.coache_price }}</p>

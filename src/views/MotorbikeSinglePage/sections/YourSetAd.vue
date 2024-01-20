@@ -1,43 +1,43 @@
 <template>
-  <TheLoader v-if="isLoading"/>
+  <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
     <div class=" relative md:hidden  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
 
 
-<div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
-  <img v-for="(image, index) in images" :key="index" :src="image"
-    :class="{ 'slider-item': true, active: activeIndex === index }"
-    class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
-  <div class="controls flex absolute top-[50%] w-full justify-between">
+      <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
+        <img v-for="(image, index) in images" :key="index" :src="image"
+          :class="{ 'slider-item': true, active: activeIndex === index }"
+          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+        <div class="controls flex absolute top-[50%] w-full justify-between">
 
-    <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
-      <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
-    </div>
-    <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
-      <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
-    </div>
-  </div>
+          <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+            <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
+          </div>
+          <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+            <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
+          </div>
+        </div>
 
-</div>
-</div>
-<div
-class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
-<div class="motorcycle-motorcyclee flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-  <p class="agricultural-mark ">{{ motorcycle.motorcycle_make }}</p>
-  <p class="motorcycle-motorcycleel ">{{ motorcycle.motorcycle_model }}</p>
-</div>
-<div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
-  €
-  <p class="motorcycle-motorcyclece">{{ motorcycle.motorcycle_price }}</p>
-</div>
-<div class="line mt-[20px]"></div>
-<div class="name-seller mt-[20px]">
-  <p class="name">{{ motorcycle.motorcycle_vendor }}</p>
-</div>
-<div class="name-seller mt-[15px] font-semibold">
-  <p class="name">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}</p>
-</div>
-<div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
+      </div>
+    </div>
+    <div
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      <div class="motorcycle-motorcyclee flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+        <p class="agricultural-mark ">{{ motorcycle.motorcycle_make }}</p>
+        <p class="motorcycle-motorcycleel ">{{ motorcycle.motorcycle_model }}</p>
+      </div>
+      <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
+        €
+        <p class="motorcycle-motorcyclece">{{ motorcycle.motorcycle_price }}</p>
+      </div>
+      <div class="line mt-[20px]"></div>
+      <div class="name-seller mt-[20px]">
+        <p class="name">{{ motorcycle.motorcycle_vendor }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}</p>
+      </div>
+      <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
           @click="goWriteEmail(motorcycle.user_email)">
@@ -81,28 +81,29 @@ class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-ful
           </div>
         </div>
       </div>
-</div>
+    </div>
     <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:max-w-[700px]  rounded-[4px] mt-[10px]">
       <div class=" relative hidden md:block  h-[230px] lg:h-[400px] w-full lg:max-w-[700px]">
 
 
-<div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
-  <img v-for="(image, index) in images" :key="index" :src="image"
-    :class="{ 'slider-item': true, active: activeIndex === index }"
-    class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
-  <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
+        <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
+          <img v-for="(image, index) in images" :key="index" :src="image"
+            :class="{ 'slider-item': true, active: activeIndex === index }"
+            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+          <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
 
-    <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
-      <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
-    </div>
-    <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
-      <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
-    </div>
-  </div>
-
-</div>
-</div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]">
+            <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+              <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
+            </div>
+            <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+              <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          
+        </div>
+        <p class="">{{ this.formattedCreat }}</p>
+      </div>
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px] mt-[10px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -231,13 +232,13 @@ class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-ful
         </div>
       </div>
       <div class="technical-data bor p-[20px]">
-        <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technic") }}</p>
+        <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.category") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
-       {{ motorcycle.motorcycle_type }}
+              {{ motorcycle.motorcycle_type }}
             </p>
           </div>
           <div class="mileage flex justify-between">
@@ -305,7 +306,7 @@ class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-ful
             </svg>
           </div>
         </div>
-        
+
       </div>
       <div class="description bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">
@@ -329,7 +330,8 @@ class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-ful
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}
+          </p>
         </div>
         <div class="line mt-[10px]"></div>
 
@@ -431,8 +433,10 @@ export default {
       horsepower: "",
       isScrolled: false,
       scrollThresholdReached: false,
-      userCreatedAt: null,
+      userCreatedAt: null, 
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -530,7 +534,10 @@ export default {
       http.get(`/motorcycles/${this.carId}`).then((res) => {
         this.motorcycle = res.data.data;
         this.horsepower = this.motorcycle.motorcycle_power;
-        this.images = this.motorcycle.motorcycle_images_url
+        this.images = this.motorcycle.motorcycle_images_url;
+        this.adCreatedAt = this.motorcycle.motorcycle_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.isLoading = false
 
       });

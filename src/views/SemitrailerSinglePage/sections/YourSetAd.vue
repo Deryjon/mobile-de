@@ -99,6 +99,8 @@
           </div>
 
         </div>
+        <p class="">{{ this.formattedCreat }}</p>
+
       </div>
 
       <div class="technical-data bor p-[20px]">
@@ -288,8 +290,10 @@ export default {
       scrollThresholdReached: false,
       isShareMenuOpen: false,
       currentUrl: window.location.href,
-            userCreatedAt: null,
+      userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -385,6 +389,9 @@ export default {
         this.trailer = res.data.data;
         // this.horsepower = this.trailer.trailer_power;
         this.userI = this.trailer.user_id;
+        this.adCreatedAt = this.trailer.trailer_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.fetchUser();
         this.isLoading = false
       });

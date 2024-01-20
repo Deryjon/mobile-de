@@ -384,7 +384,7 @@ export default {
       operatinghour: "Heures de fonctionnement",
       liftheight: "Hauteur de levage",
       dealer: "Concessionnaire",
-      with: "Avec mobile.de depuis",
+      with: "Avec SellCenter depuis",
       variant: "Variante",
       payment: "Type de paiement",
       information:
@@ -714,7 +714,7 @@ export default {
       truck: "Liste des camions",
       trailer: "Liste des remorques",
       semitruck: "Liste des semi-remorques",
-      semitruck: "Liste des semi-remorques",
+      semitrailer: "Liste des semi-remorques",
     },
 
   contact_page: {

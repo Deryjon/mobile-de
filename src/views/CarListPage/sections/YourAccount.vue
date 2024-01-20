@@ -12,7 +12,7 @@
   
               <img class="w-[100%] h-full object-cover" :src="car.car_images_url[0]" />
             </div>
-            <div class="text lg:h-[260px]">
+            <div class="text lg:h-[260px]  ">
               <div class="name flex gap-[5px] text-[16px] font-semibold">
                 <div class="make">
                   {{ car.car_make }}
@@ -20,7 +20,7 @@
                 <div class="model">
                   {{ car.car_model }}
                 </div>
-                <div class="variant">
+                <div class="variant"> 
                   {{ car.car_variant }}
                 </div>
               </div>
@@ -39,7 +39,7 @@
                   Hp
                 </div>
               </div>
-              <div class="car-body hidden lg:flex gap-[5px] text-[14px]">
+              <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px]">
                 <div class="car-body">
                   {{ car.car_body }}
                 </div>
@@ -57,11 +57,30 @@
                   {{ car.car_hu_valid_until }}
                 </div>
               </div>
-              <div class="car-body hidden lg:flex gap-[5px] text-[14px]">
+
+              <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
                 <div class="car-body">
-                  {{ car.car_number_door }}
+                  {{ $t("message.filter_page.exterior_color.title_inter") }}:  {{ car.car_interior_colour }}
                 </div>
-                {{ $t("message.list_page.doors") }}
+                •
+                <div class="fuel">
+                  {{ $t("message.filter_page.material.title") }}:    {{ car.car_interior_material }}
+                </div>
+                •
+                <div class="transmission">
+                  {{ $t("message.filter_page.exterior_color.title") }}:
+                  {{ car.car_exterior_colour }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.parking_sensors.title") }}:
+                  {{ car.car_parking_sensors }}
+                </div>
+              </div>  
+              <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="car-body">
+                  {{ $t("message.single_page.phone") }}: {{ car.user_phone }}
+                </div>
               </div>
             </div>
             <div class="price text-[18px] font-semibold">
@@ -79,10 +98,6 @@
                     </svg>
                     {{ $t("message.list_page.contact") }}
                   </button>
-                  <!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
-  <p>+998946120844</p>
-  <p>lonewolf@gmail.com</p>
-              </div> -->
                 </div>
               </div>
             </div>
@@ -93,9 +108,6 @@
   </section>
 </template>
 <script>
-import SettingsTab from "../components/SettingsComponentTab.vue";
-import OverviewTab from "../components/OverviewComponentTab.vue";
-import MyAdCarsTab from "../components/MyAdCarsTab.vue";
 import http from "../../../axios.config";
 import { useCarStore } from "../../../store/carDataStore"
 import TheLoader from '../../../components/TheLoader.vue'
@@ -132,9 +144,6 @@ export default {
     this.userEmail = localStorage.getItem("u-e");
   },
   components: {
-    SettingsTab,
-    OverviewTab,
-    MyAdCarsTab,
     TheLoader
   },
   created() {

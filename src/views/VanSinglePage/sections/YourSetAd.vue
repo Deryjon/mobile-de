@@ -101,8 +101,10 @@
           </div>
 
         </div>
+        <p class="">{{ this.formattedCreat }}</p>
+
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-0">
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-[10px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -300,23 +302,12 @@
       <div class="features bor p-[20px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
-        <div
-          class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold"
-        >
-          <div
-            v-for="item in van.van_features"
-            class="flex justify-between w-[297px]"
-          >
+        <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
+          <div v-for="item in van.van_features" class="flex justify-between w-[297px]">
             <p class="">{{ item }}</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="16"
-              width="14"
-              viewBox="0 0 448 512"
-            >
+            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
               <path
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
           </div>
         </div>
@@ -435,7 +426,11 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       isShareMenuOpen: false,
-      currentUrl: window.location.href,      userCreatedAt: null,
+      currentUrl: window.location.href, 
+      userCreatedAt: null,
+      adCreatedAt: null,
+      formattedDate: "",
+      formattedCreat: "",
       formattedDate: "",
       activeIndex: 0,
       images: [],
@@ -477,6 +472,9 @@ export default {
         this.horsepower = this.van.van_power;
         this.images = this.van.van_images_url
         this.userI = this.van.user_id;
+        this.adCreatedAt = this.van.van_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.fetchUser();
         this.isLoading = false
       });

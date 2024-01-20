@@ -329,7 +329,7 @@ export default {
       operatinghour: "Horas de funcionamiento",
       liftheight: "Altura de elevación",
       dealer: "Concesionario",
-      with: "Con mobile.de desde",
+      with: "Con SellCenter desde",
       information: "Esta información se basa exclusivamente en datos de mobile.de y revisiones de otros usuarios. Todo el contenido es independiente y no está a la venta.",
       single: "Único",
       description: "Descripción del vehículo según el vendedor"
@@ -654,7 +654,7 @@ parking_sensors: {
     truck: "Lista de camiones",
     trailer: "Lista de remolques",
     semitruck: "Lista de semirremolques",
-    semitruck: "Lista de semirremolques",
+    semitrailer: "Lista de semirremolques",
   },
 
 contact_page: {

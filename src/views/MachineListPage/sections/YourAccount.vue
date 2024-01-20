@@ -10,7 +10,7 @@
 
             <img class="w-[100%] h-full object-cover" :src="machine.machine_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ machine.machine_make }}
@@ -29,6 +29,11 @@
               </div>
 
             </div>
+            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="car-body">
+                  {{ $t("message.single_page.phone") }}: {{ machine.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ machine.machine_price }}</p>

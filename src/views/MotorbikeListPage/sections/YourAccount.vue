@@ -56,6 +56,26 @@
                 {{ motorcycle.motorcycle_hu_valid_until }}
               </div>
             </div>
+            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+                <div class="car-body">
+                  {{ $t("message.filter_page.exterior_color.title_inter") }}:  {{ motorcycle.motorcycle_interior_colour }}
+                </div>
+                •
+
+                <div class="transmission">
+                  {{ $t("message.filter_page.exterior_color.title") }}:
+                  {{ motorcycle.motorcycle_exterior_colour }}
+                </div>
+                •
+                <div class="hu">
+                  {{ motorcycle.motorcycle_approved_used_programme }}
+                </div>
+              </div>
+              <div class="motorcycle-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="motorcycle-body">
+                  {{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ motorcycle.motorcycle_price }}</p>

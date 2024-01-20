@@ -1,6 +1,6 @@
 <template>
   <v-container class="">
-    <PathLink>{{ $t("message.list_page.motorbike") }}</PathLink>
+    <PathLink>{{ $t("message.list_page.motobike") }}</PathLink>
     <div class="sections">
       <YourAccount />	
     </div>

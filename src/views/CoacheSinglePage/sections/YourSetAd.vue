@@ -101,6 +101,7 @@
           </div>
 
         </div>
+        <p class="">{{ this.formattedCreat }}</p>
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px]  justify-between lg:h-[180px] p-[20px]">
         <div class="mileage flex w-[186px] gap-[5px]">
@@ -295,19 +296,19 @@
         <p class="title text-[16px] lg:text-[22px] font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
         <div v-for="item in coache.coache_features" class="flex justify-between w-[297px]">
-            <p class="">{{ item }} </p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
-              <path
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-            </svg>
-          </div>
+          <p class="">{{ item }} </p>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+            <path
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          </svg>
+        </div>
         <div v-for="item in coache.coache_interior_features" class="flex justify-between w-[297px]">
-            <p class="">{{ item }} </p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
-              <path
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
-            </svg>
-          </div>
+          <p class="">{{ item }} </p>
+          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+            <path
+              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+          </svg>
+        </div>
       </div>
       <div class="description bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">
@@ -432,7 +433,9 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -473,7 +476,9 @@ export default {
         this.coache = res.data.data;
         this.horsepower = this.coache.coache_power;
         this.images = this.coache.coache_images_url
-        this.userI = this.coache.user_id;
+        this.userI = this.coache.user_id; this.adCreatedAt = this.coache.coache_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy")
         this.fetchUser();
         this.isLoading = false
       });

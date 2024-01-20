@@ -1,16 +1,16 @@
 <template>
-  <TheLoader v-if="isLoading"/>
-  <v-container v-else class="max-w-[1140px]">
-    <section class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative">
+  <TheLoader v-if="isLoading" />
+  <v-container class="max-w-[1140px]" v-else>
+    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
-        <div v-for="truck in trucks" class="ard bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+        <div v-for="truck in trucks" class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(truck.truck_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
             <img class="w-[100%] h-full object-cover" :src="truck.truck_images_url[0]" />
           </div>
-          <div class="text lg:h-[260px]">
-            <div class="name flex gap-[5px] text-[16px] font-semibold\">
+          <div class="text lg:h-[260px] lg:w-[375px]">
+            <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ truck.truck_make }}
               </div>
@@ -27,7 +27,7 @@
               </div>
               •
               <div class="mileage">
-                {{ truck.truck_kilometre }}
+                {{ truck.truck_mileage }}
                 km
               </div>
               •
@@ -36,7 +36,7 @@
                 Hp
               </div>
             </div>
-            <div class="truck-body hidden lg:flex gap-[5px] text-[14px]">
+            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px]">
               <div class="truck-body">
                 {{ truck.truck_category }}
               </div>
@@ -49,11 +49,28 @@
                 {{ truck.truck_transmission }}
               </div>
               •
+              <div class="hu">
+                {{ truck.truck_hydraulic_installation }}
+                Hydraulic
+              </div>
+              •
               <div class="truck-body">
                 {{ truck.truck_gvw }}
                 GVW
               </div>
             </div>
+            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+          
+                <div class="transmission">
+                  {{ $t("message.filter_page.exterior_color.title") }}:
+                  {{ truck.truck_exterior_colour }}
+                </div>
+              </div>
+              <div class="truck-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="truck-body">
+                  {{ $t("message.single_page.phone") }}: {{ truck.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ truck.truck_price }}</p>
@@ -70,16 +87,12 @@
                   </svg>
                   Contact
                 </button>
-                <!-- <div class="contact-use bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white" v-if="contactUser">
-<p>+998946120844</p>
-<p>lonewolf@gmail.com</p>
-						</div> -->
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   </v-container>
 </template>
 <script>

@@ -35,7 +35,7 @@
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ motorhome.motor_homer_phone }}</p>
       </div>
-      
+
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
@@ -100,8 +100,10 @@
           </div>
 
         </div>
+        <p class="">{{ this.formattedCreat }}</p>
+
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]">
+      <div class="basic-data mt-[10px] bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -455,7 +457,9 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -464,8 +468,8 @@ export default {
     };
   },
   methods: {
-     // slider
-     nextSlide() {
+    // slider
+    nextSlide() {
       // this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
       // this.images[this.activeIndex].active = true;
@@ -498,6 +502,9 @@ export default {
         this.horsepower = this.motorhome.motor_home_power;
         this.userI = this.motorhome.user_id;
         this.images = this.motorhome.motor_home_images_url
+        this.adCreatedAt = this.motorhome.motor_home_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.fetchUser();
         this.isLoading = false
       });

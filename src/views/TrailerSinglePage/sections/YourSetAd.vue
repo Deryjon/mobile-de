@@ -104,9 +104,11 @@
           </div>
 
         </div>
+        <p class="">{{ this.formattedCreat }}</p>
+
       </div>
 
-      <div class="technical-data bor p-[20px] md:mt-[60px] lg:mt-0">
+      <div class="technical-data bor p-[20px] md:mt-[60px] lg:mt-[10px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
@@ -292,8 +294,10 @@ export default {
       currentUrl: window.location.href,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
-      activeIndex: 0,
+      formattedCreat: "",
+            activeIndex: 0,
       images: [],
       intervalId: null,
     };
@@ -331,7 +335,10 @@ export default {
         this.trailer = res.data.data;
         this.horsepower = this.trailer.trailer_power;
         this.userI = this.trailer.user_id;
-        this.images = this.trailer.trailer_images_url
+        this.images = this.trailer.trailer_images_url;
+        this.adCreatedAt = this.trailer.trailer_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.fetchUser();
         this.isLoading = false
       });

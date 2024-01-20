@@ -329,7 +329,7 @@ export default {
       operatinghour: "Liczba przepracowanych godzin",
       liftheight: "Wysokość podnoszenia",
       dealer: "Dealer",
-      with: "Z mobile.de od",
+      with: "Z SellCenter od",
       information:
         "Te informacje oparte są wyłącznie na danych z mobile.de oraz recenzjach innych użytkowników. Wszystkie treści są niezależne i nie są na sprzedaż.",
       single: "Jedyny",
@@ -658,7 +658,7 @@ export default {
       truck: "Lista ciężarówek",
       trailer: "Lista przyczep",
       semitruck: "Lista naczep",
-      semitruck: "Lista naczep półciężarówek",
+      semitrailer: "Lista naczep półciężarówek",
     },
 
     contact_page: {

@@ -330,7 +330,7 @@ export default {
       operatinghour: "Driftstimmar",
       liftheight: "Lyfthöjd",
       dealer: "Återförsäljare",
-      with: "Med mobile.de sedan",
+      with: "Med SellCenter sedan",
       information:
         "Denna information baseras uteslutande på data från mobile.de och recensioner från andra användare. Allt innehåll är oberoende och inte till salu.",
       single: "Ensam ägare",
@@ -656,7 +656,7 @@ export default {
       truck: "Lastbil lista",
       trailer: "Släpvagn lista",
       semitruck: "Släpvagnslista",
-      semitruck: "Släpvagnslista",
+      semitrailer: "Släpvagnslista",
     },
 
     contact_page: {

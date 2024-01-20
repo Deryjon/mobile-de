@@ -4,23 +4,24 @@
     <div class="relative md:hidden  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
 
 
-<div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
-  <img v-for="(image, index) in images" :key="index" :src="image"
-    :class="{ 'slider-item': true, active: activeIndex === index }"
-    class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
-  <div class="controls flex absolute top-[50%] w-full justify-between">
+      <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
+        <img v-for="(image, index) in images" :key="index" :src="image"
+          :class="{ 'slider-item': true, active: activeIndex === index }"
+          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+        <div class="controls flex absolute top-[50%] w-full justify-between">
 
-    <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
-      <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
-    </div>
-    <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
-      <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
-    </div>
-  </div>
+          <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+            <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
+          </div>
+          <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+            <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
+          </div>
+        </div>
 
-</div>
-</div>
-<div class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      </div>
+    </div>
+    <div
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ construction.machine_make }}</p>
         <p class="construction-machineel ">{{ construction.machine_model }}</p>
@@ -85,23 +86,24 @@
       <div class=" relative hidden md:block  h-[230px] lg:h-[400px] w-full lg:max-w-[700px]">
 
 
-<div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
-  <img v-for="(image, index) in images" :key="index" :src="image"
-    :class="{ 'slider-item': true, active: activeIndex === index }"
-    class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
-  <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
+        <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
+          <img v-for="(image, index) in images" :key="index" :src="image"
+            :class="{ 'slider-item': true, active: activeIndex === index }"
+            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+          <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
 
-    <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
-      <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
-    </div>
-    <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
-      <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
-    </div>
-  </div>
-
-</div>
-</div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]">
+            <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
+              <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
+            </div>
+            <div class="right absolute  right-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="nextSlide()">
+              <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
+            </div>
+          </div>
+          
+        </div>
+        <p class="">{{ this.formattedCreat }}</p>
+      </div>
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between  p-[20px]">
         <div class="registration flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -186,7 +188,7 @@
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ construction.machine_emissions_sticker }}</p>
           </div>
           <div class="availability flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.condtion") }}</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.condition") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ construction.machine_condition }}</p>
           </div>
           <div class="availability flex justify-between">
@@ -216,7 +218,7 @@
       </div>
       <div class="description bor p-[20px]">
         <p class="font-semibold">
-          {{ $t("message.single_page.description") }}        </p>
+          {{ $t("message.single_page.description") }} </p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px]">
           <P class=""> {{ construction.machine_describtion }} </P>
@@ -235,7 +237,8 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}
+          </p>
         </div>
         <div class="line mt-[10px]"></div>
 
@@ -336,7 +339,9 @@ export default {
       isLoading: true,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -376,10 +381,13 @@ export default {
       http.get(`/constructions/${this.carId}`).then((res) => {
         this.construction = res.data.data;
         this.horsepower = this.construction.machine_power;
-        this.images = this.construction.machine_images_url
+        this.images = this.construction.machine_images_url;
+        this.adCreatedAt = this.construction.machine_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.isLoading = false
       });
-    },  
+    },
     fetchUser() {
       http.get(`/users?id=${this.userI}`).then((res) => {
         this.user = res.data.data;

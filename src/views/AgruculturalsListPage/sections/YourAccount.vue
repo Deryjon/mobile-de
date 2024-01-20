@@ -20,7 +20,7 @@
               :src="vehicle.vehicle_images_url[0]"
             />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ vehicle.vehicle_make }}
@@ -52,6 +52,11 @@
                 hours
               </div>
             </div>
+            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+                <div class="car-body">
+                  {{ $t("message.single_page.phone") }}: {{ vehicle.user_phone }}
+                </div>
+              </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ vehicle.vehicle_price }}</p>

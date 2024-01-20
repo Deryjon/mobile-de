@@ -94,8 +94,12 @@
               <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
             </div>
           </div>
+
         </div>
+          <p class="">{{ this.formattedCreat }}</p>
+        
       </div>
+
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[60px] lg:mt-0">
         <div class="registration flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
@@ -366,7 +370,9 @@ export default {
       isLoading: true,
       scrollThresholdReached: false,
       userCreatedAt: null,
+      adCreatedAt: null,
       formattedDate: "",
+      formattedCreat: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -408,6 +414,9 @@ export default {
         this.agricultural = res.data.data;
         this.horsepower = this.agricultural.vehicle_power;
         this.images = this.agricultural.vehicle_images_url;
+        this.adCreatedAt = this.agricultural.vehicle_ad_create_at;
+        const date = new Date(this.adCreatedAt);
+        this.formattedCreat = format(date, " MMM d yyyy");
         this.isLoading = false;
       });
     },
