@@ -542,6 +542,7 @@ export default {
         engine: "Silnik",
         offer: "Szczegóły oferty",
         inter: "Wnętrze",
+        exterior: "Zewnętrzny",
         features: "Funkcje",
         mynew: "Moje nowe auto",
         filter_title: "Wyszukiwanie szczegółowe: Samochody - nowe lub używane",

@@ -539,6 +539,7 @@ export default {
     offer: "Detalles de la oferta",
     inter: "Interior",
     features: "Características",
+    exterior: "Exterior",
     mynew: "Mi nuevo coche",
     filter_title: "Búsqueda detallada: Coche - nuevo o usado",
     },

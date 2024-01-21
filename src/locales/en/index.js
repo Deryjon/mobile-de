@@ -553,6 +553,7 @@ you will find car tips, tests, guides and much more.`,
       titles: {
         basic: "Basic Data",
         technical: "Technical Data",
+        exterior: "Exterior",
         engine: "Engine",
         offer: "Offer details",
         inter: "Interior",

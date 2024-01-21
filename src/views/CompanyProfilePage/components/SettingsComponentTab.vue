@@ -783,7 +783,7 @@
         class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between"
       >
 
-       
+        
 
         <div class="sm:flex items-center gap-[20px]">
           <div class="icon w-[30px]">

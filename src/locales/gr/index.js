@@ -540,6 +540,7 @@ export default {
       engine: "Motor",
       offer: "Angebotsdetails",
       inter: "Innenraum",
+      exterior: "Außen",
       features: "Ausstattungsmerkmale",
       mynew: "Mein neues Auto",
       filter_title: "Detailsuche: Pkw - neu oder gebraucht",

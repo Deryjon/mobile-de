@@ -599,6 +599,7 @@ export default {
         engine: "Moteur",
         offer: "Détails de l'offre",
         inter: "Intérieur",
+        exterior: "Extérieur",
         features: "Caractéristiques",
         mynew: "Ma nouvelle voiture",
         filter_title: "Recherche détaillée : Voiture - neuve ou d'occasion",
