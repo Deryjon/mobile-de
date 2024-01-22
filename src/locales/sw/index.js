@@ -88,12 +88,12 @@ export default {
       discover: "Upptäck mer",
     },
     filter: {
-      any: "Någon",
-      new: "Ny",
-      used: "Använd",
-      rent: "Hyra",
-      crash: "Krocka",
-      classic: "Klassiska",
+      any: "Någon bil",
+      new: "Ny bil",
+      used: "Använd bil",
+      rent: "Hyra bil",
+      crash: "Krocka bil",
+      classic: "Klassiska bil",
       btn: "Filtrera",
     },
     side: {

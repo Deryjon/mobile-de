@@ -88,12 +88,12 @@ export default {
       discover: "Odkryj więcej",
     },
     filter: {
-      any: "Dowolny",
-      new: "Nowy",
-      used: "Używany",
-      rent: "Wynajem",
-      crash: "Wypadek",
-      classic: "Klasyczne",
+      any: "Dowolny samochód",
+      new: "Nowy samochód",
+      used: "Używany samochód",
+      rent: "Wynajem samochód",
+      crash: "Wypadek samochód",
+      classic: "Klasyczne samochód",
       btn: "Filtr",
     },
     side: {

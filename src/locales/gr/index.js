@@ -87,12 +87,12 @@ export default {
       discover: "Mehr entdecken",
     },
     filter: {
-      any: "Jede",
-      new: "Neu",
-      used: "Gebraucht",
-      rent: "Miete",
-      crash: "Unfallauto",
-      classic: "Oldtimer",
+      any: "Jede Auto",
+      new: "Neu Auto",
+      used: "Gebraucht Auto",
+      rent: "Miete Auto",
+      crash: "Unfallauto Auto",
+      classic: "Oldtimer Auto",
       btn: "Filter",
     },
     side: {

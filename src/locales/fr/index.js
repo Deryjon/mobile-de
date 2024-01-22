@@ -91,12 +91,12 @@ export default {
       discover: "En savoir plus",
     },
     filter: {
-      any: "Tous",
-      new: "Nouveau",
-      used: "Utilisé",
-      rent: "Louer",
-      crash: "Accident de",
-      classic: "Classiques",
+      any: "Tous voiture",
+      new: "Nouveau voiture",
+      used: "Utilisé voiture",
+      rent: "Louer voiture",
+      crash: "Accident de voiture",
+      classic: "Classiques voiture",
       btn: "Filtre",
     },
     side: {
