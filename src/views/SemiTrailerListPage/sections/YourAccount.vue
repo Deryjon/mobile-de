@@ -1,10 +1,11 @@
 <template>
-  <TheLoader v-if="isLoading"/>
+  <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1120px]" v-else>
-    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+    <div
+      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="trailer in trailers"
-          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(trailer.trailer_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
@@ -22,7 +23,7 @@
                 {{ trailer.trailer_variant }}
               </div>
             </div>
-            <div class="date-km hidden lg:flex gap-[5px] text-[14px]">
+            <div class="date-km flex flex-wrap gap-[5px] text-[15px]">
               <div class="year">
                 {{ trailer.trailer_firt_date_year }}
               </div>
@@ -31,7 +32,7 @@
               <div class="trailer-body">
                 {{ trailer.trailer_category }}
               </div>
-              • 
+              •
               <div class="fuel">
                 {{ trailer.trailer_axles }}
                 Axles
@@ -42,11 +43,37 @@
                 GVW
               </div>
             </div>
-            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
-                <div class="car-body">
-                  {{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}
-                </div>
+            <div class="car-body flex flex-wrap gap-[5px] text-[14px] lg:text-[15px] mt-[30px]">
+
+              <div class="transmission">
+                {{ $t("message.filter_page.radius") }}:
+                {{ trailer.trailer_radius }}
               </div>
+
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.cruise.cruise") }}:
+                {{ trailer.trailer_cruise_control }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.condition") }}:
+                {{ trailer.trailer_condition }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.loadcap") }}:
+                {{ trailer.trailer_load_capacity }}
+              </div>
+            </div>
+            <div class="car-body lex gap-[5px] text-[14px] mt-[25px]">
+              <div class="car-body">
+                {{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}
+              </div>
+              <div class="car-body">
+                {{ $t("message.single_page.email") }}: {{ trailer.user_email }}
+              </div>
+            </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ trailer.trailer_price }}</p>

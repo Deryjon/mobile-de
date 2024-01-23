@@ -81,12 +81,13 @@ export default {
       result: "wyniki",
     },
     btn: {
-      sell: "Sprzedać",
-      buy: "Wypożyczyć samochód",
-      continue: "Więcej",
-      try: "Spróbuj teraz",
+      sell: "Sprzedaj",
+      buy: "Kup",
+      rent: "Wynajmij samochód",
+      continue: "Kontynuuj",
+      try: "Wypróbuj teraz",
       discover: "Odkryj więcej",
-    },
+      },
     filter: {
       any: "Dowolny samochód",
       new: "Nowy samochód",

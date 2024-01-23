@@ -102,6 +102,13 @@
             >
               {{ $t("message.btn.sell") }}
             </button>
+            <button
+              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+              @click="showTab3"
+              :class="{ 'active-Kaufen': activeTab === 'rent' }"
+            >
+              {{ $t("message.btn.rent") }}
+            </button>
           </div>
         </div>
         <div class="tab-content lg:mt-[-10px] xl:mt-[30px]">
@@ -231,6 +238,9 @@ export default {
     },
     async showTab2() {
       this.activeTab = "sell";
+    },
+    async showTab3() {
+      this.activeTab = "rent";
     },
     toggleAnySelection() {
       // Обработчик клика на "Any"

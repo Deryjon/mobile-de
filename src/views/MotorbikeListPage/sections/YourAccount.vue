@@ -5,13 +5,13 @@
       class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[40px] justify-between mt-[20px]">
         <div v-for="motorcycle in motorcycles"
-          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(motorcycle.motorcycle_id)">
-          <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
+          <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px]  m-0">
 
             <img class="w-[100%] h-full object-cover" :src="motorcycle.motorcycle_images_url" />
           </div>
-          <div class="text lg:h-[260px]">
+          <div class="text lg:w-[370px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
               <div class="make">
                 {{ motorcycle.motorcycle_make }}
@@ -38,7 +38,7 @@
                 Hp
               </div>
             </div>
-            <div class="motorcycle-body hidden lg:flex flex-wrap gap-x-[5px] text-[14px]">
+            <div class="motorcycle-body flex flex-wrap gap-x-[5px] text-[15px]">
               <div class="motorcycle-body">
                 {{ motorcycle.motorcycle_type }}
               </div>
@@ -56,7 +56,7 @@
                 {{ motorcycle.motorcycle_hu_valid_until }}
               </div>
             </div>
-            <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+            <div class="car-body flex flex-wrap gap-[5px] text-[14px] mt-[30px]">
                 <div class="car-body">
                   {{ $t("message.filter_page.exterior_color.title_inter") }}:  {{ motorcycle.motorcycle_interior_colour }}
                 </div>
@@ -68,12 +68,31 @@
                 </div>
                 •
                 <div class="hu">
+                  {{ $t("message.filter_page.programme") }}:
                   {{ motorcycle.motorcycle_approved_used_programme }}
                 </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.cubcap") }}:
+                  {{ motorcycle.motorcycle_cubic_capacity }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.driving_mode.title") }}:
+                  {{ motorcycle.motorcycle_driving_mode }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.condition") }}:
+                  {{ motorcycle.motorcycle_condition  }}
+                </div>
               </div>
-              <div class="motorcycle-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+              <div class="motorcycle-body gap-[5px] text-[14px] mt-[25px]">
                 <div class="motorcycle-body">
                   {{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}
+                </div>
+                <div class="motorcycle-body">
+                  {{ $t("message.single_page.email") }}: {{ motorcycle.user_email }}
                 </div>
               </div>
           </div>

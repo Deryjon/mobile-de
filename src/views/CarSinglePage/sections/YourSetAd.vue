@@ -15,8 +15,8 @@
           </div>
         </div>
       </div>
-      <p>{{ car.car_ad_create_at }}</p>
-    </div>
+      <p class="">{{ formatDate(car.car_ad_create_at) }}</p>
+      </div>
     <div
       class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -96,7 +96,7 @@
             </div>
           </div>
         </div>
-        <p class="">{{ this.formattedCreat }}</p>
+        <p class="">{{ formatDate(car.car_ad_create_at) }}</p>
 
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[60px] lg:mt-[10px]">
@@ -253,7 +253,7 @@
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
-              {{ $t("message.single_page.numberseats") }}
+              {{ $t("message.single_page.programme") }}
             </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ car.car_programme }}
@@ -261,7 +261,7 @@
           </div>
           <div class="mileage flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
-              {{ $t("message.single_page.numberseats") }}
+              {{ $t("message.single_page.mileage") }}
             </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ car.car_mileage }} km
@@ -277,7 +277,7 @@
           </div>
           <div class="power flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
-              {{ $t("message.single_page.numberseats") }}
+              {{ $t("message.single_page.power") }}
             </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
               {{ powerInkW }} kW ({{ powerInHp }} Hp)
@@ -444,7 +444,7 @@
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
           </svg>
-          {{ $t("message.single_page.numberseats") }}
+          {{ $t("message.single_page.email") }}
         </button>
         <div>
           <button
@@ -456,7 +456,7 @@
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
             </svg>
-            {{ $t("message.single_page.numberseats") }}
+            {{ $t("message.single_page.share") }}
           </button>
           <div v-if="isShareMenuOpen" class="share-menu py-[6px] lg:p-[10px] flex gap-[2px]">
             <button @click="shareOnWhatsApp">
@@ -514,7 +514,15 @@ export default {
     };
   },
   methods: {
-    // slider
+    formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = date.getUTCDate().toString().padStart(2, "0");
+            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+            const year = date.getUTCFullYear();
+            const hours = date.getUTCHours().toString().padStart(2, "0");
+            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+            return `${day}-${month}-${year} ${hours}:${minutes} `;
+        },
     nextSlide() {
       // this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;

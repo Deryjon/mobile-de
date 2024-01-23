@@ -239,6 +239,10 @@
             @click="showTab2" :class="{ 'active-Kaufen': activeTab === 'buy' }">
             {{ $t("message.btn.buy") }}
           </button>
+          <!-- <button class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab3" :class="{ 'active-Kaufen': activeTab === 'rent' }">
+            {{ $t("message.btn.rent") }}
+          </button> -->
         </div>
       </div>
       <div class="tab-content">
@@ -464,6 +468,9 @@ export default {
     },
     async showTab2() {
       this.activeTab = "buy";
+    },
+    async showTab3() {
+      this.activeTab = "rent";
     },
     async getLocation() {
       try {

@@ -98,8 +98,8 @@
         v-model="slidingDoor"
       >
         <option value="" selected>{{ $t("message.filter_page.any") }}</option>
-        <option class="Left">Left side</option>
-        <option class="Right">Right side</option>
+        <option class="Left">{{ $t("message.side.left") }}</option>
+        <option class="Right">{{ $t("message.side.right") }}</option>
       </select>
       <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
     </div>

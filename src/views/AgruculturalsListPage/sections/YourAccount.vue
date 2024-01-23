@@ -9,7 +9,7 @@
       >
         <div
           v-for="vehicle in vehicles"
-          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(vehicle.vehicle_id)"
         >
           <div
@@ -52,12 +52,42 @@
                 hours
               </div>
             </div>
-            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
-                <div class="car-body">
-                  {{ $t("message.single_page.phone") }}: {{ vehicle.user_phone }}
-                </div>
-              </div>
+            <div class="car-body flex flex-wrap gap-[5px] text-[14px] lg:text-[15px] mt-[30px]">
+          
+          <div class="transmission">
+            {{ $t("message.filter_page.exterior_color.title") }}:
+            {{ vehicle.vehicle_exterior_colour }}
           </div>
+          •
+          <div class="transmission">
+            {{ $t("message.filter_page.radius") }}:
+            {{ vehicle.vehicle_radius }}
+          </div>
+          •
+          <div class="transmission">
+            {{ $t("message.filter_page.conditioning.title") }}:
+            {{ vehicle.vehicle_air_conditioning }}
+          </div>
+          •
+          <div class="transmission">
+            {{ $t("message.filter_page.sticker") }}:
+            {{ vehicle.vehicle_emissions_sticker }}
+          </div>
+          •
+          <div class="transmission">
+            {{ $t("message.filter_page.condition") }}:
+            {{ vehicle.vehicle_condition }}
+          </div>
+        </div>
+        <div class="truck-body  gap-[5px] text-[14px] mt-[25px]">
+          <div class="truck-body">
+            {{ $t("message.single_page.phone") }}: {{ vehicle.user_phone }}
+          </div>
+          <div class="vehicle-body">
+            {{ $t("message.single_page.email") }}: {{ vehicle.user_email }}
+          </div>
+        </div>
+    </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ vehicle.vehicle_price }}</p>
             <div class="flex gap-[10px] lg:justify-end mt-[10px] lg:mt-[200px]">

@@ -1,10 +1,11 @@
 <template>
-  <TheLoader v-if="isLoading"/>
+  <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1120px]" v-else>
-    <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+    <div
+      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="motorhome in motorhomes"
-          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(motorhome.motor_home_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
@@ -37,48 +38,51 @@
                 Hp
               </div>
             </div>
-            <div class="car-body hidden lg:flex gap-[5px] text-[14px]">
-          <div class="motorhome-body">
-            {{ motorhome.motor_home_type }}
-          </div>
-          •
-          <div class="motorhome-body">
-            {{ motorhome.motor_home_number_of_bunks }}
-            Bunks
-          </div>
-          <div class="fuel">
-            {{ motorhome.motor_home_fuel_type }}
-          </div>
-          •
-          <div class="transmission">
-            {{ motorhome.motor_home_transmission }}
-          </div>
+            <div class="car-body flex flex-wrap gap-[5px] text-[14px]">
+              <div class="motorhome-body">
+                {{ motorhome.motor_home_type }}
+              </div>
+              •
+              <div class="motorhome-body">
+                {{ motorhome.motor_home_number_of_bunks }}
+                Bunks
+              </div>
+              <div class="fuel">
+                {{ motorhome.motor_home_fuel_type }}
+              </div>
+              •
+              <div class="transmission">
+                {{ motorhome.motor_home_transmission }}
+              </div>
 
-        </div>
-        <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
-                <div class="car-body">
-                  {{ $t("message.filter_page.cruise.cruise") }}:  {{ motorhome.motor_home_cruise_control }}
-                </div>
-                •
-                <div class="fuel">
-                  {{ $t("message.filter_page.material.title") }}:    {{ motorhome.motor_home_interior_material }}
-                </div>
-                •
-                <div class="transmission">
-                  {{ $t("message.filter_page.exterior_color.title") }}:
-                  {{ motorhome.motor_home_exterior_colour }}
-                </div>
-                •
-                <div class="hu">
-                  {{ $t("message.filter_page.parking_sensors.title") }}:
-                  {{ motorhome.motor_home_parking_sensors }}
-                </div>
+            </div>
+            <div class="car-body flex flex-wrap gap-[5px] text-[14px] mt-[30px]">
+              <div class="car-body">
+                {{ $t("message.filter_page.cruise.cruise") }}: {{ motorhome.motor_home_cruise_control }}
               </div>
-              <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
-                <div class="car-body">
-                  {{ $t("message.single_page.phone") }}: {{ motorhome.user_phone }}
-                </div>
+              •
+              <div class="fuel">
+                {{ $t("message.filter_page.material.title") }}: {{ motorhome.motor_home_interior_material }}
               </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.exterior_color.title") }}:
+                {{ motorhome.motor_home_exterior_colour }}
+              </div>
+              •
+              <div class="hu">
+                {{ $t("message.filter_page.parking_sensors.title") }}:
+                {{ motorhome.motor_home_parking_sensors }}
+              </div>
+            </div>
+            <div class="car-body  gap-[5px] text-[14px] mt-[25px]">
+              <div class="car-body">
+                {{ $t("message.single_page.phone") }}: {{ motorhome.user_phone }}
+              </div>
+              <div class="car-body">
+                {{ $t("message.single_page.email") }}: {{ motorhome.user_email }}
+              </div>
+            </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ motorhome.motor_home_price }}</p>
@@ -116,7 +120,7 @@ export default {
   data() {
     return {
       motorhomeStore: useMotorhomeStore(),
-isLoading: true,
+      isLoading: true,
       userEmail: "",
       userI: "",
       activeTab: "tab-2",
@@ -145,7 +149,7 @@ isLoading: true,
   },
   components: {
     TheLoader
-},
+  },
   created() {
     this.fetchAds();
   },

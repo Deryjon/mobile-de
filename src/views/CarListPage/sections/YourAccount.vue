@@ -6,13 +6,13 @@
       <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
 
         <div   class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px] ">
-          <div v-for="car in cars" class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          <div v-for="car in cars" class="card bor lg:flex justify-between w-[300px] sm:w-[500px]   lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
             @click="goToSinglePageAd(car.car_id)">
-            <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
+            <div class="img bor w-[100%] lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
   
               <img class="w-[100%] h-full object-cover" :src="car.car_images_url[0]" />
             </div>
-            <div class="text lg:h-[260px]  ">
+            <div class="text lg:w-[370px]">
               <div class="name flex gap-[5px] text-[16px] font-semibold">
                 <div class="make">
                   {{ car.car_make }}
@@ -39,7 +39,7 @@
                   Hp
                 </div>
               </div>
-              <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px]">
+              <div class="car-body flex flex-wrap gap-[5px] text-[13px] lg:text-[15px]">
                 <div class="car-body">
                   {{ car.car_body }}
                 </div>
@@ -58,7 +58,7 @@
                 </div>
               </div>
 
-              <div class="car-body hidden lg:flex lg:flex-wrap gap-[5px] text-[14px] mt-[30px]">
+              <div class="car-body flex flex-wrap gap-[5px] text-[13px] lg:text-[15px] mt-[30px]">
                 <div class="car-body">
                   {{ $t("message.filter_page.exterior_color.title_inter") }}:  {{ car.car_interior_colour }}
                 </div>
@@ -76,10 +76,29 @@
                   {{ $t("message.filter_page.parking_sensors.title") }}:
                   {{ car.car_parking_sensors }}
                 </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.airbags") }}:
+                  {{ car.car_airbags }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.cruise.cruise") }}:
+                  {{ car.car_cruise_control }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.consumption") }}:
+                  {{ car.car_fuel_consumption }}
+                </div>
+               
               </div>  
-              <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+              <div class="car-body   gap-[5px] text-[14px] mt-[25px]">
                 <div class="car-body">
                   {{ $t("message.single_page.phone") }}: {{ car.user_phone }}
+                </div>
+                <div class="car-body">
+                  {{ $t("message.single_page.email") }}: {{ car.user_email }}
                 </div>
               </div>
             </div>

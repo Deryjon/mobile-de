@@ -17,11 +17,12 @@
             <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
           </div>
         </div>
-
+        
       </div>
+      <p class="">{{ formatDate(van.van_ad_create_at) }}</p>
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="van-vane flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ van.van_make }}</p>
         <p class="van-vanel ">{{ van.van_model }}</p>
@@ -101,7 +102,7 @@
           </div>
 
         </div>
-        <p class="">{{ this.formattedCreat }}</p>
+        <p class="">{{ formatDate(van.van_ad_create_at) }}</p>
 
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-[10px]">
@@ -438,6 +439,15 @@ export default {
     };
   },
   methods: {
+    formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = date.getUTCDate().toString().padStart(2, "0");
+            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+            const year = date.getUTCFullYear();
+            const hours = date.getUTCHours().toString().padStart(2, "0");
+            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+            return `${day}-${month}-${year} ${hours}:${minutes} `;
+        },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;

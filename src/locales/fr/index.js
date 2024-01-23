@@ -85,11 +85,12 @@ export default {
     },
     btn: {
       sell: "Vendre",
-      buy: "Voiture de location",
-      continue: "Continuer à lire",
-      try: "Essayer",
-      discover: "En savoir plus",
-    },
+      buy: "Acheter",
+      rent: "Louer une voiture",
+      continue: "Continuer",
+      try: "Essayer maintenant",
+      discover: "Découvrir davantage",
+      },
     filter: {
       any: "Tous voiture",
       new: "Nouveau voiture",

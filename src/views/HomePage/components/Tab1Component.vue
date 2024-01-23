@@ -11,7 +11,6 @@
           <option value="" selected>{{ $t("message.filter.any") }}</option>
           <option class="">{{ $t("message.filter.new") }}</option>
           <option class="">{{ $t("message.filter.used") }}</option>
-          <option class="">{{ $t("message.filter.rent") }}</option>
           <option class="">{{ $t("message.filter.crash") }}</option>
           <option class="">{{ $t("message.filter.classic") }}</option>
         </select>
@@ -24,7 +23,7 @@
         <select
           class="mark-select mt-[5px] w-[130px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig" v-model="selectedDriving">
-          <option value="" selected>{{ $t("message.filter.any") }}</option>
+          <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           <option class="">{{ $t("message.side.left") }}</option>
           <option class="">{{ $t("message.side.right") }}</option>
 
@@ -273,6 +272,10 @@
             @click="showTab2" :class="{ 'active-Kaufen': activeTab === 'buy' }">
             {{ $t("message.btn.buy") }}
           </button>
+          <button class="Kaufen p-[4px] w-[150px] lg:w-[75px] xl:w-[85px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab3" :class="{ 'active-Kaufen': activeTab === 'rent' }">
+            {{ $t("message.btn.rent") }}
+          </button>
         </div>
       </div>
       <div class="tab-content">
@@ -514,6 +517,9 @@ export default {
     },
     async showTab2() {
       this.activeTab = "buy";
+    },
+    async showTab3() {
+      this.activeTab = "rent";
     },
     async getLocation() {
       try {

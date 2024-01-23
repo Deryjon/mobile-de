@@ -4,7 +4,7 @@
     <section class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="machine in machines"
-          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(machine.machine_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
@@ -19,7 +19,7 @@
                 {{ machine.machine_model }}
               </div>
               <div class="variant">
-                {{ machine.machine_variant }}
+                {{ machine.machine_category }}
               </div>
             </div>
             <div class="date-km flex gap-[5px]">
@@ -29,9 +29,27 @@
               </div>
 
             </div>
-            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+            <div class="car-body flex flex-wrap gap-[5px] text-[13px] lg:text-[15px] mt-[30px]">
+                <div class="car-body">
+                  {{ $t("message.filter_page.sticker") }}:  {{ machine.machine_emissions_sticker }}
+                </div>
+                •
+                <div class="fuel">
+                  {{ $t("message.filter_page.radius") }}:    {{ machine.machine_radius }}
+                </div>
+                •
+                <div class="transmission">
+                  {{ $t("message.filter_page.condition") }}:
+                  {{ machine.machine_condition }}
+                </div>
+                
+              </div>  
+            <div class="car-body  gap-[5px] text-[14px] mt-[25px]">
                 <div class="car-body">
                   {{ $t("message.single_page.phone") }}: {{ machine.user_phone }}
+                </div>
+                <div class="car-body">
+                  {{ $t("message.single_page.email") }}: {{ machine.user_email }}
                 </div>
               </div>
           </div>

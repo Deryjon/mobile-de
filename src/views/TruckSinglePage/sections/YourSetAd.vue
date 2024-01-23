@@ -19,6 +19,7 @@
         </div>
 
       </div>
+      <p class="">{{ formatDate(truck.truck_ad_create_at) }}</p>
 
     </div>
     <div
@@ -103,7 +104,7 @@
 
         </div>
       
-        <p class="">{{ this.formattedCreat }}</p>
+        <p class="">{{ formatDate(truck.truck_ad_create_at) }}</p>
 
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-[10px]">
@@ -444,6 +445,15 @@ export default {
     };
   },
   methods: {
+    formatDate(dateString) {
+            const date = new Date(dateString);
+            const day = date.getUTCDate().toString().padStart(2, "0");
+            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+            const year = date.getUTCFullYear();
+            const hours = date.getUTCHours().toString().padStart(2, "0");
+            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+            return `${day}-${month}-${year} ${hours}:${minutes} `;
+        },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;

@@ -81,12 +81,13 @@ export default {
       result: "resultat",
     },
     btn: {
-      sell: "Sälja",
-      buy: "Hyrbil",
-      continue: "Läs mer",
+      sell: "Sälj",
+      buy: "Köp",
+      rent: "Hyra bil",
+      continue: "Fortsätt",
       try: "Prova nu",
       discover: "Upptäck mer",
-    },
+      },
     filter: {
       any: "Någon bil",
       new: "Ny bil",

@@ -5,7 +5,7 @@
       class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
         <div v-for="forklift in forklifts"
-          class="card bor lg:flex justify-between w-[300px] sm:w-[500px] h-[320px] sm:h-[400px] lg:h-[350px] lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(forklift.forklift_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
@@ -38,7 +38,7 @@
                 Hp
               </div>
             </div>
-            <div class="forklift-coachey hidden lg:flex gap-[5px] text-[14px]">
+            <div class="forklift-coachey flex flex-wrap gap-[5px] text-[14px]">
               <div class="forklift-coachey">
                 {{ forklift.forklift_category }}
               </div>
@@ -51,9 +51,32 @@
                 {{ forklift.forklift_transmission }}
               </div>
             </div>
-            <div class="car-body hidden lg:flex gap-[5px] text-[14px] mt-[25px]">
+            <div class="car-body flex flex-wrap gap-[5px] text-[13px] lg:text-[15px] mt-[30px]">
+                <div class="car-body">
+                  {{ $t("message.filter_page.condition") }}:  {{ forklift.forklift_condition }}
+                </div>
+                •
+                <div class="fuel">
+                  {{ $t("message.single_page.liftheight") }}:   {{ forklift.forklift_height }}
+                </div>
+                •
+                <div class="transmission">
+                  {{ $t("message.filter_page.radius") }}:
+                  {{ forklift.forklift_radius }}
+                </div>
+                •
+                <div class="hu">
+                  {{ $t("message.filter_page.vendor") }}:
+                  {{ forklift.forklift_vendor }}
+                </div>
+                
+              </div>  
+            <div class="car-body  gap-[5px] text-[14px] mt-[25px]">
                 <div class="car-body">
                   {{ $t("message.single_page.phone") }}: {{ forklift.user_phone }}
+                </div>
+                <div class="car-body">
+                  {{ $t("message.single_page.email") }}: {{ forklift.user_email }}
                 </div>
               </div>
           </div>

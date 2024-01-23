@@ -81,11 +81,12 @@ export default {
     },
     btn: {
       sell: "Verkaufen",
-      buy: "Ein Auto mieten",
-      continue: "Weiterlesen",
-      try: "Jetzt probieren",
+      buy: "Kaufen",
+      rent: "Auto mieten",
+      continue: "Weiter",
+      try: "Jetzt ausprobieren",
       discover: "Mehr entdecken",
-    },
+      },
     filter: {
       any: "Jede Auto",
       new: "Neu Auto",
