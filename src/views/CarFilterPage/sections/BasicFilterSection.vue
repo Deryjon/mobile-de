@@ -88,6 +88,13 @@
         <div class="lg:mt-[-10px] xl:mt-[30px] p-[20px]">
           <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.payment") }}</h2>
           <div class="Kaufen_div mt-[10px]">
+<button
+              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+              @click="showTab2"
+              :class="{ 'active-Kaufen': activeTab === 'sell' }"
+            >
+              {{ $t("message.btn.sell") }}
+            </button>
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab1"
@@ -95,13 +102,7 @@
             >
               {{ $t("message.btn.buy") }}
             </button>
-            <button
-              class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
-              @click="showTab2"
-              :class="{ 'active-Kaufen': activeTab === 'sell' }"
-            >
-              {{ $t("message.btn.sell") }}
-            </button>
+            
             <button
               class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[218px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
               @click="showTab3"
