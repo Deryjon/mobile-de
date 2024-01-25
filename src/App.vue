@@ -29,3 +29,8 @@ export default{
 	components: { HeaderLayoutVue, FooterLayout }
 }
 </script>
+<style>
+input {
+  touch-action: manipulation;
+}
+</style>
