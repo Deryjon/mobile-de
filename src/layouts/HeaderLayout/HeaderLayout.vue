@@ -1,7 +1,7 @@
 <template>
   <header class="" :class="{ 'bg-[#93b7c2]': isDarkMode, 'bg-[#e8f4f8]': !isDarkMode }">
     <v-container class="flex z-50 items-center  " :class="{
-      'justify-between lg:gap-[20px] max-w-[1150px]': hasToken,
+      'justify-between lg:gap-[20px] max-w-[1170px]': hasToken,
       'justify-between lg:gap-[10px] max-w-[1145px]': !hasToken,
     }">
       <HeaderLogo class="" />

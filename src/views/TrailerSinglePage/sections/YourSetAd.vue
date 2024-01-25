@@ -7,7 +7,7 @@
       <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+          class="h-[250px] sm:h-[300px] bor lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
 
           <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -32,15 +32,18 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ trailer.trailer_vendor }}</p>
-      </div>
-      <div class="name-seller">
-        <p class="name">{{ trailer.user_name }}</p>
+        <p class="name">{{ user.user_gender }}</p>
+        <p class="name">{{ user.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
       </div>
+      <div class="name-seller mt-[15px] font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
+      </div>
+  
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
@@ -93,7 +96,7 @@
         <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
           <img v-for="(image, index) in images" :key="index" :src="image"
             :class="{ 'slider-item': true, active: activeIndex === index }"
-            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+            class="h-[250px] sm:h-[300px] bor lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
           <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
 
             <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -219,12 +222,18 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ trailer.trailer_vendor }}</p>
+        <p class="name">{{ user.user_gender }}</p>
+        <p class="name">{{ user.user_first_name }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller mt-[15px] text-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
       </div>
+      <div class="name-seller mt-[15px] text-[15px] font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
+      </div>
+  
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "

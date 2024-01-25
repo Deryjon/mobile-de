@@ -7,7 +7,7 @@
       <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] bor opacity-0 absolute  duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
 
           <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -33,11 +33,16 @@
         <p class="truck-truckce">{{ truck.truck_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ truck.truck_vendor }}</p>
+        <p class="name">{{ user.user_gender }}</p>
+        <p class="name">{{ user.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ truck.user_phone }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ truck.user_email }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
@@ -91,7 +96,7 @@
         <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
           <img v-for="(image, index) in images" :key="index" :src="image"
             :class="{ 'slider-item': true, active: activeIndex === index }"
-            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] bor opacity-0 absolute  duration-500 object-cover" />
           <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
 
             <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -111,7 +116,7 @@
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
-            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <g stroke="#e04b00" stroke-width="2" stroke-linecap="round">
               <path d="M31 5L35 35"></path>
               <path d="M9 5L5 35"></path>
               <path d="M20 7V11M20 16.5V21.5M20 27V33"></path>
@@ -125,7 +130,7 @@
         <div class="registration flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z">
               </path>
@@ -142,7 +147,7 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-linecap="round" fill="none" stroke-width="2">
+            <g stroke="#e04b00" stroke-linecap="round" fill="none" stroke-width="2">
               <path
                 d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
               </path>
@@ -168,7 +173,7 @@
         <div class="power flex w-[186px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-width="2">
+            <g stroke="#e04b00" stroke-width="2">
               <path
                 d="M10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12Z">
               </path>
@@ -201,7 +206,7 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z">
               </path>
@@ -357,11 +362,16 @@
         <p class="truck-truckce">{{ truck.truck_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ truck.truck_vendor }}</p>
+        <p class="name">{{ user.user_gender }}</p>
+        <p class="name">{{ user.user_first_name }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ truck.user_phone }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ truck.user_email }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button

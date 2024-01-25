@@ -55,7 +55,8 @@
               xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                fill="currentColor"></path>
+                fill="
+                "></path>
             </svg>
             {{ $t("message.single_page.share") }}
           </button>
@@ -109,7 +110,8 @@
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
-            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <g stroke="
+            " stroke-width="2" stroke-linecap="round">
               <path d="M31 5L35 35"></path>
               <path d="M9 5L5 35"></path>
               <path d="M20 7V11M20 16.5V21.5M20 27V33"></path>
@@ -140,7 +142,8 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-linecap="round" fill="none" stroke-width="2">
+            <g stroke="
+            " stroke-linecap="round" fill="none" stroke-width="2">
               <path
                 d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
               </path>
@@ -166,7 +169,8 @@
         <div class="power flex w-[186px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-width="2">
+            <g stroke="
+            " stroke-width="2">
               <path
                 d="M10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12Z">
               </path>
@@ -199,7 +203,8 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g fill="none" stroke="
+            " stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z">
               </path>
@@ -375,7 +380,8 @@
               xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                fill="currentColor"></path>
+                fill="
+                "></path>
             </svg>
             {{ $t("message.single_page.share") }}
           </button>
