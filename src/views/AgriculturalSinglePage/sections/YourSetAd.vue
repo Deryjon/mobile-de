@@ -19,7 +19,7 @@
 
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
@@ -29,13 +29,20 @@
         <p class="agricultural-price">{{ agricultural.vehicle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
+      <div>
+        <img :src="agricultural.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
+      <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ agricultural.vehicle_vendor }}</p>
+        <p class="name">{{ agricultural.user_gender }}</p>
+        <p class="name">{{ agricultural.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">
-          {{ $t("message.payment.phone") }}: {{ agricultural.user_phone }}
-        </p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
@@ -106,7 +113,7 @@
         <div class="registration flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z">
               </path>
@@ -125,7 +132,7 @@
         <div class="power flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-linecap="round" fill="none" stroke-width="2">
+            <g stroke="#e04b00" stroke-linecap="round" fill="none" stroke-width="2">
               <path
                 d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
               </path>
@@ -153,7 +160,7 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+            <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linejoin="round">
               <path d="M31 17C31 24.1797 26.0751 30 20 30C13.9249 30 9 24.1797 9 17" stroke-linecap="round"></path>
               <path
                 d="M8 13C8 6.5 13.6667 5 15.5 5C17 4.33333 18 3 23 3C28 3 32 6.5 32 12C32 15.2 31 17 31 17C30 14.5 27.2 13.5 26 13.5H17C15.8 13.5 14.8334 12.1667 14.5 11.5C14.3334 12.1667 13.7 13.8 12.5 15C11.3 16.2 9.66664 16.8333 8.99993 17C8.99993 17 8 17 8 13Z">
@@ -276,9 +283,9 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[189px] lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[150px] lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
-        'fixed right-[25px]  w-[120px] lg:right-[65px] xl:right-[225px]':
+        'fixed right-[25px]  w-[120px] lg:right-[10px] xl:right-[225px]':
           isScrolled,
       }" :style="{
   position: isScrolled ? 'fixed' : 'static',
@@ -296,16 +303,25 @@
         <p class="agricultural-price">{{ agricultural.vehicle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
-        <p class="name">{{ agricultural.vehicler_vendor }}</p>
+      <div>
+        <img :src="agricultural.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
+      <div class="name-seller flex gap-[5px] mt-[20px]">
+        <p class="name">{{ agricultural.vehicle_vendor }}</p>
+        <p class="name">{{ agricultural.user_gender }}</p>
+        <p class="name">{{ agricultural.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
       </div>
+      <div class="name-seller mt-[15px] hidden lg:flex font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
+      </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
-          @click="goWriteEmail(car.user_email)">
+          @click="goWriteEmail(agricultural.user_email)">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
@@ -431,16 +447,6 @@ export default {
         this.isLoading = false;
       });
     },
-    fetchUser() {
-      http.get(`/users?id=${this.userI}`).then((res) => {
-        this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
-        // console.log(this.formattedDate);
-        // console.log(this.user);
-      });
-    },
     goToSinglePageAd() {
       this.$router.push({ name: "single-car" });
     },
@@ -533,7 +539,6 @@ export default {
     this.userI = localStorage.getItem("u-i");
     this.carId = this.$route.params.id;
     this.fetchAds();
-    this.fetchUser();
   },
   computed: {
     powerInkW() {

@@ -20,7 +20,7 @@
       <p class="">{{ formatDate(motorhome.motor_home_ad_create_at) }}</p>
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="moto-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ motorhome.motor_home_make }}</p>
         <p class="moto-model ">{{ motorhome.motor_home_model }}</p>
@@ -30,10 +30,14 @@
         <p class="moto-price">{{ motorhome.motor_home_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
+      <div>
+        <img :src="motorhome.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
       <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ motorhome.motor_home_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+        <p class="name">{{ motorhome.user_gender }}</p>
+        <p class="name">{{ motorhome.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ motorhome.user_phone }}</p>
@@ -372,8 +376,8 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[14  0px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[120px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="car-mark">{{ motorhome.motor_home_make }}</p>
@@ -387,15 +391,19 @@
         <p class="motorhome-motor_homece">{{ motorhome.motor_home_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ motorhome.motor_home_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+      <div>
+        <img :src="motorhome.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
+        <p class="name">{{ motorhome.truck_vendor }}</p>
+        <p class="name">{{ motorhome.user_gender }}</p>
+        <p class="name">{{ motorhome.user_first_name }}</p>
+      </div>
+      <div class="name-seller mt-[15px] text-[14px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ motorhome.user_phone }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller mt-[15px] text-[14px] font-semibold hidden lg:flex">
         <p class="name">{{ $t("message.single_page.email") }}: {{ motorhome.user_email }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
@@ -461,7 +469,6 @@ export default {
       activeTab: "tab-2",
       isOpen: false,
       motorhome: [],
-      user: [],
       contactUser: false,
       isLoading: true,
       horsepower: "",
@@ -525,16 +532,7 @@ export default {
         this.adCreatedAt = this.motorhome.motor_home_ad_create_at;
         const date = new Date(this.adCreatedAt);
         this.formattedCreat = format(date, " MMM d yyyy");
-        this.fetchUser();
         this.isLoading = false
-      });
-    },
-    fetchUser() {
-      http.get(`/users?id=${this.userI}`).then((res) => {
-        this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
       });
     },
     goToSinglePageAd() {

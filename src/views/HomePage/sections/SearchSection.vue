@@ -2,7 +2,7 @@
   <section class="search ">
     <v-container class="max-w-[1130px]">
       <div
-        class="search relative w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1120px] mx-auto  bg-[#0000001f] h-[800px] sm:h-[500px] lg:h-[240px] flex"
+        class="search relative w-[350px] xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1120px] mx-auto  bg-[#0000001f] h-[900px] sm:h-[500px] lg:h-[240px] flex"
       >
         <div class="tabs h-full">
           <div class="nav-tabs flex lg:flex-col lg:mt-[-0.01px]">
@@ -80,7 +80,7 @@
             </div>
           </div>
         </div>
-        <div class="tab-content absolute top-[61px] xs:left-[30px] sm:left-[50px]  lg:left-[80px] p-[20px]">
+        <div class="tab-content absolute top-[40px] xs:left-[30px] sm:left-[50px]  lg:left-[80px] p-[20px]">
           <div class="tab-panel" v-show="isActive('tab-1')"> 
             <Tab1Component
               class="absolute  lg:top-[-50px]  "

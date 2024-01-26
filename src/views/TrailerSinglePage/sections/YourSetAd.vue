@@ -17,12 +17,12 @@
             <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
           </div>
         </div>
-        
+
       </div>
       <p class="">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
     </div>
     <div
-      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="trailer-trailere flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ trailer.trailer_make }}</p>
         <p class="trailer-trailerel ">{{ trailer.trailer_model }}</p>
@@ -32,18 +32,22 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
+      <div>
+        <img class="w-[100px] h-[100px] object-cover" :src="trailer.user_image_url" />
+      </div>
       <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ trailer.trailer_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+        <p class="name">{{ trailer.user_gender }}</p>
+        <p class="name">{{ trailer.user_first_name }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold">
+      <div class="name-seller mt-[15px] text-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold">
+      <div class="name-seller mt-[15px] text-[15px] font-semibold ">
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
       </div>
-  
+
+
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
@@ -112,7 +116,7 @@
 
       </div>
 
-      <div class="technical-data bor p-[20px] md:mt-[60px] lg:mt-[10px]">
+      <div class="technical-data bor p-[20px] md:mt-[80px] lg:mt-[10px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
@@ -207,8 +211,8 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[205px]': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="trailer-trailere lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="trailer-trailerk">{{ trailer.trailer_make }}</p>
@@ -222,18 +226,21 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
+      <div>
+        <img class="w-[100px] h-[100px] object-cover" :src="trailer.user_image_url" />
+      </div>
+      <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
         <p class="name">{{ trailer.trailer_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+        <p class="name">{{ trailer.user_gender }}</p>
+        <p class="name">{{ trailer.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] text-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
       </div>
-      <div class="name-seller mt-[15px] text-[15px] font-semibold">
+      <div class="name-seller mt-[15px] text-[15px] font-semibold hidden lg:flex">
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
       </div>
-  
+
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
@@ -307,21 +314,21 @@ export default {
       adCreatedAt: null,
       formattedDate: "",
       formattedCreat: "",
-            activeIndex: 0,
+      activeIndex: 0,
       images: [],
       intervalId: null,
     };
   },
   methods: {
     formatDate(dateString) {
-            const date = new Date(dateString);
-            const day = date.getUTCDate().toString().padStart(2, "0");
-            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
-            const year = date.getUTCFullYear();
-            const hours = date.getUTCHours().toString().padStart(2, "0");
-            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-            return `${day}-${month}-${year} ${hours}:${minutes} `;
-        },
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;
@@ -358,16 +365,7 @@ export default {
         this.adCreatedAt = this.trailer.trailer_ad_create_at;
         const date = new Date(this.adCreatedAt);
         this.formattedCreat = format(date, " MMM d yyyy");
-        this.fetchUser();
         this.isLoading = false
-      });
-    },
-    fetchUser() {
-      http.get(`/users?id=${this.userI}`).then((res) => {
-        this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
       });
     },
     goToSinglePageAd() {

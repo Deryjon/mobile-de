@@ -7,7 +7,7 @@
       <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+          class="h-[250px] sm:h-[300px] bor lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
 
           <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -20,10 +20,9 @@
 
       </div>
       <p class="">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
-
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="trailer-trailere flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ trailer.trailer_make }}</p>
         <p class="trailer-trailerel ">{{ trailer.trailer_model }}</p>
@@ -33,16 +32,26 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
-        <p class="name">{{ trailer.trailer_vendor }}</p>
+      <div>
+        <img class="w-[100px] h-[100px] object-cover" :src="trailer.user_image_url" />
       </div>
-      <div class="name-seller mt-[15px] font-semibold">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
+        <p class="name">{{ trailer.trailer_vendor }}</p>
+        <p class="name">{{ trailer.user_gender }}</p>
+        <p class="name">{{ trailer.user_first_name }}</p>
+      </div>
+      <div class="name-seller mt-[15px] text-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
       </div>
+      <div class="name-seller mt-[15px] text-[15px] font-semibold ">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
+      </div>
+
+
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%] "
-          @click="goWriteEmail(car.user_email)">
+          @click="goWriteEmail(trailer.user_email)">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
@@ -85,11 +94,13 @@
       </div>
     </div>
     <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:max-w-[700px]  rounded-[4px] mt-[10px]">
-      <div class="relative hidden md:block  h-[230px] lg:h-[400px] w-full lg:max-w-[700px]">
+      <div class=" relative hidden md:block  h-[230px] lg:h-[400px] w-full lg:max-w-[700px]">
+
+
         <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:max-w-[700px]">
           <img v-for="(image, index) in images" :key="index" :src="image"
             :class="{ 'slider-item': true, active: activeIndex === index }"
-            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
+            class="h-[250px] sm:h-[300px] bor lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute  duration-500 object-cover" />
           <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
 
             <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -105,7 +116,7 @@
 
       </div>
 
-      <div class="technical-data bor p-[20px]">
+      <div class="technical-data bor p-[20px] md:mt-[80px] lg:mt-[10px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
@@ -152,14 +163,14 @@
         <p class="title font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
-          <div v-for="item in trailer.trailer_security" class="flex justify-between w-[297px]">
+          <div v-for="item in trailer.trailer_features" class="flex justify-between w-[297px]">
             <p class="">{{ item }} </p>
             <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
               <path
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
           </div>
-          <div v-for="item in trailer.trailer_features" class="flex justify-between w-[297px]">
+          <div v-for="item in trailer.trailer_security" class="flex justify-between w-[297px]">
             <p class="">{{ item }} </p>
             <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
               <path
@@ -169,15 +180,14 @@
         </div>
       </div>
       <div class="description bor p-[20px]">
-        <p class="title text-[16px] lg:font-semibold">
+        <p class=" font-semibold">
           {{ $t("message.single_page.description") }}
         </p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px]">
-          <P class="title"> {{ trailer.trailer_describtion }} </P>
+          <P class="text-[12px]"> {{ trailer.trailer_describtion }} </P>
         </div>
       </div>
-
       <div class="description bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">{{ $t("message.single_page.dealer") }}</p>
         <div class="line mt-[10px]"></div>
@@ -186,26 +196,26 @@
           <img src="../../../assets/images/family.jpg" alt="" />
         </div>
         <div class="since mt-[10px]">
-          <p class="since since text-[11px] lg:text-[14px]">
+          <p class="since text-[11px] lg:text-[14px]">
             {{ $t("message.single_page.with") }}: {{ formattedDate }}
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone since text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
         </div>
         <div class="line mt-[10px]"></div>
 
-        <p class="show mt-[20px] text-[10px] lg:text-[12px]">
-          {{ $t("message.single_page.information") }}
+        <p class="show mt-[20px] text-[10px] lg:text-[12px">
+          {{ $t("message.single_page.features") }}
         </p>
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] md:w-[125px] lg:w-[250px] xl:w-[350px] h-[350px] md:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[220px]': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
-      <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="car-mark">{{ trailer.trailer_make }}</p>
+      <div class="trailer-trailere lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+        <p class="trailer-trailerk">{{ trailer.trailer_make }}</p>
         <p class="trailer-trailerel">{{ trailer.trailer_model }}</p>
       </div>
       <!-- <div class="trailer-trailere flex gap-[5px] text-[16px] mt-[5px]">
@@ -216,12 +226,21 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
-        <p class="name">{{ trailer.trailer_vendor }}</p>
+      <div>
+        <img class="w-[100px] h-[100px] object-cover" :src="trailer.user_image_url" />
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+        <p class="name">{{ trailer.trailer_vendor }}</p>
+        <p class="name">{{ trailer.user_gender }}</p>
+        <p class="name">{{ trailer.user_first_name }}</p>
+      </div>
+      <div class="name-seller mt-[15px] text-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
       </div>
+      <div class="name-seller mt-[15px] text-[15px] font-semibold hidden lg:flex">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
+      </div>
+
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "

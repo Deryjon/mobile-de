@@ -23,7 +23,7 @@
 
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full md:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full md:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ coache.coache_make }}</p>
         <p class="coache-model ">{{ coache.coache_model }}</p>
@@ -33,11 +33,20 @@
         <p class="coache-price">{{ coache.coache_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
-        <p class="name">{{ coache.coache_vendor }}</p>
+      <div>
+        <img :src="coache.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
+      <div class="name-seller flex gap-[5px] mt-[20px]">
+        <p class="name">{{ coache.truck_vendor }}</p>
+        <p class="name">{{ coache.user_gender }}</p>
+        <p class="name">{{ coache.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ coache.user_phone }}</p>
+      </div>
+      <div class="name-seller mt-[15px]  font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ coache.user_email }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <button
@@ -109,7 +118,7 @@
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
-            <g stroke="currentColor" stroke-width="2" stroke-linecap="round">
+            <g stroke="#e04b00" stroke-width="2" stroke-linecap="round">
               <path d="M31 5L35 35"></path>
               <path d="M9 5L5 35"></path>
               <path d="M20 7V11M20 16.5V21.5M20 27V33"></path>
@@ -123,7 +132,7 @@
         <div class="registration flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z">
               </path>
@@ -140,7 +149,7 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-linecap="round" fill="none" stroke-width="2">
+            <g stroke="#e04b00" stroke-linecap="round" fill="none" stroke-width="2">
               <path
                 d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
               </path>
@@ -166,7 +175,7 @@
         <div class="power flex w-[186px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="currentColor" stroke-width="2">
+            <g stroke="#e04b00" stroke-width="2">
               <path
                 d="M10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12Z">
               </path>
@@ -199,7 +208,7 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path
                 d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z">
               </path>
@@ -344,8 +353,8 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[220px]': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[120px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="car-mark">{{ coache.coache_make }}</p>
@@ -359,16 +368,25 @@
         <p class="coache-price">{{ coache.coache_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller mt-[20px]">
-        <p class="name">{{ coache.coache_vendor }}</p>
+      <div>
+        <img :src="coache.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller flex gap-[5px] mt-[20px]">
+        <p class="name">{{ coache.truck_vendor }}</p>
+        <p class="name">{{ coache.user_gender }}</p>
+        <p class="name">{{ coache.user_first_name }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ coache.user_phone }}</p>
+      </div>
+      <div class="name-seller mt-[15px] hidden lg:flex font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ coache.user_email }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
           class="complete bg-[#e04b00] text-[12px] p-[5px] font-medium lg:text-[13px] w-[100px] lg:w-[130px]   rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:p-[14px] "
-          @click="goWriteEmail(car.user_email)">
+          @click="goWriteEmail(coache.user_email)">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />

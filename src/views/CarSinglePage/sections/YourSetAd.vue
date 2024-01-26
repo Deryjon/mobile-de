@@ -18,7 +18,7 @@
       <p class="">{{ formatDate(car.car_ad_create_at) }}</p>
       </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ car.car_make }}</p>
         <p class="car-model">{{ car.car_model }}</p>
@@ -28,10 +28,14 @@
         <p class="car-price">{{ car.car_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
+      <div>
+        <img :src="car.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
       <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ car.car_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+        <p class="name">{{ car.user_gender }}</p>
+        <p class="name">{{ car.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ car.user_phone }}</p>
@@ -101,7 +105,7 @@
         <p class="mt-[10px]">{{ formatDate(car.car_ad_create_at) }}</p>
 
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[30px] justify-between p-[20px] md:mt-[60px] lg:mt-[30px]">
+      <div class="basic-data bor flex flex-wrap gap-[30px] justify-between p-[20px] md:mt-[100px] lg:mt-[30px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -409,9 +413,9 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[120px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[150px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
-        'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[220px]':
+        'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]':
           isScrolled,
       }" :style="{
   position: isScrolled ? 'fixed' : 'static',
@@ -429,10 +433,14 @@
         <p class="car-price">{{ car.car_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
+      <div>
+        <img :src="car.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
+      <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
         <p class="name">{{ car.car_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+        <p class="name">{{ car.user_gender }}</p>
+        <p class="name">{{ car.user_first_name }}</p>
       </div>
       <div class="name-seller">
         <p class="name">{{ car.user_name }}</p>
@@ -440,7 +448,7 @@
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ car.user_phone }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+      <div class="name-seller mt-[15px] hidden lg:flex font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.email") }}: {{ car.user_email }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px] mt-[25px]">

@@ -23,20 +23,24 @@
 
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="truck-trucke flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ truck.truck_make }}</p>
-        <p class="truck-truckel ">{{ truck.truck_model }}</p>
+        <p class="truck-trucke ">{{ truck.truck_model }}</p>
       </div>
       <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
         €
         <p class="truck-truckce">{{ truck.truck_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
+      <div>
+        <img :src="truck.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
+      </div>
       <div class="name-seller flex gap-[5px] mt-[20px]">
         <p class="name">{{ truck.truck_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+        <p class="name">{{ truck.user_gender }}</p>
+        <p class="name">{{ truck.user_first_name }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ truck.user_phone }}</p>
@@ -112,7 +116,7 @@
         <p class="">{{ formatDate(truck.truck_ad_create_at) }}</p>
 
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[60px] lg:mt-[10px]">
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px]  md:mt-[80px] lg:mt-[10px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -347,8 +351,8 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[189px] lg:w-[250px] xl:w-[350px] h-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[200px]': isScrolled }"
+      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[140px] lg:w-[250px] xl:w-[350px]   rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[130px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="truck-trucke lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="truck-truckk">{{ truck.truck_make }}</p>
@@ -362,15 +366,19 @@
         <p class="truck-truckce">{{ truck.truck_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ truck.truck_vendor }}</p>
-        <p class="name">{{ user.user_gender }}</p>
-        <p class="name">{{ user.user_first_name }}</p>
+      <div>
+        <img :src="truck.user_image_url"
+            class="w-[100px] h-[100px] object-cover" />
       </div>
-      <div class="name-seller mt-[15px] font-semibold">
+      <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+        <p class="name">{{ truck.truck_vendor }}</p>
+        <p class="name">{{ truck.user_gender }}</p>
+        <p class="name">{{ truck.user_first_name }}</p>
+      </div>
+      <div class="name-seller mt-[15px] text-[14px] font-semibold">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ truck.user_phone }}</p>
       </div>
-      <div class="name-seller mt-[15px] font-semibold">
+      <div class="name-seller mt-[15px] text-[14px] font-semibold hidden lg:flex">
         <p class="name">{{ $t("message.single_page.email") }}: {{ truck.user_email }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
@@ -501,16 +509,7 @@ export default {
         this.adCreatedAt = this.truck.truck_ad_create_at;
         const date = new Date(this.adCreatedAt);
         this.formattedCreat = format(date, " MMM d yyyy");
-        this.fetchUser();
         this.isLoading = false
-      });
-    },
-    fetchUser() {
-      http.get(`/users?id=${this.userI}`).then((res) => {
-        this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
       });
     },
     goToSinglePageAd() {
