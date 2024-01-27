@@ -91,7 +91,7 @@ export default {
     filter: {
       any: "Någon bil",
       new: "Ny bil",
-      used: "Använd bil",
+      used: "Begagnade Biler",
       rent: "Hyra bil",
       crash: "Krocka bil",
       classic: "Klassiska bil",
@@ -345,7 +345,7 @@ export default {
       condition: "Typ och skick",
       vendor: "Säljare",
       rating: "Återförsäljarens betyg",
-      any: "Någon",
+      any: "Alla bilar",
       pre: "Förregistrering",
       employe: "Anställdas bil",
       classic: "Klassiskt fordon",
@@ -580,13 +580,13 @@ export default {
         drive3: "Remdrift",
       },
       cruise: {
-        any: "Någon",
+        any: "Alla bilar",
         adaptive: "Adaptiv farthållare",
         cruise: "Farthållare",
       },
       trailer: {
         title: "Dragkoppling",
-        any: "någon",
+        any: "Alla bilar",
         fix: "Fast, avtagbar eller svängbar",
         det: "Avtagbar eller svängbar",
         swi: "Svängbar",
