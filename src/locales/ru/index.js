@@ -213,7 +213,7 @@ export default {
       price: "Цена",
       back: "Иди домой",
       agriculturalFilter: "Сельскохозяйственный фильтр",
-      detailedSearch: "Подробный поиск: Автомобили - новые или подержанные",
+      detailedSearch: "Поиск: Автомобили - новые или подержанные",
       basicData: "Базовые данные",
       features: "Характеристики",
       offerDetails: "Подробности предложения",

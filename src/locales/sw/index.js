@@ -211,7 +211,7 @@ export default {
       price: "Pris",
       back: "Gå hem",
       agriculturalFilter: "Filter för jordbruk",
-      detailedSearch: "Detaljerad sökning: Bilar - nya eller begagnade",
+      detailedSearch: "Sökning: Bilar - nya eller begagnade",
       basicData: "Grundläggande data",
       features: "Funktioner",
       offerDetails: "Detaljer om erbjudandet",

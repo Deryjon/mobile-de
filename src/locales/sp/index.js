@@ -210,7 +210,7 @@ export default {
       price: "Precio",
       back: "Volver a casa",
       agriculturalFilter: "Filtro agrícola",
-      detailedSearch: "Búsqueda detallada: Coches - nuevos o usados",
+      detailedSearch: "Búsqueda : Coches - nuevos o usados",
       basicData: "Datos básicos",
       features: "Características",
       offerDetails: "Detalles de la oferta",

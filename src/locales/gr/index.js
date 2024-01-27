@@ -212,7 +212,7 @@ export default {
       price: "Preis",
       back: "Nach Hause gehen",
       agriculturalFilter: "Landwirtschaftliche Filter",
-      detailedSearch: "Detailsuche: Pkw - neu oder gebraucht",
+      detailedSearch: "Suche: Pkw - neu oder gebraucht",
       basicData: "Grundlegende Daten",
       features: "Eigenschaften",
       offerDetails: "Details zum Angebot",

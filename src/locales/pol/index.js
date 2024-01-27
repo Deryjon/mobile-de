@@ -212,7 +212,7 @@ export default {
       price: "Cena",
       back: "Idź do domu",
       agriculturalFilter: "Filtr rolniczy",
-      detailedSearch: "Wyszukiwanie szczegółowe: Samochody - nowe lub używane",
+      detailedSearch: "Szczegółowe: Samochody - nowe lub używane",
       basicData: "Podstawowe dane",
       features: "Cechy",
       offerDetails: "Szczegóły oferty",

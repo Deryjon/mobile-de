@@ -216,7 +216,7 @@ export default {
       price: "Prix",
       back: "Rentrer à la maison",
       agriculturalFilter: "Filtre agricole",
-      detailedSearch: "Recherche détaillée : Voiture - neuve ou d'occasion",
+      detailedSearch: "Recherche : Voiture - neuve ou d'occasion",
       basicData: "Données de base",
       features: "Caractéristiques",
       offerDetails: "Détails de l'offre",
