@@ -1,8 +1,12 @@
 <template>
   <v-container class="max-w-[1140px]">
-    <PathLink>{{ $t("message.list_page.truck") }}</PathLink>
+    <div class="flex justify-between items-center">
+
+      <PathLink class="w-[200px] xl:w-[300px]">{{ $t("message.list_page.truck") }}</PathLink>
+      <FilterAllBtn @click="goTruckFilter"/>
+    </div>
     <div class="sections">
-      <YourAccount />	
+      <YourAccount />
     </div>
   </v-container>
 </template>
@@ -10,15 +14,20 @@
 <script>
 import PathLink from "../../ui/PathLink.vue";
 import YourAccount from "./sections/YourAccount.vue";
+import FilterAllBtn from "@/components/FilterAllBtn.vue";
 
 export default {
   components: {
     PathLink,
-    YourAccount
+    YourAccount,
+    FilterAllBtn
   },
+  methods:{
+    goTruckFilter(){
+			this.$router.push({ name: "trucks-filter" });
+		},
+  }
 };
 </script>
 
-<style>
-
-</style>
+<style></style>

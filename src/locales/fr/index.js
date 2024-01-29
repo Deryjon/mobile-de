@@ -603,7 +603,7 @@ export default {
         exterior: "Extérieur",
         features: "Caractéristiques",
         mynew: "Ma nouvelle voiture",
-        filter_title: "Recherche détaillée : Voiture - neuve ou d'occasion",
+        filter_title: "Recherche: Voiture - neuve ou d'occasion",
       },
       car: {
         car1: "Cabriolet / Roadster",

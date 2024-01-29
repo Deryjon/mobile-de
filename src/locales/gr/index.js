@@ -544,7 +544,7 @@ export default {
       exterior: "Außen",
       features: "Ausstattungsmerkmale",
       mynew: "Mein neues Auto",
-      filter_title: "Detailsuche: Pkw - neu oder gebraucht",
+      filter_title: "Suche: Pkw - neu oder gebraucht",
       },
       car: {
       car1: "Cabrio / Roadster",

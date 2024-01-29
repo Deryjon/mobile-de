@@ -560,7 +560,7 @@ you will find car tips, tests, guides and much more.`,
         inter: "Interior",
         features: "Features",
         mynew: "My New Car",
-        filter_title: "Detailed search: Cars - new or used        ",
+        filter_title: "Search: Cars - new or used        ",
       },
       car: {
         car1: "Cabrio / Roadster",

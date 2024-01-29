@@ -16,7 +16,7 @@
         </div>
       </div>
       <p class="">{{ formatDate(car.car_ad_create_at) }}</p>
-      </div>
+    </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -28,17 +28,32 @@
         <p class="car-price">{{ car.car_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div>
-        <img :src="car.user_image_url"
-            class="w-[100px] h-[100px] object-cover" />
-      </div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ car.car_vendor }}</p>
-        <p class="name">{{ car.user_gender }}</p>
-        <p class="name">{{ car.user_first_name }}</p>
-      </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ car.user_phone }}</p>
+      <div class="flex gap-[20px]">
+
+        <div v-if="!userIcon">
+          <img :src="car.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
+
+          <div class="name-seller flex gap-[5px] mt-[20px]">
+            <p class="name">{{ car.car_vendor }}</p>
+            <p class="name">{{ car.user_gender }}</p>
+            <p class="name">{{ car.user_first_name }}</p>
+          </div>
+          <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ car.user_phone }}</p>
+          </div>
+        </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.email") }}: {{ car.user_email }}</p>
@@ -413,7 +428,7 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[150px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[420px] lg:h-[450px] xl:h-[450px] mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[150px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
         'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]':
           isScrolled,
@@ -433,20 +448,35 @@
         <p class="car-price">{{ car.car_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div>
-        <img :src="car.user_image_url"
-            class="w-[100px] h-[100px] object-cover" />
-      </div>
-      <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-        <p class="name">{{ car.car_vendor }}</p>
-        <p class="name">{{ car.user_gender }}</p>
-        <p class="name">{{ car.user_first_name }}</p>
-      </div>
-      <div class="name-seller">
-        <p class="name">{{ car.user_name }}</p>
-      </div>
-      <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ car.user_phone }}</p>
+      <div class="lg:flex gap-[20px]">
+
+        <div v-if="!userIcon">
+          <img :src="car.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
+
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ car.car_vendor }}</p>
+            <p class="name">{{ car.user_gender }}</p>
+            <p class="name">{{ car.user_first_name }}</p>
+          </div>
+          <div class="name-seller">
+            <p class="name">{{ car.user_name }}</p>
+          </div>
+          <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ car.user_phone }}</p>
+          </div>
+        </div>
       </div>
       <div class="name-seller mt-[15px] hidden lg:flex font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.email") }}: {{ car.user_email }}</p>
@@ -500,7 +530,6 @@
 </template>
 <script>
 import TheLoader from "../../../components/TheLoader.vue";
-// import Clipboard from 'clipboard';
 import { format } from "date-fns";
 import http from "../../../axios.config";
 export default {
@@ -523,6 +552,8 @@ export default {
       formattedCreat: "",
       activeIndex: 0,
       images: [],
+      profileImg: "",
+      userIcon: false,
       intervalId: null,
       isShareMenuOpen: false,
       currentUrl: window.location.href,
@@ -530,14 +561,14 @@ export default {
   },
   methods: {
     formatDate(dateString) {
-            const date = new Date(dateString);
-            const day = date.getUTCDate().toString().padStart(2, "0");
-            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
-            const year = date.getUTCFullYear();
-            const hours = date.getUTCHours().toString().padStart(2, "0");
-            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-            return `${day}-${month}-${year} ${hours}:${minutes} `;
-        },
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
     nextSlide() {
       // this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
@@ -570,18 +601,12 @@ export default {
         this.car = res.data.data;
         this.horsepower = this.car.car_power;
         this.images = this.car.car_images_url;
-        this.adCreatedAt = this.car.car_ad_create_at;
-        const date = new Date(this.adCreatedAt);
-        this.formattedCreat = format(date, " MMM d yyyy");
+        this.profileImg = this.car.user_image_url
+        if (this.profileImg === null) {
+          this.userIcon = !this.userIcon;
+        } 
         this.isLoading = false;
-      });
-    },
-    fetchUser() {
-      http.get(`/users?id=${this.userI}`).then((res) => {
-        this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
-        const date = new Date(this.userCreatedAt);
-        this.formattedDate = format(date, " MMM d yyyy");
+        
       });
     },
     goToSinglePageAd() {
@@ -684,7 +709,6 @@ export default {
     this.userI = localStorage.getItem("u-i");
     this.carId = this.$route.params.id;
     this.fetchAds();
-    this.fetchUser();
   },
   computed: {
     powerInkW() {

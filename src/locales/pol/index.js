@@ -546,7 +546,7 @@ export default {
         exterior: "Zewnętrzny",
         features: "Funkcje",
         mynew: "Moje nowe auto",
-        filter_title: "Wyszukiwanie szczegółowe: Samochody - nowe lub używane",
+        filter_title: "Szczegółowe: Samochody - nowe lub używane",
       },
       car: {
         car1: "Kabriolet / Roadster",

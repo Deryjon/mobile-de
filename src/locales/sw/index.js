@@ -544,7 +544,7 @@ export default {
         exterior: "Exteriör",
         features: "Funktioner",
         mynew: "Min nya bil",
-        filter_title: "Detaljerad sökning: Personbil - ny eller begagnad",
+        filter_title: "Sökning: Personbil - ny eller begagnad",
       },
       car: {
         car1: "Cabriolet / Roadster",

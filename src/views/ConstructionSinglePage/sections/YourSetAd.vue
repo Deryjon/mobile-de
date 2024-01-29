@@ -7,7 +7,7 @@
       <div class="slider h-[250px] sm:h-[300px]   w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] bor lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
+          class="h-[250px] bor sm:h-[300px] bor lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute  duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
 
           <div class="left absolute left-0  w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
@@ -33,18 +33,33 @@
         <p class="construction-machinece">{{ construction.machine_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div>
-        <img :src="construction.user_image_url"
-            class="w-[100px] h-[100px] object-cover" />
-      </div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ construction.machine_vendor }}</p>
-        <p class="name">{{ construction.user_gender }}</p>
-        <p class="name">{{ construction.user_first_name }}</p>
-      </div>
-      <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
-      </div>
+      <div class="flex gap-[20px]">
+
+<div v-if="!userIcon">
+  <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
+</div>
+<div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+    <g data-v-53d99ea3="" data-name="Layer 2">
+      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+      <path data-v-53d99ea3=""
+        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+      </path>
+    </g>
+  </svg>
+</div>
+<div class="text">
+
+  <div class="name-seller flex gap-[5px] mt-[20px]">
+    <p class="name">{{ construction.machine_vendor }}</p>
+    <p class="name">{{ construction.user_gender }}</p>
+    <p class="name">{{ construction.user_first_name }}</p>
+  </div>
+  <div class="name-seller mt-[15px] font-semibold text-[12px]">
+    <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
+  </div>
+</div>
+</div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ construction.user_email }}</p>
       </div>
@@ -259,9 +274,9 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[150 px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
-      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[210px]': isScrolled }"
-      :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
+      class="right h-[450px] lg:h-[450px] xl:h-[450px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[150 px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[100px]': isScrolled }"
+      :style="{ position: isScrolled ? 'fixed ' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="car-mark">{{ construction.machine_make }}</p>
         <p class="construction-model">{{ construction.machine_model }}</p>
@@ -274,18 +289,36 @@
         <p class="car-price">{{ construction.machine_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div>
-        <img :src="construction.user_image_url"
-            class="w-[100px] h-[100px] object-cover" />
-      </div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ construction.construction_vendor }}</p>
-        <p class="name">{{ construction.user_gender }}</p>
-        <p class="name">{{ construction.user_first_name }}</p>
-      </div>
-      <div class="name-seller mt-[15px] text-[14px] font-semibold">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
-      </div>
+      <div class="lg:flex gap-[20px]">
+
+<div v-if="!userIcon">
+  <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
+</div>
+<div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
+  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+    <g data-v-53d99ea3="" data-name="Layer 2">
+      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+      <path data-v-53d99ea3=""
+        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+      </path>
+    </g>
+  </svg>
+</div>
+<div class="text">
+
+  <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+    <p class="name">{{ construction.machine_vendor }}</p>
+    <p class="name">{{ construction.user_gender }}</p>
+    <p class="name">{{ construction.user_first_name }}</p>
+  </div>
+  <div class="name-seller">
+    <p class="name">{{ construction.user_name }}</p>
+  </div>
+  <div class="name-seller mt-[15px] font-semibold text-[12px]">
+    <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
+  </div>
+</div>
+</div>
       <div class="name-seller mt-[15px] hidden lg:flex text-[14px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ construction.user_email }}</p>
       </div>

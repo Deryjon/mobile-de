@@ -5,7 +5,7 @@
       <div class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:w-[600px]">
         <img v-for="(image, index) in images" :key="index" :src="image"
           :class="{ 'slider-item': true, active: activeIndex === index }"
-          class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute duration-500 object-cover" />
+          class="h-[250px] bor sm:h-[300px] lg:h-[400px] w-full lg:w-[600px] opacity-0 absolute duration-500 object-cover" />
         <div class="controls flex absolute top-[50%] w-full justify-between">
           <div class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
             <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
@@ -19,7 +19,7 @@
 
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
@@ -29,17 +29,32 @@
         <p class="agricultural-price">{{ agricultural.vehicle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div>
-        <img :src="agricultural.user_image_url"
-            class="w-[100px] h-[100px] object-cover" />
-      </div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ agricultural.vehicle_vendor }}</p>
-        <p class="name">{{ agricultural.user_gender }}</p>
-        <p class="name">{{ agricultural.user_first_name }}</p>
-      </div>
-      <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
+      <div class="flex gap-[20px]">
+
+        <div v-if="!userIcon">
+          <img :src="agricultural.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
+
+          <div class="name-seller flex gap-[5px] mt-[20px]">
+            <p class="name">{{ agricultural.agricultural_vendor }}</p>
+            <p class="name">{{ agricultural.user_gender }}</p>
+            <p class="name">{{ agricultural.user_first_name }}</p>
+          </div>
+          <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
+          </div>
+        </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
@@ -94,7 +109,7 @@
         <div class="slider h-[250px] sm:h-[300px] w-full lg:h-[400px] lg:max-w-[700px]">
           <img v-for="(image, index) in images" :key="index" :src="image"
             :class="{ 'slider-item': true, active: activeIndex === index }"
-            class="h-[250px] sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute duration-500 object-cover" />
+            class="h-[250px] bor sm:h-[300px] lg:h-[400px] w-full lg:max-w-[700px] opacity-0 absolute duration-500 object-cover" />
           <div class="controls flex absolute top-[50%] lg:top-[50%] w-full lg:max-w-[700px] justify-between">
             <div class="left absolute left-0 w-[50px] lg:w-[50px] h-[50px] lg:h-[50px]" @click="prevSlide()">
               <img src="../../../assets/icons/button-icon-dark-left.svg" class="w-full h-full object-cover" />
@@ -109,7 +124,7 @@
 
       </div>
 
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[60px] lg:mt-0">
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[80px] lg:mt-0">
         <div class="registration flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -283,9 +298,9 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[150px] lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] h-[420px] lg:h-[450px] xl:h-[450px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[120px] lg:w-[300px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
-        'fixed right-[25px]  w-[120px] lg:right-[10px] xl:right-[225px]':
+        'fixed right-[25px]  w-[120px] lg:right-[10px] xl:right-[200px]':
           isScrolled,
       }" :style="{
   position: isScrolled ? 'fixed' : 'static',
@@ -303,17 +318,35 @@
         <p class="agricultural-price">{{ agricultural.vehicle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div>
-        <img :src="agricultural.user_image_url"
-            class="w-[100px] h-[100px] object-cover" />
-      </div>
-      <div class="name-seller flex gap-[5px] mt-[20px]">
-        <p class="name">{{ agricultural.vehicle_vendor }}</p>
-        <p class="name">{{ agricultural.user_gender }}</p>
-        <p class="name">{{ agricultural.user_first_name }}</p>
-      </div>
-      <div class="name-seller mt-[15px] font-semibold">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
+      <div class="lg:flex gap-[20px]">
+
+        <div v-if="!userIcon">
+          <img :src="agricultural.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
+
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ agricultural.car_vendor }}</p>
+            <p class="name">{{ agricultural.user_gender }}</p>
+            <p class="name">{{ agricultural.user_first_name }}</p>
+          </div>
+          <div class="name-seller">
+            <p class="name">{{ agricultural.user_name }}</p>
+          </div>
+          <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
+          </div>
+        </div>
       </div>
       <div class="name-seller mt-[15px] hidden lg:flex font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
@@ -400,14 +433,14 @@ export default {
   },
   methods: {
     formatDate(dateString) {
-            const date = new Date(dateString);
-            const day = date.getUTCDate().toString().padStart(2, "0");
-            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
-            const year = date.getUTCFullYear();
-            const hours = date.getUTCHours().toString().padStart(2, "0");
-            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-            return `${day}-${month}-${year} ${hours}:${minutes} `;
-        },
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;

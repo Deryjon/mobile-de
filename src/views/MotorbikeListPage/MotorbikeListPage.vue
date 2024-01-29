@@ -1,6 +1,10 @@
 <template>
-  <v-container class="">
-    <PathLink>{{ $t("message.list_page.motobike") }}</PathLink>
+  <v-container class="max-w-[1120px]">
+    <div class="flex justify-between items-center">
+
+      <PathLink class="w-[200px] xl:w-[300px]">{{ $t("message.list_page.motobike") }}</PathLink>
+      <MotorbikeFilterBtn/>
+    </div>
     <div class="sections">
       <YourAccount />	
     </div>
@@ -10,11 +14,13 @@
 <script>
 import PathLink from "../../ui/PathLink.vue";
 import YourAccount from "./sections/YourAccount.vue";
+import MotorbikeFilterBtn from "@/components/MotorbikeFilterBtn.vue";
 
 export default {
   components: {
     PathLink,
-    YourAccount
+    YourAccount,
+    MotorbikeFilterBtn
   },
 };
 </script>
