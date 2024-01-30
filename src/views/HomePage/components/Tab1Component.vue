@@ -504,7 +504,7 @@ export default {
       const carStore = useCarStore();
       carStore.carData.car_make = this.selectedMark;
       carStore.carData.car_model = this.selectedModel;
-      carStore.carData.car_type = this.selectedCondition;
+      carStore.carData.type = this.selectedCondition;
       carStore.carData.car_mileage_from = this.inputKilometer;
       carStore.carData.car_silding_door = this.selectedDriving;
       carStore.carData.car_city_zipcode = this.cityName;
