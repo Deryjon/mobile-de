@@ -7,16 +7,16 @@
             {{ $t("message.selects.mark") }}
           </h2>
           <select
-            class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMark" @change="fetchModels()">
-            <option value="" selected>Beliebig</option>
-            <optgroup>
-              <option v-for="make in makes" :key="make" :value="make.truck_make_name">
-                {{ make.truck_make_name }}
-              </option>
-              <option value="other">other</option>
-            </optgroup>
-          </select>
+                class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+                v-model="selectedMark"  >
+                <option value="" selected>Beliebig</option>
+                <optgroup>
+                  <option v-for="make in makes" :key="make" :value="make.truck_make_name">
+                    {{ make.truck_make_name }}
+                  </option>
+                  <option value="other">other</option>
+                </optgroup>
+              </select>
           <span class="arrow w-[7px] h-[7px] absolute right-[-42px] sm:right-[10px] lg:right-2 bottom-4"></span>
         </div>
       </div>
@@ -25,16 +25,10 @@
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
-        <select
+        <input
           class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel">
-          <option value="">Beliebig</option>
-          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
-            {{ model.car_model_name }}
-          </option>
-          <option value="other" class="">Others</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-[-42px] sm:right-[10px] lg:right-2 bottom-4"></span>
+         type="text" placeholder="Beliebig" v-model="selectedModel"/>
+
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -437,7 +431,7 @@ export default {
           this.activeTab),
         (truckStore.truckData.truck_price_from =
           this.inputPrice),
-        (truckStore.truckData.truck_city_zipcode =
+        (truckStore.truckData.truck_city =
           this.cityName),
         truckStore.updateTruckData();
     },
@@ -472,47 +466,6 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    },
-    fetchModels() {
-      if (!this.selectedMark) {
-        this.models = [];
-        this.isModelSelectDisabled = true; // Disable the model select
-        return;
-      }
-      localStorage.setItem("mark", this.selectedMark);
-      http
-        .get(`/car/model?mark_id=${this.selectedMark}`)
-        .then((response) => {
-          // Получаем данные из ответа
-          const data = response.data;
-          if (data) {
-            this.models = data;
-            console.log(this.models);
-            this.isModelSelectDisabled = false;
-          } else {
-            console.error("Некорректный формат ответа API.");
-            this.isModelSelectDisabled = true; // Disable the model select on error
-          }
-        })
-        .catch((error) => {
-          console.error("Ошибка при выполнении запроса:", error.message);
-          this.isModelSelectDisabled = true; // Disable the model select on error
-        });
-    },
-    postModels() {
-      localStorage.setItem("mark-model", this.selectedModel);
-    },
-    fetchModelYears() {
-      const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
-      axios
-        .get(apiUrl)
-        .then((response) => {
-          const data = response.data;
-          this.options = data.Results.map((result) => result.ModelYear);
-        })
-        .catch((error) => {
-          console.error("Error fetching model years:", error);
-        });
     },
     openDropdown() {
       this.isOpen = true;
@@ -562,7 +515,7 @@ export default {
         );
       }
     },
-    selectOption() {
+    selectOption(option) {
       this.inputValue = option;
       localStorage.setItem("reg-year", this.inputValue);
       this.isOpen = false;
@@ -590,8 +543,8 @@ export default {
 			 	this.$router.push({ name: "truck-list" });
          this.store.setActiveDiv("");
 		},
-    fetchMark(){
-      http
+   async fetchMark(){
+    await  http
       .get("/truck/marks")
       .then((response) => {
         const data = response.data.data;
@@ -607,18 +560,14 @@ export default {
     }
   },
   components: { FilterBtn },
-  mounted() {
-    this.count = this.truckStore.count
-    this.fetchModelYears();
-		this.updateTruckData()
-  },
   created() {
+    this.fetchMark()
     this.count = this.truckStore.count
 		this.updateTruckData()
   },
   computed: {
     isModelSelectDisabled() {
-      return this.selectedMark === "14600"; // "Beliebig" value
+      return this.selectedMark === ""; // "Beliebig" value
     },
     filteredItems() {
       return this.items.filter((item) =>

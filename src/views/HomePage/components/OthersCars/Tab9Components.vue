@@ -25,16 +25,10 @@
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
-        <select
+        <input
           class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel">
-          <option value="">Beliebig</option>
-          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
-            {{ model.car_model_name }}
-          </option>
-          <option value="other" class="">Others</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-[-42px] sm:right-[10px] lg:right-2 bottom-4"></span>
+         type="text" placeholder="Beliebig" v-model="selectedModel"/>
+
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -52,6 +46,7 @@
           </div>
         </div>
         <ul v-if="isOpen" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
+         
           <li key="1920" @click="selectOption('1920')">1920</li>
   <li key="1921" @click="selectOption('1921')">1921</li>
   <li key="1922" @click="selectOption('1922')">1922</li>
@@ -315,9 +310,9 @@
               <img src="../../../../assets/images/icon-location.svg" alt="" />
             </div>
           </div>
-          <FilterBtn @click="goMotorhomeList">
-            <p class="text-white text-[18px] lg:text-[16px]">{{ this.count }} {{ $t("message.results.result") }}</p>
-          </FilterBtn>
+          <FilterBtn  @click="goTrailerList">
+						<p class="text-white text-[18px] lg:text-[16px]">{{this.count}} {{ $t("message.results.result") }}</p>
+					</FilterBtn>
         </div>
       </div>
     </div>
@@ -425,7 +420,7 @@ export default {
           this.activeTab),
         (semitrailerStore.semitrailerData.trailer_price_from =
           this.inputPrice),
-        (semitrailerStore.semitrailerData.trailer_city_zipcode =
+        (semitrailerStore.semitrailerData.trailer_city =
           this.cityName),
         semitrailerStore.updateSemiTrailerData();
     },
@@ -521,7 +516,7 @@ export default {
         );
       }
     },
-    selectOption() {
+    selectOption(option) {
       this.inputValue = option;
       localStorage.setItem("reg-year", this.inputValue);
       this.isOpen = false;
@@ -569,12 +564,7 @@ export default {
   components: { FilterBtn },
   mounted() {
     this.count = this.semitrailerStore.count
-    this.fetchModelYears();
     this.fetchMarks();
-    this.updateSemiTrailerData()
-  },
-  mounted() {
-    this.count = this.semitrailerStore.count
     this.updateSemiTrailerData()
   },
   computed: {

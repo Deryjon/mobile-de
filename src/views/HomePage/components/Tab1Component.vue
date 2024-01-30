@@ -464,28 +464,12 @@ export default {
     goCarList() {
       this.$router.push({ name: "car-list" });
     },
-    postData() {
-      localStorage.setItem(
-        "carData",
-        JSON.stringify({
-          car_make: this.selectedMark,
-          car_model: this.selectedModel,
-          car_condition: this.selectedCondition,
-          car_firt_date_year_from: this.inputValue,
-          car_mileage_from: this.inputKilometer,
-          car_payment_type: this.activeTab,
-          car_price_from: this.inputPrice,
-          car_city_zipcode: this.cityName,
-          car_silding_door: this.selectedDriving,
-        })
-      );
-    },
     fetchData() {
       http
         .post("/cars/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
-          car_condition: this.selectedCondition,
+          car_type: this.selectedCondition,
           car_firt_date_year_from: this.inputValue,
           car_mileage_from: this.inputKilometer,
           car_payment_type: this.activeTab,
@@ -504,8 +488,9 @@ export default {
       const carStore = useCarStore();
       carStore.carData.car_make = this.selectedMark;
       carStore.carData.car_model = this.selectedModel;
-      carStore.carData.car_condition = this.selectedCondition;
+      carStore.carData.car_type = this.selectedCondition;
       carStore.carData.car_mileage_from = this.inputKilometer;
+      carStore.carData.car_firt_date_year_from = this.inputValue;
       carStore.carData.car_silding_door = this.selectedDriving;
       carStore.carData.car_city_zipcode = this.cityName;
       carStore.carData.car_variant = this.inputVariant;
@@ -551,7 +536,7 @@ export default {
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
-      localStorage.setItem("mark", this.selectedMark);
+      
       http
         .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
@@ -570,9 +555,6 @@ export default {
           console.error("Ошибка при выполнении запроса:", error.message);
           this.isModelSelectDisabled = true; // Disable the model select on error
         });
-    },
-    postModels() {
-      localStorage.setItem("mark-model", this.selectedModel);
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";
@@ -636,18 +618,18 @@ export default {
     },
     selectOption(option) {
       this.inputValue = option;
-      localStorage.setItem("reg-year", this.inputValue);
+      
       this.isOpen = false;
     },
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;
-      localStorage.setItem("kilometer", this.inputKilometer);
+      
     },
     selectPrice(option) {
       this.inputPrice = option;
       this.isOpenPrice = false;
-      localStorage.setItem("price", this.inputPrice);
+     
     },
     closeDropdown() {
       this.isOpen = false;
@@ -676,7 +658,6 @@ export default {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
     this.fetchModelYears();
-    this.postData();
     this.fetchData();
     this.updateCarData()
   },

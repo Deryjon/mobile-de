@@ -223,13 +223,7 @@
             }" @click="selectCondition('Used')" />
             <span class="ml-[10px] text-[14px]">Used</span>
           </label>
-          <label>
-            <input type="radio" v-model="selectedCondition" :class="{
-              'bg-transparent': selectedCondition !== 'Rent Car',
-              'bg-orange': selectedCondition === 'Rent Car',
-            }" @click="selectCondition('Rent Car')" />
-            <span class="ml-[10px] text-[14px]">Rent Car</span>
-          </label>
+          
         </div>
         <div class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]">
           <label class=" gap-2 flex items-center h-10 w-[140px] pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">

@@ -8,7 +8,7 @@
           </h2>
           <select
             class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="selectedMark" @change="fetchModels()">
+            v-model="selectedMark" >
             <option value="" selected>Beliebig</option>
             <optgroup>
               <option v-for="make in makes" :key="make" :value="make.forklift_make_name">
@@ -25,16 +25,10 @@
         <h2 class="text-sm lg:text-[14px] mt-2">
           {{ $t("message.selects.model") }}
         </h2>
-        <select
+        <input
           class="mark-select mt-[5px] w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" :disabled="isModelSelectDisabled" @change="postModels" v-model="selectedModel">
-          <option value="">Beliebig</option>
-          <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
-            {{ model.car_model_name }}
-          </option>
-          <option value="other" class="">Others</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-[-42px] sm:right-[10px] lg:right-2 bottom-4"></span>
+         type="text" placeholder="Beliebig" v-model="selectedModel"/>
+
       </div>
       <div class="years dropdown-container">
         <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -417,7 +411,7 @@ export default {
         this.selectedMark),
         (forkliftStore.forkliftData.forklift_model =
           this.selectedModel),
-        (forkliftStore.forkliftData.forklift_firt_date_year_from =
+        (forkliftStore.forkliftData.forklift_firt_date =
           this.inputValue),
         (forkliftStore.forkliftData.forklift_mileage_from =
           this.inputKilometer),
@@ -425,7 +419,7 @@ export default {
           this.activeTab),
         (forkliftStore.forkliftData.forklift_price_from =
           this.inputPrice),
-        (forkliftStore.forkliftData.forklift_city_zipcode =
+        (forkliftStore.forkliftData.forklift_city =
           this.cityName),
         forkliftStore.updateForkliftData();
     },
@@ -550,7 +544,7 @@ export default {
         );
       }
     },
-    selectOption() {
+    selectOption(option) {
       this.inputValue = option;
       localStorage.setItem("reg-year", this.inputValue);
       this.isOpen = false;
@@ -598,12 +592,6 @@ export default {
       });
     this.fetchModelYears();
         this.updateForkliftData()
-  },
-  created(){
-    this.updateForkliftData()
-    this.count = this.forkliftStore.count
-
-
   },
   computed: {
     isModelSelectDisabled() {
