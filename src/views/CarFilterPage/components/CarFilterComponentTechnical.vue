@@ -324,8 +324,6 @@ export default {
     },
 	
 		toggleShowCheckbox(index, fuelName) {
-			this.showTab1 = index === 0;
-      this.showTab2 = index !== 0;
       const isChecked = !this.selectedFuel.includes(fuelName);
       if (isChecked) {
         this.selectedFuel.push(fuelName);
