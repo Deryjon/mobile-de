@@ -474,7 +474,7 @@ export default {
           car_mileage_from: this.inputKilometer,
           car_payment_type: this.activeTab,
           car_price_from: this.inputPrice,
-          car_city_zipcode: this.cityName,
+          car_city: this.cityName,
           car_silding_door: this.selectedDriving,
         })
         .then((response) => {
@@ -492,7 +492,7 @@ export default {
       carStore.carData.car_mileage_from = this.inputKilometer;
       carStore.carData.car_firt_date_year_from = this.inputValue;
       carStore.carData.car_silding_door = this.selectedDriving;
-      carStore.carData.car_city_zipcode = this.cityName;
+      carStore.carData.car_city = this.cityName;
       carStore.carData.car_variant = this.inputVariant;
       carStore.carData.car_payment_type = this.activeTab;
       carStore.updateCarData();
