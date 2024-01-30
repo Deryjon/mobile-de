@@ -524,107 +524,134 @@
               ></span>
             </div>
           </div>
-          <ul
-            v-if="isOpen"
-            class="dropdown-options w-[200px] text-[10px] lg:text-[12px]"
-          >
-            <li
-              v-for="option in filteredOptions"
-              :key="option"
-              @click="selectOption(option)"
-              class=""
-            >
-              {{ option }}
-            </li>
-            <li @click="selectOption('1989')">1989</li>
-            <li @click="selectOption('1988')">1988</li>
-            <li @click="selectOption('1987')">1987</li>
-            <li @click="selectOption('1986')">1986</li>
-            <li @click="selectOption('1985')">1985</li>
-            <li @click="selectOption('1984')">1984</li>
-            <li @click="selectOption('1983')">1983</li>
-            <li @click="selectOption('1982')">1982</li>
-            <li @click="selectOption('1981')">1981</li>
-            <li @click="selectOption('1980')">1980</li>
-            <li @click="selectOption('1979')">1979</li>
-            <li @click="selectOption('1978')">1978</li>
-            <li @click="selectOption('1977')">1977</li>
-            <li @click="selectOption('1976')">1976</li>
-            <li @click="selectOption('1975')">1975</li>
-            <li @click="selectOption('1974')">1974</li>
-            <li @click="selectOption('1973')">1973</li>
-            <li @click="selectOption('1972')">1972</li>
-            <li @click="selectOption('1971')">1971</li>
-            <li @click="selectOption('1970')">1970</li>
-            <li @click="selectOption('1969')">1969</li>
-            <li @click="selectOption('1968')">1968</li>
-            <li @click="selectOption('1967')">1967</li>
-            <li @click="selectOption('1966')">1966</li>
-            <li @click="selectOption('1965')">1965</li>
-            <li @click="selectOption('1964')">1964</li>
-            <li @click="selectOption('1963')">1963</li>
-            <li @click="selectOption('1962')">1962</li>
-            <li @click="selectOption('1961')">1961</li>
-            <li @click="selectOption('1960')">1960</li>
-            <li @click="selectOption('1959')">1959</li>
-            <li @click="selectOption('1958')">1958</li>
-            <li @click="selectOption('1957')">1957</li>
-            <li @click="selectOption('1956')">1956</li>
-            <li @click="selectOption('1955')">1955</li>
-            <li @click="selectOption('1954')">1954</li>
-            <li @click="selectOption('1953')">1953</li>
-            <li @click="selectOption('1952')">1952</li>
-            <li @click="selectOption('1951')">1951</li>
-            <li @click="selectOption('1950')">1950</li>
-            <li @click="selectOption('1949')">1949</li>
-            <li @click="selectOption('1948')">1948</li>
-            <li @click="selectOption('1947')">1947</li>
-            <li @click="selectOption('1946')">1946</li>
-            <li @click="selectOption('1945')">1945</li>
-            <li @click="selectOption('1944')">1944</li>
-            <li @click="selectOption('1943')">1943</li>
-            <li @click="selectOption('1942')">1942</li>
-            <li @click="selectOption('1941')">1941</li>
-            <li @click="selectOption('1939')">1939</li>
-            <li @click="selectOption('1938')">1938</li>
-            <li @click="selectOption('1937')">1937</li>
-            <li @click="selectOption('1936')">1936</li>
-            <li @click="selectOption('1935')">1935</li>
-            <li @click="selectOption('1934')">1934</li>
-            <li @click="selectOption('1933')">1933</li>
-            <li @click="selectOption('1932')">1932</li>
-            <li @click="selectOption('1931')">1931</li>
-            <li @click="selectOption('1930')">1930</li>
-            <li @click="selectOption('1929')">1929</li>
-            <li @click="selectOption('1928')">1928</li>
-            <li @click="selectOption('1927')">1927</li>
-            <li @click="selectOption('1926')">1926</li>
-            <li @click="selectOption('1925')">1925</li>
-            <li @click="selectOption('1924')">1924</li>
-            <li @click="selectOption('1923')">1923</li>
-            <li @click="selectOption('1922')">1922</li>
-            <li @click="selectOption('1921')">1921</li>
-            <li @click="selectOption('1920')">1920</li>
-            <li @click="selectOption('1919')">1919</li>
-            <li @click="selectOption('1918')">1918</li>
-            <li @click="selectOption('1917')">1917</li>
-            <li @click="selectOption('1916')">1916</li>
-            <li @click="selectOption('1915')">1915</li>
-            <li @click="selectOption('1914')">1914</li>
-            <li @click="selectOption('1913')">1913</li>
-            <li @click="selectOption('1912')">1912</li>
-            <li @click="selectOption('1911')">1911</li>
-            <li @click="selectOption('1910')">1910</li>
-            <li @click="selectOption('1909')">1909</li>
-            <li @click="selectOption('1908')">1908</li>
-            <li @click="selectOption('1907')">1907</li>
-            <li @click="selectOption('1906')">1906</li>
-            <li @click="selectOption('1905')">1905</li>
-            <li @click="selectOption('1904')">1904</li>
-            <li @click="selectOption('1903')">1903</li>
-            <li @click="selectOption('1902')">1902</li>
-            <li @click="selectOption('1901')">1901</li>
-          </ul>
+          <ul v-if="isOpen" class="dropdown-options w-[170px] text-[10px] lg:text-[12px]">
+          <li key="1920" @click="selectOption('1920')">1920</li>
+          <li key="1921" @click="selectOption('1921')">1921</li>
+          <li key="1922" @click="selectOption('1922')">1922</li>
+          <li key="1923" @click="selectOption('1923')">1923</li>
+          <li key="1924" @click="selectOption('1924')">1924</li>
+          <li key="1925" @click="selectOption('1925')">1925</li>
+          <li key="1926" @click="selectOption('1926')">1926</li>
+          <li key="1927" @click="selectOption('1927')">1927</li>
+          <li key="1928" @click="selectOption('1928')">1928</li>
+          <li key="1929" @click="selectOption('1929')">1929</li>
+          <li key="1930" @click="selectOption('1930')">1930</li>
+          <li key="1931" @click="selectOption('1931')">1931</li>
+          <li key="1932" @click="selectOption('1932')">1932</li>
+          <li key="1933" @click="selectOption('1933')">1933</li>
+          <li key="1934" @click="selectOption('1934')">1934</li>
+          <li key="1935" @click="selectOption('1935')">1935</li>
+          <li key="1936" @click="selectOption('1936')">1936</li>
+          <li key="1937" @click="selectOption('1937')">1937</li>
+          <li key="1938" @click="selectOption('1938')">1938</li>
+          <li key="1939" @click="selectOption('1939')">1939</li>
+          <li key="1940" @click="selectOption('1940')">1940</li>
+          <li key="1941" @click="selectOption('1941')">1941</li>
+          <li key="1942" @click="selectOption('1942')">1942</li>
+          <li key="1943" @click="selectOption('1943')">1943</li>
+          <li key="1944" @click="selectOption('1944')">1944</li>
+          <li key="1945" @click="selectOption('1945')">1945</li>
+          <li key="1946" @click="selectOption('1946')">1946</li>
+          <li key="1947" @click="selectOption('1947')">1947</li>
+          <li key="1948" @click="selectOption('1948')">1948</li>
+          <li key="1949" @click="selectOption('1949')">1949</li>
+          <li key="1950" @click="selectOption('1950')">1950</li>
+          <li key="1951" @click="selectOption('1951')">1951</li>
+          <li key="1952" @click="selectOption('1952')">1952</li>
+          <li key="1953" @click="selectOption('1953')">1953</li>
+          <li key="1954" @click="selectOption('1954')">1954</li>
+          <li key="1955" @click="selectOption('1955')">1955</li>
+          <li key="1956" @click="selectOption('1956')">1956</li>
+          <li key="1957" @click="selectOption('1957')">1957</li>
+          <li key="1958" @click="selectOption('1958')">1958</li>
+          <li key="1959" @click="selectOption('1959')">1959</li>
+          <li key="1960" @click="selectOption('1960')">1960</li>
+          <li key="1961" @click="selectOption('1961')">1961</li>
+          <li key="1962" @click="selectOption('1962')">1962</li>
+          <li key="1963" @click="selectOption('1963')">1963</li>
+          <li key="1964" @click="selectOption('1964')">1964</li>
+          <li key="1965" @click="selectOption('1965')">1965</li>
+          <li key="1966" @click="selectOption('1966')">1966</li>
+          <li key="1967" @click="selectOption('1967')">1967</li>
+          <li key="1968" @click="selectOption('1968')">1968</li>
+          <li key="1969" @click="selectOption('1969')">1969</li>
+          <li key="1970" @click="selectOption('1970')">1970</li>
+          <li key="1971" @click="selectOption('1971')">1971</li>
+          <li key="1972" @click="selectOption('1972')">1972</li>
+          <li key="1973" @click="selectOption('1973')">1973</li>
+          <li key="1974" @click="selectOption('1974')">1974</li>
+          <li key="1975" @click="selectOption('1975')">1975</li>
+          <li key="1976" @click="selectOption('1976')">1976</li>
+          <li key="1977" @click="selectOption('1977')">1977</li>
+          <li key="1978" @click="selectOption('1978')">1978</li>
+          <li key="1979" @click="selectOption('1979')">1979</li>
+          <li key="1980" @click="selectOption('1980')">1980</li>
+          <li key="1981" @click="selectOption('1981')">1981</li>
+          <li key="1982" @click="selectOption('1982')">1982</li>
+          <li key="1983" @click="selectOption('1983')">1983</li>
+          <li key="1984" @click="selectOption('1984')">1984</li>
+          <li key="1985" @click="selectOption('1985')">1985</li>
+          <li key="1986" @click="selectOption('1986')">1986</li>
+          <li key="1987" @click="selectOption('1987')">1987</li>
+          <li key="1988" @click="selectOption('1988')">1988</li>
+          <li key="1989" @click="selectOption('1989')">1989</li>
+          <li key="1990" @click="selectOption('1990')">1990</li>
+          <li key="1991" @click="selectOption('1991')">1991</li>
+          <li key="1992" @click="selectOption('1992')">1992</li>
+          <li key="1993" @click="selectOption('1993')">1993</li>
+          <li key="1994" @click="selectOption('1994')">1994</li>
+          <li key="1995" @click="selectOption('1995')">1995</li>
+          <li key="1996" @click="selectOption('1996')">1996</li>
+          <li key="1997" @click="selectOption('1997')">1997</li>
+          <li key="1998" @click="selectOption('1998')">1998</li>
+          <li key="1999" @click="selectOption('1999')">1999</li>
+          <li key="2000" @click="selectOption('2000')">2000</li>
+          <li key="2001" @click="selectOption('2001')">2001</li>
+          <li key="2002" @click="selectOption('2002')">2002</li>
+          <li key="2003" @click="selectOption('2003')">2003</li>
+          <li key="2004" @click="selectOption('2004')">2004</li>
+          <li key="2005" @click="selectOption('2005')">2005</li>
+          <li key="2006" @click="selectOption('2006')">2006</li>
+          <li key="2007" @click="selectOption('2007')">2007</li>
+          <li key="2008" @click="selectOption('2008')">2008</li>
+          <li key="2009" @click="selectOption('2009')">2009</li>
+          <li key="2010" @click="selectOption('2010')">2010</li>
+          <li key="2011" @click="selectOption('2011')">2011</li>
+          <li key="2012" @click="selectOption('2012')">2012</li>
+          <li key="2013" @click="selectOption('2013')">2013</li>
+          <li key="2014" @click="selectOption('2014')">2014</li>
+          <li key="2015" @click="selectOption('2015')">2015</li>
+          <li key="2016" @click="selectOption('2016')">2016</li>
+          <li key="2017" @click="selectOption('2017')">2017</li>
+          <li key="2018" @click="selectOption('2018')">2018</li>
+          <li key="2019" @click="selectOption('2019')">2019</li>
+          <li key="2020" @click="selectOption('2020')">2020</li>
+          <li key="2021" @click="selectOption('2021')">2021</li>
+          <li key="2022" @click="selectOption('2022')">2022</li>
+          <li key="2023" @click="selectOption('2023')">2023</li>
+          <li key="2024" @click="selectOption('2024')">2024</li>
+          <li key="2025" @click="selectOption('2025')">2025</li>
+          <li key="2026" @click="selectOption('2026')">2026</li>
+          <li key="2027" @click="selectOption('2027')">2027</li>
+          <li key="2028" @click="selectOption('2028')">2028</li>
+          <li key="2029" @click="selectOption('2029')">2029</li>
+          <li key="2030" @click="selectOption('2030')">2030</li>
+          <li key="2031" @click="selectOption('2031')">2031</li>
+          <li key="2032" @click="selectOption('2032')">2032</li>
+          <li key="2033" @click="selectOption('2033')">2033</li>
+          <li key="2034" @click="selectOption('2034')">2034</li>
+          <li key="2035" @click="selectOption('2035')">2035</li>
+          <li key="2036" @click="selectOption('2036')">2036</li>
+          <li key="2037" @click="selectOption('2037')">2037</li>
+          <li key="2038" @click="selectOption('2038')">2038</li>
+          <li key="2039" @click="selectOption('2039')">2039</li>
+          <li key="2040" @click="selectOption('2040')">2040</li>
+          <li key="2041" @click="selectOption('2041')">2041</li>
+          <li key="2042" @click="selectOption('2042')">2042</li>
+          <li key="2043" @click="selectOption('2043')">2043</li>
+          <li key="2044" @click="selectOption('2044')">2044</li>
+          <li key="2045" @click="selectOption('2045')">2045</li>
+        </ul>
         </div>
         <div class="kilometer dropdown-container">
           <h2 class="mt-2 text-[12px] lg:text-sm lg:text-[14px]">

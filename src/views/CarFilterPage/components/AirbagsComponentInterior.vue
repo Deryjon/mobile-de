@@ -23,7 +23,7 @@
             'bg-orange': selectedAirbag === 'Driver',
           }"
         />
-        <span class="ml-[2px] xl:ml-[10px] text-[14px]">{{ $t("message.filter_page.driveair") }}</span>
+        <span class="ml-[2px] xl:ml-[10px] text-[14px]">{{ $t("message.filter_page.driverair") }}</span>
       </label>
       <label for="front-airbag" @click="selectAirbag('Front')">
         <input

@@ -283,11 +283,6 @@
         <div class="phone mt-[10px]">
           <p class="phone text-[14px]">{{ $t("message.single_page.phone") }}: {{ van.user_phone }}</p>
         </div>
-        <div class="line mt-[10px]"></div>
-
-        <p class="show mt-[20px] text-[10px] lg:text-[12px]">
-          {{ $t("message.single_page.information") }}
-        </p>
       </div>
     </div>
     <div

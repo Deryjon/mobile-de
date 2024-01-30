@@ -9,10 +9,10 @@
           class="mark-select mt-[5px] w-[130px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig" @change="fetchCondition()" v-model="selectedCondition">
           <option value="" selected>{{ $t("message.filter.any") }}</option>
-          <option class="">{{ $t("message.filter.new") }}</option>
-          <option class="">{{ $t("message.filter.used") }}</option>
-          <option class="">{{ $t("message.filter.crash") }}</option>
-          <option class="">{{ $t("message.filter.classic") }}</option>
+          <option value="New" class="">{{ $t("message.filter.new") }}</option>
+          <option value="Used" class="">{{ $t("message.filter.used") }}</option>
+          <option value="Crash" class="">{{ $t("message.filter.crash") }}</option>
+          <option value="Classic" class="">{{ $t("message.filter.classic") }}</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-[10px] lg:right-[10px] bottom-4"></span>
       </div>
@@ -25,8 +25,8 @@
           px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig" v-model="selectedDriving">
           <option value="" selected>{{ $t("message.filter_page.any") }}</option>
-          <option class="">{{ $t("message.side.left") }}</option>
-          <option class="">{{ $t("message.side.right") }}</option>
+          <option class="Left side">{{ $t("message.side.left") }}</option>
+          <option class="Right side">{{ $t("message.side.right") }}</option>
 
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-[10px] lg:right-[10px] bottom-4"></span>

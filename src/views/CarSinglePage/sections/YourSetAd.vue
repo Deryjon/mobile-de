@@ -288,6 +288,22 @@
               {{ car.car_mileage }} km
             </p>
           </div>
+          <div class="mileage flex justify-between">
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              {{ $t("message.filter_page.exterior_color.title_inter") }}
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ car.car_interior_colour }} 
+            </p>
+          </div>
+          <div class="mileage flex justify-between">
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              {{ $t("message.single_page.owners") }}
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ car.car_previous_owners }} 
+            </p>
+          </div>
           <div class="cubic flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
               {{ $t("message.single_page.cubcap") }}
@@ -420,11 +436,6 @@
             {{ $t("message.single_page.phone") }}: {{ car.user_phone }}
           </p>
         </div>
-        <div class="line mt-[10px]"></div>
-
-        <p class="show mt-[20px] text-[10px] lg:text-[12px]">
-          {{ $t("message.single_page.information") }}
-        </p>
       </div>
     </div>
     <div

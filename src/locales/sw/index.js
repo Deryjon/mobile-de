@@ -89,7 +89,7 @@ export default {
       discover: "Upptäck mer",
       },
     filter: {
-      any: "Någon bil",
+      any: "alla bilar",
       new: "Ny bil",
       used: "Begagnade Biler",
       rent: "Hyra bil",
