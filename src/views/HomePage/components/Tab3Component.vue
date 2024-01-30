@@ -416,7 +416,7 @@ export default {
           motor_home_mileage_from: parseInt(this.inputKilometer),
           motor_home_payment_type: this.activeTab,
           motor_home_price_from: this.inputPrice,
-          motor_home_city_zipcode: this.cityName,
+          city: this.cityName,
         })
       );
     },
@@ -429,7 +429,7 @@ export default {
           motor_home_mileage_from: parseInt(this.inputKilometer),
           motor_home_payment_type: this.activeTab,
           motor_home_price_from: this.inputPrice,
-          motor_home_city_zipcode: this.cityName,
+          city: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -446,7 +446,7 @@ export default {
         (motorhomeStore.motorhomeData.motor_home_mileage_from = parseInt(this.inputKilometer)),
         (motorhomeStore.motorhomeData.motor_home_payment_type = this.activeTab),
         (motorhomeStore.motorhomeData.motor_home_price_from = this.inputPrice),
-        (motorhomeStore.motorhomeData.motor_home_city_zipcode = this.cityName),
+        (motorhomeStore.motorhomeData.city = this.cityName),
          motorhomeStore.updateMotorhomeData();
     },
     showTab1() {

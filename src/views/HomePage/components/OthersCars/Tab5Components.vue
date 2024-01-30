@@ -431,7 +431,7 @@ export default {
           this.activeTab),
         (truckStore.truckData.truck_price_from =
           this.inputPrice),
-        (truckStore.truckData.truck_city =
+        (truckStore.truckData.city =
           this.cityName),
         truckStore.updateTruckData();
     },

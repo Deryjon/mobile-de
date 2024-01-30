@@ -419,7 +419,7 @@ export default {
           this.activeTab),
         (forkliftStore.forkliftData.forklift_price_from =
           this.inputPrice),
-        (forkliftStore.forkliftData.forklift_city =
+        (forkliftStore.forkliftData.city =
           this.cityName),
         forkliftStore.updateForkliftData();
     },

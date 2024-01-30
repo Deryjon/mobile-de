@@ -419,7 +419,7 @@ export default {
           this.activeTab),
         (machineStore.machineData.machine_price_from =
           this.inputPrice),
-        (machineStore.machineData.machine_city =
+        (machineStore.machineData.city =
           this.cityName),
         machineStore.updateMachineData();
     },

@@ -420,7 +420,7 @@ export default {
           this.activeTab),
         (semitrailerStore.semitrailerData.trailer_price_from =
           this.inputPrice),
-        (semitrailerStore.semitrailerData.trailer_city =
+        (semitrailerStore.semitrailerData.city =
           this.cityName),
         semitrailerStore.updateSemiTrailerData();
     },

@@ -419,7 +419,7 @@ export default {
           this.activeTab),
         (coacheStore.coacheData.coache_price_from =
           this.inputPrice),
-        (coacheStore.coacheData.coache_city =
+        (coacheStore.coacheData.city =
           this.cityName),
         coacheStore.updateCoacheData();
     },

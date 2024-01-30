@@ -421,7 +421,7 @@ export default {
           this.activeTab),
         (trailerStore.trailerData.trailer_price_from =
           this.inputPrice),
-        (trailerStore.trailerData.trailer_city =
+        (trailerStore.trailerData.city =
           this.cityName),
         trailerStore.updateTrailerData();
     },

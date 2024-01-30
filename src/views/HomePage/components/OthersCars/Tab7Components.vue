@@ -420,7 +420,7 @@ export default {
           this.activeTab),
         (vanStore.vanData.van_price_from =
           this.inputPrice),
-        (vanStore.vanData.zipcode =
+        (vanStore.vanData.city =
           this.cityName),
         vanStore.updateVanData();
     },

@@ -419,7 +419,7 @@ export default {
           this.activeTab),
         (vehicleStore.vehicleData.vehicle_price_from =
           this.inputPrice),
-        (vehicleStore.vehicleData.vehicle_city =
+        (vehicleStore.vehicleData.city =
           this.cityName),
         vehicleStore.updateAgriculturalData();
     },

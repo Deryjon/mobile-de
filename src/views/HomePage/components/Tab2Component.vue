@@ -424,7 +424,7 @@ export default {
           motorcycle_mileage_from: this.inputKilometer,
           motorcycle_payment_type: this.activeTab,
           motorcycle_price_from: this.inputPrice,
-          motorcycle_city_zipcode: this.cityName,
+          city: this.cityName,
         })
       );
     },
@@ -437,7 +437,7 @@ export default {
           motorcycle_mileage_from: this.inputKilometer,
           motorcycle_payment_type: this.activeTab,
           motorcycle_price_from: this.inputPrice,
-          motorcycle_city_zipcode: this.cityName,
+          city: this.cityName,
         })
         .then((response) => {
           const data = response.data.data;
@@ -453,7 +453,7 @@ export default {
       motorcycleStore.motorcycleData.motorcycle_mileage_from = this.inputKilometer;
       motorcycleStore.motorcycleData.motorcycle_payment_type = this.activeTab;
       motorcycleStore.motorcycleData.motorcycle_price_from = this.inputPrice;
-      motorcycleStore.motorcycleData.motorcycle_city_zipcode = this.cityNamem;
+      motorcycleStore.motorcycleData.city = this.cityNamem;
       motorcycleStore.updateMotorbikeData();
 
     },

@@ -440,7 +440,7 @@ export default {
           this.activeTab),
         (truckStore.semitruckData.truck_price_from =
           this.inputPrice),
-        (truckStore.semitruckData.truck_city =
+        (truckStore.semitruckData.city =
           this.cityName),
         truckStore.updateSemiTruckData();
     },
