@@ -470,7 +470,7 @@ export default {
         JSON.stringify({
           car_make: this.selectedMark,
           car_model: this.selectedModel,
-          car_condition: this.selectedCondition,
+          car_type: this.selectedCondition,
           car_firt_date_year_from: this.inputValue,
           car_mileage_from: this.inputKilometer,
           car_payment_type: this.activeTab,
@@ -485,7 +485,7 @@ export default {
         .post("/cars/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
-          car_condition: this.selectedCondition,
+          car_type: this.selectedCondition,
           car_firt_date_year_from: this.inputValue,
           car_mileage_from: this.inputKilometer,
           car_payment_type: this.activeTab,
@@ -504,7 +504,7 @@ export default {
       const carStore = useCarStore();
       carStore.carData.car_make = this.selectedMark;
       carStore.carData.car_model = this.selectedModel;
-      carStore.carData.car_condition = this.selectedCondition;
+      carStore.carData.type = this.selectedCondition;
       carStore.carData.car_mileage_from = this.inputKilometer;
       carStore.carData.car_silding_door = this.selectedDriving;
       carStore.carData.car_city_zipcode = this.cityName;
