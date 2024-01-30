@@ -273,10 +273,10 @@
           <option value="6">6</option>
           <option value="3">3</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
+        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-[60px] xl:right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[14px] lg:mt-4 w-[200px]">
-        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.stikcer") }}</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sticker") }}</h2>
         <select
           class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="stickerEmission">
@@ -286,7 +286,7 @@
           <option value="3">Up to 3</option>
           <option value="4">Up to 4</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
+        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-[60px] xl:right-2 bottom-4"></span>
       </div>
       <div class="marke_select_div relative mt-[20px] lg:mt-7 w-[200px]">
         <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
@@ -299,7 +299,7 @@
           <option value="3">Up to 3</option>
           <option value="4">Up to 4</option>
         </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
+        <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-[60px] xl:right-2 bottom-4"></span>
       </div>
     </div>
   </div>

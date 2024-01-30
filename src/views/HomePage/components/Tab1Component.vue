@@ -7,12 +7,12 @@
         </h2>
         <select
           class="mark-select mt-[5px] w-[130px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-          placeholder="Beliebig" @change="fetchCondition()" v-model="selectedCondition">
-          <option value="" selected>{{ $t("message.filter.any") }}</option>
-          <option value="New" class="">{{ $t("message.filter.new") }}</option>
-          <option value="Used" class="">{{ $t("message.filter.used") }}</option>
-          <option value="Crash" class="">{{ $t("message.filter.crash") }}</option>
-          <option value="Classic" class="">{{ $t("message.filter.classic") }}</option>
+          placeholder="Beliebig" v-model="selectedCondition">
+          <option value=""  selected>{{ $t("message.filter.any") }}</option>
+          <option value="New">{{ $t("message.filter.new") }}</option>
+          <option value="Used">{{ $t("message.filter.used") }}</option>
+          <option value="Crash">{{ $t("message.filter.crash") }}</option>
+          <option value="Classic">{{ $t("message.filter.classic") }}</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-[10px] lg:right-[10px] bottom-4"></span>
       </div>
@@ -25,8 +25,8 @@
           px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig" v-model="selectedDriving">
           <option value="" selected>{{ $t("message.filter_page.any") }}</option>
-          <option class="Left side">{{ $t("message.side.left") }}</option>
-          <option class="Right side">{{ $t("message.side.right") }}</option>
+          <option class="">{{ $t("message.side.left") }}</option>
+          <option class="">{{ $t("message.side.right") }}</option>
 
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-[10px] lg:right-[10px] bottom-4"></span>
@@ -470,7 +470,7 @@ export default {
         JSON.stringify({
           car_make: this.selectedMark,
           car_model: this.selectedModel,
-          car_type: this.selectedCondition,
+          car_condition: this.selectedCondition,
           car_firt_date_year_from: this.inputValue,
           car_mileage_from: this.inputKilometer,
           car_payment_type: this.activeTab,
@@ -485,7 +485,7 @@ export default {
         .post("/cars/count", {
           car_make: this.selectedMark,
           car_model: this.selectedModel,
-          car_type: this.selectedCondition,
+          car_condition: this.selectedCondition,
           car_firt_date_year_from: this.inputValue,
           car_mileage_from: this.inputKilometer,
           car_payment_type: this.activeTab,
@@ -504,7 +504,7 @@ export default {
       const carStore = useCarStore();
       carStore.carData.car_make = this.selectedMark;
       carStore.carData.car_model = this.selectedModel;
-      carStore.carData.type = this.selectedCondition;
+      carStore.carData.car_condition = this.selectedCondition;
       carStore.carData.car_mileage_from = this.inputKilometer;
       carStore.carData.car_silding_door = this.selectedDriving;
       carStore.carData.car_city_zipcode = this.cityName;

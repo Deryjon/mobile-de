@@ -754,8 +754,8 @@
       >
         <input
           type="checkbox"
-          v-model="isCheckedTV"
-          @click="toggleShowCheckboxExtras(7, 'Bluetooth')"
+          v-model="isCheckedCargoBarrier"
+          @click="toggleShowCheckboxExtras(7, 'Cargo barrier')"
         />
         <svg
           class="icon"
@@ -766,12 +766,324 @@
         >
           <!-- Insert your SVG arrow icon here -->
           <path
-            v-if="isCheckedTV"
+            v-if="isCheckedCargoBarrier"
             fill="#ffffff"
             d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
           />
         </svg>
-        {{ $t("message.filter_page.features.blu") }}
+        {{ $t("message.filter_page.features.cargobarrier") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedHandsFree"
+          @click="toggleShowCheckboxExtras(7, 'Hands-free kit')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedHandsFree"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.handsfree") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedUSBport"
+          @click="toggleShowCheckboxExtras(7, 'USB port')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedUSBport"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.usbport") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedCdPlayer"
+          @click="toggleShowCheckboxExtras(7, 'CD player')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedCdPlayer"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.cdplayer") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedHeadupDisplay"
+          @click="toggleShowCheckboxExtras(7, 'Head-up display')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedHeadupDisplay"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.headupdisplay") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedOnBoardComputer"
+          @click="toggleShowCheckboxExtras(7, 'On-board computer')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedOnBoardComputer"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.onboardcomputer") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedVoiceControl"
+          @click="toggleShowCheckboxExtras(7, 'On-board computer')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedVoiceControl"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.voicecontrol") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedDABradio"
+          @click="toggleShowCheckboxExtras(7, 'DAB radio')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedDABradio"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.dabradio") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedHeatedRear"
+          @click="toggleShowCheckboxExtras(7, 'Heated rear seats')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedHeatedRear"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.heatedrearseats") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedPaddleShifters"
+          @click="toggleShowCheckboxExtras(7, 'Paddle shifters')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedPaddleShifters"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.paddleshifters") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedWinterPackage"
+          @click="toggleShowCheckboxExtras(7, 'Winter package')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedWinterPackage"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.winterpackage") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedDigitalCockpit"
+          @click="toggleShowCheckboxExtras(7, 'Digital cockpit')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedDigitalCockpit"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.digitalcockpit") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedPassengerSeat"
+          @click="toggleShowCheckboxExtras(7, 'Passenger seat Isofix point')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedPassengerSeat"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.passengerseat") }}
+      </label>
+      <label
+        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
+      >
+        <input
+          type="checkbox"
+          v-model="isCheckedWlan"
+          @click="toggleShowCheckboxExtras(7, 'WLAN / WiFi hotspot')"
+        />
+        <svg
+          class="icon"
+          xmlns="http://www.w3.org/2000/svg"
+          height="1em"
+          viewBox="0 0 448 512"
+          width="1em"
+        >
+          <!-- Insert your SVG arrow icon here -->
+          <path
+            v-if="isCheckedWlan"
+            fill="#ffffff"
+            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+          />
+        </svg>
+        {{ $t("message.filter_page.features.wlan") }}
       </label>
     </div>
   </div>
@@ -815,6 +1127,22 @@ export default {
       isCheckedFoldFlatPassenger: false,
       isCheckedMultifunctionWheel: false,
       isCheckedTV: false,
+      // 
+      isCheckedCargoBarrier: false,
+      isCheckedHandsFree: false,
+      isCheckedUSBport: false,
+      isCheckedCdPlayer: false,
+      isCheckedHeadupDisplay: false,
+      isCheckedOnBoardComputer: false,
+      isCheckedVoiceControl: false,
+      isCheckedDABradio: false,
+      isCheckedHeatedRear: false,
+      isCheckedPaddleShifters: false,
+      isCheckedWinterPackage: false,
+      isCheckedDigitalCockpit: false,
+      isCheckedPassengerSeat: false,
+      isCheckedWlan: false,
+      
       extras: [],
     };
   },
