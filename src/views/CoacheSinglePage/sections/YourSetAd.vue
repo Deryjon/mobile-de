@@ -1,4 +1,4 @@
-<template>
+ fill="#0af512"<template>
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
     <div class=" relative md:hidden  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
@@ -323,14 +323,14 @@
         <div class="line mt-[10px]"></div>
         <div v-for="item in coache.coache_features" class="flex justify-between w-[297px]">
           <p class="">{{ item }} </p>
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
             <path
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
           </svg>
         </div>
         <div v-for="item in coache.coache_interior_features" class="flex justify-between w-[297px]">
           <p class="">{{ item }} </p>
-          <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
             <path
               d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
           </svg>

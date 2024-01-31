@@ -259,9 +259,9 @@
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
-          <div v-for="item in van.van_features" class="flex justify-between w-[297px]">
+          <div v-for="item in van.van_features"  class="flex justify-between w-[297px]">
             <p class="">{{ item }}</p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
               <path
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
