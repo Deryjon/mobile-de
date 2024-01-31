@@ -4075,6 +4075,8 @@ export default {
           console.log(res.data)
           this.interiorAdd = !this.interiorAdd
           this.handleCancelButtonClick()
+          this.$router.push({name: "price-list"})
+
         })
     },
     openFileInput() {

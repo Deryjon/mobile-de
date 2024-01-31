@@ -52,9 +52,10 @@ function prevPage() {
 function formatPrice(price) {
   const amount = (price / 100).toFixed(2);
   return amount;
-}
-async function goPayment(item) {
-  if (item.price_item_price === 0) {
+}async function goPayment(item) {
+  if (item.price_item_price <= 0) {
+    // Если цена меньше или равна 0, перенаправляем на маршрут "home"
+    this.$router.push({ name: "home" });
     return;
   }
 
@@ -78,6 +79,8 @@ async function goPayment(item) {
     isLoading.value = false;
   }
 }
+
+
 
 onMounted(fetchData);
 </script>
