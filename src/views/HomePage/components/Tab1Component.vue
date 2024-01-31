@@ -289,7 +289,7 @@
             <div class="input-container flex relative mt-[10px]">
               <input type="from"
                 class="dropdown-input mark_input mark-select w-[300px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-                placeholder="from" v-model="inputPrice" @focus="openPriceDropdown" @input="filterOptions"
+                placeholder="from" v-model="inputPrice" @focus="openPriceDropdown"
                 @blur="closePriceDropdown" />
 
               <div
@@ -460,7 +460,7 @@ export default {
       this.count = newCount;
     }
   },
-  methods: {
+  methods: {  
     goCarList() {
       this.$router.push({ name: "car-list" });
     },
@@ -492,6 +492,7 @@ export default {
       carStore.carData.car_mileage_from = this.inputKilometer;
       carStore.carData.car_firt_date_year_from = this.inputValue;
       carStore.carData.car_silding_door = this.selectedDriving;
+      carStore.carData.car_price_from = this.inputPrice;
       carStore.carData.city = this.cityName;
       carStore.carData.car_variant = this.inputVariant;
       carStore.carData.car_payment_type = this.activeTab;
