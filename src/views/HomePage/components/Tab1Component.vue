@@ -8,7 +8,7 @@
         <select
           class="mark-select mt-[5px] w-[130px] sm:w-[200px] md:w-[250px] lg:w-[150px] xl:w-[170px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
           placeholder="Beliebig" v-model="selectedCondition">
-          <option value=""  selected>{{ $t("message.filter.any") }}</option>
+          <option value="" selected>{{ $t("message.filter.any") }}</option>
           <option value="New">{{ $t("message.filter.new") }}</option>
           <option value="Used">{{ $t("message.filter.used") }}</option>
           <option value="Crash">{{ $t("message.filter.crash") }}</option>
@@ -511,7 +511,12 @@ export default {
       try {
         const coordinates = await this.$getLocation();
         const url = `https://nominatim.openstreetmap.org/reverse?lat=${coordinates.lat}&lon=${coordinates.lng}&format=json`;
-        const response = await axios.get(url);
+
+        const headers = {
+          'Accept-Language': 'en'
+        };
+
+        const response = await axios.get(url, { headers });
 
         if (response.status === 200) {
           const data = response.data;
@@ -521,6 +526,7 @@ export default {
             data.address.town ||
             data.address.hamlet ||
             data.address.suburb ||
+            data.display_name ||
             "Unknown";
           this.cityName = city; // Сохраняем результат в свойство данных cityName
         } else {
@@ -530,13 +536,14 @@ export default {
         console.log(error);
       }
     },
+
     fetchModels() {
       if (!this.selectedMark) {
         this.models = [];
         this.isModelSelectDisabled = true; // Disable the model select
         return;
       }
-      
+
       http
         .get(`/car/model?mark_id=${this.selectedMark}`)
         .then((response) => {
@@ -618,18 +625,18 @@ export default {
     },
     selectOption(option) {
       this.inputValue = option;
-      
+
       this.isOpen = false;
     },
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;
-      
+
     },
     selectPrice(option) {
       this.inputPrice = option;
       this.isOpenPrice = false;
-     
+
     },
     closeDropdown() {
       this.isOpen = false;

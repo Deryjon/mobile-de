@@ -457,7 +457,12 @@ export default {
       try {
         const coordinates = await this.$getLocation();
         const url = `https://nominatim.openstreetmap.org/reverse?lat=${coordinates.lat}&lon=${coordinates.lng}&format=json`;
-        const response = await axios.get(url);
+
+        const headers = {
+          'Accept-Language': 'en'
+        };
+
+        const response = await axios.get(url, { headers });
 
         if (response.status === 200) {
           const data = response.data;
@@ -467,6 +472,7 @@ export default {
             data.address.town ||
             data.address.hamlet ||
             data.address.suburb ||
+            data.display_name ||
             "Unknown";
           this.cityName = city; // Сохраняем результат в свойство данных cityName
         } else {
