@@ -286,7 +286,7 @@
       </div>
     </div>
     <div
-      class="right  h-[420px] lg:h-[450px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[120px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[455px] lg:h-[480px] xl:h-[350px] mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px]  lg:right-[25px] xl:right-[140px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="van-vane lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -343,14 +343,13 @@
         </button>
         <div>
           <button
-            class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[170px]  text-white"
+            class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[170px]  text-white"
             @click="toggleShareMenu" v-if="!isShareMenuOpen">
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                fill="
-                "></path>
+                fill="currentColor"></path>
             </svg>
             {{ $t("message.single_page.share") }}
           </button>

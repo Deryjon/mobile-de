@@ -54,9 +54,8 @@ function formatPrice(price) {
   return amount;
 }async function goPayment(item) {
   if (item.price_item_price <= 0) {
-    // Если цена меньше или равна 0, перенаправляем на маршрут "home"
-    this.$router.push({ name: "home" });
-    return;
+    window.location.href = "/"
+
   }
 
   isLoading.value = true;
@@ -218,7 +217,7 @@ onMounted(fetchData);
 
 @media (max-width: 680px) {
 
-  .card_box {
+e  .card_box {
     margin-top: 12px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);

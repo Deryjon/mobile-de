@@ -20,7 +20,7 @@ fill="#0af512" <template>
       <p class="">{{ formatDate(motorhome.motor_home_ad_create_at) }}</p>
     </div>
     <div
-      class="right mt-[45px] sm:mt-[80px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[90px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="moto-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ motorhome.motor_home_make }}</p>
         <p class="moto-model ">{{ motorhome.motor_home_model }}</p>
@@ -387,7 +387,7 @@ fill="#0af512" <template>
       </div>
     </div>
     <div
-      class="right h-[420px] lg:h-[450px] xl:h-[350px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[14  0px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[440px] lg:h-[450px] xl:h-[350px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[14  0px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[120px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">

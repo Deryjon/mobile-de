@@ -361,7 +361,7 @@
       </div>
     </div>
     <div
-      class="right h-[420px] lg:h-[450px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[140px] lg:w-[250px] xl:w-[350px]   rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[455px] lg:h-[480px] xl:h-[350px] mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[130px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="truck-trucke lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
