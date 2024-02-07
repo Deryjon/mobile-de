@@ -1,5 +1,5 @@
 <script setup>
-import axios from "axios";
+import http from "../../axios.config";
 import { onMounted, ref } from "vue";
 import SwiperSection from "../HomePage/sections/SwiperSection.vue";
 import TheLoader from "../../components/TheLoader.vue";
@@ -7,7 +7,6 @@ import TheLoader from "../../components/TheLoader.vue";
 import PathLink from "../../ui/PathLink.vue";
 
 
-import http from "../../axios.config";
 
 const data = ref([]);
 const isLastPage = ref(false);
@@ -21,8 +20,8 @@ async function fetchData() {
 
   try {
 
-    const res = await axios.get(
-      `https://slash.sellcenter.uz/api/v1//price/list?limit=${limit.value}&offset=${offset.value}&lang=${lang}`
+    const res = await http.get(
+      `/price/list?limit=${limit.value}&offset=${offset.value}&lang=${lang}`
 
     )
     data.value = res.data.data;

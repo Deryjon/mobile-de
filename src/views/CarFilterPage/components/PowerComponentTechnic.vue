@@ -281,10 +281,10 @@
           class="mark-select mt-[20px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="stickerEmission">
           <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
+          <option value="1(None)">1(None)</option>
+          <option value="2(Red)">2(Red)</option>
+          <option value="3(Yellow)">3(Yellow)</option>
+          <option value="4(Green)">4(Green)</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-[60px] xl:right-2 bottom-4"></span>
       </div>
@@ -294,10 +294,13 @@
           class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
           v-model="classEmision">
           <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
+          <option value="Euro1">Euro1</option>
+          <option value="Euro2">Euro2</option>
+          <option value="Euro3">Euro3</option>
+          <option value="Euro4">Euro4</option>
+          <option value="Euro5">Euro5</option>
+          <option value="Euro6">Euro6</option>
+          <option value="Euro6с">Euro6с</option>
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-[60px] xl:right-2 bottom-4"></span>
       </div>

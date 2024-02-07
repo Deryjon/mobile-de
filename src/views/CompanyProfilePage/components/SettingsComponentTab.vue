@@ -49,9 +49,7 @@
           class="w-[170px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
           <div class="flex items-center lg:gap-[20px]">
             <div class="profile-pic">
-              <p
-                class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-              >
+              <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                 Password
               </p>
               <p class="font-normal text-[14px]">•••••••••••••</p>
@@ -64,10 +62,7 @@
         </div>
       </div>
 
-      <div
-        class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[658px] p-[15px] box"
-        v-if="changeLogin"
-      >
+      <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[658px] p-[15px] box" v-if="changeLogin">
         <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
           Company email
         </p>
@@ -137,9 +132,7 @@
             v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p
-                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-                >
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                   Company Name
                 </p>
                 <p class="font-normal text-[14px]">
@@ -153,9 +146,7 @@
             v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p
-                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-                >
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                   Address
                 </p>
                 <p class="font-normal text-[14px]">
@@ -172,9 +163,7 @@
             v-if="!companyDataChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p
-                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-                >
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                   Phone number
                 </p>
                 <p class="font-normal text-[14px]">
@@ -324,7 +313,7 @@
                           </div>
                         </div>
                       </div>
-                  </div>
+                    </div>
                   </div>
                   <div class="">
                     <div class="">
@@ -438,7 +427,9 @@
       </div>
       <div class="" v-if="!changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[50px]">Create company</h2>
-        <div class="h-[80px] flex justify-end pt-[15px] p-[15px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="!contactData">
+        <div
+          class="h-[80px] flex justify-end pt-[15px] p-[15px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]"
+          v-if="!contactData">
           <button
             class="complete custom-file-label bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
             @click="openContactData">
@@ -447,22 +438,21 @@
         </div>
 
         <div
-          class=" box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] lg:p-[15px] sm:flex items-center justify-between p-[0px] mt-[20px]"
+          class=" box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]     items-center justify-between p-[0px] mt-[20px]"
           v-if="contactData">
           <div class="profile">
             <div class="">
               <div class="">
-                
-                  <div class="changes  xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
-                    <div class="mark"></div>
-                    <div class="flex gap-[20px]">
-                      <div class="email mt-[10px]">
-                        <p class="text-sm lg:text-[14px]">Company Name</p>
-                        <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
-                          v-model="companyName" />
-                      </div>
+                <div class="changes flex xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[5px] lg:p-[20px]">
+                  <div class="mark"></div>
+                  <div class="flex gap-[20px]">
+                    <div class="email mt-[10px]">
+                      <p class="text-sm lg:text-[14px]">Company Name</p>
+                      <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
+                        v-model="companyName" />
                     </div>
                   </div>
+                </div>
               </div>
               <div class="">
                 <div class="">
@@ -700,11 +690,10 @@
     </div>
     <div class="profile mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Documents</h2>
-      <div
-        class="box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
-        <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
-          <div
-            class="w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]  p-[5px]">
+      <div class="box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
+        <div
+          class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
+          <div class="w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]  p-[5px]">
             <div class="flex items-center gap-[20px]">
               <div class="profile
               -pic">
@@ -732,9 +721,7 @@
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p
-                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-                >
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                   Newsletter
                 </p>
                 <p class="font-normal text-[12px]">
@@ -759,9 +746,7 @@
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] p-[15px] flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
-                <p
-                  class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-                >
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                   Market research
                 </p>
                 <p class="font-normal text-[12px]">
@@ -780,10 +765,9 @@
     <div class="profile  w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px] mt-[30px]">
       <h2 class="text-[14px] lg:text-[26px] font-semibold">Delete account</h2>
       <div
-        class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between"
-      >
+        class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] lg:p-[15px] flex items-center flex-wrap md:justify-between">
 
-        
+
 
         <div class="sm:flex items-center gap-[20px]">
           <div class="icon w-[30px]">
@@ -918,6 +902,7 @@ export default {
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
+          window.location.reload()
           window.location.reload()
         });
     },
