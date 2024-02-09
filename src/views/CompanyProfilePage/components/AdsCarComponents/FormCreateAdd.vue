@@ -4428,9 +4428,9 @@ export default {
     this.userI = localStorage.getItem("u-i");
     this.uEmail = localStorage.getItem("u-e");
 
-    this.userPhone = localStorage.getItem("u-phone");
-    this.userCodeNumber = localStorage.getItem("u-code");
-    this.userPre = localStorage.getItem("u-pre");
+    this.userPhone = localStorage.getItem("com-number");
+    this.userCodeNumber = localStorage.getItem("com-numcode");
+    this.userPre = localStorage.getItem("com-prefix");
 
     http
       .get("/car/marks")
