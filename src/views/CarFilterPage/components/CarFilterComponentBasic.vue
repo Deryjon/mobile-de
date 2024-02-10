@@ -259,6 +259,7 @@ export default {
       isCheckedSaloon: false,
       isCheckedEstate: false,
       isCheckedCabrio: false,
+      isCheckedSUV: false,
       selectedCars: [],
     };
   },

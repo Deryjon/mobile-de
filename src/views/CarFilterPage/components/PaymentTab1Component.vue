@@ -1343,16 +1343,7 @@ export default {
         this.closePriceToDropdownOnClickOutside
       );
     },
-    closePriceToDropdownOnClickOutside(event) {
-      const dropdownElement = this.$el.querySelector(".price-to");
-      if (!dropdownElement.contains(event.target)) {
-        this.priceToOpen = false;
-        document.removeEventListener(
-          "click",
-          this.closePriceToDropdownOnClickOutside
-        );
-      }
-    },
+   
     selectNumberPriceTo(option) {
       this.priceTo = option;
       this.priceToOpen = false;

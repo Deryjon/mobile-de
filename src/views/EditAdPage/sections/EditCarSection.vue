@@ -3865,8 +3865,8 @@ export default {
         this.numberSeats = this.dataAd.car_number_seats
         this.numDoor = this.dataAd.car_number_door
         this.slidingDoor = this.dataAd.car_silding_door
-        this.selectedCondition = this.dataAd.car_condition
-        this.selectedType = this.dataAd.car_type
+        this.selectedCondition = this.dataAd.car_type
+        this.selectedType = this.dataAd.car_condition
         this.activeTab = this.dataAd.car_payment_type
         this.price = this.dataAd.car_price
         this.inputValue = this.dataAd.car_firt_date_year
