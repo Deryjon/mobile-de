@@ -390,6 +390,38 @@
               {{ car.car_exterior_colour }}
             </p>
           </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              {{ $t("message.filter_page.airbags") }}
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ car.car_airbags }}
+            </p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              {{ $t("message.filter_page.consumption") }}
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ car.car_fuel_consumption }}
+            </p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              {{ $t("message.filter_page.parking_sensors.title") }}
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ car.car_parking_sensors }}
+            </p>
+          </div>
+          <div class="availability flex justify-between">
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
+              {{ $t("message.filter_page.cruise.cruise") }}
+            </p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">
+              {{ car.car_cruise_control }}
+            </p>
+          </div>
         </div>
       </div>
       <div class="features bor p-[20px]">
