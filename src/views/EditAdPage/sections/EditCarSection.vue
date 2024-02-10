@@ -3940,8 +3940,8 @@ export default {
       formData.append('car_number_seats', this.numberSeats);
       formData.append('car_number_door', parseInt(this.numDoor));
       formData.append('car_silding_door', this.slidingDoor);
-      formData.append('car_condition', this.selectedCondition);
-      formData.append('car_type', this.selectedType);
+      formData.append('car_condition', this.selectedType);
+      formData.append('car_type', this.selectedCondition);
       formData.append('car_payment_type', this.activeTab);
       formData.append('car_price', parseInt(this.price));
       formData.append('car_firt_date', parseInt(this.inputValue));
