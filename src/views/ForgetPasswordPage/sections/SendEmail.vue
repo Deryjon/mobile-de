@@ -1,7 +1,7 @@
 <template>
     <v-container class="max-w-[1120px]">
-        <div v-if="!isNewPassword" class="box bg-[#05030380] w-[300px] sm:w-[450px] md:w-[550px] lg:w-[700px]  mx-auto p-[20px] text-white">
-            <p class="title text-white text-[14px] md:text-[16px] lg:text-[20px]">
+        <div v-if="!isNewPassword" class="box bg-[#0000001f] w-[300px]  mx-auto p-[20px] text-black">
+            <p class="title text-black text-[14px] md:text-[16px] lg:text-[20px]">
                 {{ $t("message.register.forget") }}
             </p>
             <div class="img-forget w-full h-[200px]">
@@ -27,7 +27,8 @@
                     link</button>
             </div>
         </div>
-        <div v-else class="box bg-[#05030380] w-[300px] sm:w-[450px] md:w-[550px] lg:w-[700px]  mx-auto p-[20px] text-white">
+        <div v-else
+            class="box bg-[#05030380] w-[300px] sm:w-[450px] md:w-[550px] lg:w-[700px]  mx-auto p-[20px] text-white">
             <p class="title text-white text-[14px] md:text-[16px] lg:text-[20px]">
                 New password
             </p>
@@ -35,17 +36,17 @@
                 <p>Email Address</p>
                 <input v-model="emailSend" type="text" class="bor rounded-[5px] w-full px-[15px] py-[10px]">
             </div>
-            <div class="" >
+            <div class="">
                 <div class="code mt-[20px]">
                     <p>New password</p>
 
                     <input v-model="newPassword" type="text" class="bor rounded-[5px] w-full px-[15px] py-[10px]">
                 </div>
                 <button class="btn bg-[#e04b00] px-auto w-full px-[15px] py-[10px] rounded-[5px] mt-[20px]"
-                    @click="sendCode">Send </button>
+                    @click="sendNewPassword">Send </button>
             </div>
         </div>
-        
+
     </v-container>
 </template>
 <script>
@@ -81,9 +82,9 @@ export default {
         sendNewPassword() {
             http.post("/forget/reset/password", {
                 email: this.emailSend,
-                new_password: parseInt(this.newPassword)
+                new_password: this.newPassword
             }).then((res) => {
-                this.$router.push({name: "home"})
+                this.$router.push({ name: "home" })
                 console.log(res.data);
             })
         }
