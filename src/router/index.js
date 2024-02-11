@@ -383,6 +383,12 @@ const router = createRouter({
         import("../views/TermsOfUsePage/SecurityCustomer.vue"),
     },
     {
+      path: "/forget-password",
+      name: "forget",
+      component: () =>
+        import("../views/ForgetPasswordPage/ForgetPassword.vue"),
+    },
+    {
       path: "/:catchAll(.*)",
       component: NotFound,
     },

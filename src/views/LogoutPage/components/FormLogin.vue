@@ -27,7 +27,7 @@
             >
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
 
-              <v-form @submit.prevent="signUp">
+              <v-form>
                 <p class="font-bold text-[24px] text-center mt-[10px]">
                   {{ $t("message.register.back") }}
                 </p>
@@ -104,6 +104,7 @@
                 </div>
 
                 <p
+                @click="goForget"
                   class="text-sm text-gray-600 font-medium underline cursor-pointer ml-1 mt-4"
                 >
                   {{ $t("message.register.forget") }}
@@ -326,6 +327,10 @@ export default {
     };
   },
   methods: {
+   
+    goForget(){
+      this.$router.push({name: "forget"})
+    },
     validateEmail() {
       // Ваш код валидации email
       // Пример проверки на корректность email:
