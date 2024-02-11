@@ -35,8 +35,8 @@
             </div>
         </div>
         <div v-else
-            class="box bg-[#0000001f] w-[300px] sm:w-[450px] md:w-[550px] lg:w-[700px]  mx-auto p-[20px] text-white">
-            <p class="title text-white text-[14px] md:text-[16px] lg:text-[20px]">
+            class="box bg-[#0000001f] w-[300px] sm:w-[450px] md:w-[550px] lg:w-[700px]  mx-auto p-[20px] text-black">
+            <p class="title text-black text-[14px] md:text-[16px] lg:text-[20px]">
                 New password
             </p>
             <div class="input-email mt-[30px]">
@@ -49,7 +49,7 @@
 
                     <input v-model="newPassword" type="text" class="bor rounded-[5px] w-full px-[15px] py-[10px]">
                 </div>
-                <button class="btn bg-[#e04b00] px-auto w-full px-[15px] py-[10px] rounded-[5px] mt-[20px]"
+                <button class="btn text-white bg-[#e04b00] px-auto w-full px-[15px] py-[10px] rounded-[5px] mt-[20px]"
                     @click="sendNewPassword">Send </button>
             </div>
         </div>
