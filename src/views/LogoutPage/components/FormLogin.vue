@@ -19,7 +19,7 @@
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
 
               <v-form @submit.prevent="signUp">
-                <p class="font-bold text-[24px] text-center mt-[10px]">
+                  <p class="font-bold text-[24px] text-center mt-[10px]">
                   {{ $t("message.register.back") }}
                 </p>
                 <div class="flex flex-col mt-[15px]">
@@ -59,6 +59,8 @@
                   </div>
                   <span v-if="!isPasswordLoginValid" class="text-red-600 text-sm mt-1">{{ $t("message.register.atLeast")
                   }}</span>
+                  <span v-if="isPasswordWrong" class="text-red-600 text-sm mt-1">Wrong password or email
+</span>
                 </div>
 
                 <p @click="goForget" class="text-sm text-gray-600 font-medium underline cursor-pointer ml-1 mt-4">
@@ -66,7 +68,7 @@
                 </p>
                 <button type="submit" :disabled="!isFormLoginValid"
                   class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-[#e04b00] rounded-md my-[30px]"
-                  @click="LoginUser(emailLogin, passwordLogin)" :class="{ 'opacity-50': !isFormLoginValid }">
+                   :class="{ 'opacity-50': !isFormLoginValid }">
                   {{ $t("message.register.login") }}
                 </button>
               </v-form>
@@ -90,6 +92,9 @@
                     placeholder="you@example.com" v-model="emailRegister" @input="validateEmail" />
                   <span v-if="!isEmailValid" class="text-red-600 text-sm mt-1">
                     {{ $t("message.register.validEmail") }}
+                  </span>
+                  <span v-if="isPasswordWrong" class="text-red-600 text-sm mt-1">
+                    Email already taken
                   </span>
                 </div>
 
@@ -214,9 +219,14 @@ export default {
       isPasswordLoginValid: false,
       isChecked: false,
       userCompany: false,
+      isPasswordWrong: false,
     };
   },
   methods: {
+    signUp() {
+            // Ваша логика регистрации или отправки данных
+            this.LoginUser(this.emailLogin, this.passwordLogin);
+        }, 
 
     goForget() {
       this.$router.push({ name: "forget" })
@@ -256,6 +266,11 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
+          if (response.data.status ===  401,402,404) {
+           this.isPasswordWrong = !this.isPasswordWrong
+          }
+          else if (response.status === 200) {
+
           console.log(responseData);
           localStorage.setItem("u-i", responseData.data.user_id);
           localStorage.setItem("u-e", responseData.data.user_email);
@@ -284,6 +299,7 @@ export default {
             localStorage.setItem("logged-in", "true");
             this.$router.push({ name: "home" });
           }
+        }
         })
         .catch((error) => {
           console.error("Error fetching model years:", error);
@@ -297,42 +313,41 @@ export default {
           user_password: password,
         })
         .then((response) => {
-          if (response.status === 401) {
-            this.isEmailLoginValid = !this.isEmailLoginValid,
-              this.isPasswordLoginValid = !this.isPasswordLoginValid
-          }
           const responseData = response.data;
-          console.log(responseData);
-          localStorage.setItem("u-i", responseData.data.user_id);
-          localStorage.setItem("u-e", responseData.data.user_email);
-          localStorage.setItem("u-p", responseData.data.user_password);
-          localStorage.setItem("u-fn", responseData.data.user_first_name);
-          localStorage.setItem("u-ln", responseData.data.user_last_name);
-          localStorage.setItem("u-g", responseData.data.user_gender);
-          localStorage.setItem("u-d-s", responseData.data.user_address_street);
-          localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
-          localStorage.setItem("u-d-z", responseData.data.user_address_zip);
-          localStorage.setItem("u-d-c", responseData.data.user_address_city);
-          localStorage.setItem("u-com", responseData.data.user_company);
-          localStorage.setItem("com-i", responseData.data.company_id);
-          localStorage.setItem("u-img-prof", responseData.data.user_image_url);
-          localStorage.setItem(
-            "u-d-co",
-            responseData.data.user_address_country
-          );
-          localStorage.setItem("u-code", responseData.data.user_country_code);
-          localStorage.setItem("u-pre", responseData.data.user_number_prefix);
-          localStorage.setItem("u-phone", responseData.data.user_phone_number);
-          localStorage.setItem("u-bal", responseData.data.user_balance);
-          localStorage.setItem("r-tok", responseData.token);
-          if (localStorage.getItem("r-tok")) {
-            localStorage.setItem("logged-in", "true");
-            this.$router.push({ name: "home" });
+          if (response.data.status ===  401,402,404) {
+           this.isPasswordWrong = !this.isPasswordWrong
+          }
+          else if (response.status === 200) {
+          
+            localStorage.setItem("u-i", responseData.data.user_id);
+            localStorage.setItem("u-e", responseData.data.user_email);
+            localStorage.setItem("u-p", responseData.data.user_password);
+            localStorage.setItem("u-fn", responseData.data.user_first_name);
+            localStorage.setItem("u-ln", responseData.data.user_last_name);
+            localStorage.setItem("u-g", responseData.data.user_gender);
+            localStorage.setItem("u-d-s", responseData.data.user_address_street);
+            localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
+            localStorage.setItem("u-d-z", responseData.data.user_address_zip);
+            localStorage.setItem("u-d-c", responseData.data.user_address_city);
+            localStorage.setItem("u-com", responseData.data.user_company);
+            localStorage.setItem("com-i", responseData.data.company_id);
+            localStorage.setItem("u-img-prof", responseData.data.user_image_url);
+            localStorage.setItem(
+              "u-d-co",
+              responseData.data.user_address_country
+            );
+            localStorage.setItem("u-code", responseData.data.user_country_code);
+            localStorage.setItem("u-pre", responseData.data.user_number_prefix);
+            localStorage.setItem("u-phone", responseData.data.user_phone_number);
+            localStorage.setItem("u-bal", responseData.data.user_balance);
+            localStorage.setItem("r-tok", responseData.token);
+            if (localStorage.getItem("r-tok")) {
+              localStorage.setItem("logged-in", "true");
+              this.$router.push({ name: "home" });
+            }
           }
         })
-        .catch((error) => {
-          console.error("Error logging in:", error);
-        });
+       
     },
   },
   components: { HeaderLogo, RightTabComponent },
