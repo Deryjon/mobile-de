@@ -27,7 +27,7 @@
             >
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
 
-              <v-form @sumbit.prevent="signUp">
+              <v-form @submit.prevent="signUp">
                 <p class="font-bold text-[24px] text-center mt-[10px]">
                   {{ $t("message.register.back") }}
                 </p>
@@ -400,7 +400,7 @@ export default {
         });
     },
 
-    signUp(email, password) {
+    LoginUser(email, password) {
       http
         .post("/user/login", {
           user_email: email,
