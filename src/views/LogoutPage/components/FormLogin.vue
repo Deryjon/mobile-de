@@ -400,7 +400,7 @@ export default {
         });
     },
 
-    LoginUser(email, password) {
+    signUp(email, password) {
       http
         .post("/user/login", {
           user_email: email,
