@@ -27,7 +27,7 @@
             >
               <HeaderLogo class="mx-auto w-[130px] h-[50px]" />
 
-              <v-form>
+              <v-form @sumbit.prevent="signUp">
                 <p class="font-bold text-[24px] text-center mt-[10px]">
                   {{ $t("message.register.back") }}
                 </p>
