@@ -1,6 +1,6 @@
 <template>
   <TheLoader v-if="isLoading" />
-  <div class=" text-[12px] lg-text-[14px]" v-else >
+  <div class=" text-[12px] lg-text-[14px]" v-else>
     <div class="basic-add" v-if="basicAdd">
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
@@ -67,9 +67,7 @@
             <h2 class="text-sm lg:text-[14px]">{{ $t("message.edit_page.variant") }}</h2>
             <input
               class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              placeholder="e.g. GTI..."
-              type="text"
-              v-model="inputVariant" />
+              placeholder="e.g. GTI..." type="text" v-model="inputVariant" />
           </div>
         </div>
       </div>
@@ -124,7 +122,7 @@
           <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car4") }}</span>
         </label>
         <!-- sports -->
-       
+
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[200px] lg:w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
@@ -189,7 +187,7 @@
         </div>
         <!-- sliding-door -->
         <div class="seats relative mt-[28px]">
-          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sliddor") }}</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sliddoor") }}</h2>
           <select
             class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="slidingDoor">
@@ -652,7 +650,8 @@
         <h3 class="text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Diesel',
               'bg-orange': selectedFuel === 'Diesel',
@@ -660,7 +659,8 @@
 
             Diesel
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
               'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
@@ -668,7 +668,8 @@
 
             Hybrid (diesel/electric)
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Natural Gas',
               'bg-orange': selectedFuel === 'Natural Gas',
@@ -676,7 +677,8 @@
 
             Natural Gas
           </label>
-          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px] p-0">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Other',
               'bg-orange': selectedFuel === 'Other',
@@ -684,7 +686,8 @@
 
             Other
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Petrol',
               'bg-orange': selectedFuel === 'Petrol',
@@ -692,7 +695,8 @@
 
             Petrol
           </label>
-          <label class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Electric',
               'bg-orange': selectedFuel === 'Electric',
@@ -701,7 +705,8 @@
             Electric
           </label>
           <!-- estate -->
-          <label class="custom-checkbox p-0 flex gap-4 text-[12px] lg:text-[14px] items-center h-10 w-[140px] lg:w-[206px] pb-4">
+          <label
+            class="custom-checkbox p-0 flex gap-4 text-[12px] lg:text-[14px] items-center h-10 w-[140px] lg:w-[206px] pb-4">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hydrogen',
               'bg-orange': selectedFuel === 'Hydrogen',
@@ -887,10 +892,10 @@
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="stickerEmission">
             <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
-          <option value="1(None)">1(None)</option>
-          <option value="2(Red)">2(Red)</option>
-          <option value="3(Yellow)">3(Yellow)</option>
-          <option value="4(Green)">4(Green)</option>
+            <option value="1(None)">1(None)</option>
+            <option value="2(Red)">2(Red)</option>
+            <option value="3(Yellow)">3(Yellow)</option>
+            <option value="4(Green)">4(Green)</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
@@ -900,13 +905,13 @@
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision">
             <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
-          <option value="Euro1">Euro1</option>
-          <option value="Euro2">Euro2</option>
-          <option value="Euro3">Euro3</option>
-          <option value="Euro4">Euro4</option>
-          <option value="Euro5">Euro5</option>
-          <option value="Euro6">Euro6</option>
-          <option value="Euro6с">Euro6с</option>
+            <option value="Euro1">Euro1</option>
+            <option value="Euro2">Euro2</option>
+            <option value="Euro3">Euro3</option>
+            <option value="Euro4">Euro4</option>
+            <option value="Euro5">Euro5</option>
+            <option value="Euro6">Euro6</option>
+            <option value="Euro6с">Euro6с</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
@@ -1086,14 +1091,16 @@
         <h3>Parking sensors</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
-          <label class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Rear')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Rear',
               'bg-orange': selectedParking === 'Rear',
             }" />
             Rear
           </label>
-          <label class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Front')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Front',
               'bg-orange': selectedParking === 'Front',
@@ -1101,7 +1108,8 @@
 
             Front
           </label>
-          <label class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Camera')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Camera',
               'bg-orange': selectedParking === 'Camera',
@@ -1109,7 +1117,8 @@
 
             Camera
           </label>
-          <label class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('360° camera')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== '360° camera',
               'bg-orange': selectedParking === '360° camera',
@@ -1117,7 +1126,8 @@
 
             360° camera
           </label>
-          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Self-steering systems')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Self-steering systems',
               'bg-orange': selectedParking === 'Self-steering systems',
@@ -1147,1143 +1157,452 @@
         </div>
       </div>
       <div class="mt-[30px]">
-    <h3>{{ $t("message.filter_page.features.others") }}</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
-      <!-- cabrio -->
-      <label
-        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedABS"
-          @click="toggleShowCheckbox(0, 'ABS')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedABS"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.abs") }}
-      </label>
-      <label
-        class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedEmergency"
-          @click="toggleShowCheckbox(1, 'Emergency brake assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedEmergency"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.brake") }}      </label>
-      <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedCentral"
-          @click="toggleShowCheckbox(2, 'Keyless central locking')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedCentral"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        Keyless central locking
-      </label>
-      <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSpeed"
-          @click="toggleShowCheckbox(3, '	Speed limit control system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSpeed"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.speed") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAdaptive"
-          @click="toggleShowCheckbox(4, 'Adaptive cornering lights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAdaptive"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.adaptivecor") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTyre"
-          @click="toggleShowCheckbox(5, 'Emergency tyre')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTyre"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.emergy") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLastChanges"
-          @click="toggleShowCheckbox(6, 'Lane change assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLastChanges"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.lanechange") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportsPackage"
-          @click="toggleShowCheckbox(7, 'Sports package')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportsPackage"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sportpackage") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAdaptiveLighting"
-          @click="toggleShowCheckbox(8, 'Adaptive lighting')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAdaptiveLighting"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.adaplight") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedEmergencyKit"
-          @click="toggleShowCheckbox(9, 'Emergency tyre repair kit')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedEmergencyKit"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.emergykit") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLaserHeadlights"
-          @click="toggleShowCheckbox(10, 'Laser headlights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLaserHeadlights"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.laser") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportsSuspension"
-          @click="toggleShowCheckbox(11, 'Sports suspension')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportsSuspension"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sport") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAirSuspension"
-          @click="toggleShowCheckbox(11, 'Air suspension')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAirSuspension"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.air") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedESP"
-          @click="toggleShowCheckbox(11, 'ESP')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedESP"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.esp") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLEDHeadlights"
-          @click="toggleShowCheckbox(11, 'LED headlights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLEDHeadlights"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.ledhead") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedStartStopSystem"
-          @click="toggleShowCheckbox(11, 'Start-stop system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedStartStopSystem"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.start") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAlloyWheels"
-          @click="toggleShowCheckbox(11, 'Alloy wheels')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAlloyWheels"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.alloy") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedFogLamp"
-          @click="toggleShowCheckbox(11, 'Fog lamp')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedFogLamp"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.fog") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLEDRunningLights"
-          @click="toggleShowCheckbox(11, 'LED running lights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLEDRunningLights"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.led") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSteelWheels"
-          @click="toggleShowCheckbox(11, 'Steel wheels')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSteelWheels"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.steel") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAllTyres"
-          @click="toggleShowCheckbox(11, 'All season tyres')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAllTyres"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.season") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedFourWheelDrive"
-          @click="toggleShowCheckbox(11, 'Four wheel drive')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedFourWheelDrive"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.fourwheel") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLightSensor"
-          @click="toggleShowCheckbox(11, 'Light sensor')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLightSensor"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.light") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSummerTyres"
-          @click="toggleShowCheckbox(11, 'Summer tyres')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSummerTyres"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.summer") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedBixenonHeadlights"
-          @click="toggleShowCheckbox(11, 'Bi-xenon headlights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedBixenonHeadlights"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.bixenon") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedGlarefreeHigh"
-          @click="toggleShowCheckbox(11, 'Glare-free high beam headlights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedGlarefreeHigh"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.glare") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedNightVisionAssist"
-          @click="toggleShowCheckbox(11, 'Night vision assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedNightVisionAssist"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.night") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSunroof"
-          @click="toggleShowCheckbox(11, 'Sunroof')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSunroof"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sunroof") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedBlindSpotAssist"
-          @click="toggleShowCheckbox(11, 'Blind spot assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedBlindSpotAssist"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.blind") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHeadlightWasherSystem"
-          @click="toggleShowCheckbox(11, 'Headlight washer system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHeadlightWasherSystem"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.headlight") }}      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedPanoramicRoof"
-          @click="toggleShowCheckbox(11, 'Panoramic roof')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedPanoramicRoof"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.panoramic") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTractionСontrol"
-          @click="toggleShowCheckbox(11, 'Traction control')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTractionСontrol"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.traction") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedCentralLocking"
-          @click="toggleShowCheckbox(11, 'Central locking')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedCentralLocking"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.centralocking") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHeatedWindshield"
-          @click="toggleShowCheckbox(11, 'Heated windshield')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHeatedWindshield"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.heatwind") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedPowerAssistedSteering"
-          @click="toggleShowCheckbox(11, 'Power Assisted Steering')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedPowerAssistedSteering"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.powerassistedsteering") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTrafficSign"
-          @click="toggleShowCheckbox(11, 'Traffic sign recognition')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTrafficSign"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.trafficsign") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedDayTimeRunning"
-          @click="toggleShowCheckbox(11, 'Daytime running lights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedDayTimeRunning"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.daytimerunning") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHighBeamAssist"
-          @click="toggleShowCheckbox(11, 'High beam assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHighBeamAssist"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.highbeamassist") }}
-      </label>
-     
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRainSensor"
-          @click="toggleShowCheckbox(11, 'Rain sensor')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRainSensor"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.rainsensor") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTyrePressure"
-          @click="toggleShowCheckbox(11, 'Tyre pressure monitoring')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTyrePressure"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.tyrepressure") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedDistanceWarning"
-          @click="toggleShowCheckbox(11, 'Distance warning system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedDistanceWarning"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.distancewarning") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHillStartAssist"
-          @click="toggleShowCheckbox(11, 'Hill-start assist')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHillStartAssist"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.hillstart") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedRoofRack"
-          @click="toggleShowCheckbox(11, 'Roof rack')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedRoofRack"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.roofrack") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedWinterTyres"
-          @click="toggleShowCheckbox(11, 'Winter tyres')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedWinterTyres"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.wintertyres") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedWinterTyres"
-          @click="toggleShowCheckbox(11, 'Electric tailgate')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedWinterTyres"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.electrictailgate") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedImmobilizer"
-          @click="toggleShowCheckbox(11, 'Immobilizer')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedImmobilizer"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.immobilizer") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSpareTyre"
-          @click="toggleShowCheckbox(11, 'Spare tyre')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSpareTyre"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sparetyre") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedXenonHeadLights"
-          @click="toggleShowCheckbox(11, 'Xenon headlights')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedXenonHeadLights"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.xenonheadlights") }}
-      </label>
-     
-    </div>
-  </div>
+        <h3>{{ $t("message.filter_page.features.others") }}</h3>
+        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+          <!-- cabrio -->
+          <label
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedABS" @click="toggleShowCheckbox(0, 'ABS')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedABS" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.abs") }}
+          </label>
+          <label
+            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedEmergency"
+              @click="toggleShowCheckbox(1, 'Emergency brake assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedEmergency" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.brake") }} </label>
+          <label
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedCentral" @click="toggleShowCheckbox(2, 'Keyless central locking')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedCentral" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            Keyless central locking
+          </label>
+          <label
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSpeed"
+              @click="toggleShowCheckbox(3, '	Speed limit control system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSpeed" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.speed") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAdaptive"
+              @click="toggleShowCheckbox(4, 'Adaptive cornering lights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAdaptive" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.adaptivecor") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTyre" @click="toggleShowCheckbox(5, 'Emergency tyre')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTyre" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.emergy") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLastChanges" @click="toggleShowCheckbox(6, 'Lane change assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLastChanges" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.lanechange") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSportsPackage" @click="toggleShowCheckbox(7, 'Sports package')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSportsPackage" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sportpackage") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAdaptiveLighting"
+              @click="toggleShowCheckbox(8, 'Adaptive lighting')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAdaptiveLighting" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.adaplight") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedEmergencyKit"
+              @click="toggleShowCheckbox(9, 'Emergency tyre repair kit')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedEmergencyKit" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.emergykit") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLaserHeadlights"
+              @click="toggleShowCheckbox(10, 'Laser headlights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLaserHeadlights" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.laser") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSportsSuspension"
+              @click="toggleShowCheckbox(11, 'Sports suspension')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSportsSuspension" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sport") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAirSuspension" @click="toggleShowCheckbox(11, 'Air suspension')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAirSuspension" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.air") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedESP" @click="toggleShowCheckbox(11, 'ESP')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedESP" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.esp") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLEDHeadlights" @click="toggleShowCheckbox(11, 'LED headlights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLEDHeadlights" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.ledhead") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedStartStopSystem"
+              @click="toggleShowCheckbox(11, 'Start-stop system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedStartStopSystem" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.start") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAlloyWheels" @click="toggleShowCheckbox(11, 'Alloy wheels')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAlloyWheels" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.alloy") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedFogLamp" @click="toggleShowCheckbox(11, 'Fog lamp')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedFogLamp" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.fog") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLEDRunningLights"
+              @click="toggleShowCheckbox(11, 'LED running lights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLEDRunningLights" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.led") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSteelWheels" @click="toggleShowCheckbox(11, 'Steel wheels')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSteelWheels" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.steel") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAllTyres" @click="toggleShowCheckbox(11, 'All season tyres')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAllTyres" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.season") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedFourWheelDrive"
+              @click="toggleShowCheckbox(11, 'Four wheel drive')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedFourWheelDrive" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.fourwheel") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLightSensor" @click="toggleShowCheckbox(11, 'Light sensor')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLightSensor" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.light") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSummerTyres" @click="toggleShowCheckbox(11, 'Summer tyres')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSummerTyres" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.summer") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedBixenonHeadlights"
+              @click="toggleShowCheckbox(11, 'Bi-xenon headlights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedBixenonHeadlights" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.bixenon") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedGlarefreeHigh"
+              @click="toggleShowCheckbox(11, 'Glare-free high beam headlights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedGlarefreeHigh" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.glare") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedNightVisionAssist"
+              @click="toggleShowCheckbox(11, 'Night vision assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedNightVisionAssist" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.night") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSunroof" @click="toggleShowCheckbox(11, 'Sunroof')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSunroof" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sunroof") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedBlindSpotAssist"
+              @click="toggleShowCheckbox(11, 'Blind spot assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedBlindSpotAssist" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.blind") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHeadlightWasherSystem"
+              @click="toggleShowCheckbox(11, 'Headlight washer system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHeadlightWasherSystem" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.headlight") }} </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedPanoramicRoof" @click="toggleShowCheckbox(11, 'Panoramic roof')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedPanoramicRoof" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.panoramic") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTractionСontrol"
+              @click="toggleShowCheckbox(11, 'Traction control')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTractionСontrol" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.traction") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedCentralLocking" @click="toggleShowCheckbox(11, 'Central locking')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedCentralLocking" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.centralocking") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHeatedWindshield"
+              @click="toggleShowCheckbox(11, 'Heated windshield')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHeatedWindshield" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.heatwind") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedPowerAssistedSteering"
+              @click="toggleShowCheckbox(11, 'Power Assisted Steering')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedPowerAssistedSteering" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.powerassistedsteering") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTrafficSign"
+              @click="toggleShowCheckbox(11, 'Traffic sign recognition')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTrafficSign" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.trafficsign") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedDayTimeRunning"
+              @click="toggleShowCheckbox(11, 'Daytime running lights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedDayTimeRunning" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.daytimerunning") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHighBeamAssist"
+              @click="toggleShowCheckbox(11, 'High beam assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHighBeamAssist" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.highbeamassist") }}
+          </label>
+
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedRainSensor" @click="toggleShowCheckbox(11, 'Rain sensor')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedRainSensor" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.rainsensor") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTyrePressure"
+              @click="toggleShowCheckbox(11, 'Tyre pressure monitoring')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTyrePressure" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.tyrepressure") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedDistanceWarning"
+              @click="toggleShowCheckbox(11, 'Distance warning system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedDistanceWarning" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.distancewarning") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHillStartAssist"
+              @click="toggleShowCheckbox(11, 'Hill-start assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHillStartAssist" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.hillstart") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedRoofRack" @click="toggleShowCheckbox(11, 'Roof rack')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedRoofRack" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.roofrack") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedWinterTyres" @click="toggleShowCheckbox(11, 'Winter tyres')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedWinterTyres" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.wintertyres") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedWinterTyres" @click="toggleShowCheckbox(11, 'Electric tailgate')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedWinterTyres" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.electrictailgate") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedImmobilizer" @click="toggleShowCheckbox(11, 'Immobilizer')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedImmobilizer" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.immobilizer") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSpareTyre" @click="toggleShowCheckbox(11, 'Spare tyre')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSpareTyre" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sparetyre") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedXenonHeadLights"
+              @click="toggleShowCheckbox(11, 'Xenon headlights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedXenonHeadLights" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.xenonheadlights") }}
+          </label>
+
+        </div>
+      </div>
       <div class="condition mt-[30px]">
         <h3>Airbags</h3>
         <div class="radios-type flex flex-wrap gap-[30px] mt-[10px] xl:mt-[20px]">
@@ -2374,1093 +1693,447 @@
         </div>
       </div>
       <div class="mt-[40px] ">
-    <h3 class="text-[16px]">{{ $t("message.filter_page.features.extras") }}</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
-      <!-- cabrio -->
-      <label
-        class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAlarmSystem"
-          @click="toggleShowCheckboxExtras(0, 'Alarm System')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAlarmSystem"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.alarm") }}
-      </label>
-      <label
-        class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHeated"
-          @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHeated"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.heat") }}
-      </label>
-      <label
-        class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSeat"
-          @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSeat"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.seat") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAmbient"
-          @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAmbient"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.abm") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedElectric"
-          @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedElectric"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.electric") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedInduction"
-          @click="
-            toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
-          "
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedInduction"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.smart") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSki"
-          @click="toggleShowCheckboxExtras(7, 'Ski bag')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSki"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.ski") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAndroidAuto"
-          @click="toggleShowCheckboxExtras(7, 'Android Auto')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAndroidAuto"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.android") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedElectricSeat"
-          @click="toggleShowCheckboxExtras(7, 'Electric seat adjustment')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedElectricSeat"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.electseat") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedIntegratedMusicStreaming"
-          @click="toggleShowCheckboxExtras(7, 'Integrated music streaming')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedIntegratedMusicStreaming"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.integrated") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSmokersPackage"
-          @click="toggleShowCheckboxExtras(7, 'Smokers package')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSmokersPackage"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.smoker") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAppleCarPlay"
-          @click="toggleShowCheckboxExtras(7, 'Apple CarPlay')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAppleCarPlay"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.apple") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedElectricSideMirror"
-          @click="toggleShowCheckboxExtras(7, 'Electric side mirror')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedElectricSideMirror"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sidemir") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedIsofix"
-          @click="toggleShowCheckboxExtras(7, 'Isofix')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedIsofix"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.isofix") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSoundSystem"
-          @click="toggleShowCheckboxExtras(7, 'Sound system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSoundSystem"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sound") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedArmRest"
-          @click="toggleShowCheckboxExtras(7, 'Arm rest')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedArmRest"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.armset") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedElectricWindows"
-          @click="toggleShowCheckboxExtras(7, 'Electric windows')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedElectricWindows"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.window") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLeatherSteeringWheel"
-          @click="toggleShowCheckboxExtras(7, 'Leather steering wheel')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLeatherSteeringWheel"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.leather") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedSportSeats"
-          @click="toggleShowCheckboxExtras(7, 'Sport seats')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedSportSeats"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.sport") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAutomInteriorMirror"
-          @click="toggleShowCheckboxExtras(7, 'Autom. dimming interior mirror')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAutomInteriorMirror"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.autom") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedEmergencyCallSystem"
-          @click="toggleShowCheckboxExtras(7, 'Emergency call system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedEmergencyCallSystem"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.call") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedLumbarSupport"
-          @click="toggleShowCheckboxExtras(7, 'Lumbar support')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedLumbarSupport"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.lumbar") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTouchscreen"
-          @click="toggleShowCheckboxExtras(7, 'Touchscreen')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTouchscreen"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.touch") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedAuxiliaryHeating"
-          @click="toggleShowCheckboxExtras(7, 'Auxiliary heating')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedAuxiliaryHeating"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.axu") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedFatigueWarning"
-          @click="toggleShowCheckboxExtras(7, 'Fatigue warning system')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedFatigueWarning"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.fatigue") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedMassageSeats"
-          @click="toggleShowCheckboxExtras(7, 'Massage seats')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedMassageSeats"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.massage") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTunerRadio"
-          @click="toggleShowCheckboxExtras(7, 'Tuner/radio')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTunerRadio"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.tuner") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedBluetooth"
-          @click="toggleShowCheckboxExtras(7, 'Bluetooth')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedBluetooth"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.blu") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedFoldFlatPassenger"
-          @click="toggleShowCheckboxExtras(7, 'Fold flat passenger seat')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedFoldFlatPassenger"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.fold") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedMultifunctionWheel"
-          @click="toggleShowCheckboxExtras(7, 'Multifunction steering wheel')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedMultifunctionWheel"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.multi") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedTV"
-          @click="toggleShowCheckboxExtras(7, 'TV')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedTV"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.tv") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedCargoBarrier"
-          @click="toggleShowCheckboxExtras(7, 'Cargo barrier')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedCargoBarrier"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.cargobarrier") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHandsFree"
-          @click="toggleShowCheckboxExtras(7, 'Hands-free kit')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHandsFree"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.handsfree") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedUSBport"
-          @click="toggleShowCheckboxExtras(7, 'USB port')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedUSBport"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.usbport") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedCdPlayer"
-          @click="toggleShowCheckboxExtras(7, 'CD player')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedCdPlayer"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.cdplayer") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHeadupDisplay"
-          @click="toggleShowCheckboxExtras(7, 'Head-up display')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHeadupDisplay"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.headupdisplay") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedOnBoardComputer"
-          @click="toggleShowCheckboxExtras(7, 'On-board computer')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedOnBoardComputer"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.onboardcomputer") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedVoiceControl"
-          @click="toggleShowCheckboxExtras(7, 'On-board computer')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedVoiceControl"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.voicecontrol") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedDABradio"
-          @click="toggleShowCheckboxExtras(7, 'DAB radio')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedDABradio"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.dabradio") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedHeatedRear"
-          @click="toggleShowCheckboxExtras(7, 'Heated rear seats')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedHeatedRear"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.heatedrearseats") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedPaddleShifters"
-          @click="toggleShowCheckboxExtras(7, 'Paddle shifters')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedPaddleShifters"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.paddleshifters") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedWinterPackage"
-          @click="toggleShowCheckboxExtras(7, 'Winter package')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedWinterPackage"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.winterpackage") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedDigitalCockpit"
-          @click="toggleShowCheckboxExtras(7, 'Digital cockpit')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedDigitalCockpit"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.digitalcockpit") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedPassengerSeat"
-          @click="toggleShowCheckboxExtras(7, 'Passenger seat Isofix point')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedPassengerSeat"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.passengerseat") }}
-      </label>
-      <label
-        class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-      >
-        <input
-          type="checkbox"
-          v-model="isCheckedWlan"
-          @click="toggleShowCheckboxExtras(7, 'WLAN / WiFi hotspot')"
-        />
-        <svg
-          class="icon"
-          xmlns="http://www.w3.org/2000/svg"
-          height="1em"
-          viewBox="0 0 448 512"
-          width="1em"
-        >
-          <!-- Insert your SVG arrow icon here -->
-          <path
-            v-if="isCheckedWlan"
-            fill="#ffffff"
-            d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-          />
-        </svg>
-        {{ $t("message.filter_page.features.wlan") }}
-      </label>
-    </div>
-  </div>
+        <h3 class="text-[16px]">{{ $t("message.filter_page.features.extras") }}</h3>
+        <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
+          <!-- cabrio -->
+          <label
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAlarmSystem" @click="toggleShowCheckboxExtras(0, 'Alarm System')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAlarmSystem" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.alarm") }}
+          </label>
+          <label
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHeated"
+              @click="toggleShowCheckboxExtras(2, 'Heated steering whee')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHeated" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.heat") }}
+          </label>
+          <label
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSeat" @click="toggleShowCheckboxExtras(3, 'Seat ventilation')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSeat" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.seat") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAmbient" @click="toggleShowCheckboxExtras(4, 'Ambient lighting')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAmbient" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.abm") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedElectric"
+              @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedElectric" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.electric") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedInduction" @click="
+              toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
+              " />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedInduction" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.smart") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSki" @click="toggleShowCheckboxExtras(7, 'Ski bag')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSki" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.ski") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAndroidAuto" @click="toggleShowCheckboxExtras(7, 'Android Auto')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAndroidAuto" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.android") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedElectricSeat"
+              @click="toggleShowCheckboxExtras(7, 'Electric seat adjustment')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedElectricSeat" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.electseat") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedIntegratedMusicStreaming"
+              @click="toggleShowCheckboxExtras(7, 'Integrated music streaming')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedIntegratedMusicStreaming" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.integrated") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSmokersPackage"
+              @click="toggleShowCheckboxExtras(7, 'Smokers package')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSmokersPackage" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.smoker") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAppleCarPlay"
+              @click="toggleShowCheckboxExtras(7, 'Apple CarPlay')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAppleCarPlay" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.apple") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedElectricSideMirror"
+              @click="toggleShowCheckboxExtras(7, 'Electric side mirror')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedElectricSideMirror" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sidemir") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedIsofix" @click="toggleShowCheckboxExtras(7, 'Isofix')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedIsofix" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.isofix") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSoundSystem" @click="toggleShowCheckboxExtras(7, 'Sound system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSoundSystem" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sound") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedArmRest" @click="toggleShowCheckboxExtras(7, 'Arm rest')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedArmRest" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.armset") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedElectricWindows"
+              @click="toggleShowCheckboxExtras(7, 'Electric windows')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedElectricWindows" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.window") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLeatherSteeringWheel"
+              @click="toggleShowCheckboxExtras(7, 'Leather steering wheel')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLeatherSteeringWheel" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.leather") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSportSeats" @click="toggleShowCheckboxExtras(7, 'Sport seats')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSportSeats" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.sport") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAutomInteriorMirror"
+              @click="toggleShowCheckboxExtras(7, 'Autom. dimming interior mirror')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAutomInteriorMirror" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.autom") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedEmergencyCallSystem"
+              @click="toggleShowCheckboxExtras(7, 'Emergency call system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedEmergencyCallSystem" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.call") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLumbarSupport"
+              @click="toggleShowCheckboxExtras(7, 'Lumbar support')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedLumbarSupport" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.lumbar") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTouchscreen" @click="toggleShowCheckboxExtras(7, 'Touchscreen')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTouchscreen" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.touch") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAuxiliaryHeating"
+              @click="toggleShowCheckboxExtras(7, 'Auxiliary heating')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAuxiliaryHeating" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.axu") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedFatigueWarning"
+              @click="toggleShowCheckboxExtras(7, 'Fatigue warning system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedFatigueWarning" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.fatigue") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedMassageSeats"
+              @click="toggleShowCheckboxExtras(7, 'Massage seats')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedMassageSeats" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.massage") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTunerRadio" @click="toggleShowCheckboxExtras(7, 'Tuner/radio')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTunerRadio" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.tuner") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedBluetooth" @click="toggleShowCheckboxExtras(7, 'Bluetooth')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedBluetooth" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.blu") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedFoldFlatPassenger"
+              @click="toggleShowCheckboxExtras(7, 'Fold flat passenger seat')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedFoldFlatPassenger" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.fold") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedMultifunctionWheel"
+              @click="toggleShowCheckboxExtras(7, 'Multifunction steering wheel')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedMultifunctionWheel" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.multi") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTV" @click="toggleShowCheckboxExtras(7, 'TV')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTV" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.tv") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedCargoBarrier"
+              @click="toggleShowCheckboxExtras(7, 'Cargo barrier')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedCargoBarrier" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.cargobarrier") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHandsFree" @click="toggleShowCheckboxExtras(7, 'Hands-free kit')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHandsFree" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.handsfree") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedUSBport" @click="toggleShowCheckboxExtras(7, 'USB port')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedUSBport" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.usbport") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedCdPlayer" @click="toggleShowCheckboxExtras(7, 'CD player')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedCdPlayer" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.cdplayer") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHeadupDisplay"
+              @click="toggleShowCheckboxExtras(7, 'Head-up display')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHeadupDisplay" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.headupdisplay") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedOnBoardComputer"
+              @click="toggleShowCheckboxExtras(7, 'On-board computer')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedOnBoardComputer" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.onboardcomputer") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedVoiceControl"
+              @click="toggleShowCheckboxExtras(7, 'On-board computer')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedVoiceControl" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.voicecontrol") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedDABradio" @click="toggleShowCheckboxExtras(7, 'DAB radio')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedDABradio" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.dabradio") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHeatedRear"
+              @click="toggleShowCheckboxExtras(7, 'Heated rear seats')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHeatedRear" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.heatedrearseats") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedPaddleShifters"
+              @click="toggleShowCheckboxExtras(7, 'Paddle shifters')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedPaddleShifters" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.paddleshifters") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedWinterPackage"
+              @click="toggleShowCheckboxExtras(7, 'Winter package')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedWinterPackage" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.winterpackage") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedDigitalCockpit"
+              @click="toggleShowCheckboxExtras(7, 'Digital cockpit')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedDigitalCockpit" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.digitalcockpit") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedPassengerSeat"
+              @click="toggleShowCheckboxExtras(7, 'Passenger seat Isofix point')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedPassengerSeat" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.passengerseat") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedWlan" @click="toggleShowCheckboxExtras(7, 'WLAN / WiFi hotspot')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedWlan" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.wlan") }}
+          </label>
+        </div>
+      </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[16px]">Vendor</h3>
         <div class="radios-type flex flex-wrap gap-x-[50px] lg:gap-[40px] mt-[20px]">
@@ -3510,7 +2183,8 @@
             </svg>
             Non-smoker vehicle
           </label>
-          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTaxi" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -3519,7 +2193,8 @@
             </svg>
             Taxi
           </label>
-          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedVAT" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -3528,7 +2203,8 @@
             </svg>
             VAT reclaimable
           </label>
-          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedWarranty" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
@@ -3537,7 +2213,8 @@
             </svg>
             Warranty
           </label>
-          <label class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+          <label
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedEnvironmental" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
