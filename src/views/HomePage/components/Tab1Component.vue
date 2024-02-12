@@ -26,7 +26,7 @@
           placeholder="Beliebig" v-model="selectedDriving">
           <option value="" selected>{{ $t("message.filter_page.any") }}</option>
           <option class="" value="Left side">{{ $t("message.side.left") }}</option>
-          <option value``="Right side">{{ $t("message.side.right") }}</option>
+          <option value="Right side">{{ $t("message.side.right") }}</option>
 
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-[10px] lg:right-[10px] bottom-4"></span>
