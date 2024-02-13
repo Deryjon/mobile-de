@@ -97,7 +97,6 @@
                     Email already taken
                   </span>
                 </div>
-
                 <div class="flex flex-col mt-[20px]">
                   <label for="password" class="text-[14px] font-medium">
                     {{ $t("message.register.password") }}
