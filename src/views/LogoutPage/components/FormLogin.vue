@@ -268,7 +268,7 @@ export default {
           if (response.data.status ===  401,402,404) {
            this.isPasswordWrong = !this.isPasswordWrong
           }
-          else if (response.status === 200) {
+          else if (response.data.status === 200) {
 
           console.log(responseData);
           localStorage.setItem("u-i", responseData.data.user_id);
@@ -316,7 +316,7 @@ export default {
           if (response.data.status ===  401,402,404) {
            this.isPasswordWrong = !this.isPasswordWrong
           }
-          else if (response.status === 200) {
+          else if (response.data.status === 200) {
           
             localStorage.setItem("u-i", responseData.data.user_id);
             localStorage.setItem("u-e", responseData.data.user_email);
