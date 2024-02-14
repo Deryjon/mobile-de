@@ -293,21 +293,30 @@
           </div>
           <ul v-if="priceOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
             <ul>
-              <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
-              <li data-value="100" @click="selectNumberPrice('100')">
-                100 € mtl
+              <li data-value="Free" @click="selectNumberPrice('Free')">Free</li>
+              <li data-value="500" @click="selectNumberPrice('500')">
+                500
               </li>
-              <li data-value="150" @click="selectNumberPrice('150')">
-                150 € mtl
+              <li data-value="750" @click="selectNumberPrice('750')">
+                750 
               </li>
-              <li data-value="200" @click="selectNumberPrice('200')">
-                200 € mtl
+              <li data-value="1000" @click="selectNumberPrice('1000')">
+                1000 
               </li>
-              <li data-value="250" @click="selectNumberPrice('250')">
-                250 € mtl
+              <li data-value="1500" @click="selectNumberPrice('1500')">
+                1500 
               </li>
-              <li data-value="300" @click="selectNumberPrice('300')">
-                300 € mtl
+              <li data-value="1750" @click="selectNumberPrice('1750')">
+                1750 
+              </li>
+              <li data-value="2000" @click="selectNumberPrice('2000')">
+                2000 
+              </li>
+              <li data-value="2500" @click="selectNumberPrice('2500')">
+                2500 
+              </li>
+              <li data-value="3000" @click="selectNumberPrice('3000')">
+                3000 
               </li>
             </ul>
           </ul>
@@ -3804,8 +3813,8 @@ export default {
   data() {
     return {
       interiorAdd: false,
-      fuelAdd: true ,
-      basicAdd: false,
+      fuelAdd: false ,
+      basicAdd: true,
       makes: [],
       models: [],
       selectedMark: "",
