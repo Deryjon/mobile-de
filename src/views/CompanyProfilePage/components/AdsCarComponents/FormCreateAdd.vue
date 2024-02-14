@@ -526,6 +526,10 @@
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="huValid">
             <option value="new">New</option>
+            <option value="60">60</option>
+            <option value="48">48</option>
+            <option value="46">46</option>
+            <option value="24">24</option>
             <option value="18">18</option>
             <option value="12">12</option>
             <option value="9">9</option>
@@ -938,7 +942,7 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
         <label class="custom-checkbox flex items-center h-10 w-[145px] mt-[25px]">
-          <input type="checkbox" v-model="isCheckedParticulate" @click="toggleShowCheckbox"
+          <input type="checkbox" v-model="isCheckedParticulate" @click="toggleShowCheckboxOthers"
             class="form-checkbox h-5 w-5 text-indigo-600" />
           <svg class="icon mt-[10px]" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
             <!-- Insert your SVG arrow icon here -->
@@ -1182,7 +1186,7 @@
         <input
           type="checkbox"
           v-model="isCheckedABS"
-          @click="toggleShowCheckbox(0, 'ABS')"
+          @click="toggleShowCheckboxOthers(0, 'ABS')"
         />
         <svg
           class="icon"
@@ -1206,7 +1210,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEmergency"
-          @click="toggleShowCheckbox(1, 'Emergency brake assist')"
+          @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')"
         />
         <svg
           class="icon"
@@ -1229,7 +1233,7 @@
         <input
           type="checkbox"
           v-model="isCheckedCentral"
-          @click="toggleShowCheckbox(2, 'Keyless central locking')"
+          @click="toggleShowCheckboxOthers(2, 'Keyless central locking')"
         />
         <svg
           class="icon"
@@ -1253,7 +1257,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSpeed"
-          @click="toggleShowCheckbox(3, '	Speed limit control system')"
+          @click="toggleShowCheckboxOthers(3, '	Speed limit control system')"
         />
         <svg
           class="icon"
@@ -1276,7 +1280,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAdaptive"
-          @click="toggleShowCheckbox(4, 'Adaptive cornering lights')"
+          @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')"
         />
         <svg
           class="icon"
@@ -1299,7 +1303,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTyre"
-          @click="toggleShowCheckbox(5, 'Emergency tyre')"
+          @click="toggleShowCheckboxOthers(5, 'Emergency tyre')"
         />
         <svg
           class="icon"
@@ -1323,7 +1327,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLastChanges"
-          @click="toggleShowCheckbox(6, 'Lane change assist')"
+          @click="toggleShowCheckboxOthers(6, 'Lane change assist')"
         />
         <svg
           class="icon"
@@ -1346,7 +1350,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSportsPackage"
-          @click="toggleShowCheckbox(7, 'Sports package')"
+          @click="toggleShowCheckboxOthers(7, 'Sports package')"
         />
         <svg
           class="icon"
@@ -1370,7 +1374,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAdaptiveLighting"
-          @click="toggleShowCheckbox(8, 'Adaptive lighting')"
+          @click="toggleShowCheckboxOthers(8, 'Adaptive lighting')"
         />
         <svg
           class="icon"
@@ -1394,7 +1398,7 @@
         <input
           type="checkbox"
           v-model="isCheckedEmergencyKit"
-          @click="toggleShowCheckbox(9, 'Emergency tyre repair kit')"
+          @click="toggleShowCheckboxOthers(9, 'Emergency tyre repair kit')"
         />
         <svg
           class="icon"
@@ -1417,7 +1421,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLaserHeadlights"
-          @click="toggleShowCheckbox(10, 'Laser headlights')"
+          @click="toggleShowCheckboxOthers(10, 'Laser headlights')"
         />
         <svg
           class="icon"
@@ -1440,7 +1444,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSportsSuspension"
-          @click="toggleShowCheckbox(11, 'Sports suspension')"
+          @click="toggleShowCheckboxOthers(11, 'Sports suspension')"
         />
         <svg
           class="icon"
@@ -1463,7 +1467,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAirSuspension"
-          @click="toggleShowCheckbox(11, 'Air suspension')"
+          @click="toggleShowCheckboxOthers(11, 'Air suspension')"
         />
         <svg
           class="icon"
@@ -1486,7 +1490,7 @@
         <input
           type="checkbox"
           v-model="isCheckedESP"
-          @click="toggleShowCheckbox(11, 'ESP')"
+          @click="toggleShowCheckboxOthers(11, 'ESP')"
         />
         <svg
           class="icon"
@@ -1510,7 +1514,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLEDHeadlights"
-          @click="toggleShowCheckbox(11, 'LED headlights')"
+          @click="toggleShowCheckboxOthers(11, 'LED headlights')"
         />
         <svg
           class="icon"
@@ -1533,7 +1537,7 @@
         <input
           type="checkbox"
           v-model="isCheckedStartStopSystem"
-          @click="toggleShowCheckbox(11, 'Start-stop system')"
+          @click="toggleShowCheckboxOthers(11, 'Start-stop system')"
         />
         <svg
           class="icon"
@@ -1556,7 +1560,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAlloyWheels"
-          @click="toggleShowCheckbox(11, 'Alloy wheels')"
+          @click="toggleShowCheckboxOthers(11, 'Alloy wheels')"
         />
         <svg
           class="icon"
@@ -1580,7 +1584,7 @@
         <input
           type="checkbox"
           v-model="isCheckedFogLamp"
-          @click="toggleShowCheckbox(11, 'Fog lamp')"
+          @click="toggleShowCheckboxOthers(11, 'Fog lamp')"
         />
         <svg
           class="icon"
@@ -1603,7 +1607,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLEDRunningLights"
-          @click="toggleShowCheckbox(11, 'LED running lights')"
+          @click="toggleShowCheckboxOthers(11, 'LED running lights')"
         />
         <svg
           class="icon"
@@ -1626,7 +1630,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSteelWheels"
-          @click="toggleShowCheckbox(11, 'Steel wheels')"
+          @click="toggleShowCheckboxOthers(11, 'Steel wheels')"
         />
         <svg
           class="icon"
@@ -1649,7 +1653,7 @@
         <input
           type="checkbox"
           v-model="isCheckedAllTyres"
-          @click="toggleShowCheckbox(11, 'All season tyres')"
+          @click="toggleShowCheckboxOthers(11, 'All season tyres')"
         />
         <svg
           class="icon"
@@ -1672,7 +1676,7 @@
         <input
           type="checkbox"
           v-model="isCheckedFourWheelDrive"
-          @click="toggleShowCheckbox(11, 'Four wheel drive')"
+          @click="toggleShowCheckboxOthers(11, 'Four wheel drive')"
         />
         <svg
           class="icon"
@@ -1695,7 +1699,7 @@
         <input
           type="checkbox"
           v-model="isCheckedLightSensor"
-          @click="toggleShowCheckbox(11, 'Light sensor')"
+          @click="toggleShowCheckboxOthers(11, 'Light sensor')"
         />
         <svg
           class="icon"
@@ -1718,7 +1722,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSummerTyres"
-          @click="toggleShowCheckbox(11, 'Summer tyres')"
+          @click="toggleShowCheckboxOthers(11, 'Summer tyres')"
         />
         <svg
           class="icon"
@@ -1741,7 +1745,7 @@
         <input
           type="checkbox"
           v-model="isCheckedBixenonHeadlights"
-          @click="toggleShowCheckbox(11, 'Bi-xenon headlights')"
+          @click="toggleShowCheckboxOthers(11, 'Bi-xenon headlights')"
         />
         <svg
           class="icon"
@@ -1764,7 +1768,7 @@
         <input
           type="checkbox"
           v-model="isCheckedGlarefreeHigh"
-          @click="toggleShowCheckbox(11, 'Glare-free high beam headlights')"
+          @click="toggleShowCheckboxOthers(11, 'Glare-free high beam headlights')"
         />
         <svg
           class="icon"
@@ -1787,7 +1791,7 @@
         <input
           type="checkbox"
           v-model="isCheckedNightVisionAssist"
-          @click="toggleShowCheckbox(11, 'Night vision assist')"
+          @click="toggleShowCheckboxOthers(11, 'Night vision assist')"
         />
         <svg
           class="icon"
@@ -1810,7 +1814,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSunroof"
-          @click="toggleShowCheckbox(11, 'Sunroof')"
+          @click="toggleShowCheckboxOthers(11, 'Sunroof')"
         />
         <svg
           class="icon"
@@ -1834,7 +1838,7 @@
         <input
           type="checkbox"
           v-model="isCheckedBlindSpotAssist"
-          @click="toggleShowCheckbox(11, 'Blind spot assist')"
+          @click="toggleShowCheckboxOthers(11, 'Blind spot assist')"
         />
         <svg
           class="icon"
@@ -1857,7 +1861,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHeadlightWasherSystem"
-          @click="toggleShowCheckbox(11, 'Headlight washer system')"
+          @click="toggleShowCheckboxOthers(11, 'Headlight washer system')"
         />
         <svg
           class="icon"
@@ -1880,7 +1884,7 @@
         <input
           type="checkbox"
           v-model="isCheckedPanoramicRoof"
-          @click="toggleShowCheckbox(11, 'Panoramic roof')"
+          @click="toggleShowCheckboxOthers(11, 'Panoramic roof')"
         />
         <svg
           class="icon"
@@ -1904,7 +1908,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTractionСontrol"
-          @click="toggleShowCheckbox(11, 'Traction control')"
+          @click="toggleShowCheckboxOthers(11, 'Traction control')"
         />
         <svg
           class="icon"
@@ -1928,7 +1932,7 @@
         <input
           type="checkbox"
           v-model="isCheckedCentralLocking"
-          @click="toggleShowCheckbox(11, 'Central locking')"
+          @click="toggleShowCheckboxOthers(11, 'Central locking')"
         />
         <svg
           class="icon"
@@ -1952,7 +1956,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHeatedWindshield"
-          @click="toggleShowCheckbox(11, 'Heated windshield')"
+          @click="toggleShowCheckboxOthers(11, 'Heated windshield')"
         />
         <svg
           class="icon"
@@ -1976,7 +1980,7 @@
         <input
           type="checkbox"
           v-model="isCheckedPowerAssistedSteering"
-          @click="toggleShowCheckbox(11, 'Power Assisted Steering')"
+          @click="toggleShowCheckboxOthers(11, 'Power Assisted Steering')"
         />
         <svg
           class="icon"
@@ -2000,7 +2004,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTrafficSign"
-          @click="toggleShowCheckbox(11, 'Traffic sign recognition')"
+          @click="toggleShowCheckboxOthers(11, 'Traffic sign recognition')"
         />
         <svg
           class="icon"
@@ -2024,7 +2028,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDayTimeRunning"
-          @click="toggleShowCheckbox(11, 'Daytime running lights')"
+          @click="toggleShowCheckboxOthers(11, 'Daytime running lights')"
         />
         <svg
           class="icon"
@@ -2048,7 +2052,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHighBeamAssist"
-          @click="toggleShowCheckbox(11, 'High beam assist')"
+          @click="toggleShowCheckboxOthers(11, 'High beam assist')"
         />
         <svg
           class="icon"
@@ -2073,7 +2077,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRainSensor"
-          @click="toggleShowCheckbox(11, 'Rain sensor')"
+          @click="toggleShowCheckboxOthers(11, 'Rain sensor')"
         />
         <svg
           class="icon"
@@ -2097,7 +2101,7 @@
         <input
           type="checkbox"
           v-model="isCheckedTyrePressure"
-          @click="toggleShowCheckbox(11, 'Tyre pressure monitoring')"
+          @click="toggleShowCheckboxOthers(11, 'Tyre pressure monitoring')"
         />
         <svg
           class="icon"
@@ -2121,7 +2125,7 @@
         <input
           type="checkbox"
           v-model="isCheckedDistanceWarning"
-          @click="toggleShowCheckbox(11, 'Distance warning system')"
+          @click="toggleShowCheckboxOthers(11, 'Distance warning system')"
         />
         <svg
           class="icon"
@@ -2145,7 +2149,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHillStartAssist"
-          @click="toggleShowCheckbox(11, 'Hill-start assist')"
+          @click="toggleShowCheckboxOthers(11, 'Hill-start assist')"
         />
         <svg
           class="icon"
@@ -2169,7 +2173,7 @@
         <input
           type="checkbox"
           v-model="isCheckedRoofRack"
-          @click="toggleShowCheckbox(11, 'Roof rack')"
+          @click="toggleShowCheckboxOthers(11, 'Roof rack')"
         />
         <svg
           class="icon"
@@ -2193,7 +2197,7 @@
         <input
           type="checkbox"
           v-model="isCheckedWinterTyres"
-          @click="toggleShowCheckbox(11, 'Winter tyres')"
+          @click="toggleShowCheckboxOthers(11, 'Winter tyres')"
         />
         <svg
           class="icon"
@@ -2217,7 +2221,7 @@
         <input
           type="checkbox"
           v-model="isCheckedWinterTyres"
-          @click="toggleShowCheckbox(11, 'Electric tailgate')"
+          @click="toggleShowCheckboxOthers(11, 'Electric tailgate')"
         />
         <svg
           class="icon"
@@ -2241,7 +2245,7 @@
         <input
           type="checkbox"
           v-model="isCheckedImmobilizer"
-          @click="toggleShowCheckbox(11, 'Immobilizer')"
+          @click="toggleShowCheckboxOthers(11, 'Immobilizer')"
         />
         <svg
           class="icon"
@@ -2265,7 +2269,7 @@
         <input
           type="checkbox"
           v-model="isCheckedSpareTyre"
-          @click="toggleShowCheckbox(11, 'Spare tyre')"
+          @click="toggleShowCheckboxOthers(11, 'Spare tyre')"
         />
         <svg
           class="icon"
@@ -2289,7 +2293,7 @@
         <input
           type="checkbox"
           v-model="isCheckedXenonHeadLights"
-          @click="toggleShowCheckbox(11, 'Xenon headlights')"
+          @click="toggleShowCheckboxOthers(11, 'Xenon headlights')"
         />
         <svg
           class="icon"
@@ -3800,8 +3804,8 @@ export default {
   data() {
     return {
       interiorAdd: false,
-      fuelAdd: false ,
-      basicAdd: true,
+      fuelAdd: true ,
+      basicAdd: false,
       makes: [],
       models: [],
       selectedMark: "",
@@ -4309,25 +4313,14 @@ export default {
         }
       }
     },
-    toggleShowCheckbox(index, typeName) {
-      const isChecked = !this.type.includes(typeName);
-      if (isChecked) {
-        this.type.push(typeName);
-      } else {
-        const typeIndex = this.type.indexOf(typeName);
-        if (typeIndex !== -1) {
-          this.type.splice(typeIndex, 1);
-        }
-      }
-    },
     toggleShowCheckboxOthers(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
       if (isChecked) {
-        this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
+        this.selectedOthers.push(otherName); 
       } else {
         const carIndex = this.selectedOthers.indexOf(otherName);
         if (carIndex !== -1) {
-          this.selectedOthers.splice(carIndex, 1); // Удаляем otherName из массива
+          this.selectedOthers.splice(carIndex, 1); 
         }
       }
     },
