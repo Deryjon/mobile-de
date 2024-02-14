@@ -2543,7 +2543,7 @@
         <input
           type="checkbox"
           v-model="isCheckedHeated"
-          @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
+          @click="toggleShowCheckboxExtras(2, 'Heated steering wheel')"
         />
         <svg
           class="icon"

@@ -1265,7 +1265,7 @@
             {{ $t("message.filter_page.features.laser") }} </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSportsSuspension"
-              @click="toggleShowCheckbox(11, 'Sports suspension')" />
+              @click="toggleShowCheckbox(11, 'Sports seats')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSportsSuspension" fill="#ffffff"
@@ -2056,7 +2056,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedVoiceControl"
-              @click="toggleShowCheckboxExtras(7, 'On-board computer')" />
+              @click="toggleShowCheckboxExtras(7, 'Voice Control')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedVoiceControl" fill="#ffffff"
@@ -2422,14 +2422,6 @@ export default {
       isCheckedOther: false,
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
-      isCheckedAlarmSystem: false,
-      isCheckedDisable: false,
-      isCheckedHeated: false,
-      isCheckedSeat: false,
-      isCheckedAmbient: false,
-      isCheckedTyre: false,
-      isCheckedInduction: false,
-      isCheckedSki: false,
       isLoading: true,
       extras: [],
       others: [],
@@ -2448,6 +2440,16 @@ export default {
       options: [],
       dataAd: [],
       selectedPower: "",
+
+
+      isCheckedAlarmSystem: false,
+      isCheckedDisable: false,
+      isCheckedHeated: false,
+      isCheckedSeat: false,
+      isCheckedAmbient: false,
+      isCheckedTyre: false,
+      isCheckedInduction: false,
+      isCheckedSki: false,
       isCheckedAndroidAuto: false,
       isCheckedElectricSeat: false,
       isCheckedIntegratedMusicStreaming: false,
@@ -2472,7 +2474,6 @@ export default {
       isCheckedFoldFlatPassenger: false,
       isCheckedMultifunctionWheel: false,
       isCheckedTV: false,
-      // 
       isCheckedCargoBarrier: false,
       isCheckedHandsFree: false,
       isCheckedUSBport: false,
@@ -2511,7 +2512,6 @@ export default {
       isCheckedHeadlightWasherSystem: false,
       isCheckedPanoramicRoof: false,
       isCheckedTractionСontrol: false,
-      // 
       isCheckedCentralLocking: false,
       isCheckedHeatedWindshield: false,
       isCheckedPowerAssistedSteering: false,
@@ -2527,6 +2527,7 @@ export default {
       isCheckedImmobilizer: false,
       isCheckedSpareTyre: false,
       isCheckedXenonHeadLights: false,
+
     };
   },
   methods: {
@@ -2567,6 +2568,151 @@ export default {
         this.selectedParking = this.dataAd.car_parking_sensors
         this.selectedCruise = this.dataAd.car_cruise_control
         this.selectedOthers = this.dataAd.others
+        this.selectedOthers.forEach((other) => {
+          if (other === "ABS") {
+            this.isCheckedABS = true;
+          } else if (other === "Emergency brake assist") {
+            this.isCheckedEmergency = true;
+          } 
+          else if (other === "Keyless central locking") {
+            this.isCheckedCentral = true;
+          }
+          else if (other === "Speed limit control system") {
+            this.isCheckedSpeed = true;
+          }
+          else if (other === "Adaptive cornering lights") {
+            this.isCheckedAdaptive = true;
+          }
+          else if (other === "Emergency tyre") {
+            this.isCheckedTyre = true;
+          }
+          else if (other === "Lane change assist") {
+            this.isCheckedLastChanges = true;
+          }
+          else if (other === "Sports package") {
+            this.isCheckedSportsPackage = true;
+          }
+          else if (other === "Adaptive lighting") {
+            this.isCheckedAdaptiveLighting = true;
+          }
+          else if (other === "Emergency tyre repair kit") {
+            this.isCheckedEmergencyKit = true;
+          }
+          else if (other === "Laser headlights") {
+            this.isCheckedLaserHeadlights = true;
+          }
+          else if (other === "Sports seats") {
+            this.isCheckedSportsSuspension = true;
+          }
+          else if (other === "Air suspension") {
+            this.isCheckedAirSuspension = true;
+          }
+          else if (other === "ESP") {
+            this.isCheckedESP = true;
+          }
+          else if (other === "LED headlights") {
+            this.isCheckedLEDHeadlights = true;
+          }
+          else if (other === "Start-stop system") {
+            this.isCheckedStartStopSystem = true;
+          }
+          else if (other === "Alloy wheels") {
+            this.isCheckedAlloyWheels = true;
+          }
+          else if (other === "Fog lamp") {
+            this.isCheckedFogLamp = true;
+          }
+          else if (other === "LED running lights") {
+            this.isCheckedLEDRunningLights = true;
+          }
+          else if (other === "Steel wheels") {
+            this.isCheckedSteelWheels = true;
+          }
+          else if (other === "All season tyres") {
+            this.isCheckedAllTyres = true;
+          }
+          else if (other === "Four wheel drive") {
+            this.isCheckedFourWheelDrive = true;
+          }
+          else if (other === "Light sensor") {
+            this.isCheckedLightSensor = true;
+          }
+          else if (other === "Summer tyres") {
+            this.isCheckedSummerTyres = true;
+          }
+          else if (other === "Bi-xenon headlights") {
+            this.isCheckedBixenonHeadlights = true;
+          }
+          else if (other === "Glare-free high beam headlights") {
+            this.isCheckedGlarefreeHigh = true;
+          }
+          else if (other === "Night vision assist") {
+            this.isCheckedNightVisionAssist = true;
+          }
+          else if (other === "Sunroof") {
+            this.isCheckedSunroof = true;
+          }
+          else if (other === "Blind spot assist") {
+            this.isCheckedBlindSpotAssist = true;
+          }
+          else if (other === "Headlight washer system") {
+            this.isCheckedHeadlightWasherSystem = true;
+          }
+          else if (other === "Panoramic roof") {
+            this.isCheckedPanoramicRoof = true;
+          }
+          else if (other === "Traction control") {
+            this.isCheckedTractionСontrol = true;
+          }
+          else if (other === "Central locking") {
+            this.isCheckedCentralLocking = true;
+          }
+          else if (other === "Heated windshield") {
+            this.isCheckedHeatedWindshield = true;
+          }
+          else if (other === "Power Assisted Steering") {
+            this.isCheckedPowerAssistedSteering = true;
+          }
+          else if (other === "Traffic sign recognition") {
+            this.isCheckedTrafficSign = true;
+          }
+          else if (other === "Daytime running lights") {
+            this.isCheckedDayTimeRunning = true;
+          }
+          else if (other === "High beam assist") {
+            this.isCheckedHighBeamAssist = true;
+          }
+          else if (other === "Rain sensor") {
+            this.isCheckedRainSensor = true;
+          }
+          else if (other === "Tyre pressure monitoring") {
+            this.isCheckedTyrePressure = true;
+          }
+          else if (other === "Distance warning system") {
+            this.isCheckedDistanceWarning = true;
+          }
+          else if (other === "Hill-start assist") {
+            this.isCheckedHillStartAssist = true;
+          }
+          else if (other === "Roof rack") {
+            this.isCheckedRoofRack = true;
+          }
+          else if (other === "Winter tyres") {
+            this.isCheckedWinterTyres = true;
+          }
+          else if (other === "Electric tailgate") {
+            this.isCheckedWinterTyres = true;
+          }
+          else if (other === "Immobilizer") {
+            this.isCheckedImmobilizer = true;
+          }
+          else if (other === "Spare tyre") {
+            this.isCheckedSpareTyre = true;
+          }
+          else if (other === "Xenon headlights") {
+            this.isCheckedXenonHeadLights = true;
+          }
+        });
         this.selectedInteriorColour = this.dataAd.car_interior_colour
         this.selectedMaterial = this.dataAd.car_interior_material
         this.selectedAirbag = this.dataAd.car_airbags
@@ -2583,6 +2729,142 @@ export default {
         this.approveUsed = this.dataAd.car_programme
         this.descriptionText = this.dataAd.car_description
         this.isLoading = false
+        this.extras.forEach((extra) => {
+          if (extra === "Alarm System") {
+            this.isCheckedAlarmSystem = true;
+          } else if (extra === "Heated steering wheel") {
+            this.isCheckedHeated = true;
+          } 
+          else if (extra === "Seat ventilation") {
+            this.isCheckedSeat = true;
+          }
+          else if (extra === "Ambient lighting") {
+            this.isCheckedAmbient = true;
+          }
+          else if (extra === "Electric backseat adjustment") {
+            this.isCheckedElectric = true;
+          }
+          else if (extra === "Induction charging for smartphones") {
+            this.isCheckedInduction = true;
+          }
+          else if (extra === "Ski bag") {
+            this.isCheckedSki = true;
+          }
+          else if (extra === "Android Auto") {
+            this.isCheckedAndroidAuto = true;
+          }
+          else if (extra === "Electric seat adjustmen") {
+            this.isCheckedElectricSeat = true;
+          }
+          else if (extra === "Integrated music streaming") {
+            this.isCheckedIntegratedMusicStreaming = true;
+          }
+          else if (extra === "Smokers package") {
+            this.isCheckedSmokersPackage = true;
+          }
+          else if (extra === "Apple CarPlay") {
+            this.isCheckedAppleCarPlay = true;
+          }
+          else if (extra === "Electric side mirror") {
+            this.isCheckedElectricSideMirror = true;
+          }
+          else if (extra === "Isofix") {
+            this.isCheckedIsofix = true;
+          }
+          else if (extra === "Sound system") {
+            this.isCheckedSoundSystem = true;
+          }
+          else if (extra === "Arm rest") {
+            this.isCheckedArmRest = true;
+          }
+          else if (extra === "Electric windows") {
+            this.isCheckedElectricWindows = true;
+          }
+          else if (extra === "Leather steering wheel") {
+            this.isCheckedLeatherSteeringWheel = true;
+          }
+          else if (extra === "Sport seats") {
+            this.isCheckedSportSeats = true;
+          }
+          else if (extra === "Autom. dimming interior mirror") {
+            this.isCheckedAutomInteriorMirror = true;
+          }
+          else if (extra === "Emergency call system") {
+            this.isCheckedEmergencyCallSystem = true;
+          }
+          else if (extra === "Lumbar support") {
+            this.isCheckedLumbarSupport = true;
+          }
+          else if (extra === "Touchscreen") {
+            this.isCheckedTouchscreen = true;
+          }
+          else if (extra === "Auxiliary heating") {
+            this.isCheckedAuxiliaryHeating = true;
+          }
+          else if (extra === "Fatigue warning system") {
+            this.isCheckedFatigueWarning = true;
+          }
+          else if (extra === "Massage seats") {
+            this.isCheckedMassageSeats = true;
+          }
+          else if (extra === "Tuner/radio") {
+            this.isCheckedTunerRadio = true;
+          }
+          else if (extra === "Bluetooth") {
+            this.isCheckedBluetooth = true;
+          }
+          else if (extra === "Fold flat passenger seat") {
+            this.isCheckedFoldFlatPassenger = true;
+          }
+          else if (extra === "Multifunction steering wheel") {
+            this.isCheckedMultifunctionWheel = true;
+          }
+          else if (extra === "TV") {
+            this.isCheckedTV = true;
+          }
+          else if (extra === "Cargo barrier") {
+            this.isCheckedCargoBarrier = true;
+          }
+          else if (extra === "Hands-free kit") {
+            this.isCheckedHandsFree = true;
+          }
+          else if (extra === "USB port") {
+            this.isCheckedUSBport = true;
+          }
+          else if (extra === "CD player") {
+            this.isCheckedCdPlayer = true;
+          }
+          else if (extra === "Head-up display") {
+            this.isCheckedHeadupDisplay = true;
+          }
+          else if (extra === "On-board computer") {
+            this.isCheckedOnBoardComputer = true;
+          }
+          else if (extra === "Voice Control") {
+            this.isCheckedVoiceControl = true;
+          }
+          else if (extra === "DAB radio") {
+            this.isCheckedDABradio = true;
+          }
+          else if (extra === "Heated rear seats") {
+            this.isCheckedHeatedRear = true;
+          }
+          else if (extra === "Paddle shifters") {
+            this.isCheckedPaddleShifters = true;
+          }
+          else if (extra === "Winter package") {
+            this.isCheckedWinterPackage = true;
+          }
+          else if (extra === "Digital cockpit") {
+            this.isCheckedDigitalCockpit = true;
+          }
+          else if (extra === "Passenger seat Isofix point") {
+            this.isCheckedPassengerSeat = true;
+          }
+          else if (extra === "WLAN / WiFi hotspot") {
+            this.isCheckedWlan = true;
+          }
+        });
       })
     },
     closeDropdownOnClickOutside(event) {
@@ -3057,6 +3339,8 @@ export default {
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
     this.userPre = localStorage.getItem("u-pre");
+
+
 
     http
       .get("/car/marks")
