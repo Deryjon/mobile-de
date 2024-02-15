@@ -116,13 +116,13 @@
         </label>
         <!-- sports -->
         <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-8 w-[280px]">
-          <input type="radio" v-model="selectedCar" @click="selectCar(' Sports Car / Coupe')" :class="{
-            'bg-transparent': selectedCar !== ' Sports Car / Coupe',
-            'bg-orange': selectedCar === ' Sports Car / Coupe',
+          <input type="radio" v-model="selectedCar" @click="selectCar('Sports Car / Coupe')" :class="{
+            'bg-transparent': selectedCar !== 'Sports Car / Coupe',
+            'bg-orange': selectedCar === 'Sports Car / Coupe',
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-24   lg:w-28 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm"> Sports Car / Coupe</span>
+          <span class="text-[12px] lg:text-sm">Sports Car / Coupe</span>
         </label>
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
