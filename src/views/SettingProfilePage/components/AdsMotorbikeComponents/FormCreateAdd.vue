@@ -71,7 +71,7 @@
         </div>
       </div>
 			<div class="mt-[30px] ">
-    <h3 class="text-[16px]">Vehicle type</h3>
+    <h3 class="text-[16px]">{{ $t("message.filter_page.vehtyp") }}</h3>
     <div class="filter-cars flex flex-wrap gap-x-[10px] lg:gap-x-[25px] mt-[20px] ">
       <!-- cabrio -->
       <label

@@ -1,6 +1,6 @@
 <template>
   <v-container class="max-w-[1140px]">
-    <PathLink>Edit Forklift Ad</PathLink>
+    <PathLink>{{ $t("message.filter_page.editforklift") }}</PathLink>
     <div class="sections mt-[20px]">
       <EditSection />
     </div>

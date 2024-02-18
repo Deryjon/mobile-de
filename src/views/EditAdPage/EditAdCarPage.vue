@@ -1,6 +1,7 @@
 <template>
   <v-container class="max-w-[1140px]">
-    <PathLink>Edit Ad</PathLink>
+    <PathLink> {{ $t("message.filter_page.editad") }}
+    </PathLink>
     <div class="sections mt-[20px]">
       <EditSection />
     </div>
@@ -19,14 +20,14 @@ export default {
   created() {
     // После успешной аутентификации
 
-  
 
-// Проверка, что значение существует и строго равно "false"
-const isLoggedIn = localStorage.getItem("logged-in");
-if (isLoggedIn === "false") {
-  // Перенаправление на страницу "home"
-  this.$router.push({ name: "home" });
-}
+
+    // Проверка, что значение существует и строго равно "false"
+    const isLoggedIn = localStorage.getItem("logged-in");
+    if (isLoggedIn === "false") {
+      // Перенаправление на страницу "home"
+      this.$router.push({ name: "home" });
+    }
 
   }
 };
