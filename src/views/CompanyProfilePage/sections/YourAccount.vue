@@ -20,7 +20,8 @@
         </div>
         <div class="changes">
           <p class="email text-[12px]  ">{{ companyEmail.slice(0, 5) + "..." }}</p>
-          <p class="email text-[14px]   underline cursor-pointer">Edit</p>
+          <p class="email text-[14px]   underline cursor-pointer">            {{ $t("message.filter_page.editsettings") }}
+</p>
         </div>
       </div>
       <div class="line mt-[20px] w-full"></div>

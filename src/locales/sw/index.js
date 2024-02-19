@@ -190,7 +190,7 @@ export default {
       motorHomes: "Husbilar",
       trucks: "Lastbilar",
       trailers: "Trailers",
-      vans: "Vans",
+      vans: "Skåpbilar",
       semiTrucks: "Lastbilar med semitrailer",
       semiTrailers: "Semitrailers",
       coaches: "Tränare",

@@ -191,7 +191,7 @@ export default {
       motorHomes: "Дома на колесах",
       trucks: "Грузовые автомобили",
       trailers: "Прицепы",
-      vans: "Vans",
+      vans: "Маршрутка",
       semiTrucks: "Полуприцепы",
       semiTrailers: "Прицепы-полуприцепы",
       coaches: "Тренеры",

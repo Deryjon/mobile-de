@@ -190,7 +190,7 @@ export default {
       motorHomes: "Wohnmobile",
       trucks: "Lastkraftwagen",
       trailers: "Anhänger",
-      vans: "Vans",
+      vans: "Transporter",
       semiTrucks: "Sattelschlepper",
       semiTrailers: "Sattelauflieger",
       coaches: "Coaches",

@@ -1139,7 +1139,7 @@
             class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
             <input @click="selectParking('Camera')" type="radio" v-model="selectedParking" :class="{
               'bg-transparent': selectedParking !== 'Camera',
-              'bg-orange': selectedParkZ.l0,king === 'Camera',
+              'bg-orange': selectedParking === 'Camera',
             }" />
 
             {{ $t("message.filter_page.parking_sensors.camera") }}

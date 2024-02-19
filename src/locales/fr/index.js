@@ -194,7 +194,7 @@ export default {
       motorHomes: "Camping-cars",
       trucks: "Camions",
       trailers: "Bandes-annonces",
-      vans: "Vans",
+      vans: "Fourgonnettes",
       semiTrucks: "Camions semi-remorques",
       semiTrailers: "Semi-remorques",
       coaches: "Entraîneurs",

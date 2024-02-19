@@ -190,7 +190,7 @@ export default {
       motorHomes: "Samochody kempingowe",
       trucks: "Ciężarówki",
       trailers: "Zwiastuny",
-      vans: "Vans",
+      vans: "Samochody dostawcze",
       semiTrucks: "Ciężarówki z naczepą",
       semiTrailers: "Naczepy",
       coaches: "Trenerzy",

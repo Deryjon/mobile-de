@@ -510,7 +510,7 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px]">
-          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}/h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision">
