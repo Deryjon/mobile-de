@@ -130,12 +130,12 @@ export default defineComponent({
     logOut() {
       this.activeTab4Store.toggleMenu()
       localStorage.removeItem("r-tok");
+      localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
       localStorage.removeItem("logged-in");
       localStorage.setItem("logged-in", "false");
-      localStorage.clear()
       this.$router.push({ name: "home" });
-      window.location.reload()
+      window.location.reload();
     },
     openProfileDropdown() {
       this.isProfileSetting = !this.isProfileSetting;

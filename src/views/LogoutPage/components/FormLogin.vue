@@ -265,10 +265,8 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
-          if (response.data.status === 401, 402, 404) {
-            this.isPasswordWrong = !this.isPasswordWrong
-          }
-          else if (response.data.status === 200) {
+        
+           if (response.data.status === 200) {
 
             localStorage.setItem("u-i", responseData.data.user_id);
             localStorage.setItem("u-e", responseData.data.user_email);
@@ -297,6 +295,9 @@ export default {
               localStorage.setItem("logged-in", "true");
               this.$router.push({ name: "home" });
             }
+          }
+          else if (response.data.status === 401, 402, 404) {
+            this.isPasswordWrong = !this.isPasswordWrong
           }
         })
         .catch((error) => {

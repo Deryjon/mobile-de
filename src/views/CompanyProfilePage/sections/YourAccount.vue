@@ -225,7 +225,6 @@
 <script>
 import { useTabsStore } from "../../../store/storeAd";
 import SettingsTab from "../components/SettingsComponentTab.vue";
-import OverviewTab from "../components/OverviewComponentTab.vue";
 import MyAdCarsTab from "../components/AdsCarComponents/MyAdCarsTab.vue";
 import MyAdMotorCycleTab from "../components/AdsMotorbikeComponents/MyAdMotorbikeTab.vue";
 import MyAdVansTab from "../components/AdsVansComponents/MyAdVansTab.vue";
@@ -307,7 +306,6 @@ export default {
   },
   components: {
     SettingsTab,
-    OverviewTab,
     MyAdCarsTab,
     MyAdMotorCycleTab,
     MyAdVansTab,
