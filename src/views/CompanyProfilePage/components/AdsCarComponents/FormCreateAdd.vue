@@ -2747,7 +2747,7 @@ export default {
     //     })
     // }
     addAdBasicCars() {
-      if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition  || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
+      if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
         this.toast.error("Please fill in all required fields");
 
         const countValue = localStorage.getItem('count');
@@ -2803,7 +2803,7 @@ export default {
     ,
 
     thenPowerAdd() {
-      if (!this.selectedFuel || !this.power || !this.cubic || !this.selectedTransmision || !this.consumptionFuel || !this.stickerEmission || !this.classEmision || !this.selectedExteriorColour || !this.selectedTrailer || !this.selectedParking || !this.selectedCruise || !this.selectedOthers ) {
+      if (!this.selectedFuel || !this.power || !this.cubic || !this.selectedTransmision || !this.consumptionFuel || !this.stickerEmission || !this.classEmision || !this.selectedExteriorColour || !this.selectedTrailer || !this.selectedParking || !this.selectedCruise || !this.selectedOthers) {
         this.toast.error("Please fill in all required fields");
 
         return;
@@ -2830,7 +2830,7 @@ export default {
         })
     },
     thenAddsInterior() {
-      if (!this.selectedInteriorColour || !this.selectedMaterial || !this.selectedAirbag || !this.selectedAirConditioning || !this.extras || !this.selectedVendor || !this.isCheckedDiscount || !this.isCheckedEnvironmental || !this.damageVehicle || !this.exportCommercial || !this.approveUsed || !this.descriptionText ) {
+      if (!this.selectedInteriorColour || !this.selectedMaterial || !this.selectedAirbag || !this.selectedAirConditioning || !this.extras || !this.selectedVendor || !this.isCheckedDiscount || !this.isCheckedEnvironmental || !this.damageVehicle || !this.exportCommercial || !this.approveUsed || !this.descriptionText) {
         this.toast.error("Please fill in all required fields");
 
         return;
@@ -2876,7 +2876,7 @@ export default {
           this.previewImages.push({
             name: file.name,
             previewUrl: previewUrl,
-            file: file, 
+            file: file,
           });
 
           // Добавьте здесь код для отправки файла на бэкенд, если требуется
