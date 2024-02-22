@@ -2830,11 +2830,6 @@ export default {
         })
     },
     thenAddsInterior() {
-      if (!this.selectedInteriorColour || !this.selectedMaterial || !this.selectedAirbag || !this.selectedAirConditioning || !this.extras || !this.selectedVendor || !this.isCheckedDiscount || !this.isCheckedEnvironmental || !this.damageVehicle || !this.exportCommercial || !this.approveUsed || !this.descriptionText) {
-        this.toast.error("Please fill in all required fields");
-
-        return;
-      }
       http.put("/car/add/interior", {
         car_id: localStorage.getItem('car_id'),
         car_interior_colour: this.selectedInteriorColour,
