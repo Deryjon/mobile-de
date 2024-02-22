@@ -703,7 +703,7 @@
       </div>
     </div>
     <div class="profile mt-[30px]">
-      <h2 class="text-[14px] lg:text-[26px] font-semibold">{{ $t("message.profile.document") }}</h2>
+      <h2 class="text-[14px] lg:text-[26px] font-semibold">{{ $t("message.profile.docs") }}</h2>
       <div class="box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
         <div
           class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
