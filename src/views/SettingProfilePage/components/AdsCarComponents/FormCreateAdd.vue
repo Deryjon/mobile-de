@@ -18,6 +18,8 @@
             </button>
           </div>
           <span v-if="previewImages.length === 0">No Images</span>
+          <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
+
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -2490,6 +2492,8 @@ export default {
       interiorAdd: false,
       fuelAdd: false,
       basicAdd: true,
+      errorPushPagePriceList : false,
+
       makes: [],
       models: [],
       selectedMark: "",
@@ -2690,6 +2694,10 @@ export default {
         );
       }
     },
+    goPriceList(){
+      this.$router.push({ name: "price-list" })
+
+    },
     showTab1() {
       this.activeTab = "buy";
     },
@@ -2701,7 +2709,7 @@ export default {
     },
     addAdBasicCars() {
       if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
-        this.toast.error("Please fill in all required fields");
+        this.toast.error("Please fill in all required fields! Click button and go price list!");
 
         const countValue = localStorage.getItem('count');
         const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;

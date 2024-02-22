@@ -2,7 +2,7 @@
   <div class="">
     <div
       class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[800px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0"
-      v-if="basicAdd">
+      v-show="basicAdd">
       <div class="md:flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
@@ -18,6 +18,7 @@
             </button>
           </div>
           <span v-if="previewImages.length === 0">No Images</span>
+          <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -681,7 +682,7 @@
         </button>
       </div>
     </div>
-    <div class="fuel-add" v-if="fuelAdd">
+    <div class="fuel-add" v-show="fuelAdd">
       <div class="mt-[10px]">
         <h3 class="text-[14px] lg:text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-[20px] lg:gap-x-[60px] mt-[20px]">
@@ -1649,7 +1650,7 @@
         </button>
       </div>
     </div>
-    <div class="interior" v-if="interiorAdd">
+    <div class="interior" v-show="interiorAdd">
       <div class="mt-[30px]">
         <h3>Interior Colour</h3>
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
@@ -2490,6 +2491,7 @@ export default {
       interiorAdd: false,
       fuelAdd: false,
       basicAdd: true,
+      errorPushPagePriceList : false,
       makes: [],
       models: [],
       selectedMark: "",
@@ -2748,13 +2750,14 @@ export default {
     // }
     addAdBasicCars() {
       if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
-        this.toast.error("Please fill in all required fields");
+        this.toast.error("Please fill in all required fields! Click button and go price list!");
 
         const countValue = localStorage.getItem('count');
         const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
 
         if (this.previewImages.length > maxPhotos) {
           this.toast.error("Maximum number of photos exceeded");
+          this.errorPushPagePriceList = !this.errorPushPagePriceList
         }
         return;
       }
@@ -2801,6 +2804,10 @@ export default {
         })
     }
     ,
+    goPriceList(){
+      this.$router.push({ name: "price-list" })
+
+    },
 
     thenPowerAdd() {
       if (!this.selectedFuel || !this.power || !this.cubic || !this.selectedTransmision || !this.consumptionFuel || !this.stickerEmission || !this.classEmision || !this.selectedExteriorColour || !this.selectedTrailer || !this.selectedParking || !this.selectedCruise || !this.selectedOthers) {
