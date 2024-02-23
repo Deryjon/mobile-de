@@ -2756,7 +2756,7 @@ export default {
         const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
 
         if (this.previewImages.length > maxPhotos) {
-          this.toast.error("Maximum number of photos exceeded");
+          this.toast.error("Maximum number of photos exceeded! Click button and go price list!");
           this.errorPushPagePriceList = !this.errorPushPagePriceList
         }
         return;

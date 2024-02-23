@@ -2,7 +2,7 @@
   <div class="">
     <div
       class="basic-add w-[210px] xs:w-full lg:w-[700px] xl:w-[800px] text-[12px] lg:text-[14px] pt-[15px] p-[5px] lg:p-0"
-      v-if="basicAdd">
+      v-show="basicAdd">
       <div class="md:flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
@@ -19,7 +19,6 @@
           </div>
           <span v-if="previewImages.length === 0">No Images</span>
           <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
-
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -31,8 +30,7 @@
       <div class="flex flex-wrap lg:gap-[20px] mt-[30px]">
         <div class="mark">
           <div class="relative mt-2">
-            <h2 class="text-sm lg:text-[14px
-            ]">
+            <h2 class="text-sm lg:text-[14px]">
               {{ $t("message.selects.mark") }}
             </h2>
             <select
@@ -63,7 +61,6 @@
             <option v-for="model in models" :key="model" :value="model.car_model_name" class="">
               {{ model.car_model_name }}
             </option>
-            <option class="M4">M4</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
@@ -125,7 +122,7 @@
           }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
           <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-24   lg:w-28 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm"> Sports Car / Coupe</span>
+          <span class="text-[12px] lg:text-sm">Sports Car / Coupe</span>
         </label>
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
@@ -680,12 +677,12 @@
         <button class="bg-red-500 rounded-[8px] p-[10px]" @click="handleCancelButtonClick">
           Cancel
         </button>
-        <button @click="addAdBasicCars" class="bg-blue-500 rounded-[8px] p-[10px]">
+        <button :disabled="isNextButtonDisabled" @click="addAdBasicCars" class="bg-blue-500 rounded-[8px] p-[10px]">
           Next
         </button>
       </div>
     </div>
-    <div class="fuel-add" v-if="fuelAdd">
+    <div class="fuel-add" v-show="fuelAdd">
       <div class="mt-[10px]">
         <h3 class="text-[14px] lg:text-[16px]">Fuel Type</h3>
         <div class="filter-cars flex flex-wrap gap-[20px] lg:gap-x-[60px] mt-[20px]">
@@ -1653,7 +1650,7 @@
         </button>
       </div>
     </div>
-    <div class="interior" v-if="interiorAdd">
+    <div class="interior" v-show="interiorAdd">
       <div class="mt-[30px]">
         <h3>Interior Colour</h3>
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
@@ -2455,6 +2452,7 @@ import http from "@/axios.config";
 import { useTabsStore } from '@/store/storeAd';
 import { useToast } from "vue-toastification";
 
+
 export default {
   setup() {
     const isCheckedAdsImg = ref(false);
@@ -2489,11 +2487,11 @@ export default {
   data() {
     return {
       toast: useToast(),
+
       interiorAdd: false,
       fuelAdd: false,
       basicAdd: true,
       errorPushPagePriceList : false,
-
       makes: [],
       models: [],
       selectedMark: "",
@@ -2557,6 +2555,36 @@ export default {
       isCheckedSportsPackage: false,
       selectedOthers: [],
       isCheckedBeige: false,
+      isCheckedSeat: false,
+      isCheckedAmbient: false,
+      isCheckedTyre: false,
+      isCheckedInduction: false,
+      isCheckedElectric: false,
+      isCheckedSki: false,
+      isCheckedAndroidAuto: false,
+      isCheckedElectricSeat: false,
+      isCheckedIntegratedMusicStreaming: false,
+      isCheckedSmokersPackage: false,
+      isCheckedAppleCarPlay: false,
+      isCheckedElectricSideMirror: false,
+      isCheckedIsofix: false,
+      isCheckedSoundSystem: false,
+      isCheckedArmRest: false,
+      isCheckedElectricWindows: false,
+      isCheckedLeatherSteeringWheel: false,
+      isCheckedSportSeats: false,
+      isCheckedAutomInteriorMirror: false,
+      isCheckedEmergencyCallSystem: false,
+      isCheckedLumbarSupport: false,
+      isCheckedTouchscreen: false,
+      isCheckedAuxiliaryHeating: false,
+      isCheckedFatigueWarning: false,
+      isCheckedMassageSeats: false,
+      isCheckedTunerRadio: false,
+      isCheckedBluetooth: false,
+      isCheckedFoldFlatPassenger: false,
+      isCheckedMultifunctionWheel: false,
+      isCheckedTV: false,
       isCheckedBrown: false,
       isCheckedGrey: false,
       isCheckedBlack: false,
@@ -2648,36 +2676,6 @@ export default {
       isCheckedDigitalCockpit: false,
       isCheckedPassengerSeat: false,
       isCheckedWlan: false,
-      isCheckedSeat: false,
-      isCheckedAmbient: false,
-      isCheckedTyre: false,
-      isCheckedInduction: false,
-      isCheckedElectric: false,
-      isCheckedSki: false,
-      isCheckedAndroidAuto: false,
-      isCheckedElectricSeat: false,
-      isCheckedIntegratedMusicStreaming: false,
-      isCheckedSmokersPackage: false,
-      isCheckedAppleCarPlay: false,
-      isCheckedElectricSideMirror: false,
-      isCheckedIsofix: false,
-      isCheckedSoundSystem: false,
-      isCheckedArmRest: false,
-      isCheckedElectricWindows: false,
-      isCheckedLeatherSteeringWheel: false,
-      isCheckedSportSeats: false,
-      isCheckedAutomInteriorMirror: false,
-      isCheckedEmergencyCallSystem: false,
-      isCheckedLumbarSupport: false,
-      isCheckedTouchscreen: false,
-      isCheckedAuxiliaryHeating: false,
-      isCheckedFatigueWarning: false,
-      isCheckedMassageSeats: false,
-      isCheckedTunerRadio: false,
-      isCheckedBluetooth: false,
-      isCheckedFoldFlatPassenger: false,
-      isCheckedMultifunctionWheel: false,
-      isCheckedTV: false,
     };
   },
   props: {
@@ -2694,10 +2692,6 @@ export default {
         );
       }
     },
-    goPriceList(){
-      this.$router.push({ name: "price-list" })
-
-    },
     showTab1() {
       this.activeTab = "buy";
     },
@@ -2707,6 +2701,53 @@ export default {
     async showTab3() {
       this.activeTab = "rent";
     },
+    // addAdBasicCars() {
+    //   if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition || !this.selectedType || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
+
+    //     this.toast.error("Please fill in all required fields");
+    //     return;
+    //   }
+
+    //   const formData = new FormData();
+
+    //   for (let i = 0; i < this.selectedFiles.length; i++) {
+    //     formData.append("photos", this.selectedFiles[i]); // Используйте 'photos[]' для отправки массива файлов
+    //   }
+    //   formData.append("user_id", this.userI);
+    //   formData.append("car_make", this.selectedMark);
+    //   formData.append("car_model", this.selectedModel);
+    //   formData.append("car_variant", this.inputVariant);
+    //   formData.append("car_body", this.selectedCar);
+    //   formData.append("car_number_seats", this.numberSeats);
+    //   formData.append("car_number_door", parseInt(this.numDoor));
+    //   formData.append("car_silding_door", this.slidingDoor);
+    //   formData.append("car_condition", this.selectedType);
+    //   formData.append("car_type", this.selectedCondition);
+    //   formData.append("car_payment_type", this.activeTab);
+    //   formData.append("car_price", parseInt(this.price));
+    //   formData.append("car_firt_date", parseInt(this.inputValue));
+    //   formData.append("car_firt_date_year", parseInt(this.inputValue));
+    //   formData.append("car_mileage", parseInt(this.inputKilometer));
+    //   formData.append("car_hu_valid_until", this.huValid);
+    //   formData.append("car_previous_owners", parseInt(this.preOwners));
+    //   formData.append("car_full_service_history", this.isCheckedHistory);
+    //   formData.append("car_roadworthy", this.isCheckedRoad);
+    //   formData.append("car_country", this.selectedCountry);
+    //   formData.append("car_city_zipcode", this.zipCode);
+    //   formData.append("car_radius", parseInt(this.radius));
+    //   formData.append("user_phone", `${this.userCodeNumber}${this.userPre}${this.userPhone}`);
+    //   formData.append("user_email", this.uEmail);
+    //   formData.append("car_vide_link", this.linkVideo);
+
+    //   http
+    //     .post("/car/add", formData)
+    //     .then((response) => {
+    //       const responseData = response.data.data;
+    //       localStorage.setItem('car_id', responseData.car_id);
+    //       this.basicAdd = !this.basicAdd;
+    //       this.fuelAdd = !this.fuelAdd;
+    //     })
+    // }
     addAdBasicCars() {
       if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
         this.toast.error("Please fill in all required fields! Click button and go price list!");
@@ -2715,17 +2756,18 @@ export default {
         const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
 
         if (this.previewImages.length > maxPhotos) {
-          this.toast.error("Maximum number of photos exceeded");
+          this.toast.error("Maximum number of photos exceeded! Click button and go price list!");
+          this.errorPushPagePriceList = !this.errorPushPagePriceList
         }
         return;
       }
+
+
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
-
-        formData.append("photos", this.selectedFiles[i]); // Используйте 'photos[]' для отправки массива файлов
+        formData.append("photos", this.selectedFiles[i]);
       }
-
       formData.append("user_id", this.userI);
       formData.append("car_make", this.selectedMark);
       formData.append("car_model", this.selectedModel);
@@ -2752,7 +2794,6 @@ export default {
       formData.append("user_email", this.uEmail);
       formData.append("car_vide_link", this.linkVideo);
 
-      // Выполняем POST-запрос с использованием объекта FormData
       http
         .post("/car/add", formData)
         .then((response) => {
@@ -2760,10 +2801,13 @@ export default {
           localStorage.setItem('car_id', responseData.car_id);
           this.basicAdd = !this.basicAdd;
           this.fuelAdd = !this.fuelAdd;
-          console.log(responseData.car_id);
-        });
+        })
     }
     ,
+    goPriceList(){
+      this.$router.push({ name: "price-list" })
+
+    },
 
     thenPowerAdd() {
       if (!this.selectedFuel || !this.power || !this.cubic || !this.selectedTransmision || !this.consumptionFuel || !this.stickerEmission || !this.classEmision || !this.selectedExteriorColour || !this.selectedTrailer || !this.selectedParking || !this.selectedCruise || !this.selectedOthers) {
@@ -2796,12 +2840,11 @@ export default {
       http.put("/car/add/interior", {
         car_id: localStorage.getItem('car_id'),
         car_interior_colour: this.selectedInteriorColour,
-        car_interior_material: this.selectedInteriorColour,
+        car_interior_material: this.selectedMaterial,
         car_airbags: this.selectedAirbag,
         car_air_conditioning: this.selectedAirConditioning,
         extras: this.extras,
         car_vendor: this.selectedVendor,
-        car_discount_offers: 3,
         car_discount_offers: this.isCheckedDiscount,
         car_non_smoker: this.isCheckedNon,
         car_taxi: this.isCheckedTaxi,
@@ -2814,7 +2857,6 @@ export default {
         car_description: this.descriptionText
       })
         .then((res) => {
-          console.log(res.data)
           this.interiorAdd = !this.interiorAdd
           this.handleCancelButtonClick()
           this.$router.push({ name: "price-list" })
@@ -2836,7 +2878,7 @@ export default {
           this.previewImages.push({
             name: file.name,
             previewUrl: previewUrl,
-            file: file, // You can also store the actual File object if needed
+            file: file,
           });
 
           // Добавьте здесь код для отправки файла на бэкенд, если требуется
@@ -3024,11 +3066,11 @@ export default {
     toggleShowCheckboxOthers(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
       if (isChecked) {
-        this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
+        this.selectedOthers.push(otherName);
       } else {
         const carIndex = this.selectedOthers.indexOf(otherName);
         if (carIndex !== -1) {
-          this.selectedOthers.splice(carIndex, 1); // Удаляем otherName из массива
+          this.selectedOthers.splice(carIndex, 1);
         }
       }
     },
@@ -3159,9 +3201,9 @@ export default {
     this.userI = localStorage.getItem("u-i");
     this.uEmail = localStorage.getItem("u-e");
 
-    this.userPhone = localStorage.getItem("u-phone");
-    this.userCodeNumber = localStorage.getItem("u-code");
-    this.userPre = localStorage.getItem("u-pre");
+    this.userPhone = localStorage.getItem("com-number");
+    this.userCodeNumber = localStorage.getItem("com-numcode");
+    this.userPre = localStorage.getItem("com-prefix");
 
     http
       .get("/car/marks")
@@ -3176,7 +3218,6 @@ export default {
       .catch((error) => {
         console.error("Ошибка при выполнении запроса:", error.message);
       });
-    this.fetchModelYears();
   },
 };
 </script>

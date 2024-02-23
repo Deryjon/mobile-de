@@ -35,11 +35,15 @@
 import SellButton from "../../../../ui/SellButton.vue";
 import FormCreateAdd from "./FormCreateAdd.vue";
 import MyAddsAll from "./MyAddsAll.vue";
+import { useToast } from "vue-toastification";
+
 export default {
   data() {
     return {
       createAdd: true,
       isCarAdd: false,
+      toast: useToast(),
+
     };
   },
   methods: {
@@ -48,6 +52,8 @@ export default {
     },
     handleCancelCreateAdd() {
       this.createAdd = !this.createAdd;
+      // this.toast.error("Начался");
+
     },
   },
   components: {

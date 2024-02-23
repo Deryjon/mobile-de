@@ -16,6 +16,8 @@
             </button>
           </div>
           <span v-if="previewImages.length === 0">No Images</span>
+          <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
+
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -854,6 +856,8 @@ import { ref } from "vue";
 import axios from "axios";
 import http from "@/axios.config";
 import { useTabsStore } from "@/store/storeAd";
+import { useToast } from "vue-toastification";
+
 
 export default {
   setup() {
@@ -888,6 +892,8 @@ export default {
   },
   data() {
     return {
+      toast: useToast(),
+      errorPushPagePriceList : false,
       makes: [],
       models: [],
       selectedMark: "",
@@ -1019,6 +1025,18 @@ export default {
       this.activeTab = "sell";
     },
     addAdVans() {
+      if (!this.selectedMark || !this.selectedModel || !this.selectedCondition || !this.selectedCategory || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.selectedCountry || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
+        this.toast.error("Please fill in all required fields!");
+
+        const countValue = localStorage.getItem('count');
+        const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
+
+        if (this.previewImages.length > maxPhotos) {
+          this.toast.error("Maximum number of photos exceeded!  Click button and go price list!");
+          this.errorPushPagePriceList = !this.errorPushPagePriceList
+        }
+        return;
+      }
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -1066,6 +1084,10 @@ export default {
         this.handleCancelButtonClick()
         this.$router.name({ name: "price-list" })
       });
+    },
+    goPriceList(){
+      this.$router.push({ name: "price-list" })
+
     },
     openFileInput() {
       this.$refs.fileInput.click();
