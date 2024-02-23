@@ -1490,6 +1490,7 @@ export default {
       http.post("/agriculturals/add", formData).then((response) => {
         const responseData = response.data.data;
 				this.handleCancelButtonClick()
+        localStorage.setItem('count', 0);
         this.$router.push({name: "price-list"})
       });
     },

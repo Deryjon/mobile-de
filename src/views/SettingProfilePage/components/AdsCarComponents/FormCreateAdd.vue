@@ -2859,6 +2859,7 @@ export default {
         .then((res) => {
           this.interiorAdd = !this.interiorAdd
           this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
           this.$router.push({ name: "price-list" })
 
         })

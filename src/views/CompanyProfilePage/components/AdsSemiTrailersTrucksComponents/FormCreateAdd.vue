@@ -1386,6 +1386,7 @@ export default {
       http.post("/semitruck/add", formData).then((response) => {
         const responseData = response.data.data;
         this.handleCancelButtonClick()
+        localStorage.setItem('count', 0);
         this.$router.push({ name: "price-list" })
       });
     },

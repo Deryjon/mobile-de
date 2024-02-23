@@ -1651,11 +1651,11 @@ export default {
       );
       formData.append("user_email", this.uEmail);
       http.post("/motorhomes/add", formData).then((response) => {
-        // console.log(response);
         const responseData = response.data.data;
         this.handleCancelButtonClick();
+        localStorage.setItem('count', 0);
+
         this.$router.push({ name: "price-list" })
-        // console.log(responseData);
       });
     },
     openFileInput() {

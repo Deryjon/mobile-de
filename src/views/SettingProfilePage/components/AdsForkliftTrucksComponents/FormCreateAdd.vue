@@ -1205,6 +1205,8 @@ export default {
       http.post("/forklifts/add", formData).then((response) => {
         const responseData = response.data.data;
         this.handleCancelButtonClick();
+        localStorage.setItem('count', 0);
+
         this.router({ name: "price-list" })
       });
     },

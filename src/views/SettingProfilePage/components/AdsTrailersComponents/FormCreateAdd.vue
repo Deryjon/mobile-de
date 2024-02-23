@@ -1737,19 +1737,19 @@ export default {
       this.$router.push({ name: "price-list" })
 
     },
-    if (!this.selectedMark || !this.selectedModel || !this.selectedCondition || !this.selectedCategory || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.selectedCountry || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
-        this.toast.error("Please fill in all required fields!");
-
-        const countValue = localStorage.getItem('count');
-        const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
-
-        if (this.previewImages.length > maxPhotos) {
-          this.toast.error("Maximum number of photos exceeded!  Click button and go price list!");
-          this.errorPushPagePriceList = !this.errorPushPagePriceList
-        }
-        return;
-      }
     addAdTrucks() {
+      if (!this.selectedMark || !this.selectedModel || !this.selectedCondition || !this.selectedCategory || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.selectedCountry || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
+          this.toast.error("Please fill in all required fields!");
+  
+          const countValue = localStorage.getItem('count');
+          const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
+  
+          if (this.previewImages.length > maxPhotos) {
+            this.toast.error("Maximum number of photos exceeded!  Click button and go price list!");
+            this.errorPushPagePriceList = !this.errorPushPagePriceList
+          }
+          return;
+        }
       const formData = new FormData();
 
       for (let i = 0; i < this.selectedFiles.length; i++) {
@@ -1789,6 +1789,8 @@ export default {
       http.post("/trailers/add", formData).then((response) => {
              const responseData = response.data.data;
         this.handleCancelButtonClick();
+        localStorage.setItem('count', 0);
+
         this.$router.push({name: "price-list"})
         
       });
