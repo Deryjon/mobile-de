@@ -2182,7 +2182,7 @@ export default {
         const responseData = response.data.data;
 				this.handleCancelButtonClick()
         localStorage.setItem('count', 0);
-
+        this.toast.success("Your ad has been created!");
         this.$router.push({name: "price-list"})
       });
     },
