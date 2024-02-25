@@ -269,6 +269,10 @@
             @click="showTab2" :class="{ 'active-Kaufen': activeTab === 'sell' }">
             {{ $t("message.btn.sell") }}
           </button>
+          <button class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
+            @click="showTab3" :class="{ 'active-Kaufen': activeTab === 'rent' }">
+            {{ $t("message.btn.rent") }}
+          </button>
         </div>
       </div>
       <div class="price-tab flex flex-wrap items-center justify-between lg:gap-[30px]">
@@ -2907,6 +2911,9 @@ export default {
     async showTab2() {
       this.activeTab = "sell";
     },
+    async showTab3() {
+      this.activeTab = "rent";
+    },
     editAddCars() {
       // Create a new FormData object
       const formData = new FormData();
@@ -2981,11 +2988,17 @@ export default {
         });
     },
     cancelAdCar() {
-      const store = useTabsStore();
-      store.setActiveTab("tab-3");
-      this.$router.push({ name: "profile-settings" })
-    },
-
+  const comI = localStorage.getItem("com-i");
+  
+  // Если значение существует и не пустое
+  if (comI) {
+    // Перенаправляем на страницу company-settings
+    this.$router.push({ name: "company-settings" });
+  } else {
+    // Иначе перенаправляем на страницу profile-settings
+    this.$router.push({ name: "profile-settings" });
+  }
+},
     // thenPowerAdd() {
     //   http.put("/car/add/engine", {
     // 		car_id: localStorage.getItem('car_id'),
