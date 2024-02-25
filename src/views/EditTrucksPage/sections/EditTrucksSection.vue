@@ -5,7 +5,7 @@
       <div class="flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
-          + Add image
+          + {{ $t("message.edit_page.add_image") }}
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="video-link mt-[30px]">
-        <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.edit_page.link") }}</h2>
         <input type="text"
           class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
           v-model="linkVideo" />
@@ -39,7 +39,7 @@
                 <option v-for="make in makes" :key="make" :value="make.truck_make_name">
                   {{ make.truck_make_name }}
                 </option>
-                <option value="other">other</option>
+                <option value="other">{{ $t("message.filter_page.other") }}</option>
               </optgroup>
             </select>
             <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
@@ -59,7 +59,7 @@
         </div>
         <div class="relative">
           <h2 class="text-sm lg:text-[14px] mt-2">
-            Category
+            {{ $t("message.filter_page.category") }}
           </h2>
           <select
             class="dropdown-input mark_input mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -105,35 +105,35 @@
         <div class="tab-1"></div>
       </div>
       <div class="condition mt-[30px]">
-        <h3 class="text-[14px]">Type and condition</h3>
+        <h3 class="text-[14px]">{{ $t("message.filter_page.condition") }}</h3>
         <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
           <label>
             <input type="radio" v-model="selectedCondition" :class="{
               'bg-transparent': selectedCondition !== 'Any',
               'bg-orange': selectedCondition === 'Any',
             }" class="ml-10px" @click="selectCondition('Any')" />
-            <span class="ml-[10px] text-[14px]">Any</span>
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
           </label>
           <label>
             <input type="radio" v-model="selectedCondition" :class="{
               'bg-transparent': selectedCondition !== 'New',
               'bg-orange': selectedCondition === 'New',
             }" @click="selectCondition('New')" />
-            <span class="ml-[10px] text-[14px]">New</span>
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.new") }}</span>
           </label>
           <label>
             <input type="radio" v-model="selectedCondition" :class="{
               'bg-transparent': selectedCondition !== 'Used',
               'bg-orange': selectedCondition === 'Used',
             }" @click="selectCondition('Used')" />
-            <span class="ml-[10px] text-[14px]">Used</span>
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.used") }}</span>
           </label>
         </div>
       </div>
 
+
       <div class="price-tab flex flex-wrap items-center justify-between lg:gap-[30px]">
-        <div class="price dropdown-container">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+        <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.price") }}</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select  w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -145,25 +145,32 @@
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="priceOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <ul>
-              <li data-value="50" @click="selectNumberPrice('50')">50 € mtl</li>
-              <li data-value="100" @click="selectNumberPrice('100')">
-                100 € mtl
-              </li>
-              <li data-value="150" @click="selectNumberPrice('150')">
-                150 € mtl
-              </li>
-              <li data-value="200" @click="selectNumberPrice('200')">
-                200 € mtl
-              </li>
-              <li data-value="250" @click="selectNumberPrice('250')">
-                250 € mtl
-              </li>
-              <li data-value="300" @click="selectNumberPrice('300')">
-                300 € mtl
-              </li>
-            </ul>
+          <ul v-if="priceOpen" class="dropdown-options w-[160px] lg:w-[200px] text-[10px] lg:text-[12px]">
+              <li data-value="Free" @click="selectNumberPrice('Free')">{{ $t("message.filter_page.free") }}</li>
+            <li data-value="500" @click="selectNumberPrice('500')">
+              500
+            </li>
+            <li data-value="750" @click="selectNumberPrice('750')">
+              750
+            </li>
+            <li data-value="1000" @click="selectNumberPrice('1000')">
+              1000
+            </li>
+            <li data-value="1500" @click="selectNumberPrice('1500')">
+              1500
+            </li>
+            <li data-value="1750" @click="selectNumberPrice('1750')">
+              1750
+            </li>
+            <li data-value="2000" @click="selectNumberPrice('2000')">
+              2000
+            </li>
+            <li data-value="2500" @click="selectNumberPrice('2500')">
+              2500
+            </li>
+            <li data-value="3000" @click="selectNumberPrice('3000')">
+              3000
+            </li>
           </ul>
         </div>
         <div class="years dropdown-container">
@@ -181,98 +188,133 @@
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="isOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <li v-for="option in filteredOptions" :key="option" @click="selectOption(option)" class="">
-              {{ option }}
-            </li>
-            <li @click="selectOption('1989')">1989</li>
-            <li @click="selectOption('1988')">1988</li>
-            <li @click="selectOption('1987')">1987</li>
-            <li @click="selectOption('1986')">1986</li>
-            <li @click="selectOption('1985')">1985</li>
-            <li @click="selectOption('1984')">1984</li>
-            <li @click="selectOption('1983')">1983</li>
-            <li @click="selectOption('1982')">1982</li>
-            <li @click="selectOption('1981')">1981</li>
-            <li @click="selectOption('1980')">1980</li>
-            <li @click="selectOption('1979')">1979</li>
-            <li @click="selectOption('1978')">1978</li>
-            <li @click="selectOption('1977')">1977</li>
-            <li @click="selectOption('1976')">1976</li>
-            <li @click="selectOption('1975')">1975</li>
-            <li @click="selectOption('1974')">1974</li>
-            <li @click="selectOption('1973')">1973</li>
-            <li @click="selectOption('1972')">1972</li>
-            <li @click="selectOption('1971')">1971</li>
-            <li @click="selectOption('1970')">1970</li>
-            <li @click="selectOption('1969')">1969</li>
-            <li @click="selectOption('1968')">1968</li>
-            <li @click="selectOption('1967')">1967</li>
-            <li @click="selectOption('1966')">1966</li>
-            <li @click="selectOption('1965')">1965</li>
-            <li @click="selectOption('1964')">1964</li>
-            <li @click="selectOption('1963')">1963</li>
-            <li @click="selectOption('1962')">1962</li>
-            <li @click="selectOption('1961')">1961</li>
-            <li @click="selectOption('1960')">1960</li>
-            <li @click="selectOption('1959')">1959</li>
-            <li @click="selectOption('1958')">1958</li>
-            <li @click="selectOption('1957')">1957</li>
-            <li @click="selectOption('1956')">1956</li>
-            <li @click="selectOption('1955')">1955</li>
-            <li @click="selectOption('1954')">1954</li>
-            <li @click="selectOption('1953')">1953</li>
-            <li @click="selectOption('1952')">1952</li>
-            <li @click="selectOption('1951')">1951</li>
-            <li @click="selectOption('1950')">1950</li>
-            <li @click="selectOption('1949')">1949</li>
-            <li @click="selectOption('1948')">1948</li>
-            <li @click="selectOption('1947')">1947</li>
-            <li @click="selectOption('1946')">1946</li>
-            <li @click="selectOption('1945')">1945</li>
-            <li @click="selectOption('1944')">1944</li>
-            <li @click="selectOption('1943')">1943</li>
-            <li @click="selectOption('1942')">1942</li>
-            <li @click="selectOption('1941')">1941</li>
-            <li @click="selectOption('1939')">1939</li>
-            <li @click="selectOption('1938')">1938</li>
-            <li @click="selectOption('1937')">1937</li>
-            <li @click="selectOption('1936')">1936</li>
-            <li @click="selectOption('1935')">1935</li>
-            <li @click="selectOption('1934')">1934</li>
-            <li @click="selectOption('1933')">1933</li>
-            <li @click="selectOption('1932')">1932</li>
-            <li @click="selectOption('1931')">1931</li>
-            <li @click="selectOption('1930')">1930</li>
-            <li @click="selectOption('1929')">1929</li>
-            <li @click="selectOption('1928')">1928</li>
-            <li @click="selectOption('1927')">1927</li>
-            <li @click="selectOption('1926')">1926</li>
-            <li @click="selectOption('1925')">1925</li>
-            <li @click="selectOption('1924')">1924</li>
-            <li @click="selectOption('1923')">1923</li>
-            <li @click="selectOption('1922')">1922</li>
-            <li @click="selectOption('1921')">1921</li>
-            <li @click="selectOption('1920')">1920</li>
-            <li @click="selectOption('1919')">1919</li>
-            <li @click="selectOption('1918')">1918</li>
-            <li @click="selectOption('1917')">1917</li>
-            <li @click="selectOption('1916')">1916</li>
-            <li @click="selectOption('1915')">1915</li>
-            <li @click="selectOption('1914')">1914</li>
-            <li @click="selectOption('1913')">1913</li>
-            <li @click="selectOption('1912')">1912</li>
-            <li @click="selectOption('1911')">1911</li>
-            <li @click="selectOption('1910')">1910</li>
-            <li @click="selectOption('1909')">1909</li>
-            <li @click="selectOption('1908')">1908</li>
-            <li @click="selectOption('1907')">1907</li>
-            <li @click="selectOption('1906')">1906</li>
-            <li @click="selectOption('1905')">1905</li>
-            <li @click="selectOption('1904')">1904</li>
-            <li @click="selectOption('1903')">1903</li>
-            <li @click="selectOption('1902')">1902</li>
-            <li @click="selectOption('1901')">1901</li>
+          <ul v-if="isOpen" class="dropdown-options w-[160px] lg:w-[200px] text-[10px] lg:text-[12px]">
+            <li key="1920" @click="selectOption('1920')">1920</li>
+            <li key="1921" @click="selectOption('1921')">1921</li>
+            <li key="1922" @click="selectOption('1922')">1922</li>
+            <li key="1923" @click="selectOption('1923')">1923</li>
+            <li key="1924" @click="selectOption('1924')">1924</li>
+            <li key="1925" @click="selectOption('1925')">1925</li>
+            <li key="1926" @click="selectOption('1926')">1926</li>
+            <li key="1927" @click="selectOption('1927')">1927</li>
+            <li key="1928" @click="selectOption('1928')">1928</li>
+            <li key="1929" @click="selectOption('1929')">1929</li>
+            <li key="1930" @click="selectOption('1930')">1930</li>
+            <li key="1931" @click="selectOption('1931')">1931</li>
+            <li key="1932" @click="selectOption('1932')">1932</li>
+            <li key="1933" @click="selectOption('1933')">1933</li>
+            <li key="1934" @click="selectOption('1934')">1934</li>
+            <li key="1935" @click="selectOption('1935')">1935</li>
+            <li key="1936" @click="selectOption('1936')">1936</li>
+            <li key="1937" @click="selectOption('1937')">1937</li>
+            <li key="1938" @click="selectOption('1938')">1938</li>
+            <li key="1939" @click="selectOption('1939')">1939</li>
+            <li key="1940" @click="selectOption('1940')">1940</li>
+            <li key="1941" @click="selectOption('1941')">1941</li>
+            <li key="1942" @click="selectOption('1942')">1942</li>
+            <li key="1943" @click="selectOption('1943')">1943</li>
+            <li key="1944" @click="selectOption('1944')">1944</li>
+            <li key="1945" @click="selectOption('1945')">1945</li>
+            <li key="1946" @click="selectOption('1946')">1946</li>
+            <li key="1947" @click="selectOption('1947')">1947</li>
+            <li key="1948" @click="selectOption('1948')">1948</li>
+            <li key="1949" @click="selectOption('1949')">1949</li>
+            <li key="1950" @click="selectOption('1950')">1950</li>
+            <li key="1951" @click="selectOption('1951')">1951</li>
+            <li key="1952" @click="selectOption('1952')">1952</li>
+            <li key="1953" @click="selectOption('1953')">1953</li>
+            <li key="1954" @click="selectOption('1954')">1954</li>
+            <li key="1955" @click="selectOption('1955')">1955</li>
+            <li key="1956" @click="selectOption('1956')">1956</li>
+            <li key="1957" @click="selectOption('1957')">1957</li>
+            <li key="1958" @click="selectOption('1958')">1958</li>
+            <li key="1959" @click="selectOption('1959')">1959</li>
+            <li key="1960" @click="selectOption('1960')">1960</li>
+            <li key="1961" @click="selectOption('1961')">1961</li>
+            <li key="1962" @click="selectOption('1962')">1962</li>
+            <li key="1963" @click="selectOption('1963')">1963</li>
+            <li key="1964" @click="selectOption('1964')">1964</li>
+            <li key="1965" @click="selectOption('1965')">1965</li>
+            <li key="1966" @click="selectOption('1966')">1966</li>
+            <li key="1967" @click="selectOption('1967')">1967</li>
+            <li key="1968" @click="selectOption('1968')">1968</li>
+            <li key="1969" @click="selectOption('1969')">1969</li>
+            <li key="1970" @click="selectOption('1970')">1970</li>
+            <li key="1971" @click="selectOption('1971')">1971</li>
+            <li key="1972" @click="selectOption('1972')">1972</li>
+            <li key="1973" @click="selectOption('1973')">1973</li>
+            <li key="1974" @click="selectOption('1974')">1974</li>
+            <li key="1975" @click="selectOption('1975')">1975</li>
+            <li key="1976" @click="selectOption('1976')">1976</li>
+            <li key="1977" @click="selectOption('1977')">1977</li>
+            <li key="1978" @click="selectOption('1978')">1978</li>
+            <li key="1979" @click="selectOption('1979')">1979</li>
+            <li key="1980" @click="selectOption('1980')">1980</li>
+            <li key="1981" @click="selectOption('1981')">1981</li>
+            <li key="1982" @click="selectOption('1982')">1982</li>
+            <li key="1983" @click="selectOption('1983')">1983</li>
+            <li key="1984" @click="selectOption('1984')">1984</li>
+            <li key="1985" @click="selectOption('1985')">1985</li>
+            <li key="1986" @click="selectOption('1986')">1986</li>
+            <li key="1987" @click="selectOption('1987')">1987</li>
+            <li key="1988" @click="selectOption('1988')">1988</li>
+            <li key="1989" @click="selectOption('1989')">1989</li>
+            <li key="1990" @click="selectOption('1990')">1990</li>
+            <li key="1991" @click="selectOption('1991')">1991</li>
+            <li key="1992" @click="selectOption('1992')">1992</li>
+            <li key="1993" @click="selectOption('1993')">1993</li>
+            <li key="1994" @click="selectOption('1994')">1994</li>
+            <li key="1995" @click="selectOption('1995')">1995</li>
+            <li key="1996" @click="selectOption('1996')">1996</li>
+            <li key="1997" @click="selectOption('1997')">1997</li>
+            <li key="1998" @click="selectOption('1998')">1998</li>
+            <li key="1999" @click="selectOption('1999')">1999</li>
+            <li key="2000" @click="selectOption('2000')">2000</li>
+            <li key="2001" @click="selectOption('2001')">2001</li>
+            <li key="2002" @click="selectOption('2002')">2002</li>
+            <li key="2003" @click="selectOption('2003')">2003</li>
+            <li key="2004" @click="selectOption('2004')">2004</li>
+            <li key="2005" @click="selectOption('2005')">2005</li>
+            <li key="2006" @click="selectOption('2006')">2006</li>
+            <li key="2007" @click="selectOption('2007')">2007</li>
+            <li key="2008" @click="selectOption('2008')">2008</li>
+            <li key="2009" @click="selectOption('2009')">2009</li>
+            <li key="2010" @click="selectOption('2010')">2010</li>
+            <li key="2011" @click="selectOption('2011')">2011</li>
+            <li key="2012" @click="selectOption('2012')">2012</li>
+            <li key="2013" @click="selectOption('2013')">2013</li>
+            <li key="2014" @click="selectOption('2014')">2014</li>
+            <li key="2015" @click="selectOption('2015')">2015</li>
+            <li key="2016" @click="selectOption('2016')">2016</li>
+            <li key="2017" @click="selectOption('2017')">2017</li>
+            <li key="2018" @click="selectOption('2018')">2018</li>
+            <li key="2019" @click="selectOption('2019')">2019</li>
+            <li key="2020" @click="selectOption('2020')">2020</li>
+            <li key="2021" @click="selectOption('2021')">2021</li>
+            <li key="2022" @click="selectOption('2022')">2022</li>
+            <li key="2023" @click="selectOption('2023')">2023</li>
+            <li key="2024" @click="selectOption('2024')">2024</li>
+            <li key="2025" @click="selectOption('2025')">2025</li>
+            <li key="2026" @click="selectOption('2026')">2026</li>
+            <li key="2027" @click="selectOption('2027')">2027</li>
+            <li key="2028" @click="selectOption('2028')">2028</li>
+            <li key="2029" @click="selectOption('2029')">2029</li>
+            <li key="2030" @click="selectOption('2030')">2030</li>
+            <li key="2031" @click="selectOption('2031')">2031</li>
+            <li key="2032" @click="selectOption('2032')">2032</li>
+            <li key="2033" @click="selectOption('2033')">2033</li>
+            <li key="2034" @click="selectOption('2034')">2034</li>
+            <li key="2035" @click="selectOption('2035')">2035</li>
+            <li key="2036" @click="selectOption('2036')">2036</li>
+            <li key="2037" @click="selectOption('2037')">2037</li>
+            <li key="2038" @click="selectOption('2038')">2038</li>
+            <li key="2039" @click="selectOption('2039')">2039</li>
+            <li key="2040" @click="selectOption('2040')">2040</li>
+            <li key="2041" @click="selectOption('2041')">2041</li>
+            <li key="2042" @click="selectOption('2042')">2042</li>
+            <li key="2043" @click="selectOption('2043')">2043</li>
+            <li key="2044" @click="selectOption('2044')">2044</li>
+            <li key="2045" @click="selectOption('2045')">2045</li>
           </ul>
         </div>
         <div class="kilometer dropdown-container">
@@ -340,7 +382,7 @@
       </div>
       <div class="valid-until lg:mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]">
         <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">Country</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.country") }}</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry">
@@ -420,14 +462,15 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
         <div class="marke_select_div relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.postcode") }}</h2>
           <input
             class="mark_input mt-[10px] text-[14px] mark-select w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
             type="text" pattern="\d*" v-model="zipCode" />
         </div>
         <!--  -->
         <div class="radius dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+          <h2 class="text-sm lg:text-[14px] mt-2">            {{ $t("message.filter_page.radius") }}
+</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select  w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -453,108 +496,115 @@
     </div>
     <div class="fuel-add">
       <div class="mt-[10px]">
-        <h3 class="text-[16px]">Fuel Type</h3>
+        <h3 class="text-[16px]">{{ $t("message.filter_page.fuel_type.title") }}</h3>
         <div class="filter-cars flex flex-wrap gap-x-[60px] mt-[20px]">
           <!-- cabrio -->
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Diesel',
               'bg-orange': selectedFuel === 'Diesel',
             }" @click="selectFuel('Diesel')" />
 
-            Diesel
+            {{ $t("message.filter_page.fuel_type.diesel") }}
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (diesel/electric)',
               'bg-orange': selectedFuel === 'Hybrid (diesel/electric)',
             }" @click="selectFuel('Hybrid (diesel/electric)')" />
 
-            Hybrid (diesel/electric)
+            {{ $t("message.filter_page.fuel_type.hybdis") }}
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Natural Gas',
               'bg-orange': selectedFuel === 'Natural Gas',
             }" @click="selectFuel('Natural Gas')" />
 
-            Natural Gas
+            {{ $t("message.filter_page.fuel_type.natgas") }}
           </label>
-          <label class="custom-checkbox flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px] p-0">
+          <label
+            class="custom-checkbox flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px] p-0">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Other',
               'bg-orange': selectedFuel === 'Other',
             }" @click="selectFuel('Other')" />
 
-            Other
+            {{ $t("message.filter_page.other") }}
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Petrol',
               'bg-orange': selectedFuel === 'Petrol',
             }" @click="selectFuel('Petrol')" />
 
-            Petrol
+            {{ $t("message.filter_page.fuel_type.petrol") }}
           </label>
-          <label class="custom-checkbox p-0 flex gap-[10px] text-[14px] items-center h-[40px] w-[206px] pb-[20px]">
+          <label
+            class="custom-checkbox p-0 flex gap-[2px] lg:gap-[10px] text-[12px] lg:text-[14px] items-center h-[40px] w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Electric',
               'bg-orange': selectedFuel === 'Electric',
             }" @click="selectFuel('Electric')" />
 
-            Electric
+            {{ $t("message.filter_page.fuel_type.electric") }}
           </label>
           <!-- estate -->
-          <label class="custom-checkbox p-0 flex gap-4 text-[14px] items-center h-10 w-[206px] pb-4">
+          <label
+            class="custom-checkbox p-0 flex gap-4 text-[12px] lg:text-[14px] items-center h-10 w-[140px] lg:w-[206px] pb-4">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hydrogen',
               'bg-orange': selectedFuel === 'Hydrogen',
             }" @click="selectFuel('Hydrogen')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Hydrogen</span>
+            <span class="text-[12px] lg:text-[14px]">{{ $t("message.filter_page.fuel_type.hydrogen") }}</span>
           </label>
 
           <!-- saloon -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[200px] pb-4">
+          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[140px] lg:w-[200px] pb-4">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Plug-in hybrid',
               'bg-orange': selectedFuel === 'Plug-in hybrid',
             }" @click="selectFuel('Plug-in hybrid')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Plug-in hybrid</span>
+            <span class="text-[12px] lg:text-[14px]">{{ $t("message.filter_page.fuel_type.hybrid") }}</span>
           </label>
           <!-- small -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Hybrid (petrol/electric)',
               'bg-orange': selectedFuel === 'Hybrid (petrol/electric)',
             }" @click="selectFuel('Hybrid (petrol/electric)')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Hybrid (petrol/electric)</span>
+            <span class="text-[12px] lg:text-[14px]">{{ $t("message.filter_page.fuel_type.pethybrid") }}</span>
           </label>
           <!-- sports -->
-          <label class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[206px] pb-[20px]">
+          <label class="custom-checkbox p-0 flex gap-3 items-center h-10 w-[140px] lg:w-[206px] pb-[20px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'LPG',
               'bg-orange': selectedFuel === 'LPG',
             }" @click="selectFuel('LPG')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">LPG</span>
+            <span class="text-[12px] lg:text-[14px]">{{ $t("message.filter_page.fuel_type.lpg") }}</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[206px] pb-[23px]">
+          <label class="custom-checkbox p-0 flex gap-4 items-center h-10 w-[140px] lg:w-[206px] pb-[23px]">
             <input type="radio" v-model="selectedFuel" :class="{
               'bg-transparent': selectedFuel !== 'Ethanol (FFV, E85, etc.)',
               'bg-orange': selectedFuel === 'Ethanol (FFV, E85, etc.)',
             }" @click="selectFuel('Ethanol (FFV, E85, etc.)')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Ethanol (FFV, E85, etc.)</span>
+            <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.fuel_type.ethanol") }}</span>
           </label>
         </div>
       </div>
       <div class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[30px]">
         <div class="power dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Power</h2>
+          <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.power") }}</h2>
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select  w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
@@ -604,68 +654,71 @@
       <div class="flex flex-wrap gap-x-[40px] lg:gap-[100px]">
         <div class="
 			">
-          <h3 class="mt-[20px] lg:mt-[60px]">Transmission</h3>
-          <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[150px] lg:w-[210px]">
+          <h3 class="mt-[20px] lg:mt-[60px]">{{ $t("message.filter_page.transmission.title") }}</h3>
+          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[150px] lg:w-[210px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent':
                 selectedTransmision !== 'Automatic transmissio',
               'bg-orange': selectedTransmision === 'Automatic transmissio',
             }" @click="selectTransmision('Automatic transmissio')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[11px] lg:text-sm">Automatic transmission</span>
+            <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.transmission.auto") }}</span>
           </label>
         </div>
         <div class="mt-[43px] lg:mt-[84px]">
-          <label class="custom-checkbox flex p-0 gap-[10px] items-center h-10 w-[100px] lg:w-[180px]">
+          <label class="custom-checkbox flex p-0 gap-[2px] lg:gap-[10px] items-center h-10 w-[120px] lg:w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Semi-automatic',
               'bg-orange': selectedTransmision === 'Semi-automatic',
             }" @click="selectTransmision('Semi-automatic')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[11px] lg:text-sm">Semi-automatic</span>
+            <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.transmission.semi") }}</span>
           </label>
         </div>
         <div class=" lg:mt-[84px]">
-          <label class="custom-checkbox flex gap-[10px] p-0 items-center h-10 w-[100px] lg:w-[180px]">
+          <label class="custom-checkbox flex gap-[2px] lg:gap-[10px] p-0 items-center h-10 w-[120px] lg:w-[180px]">
             <input type="radio" v-model="selectedTransmision" :class="{
               'bg-transparent': selectedTransmision !== 'Manual gearbox',
               'bg-orange': selectedTransmision === 'Manual gearbox',
             }" @click="selectTransmision('Manual gearbox')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[11px] lg:text-sm">Manual gearbox </span>
+            <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.transmission.manual") }}</span>
           </label>
         </div>
       </div>
       <div class="flex gap-[30px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
+        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] lg:w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sticker") }}</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="stickerEmission">
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
+            <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
+            <option value="1(None)">1(None)</option>
+            <option value="2(Red)">2(Red)</option>
+            <option value="3(Yellow)">3(Yellow)</option>
+            <option value="4(Green)">4(Green)</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[150px] lg:w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision">
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
+            <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
+            <option value="Euro1">Euro1</option>
+            <option value="Euro2">Euro2</option>
+            <option value="Euro3">Euro3</option>
+            <option value="Euro4">Euro4</option>
+            <option value="Euro5">Euro5</option>
+            <option value="Euro6">Euro6</option>
+            <option value="Euro6с">Euro6с</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
       </div>
       <div class="mt-[30px]">
-        <h3 class="text-[16px]">Exterior Colour</h3>
+        <h3 class="text-[16px]">{{ $t("message.filter_page.exterior_color.title") }}</h3>
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
 
           <label
@@ -675,7 +728,7 @@
               'bg-orange': selectedExteriorColour === 'Beige',
             }" @click="selectExteriorColour('Beige')" />
 
-            Beige
+{{ $t("message.filter_page.exterior_color.beige") }}
           </label>
           <label
             class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
@@ -684,7 +737,7 @@
               'bg-orange': selectedExteriorColour === 'Brown',
             }" @click="selectExteriorColour('Brown')" />
 
-            Brown
+{{ $t("message.filter_page.exterior_color.brown") }}
           </label>
           <label
             class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
@@ -693,7 +746,7 @@
               'bg-orange': selectedExteriorColour === 'Gold',
             }" @click="selectExteriorColour('Gold')" />
 
-            Gold
+{{ $t("message.filter_page.exterior_color.gold") }}
           </label>
           <label
             class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
@@ -702,7 +755,7 @@
               'bg-orange': selectedExteriorColour === 'Green',
             }" @click="selectExteriorColour('Green')" />
 
-            Green
+{{ $t("message.filter_page.exterior_color.green") }}
           </label>
           <label
             class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
@@ -711,7 +764,7 @@
               'bg-orange': selectedExteriorColour === 'Red',
             }" @click="selectExteriorColour('Red')" />
 
-            Red
+{{ $t("message.filter_page.exterior_color.red") }}
           </label>
           <label
             class="custom-checkbox custom-silver flex gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
@@ -720,7 +773,7 @@
               'bg-orange': selectedExteriorColour === 'Silver',
             }" @click="selectExteriorColour('Silver')" />
 
-            Silver
+{{ $t("message.filter_page.exterior_color.silver") }}
           </label>
           <label class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4 p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
@@ -728,7 +781,7 @@
               'bg-orange': selectedExteriorColour === 'White',
             }" @click="selectExteriorColour('White')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">White</span>
+            <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.white") }}</span>
           </label>
           <label class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4 p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
@@ -736,7 +789,7 @@
               'bg-orange': selectedExteriorColour === 'Blue',
             }" @click="selectExteriorColour('Blue')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Blue</span>
+            <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.blue") }}</span>
           </label>
 
           <label class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px] p-0">
@@ -745,7 +798,7 @@
               'bg-orange': selectedExteriorColour === 'Yellow',
             }" @click="selectExteriorColour('Yellow')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Yellow</span>
+            <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.yellow") }}</span>
           </label>
 
           <label class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px] p-0">
@@ -754,7 +807,7 @@
               'bg-orange': selectedExteriorColour === 'Grey',
             }" @click="selectExteriorColour('Grey')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-[14px]">Grey</span>
+            <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.grey") }}</span>
           </label>
 
           <label class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
@@ -763,7 +816,7 @@
               'bg-orange': selectedExteriorColour === 'Orange',
             }" @click="selectExteriorColour('Orange')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Orange</span>
+            <span class="text-sm">{{ $t("message.filter_page.exterior_color.orange") }}</span>
           </label>
 
           <label class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
@@ -772,7 +825,7 @@
               'bg-orange': selectedExteriorColour === 'Black',
             }" @click="selectExteriorColour('Black')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Black</span>
+            <span class="text-sm">{{ $t("message.filter_page.exterior_color.black") }}</span>
           </label>
 
           <label class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
@@ -781,7 +834,7 @@
               'bg-orange': selectedExteriorColour === 'Purple',
             }" @click="selectExteriorColour('Purple')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Purple</span>
+            <span class="text-sm">{{ $t("message.filter_page.exterior_color.purple") }}</span>
           </label>
 
           <label class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
@@ -790,265 +843,362 @@
               'bg-orange': selectedExteriorColour === 'Metallic',
             }" @click="selectExteriorColour('Metallic')" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-            <span class="text-sm">Metallic</span>
+            <span class="text-sm">{{ $t("message.filter_page.exterior_color.metallic") }}</span>
           </label>
         </div>
       </div>
 
 
       <div class="mt-[30px]">
-        <h3>Features</h3>
+        <h3>{{ $t("message.single_page.features") }}</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedABS" @click="toggleShowCheckboxOthers(0, 'ABS')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedABS"
+              @click="toggleShowCheckboxOthers(0, 'ABS')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedABS" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedABS"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            ABS
+            {{ $t("message.filter_page.features.abs") }}
           </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedEmergency"
-              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedEmergency"
+              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedEmergency" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedEmergency"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Emergency brake assist
+            {{ $t("message.filter_page.features.brake") }}
           </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedCentral"
-              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedCentral"
+              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedCentral" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedCentral"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Keyless central locking
+            {{ $t("message.filter_page.features.central") }}
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedSpeed"
+              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedSpeed" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedSpeed"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Speed limit control system
+            {{ $t("message.filter_page.features.speed") }}
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedAdaptive"
-              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedAdaptive"
+              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedAdaptive" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedAdaptive"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Adaptive cornering lights
+            {{ $t("message.filter_page.features.adaptivecor") }}
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedTyre" @click="toggleShowCheckboxOthers(5, 'Emergency tyre')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedTyre"
+              @click="toggleShowCheckboxOthers(5, 'Emergency tyre')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedTyre" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedTyre"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Emergency tyre
+            {{ $t("message.filter_page.features.emergy") }}
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedLastChanges"
-              @click="toggleShowCheckboxOthers(6, 'Lane change assist')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedLastChanges"
+              @click="toggleShowCheckboxOthers(6, 'Lane change assist')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedLastChanges" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedLastChanges"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Lane change assist
+            {{ $t("message.filter_page.features.lanechange") }}
           </label>
-          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSportsPackage"
-              @click="toggleShowCheckboxOthers(7, 'Sports package')" />
-            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
+          >
+            <input
+              type="checkbox"
+              v-model="isCheckedSportsPackage"
+              @click="toggleShowCheckboxOthers(7, 'Sports package')"
+            />
+            <svg
+              class="icon"
+              xmlns="http://www.w3.org/2000/svg"
+              height="1em"
+              viewBox="0 0 448 512"
+              width="1em"
+            >
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedSportsPackage" fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+              <path
+                v-if="isCheckedSportsPackage"
+                fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
+              />
             </svg>
-            Sports package
+            {{ $t("message.filter_page.features.sportpackage") }}
+
           </label>
         </div>
       </div>
       <div class="condition mt-[40px]">
-        <h3 class="text-[16px]">Air conditioning</h3>
+        <h3 class="text-[16px]"> {{ $t("message.filter_page.conditioning.title") }}
+        </h3>
         <div class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]">
           <label class="w-[250px]" for="manual">
             <input type="radio" id="manual" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Manual',
-              'bg-orange': selectedConditioning === 'Manual',
-            }" @click="selectAirConditioning('Manual')" />
-            <span class="ml-[10px] text-[14px]">Manual or automatic climatisation
+              'bg-transparent': selectedConditioning !== 'Manual or automatic climatisation',
+              'bg-orange': selectedConditioning === 'Manual or automatic climatisation',
+            }" @click="selectAirConditioning('Manual or automatic climatisation')" />
+            <span class="ml-[10px] text-[14px]"> {{ $t("message.filter_page.conditioning.manual") }}
             </span>
           </label>
           <label class="w-[250px]" for="auto-climat">
             <input type="radio" id="auto-climat" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat',
-              'bg-orange': selectedConditioning === 'Auto-Climat',
-            }" @click="selectAirConditioning('Auto-Climat')" />
-            <span class="ml-[10px] text-[14px]">Automatic climatisation, 2 zones
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 2 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 2 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 2 zones')" />
+            <span class="ml-[10px] text-[14px]"> {{ $t("message.filter_page.conditioning.zone2") }}
             </span>
           </label>
 
           <label class="w-[250px]" for="auto2">
             <input type="radio" id="auto2" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat2',
-              'bg-orange': selectedConditioning === 'Auto-Climat2',
-            }" @click="selectAirConditioning('Auto-Climat2')" />
-            <span class="ml-[10px] text-[14px]">Automatic climatisation, 4 zones</span>
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 4 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 4 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 4 zones')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.zone4") }}</span>
           </label>
           <label class="w-[200px]">
             <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'NoClimat',
-              'bg-orange': selectedConditioning === 'NoClimat',
-            }" @click="selectAirConditioning('NoClimat')" />
-            <span class="ml-[10px] text-[14px]">No climatisation</span>
+              'bg-transparent': selectedConditioning !== 'No climatisation',
+              'bg-orange': selectedConditioning === 'No climatisation',
+            }" @click="selectAirConditioning('No climatisation')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.no") }}</span>
           </label>
           <label class="w-[200px]">
             <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'AutoClimat',
-              'bg-orange': selectedConditioning === 'AutoClimat',
-            }" @click="selectAirConditioning('AutoClimat')" />
-            <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
+              'bg-transparent': selectedConditioning !== 'Automatic air conditioning',
+              'bg-orange': selectedConditioning === 'Automatic air conditioning',
+            }" @click="selectAirConditioning('Automatic air conditioning')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.auto") }}</span>
           </label>
           <label class="w-[250px]">
             <input type="radio" v-model="selectedConditioning" :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat3',
-              'bg-orange': selectedConditioning === 'Auto-Climat3',
-            }" @click="selectAirConditioning('Auto-Climat3')" />
-            <span class="ml-[10px] text-[14px]">Automatic climatisation, 3 zones
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 3 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 3 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 3 zones')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.zone3") }}
             </span>
           </label>
         </div>
-        <div class="condition mt-[20px]">
-          <h3 class="text-[16px]">Cruise control</h3>
-          <div class="text-[14px] radios-type flex gap-[30px] mt-[10px]">
+        <div class="text-[16px] condition mt-[20px]">
+          <h3>{{ $t("message.filter_page.trailer.title") }}</h3>
+          <div class="text-[14px] radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
             <label>
-              <input type="radio" id="condition-any" v-model="selectedCruise" :class="{
-                'bg-transparent': selectedCruise !== 'Cruise',
-                'bg-orange': selectedCruise === 'Cruise',
-              }" @click="selectCruise('Cruise')" />
-              <span class="ml-[10px]">Cruise control </span>
+              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
+                'bg-transparent': selectedTrailer !== 'Fix, detachable or swiveling',
+                'bg-orange': selectedTrailer === 'Fix, detachable or swiveling',
+              }" @click="selectTrailer('Fix, detachable or swiveling')" />
+              <span class="ml-[10px]">{{ $t("message.filter_page.trailer.fix") }}</span>
             </label>
             <label>
-              <input type="radio" id="condition-adap" v-model="selectedCruise" :class="{
-                'bg-transparent': selectedCruise !== 'Adaptive',
-                'bg-orange': selectedCruise === 'Adaptive',
-              }" @click="selectCruise('Adaptive')" />
-              <span class="ml-[10px]">Adaptive Cruise Control</span>
+              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
+                'bg-transparent': selectedTrailer !== 'Detachable or swiveling',
+                'bg-orange': selectedTrailer === 'Detachable or swiveling',
+              }" @click="selectTrailer('Detachable or swiveling')" />
+              <span class="ml-[10px]">{{ $t("message.filter_page.trailer.det") }}</span>
+            </label>
+            <label>
+              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
+                'bg-transparent': selectedTrailer !== 'Swiveling',
+                'bg-orange': selectedTrailer === 'Swiveling',
+              }" @click="selectTrailer('Swiveling')" />
+              <span class="ml-[10px]">{{ $t("message.filter_page.trailer.swi") }}</span>
             </label>
           </div>
         </div>
-        <div class="flex flex-wrap gap-x-[10px] lg:gap-x-[40px]">
-          <div class="marke_select_div relative mt-[35px] lg:mt-[30px] ">
-            <h2 class="text-xs  lg:text-[14px]">Axles</h2>
-            <select
-              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedAxles">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <spanw class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></spanw>
+        <div class="condition mt-[20px]">
+          <h3 class="text-[16px]">{{ $t("message.filter_page.cruise.cruise") }}</h3>
+          <div class="text-[14px] radios-type flex gap-[30px] mt-[10px]">
+            <label>
+              <input type="radio" id="condition-any" v-model="selectedCruise" :class="{
+                'bg-transparent': selectedCruise !== 'Cruise Control',
+                'bg-orange': selectedCruise === 'Cruise Control',
+              }" @click="selectCruise('Cruise Control')" />
+              <span class="ml-[10px]">{{ $t("message.filter_page.cruise.cruise") }} </span>
+            </label>
+            <label>
+              <input type="radio" id="condition-adap" v-model="selectedCruise" :class="{
+                'bg-transparent': selectedCruise !== 'Adaptive Cruise Control',
+                'bg-orange': selectedCruise === 'Adaptive Cruise Control',
+              }" @click="selectCruise('Adaptive Cruise Control')" />
+              <span class="ml-[10px]">{{ $t("message.filter_page.cruise.adaptive") }} </span>
+            </label>
           </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[10px] ">
-            <h2 class="text-xs  lg:text-[14px] w-[160px]">
-              Permissible Gross Vehicle Weight (GVW)
-            </h2>
-            <select
-              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedGvw">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] ">
-            <h2 class="text-xs  lg:text-[14px]">Wheel Formula</h2>
-            <select
-              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedWheelFormula">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] ">
-            <h2 class="text-xs  lg:text-[14px]">Hydraulic Installation</h2>
-            <select
-              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="selectedHydraulic">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
-          <div class="marke_select_div relative mt-[20px] lg:mt-[30px] ">
-            <h2 class="text-xs  lg:text-[14px]">Renting Possible</h2>
-            <select
-              class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-              v-model="classEmision">
-              <option value="any" selected>Any</option>
-              <option value="1">Up to 1</option>
-              <option value="2">Up to 2</option>
-              <option value="3">Up to 3</option>
-              <option value="4">Up to 4</option>
-            </select>
-            <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
-          </div>
+        </div>
+        <div class="flex flex-wrap gap-x-[40px]">
+          <div class="seats dropdown-container mt-[20px]">
+            <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.numseat") }} </h2>
+            <div class="input-container flex relative mt-[10px]">
+              <input type="from"
+                class="dropdown-input mark_input mark-select  w-[160px] lg:w-[170px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+                placeholder="from" v-model="numberSeats" @focus="openSeatsDropdown" @blur="openSeatsDropdown" />
 
+              <div
+                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+                @click="openSeatsDropdown">
+                <span
+                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
+              </div>
+            </div>
+            <ul v-if="seatsOpen" class="dropdown-options w-[160px] lg:w-[200px] text-[10px] lg:text-[12px]">
+              <ul>
+                <li key="2" @click="selectNumberSeats('2')">2</li>
+                <li key="3" @click="selectNumberSeats('3')">3</li>
+                <li key="4" @click="selectNumberSeats('4')">4</li>
+                <li key="5" @click="selectNumberSeats('5')">5</li>
+                <li key="6" @click="selectNumberSeats('6')">6</li>
+                <li key="7" @click="selectNumberSeats('7')">7</li>
+                <li key="8" @click="selectNumberSeats('8')">8</li>
+                <li key="9" @click="selectNumberSeats('9')">9</li>
+              </ul>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
     <div class="interior">
       <div class="condition mt-[30px]">
-        <h3 class="text-[16px]">Vendor</h3>
+        <h3 class="text-[16px]">{{ $t("message.filter_page.vendor") }} </h3>
         <div class="radios-type flex gap-[40px] mt-[20px]">
           <label>
             <input type="radio" id="vendor-private" v-model="selectedVendor" :class="{
-              'bg-transparent': selectedVendor !== 'Private',
-              'bg-orange': selectedVendor === 'Private',
-            }" @click="selectVendor('Private')" />
-            <span class="ml-[10px] text-[14px]">Private seller</span>
+              'bg-transparent': selectedVendor !== 'Private seller',
+              'bg-orange': selectedVendor === 'Private seller',
+            }" @click="selectVendor('Private seller')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.зкшмфеу") }}</span>
           </label>
           <label>
             <input type="radio" id="vendor-dealer" v-model="selectedVendor" :class="{
               'bg-transparent': selectedVendor !== 'Dealer',
               'bg-orange': selectedVendor === 'Dealer',
             }" @click="selectVendor('Dealer')" />
-            <span class="ml-[10px] text-[14px]">Dealer </span>
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.вуфдук") }}</span>
           </label>
           <label>
             <input type="radio" id="vendor-dealer" v-model="selectedVendor" :class="{
-              'bg-transparent': selectedVendor !== 'Company',
-              'bg-orange': selectedVendor === 'Company',
-            }" @click="selectVendor('Company')" />
-            <span class="ml-[10px] text-[14px]">Company vehicles</span>
+              'bg-transparent': selectedVendor !== 'Company vehicles',
+              'bg-orange': selectedVendor === 'Company vehicles',
+            }" @click="selectVendor('Company vehicles')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.company") }}</span>
           </label>
         </div>
       </div>
@@ -1063,26 +1213,26 @@
               <path v-if="isCheckedDiscount" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Discount offers
+            {{ $t("message.filter_page.discount") }}
           </label>
           <label
             class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedRenting" @click="toggleShowCheckboxAds(0)" />
+            <input type="checkbox" v-model="isCheckedNon" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedRenting" fill="#ffffff"
+              <path v-if="isCheckedNon" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Renting Possible
+            {{ $t("message.filter_page.non") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTaxi" @click="toggleShowCheckboxAds(0)" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedTrailerCoupling" fill="#ffffff"
+              <path v-if="isCheckedTaxi" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Trailer Coupling
+            {{ $t("message.filter_page.taxu") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedVAT" @click="toggleShowCheckboxAds(0)" />
@@ -1091,7 +1241,7 @@
               <path v-if="isCheckedVAT" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            VAT reclaimable
+            {{ $t("message.filter_page.vat") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedWarranty" @click="toggleShowCheckboxAds(0)" />
@@ -1100,7 +1250,8 @@
               <path v-if="isCheckedWarranty" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Warranty
+            {{ $t("message.filter_page.warranty") }}
+
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedEnvironmental" @click="toggleShowCheckboxAds(0)" />
@@ -1109,27 +1260,81 @@
               <path v-if="isCheckedEnvironmental" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            HU valid
+            {{ $t("message.filter_page.hu_valid") }}
+
           </label>
         </div>
       </div>
+      <div class="flex items-center gap-[20px] lg:gap-[50px]">
+        <div class="relative mt-2 ">
+          <h2 class="text-[10px] lg:text-[14px]"> {{ $t("message.filter_page.damaged") }}
+          </h2>
+          <select
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="damageVehicle">
+            <option value="any" selected>Any</option>
+            <option value="not">Do not show</option>
+            <option value="only">Only show</option>
+          </select>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+        </div>
+        <div class="relative mt-2 ">
+          <h2 class="text-[10px] lg:text-[14px]"> {{ $t("message.filter_page.programme") }}
+          </h2>
+          <select
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            v-model="approveUsed">
+            <option value="">Please select</option>
+            <option value="Any">Any approved label</option>
+            <option value="ASTON_MARTIN">Aston Martin Timeless</option>
+            <option value="BMW">BMW Premium Selection</option>
+            <option value="BENTLEY">Certified by Bentley</option>
+            <option value="DS_CERTIFIED">DS Certified</option>
+            <option value="FERRARI">Ferrari Approved</option>
+            <option value="HYUNDAI_PROMISE">Hyundai Promise</option>
+            <option value="JAGUAR">Jaguar APPROVED</option>
+            <option value="KIA_ZERTIFIZIERTE_GEBRAUCHTWAGEN">
+              Kia Zertifizierte Gebrauchtwagen
+            </option>
+            <option value="LANDROVER">Land Rover APPROVED</option>
+            <option value="MASERATI">Maserati Approved</option>
+            <option value="MERCEDES_TRANSPORTER">
+              Mercedes-Benz Junge Sterne Transporter
+            </option>
+            <option value="MINI">MINI Gebrauchtwagen Next</option>
+            <option value="NISSAN">Nissan Intelligent Choice</option>
+            <option value="PORSCHE">Porsche Approved</option>
+            <option value="SEAT">SEAT "Das Weltauto"</option>
+            <option value="LAMBORGHINI">
+              Selezione Lamborghini Certified Pre-Owned
+            </option>
+            <option value="SKODA">ŠKODA Plus</option>
+            <option value="SPOTICAR">SPOTICAR</option>
+            <option value="VW_TRADEPORT">Volkswagen TradePort</option>
+            <option value="VOLVO">VOLVO SELEKT</option>
+          </select>
+          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+        </div>
+      </div>
       <div class="">
-        <h2 class="mt-[30px] text-[16px]">Description</h2>
-        <textarea class="bg-[#ccc] mt-[10px] p-[20px] w-full" name="" id="" cols="40" rows="5" placeholder="Description "
+        <h2 class="mt-[30px] text-[16px]"> {{ $t("message.filter_page.description") }}
+        </h2>
+        <textarea class="bg-[#ccc] mt-[10px] p-[20px]" name="" id="" cols="40" rows="5" placeholder="Description "
           v-model="descriptionText"></textarea>
       </div>
       <div>
         <div class="flex gap-[30px] justify-end">
           <button class="bg-red-500 rounded-[8px] p-[10px]" @click="handleCancelButtonClick">
-            Cancel
+            {{ $t("message.filter_page.cancel") }}
+
           </button>
-          <button @click="editAddTrucks" class="bg-blue-500 rounded-[8px] p-[10px]">
-            Edit Add
+          <button @click="editAddAgricultural" class="bg-blue-500 rounded-[8px] p-[10px]">
+            {{ $t("message.filter_page.editad") }}
+
           </button>
         </div>
       </div>
     </div>
-  </div>
 </template>
 <script>
 import { ref } from "vue";

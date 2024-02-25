@@ -2988,17 +2988,17 @@ export default {
         });
     },
     cancelAdCar() {
-  const comI = localStorage.getItem("com-i");
-  
-  // Если значение существует и не пустое
-  if (comI) {
-    // Перенаправляем на страницу company-settings
-    this.$router.push({ name: "company-settings" });
-  } else {
-    // Иначе перенаправляем на страницу profile-settings
-    this.$router.push({ name: "profile-settings" });
-  }
-},
+      const comI = localStorage.getItem("com-i");
+
+      // Если значение существует и не пустое
+      if (comI) {
+        // Перенаправляем на страницу company-settings
+        this.$router.push({ name: "company-settings" });
+      } else {
+        // Иначе перенаправляем на страницу profile-settings
+        this.$router.push({ name: "profile-settings" });
+      }
+    },
     // thenPowerAdd() {
     //   http.put("/car/add/engine", {
     // 		car_id: localStorage.getItem('car_id'),
