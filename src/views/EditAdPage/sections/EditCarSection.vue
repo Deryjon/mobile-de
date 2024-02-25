@@ -2316,7 +2316,7 @@
       <div class="">
         <h2 class="mt-[30px] text-[16px]">{{ $t("message.filter_page.description") }} </h2>
         <textarea class="bg-[#ccc] mt-[10px] p-[20px]" name="" id="" cols="40" rows="5" placeholder="Description "
-          v-model="descriptionText">{{ dataAd.car_description }}</textarea>
+          v-model="descriptionText"></textarea>
       </div>
       <div>
         <div class="flex gap-[30px] justify-end">
