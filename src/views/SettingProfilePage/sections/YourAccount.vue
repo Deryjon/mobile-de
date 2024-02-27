@@ -271,7 +271,6 @@ export default {
     },
 
     logOut() {
-      this.activeTab4Store.toggleMenu()
       localStorage.removeItem("r-tok");
       localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
