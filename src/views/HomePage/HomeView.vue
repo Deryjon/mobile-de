@@ -55,12 +55,11 @@ mounted() {
       localStorage.setItem("u-com", false);
     } else if (localStorage.getItem("logged-in") == null){
       localStorage.setItem("logged-in", false);
-
 		}
 
     const hasReloaded = localStorage.getItem('hasReloaded');
     if (!hasReloaded && localStorage.getItem('r-tok')) { 
-      location.reload();
+      window.location.reload();
       localStorage.setItem('hasReloaded', 'true');
     }
 }

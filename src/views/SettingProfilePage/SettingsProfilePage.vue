@@ -17,12 +17,6 @@ export default {
     PathLink,
     YourAccount,
   },
-  created() {
-    const isLoggedIn = localStorage.getItem("logged-in");
-    if (isLoggedIn === "false") {
-      this.$router.push({ name: "home" });
-    }
-  },
 };
 </script>
 

@@ -263,12 +263,42 @@ export default {
     },
 
     logOut() {
+      this.activeTab4Store.toggleMenu()
       localStorage.removeItem("r-tok");
       localStorage.removeItem("r-tok");
       localStorage.removeItem("hasReloaded");
       localStorage.removeItem("logged-in");
-      localStorage.setItem("logged-in", "false");
-      this.$router.push({ name: "home" });
+      localStorage.removeItem("com-i");
+      localStorage.removeItem("u-e");
+      localStorage.removeItem("com-city");
+      localStorage.removeItem("name");
+      localStorage.removeItem("u-ln");
+      localStorage.removeItem("com-country");
+      localStorage.removeItem("com-prefix");
+      localStorage.removeItem("u-d-s");
+      localStorage.removeItem("com-radius");
+      localStorage.removeItem("com-e");
+      localStorage.removeItem("u-p");
+      localStorage.removeItem("com-street");
+      localStorage.removeItem("u-phone");
+      localStorage.removeItem("u-fn");
+      localStorage.removeItem("u-d-nr");
+      localStorage.removeItem("u-i");
+      localStorage.removeItem("u-g");
+      localStorage.removeItem("com-numcode");
+      localStorage.removeItem("com-number");
+      localStorage.removeItem("u-numcode");
+      localStorage.removeItem("u-code");
+      localStorage.removeItem("com-nr");
+      localStorage.removeItem("com-zip");
+      localStorage.removeItem("com-name");
+      localStorage.removeItem("u-pre");
+      localStorage.removeItem("u-d-co");
+      localStorage.removeItem("u-d-c");
+      localStorage.removeItem("u-d-z");
+      localStorage.setItem("logged-in", false);
+      localStorage.setItem("hasReloaded", true);
+      localStorage.setItem("u-com", false);
       window.location.reload();
     },
     openCountryDropdown() {
@@ -295,14 +325,19 @@ export default {
   },
 
   created() {
-    this.companyEmail = localStorage.getItem("u-e");
-    this.companyProfileImg = localStorage.getItem("u-img-prof");
+    const isLoggedIn = localStorage.getItem("u-com");
+    if (isLoggedIn === "false") {
+      this.$router.push({ name: "home" });
+      return
+    }  
+    this.companyEmail = localStorage.getItem("com-e");
+    this.companyProfileImgName = localStorage.getItem("u-img-alt");
+      this.companyProfileImg = localStorage.getItem("u-img-prof");
 
     if (this.companyProfileImg === 'null') {
       this.companyIcon = true;
 
     }
-    this.companyProfileImgName = localStorage.getItem("u-img-alt");
   },
   components: {
     SettingsTab,

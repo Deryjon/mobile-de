@@ -265,8 +265,8 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
-        
-           if (response.data.status === 200) {
+
+          if (response.data.status === 200) {
 
             localStorage.setItem("u-i", responseData.data.user_id);
             localStorage.setItem("u-e", responseData.data.user_email);
@@ -305,49 +305,119 @@ export default {
         });
     },
 
+    // LoginUser(email, password) {
+    //   http
+    //     .post("/user/login", {
+    //       user_email: email,
+    //       user_password: password,
+    //     })
+    //     .then((response) => {
+    //       const responseData = response.data;
+    //       if (response.data.status === 200) {
+    //         localStorage.setItem("u-i", responseData.data.user_id);
+    //         localStorage.setItem("u-e", responseData.data.user_email);
+    //        localStorage.setItem("u-p", responseData.data.user_password);
+    //        localStorage.setItem("u-fn", responseData.data.user_first_name);
+    //        localStorage.setItem("u-ln", responseData.data.user_last_name);
+    //        localStorage.setItem("u-g", responseData.data.user_gender);
+    //        localStorage.setItem("u-d-s", responseData.data.user_address_street);
+    //        localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
+    //        localStorage.setItem("u-d-z", responseData.data.user_address_zip);
+    //        localStorage.setItem("u-d-c", responseData.data.user_address_city);
+    //        localStorage.setItem("u-com", responseData.data.user_company);
+    //        localStorage.setItem("com-i", responseData.data.company_id);
+    //        localStorage.setItem("u-img-prof", responseData.data.user_image_url);
+    //        localStorage.setItem(
+    //          "u-d-co",
+    //          responseData.data.user_address_country
+    //        );
+    //        localStorage.setItem("u-code", responseData.data.user_country_code);
+    //        localStorage.setItem("u-pre", responseData.data.user_number_prefix);
+    //        localStorage.setItem("u-phone", responseData.data.user_phone_number);
+    //        localStorage.setItem("u-bal", responseData.data.user_balance);
+    //        localStorage.setItem("r-tok", responseData.token);
+
+    //        if (localStorage.getItem("u-com") === "true") {
+    //       this.$router.push({ name: "company-settings" });
+    //       window.location.reload()
+    //     } else {
+    //       this.$router.push({ name: "profile-settings" });
+    //     }
+
+    //     localStorage.setItem("logged-in", "true");
+
+    //      }
+    //      else if (response.data.status === 401 || response.data.status === 402 || response.data.status === 404) {
+    //     this.isPasswordWrong = !this.isPasswordWrong;
+    //   }
+    //     })
+
+    // },
     LoginUser(email, password) {
-      http
-        .post("/user/login", {
-          user_email: email,
-          user_password: password,
-        })
-        .then((response) => {
-          const responseData = response.data;
-          if (response.data.status === 200) {
+      http.post("/user/login", {
+        user_email: email,
+        user_password: password,
+      }).then((response) => {
+        const responseData = response.data;
+        if (responseData.status === 200) {
+          localStorage.setItem("u-i", responseData.data.user_id);
+          localStorage.setItem("u-com", responseData.data.user_company);
+          localStorage.setItem("u-img-prof", responseData.data.user_image_url);
+          localStorage.setItem("r-tok", responseData.token);
 
-           localStorage.setItem("u-i", responseData.data.user_id);
-           localStorage.setItem("u-e", responseData.data.user_email);
-           localStorage.setItem("u-p", responseData.data.user_password);
-           localStorage.setItem("u-fn", responseData.data.user_first_name);
-           localStorage.setItem("u-ln", responseData.data.user_last_name);
-           localStorage.setItem("u-g", responseData.data.user_gender);
-           localStorage.setItem("u-d-s", responseData.data.user_address_street);
-           localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
-           localStorage.setItem("u-d-z", responseData.data.user_address_zip);
-           localStorage.setItem("u-d-c", responseData.data.user_address_city);
-           localStorage.setItem("u-com", responseData.data.user_company);
-           localStorage.setItem("com-i", responseData.data.company_id);
-           localStorage.setItem("u-img-prof", responseData.data.user_image_url);
-           localStorage.setItem(
-             "u-d-co",
-             responseData.data.user_address_country
-           );
-           localStorage.setItem("u-code", responseData.data.user_country_code);
-           localStorage.setItem("u-pre", responseData.data.user_number_prefix);
-           localStorage.setItem("u-phone", responseData.data.user_phone_number);
-           localStorage.setItem("u-bal", responseData.data.user_balance);
-           localStorage.setItem("r-tok", responseData.token);
-           if (localStorage.getItem("r-tok")) {
-             localStorage.setItem("logged-in", "true");
-             this.$router.push({ name: "home" });
-           }
-         }
-          else if (response.data.status === 401, 402, 404) {
-            this.isPasswordWrong = !this.isPasswordWrong
+          if (responseData.data.user_company = true) {
+            this.fetchCompanyData()
+              window.location.reload()
+          } else {
+            localStorage.setItem("u-e", responseData.data.user_email);
+            localStorage.setItem("u-p", responseData.data.user_password);
+            localStorage.setItem("u-fn", responseData.data.user_first_name);
+            localStorage.setItem("u-ln", responseData.data.user_last_name);
+            localStorage.setItem("u-g", responseData.data.user_gender);
+            localStorage.setItem("u-d-s", responseData.data.user_address_street);
+            localStorage.setItem("u-d-nr", responseData.data.user_address_nr);
+            localStorage.setItem("u-d-z", responseData.data.user_address_zip);
+            localStorage.setItem("u-d-c", responseData.data.user_address_city);
+            localStorage.setItem("com-i", responseData.data.company_id);
+            localStorage.setItem("u-img-prof", responseData.data.user_image_url);
+            localStorage.setItem("u-d-co", responseData.data.user_address_country);
+            localStorage.setItem("u-code", responseData.data.user_country_code);
+            localStorage.setItem("u-pre", responseData.data.user_number_prefix);
+            localStorage.setItem("u-phone", responseData.data.user_phone_number); 
+            localStorage.setItem("u-bal", responseData.data.user_balance);
+            window.location.reload()
+
+            this.$router.push({ name: "profile-settings" });
           }
-        })
-
+          localStorage.setItem("logged-in", "true");
+        } else if (responseData.status === 401 || responseData.status === 402 || responseData.status === 404) {
+          this.isPasswordWrong = true;
+        }
+      }).catch(error => {
+        console.error("Error during login:", error);
+        // Handle error
+      });
     },
+
+    fetchCompanyData() {
+      const userId = localStorage.getItem("u-i");
+      http.get(`/company/${userId}`).then((response) => {
+        const responseData = response.data;
+        localStorage.setItem("com-city", responseData.data.company_address_city);
+        localStorage.setItem("com-country", responseData.data.company_address_country);
+        localStorage.setItem("com-nr", responseData.data.company_address_nr);
+        localStorage.setItem("com-radius", responseData.data.company_address_radius);
+        localStorage.setItem("com-street", responseData.data.company_address_street);
+        localStorage.setItem("com-zip", responseData.data.company_address_zip);
+        localStorage.setItem("com-numcode", responseData.data.company_country_code);
+        localStorage.setItem("com-i", responseData.data.company_id);
+        localStorage.setItem("com-e", responseData.data.company_mail);
+        localStorage.setItem("com-name", responseData.data.company_name);
+        localStorage.setItem("com-prefix", responseData.data.company_number_prefix);
+        localStorage.setItem("com-number", responseData.data.company_phone_number);       
+      })
+    }
+
   },
   components: { HeaderLogo, RightTabComponent },
   computed: {

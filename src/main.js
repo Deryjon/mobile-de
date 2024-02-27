@@ -14,6 +14,7 @@ import './assets/styles/tailwind.css';
 import "vue-toastification/dist/index.css"
 
 
+
 const app = createApp(App);
 const pinia = createPinia();
 
