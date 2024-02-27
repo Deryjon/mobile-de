@@ -74,7 +74,7 @@
       </div>
 			<div class="mt-[30px] ">
     <h3 class="text-[16px]">Vehicle type</h3>
-    <div class="filter-cars flex flex-wrap gap-x-[10px] lg:gap-x-[25px] mt-[20px] ">
+    <div class="filter-cars flex flex-wrap gap-x-[10px] lg:gap-x-[20px] mt-[20px] ">
       <!-- cabrio -->
       <label
         class="custom-checkbox  flex gap-[2px] lg:gap-[10px] text-[10px] lg:text-[14px] items-center h-[40px] p-0 pb-[20px]"

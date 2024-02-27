@@ -18,8 +18,7 @@
             </button>
           </div>
           <span v-if="previewImages.length === 0">No Images</span>
-          <button v-if="errorPushPagePriceList" @click="goPriceList"
-            class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
+          <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -1224,7 +1223,7 @@
           <label
             class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')" />
+              @click="toggleShowCheckboxOthers(3, 'Speed limit control system')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSpeed" fill="#ffffff"
@@ -1475,7 +1474,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTractionСontrol"
-              @click="toggleShowCheckboxOthers(32, 'Traction control')" />
+              @click="toggleShowCheckboxOthers(31, 'Traction control')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedTractionСontrol" fill="#ffffff"
@@ -1485,7 +1484,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedCentralLocking"
-              @click="toggleShowCheckboxOthers(33, 'Central locking')" />
+              @click="toggleShowCheckboxOthers(32, 'Central locking')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedCentralLocking" fill="#ffffff"
@@ -1495,7 +1494,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedHeatedWindshield"
-              @click="toggleShowCheckboxOthers(34, 'Heated windshield')" />
+              @click="toggleShowCheckboxOthers(33, 'Heated windshield')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedHeatedWindshield" fill="#ffffff"
@@ -1505,7 +1504,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedPowerAssistedSteering"
-              @click="toggleShowCheckboxOthers(35, 'Power Assisted Steering')" />
+              @click="toggleShowCheckboxOthers(34, 'Power Assisted Steering')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedPowerAssistedSteering" fill="#ffffff"
@@ -1515,7 +1514,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTrafficSign"
-              @click="toggleShowCheckboxOthers(36, 'Traffic sign recognition')" />
+              @click="toggleShowCheckboxOthers(35, 'Traffic sign recognition')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedTrafficSign" fill="#ffffff"
@@ -1525,7 +1524,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedDayTimeRunning"
-              @click="toggleShowCheckboxOthers(37, 'Daytime running lights')" />
+              @click="toggleShowCheckboxOthers(36, 'Daytime running lights')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedDayTimeRunning" fill="#ffffff"
@@ -1535,7 +1534,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedHighBeamAssist"
-              @click="toggleShowCheckboxOthers(38, 'High beam assist')" />
+              @click="toggleShowCheckboxOthers(37, 'High beam assist')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedHighBeamAssist" fill="#ffffff"
@@ -1545,7 +1544,7 @@
           </label>
 
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedRainSensor" @click="toggleShowCheckboxOthers(39, 'Rain sensor')" />
+            <input type="checkbox" v-model="isCheckedRainSensor" @click="toggleShowCheckboxOthers(38, 'Rain sensor')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedRainSensor" fill="#ffffff"
@@ -1555,7 +1554,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedTyrePressure"
-              @click="toggleShowCheckboxOthers(40, 'Tyre pressure monitoring')" />
+              @click="toggleShowCheckboxOthers(39, 'Tyre pressure monitoring')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedTyrePressure" fill="#ffffff"
@@ -1565,7 +1564,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedDistanceWarning"
-              @click="toggleShowCheckboxOthers(41, 'Distance warning system')" />
+              @click="toggleShowCheckboxOthers(39, 'Distance warning system')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedDistanceWarning" fill="#ffffff"
@@ -1575,7 +1574,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedHillStartAssist"
-              @click="toggleShowCheckboxOthers(42, 'Hill-start assist')" />
+              @click="toggleShowCheckboxOthers(40, 'Hill-start assist')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedHillStartAssist" fill="#ffffff"
@@ -1584,7 +1583,7 @@
             {{ $t("message.filter_page.features.hillstart") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedRoofRack" @click="toggleShowCheckboxOthers(43, 'Roof rack')" />
+            <input type="checkbox" v-model="isCheckedRoofRack" @click="toggleShowCheckboxOthers(41, 'Roof rack')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedRoofRack" fill="#ffffff"
@@ -1593,7 +1592,7 @@
             {{ $t("message.filter_page.features.roofrack") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedWinterTyres" @click="toggleShowCheckboxOthers(44, 'Winter tyres')" />
+            <input type="checkbox" v-model="isCheckedWinterTyres" @click="toggleShowCheckboxOthers(42, 'Winter tyres')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedWinterTyres" fill="#ffffff"
@@ -1602,17 +1601,17 @@
             {{ $t("message.filter_page.features.wintertyres") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedWinterTyres"
-              @click="toggleShowCheckboxOthers(45, 'Electric tailgate')" />
+            <input type="checkbox" v-model="isCheckedElectricTailgate"
+              @click="toggleShowCheckboxOthers(43, 'Electric tailgate')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedWinterTyres" fill="#ffffff"
+              <path v-if="isCheckedElectricTailgate" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
             {{ $t("message.filter_page.features.electrictailgate") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedImmobilizer" @click="toggleShowCheckboxOthers(46, 'Immobilizer')" />
+            <input type="checkbox" v-model="isCheckedImmobilizer" @click="toggleShowCheckboxOthers(44, 'Immobilizer')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedImmobilizer" fill="#ffffff"
@@ -1621,7 +1620,7 @@
             {{ $t("message.filter_page.features.immobilizer") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSpareTyre" @click="toggleShowCheckboxOthers(47, 'Spare tyre')" />
+            <input type="checkbox" v-model="isCheckedSpareTyre" @click="toggleShowCheckboxOthers(45, 'Spare tyre')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSpareTyre" fill="#ffffff"
@@ -1631,7 +1630,7 @@
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedXenonHeadLights"
-              @click="toggleShowCheckboxOthers(48, 'Xenon headlights')" />
+              @click="toggleShowCheckboxOthers(46, 'Xenon headlights')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedXenonHeadLights" fill="#ffffff"
@@ -1858,7 +1857,7 @@
           <label
             class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedHeated"
-              @click="toggleShowCheckboxExtras(2, 'Heated steering wheel')" />
+              @click="toggleShowCheckboxExtras(1, 'Heated steering wheel')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedHeated" fill="#ffffff"
@@ -1868,7 +1867,7 @@
           </label>
           <label
             class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSeat" @click="toggleShowCheckboxExtras(3, 'Seat ventilation')" />
+            <input type="checkbox" v-model="isCheckedSeat" @click="toggleShowCheckboxExtras(2, 'Seat ventilation')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSeat" fill="#ffffff"
@@ -2490,9 +2489,9 @@ export default {
       toast: useToast(),
 
       interiorAdd: false,
-      fuelAdd: true,
+      fuelAdd: false,
       basicAdd: true,
-      errorPushPagePriceList: false,
+      errorPushPagePriceList : false,
       makes: [],
       models: [],
       selectedMark: "",
@@ -2661,6 +2660,7 @@ export default {
       isCheckedRoofRack: false,
       isCheckedWinterTyres: false,
       isCheckedImmobilizer: false,
+      isCheckedElectricTailgate: false,
       isCheckedSpareTyre: false,
       isCheckedXenonHeadLights: false,
       isCheckedCargoBarrier: false,
@@ -2751,13 +2751,13 @@ export default {
     // }
     addAdBasicCars() {
       if (!this.selectedMark || !this.selectedModel || !this.selectedCar || !this.numberSeats || !this.numDoor || !this.slidingDoor || !this.selectedCondition || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.huValid || !this.preOwners || !this.selectedCountry || !this.zipCode || !this.radius) {
-        this.toast.error("Please fill in all required fields");
+        this.toast.error("Please fill in all required fields! Click button and go price list!");
 
         const countValue = localStorage.getItem('count');
         const maxPhotos = countValue ? parseInt(countValue) + 6 : 6;
 
         if (this.previewImages.length > maxPhotos) {
-          this.toast.error("Maximum number of photos exceeded! Click button and go price list!");
+          this.toast.error("Maximum number of photos exceeded! ");
           this.errorPushPagePriceList = !this.errorPushPagePriceList
         }
         return;
@@ -2805,7 +2805,7 @@ export default {
         })
     }
     ,
-    goPriceList() {
+    goPriceList(){
       this.$router.push({ name: "price-list" })
 
     },
@@ -3076,7 +3076,6 @@ export default {
           this.selectedOthers.splice(carIndex, 1);
         }
       }
-      console.log(this.selectedOthers);
     },
     openSeatsDropdown() {
       this.seatsOpen = true;

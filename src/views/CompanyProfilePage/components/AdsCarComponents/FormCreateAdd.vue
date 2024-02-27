@@ -1223,7 +1223,7 @@
           <label
             class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
             <input type="checkbox" v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')" />
+              @click="toggleShowCheckboxOthers(3, 'Speed limit control system')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSpeed" fill="#ffffff"
@@ -1601,11 +1601,11 @@
             {{ $t("message.filter_page.features.wintertyres") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedWinterTyres"
+            <input type="checkbox" v-model="isCheckedElectricTailgate"
               @click="toggleShowCheckboxOthers(43, 'Electric tailgate')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedWinterTyres" fill="#ffffff"
+              <path v-if="isCheckedElectricTailgate" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
             {{ $t("message.filter_page.features.electrictailgate") }}
@@ -2660,6 +2660,7 @@ export default {
       isCheckedRoofRack: false,
       isCheckedWinterTyres: false,
       isCheckedImmobilizer: false,
+      isCheckedElectricTailgate: false,
       isCheckedSpareTyre: false,
       isCheckedXenonHeadLights: false,
       isCheckedCargoBarrier: false,

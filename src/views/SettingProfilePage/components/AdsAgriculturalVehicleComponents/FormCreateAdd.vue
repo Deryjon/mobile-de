@@ -1428,6 +1428,9 @@ export default {
      showTab2() {
       this.activeTab = "sell";
     },
+     showTab3() {
+      this.activeTab = "rent";
+    },
     addAdVehicle() {
       if (!this.selectedMark || !this.selectedModel || !this.selectedCondition || !this.selectedCategory || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.selectedCountry || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
         this.toast.error("Please fill in all required fields!");
