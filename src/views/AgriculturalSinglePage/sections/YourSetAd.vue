@@ -440,9 +440,8 @@ export default {
       return `${day}-${month}-${year} ${hours}:${minutes} `;
     },
     redirectToLink() {
-        window.location.href = this.link;
-      },
-    // slider
+      window.open(this.link, '_blank');
+    },
     nextSlide() {
       // this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
