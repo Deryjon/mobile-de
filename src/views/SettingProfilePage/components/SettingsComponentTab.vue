@@ -731,8 +731,6 @@ export default {
           user_new_password: this.newPasswordLogin,
         })
         .then((response) => {
-          const responseData = response.data;
-          console.log(responseData);
           localStorage.setItem("u-e", responseData.data.user_email);
           localStorage.setItem("u-p", responseData.data.user_password);
         });

@@ -629,7 +629,6 @@ export default {
       // this.images[this.activeIndex].active = false;
       this.activeIndex =
         this.activeIndex === 0 ? this.images.length - 1 : this.activeIndex - 1;
-      // this.images[this.activeIndex].active = true;
     },
 
     changeSlide(index) {
