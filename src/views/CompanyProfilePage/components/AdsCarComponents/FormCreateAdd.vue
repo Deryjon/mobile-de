@@ -2884,8 +2884,7 @@ export default {
             file: file,
           });
 
-          // Добавьте здесь код для отправки файла на бэкенд, если требуется
-        };
+          };
 
         reader.readAsDataURL(file);
       }

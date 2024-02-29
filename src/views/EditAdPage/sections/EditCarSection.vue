@@ -2562,7 +2562,7 @@ export default {
     fetchAdCar() {
       http.get(`/car/${this.carId}`).then((res) => {
         this.dataAd = res.data.data
-        this.linkVideo = this.dataAd.car_description
+        this.linkVideo = this.dataAd.car_vide_link
         this.selectedMark = this.dataAd.car_make
         this.selectedMark = this.dataAd.car_make
         this.selectedModel = this.dataAd.car_model

@@ -35,31 +35,31 @@
       <div class="line mt-[20px]"></div>
       <div class="flex gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex gap-[5px] mt-[20px]">
-    <p class="name">{{ construction.machine_vendor }}</p>
-    <p class="name">{{ construction.user_gender }}</p>
-    <p class="name">{{ construction.user_first_name }}</p>
-  </div>
-  <div class="name-seller mt-[15px] font-semibold text-[12px]">
-    <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
-  </div>
-</div>
-</div>
+          <div class="name-seller flex gap-[5px] mt-[20px]">
+            <p class="name">{{ construction.machine_vendor }}</p>
+            <p class="name">{{ construction.user_gender }}</p>
+            <p class="name">{{ construction.user_first_name }}</p>
+          </div>
+          <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
+          </div>
+        </div>
+      </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ construction.user_email }}</p>
       </div>
@@ -125,7 +125,7 @@
               <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
             </div>
           </div>
-          
+
         </div>
         <p class="">{{ formatDate(construction.machine_ad_create_at) }}</p>
       </div>
@@ -196,6 +196,11 @@
       <div class="technical-data bor p-[20px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
+        <button
+        target="_blank"
+          class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]"
+          v-if="link" @click="redirectToLink">Link on Video</button>
+
         <div class="td-box mt-[20px] flex flex-col gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.category") }}</p>
@@ -286,34 +291,34 @@
       <div class="line mt-[20px]"></div>
       <div class="lg:flex gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-    <p class="name">{{ construction.machine_vendor }}</p>
-    <p class="name">{{ construction.user_gender }}</p>
-    <p class="name">{{ construction.user_first_name }}</p>
-  </div>
-  <div class="name-seller">
-    <p class="name">{{ construction.user_name }}</p>
-  </div>
-  <div class="name-seller mt-[15px] font-semibold text-[12px]">
-    <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
-  </div>
-</div>
-</div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ construction.machine_vendor }}</p>
+            <p class="name">{{ construction.user_gender }}</p>
+            <p class="name">{{ construction.user_first_name }}</p>
+          </div>
+          <div class="name-seller">
+            <p class="name">{{ construction.user_name }}</p>
+          </div>
+          <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
+          </div>
+        </div>
+      </div>
       <div class="name-seller mt-[15px] hidden lg:flex text-[14px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ construction.user_email }}</p>
       </div>
@@ -377,6 +382,7 @@ export default {
     return {
       userEmail: "",
       userI: "",
+      link: '',
       activeTab: "tab-2",
       isOpen: false,
       construction: [],
@@ -399,14 +405,14 @@ export default {
   },
   methods: {
     formatDate(dateString) {
-            const date = new Date(dateString);
-            const day = date.getUTCDate().toString().padStart(2, "0");
-            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
-            const year = date.getUTCFullYear();
-            const hours = date.getUTCHours().toString().padStart(2, "0");
-            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-            return `${day}-${month}-${year} ${hours}:${minutes} `;
-        },
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
     nextSlide() {
       // this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
@@ -457,6 +463,9 @@ export default {
     },
     goToSinglePageAd() {
       this.$router.push({ name: "single-car" });
+    },
+    redirectToLink() {
+      window.location.href = this.link;
     },
     toggleShareMenu() {
       this.isShareMenuOpen = !this.isShareMenuOpen;

@@ -199,6 +199,8 @@
           {{ $t("message.single_page.technical") }}
         </p>
         <div class="line mt-[10px]"></div>
+        <button class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]" v-if="link" @click="redirectToLink">Link on Video</button>
+
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
@@ -419,6 +421,7 @@ export default {
       adCreatedAt: null,
       formattedDate: "",
       formattedCreat: "",
+      link2: '',
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -436,6 +439,9 @@ export default {
       const minutes = date.getUTCMinutes().toString().padStart(2, "0");
       return `${day}-${month}-${year} ${hours}:${minutes} `;
     },
+    redirectToLink() {
+        window.location.href = this.link;
+      },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;

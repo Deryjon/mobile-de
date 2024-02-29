@@ -241,6 +241,7 @@
       <div class="technical-data bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
+        <button class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]" v-if="link" @click="redirectToLink">Link on Video</button>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.category") }}</p>
@@ -481,6 +482,7 @@ export default {
       adCreatedAt: null,
       formattedDate: "",
       formattedCreat: "",
+      link: '',
       activeIndex: 0,
       profileImg: null,
       userIcon: false,
@@ -558,6 +560,9 @@ export default {
       window.open(url, '_blank');
       this.closeShareMenu();
     },
+    redirectToLink() {
+        window.location.href = this.link;
+      },
     shareOnFacebook() {
       const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.currentUrl)}`;
       window.open(url, '_blank');

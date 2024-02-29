@@ -263,6 +263,9 @@
       <div class="technical-data bor p-[20px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
+        <button
+          class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]"
+          v-if="link" @click="redirectToLink">Link on Video</button>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
@@ -293,7 +296,7 @@
               {{ $t("message.filter_page.exterior_color.title_inter") }}
             </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
-              {{ car.car_interior_colour }} 
+              {{ car.car_interior_colour }}
             </p>
           </div>
           <div class="mileage flex justify-between">
@@ -301,7 +304,7 @@
               {{ $t("message.single_page.owners") }}
             </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">
-              {{ car.car_previous_owners }} 
+              {{ car.car_previous_owners }}
             </p>
           </div>
           <div class="cubic flex justify-between">
@@ -593,6 +596,7 @@ export default {
       adCreatedAt: null,
       formattedDate: "",
       formattedCreat: "",
+      link: '',
       activeIndex: 0,
       images: [],
       profileImg: "",
@@ -611,6 +615,9 @@ export default {
       const hours = date.getUTCHours().toString().padStart(2, "0");
       const minutes = date.getUTCMinutes().toString().padStart(2, "0");
       return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
+    redirectToLink() {
+      window.open(this.link, '_blank');
     },
     nextSlide() {
       // this.images[this.activeIndex].active = false;
@@ -645,11 +652,12 @@ export default {
         this.horsepower = this.car.car_power;
         this.images = this.car.car_images_url;
         this.profileImg = this.car.user_image_url
+        this.link = this.car.car_vide_link;
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
-        } 
+        }
         this.isLoading = false;
-        
+
       });
     },
     goToSinglePageAd() {

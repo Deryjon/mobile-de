@@ -72,7 +72,7 @@
 
         </p>
         <div class="email mt-[10px]">
-          <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="userECh" />
+          <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="userE" />
         </div>
         <div class="current-email mt-[30px] mb-[20px]">
           <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
@@ -105,7 +105,7 @@
 </label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
-            <input @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
+            <input  @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
               class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="currentPasswordLogin" />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
               <button @click="toggleShowPassword" class="h-5 w-5 text-gray-400 focus:outline-none">
@@ -834,7 +834,7 @@ export default {
       userI: "",
       companyI: "",
       userE: "",
-      userECh: "",
+      userE: "",
       companyNumberPre: "",
       selectedCountry: "",
       nameChange: false,
@@ -874,6 +874,21 @@ export default {
 
 
       });
+    },
+    changeLoginData() {
+      http
+        .put("/user/edit/mail", {
+          user_id: this.userI,
+          user_email: this.userE,
+          user_new_password: this.newPasswordLogin,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          console.log(responseData);
+          localStorage.setItem("u-e", responseData.data.user_email);
+          localStorage.setItem("u-p", responseData.data.user_password);
+        });
+      // window.location.reload();
     },
     deleteCompany() {
       http
