@@ -47,7 +47,7 @@
                 <div class="code mt-[20px]">
                     <p>New password</p>
 
-                    <input v-model="newPassword" type="text" class="bor rounded-[5px] w-full px-[15px] py-[10px]">
+                    <input v-model="newPassword" type="password" class="bor rounded-[5px] w-full px-[15px] py-[10px]">
                 </div>
                 <button class="btn text-white bg-[#e04b00] px-auto w-full px-[15px] py-[10px] rounded-[5px] mt-[20px]"
                     @click="sendNewPassword">Send </button>

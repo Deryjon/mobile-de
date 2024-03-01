@@ -535,6 +535,7 @@ export default {
         this.horsepower = this.coache.coache_power;
         this.images = this.coache.coache_images_url
         this.userI = this.coache.user_id; 
+        this.link = this.coache.coache_video_link;
         this.profileImg = this.coache.user_image_url
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
@@ -561,8 +562,8 @@ export default {
       this.closeShareMenu();
     },
     redirectToLink() {
-        window.location.href = this.link;
-      },
+      window.open(this.link, '_blank');
+    },
     shareOnFacebook() {
       const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(this.currentUrl)}`;
       window.open(url, '_blank');

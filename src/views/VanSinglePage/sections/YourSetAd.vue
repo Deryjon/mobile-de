@@ -172,6 +172,9 @@
       <div class="technical-data bor p-[20px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
+        <button
+          class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]"
+          v-if="link" @click="redirectToLink">Link on Video</button>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.category") }}</p>
@@ -409,6 +412,7 @@ export default {
       formattedDate: "",
       formattedCreat: "",
       formattedDate: "",
+      link: "",
       activeIndex: 0,
       images: [],
       intervalId: null,
@@ -448,9 +452,11 @@ export default {
       window.location.href = websiteUrl;
 
     },
-    // 
     contactAd() {
       this.contactUser = !this.contactUser;
+    },
+    redirectToLink() {
+      window.open(this.link, '_blank');
     },
     fetchAds() {
       http.get(`/vans/${this.carId}`).then((res) => {
@@ -458,6 +464,7 @@ export default {
         this.horsepower = this.van.van_power;
         this.images = this.van.van_images_url
         this.userI = this.van.user_id;
+        this.link = this.van.van_video_link;
         this.profileImg = this.van.user_image_url
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;

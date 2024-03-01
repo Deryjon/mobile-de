@@ -135,6 +135,9 @@
       <div class="technical-data bor p-[20px] md:mt-[80px] lg:mt-[10px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
+        <button
+          class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]"
+          v-if="link" @click="redirectToLink">Link on Video</button>
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.category") }}</p>
@@ -348,6 +351,7 @@ export default {
       userCreatedAt: null,
       adCreatedAt: null,
       formattedDate: "",
+      link: "",
       formattedCreat: "",
       profileImg: "",
       userIcon: false,
@@ -374,7 +378,9 @@ export default {
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
       // this.images[this.activeIndex].active = true;
     },
-
+    redirectToLink() {
+      window.open(this.link, '_blank');
+    },
     prevSlide() {
       // this.images[this.activeIndex].active = false;
       this.activeIndex =
@@ -401,6 +407,7 @@ export default {
         this.horsepower = this.trailer.trailer_power;
         this.userI = this.trailer.user_id;
         this.images = this.trailer.trailer_images_url;
+        this.link = this.trailer.trailer_video_link;
         this.profileImg = this.trailer.user_image_url
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;

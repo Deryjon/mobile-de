@@ -445,6 +445,7 @@ export default {
         this.construction = res.data.data;
         this.horsepower = this.construction.machine_power;
         this.images = this.construction.machine_images_url;
+        this.link = this.construction.machine_video_link;
         this.adCreatedAt = this.construction.machine_ad_create_at;
         const date = new Date(this.adCreatedAt);
         this.formattedCreat = format(date, " MMM d yyyy");
@@ -456,6 +457,7 @@ export default {
         this.user = res.data.data;
         this.userCreatedAt = this.user.user_create_at;
         const date = new Date(this.userCreatedAt);
+        
         this.formattedDate = format(date, " MMM d yyyy");
         // console.log(this.formattedDate);
         // console.log(this.user);
@@ -465,7 +467,7 @@ export default {
       this.$router.push({ name: "single-car" });
     },
     redirectToLink() {
-      window.location.href = this.link;
+      window.open(this.link, '_blank');
     },
     toggleShareMenu() {
       this.isShareMenuOpen = !this.isShareMenuOpen;

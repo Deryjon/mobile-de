@@ -475,8 +475,7 @@ export default {
         this.horsepower = this.agricultural.vehicle_power;
         this.images = this.agricultural.vehicle_images_url;
         this.adCreatedAt = this.agricultural.vehicle_ad_create_at;
-        const date = new Date(this.adCreatedAt);
-        this.formattedCreat = format(date, " MMM d yyyy");
+        this.link = this.agricultural.vehicle_video_link;
         this.isLoading = false;
       });
     },
