@@ -886,8 +886,8 @@ export default {
           const responseData = response.data;
         
           localStorage.setItem("u-e", responseData.data.user_email);
-          
-       window.location.reload();
+window.location.reload();
+          })
     },
     deleteCompany() {
       http
