@@ -884,11 +884,10 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
-          console.log(responseData);
+        
           localStorage.setItem("u-e", responseData.data.user_email);
-          localStorage.setItem("u-p", responseData.data.user_password);
-        });
-      // window.location.reload();
+window.location.reload();
+          })
     },
     deleteCompany() {
       http
