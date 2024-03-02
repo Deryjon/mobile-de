@@ -179,9 +179,9 @@
             class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="numDoor">
             <option value="">{{ $t("message.filter_page.any") }}</option>
-            <option value="2/3">2/3</option>
-            <option value="3/5">3/5</option>
-            <option value="6/7">6/7</option>
+            <option value="2">2/3</option>
+            <option value="3">3/5</option>
+            <option value="6">6/7</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
         </div>
@@ -192,8 +192,8 @@
             class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="slidingDoor">
             <option value="any">{{ $t("message.filter_page.any") }}</option>
-            <option value="Right hand drive">{{ $t("message.filter_page.side.right") }}</option>
-            <option value="Left hand drive">{{ $t("message.filter_page.side.left") }}</option>
+            <option value="Left side">{{ $t("message.side.left") }}</option>
+            <option value="Right side">{{ $t("message.side.right") }}</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
         </div>

@@ -673,29 +673,32 @@
         </div>
       </div>
       <div class="flex flex-wrap lg:gap-[30px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Emissions Sticker</h2>
+        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] lg:w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sticker") }}</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="stickerEmission">
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
+            <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
+            <option value="1(None)">1(None)</option>
+            <option value="2(Red)">2(Red)</option>
+            <option value="3(Yellow)">3(Yellow)</option>
+            <option value="4(Green)">4(Green)</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Emission Class</h2>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[150px] lg:w-[200px]">
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
           <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
+            class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision">
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
+            <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
+            <option value="Euro1">Euro1</option>
+            <option value="Euro2">Euro2</option>
+            <option value="Euro3">Euro3</option>
+            <option value="Euro4">Euro4</option>
+            <option value="Euro5">Euro5</option>
+            <option value="Euro6">Euro6</option>
+            <option value="Euro6с">Euro6с</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
