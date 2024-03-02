@@ -18,7 +18,8 @@
             </button>
           </div>
           <span v-if="previewImages.length === 0">No Images</span>
-          <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
+          <button v-if="errorPushPagePriceList" @click="goPriceList"
+            class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -2491,7 +2492,7 @@ export default {
       interiorAdd: false,
       fuelAdd: false,
       basicAdd: true,
-      errorPushPagePriceList : false,
+      errorPushPagePriceList: false,
       makes: [],
       models: [],
       selectedMark: "",
@@ -2805,7 +2806,7 @@ export default {
         })
     }
     ,
-    goPriceList(){
+    goPriceList() {
       this.$router.push({ name: "price-list" })
 
     },
@@ -2870,8 +2871,10 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      const files = event.target.files;
-      this.selectedFiles = event.target.files;
+      const files = [...event.target.files]; // Преобразуем объект files в массив
+
+      // Сохраняем все выбранные файлы, включая предыдущие
+      this.selectedFiles = [...this.selectedFiles, ...files];
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();
@@ -2883,13 +2886,13 @@ export default {
             previewUrl: previewUrl,
             file: file,
           });
-
-          // Добавьте здесь код для отправки файла на бэкенд, если требуется
         };
 
         reader.readAsDataURL(file);
       }
     },
+
+
 
     removeFile(index) {
       this.previewImages.splice(index, 1);

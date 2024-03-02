@@ -2190,8 +2190,10 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      const files = event.target.files;
-      this.selectedFiles = event.target.files;
+      const files = [...event.target.files]; // Преобразуем объект files в массив
+
+      // Сохраняем все выбранные файлы, включая предыдущие
+      this.selectedFiles = [...this.selectedFiles, ...files];
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();
@@ -2201,10 +2203,8 @@ export default {
           this.previewImages.push({
             name: file.name,
             previewUrl: previewUrl,
-            file: file, // You can also store the actual File object if needed
+            file: file,
           });
-
-          // Добавьте здесь код для отправки файла на бэкенд, если требуется
         };
 
         reader.readAsDataURL(file);

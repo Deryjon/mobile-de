@@ -1521,8 +1521,8 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      const files = event.target.files;
-      this.selectedFiles = event.target.files;
+      const files = [...event.target.files]; 
+      this.selectedFiles = [...this.selectedFiles, ...files];
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();
