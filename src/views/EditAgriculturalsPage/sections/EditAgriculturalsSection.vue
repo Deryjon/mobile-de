@@ -1319,7 +1319,24 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      this.selectedFiles = event.target.files;
+      const files = [...event.target.files]; // Преобразуем объект files в массив
+
+            this.selectedFiles = [...this.selectedFiles, ...files];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const previewUrl = e.target.result;
+          this.previewImages.push({
+            name: file.name,
+            previewUrl: previewUrl,
+            file: file,
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
     },
     removeFile(index) {
       this.selectedFiles.splice(index, 1);

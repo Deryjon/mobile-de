@@ -3037,7 +3037,7 @@ export default {
     //     car_environmental_bonus: this.isCheckedEnvironmental,
     //     car_damaged: this.damageVehicle,
     //     car_commercial: this.exportCommercial,
-    //     car_programme: this.approveUsed,
+    //     car_programme: this.a1pproveUsed,
     // 		car_description: this.descriptionText
     //   })
     // 	.then((res) =>  {
@@ -3050,9 +3050,27 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      this.selectedFiles = event.target.files;
+      const files = [...event.target.files]; // Преобразуем объект files в массив
 
+      // Сохраняем все выбранные файлы, включая предыдущие
+      this.selectedFiles = [...this.selectedFiles, ...files];
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const previewUrl = e.target.result;
+          this.previewImages.push({
+            name: file.name,
+            previewUrl: previewUrl,
+            file: file,
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
     },
+
     removeFile(index) {
       this.selectedFiles.splice(index, 1);
     },
