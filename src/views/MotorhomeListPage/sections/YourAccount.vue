@@ -108,6 +108,19 @@
           </div>
         </div>
       </div>
+      <div class="btn_box">
+          <button class="btn_prev" @click="prevPage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+              <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
+            </svg>
+          </button>
+          <button class="btn_next" @click="nextPage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
+            4.6Z" />
+            </svg>
+          </button>
+        </div>
     </div>
   </v-container>
 </template>
@@ -127,18 +140,34 @@ export default {
       isOpen: false,
       motorhomes: [],
       contactUser: false,
+      offset: 0,
+      limit: 15,
+      isLastPage: false,
     };
   },
   methods: {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
-    fetchAds() {
+     fetchAds() {
       const motorhomeData = this.motorhomeStore.motorhomeData
-      http.post(`/motorhomes/list?limit=100&offset=0`, motorhomeData).then((res) => {
+       http.post(`/motorhomes/list?limit=${this.limit}&offset=${this.offset}`, motorhomeData).then((res) => {
         this.motorhomes = res.data.data;
+        this.isLastPage = res.data.data.length < this.limit;
         this.isLoading = false
       });
+    },
+    nextPage() {
+      if (!this.isLastPage) {
+        this.offset += this.limit;
+        this.fetchAds();
+      }
+    },
+    prevPage() {
+      if (this.offset >= this.limit) {
+        this.offset -= this.limit;
+        this.fetchAds();
+      }
     },
     goToSinglePageAd(motorcycleId) {
       this.$router.push({ name: "motorhome-single", params: { id: motorcycleId } });
@@ -156,6 +185,35 @@ export default {
 };
 </script>
 <style scoped>
+
+.btn_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_prev {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.btn_next {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-top: 10px;
+}
 /* CAR -- LIST  */
 .bor {
   border: 1px solid #000;

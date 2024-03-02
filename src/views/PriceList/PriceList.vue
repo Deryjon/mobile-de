@@ -216,7 +216,7 @@ onMounted(fetchData);
 
 @media (max-width: 680px) {
 
-e  .card_box {
+  .card_box {
     margin-top: 12px;
     display: grid;
     grid-template-columns: repeat(1, 1fr);

@@ -1,9 +1,11 @@
 <template>
-  <TheLoader v-if="isLoading"/>
+  <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1120px]" v-else>
-    <section class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+    <section
+      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
       <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px] ">
-        <div v-for="coache in coaches" class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+        <div v-for="coache in coaches"
+          class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
           @click="goToSinglePageAd(coache.coache_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
 
@@ -49,47 +51,47 @@
                 {{ coache.coache_transmission }}
               </div>
               •
-              
+
               <div class="coache-body">
                 {{ coache.coache_number_of_seats }}
                 {{ $t("message.list_page.seats") }}
               </div>
-            </div> 
+            </div>
             <div class="car-body flex flex-wrap gap-[5px] text-[14px] mt-[30px]">
-                <div class="transmission">
-                  {{ $t("message.filter_page.exterior_color.title") }}:
-                  {{ coache.coache_exterior_colour }}
-                </div>
-                •
-                <div class="transmission">
-                  {{ $t("message.filter_page.cruise.cruise") }}:
-                  {{ coache.coache_cruise_control }}
-                </div>
-                •
-                <div class="transmission">
-                  {{ $t("message.filter_page.class") }}:
-                  {{ coache.coache_emission_class }}
-                </div>
-                •
-                <div class="transmission">
-                  {{ $t("message.filter_page.sticker") }}:
-                  {{ coache.coache_emissions_sticker }}
-                </div>
-                •
-                <div class="transmission">
-                  {{ $t("message.filter_page.transmission.title") }}:
-                  {{ coache.coache_transmission }}
-                </div>
-                
-              </div>  
-              <div class="coache-body  gap-[5px] text-[14px] mt-[25px]">
-                <div class="coache-body">
-                  {{ $t("message.single_page.phone") }}: {{ coache.user_phone }}
-                </div>
-                <div class="coache-body">
-                  {{ $t("message.single_page.email") }}: {{ coache.user_email }}
-                </div>
-              </div> 
+              <div class="transmission">
+                {{ $t("message.filter_page.exterior_color.title") }}:
+                {{ coache.coache_exterior_colour }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.cruise.cruise") }}:
+                {{ coache.coache_cruise_control }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.class") }}:
+                {{ coache.coache_emission_class }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.sticker") }}:
+                {{ coache.coache_emissions_sticker }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.transmission.title") }}:
+                {{ coache.coache_transmission }}
+              </div>
+
+            </div>
+            <div class="coache-body  gap-[5px] text-[14px] mt-[25px]">
+              <div class="coache-body">
+                {{ $t("message.single_page.phone") }}: {{ coache.user_phone }}
+              </div>
+              <div class="coache-body">
+                {{ $t("message.single_page.email") }}: {{ coache.user_email }}
+              </div>
+            </div>
           </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ coache.coache_price }}</p>
@@ -115,6 +117,19 @@
           </div>
         </div>
       </div>
+      <div class="btn_box">
+        <button class="btn_prev" @click="prevPage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
+          </svg>
+        </button>
+        <button class="btn_next" @click="nextPage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
+            4.6Z" />
+          </svg>
+        </button>
+      </div>
     </section>
   </v-container>
 </template>
@@ -122,7 +137,7 @@
 
 import http from "../../../axios.config";
 import TheLoader from "../../../components/TheLoader.vue";
-import {useCoacheStore} from "../../../store/coacheDataStore"
+import { useCoacheStore } from "../../../store/coacheDataStore"
 
 export default {
   data() {
@@ -134,6 +149,9 @@ export default {
       isOpen: false,
       isLoading: true,
       coaches: [],
+      offset: 0,
+      limit: 15,
+      isLastPage: false,
       contactUser: false,
     };
   },
@@ -141,14 +159,28 @@ export default {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
-    fetchAds() {
+     fetchAds() {
       const coacheData = this.coacheStore.coacheData
-      http.post(`/coaches/list?limit=100&offset=0`, coacheData).then((res) => {
+      http.post(`/coaches/list?limit=${this.limit}&offset=${this.offset}`, coacheData).then((res) => {
         this.coaches = res.data.data;
-this.isLoading = false        
+        this.isLastPage = res.data.data.length < this.limit;
+
+        this.isLoading = false
       });
     },
-    goToSinglePageAd(coacheId){
+    nextPage() {
+      if (!this.isLastPage) {
+        this.offset += this.limit;
+        this.fetchAds();
+      }
+    },
+    prevPage() {
+      if (this.offset >= this.limit) {
+        this.offset -= this.limit;
+        this.fetchAds();
+      }
+    },
+    goToSinglePageAd(coacheId) {
       this.$router.push({ name: "coache-single", params: { id: coacheId } });
 
     }
@@ -158,7 +190,7 @@ this.isLoading = false
   },
   components: {
     TheLoader
-},
+  },
   created() {
     this.fetchAds();
   },
@@ -166,6 +198,35 @@ this.isLoading = false
 
 </script>
 <style scoped>
+.btn_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_prev {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.btn_next {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-top: 10px;
+}
+
 /* CAR -- LIST  */
 .bor {
   border: 1px solid #000;

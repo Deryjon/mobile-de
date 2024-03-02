@@ -3,13 +3,15 @@
 
     <TheLoader v-if="isLoading" />
     <v-container class="" v-else>
-      <div class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1080px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+      <div
+        class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1080px]  mx-auto  settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
 
-        <div   class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px] ">
-          <div v-for="car in cars" class="card bor lg:flex justify-between w-[300px] sm:w-[500px]   lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
+        <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px] ">
+          <div v-for="car in cars"
+            class="card bor lg:flex justify-between w-[300px] sm:w-[500px]   lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
             @click="goToSinglePageAd(car.car_id)">
             <div class="img bor w-[100%] lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
-  
+
               <img class="w-[100%] h-full object-cover" :src="car.car_images_url[0]" />
             </div>
             <div class="text lg:w-[370px]">
@@ -20,7 +22,7 @@
                 <div class="model">
                   {{ car.car_model }}
                 </div>
-                <div class="variant"> 
+                <div class="variant">
                   {{ car.car_variant }}
                 </div>
               </div>
@@ -60,11 +62,11 @@
 
               <div class="car-body flex flex-wrap gap-[5px] text-[13px] lg:text-[15px] mt-[30px]">
                 <div class="car-body">
-                  {{ $t("message.filter_page.exterior_color.title_inter") }}:  {{ car.car_interior_colour }}
+                  {{ $t("message.filter_page.exterior_color.title_inter") }}: {{ car.car_interior_colour }}
                 </div>
                 •
                 <div class="fuel">
-                  {{ $t("message.filter_page.material.title") }}:    {{ car.car_interior_material }}
+                  {{ $t("message.filter_page.material.title") }}: {{ car.car_interior_material }}
                 </div>
                 •
                 <div class="transmission">
@@ -91,8 +93,8 @@
                   {{ $t("message.filter_page.consumption") }}:
                   {{ car.car_fuel_consumption }}
                 </div>
-               
-              </div>  
+
+              </div>
               <div class="car-body   gap-[5px] text-[14px] mt-[25px]">
                 <div class="car-body">
                   {{ $t("message.single_page.phone") }}: {{ car.user_phone }}
@@ -122,14 +124,28 @@
             </div>
           </div>
         </div>
+        <div class="btn_box">
+          <button class="btn_prev" @click="prevPage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+              <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
+            </svg>
+          </button>
+          <button class="btn_next" @click="nextPage">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+              <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
+            4.6Z" />
+            </svg>
+          </button>
+        </div>
       </div>
     </v-container>
   </section>
 </template>
 <script>
 import http from "../../../axios.config";
-import { useCarStore } from "../../../store/carDataStore"
+import { useCarStore } from "../../../store/carDataStore";
 import TheLoader from '../../../components/TheLoader.vue'
+
 export default {
   data() {
     return {
@@ -141,34 +157,48 @@ export default {
       cars: [],
       isLoading: true,
       contactUser: false,
+      offset: 0,
+      limit: 15,
+      isLastPage: false,
     };
   },
   methods: {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
-    fetchAds() {
-      const carData = this.carStore.carData
-      http.post(`/cars/list?limit=100&offset=0`, carData).then((res) => {
-        this.cars = res.data.data;
-        this.isLoading = false
+    async fetchAds() {
+      const carData = this.carStore.carData;
 
-      });
+      const res = await http.post(`/cars/list?limit=${this.limit}&offset=${this.offset}`, carData);
+      this.cars = res.data.data;
+      this.isLastPage = res.data.data.length < this.limit;
+      this.isLoading = false;
     },
     goToSinglePageAd(carId) {
       this.$router.push({ name: "car-single", params: { id: carId } });
     },
+    nextPage() {
+      if (!this.isLastPage) {
+        this.offset += this.limit;
+        this.fetchAds();
+      }
+    },
+    prevPage() {
+      if (this.offset >= this.limit) {
+        this.offset -= this.limit;
+        this.fetchAds();
+      }
+    },
   },
   mounted() {
     this.userEmail = localStorage.getItem("u-e");
+    this.fetchAds();
   },
   components: {
     TheLoader
   },
-  created() {
-    this.fetchAds();
-  },
 };
+
 </script>
 <style scoped>
 /* CAR -- LIST  */
@@ -266,5 +296,68 @@ export default {
 
 .checksvg {
   margin-right: 4px;
+}
+
+
+.btn {
+  width: 100px;
+  margin-top: 10px;
+  background-color: rgb(190, 125, 4);
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card__text {
+  width: 100%;
+  height: 150px;
+}
+
+.card__title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 700;
+  overflow-y: hidden;
+}
+
+.btn_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_prev {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.btn_next {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-top: 10px;
 }
 </style>

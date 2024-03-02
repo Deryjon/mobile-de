@@ -2,23 +2,13 @@
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1120px]" v-else>
     <section
-      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px] mx-auto settings relative bg-[#0000001f] py-[20px] lg:p-[40px]"
-    >
-      <div
-        class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]"
-      >
-        <div
-          v-for="vehicle in vehicles"
+      class="w-full xs:w-[400px] sm:w-[600px] md:w-[750px] lg:w-[900px] xl:w-[1100px] mx-auto settings relative bg-[#0000001f] py-[20px] lg:p-[40px]">
+      <div class="flex flex-wrap gap-[10px] lg:gap-[40px] justify-between mt-[20px]">
+        <div v-for="vehicle in vehicles"
           class="card bor lg:flex justify-between w-[300px] sm:w-[500px]  lg:w-[800px] p-[20px] xl:w-[1000px] cursor-pointer mx-auto lg:gap-[20px]"
-          @click="goToSinglePageAd(vehicle.vehicle_id)"
-        >
-          <div
-            class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0"
-          >
-            <img
-              class="w-[100%] h-full object-cover"
-              :src="vehicle.vehicle_images_url[0]"
-            />
+          @click="goToSinglePageAd(vehicle.vehicle_id)">
+          <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px] m-0">
+            <img class="w-[100%] h-full object-cover" :src="vehicle.vehicle_images_url[0]" />
           </div>
           <div class="text lg:h-[260px] lg:w-[375px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">
@@ -53,66 +43,53 @@
               </div>
             </div>
             <div class="car-body flex flex-wrap gap-[5px] text-[14px] lg:text-[15px] mt-[30px]">
-          
-          <div class="transmission">
-            {{ $t("message.filter_page.exterior_color.title") }}:
-            {{ vehicle.vehicle_exterior_colour }}
+
+              <div class="transmission">
+                {{ $t("message.filter_page.exterior_color.title") }}:
+                {{ vehicle.vehicle_exterior_colour }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.radius") }}:
+                {{ vehicle.vehicle_radius }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.conditioning.title") }}:
+                {{ vehicle.vehicle_air_conditioning }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.sticker") }}:
+                {{ vehicle.vehicle_emissions_sticker }}
+              </div>
+              •
+              <div class="transmission">
+                {{ $t("message.filter_page.condition") }}:
+                {{ vehicle.vehicle_condition }}
+              </div>
+            </div>
+            <div class="truck-body  gap-[5px] text-[14px] mt-[25px]">
+              <div class="truck-body">
+                {{ $t("message.single_page.phone") }}: {{ vehicle.user_phone }}
+              </div>
+              <div class="vehicle-body">
+                {{ $t("message.single_page.email") }}: {{ vehicle.user_email }}
+              </div>
+            </div>
           </div>
-          •
-          <div class="transmission">
-            {{ $t("message.filter_page.radius") }}:
-            {{ vehicle.vehicle_radius }}
-          </div>
-          •
-          <div class="transmission">
-            {{ $t("message.filter_page.conditioning.title") }}:
-            {{ vehicle.vehicle_air_conditioning }}
-          </div>
-          •
-          <div class="transmission">
-            {{ $t("message.filter_page.sticker") }}:
-            {{ vehicle.vehicle_emissions_sticker }}
-          </div>
-          •
-          <div class="transmission">
-            {{ $t("message.filter_page.condition") }}:
-            {{ vehicle.vehicle_condition }}
-          </div>
-        </div>
-        <div class="truck-body  gap-[5px] text-[14px] mt-[25px]">
-          <div class="truck-body">
-            {{ $t("message.single_page.phone") }}: {{ vehicle.user_phone }}
-          </div>
-          <div class="vehicle-body">
-            {{ $t("message.single_page.email") }}: {{ vehicle.user_email }}
-          </div>
-        </div>
-    </div>
           <div class="price text-[18px] font-semibold">
             <p class="price">€{{ vehicle.vehicle_price }}</p>
             <div class="flex gap-[10px] lg:justify-end mt-[10px] lg:mt-[200px]">
               <div class="">
                 <button
                   class="flex items-center gap-[5px] bg-[#08829a] rounded-[4px] text-[14px] p-[8px] px-[20px] text-white"
-                  @click="contactAd"
-                  v-if="!contactUser"
-                >
-                  <svg
-                    class="nQao3 hcDLf YgmFC"
-                    width="16"
-                    height="16"
-                    viewBox="0 0 24 24"
-                    focusable="false"
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                  >
-                    <path
-                      fill-rule="evenodd"
-                      clip-rule="evenodd"
+                  @click="contactAd" v-if="!contactUser">
+                  <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false"
+                    aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
                       d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                      fill="currentColor"
-                    ></path>
+                      fill="currentColor"></path>
                   </svg>
                   {{ $t("message.header.contact") }}
                 </button>
@@ -124,6 +101,19 @@
             </div>
           </div>
         </div>
+      </div>
+      <div class="btn_box">
+        <button class="btn_prev" @click="prevPage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="currentColor" d="m14 18l-6-6l6-6l1.4 1.4l-4.6 4.6l4.6 4.6L14 18Z" />
+          </svg>
+        </button>
+        <button class="btn_next" @click="nextPage">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+            <path fill="currentColor" d="M12.6 12L8 7.4L9.4 6l6 6l-6 6L8 16.6l4.6- 
+            4.6Z" />
+          </svg>
+        </button>
       </div>
     </section>
   </v-container>
@@ -142,6 +132,9 @@ export default {
       isOpen: false,
       isLoading: true,
       vehicles: [],
+      offset: 0,
+      limit: 15,
+      isLastPage: false,
       contactUser: false,
     };
   },
@@ -149,12 +142,13 @@ export default {
     contactAd() {
       this.contactUser = !this.contactUser;
     },
-    fetchAds() {
+     fetchAds() {
       const vehicleData = this.vehicleStore.vehicleData;
-      http
-        .post(`/agriculturals/list?limit=100&offset=0`, vehicleData)
+   http
+        .post(`/agriculturals/list?limit=${this.limit}&offset=${this.offset}`, vehicleData)
         .then((res) => {
           this.vehicles = res.data.data;
+          this.isLastPage = res.data.data.length < this.limit;
           this.isLoading = false;
         });
     },
@@ -163,6 +157,18 @@ export default {
         name: "agricultural-single",
         params: { id: agriculturald },
       });
+    },
+    nextPage() {
+      if (!this.isLastPage) {
+        this.offset += this.limit;
+        this.fetchAds();
+      }
+    },
+    prevPage() {
+      if (this.offset >= this.limit) {
+        this.offset -= this.limit;
+        this.fetchAds();
+      }
     },
   },
   mounted() {
@@ -177,7 +183,35 @@ export default {
 };
 </script>
 <style scoped>
-/* CAR -- LIST  */
+.btn_box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.btn_prev {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-right: 5px;
+  margin-top: 10px;
+}
+
+.btn_next {
+  width: 50px;
+  height: 50px;
+  background-color: rgb(190, 125, 4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  margin-top: 10px;
+}
+
 .bor {
   border: 1px solid #000;
 }
