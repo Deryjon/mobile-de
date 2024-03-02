@@ -2975,7 +2975,6 @@ export default {
       formData.append('car_damaged', this.damageVehicle);
       formData.append('car_commercial', this.exportCommercial);
       formData.append('car_programme', this.approveUsed);
-      formData.append('car_description', this.descriptionText);
 
       http
         .put("/car/update", formData)
@@ -3050,10 +3049,8 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      const files = [...event.target.files]; // Преобразуем объект files в массив
-
-      // Сохраняем все выбранные файлы, включая предыдущие
-      this.selectedFiles = [...this.selectedFiles, ...files];
+      this.selectedFiles = event.target.files;
+   
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();
