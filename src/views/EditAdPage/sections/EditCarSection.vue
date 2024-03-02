@@ -2596,7 +2596,7 @@ export default {
         this.selectedParking = this.dataAd.car_parking_sensors
         this.selectedCruise = this.dataAd.car_cruise_control
         this.selectedOthers = this.dataAd.others
-        this.selectedOthers.forEach((other) => {
+        this.selectedOthers?.forEach((other) => {
           if (other === "ABS") {
             this.isCheckedABS = true;
           } else if (other === "Emergency brake assist") {
@@ -2757,7 +2757,7 @@ export default {
         this.approveUsed = this.dataAd.car_programme
         this.descriptionText = this.dataAd.car_description
         this.isLoading = false
-        this.extras.forEach((extra) => {
+        this.extras?.forEach((extra) => {
           if (extra === "Alarm System") {
             this.isCheckedAlarmSystem = true;
           } else if (extra === "Heated steering wheel") {
