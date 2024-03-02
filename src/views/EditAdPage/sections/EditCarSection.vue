@@ -8,15 +8,22 @@
           + {{ $t("message.edit_page.add_image") }}
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[2px] lg:gap-[10px]">
-          <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
+          <div v-for="(file, index) in previewImages" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
-              <img class="w-full h-full" :src="file.url" :alt="file.name" />
+              <img class="w-full h-full" :src="file.previewUrl" :alt="file.name" />
             </div>
             <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">
               X
             </button>
           </div>
-          <span v-if="selectedFiles.length === 0">No Images</span>
+          <div v-for="(image, index) in fetchFiles" :key="index" class="file-item relative">
+            <div class="w-[190px] h-[200px]">
+              <img class="w-full h-full" :src="image" />
+            </div>
+            <button @click="removeFetchFile(index)" class="absolute top-0 right-0 w-[20px]">
+              X
+            </button>
+          </div>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -2456,6 +2463,7 @@ export default {
       power: "",
       selectedType: "",
       selectedFiles: [],
+      previewImages: [],
       userI: "",
       inputVariant: "",
       activeTab: "buy",
@@ -2555,6 +2563,7 @@ export default {
       isCheckedImmobilizer: false,
       isCheckedSpareTyre: false,
       isCheckedXenonHeadLights: false,
+      fetchFiles: [],
 
     };
   },
@@ -2563,6 +2572,8 @@ export default {
       http.get(`/car/${this.carId}`).then((res) => {
         this.dataAd = res.data.data
         this.linkVideo = this.dataAd.car_vide_link
+        this.fetchFiles = this.dataAd.car_images_url
+        this.fetchFilesName = this.dataAd.car_images_name
         this.selectedMark = this.dataAd.car_make
         this.selectedMark = this.dataAd.car_make
         this.selectedModel = this.dataAd.car_model
@@ -2756,7 +2767,6 @@ export default {
         this.exportCommercial = this.dataAd.car_commercial
         this.approveUsed = this.dataAd.car_programme
         this.descriptionText = this.dataAd.car_description
-        this.isLoading = false
         this.extras?.forEach((extra) => {
           if (extra === "Alarm System") {
             this.isCheckedAlarmSystem = true;
@@ -2892,6 +2902,7 @@ export default {
           else if (extra === "WLAN / WiFi hotspot") {
             this.isCheckedWlan = true;
           }
+          this.isLoading = false
         });
       })
     },
@@ -3049,8 +3060,12 @@ export default {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      this.selectedFiles = event.target.files;
-   
+      const files = [...event.target.files];
+
+      // Добавляем выбранные файлы в массив selectedFiles
+      this.selectedFiles = [...this.selectedFiles, ...files];
+
+      // Обрабатываем каждый файл для создания предварительных изображений
       for (let i = 0; i < files.length; i++) {
         const file = files[i];
         const reader = new FileReader();
@@ -3066,11 +3081,47 @@ export default {
 
         reader.readAsDataURL(file);
       }
-    },
+
+      // Создаем FormData для отправки на сервер
+      const formData = new FormData();
+      for (let i = 0; i < this.selectedFiles.length; i++) {
+        formData.append("photos", this.selectedFiles[i]);
+      }
+      formData.append('car_id', this.carId);
+
+      // Отправляем FormData на сервер
+      http.put("/car/update/add/photo", formData)
+        .then(response => {
+          // Обработка успешного ответа от сервера, если необходимо
+        })
+        .catch(error => {
+          // Обработка ошибки, если необходимо
+          console.error(error);
+        });
+    }
+    ,
 
     removeFile(index) {
       this.selectedFiles.splice(index, 1);
     },
+    removeFetchFile(index) {
+      const fileToRemove = this.fetchFiles[index];
+      const fileNameToRemove = this.fetchFilesName[index];
+
+
+
+      http.put("/car/update/delete/photo", {
+        car_id: this.carId,
+        delete_image_url: fileToRemove,
+        delete_image_name: fileNameToRemove
+      })
+        .then(response => {
+          this.fetchFiles.splice(index, 1);
+          this.fetchFilesName.splice(index, 1);
+        })
+
+    }
+    ,
     toggleShowCheckboxRating(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
       if (isChecked) {
