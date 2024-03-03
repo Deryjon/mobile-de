@@ -14,10 +14,32 @@ import http from "../../axios.config";
 export default {
   data() {
     return {
-      userId: localStorage.getItem("u-i"),
+      companyId: localStorage.getItem("u-i"),
     };
   },
   methods: {
+    getDataCompany() {
+      http.get(`/company/${this.companyId}`).then((response) => {
+        const responseData = response.data;
+        localStorage.setItem("com-img-prof", responseData.data.company_image_url);
+        localStorage.setItem("com-img-alt", responseData.data.company_image_name);
+        localStorage.setItem("com-city", responseData.data.company_address_city);
+        localStorage.setItem("com-country", responseData.data.company_address_country);
+        localStorage.setItem("com-nr", responseData.data.company_address_nr);
+        localStorage.setItem("com-radius", responseData.data.company_address_radius);
+        localStorage.setItem("com-street", responseData.data.company_address_street);
+        localStorage.setItem("com-zip", responseData.data.company_address_zip);
+        localStorage.setItem("com-numcode", responseData.data.company_country_code);
+        localStorage.setItem("com-i", responseData.data.company_id);
+        localStorage.setItem("com-e", responseData.data.company_mail)
+        localStorage.setItem("com-name", responseData.data.company_name
+        );
+        localStorage.setItem("com-prefix", responseData.data.company_number_prefix
+        );
+        localStorage.setItem("com-number", responseData.data.company_phone_number
+        );
+      });
+    },
   },
   components: {
     PathLink,
@@ -31,7 +53,7 @@ export default {
         localStorage.setItem("com-i", "false"); 
     }
     
-      // this.getDataCompany();
+      this.getDataCompany();
 }
 
 

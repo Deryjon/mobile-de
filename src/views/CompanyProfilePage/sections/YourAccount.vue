@@ -323,15 +323,15 @@ export default {
     },
   },
 
-  created() {
+  mounted() {
     const isLoggedIn = localStorage.getItem("u-com");
     if (isLoggedIn === "false") {
       this.$router.push({ name: "home" });
       return
     }  
     this.companyEmail = localStorage.getItem("com-e");
-    this.companyProfileImgName = localStorage.getItem("u-img-alt");
-      this.companyProfileImg = localStorage.getItem("u-img-prof");
+    this.companyProfileImgName = localStorage.getItem("com-img-alt");
+      this.companyProfileImg = localStorage.getItem("com-img-prof");
 
     if (this.companyProfileImg === 'null') {
       this.companyIcon = true;

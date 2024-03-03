@@ -849,6 +849,7 @@ export default {
       companyAddNr: "",
       companyAddZip: "",
       companyAddressCity: "",
+
       companyAddCountry: "",
       addressChange: false,
       numberChanges: false,
@@ -864,15 +865,16 @@ export default {
       const formData = new FormData();
       const file = this.$refs.fileInput.files[0];
       formData.append("photo", file);
-      formData.append("id", this.companyI);
       console.log(file);
+      formData.append("company_id", this.companyI);
 
+      
       http.put("/company/edit/photo", formData).then((response) => {
         const responseData = response.data;
-        localStorage.setItem("com-img-prof", responseData.data.user_image_url);
-        localStorage.setItem("com-img-alt", responseData.data.user_image_name);
-
-
+        console.log(responseData);
+        localStorage.setItem("com-img-prof", responseData.data.company_image_url);
+        localStorage.setItem("com-img-alt", responseData.data.company_image_name);
+        window.location.reload()  
       });
     },
     changeLoginData() {
@@ -993,8 +995,6 @@ window.location.reload();
     } else {
       this.changeContactData = true;
     }
-
-    // Другие операции с другими ключами localStorage
     this.userI = localStorage.getItem("u-i");
     this.userE = localStorage.getItem("u-e");
     this.companyName = localStorage.getItem("com-name");
