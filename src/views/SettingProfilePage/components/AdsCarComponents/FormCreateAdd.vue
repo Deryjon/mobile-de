@@ -2622,7 +2622,6 @@ export default {
       linkVideo: "",
       userPhone: "",
       userCodeNumber: "",
-      userPre: "",
       combinedNumber: "",
       selectedTransmision: "",
       selectedMaterial: "",
@@ -2795,7 +2794,7 @@ export default {
       formData.append("car_country", this.selectedCountry);
       formData.append("car_city_zipcode", this.zipCode);
       formData.append("car_radius", parseInt(this.radius));
-      formData.append("user_phone", `${this.userCodeNumber}${this.userPre}${this.userPhone}`);
+      formData.append("user_phone", `${this.userCodeNumber}${this.userPhone}`);
       formData.append("user_email", this.uEmail);
       formData.append("car_vide_link", this.linkVideo);
 
@@ -3212,7 +3211,6 @@ export default {
 
     this.userPhone = localStorage.getItem("com-number");
     this.userCodeNumber = localStorage.getItem("com-numcode");
-    this.userPre = localStorage.getItem("com-prefix");
 
     http
       .get("/car/marks")

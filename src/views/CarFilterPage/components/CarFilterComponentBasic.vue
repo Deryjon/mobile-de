@@ -161,7 +161,7 @@
       <input
         type="checkbox"
         v-model="isCheckedOff"
-        @click="toggleShowCheckbox(5, 'SUV / Off-road Vehicle / Pickup Truck')"
+        @click="toggleShowCheckbox(5, 'Off-road Vehicle / Pickup Truck')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
       <svg
@@ -191,7 +191,7 @@
       <input
         type="checkbox"
         v-model="isCheckedSUV"
-        @click="toggleShowCheckbox(5, 'SUV / Off-road Vehicle / Pickup Truck')"
+        @click="toggleShowCheckbox(5, 'SUV')"
         class="form-checkbox h-5 w-5 text-indigo-600"
       />
       <svg

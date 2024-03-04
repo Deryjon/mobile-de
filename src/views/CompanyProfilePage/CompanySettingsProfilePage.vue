@@ -34,11 +34,9 @@ export default {
         localStorage.setItem("com-e", responseData.data.company_mail)
         localStorage.setItem("com-name", responseData.data.company_name
         );
-        localStorage.setItem("com-prefix", responseData.data.company_number_prefix
-        );
         localStorage.setItem("com-number", responseData.data.company_phone_number
         );
-      });
+      })
     },
   },
   components: {

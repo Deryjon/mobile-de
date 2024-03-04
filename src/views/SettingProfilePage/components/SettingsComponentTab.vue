@@ -379,7 +379,7 @@
                   {{ $t("message.profile.phoneNumber") }}
                 </p>
                 <p class=" text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px]">
-                  {{ userCountryCode }} {{ userNumberPre }}
+                  {{ userCountryCode }} 
                   {{ userPhoneNumber }}
                 </p>
               </div>
@@ -472,14 +472,6 @@
                       <option value="+972">+972 (IL)</option>
                     </select>
                     <span class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"></span>
-                  </div>
-
-                  <div class="email mt-[5px]">
-                    <p class="text-sm lg:text-[14px]">
-                      {{ $t("message.profile.prefix") }}
-                    </p>
-                    <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[141px] rounded-md"
-                      v-model="userNumberPre" />
                   </div>
                   <div class="email mt-[5px]">
                     <p class="text-sm lg:text-[14px]">
@@ -655,7 +647,6 @@ export default {
       userECh: "",
       userName: "",
       userCountryCode: "",
-      userNumberPre: "",
       selectedGender: "",
       userAddressStreet: "",
       userAddressNr: "",
@@ -704,13 +695,11 @@ export default {
         .put("/user/edit/phone", {
           user_id: this.userI,
           country_code: this.userCountryCode,
-          prefix: this.userNumberPre,
           phone_number: this.userPhoneNumber,
         })
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("u-code", responseData.data.user_country_code);
-          localStorage.setItem("u-pre", responseData.data.user_number_prefix);
           localStorage.setItem("u-phone", responseData.data.user_phone_number);
         });
     },
@@ -838,10 +827,6 @@ export default {
     this.userCountryCode = localStorage.getItem("u-code");
     if (this.userCountryCode === "null") {
       this.userCountryCode = "No Number";
-    }
-    this.userNumberPre = localStorage.getItem("u-pre");
-    if (this.userNumberPre === "null") {
-      this.userNumberPre = "";
     }
     this.userPhoneNumber = localStorage.getItem("u-phone");
     if (this.userPhoneNumber === "null") {

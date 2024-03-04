@@ -179,7 +179,7 @@
                   {{ $t("message.profile.phoneNumber") }}
                 </p>
                 <p class="font-normal text-[14px]">
-                  {{ companyCountryCode }} {{ companyNumberPre }}
+                  {{ companyCountryCode }}  
                   {{ companyNumber }}
                 </p>
               </div>
@@ -408,12 +408,6 @@
                               <option value="+972">+972 (IL)</option>
                             </select>
                             <span class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"></span>
-                          </div>
-
-                          <div class="email mt-[5px]">
-                            <p class="text-sm lg:text-[14px]">{{ $t("message.profile.prefix") }}</p>
-                            <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[141px] rounded-md"
-                              v-model="companyNumberPre" />
                           </div>
                           <div class="email mt-[5px]">
                             <p class="text-sm lg:text-[14px]">{{ $t("message.profile.phoneNumber") }}</p>
@@ -835,7 +829,6 @@ export default {
       companyI: "",
       userE: "",
       userE: "",
-      companyNumberPre: "",
       selectedCountry: "",
       nameChange: false,
       userNumber: "",
@@ -946,7 +939,6 @@ window.location.reload();
           company_address_country: this.companyAddCountry,
           company_address_radius: this.companyAddRadius,
           company_country_code: this.companyCountryCode,
-          company_number_prefix: this.companyNumberPre,
           company_phone_number: this.companyNumber,
           user_id: this.userI,
         })
@@ -1004,7 +996,6 @@ window.location.reload();
     this.companyAddCountry = localStorage.getItem("com-country");
     this.companyAddRadius = localStorage.getItem("com-radius");
     this.companyCountryCode = localStorage.getItem("com-numcode");
-    this.companyNumberPre = localStorage.getItem("com-prefix");
     this.companyNumber = localStorage.getItem("com-number");
     this.companyAddressCity = localStorage.getItem("com-city");
   },
