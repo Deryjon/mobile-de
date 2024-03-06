@@ -54,14 +54,29 @@
             <p class="name">{{ motorcycle.motorcycle_vendor }}</p>
             <p class="name">{{ motorcycle.user_gender }}</p>
             <p class="name">{{ motorcycle.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+
           </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}</p>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ motorcycle.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ motorcycle.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ motorcycle.user_address_nr }}</p>
+
           </div>
         </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.email") }}: {{ motorcycle.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: 
+          {{ motorcycle.user_phone }}
+        {{ company.company_country_code }} {{
+          company.company_phone_number }} </p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + motorcycle.user_email"
@@ -128,7 +143,8 @@
         </div>
         <p class="mt-[20px]">{{ formatDate(motorcycle.motorcycle_ad_create_at) }}</p>
       </div>
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]  md:mt-[100px] lg:mt-[30px]">
+      <div
+        class="basic-data bor flex flex-wrap gap-[5px] justify-between lg:h-[180px] p-[20px]  md:mt-[100px] lg:mt-[30px]">
         <div class="mileage flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
@@ -318,7 +334,7 @@
       <div class="features bor p-[20px]">
         <p class="title text-[16px] lg:text-[22px] font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
-        <div class="flex flex-wrap  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
+        <div class="flex  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
           <div v-for="item in motorcycle.others" class="flex justify-between w-[297px]">
             <p class="">{{ item }} </p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
@@ -358,13 +374,14 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}:    {{ company.company_country_code }} {{
+          company.company_phone_number }} {{ motorcycle.user_phone_number }}
           </p>
         </div>
       </div>
     </div>
     <div
-      class="right h-[455px] lg:h-[480px] xl:h-[350px] mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right md:h-[550px] xl:h-[455px]  mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="motorcycle-motorcyclee lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -379,7 +396,7 @@
         <p class="motorcycle-motorcyclece">{{ motorcycle.motorcycle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="lg:flex gap-[20px]">
+      <div class="lg:flex items-center gap-[20px]">
 
         <div v-if="!userIcon">
           <img :src="motorcycle.user_image_url" class="w-[100px] h-[100px] object-cover" />
@@ -400,17 +417,30 @@
             <p class="name">{{ motorcycle.motorcycle_vendor }}</p>
             <p class="name">{{ motorcycle.user_gender }}</p>
             <p class="name">{{ motorcycle.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ motorcycle.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ motorcycle.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ motorcycle.user_address_nr }}</p>
+
           </div>
           <div class="name-seller">
             <p class="name">{{ motorcycle.user_name }}</p>
-          </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ motorcycle.user_phone }}</p>
           </div>
         </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold hidden lg:flex text-[12px]">
         <p class="name">{{ $t("message.single_page.email") }}: {{ motorcycle.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{
+          company.company_country_code }} {{
+          company.company_phone_number }} {{ motorcycle.user_phone_number }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + motorcycle.user_email"
@@ -489,6 +519,7 @@ export default {
       link: "",
       userIcon: false,
       images: [],
+      company: [],
       intervalId: null,
       isShareMenuOpen: false,
       currentUrl: window.location.href,
@@ -506,9 +537,7 @@ export default {
       return `${day}-${month}-${year} ${hours}:${minutes} `;
     },
     nextSlide() {
-      // this.images[this.activeIndex].active = false;
       this.activeIndex = (this.activeIndex + 1) % this.images.length;
-      // this.images[this.activeIndex].active = true;
     },
 
     prevSlide() {
@@ -595,16 +624,22 @@ export default {
       this.userI = localStorage.getItem("u-i");
       http.get(`/motorcycles/${this.carId}`).then((res) => {
         this.motorcycle = res.data.data;
+        this.userCreatedAt = this.motorcycle.user_create_at;
+        this.link = this.motorcycle.motorcycle_vide_link;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
+        if (res.data.hasOwnProperty('company') && res.data.company !== null) {
+          this.company = res.data.company;
+        } else {
+        }
         this.horsepower = this.motorcycle.motorcycle_power;
         this.images = this.motorcycle.motorcycle_images_url;
-        this.link = this.motorcycle.motorcycle_video_link;
         this.profileImg = this.motorcycle.user_image_url
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
         }
-        this.isLoading = false
-
-      });
+        this.isLoading = false;
+      })
     },
 
     goToSinglePageAd() {

@@ -9,7 +9,7 @@
           @click="goToSinglePageAd(motorcycle.motorcycle_id)">
           <div class="img bor w-full lg:w-[350px] h-[130px] sm:h-[200px] lg:h-[260px]  m-0">
 
-            <img class="w-[100%] h-full object-cover" :src="motorcycle.motorcycle_images_url" />
+            <img class="w-[100%] h-full object-cover" :src="motorcycle.motorcycle_images_url[1]" />
           </div>
           <div class="text lg:w-[370px]">
             <div class="name flex gap-[5px] text-[16px] font-semibold">

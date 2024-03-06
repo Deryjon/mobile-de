@@ -50,17 +50,17 @@
             <p class="name">{{ car.user_gender }}</p>
             <p class="name">{{ car.user_first_name }}</p>
             <p class="name text-[14px]">{{ company.company_name }}</p>
-            
+
           </div>
           <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
             Address :
             <p class="name">{{ company.company_address_city }}</p>
-            <p class="name">{{ car.user_address_city }}</p>
+            <p class="name">{{  car.user_address_city }}</p>
             <p class="name">{{ company.company_address_street }}</p>
             <p class="name">{{ car.user_address_street }}</p>
 
             <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ car.user_address_nr }}</p>
-            
+
           </div>
         </div>
       </div>
@@ -68,7 +68,8 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ car.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ car.user_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}:{{ company.company_country_code }} {{
+          company.company_phone_number }}     {{ car.user_phone_number}}</p>
       </div>
       <div class="flex items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <!-- <button
@@ -489,13 +490,14 @@
         </div>
         <div class="phone mt-[10px]">
           <p class="phone text-[11px] lg:text-[14px]">
-            {{ $t("message.single_page.phone") }}: {{ car.user_phone }}
+            {{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+          company.company_phone_number }} {{ car.user_phone_number }}
           </p>
         </div>
       </div>
     </div>
     <div
-      class="right h-[450px] mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[550px] lg:h-[450px]  mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
         'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]':
           isScrolled,
@@ -534,7 +536,7 @@
             <p class="name">{{ car.user_gender }}</p>
             <p class="name">{{ car.user_first_name }}</p>
             <p class="name text-[14px]">{{ company.company_name }}</p>
-            
+
           </div>
           <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
             Address :
@@ -544,7 +546,7 @@
             <p class="name">{{ car.user_address_street }}</p>
 
             <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ car.user_address_nr }}</p>
-            
+
           </div>
           <div class="name-seller flex">
             <p class="name">{{ car.user_name }}</p>
@@ -555,7 +557,9 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ car.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ car.user_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+          company.company_phone_number }}     {{ car.user_phone_number}}
+</p>
       </div>
       <div class="flex flex-wrap  gap-[2px] md:gap-[10px] lg:gap-[10px] mt-[25px]">
         <a :href="'mailto:' + car.user_email"
@@ -629,7 +633,7 @@ export default {
       activeIndex: 0,
       images: [],
       profileImg: "",
-      company: "",
+      company: [],
       userIcon: false,
       intervalId: null,
       isShareMenuOpen: false,
@@ -675,30 +679,29 @@ export default {
       this.contactUser = !this.contactUser;
     },
     fetchAds() {
-  this.userI = localStorage.getItem("u-i");
-  http.get(`/car/${this.carId}`).then((res) => {
-    this.car = res.data.data;
-    if (res.data.hasOwnProperty('company') && res.data.company !== null) {
-      this.company = res.data.company;
-      // Далее можно работать с this.company без опасений
-      console.log(this.company.company_name);
-    } else {
-      // Обрабатываем случай, когда company отсутствует или равен null
-      console.log('Компания не найдена');
-    }
-    this.horsepower = this.car.car_power;
-    this.images = this.car.car_images_url;
-    this.profileImg = this.car.user_image_url
-    this.link = this.car.car_vide_link;
-    if (this.profileImg === null) {
-      this.userIcon = !this.userIcon;
-    }
-    this.isLoading = false;
-  }).catch((error) => {
-    // Обработка ошибки при выполнении запроса
-    console.error('Ошибка при выполнении запроса:', error);
-  });
-},
+      this.userI = localStorage.getItem("u-i");
+      http.get(`/car/${this.carId}`).then((res) => {
+        this.car = res.data.data;
+        this.userCreatedAt = this.car.user_create_at;
+        this.link = this.car.car_vide_link;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
+        if (res.data.hasOwnProperty('company') && res.data.company !== null) {
+          this.company = res.data.company;
+        } else {
+        }
+        this.horsepower = this.car.car_power;
+        this.images = this.car.car_images_url;
+        this.profileImg = this.car.user_image_url
+        if (this.profileImg === null) {
+          this.userIcon = !this.userIcon;
+        }
+        this.isLoading = false;
+      }).catch((error) => {
+        // Обработка ошибки при выполнении запроса
+        console.error('Ошибка при выполнении запроса:', error);
+      });
+    },
 
     goToSinglePageAd() {
       this.$router.push({ name: "single-car" });

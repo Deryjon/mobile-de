@@ -24,8 +24,8 @@
     </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full md:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
-      <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="agricultural-mark ">{{ coache.coache_make }}</p>
+      <div class="coache-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+        <p class="coache-mark ">{{ coache.coache_make }}</p>
         <p class="coache-model ">{{ coache.coache_model }}</p>
       </div>
       <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
@@ -54,14 +54,25 @@
             <p class="name">{{ coache.coache_vendor }}</p>
             <p class="name">{{ coache.user_gender }}</p>
             <p class="name">{{ coache.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
           </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ coache.user_phone }}</p>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ coache.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ coache.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ coache.user_address_nr }}</p>
+            
           </div>
         </div>
       </div>
       <div class="name-seller mt-[15px]  font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ coache.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }}  {{ coache.user_phone }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + coache.user_email"
@@ -156,7 +167,7 @@
             </g>
           </svg>
           <div class="kilomet">
-            <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.first  ") }}</p>
+            <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.first") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ coache.coache_firt_date_year }}</p>
           </div>
         </div>
@@ -363,11 +374,11 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] h-[420px] lg:h-[450px] xl:h-[400px]   hidden md:mt-[5px] md:block  bg-[#0000001f] w-[120px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] md:h-[550px] xl:h-[455px]  hidden md:mt-[5px] md:block  bg-[#0000001f] w-[120px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
-      <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="car-mark">{{ coache.coache_make }}</p>
+      <div class="coache-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+        <p class="coache-mark">{{ coache.coache_make }}</p>
         <p class="coache-model">{{ coache.coache_model }}</p>
       </div>
       <!-- <div class="coache-name flex gap-[5px] text-[16px] mt-[5px]">
@@ -399,14 +410,26 @@
             <p class="name">{{ coache.coache_vendor }}</p>
             <p class="name">{{ coache.user_gender }}</p>
             <p class="name">{{ coache.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+
           </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ coache.user_phone }}</p>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ coache.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ coache.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ coache.user_address_nr }}</p>
+            
           </div>
         </div>
       </div>
       <div class="name-seller mt-[15px] hidden lg:flex font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ coache.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ coache.user_phone_number }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
@@ -486,6 +509,7 @@ export default {
       profileImg: null,
       userIcon: false,
       images: [],
+      company: [],
       intervalId: null,
       isShareMenuOpen: false,
       currentUrl: window.location.href,
@@ -532,14 +556,20 @@ export default {
       http.get(`/coaches/${this.carId}`).then((res) => {
         this.coache = res.data.data;
         this.horsepower = this.coache.coache_power;
-        this.images = this.coache.coache_images_url
-        this.userI = this.coache.user_id; 
-        this.link = this.coache.coache_video_link;
+        this.userCreatedAt = this.coache.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
+        this.images = this.coache.coache_images_url;
         this.profileImg = this.coache.user_image_url
+        this.link = this.coache.coache_vide_link;
+        if (res.data.hasOwnProperty('companu') && res.data.companu !== null) {
+          this.company = res.data.companu;
+        } else {
+        }
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
-        } 
-        this.isLoading = false
+        }
+        this.isLoading = false;
       });
     },
 

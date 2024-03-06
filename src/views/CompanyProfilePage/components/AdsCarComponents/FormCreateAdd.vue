@@ -2876,10 +2876,17 @@ export default {
       })
         .then((res) => {
           this.interiorAdd = !this.interiorAdd
+          const responseData = response.data.data;
+        if(response.data.status === 200){
+
           this.handleCancelButtonClick()
           localStorage.setItem('count', 0);
           this.toast.success("Your ad has been created!");
           this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
 
         })
     },

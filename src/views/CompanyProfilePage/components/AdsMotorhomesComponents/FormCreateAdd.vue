@@ -1103,7 +1103,7 @@
         </div>
       </div>
       <div class="flex flex-wrap lg:gap-[40px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] lg:w-[200px]">
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] lg:w-[200px]">
           <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sticker") }}</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1171,7 +1171,7 @@
         </div>
       </div>
       <div class="flex flex-wrap gap-x-[40px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
+        <div class="marke_select_div relative mt-[40px] lg:mt-[30px] w-[200px]">
           <h2 class="text-sm lg:text-[14px]">Vehicle Length
           </h2>
           <select
@@ -1530,6 +1530,7 @@ export default {
       isCheckedCloth: false,
       isCheckedPartLeather: false,
       isCheckedVelour: false,
+      isCheckedElectric: false,
       isCheckedFullLeather: false,
       isCheckedOther: false,
       selectedMaterial: [],
@@ -1586,7 +1587,7 @@ export default {
 
     },
     addAdMotorbike() {
-      if (!this.selectedMark || !this.selectedModel || !this.selectedCondition || !this.selectedCategory || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.selectedCountry || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
+      if (!this.selectedMark || !this.selectedModel || !this.selectedCondition  || !this.price || !this.inputValue || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
         this.toast.error("Please fill in all required fields!");
 
         const countValue = localStorage.getItem('count');
@@ -1650,15 +1651,21 @@ export default {
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
+        `${this.userCodeNumber}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
       http.post("/motorhomes/add", formData).then((response) => {
         const responseData = response.data.data;
-        this.handleCancelButtonClick();
-        localStorage.setItem('count', 0);
-        this.toast.success("Your ad has been created!");
-        this.$router.push({ name: "price-list" })
+        if(response.data.status === 200){
+
+          this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
+          this.toast.success("Your ad has been created!");
+          this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
       });
     },
     openFileInput() {

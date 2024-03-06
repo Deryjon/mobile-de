@@ -17,14 +17,14 @@
             <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
           </div>
         </div>
-        
+
       </div>
       <p class="">{{ formatDate(van.van_ad_create_at) }}</p>
     </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] lg:h-[400px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="van-vane flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="agricultural-mark ">{{ van.van_make }}</p>
+        <p class="van-mark ">{{ van.van_make }}</p>
         <p class="van-vanel ">{{ van.van_model }}</p>
       </div>
       <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
@@ -32,35 +32,47 @@
         <p class="van-vance">{{ van.van_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="flex gap-[20px]">
+      <div class="flex items-center gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="van.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="van.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-    <p class="name">{{ van.van_vendor }}</p>
-    <p class="name">{{ van.user_gender }}</p>
-    <p class="name">{{ van.user_first_name }}</p>
-  </div>
-  <div class="name-seller mt-[15px] font-semibold text-[12px]">
-    <p class="name">{{ $t("message.single_page.phone") }}: {{ van.user_phone }}</p>
-  </div>
-</div>
-</div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ van.van_vendor }}</p>
+            <p class="name">{{ van.user_gender }}</p>
+            <p class="name">{{ van.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ van.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ van.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ van.user_address_nr }}</p>
+            
+          </div>
+         
+        </div>
+      </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ van.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ van.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + van.user_email"
@@ -77,8 +89,7 @@
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
-                fill="
+                d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z" fill="
                 "></path>
             </svg>
             {{ $t("message.single_page.share") }}
@@ -106,7 +117,7 @@
           </div>
         </div>
       </div>
-    
+
 
     </div>
     <div class="left flex flex-col gap-[20px] w-full md:max-w-[600px] lg:max-w-[700px]  rounded-[4px] mt-[10px]">
@@ -133,35 +144,110 @@
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px] md:mt-[80px] lg:mt-[10px]">
         <div class="mileage flex w-[186px] gap-[5px]">
-          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#e04b00"><g data-v-d1eac5a1="" stroke="#e04b00" stroke-width="2" stroke-linecap="round"><path data-v-d1eac5a1="" d="M31 5L35 35"></path><path data-v-d1eac5a1="" d="M9 5L5 35"></path><path data-v-d1eac5a1="" d="M20 7V11M20 16.5V21.5M20 27V33"></path></g></svg>
+          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="#e04b00">
+            <g data-v-d1eac5a1="" stroke="#e04b00" stroke-width="2" stroke-linecap="round">
+              <path data-v-d1eac5a1="" d="M31 5L35 35"></path>
+              <path data-v-d1eac5a1="" d="M9 5L5 35"></path>
+              <path data-v-d1eac5a1="" d="M20 7V11M20 16.5V21.5M20 27V33"></path>
+            </g>
+          </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.mileage") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ van.van_kilometre }} km</p>
           </div>
         </div>
         <div class="registration flex w-[186px] gap-[5px]">
-          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><g data-v-d1eac5a1="" fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-v-d1eac5a1="" d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z"></path><path data-v-d1eac5a1="" d="M31 23V19H27V23H31Z"></path><path data-v-d1eac5a1="" d="M35 15H5"></path><path data-v-d1eac5a1="" d="M28 5V9M12 9V5"></path></g></svg> 
+          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g data-v-d1eac5a1="" fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path data-v-d1eac5a1=""
+                d="M35 31V9C35 7.89543 34.1046 7 33 7H7C5.89543 7 5 7.89543 5 9V31C5 32.1046 5.89543 33 7 33H33C34.1046 33 35 32.1046 35 31Z">
+              </path>
+              <path data-v-d1eac5a1="" d="M31 23V19H27V23H31Z"></path>
+              <path data-v-d1eac5a1="" d="M35 15H5"></path>
+              <path data-v-d1eac5a1="" d="M28 5V9M12 9V5"></path>
+            </g>
+          </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.first") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ van.van_firt_date_year }}</p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
-          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><g data-v-d1eac5a1="" stroke="#e04b00" stroke-linecap="round" fill="none" stroke-width="2"><path data-v-d1eac5a1="" d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9"></path><path data-v-d1eac5a1="" d="M20.0001 24.55C21.4084 24.55 22.5501 23.4083 22.5501 22C22.5501 20.5917 21.4084 19.45 20.0001 19.45C18.5917 19.45 17.4501 20.5917 17.4501 22C17.4501 23.4083 18.5917 24.55 20.0001 24.55Z"></path><path data-v-d1eac5a1="" d="M22.125 24.125L25.1 27.1"></path><path data-v-d1eac5a1="" d="M26.4397 24.1896C26.6726 23.5011 26.8001 22.765 26.8001 22C26.8001 20.1215 26.0385 18.4215 24.8069 17.189" stroke-width="1.5"></path><path data-v-d1eac5a1="" d="M29.0186 26.7685C29.7751 25.3456 30.2001 23.7221 30.2001 22C30.2001 18.0067 27.9051 14.5489 24.562 12.8744" stroke-width="1.6"></path><path data-v-d1eac5a1="" d="M31.5047 29.2556C32.8307 27.1561 33.6 24.6673 33.6 22C33.6 14.4886 27.5114 8.40002 20 8.40002" stroke-width="1.7"></path></g></svg>
+          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g data-v-d1eac5a1="" stroke="#e04b00" stroke-linecap="round" fill="none" stroke-width="2">
+              <path data-v-d1eac5a1=""
+                d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M20.0001 24.55C21.4084 24.55 22.5501 23.4083 22.5501 22C22.5501 20.5917 21.4084 19.45 20.0001 19.45C18.5917 19.45 17.4501 20.5917 17.4501 22C17.4501 23.4083 18.5917 24.55 20.0001 24.55Z">
+              </path>
+              <path data-v-d1eac5a1="" d="M22.125 24.125L25.1 27.1"></path>
+              <path data-v-d1eac5a1=""
+                d="M26.4397 24.1896C26.6726 23.5011 26.8001 22.765 26.8001 22C26.8001 20.1215 26.0385 18.4215 24.8069 17.189"
+                stroke-width="1.5"></path>
+              <path data-v-d1eac5a1=""
+                d="M29.0186 26.7685C29.7751 25.3456 30.2001 23.7221 30.2001 22C30.2001 18.0067 27.9051 14.5489 24.562 12.8744"
+                stroke-width="1.6"></path>
+              <path data-v-d1eac5a1=""
+                d="M31.5047 29.2556C32.8307 27.1561 33.6 24.6673 33.6 22C33.6 14.4886 27.5114 8.40002 20 8.40002"
+                stroke-width="1.7"></path>
+            </g>
+          </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">Power</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
           </div>
         </div>
         <div class="power flex w-[186px]">
-          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><g data-v-d1eac5a1="" stroke="#e04b00" stroke-width="2"><path data-v-d1eac5a1="" d="M10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12Z"></path><path data-v-d1eac5a1="" d="M20 12C21.1046 12 22 11.1046 22 10C22 8.89543 21.1046 8 20 8C18.8954 8 18 8.89543 18 10C18 11.1046 18.8954 12 20 12Z"></path><path data-v-d1eac5a1="" d="M30 12C31.1046 12 32 11.1046 32 10C32 8.89543 31.1046 8 30 8C28.8954 8 28 8.89543 28 10C28 11.1046 28.8954 12 30 12Z"></path><path data-v-d1eac5a1="" d="M10 32C11.1046 32 12 31.1046 12 30C12 28.8954 11.1046 28 10 28C8.89543 28 8 28.8954 8 30C8 31.1046 8.89543 32 10 32Z"></path><path data-v-d1eac5a1="" d="M20 32C21.1046 32 22 31.1046 22 30C22 28.8954 21.1046 28 20 28C18.8954 28 18 28.8954 18 30C18 31.1046 18.8954 32 20 32Z"></path><path data-v-d1eac5a1="" d="M30 32C31.1046 32 32 31.1046 32 30C32 28.8954 31.1046 28 30 28C28.8954 28 28 28.8954 28 30C28 31.1046 28.8954 32 30 32Z"></path><path data-v-d1eac5a1="" d="M10 13V27" stroke-linecap="round"></path><path data-v-d1eac5a1="" d="M20 13V27" stroke-linecap="round"></path><path data-v-d1eac5a1="" d="M30 13V20" stroke-linecap="round"></path><path data-v-d1eac5a1="" d="M30 20H10" stroke-linecap="round"></path></g></svg>
+          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g data-v-d1eac5a1="" stroke="#e04b00" stroke-width="2">
+              <path data-v-d1eac5a1=""
+                d="M10 12C11.1046 12 12 11.1046 12 10C12 8.89543 11.1046 8 10 8C8.89543 8 8 8.89543 8 10C8 11.1046 8.89543 12 10 12Z">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M20 12C21.1046 12 22 11.1046 22 10C22 8.89543 21.1046 8 20 8C18.8954 8 18 8.89543 18 10C18 11.1046 18.8954 12 20 12Z">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M30 12C31.1046 12 32 11.1046 32 10C32 8.89543 31.1046 8 30 8C28.8954 8 28 8.89543 28 10C28 11.1046 28.8954 12 30 12Z">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M10 32C11.1046 32 12 31.1046 12 30C12 28.8954 11.1046 28 10 28C8.89543 28 8 28.8954 8 30C8 31.1046 8.89543 32 10 32Z">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M20 32C21.1046 32 22 31.1046 22 30C22 28.8954 21.1046 28 20 28C18.8954 28 18 28.8954 18 30C18 31.1046 18.8954 32 20 32Z">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M30 32C31.1046 32 32 31.1046 32 30C32 28.8954 31.1046 28 30 28C28.8954 28 28 28.8954 28 30C28 31.1046 28.8954 32 30 32Z">
+              </path>
+              <path data-v-d1eac5a1="" d="M10 13V27" stroke-linecap="round"></path>
+              <path data-v-d1eac5a1="" d="M20 13V27" stroke-linecap="round"></path>
+              <path data-v-d1eac5a1="" d="M30 13V20" stroke-linecap="round"></path>
+              <path data-v-d1eac5a1="" d="M30 20H10" stroke-linecap="round"></path>
+            </g>
+          </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.gearbox") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ van.van_transmission }}</p>
           </div>
         </div>
         <div class="power flex w-[186px] gap-[5px]">
-          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"><g data-v-d1eac5a1="" fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path data-v-d1eac5a1="" d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z"></path><path data-v-d1eac5a1="" d="M26 6H14C12.8954 6 12 6.89543 12 8V14C12 15.1046 12.8954 16 14 16H26C27.1046 16 28 15.1046 28 14V8C28 6.89543 27.1046 6 26 6Z"></path></g></svg>
+          <svg data-v-d1eac5a1="" class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false"
+            aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
+            <g data-v-d1eac5a1="" fill="none" stroke="#e04b00" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path data-v-d1eac5a1=""
+                d="M4 38H36M32 16H33C34.104 16 35 16.897 35 18.006V28.502C35 29.329 35.666 30 36.5 30C37.328 30 38 29.335 38 28.497V10.992C38 10.444 37.632 9.755 37.164 9.442L35 8M8 4C8 2.895 8.897 2 10.005 2H29.995C31.102 2 32 2.89 32 4V38H8V4Z">
+              </path>
+              <path data-v-d1eac5a1=""
+                d="M26 6H14C12.8954 6 12 6.89543 12 8V14C12 15.1046 12.8954 16 14 16H26C27.1046 16 28 15.1046 28 14V8C28 6.89543 27.1046 6 26 6Z">
+              </path>
+            </g>
+          </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.fuel") }}</p>
             <p class="text-[12px] font-medium lg:font-bold">{{ van.van_fuel_type }}</p>
@@ -261,7 +347,7 @@
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
-          <div v-for="item in van.van_features"  class="flex justify-between w-[297px]">
+          <div v-for="item in van.van_features" class="flex justify-between w-[297px]">
             <p class="">{{ item }}</p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
               <path
@@ -283,12 +369,12 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[14px]">{{ $t("message.single_page.phone") }}: {{ van.user_phone }}</p>
+          <p class="phone text-[14px]">{{ $t("message.single_page.phone") }}: {{ van.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
         </div>
       </div>
     </div>
     <div
-      class="right h-[455px] lg:h-[480px] xl:h-[350px] mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[550px]  xl:h-[450px]  mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px]  lg:right-[25px] xl:right-[140px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="van-vane lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -305,33 +391,44 @@
       <div class="line mt-[20px]"></div>
       <div class="lg:flex gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="van.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="van.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex flex-wrap gap-x-[5px] mt-[20px]">
-    <p class="name">{{ van.van_vendor }}</p>
-    <p class="name">{{ van.user_gender }}</p>
-    <p class="name">{{ van.user_first_name }}</p>
-  </div>
-  <div class="name-seller mt-[15px] font-semibold text-[12px]">
-    <p class="name">{{ $t("message.single_page.phone") }}: {{ van.user_phone }}</p>
-  </div>
-</div>
-</div>
+          <div class="name-seller flex flex-wrap gap-x-[5px] mt-[20px]">
+            <p class="name">{{ van.van_vendor }}</p>
+            <p class="name">{{ van.user_gender }}</p>
+            <p class="name">{{ van.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ van.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ van.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ van.user_address_nr }}</p>
+            
+          </div>
+        </div>
+      </div>
       <div class="name-seller mt-[15px] text-[14px] hidden lg:flex font-semibold">
         <p class="">{{ $t("message.single_page.email") }}: {{ van.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ van.user_phone_number }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + van.user_email"
@@ -402,30 +499,30 @@ export default {
       isScrolled: false,
       scrollThresholdReached: false,
       isShareMenuOpen: false,
-      currentUrl: window.location.href, 
+      currentUrl: window.location.href,
       userCreatedAt: null,
       adCreatedAt: null,
       profileImg: "",
       userIcon: false,
       formattedDate: "",
       formattedCreat: "",
-      formattedDate: "",
       link: "",
       activeIndex: 0,
       images: [],
+      company: [],
       intervalId: null,
     };
   },
   methods: {
     formatDate(dateString) {
-            const date = new Date(dateString);
-            const day = date.getUTCDate().toString().padStart(2, "0");
-            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
-            const year = date.getUTCFullYear();
-            const hours = date.getUTCHours().toString().padStart(2, "0");
-            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-            return `${day}-${month}-${year} ${hours}:${minutes} `;
-        },
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;
@@ -460,14 +557,19 @@ export default {
       http.get(`/vans/${this.carId}`).then((res) => {
         this.van = res.data.data;
         this.horsepower = this.van.van_power;
-        this.images = this.van.van_images_url
-        this.userI = this.van.user_id;
-        this.link = this.van.van_video_link;
+        this.images = this.van.van_images_url;
         this.profileImg = this.van.user_image_url
+        this.userCreatedAt = this.van.user_create_at;
+        this.link = this.van.van_vide_link;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");        if (res.data.hasOwnProperty('company') && res.data.company !== null) {
+          this.company = res.data.company;
+        } else {
+        }
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
         }
-        this.isLoading = false
+        this.isLoading = false;
       });
     },
     goToSinglePageAd() {
@@ -677,5 +779,4 @@ export default {
 
 .checksvg {
   margin-right: 4px;
-}
-</style>
+}</style>

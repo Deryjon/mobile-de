@@ -24,7 +24,7 @@
     </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
-      <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+      <div class="construction-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark ">{{ construction.machine_make }}</p>
         <p class="construction-machineel ">{{ construction.machine_model }}</p>
       </div>
@@ -54,14 +54,27 @@
             <p class="name">{{ construction.machine_vendor }}</p>
             <p class="name">{{ construction.user_gender }}</p>
             <p class="name">{{ construction.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+
           </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{  construction.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ construction.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ construction.user_address_nr }}</p>
+
           </div>
         </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ construction.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+          company.company_phone_number }}     {{ construction.user_phone_number}}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + construction.user_email "
@@ -267,28 +280,29 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{company.company_country_code }} {{
+      company.company_phone_number }}     {{ construction.user_phone_number}}
           </p>
         </div>
       </div>
     </div>
     <div
-      class="right h-[450px] lg:h-[450px] xl:h-[450px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[150 px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[550px] lg:h-[450px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[150 px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[100px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed ' : 'static', top: isScrolled ? '0' : 'auto' }">
-      <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="car-mark">{{ construction.machine_make }}</p>
+      <div class="construction-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+        <p class="construction-mark">{{ construction.machine_make }}</p>
         <p class="construction-model">{{ construction.machine_model }}</p>
       </div>
-      <!-- <div class="car-name flex gap-[5px] text-[16px] mt-[5px]">
-        <p class="car-mark">PureTech 130 EAT8 Allure Pack</p>
+      <!-- <div class="construction-name flex gap-[5px] text-[16px] mt-[5px]">
+        <p class="construction-mark">PureTech 130 EAT8 Allure Pack</p>
       </div> -->
       <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
         €
-        <p class="car-price">{{ construction.machine_price }}</p>
+        <p class="construction-price">{{ construction.machine_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="lg:flex gap-[20px]">
+      <div class="lg:flex items-center gap-[20px]">
 
         <div v-if="!userIcon">
           <img :src="construction.user_image_url" class="w-[100px] h-[100px] object-cover" />
@@ -309,17 +323,29 @@
             <p class="name">{{ construction.machine_vendor }}</p>
             <p class="name">{{ construction.user_gender }}</p>
             <p class="name">{{ construction.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ construction.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ construction.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ construction.user_address_nr }}</p>
+
           </div>
           <div class="name-seller">
             <p class="name">{{ construction.user_name }}</p>
-          </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ construction.user_phone }}</p>
           </div>
         </div>
       </div>
       <div class="name-seller mt-[15px] hidden lg:flex text-[14px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ construction.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{company.company_country_code }} {{
+      company.company_phone_number }}     {{ construction.user_phone_number}}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + construction.user_email"
@@ -396,6 +422,7 @@ export default {
       formattedCreat: "",
       activeIndex: 0,
       images: [],
+      company: [],
       intervalId: null,
       isShareMenuOpen: false,
       currentUrl: window.location.href,
@@ -441,28 +468,25 @@ export default {
       this.userI = localStorage.getItem("u-i");
       http.get(`/constructions/${this.carId}`).then((res) => {
         this.construction = res.data.data;
-        this.horsepower = this.construction.machine_power;
-        this.images = this.construction.machine_images_url;
-        this.link = this.construction.machine_video_link;
-        this.adCreatedAt = this.construction.machine_ad_create_at;
-        const date = new Date(this.adCreatedAt);
-        this.formattedCreat = format(date, " MMM d yyyy");
-        this.isLoading = false
-      });
-    },
-    fetchUser() {
-      http.get(`/users?id=${this.userI}`).then((res) => {
-        this.user = res.data.data;
-        this.userCreatedAt = this.user.user_create_at;
+        this.userCreatedAt = this.construction.user_create_at;
+        this.link = this.construction.construction_vide_link;
         const date = new Date(this.userCreatedAt);
-        
         this.formattedDate = format(date, " MMM d yyyy");
-        // console.log(this.formattedDate);
-        // console.log(this.user);
+        if (res.data.hasOwnProperty('company') && res.data.company !== null) {
+          this.company = res.data.company;
+        } else {
+        }
+        this.horsepower = this.construction.construction_power;
+        this.images = this.construction.construction_images_url;
+        this.profileImg = this.construction.user_image_url
+        if (this.profileImg === null) {
+          this.userIcon = !this.userIcon;
+        }
+        this.isLoading = false;
       });
     },
     goToSinglePageAd() {
-      this.$router.push({ name: "single-car" });
+      this.$router.push({ name: "single-construction" });
     },
     redirectToLink() {
       window.open(this.link, '_blank');
@@ -554,7 +578,6 @@ export default {
     this.userI = localStorage.getItem("u-i");
     this.carId = this.$route.params.id;
     this.fetchAds();
-    this.fetchUser();
   },
   computed: {
     powerInkW() {

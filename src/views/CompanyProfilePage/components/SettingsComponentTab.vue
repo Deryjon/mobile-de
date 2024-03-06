@@ -321,7 +321,7 @@
                             <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
                           </div>
                           <div class="email">
-                            <p class="text-sm lg:text-[14px]">{{ $t("message.profile.radius") }}</p>
+                            <p class="text-sm lg:text-[14px]">{{ $t("message.filter_page.radius") }}</p>
                             <input type="text "
                               class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                               v-model="companyAddRadius" />

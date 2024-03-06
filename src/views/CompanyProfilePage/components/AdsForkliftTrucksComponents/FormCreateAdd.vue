@@ -53,7 +53,7 @@
           </h2>
           <input
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            :disabled="isModelSelectDisabled" v-model="selectedModel" type="text" />
+             v-model="selectedModel" type="text" />
 
 
 
@@ -310,6 +310,40 @@
           <li key="2044" @click="selectOption('2044')">2044</li>
           <li key="2045" @click="selectOption('2045')">2045</li>
         </ul>
+        </div>
+        <div class="cap dropdown-container">
+          <h2 class="mt-2 text-sm lg:text-[14px]">Lifting Capacity</h2>
+          <div class="input-container flex relative mt-[10px]">
+            <input type="from"
+              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              placeholder="from" v-model="liftingCap" @focus="openLiftingDropdown" @blur="openLiftingDropdown" />
+
+            <div
+              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+              @click="openLiftingDropdown">
+              <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
+            </div>
+          </div>
+          <ul v-if="liftingOpen" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+            <ul>
+              <li data-value="50" @click="selectNumberLifting('50')">50 € mtl</li>
+              <li data-value="100" @click="selectNumberLifting('100')">
+                100 € mtl
+              </li>
+              <li data-value="150" @click="selectNumberLifting('150')">
+                150 € mtl
+              </li>
+              <li data-value="200" @click="selectNumberLifting('200')">
+                200 € mtl
+              </li>
+              <li data-value="250" @click="selectNumberLifting('250')">
+                250 € mtl
+              </li>
+              <li data-value="300" @click="selectNumberLifting('300')">
+                300 € mtl
+              </li>
+            </ul>
+          </ul>
         </div>
         <div class="kilometer dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">
@@ -628,31 +662,31 @@
       </div>
       <div class="flex flex-wrap lg:gap-[30px]">
         <div class="marke_select_div relative mt-[14px] lg:mt-[30px] lg:w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.sticker") }}</h2>
+          <h2 class="text-sm lg:text-[14px]">Height</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="stickerEmission">
             <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
-            <option value="1(None)">1(None)</option>
-            <option value="2(Red)">2(Red)</option>
-            <option value="3(Yellow)">3(Yellow)</option>
-            <option value="4(Green)">4(Green)</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[150px] lg:w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.class") }}</h2>
+          <h2 class="text-sm lg:text-[14px]">Lifting Height</h2>
           <select
             class="mark-select mt-[10px] w-[160px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="classEmision">
             <option value="any" selected>{{ $t("message.filter_page.any") }}</option>
-            <option value="Euro1">Euro1</option>
-            <option value="Euro2">Euro2</option>
-            <option value="Euro3">Euro3</option>
-            <option value="Euro4">Euro4</option>
-            <option value="Euro5">Euro5</option>
-            <option value="Euro6">Euro6</option>
-            <option value="Euro6с">Euro6с</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300">300</option>
+            <option value="400">400</option>
+            <option value="500">500</option>
+            <option value="600">600</option>
+            <option value="5000">5000</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"></span>
         </div> 
@@ -1087,12 +1121,13 @@ export default {
       isCheckedCloth: false,
       isCheckedPartLeather: false,
       isCheckedVelour: false,
-      isCheckedFullLeather: false,
       isCheckedOther: false,
       selectedMaterial: [],
+      isCheckedFullLeather: false,
       selectedAirbag: "AnyExterior",
       selectedAxles: "",
       numberSeats: "",
+      liftCap: "",
       selectedWheelFormula: "",
       selectedMunicipal: false,
       isCheckedAlarmSystem: false,
@@ -1102,6 +1137,7 @@ export default {
       isCheckedAmbient: false,
       isCheckedTyre: false,
       isCheckedInduction: false,
+      liftingOpen: false,
       isCheckedSki: false,
       extras: [],
       others: [],
@@ -1183,13 +1219,9 @@ export default {
       formData.append("forklift_radius", parseInt(this.radius));
       formData.append("forklift_fuel_type", this.selectedFuel);
       formData.append("forklift_transmission", this.selectedTransmision);
-      formData.append("forklift_lifting_capacity", parseInt(this.power));
-      formData.append("forklift_lifting_height", this.stickerEmission);
+      formData.append("forklift_lifting_capacity", parseInt(this.liftingCap));
+      formData.append("forklift_lifting_height", this.classEmision);
       formData.append("forklift_height", this.stickerEmission);
-      formData.append(
-        "features",
-        this.selectedOthers
-      );
       formData.append(
         "security",
         this.selectedOthers
@@ -1202,15 +1234,21 @@ export default {
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
+        `${this.userCodeNumber}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
       http.post("/forklifts/add", formData).then((response) => {
         const responseData = response.data.data;
-        this.handleCancelButtonClick();
-        localStorage.setItem('count', 0);        this.toast.success("Your ad has been created!");
+        if(response.data.status === 200){
 
-        this.router({ name: "price-list" })
+          this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
+          this.toast.success("Your ad has been created!");
+          this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
       });
     },
     openFileInput() {
@@ -1358,10 +1396,19 @@ export default {
       this.price = option;
       this.priceOpen = false;
     },
+    selectNumberLifting(option) {
+      this.liftingCap = option;
+      this.liftingOpen = false;
+    },
     openDropdown() {
       this.isOpen = true;
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+    },
+    openLiftingDropdown() {
+      this.liftingOpen = true;
+      this.filteredOptions = this.options;
+      document.addEventListener("click", this.closeCapDropdownOnClickOutside);
     },
     selectOption(option) {
       this.inputValue = option;
@@ -1371,6 +1418,16 @@ export default {
       const dropdownElement = this.$el.querySelector(".years");
       if (!dropdownElement.contains(event.target)) {
         this.isOpen = false;
+        document.removeEventListener(
+          "click",
+          this.closeYearsDropdownOnClickOutside
+        );
+      }
+    },
+    closeCapDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".cap");
+      if (!dropdownElement.contains(event.target)) {
+        this.liftingOpen = false;
         document.removeEventListener(
           "click",
           this.closeYearsDropdownOnClickOutside
@@ -1464,7 +1521,7 @@ export default {
       }
 
       // URL API для запроса моделей с указанием выбранной марки
-      const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
+      const apiUrl = `/forklifts/model?mark_id=${this.selectedMark}`;
 
       // Выполняем GET-запрос к API с помощью Axios
       http

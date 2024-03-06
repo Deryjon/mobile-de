@@ -1,4 +1,4 @@
- fill="#0af512"<template>
+<template>
   <TheLoader v-if="isLoading" />
   <v-container class="max-w-[1140px] md:flex gap-[5px] justify-between pl-0 ml-[4px] relative" v-else>
     <div class="relative md:hidden  h-[230px] lg:h-[500px] w-full lg:w-[700px]">
@@ -24,7 +24,7 @@
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="trailer-trailere flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
-        <p class="agricultural-mark ">{{ trailer.trailer_make }}</p>
+        <p class="trailer-mark ">{{ trailer.trailer_make }}</p>
         <p class="trailer-trailerel ">{{ trailer.trailer_model }}</p>
       </div>
       <div class="price flex gap-[5px] text-[11px] lg:text-[16px] mt-[5px]">
@@ -34,33 +34,44 @@
       <div class="line mt-[20px]"></div>
       <div class="flex gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="trailer.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="trailer.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-    <p class="name">{{ trailer.trailer_vendor }}</p>
-    <p class="name">{{ trailer.user_gender }}</p>
-    <p class="name">{{ trailer.user_first_name }}</p>
-  </div>
-  <div class="name-seller mt-[15px] font-semibold text-[12px]">
-    <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
-  </div>
-</div>
-</div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ trailer.trailer_vendor }}</p>
+            <p class="name">{{ trailer.user_gender }}</p>
+            <p class="name">{{ trailer.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ trailer.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ trailer.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ trailer.user_address_nr }}</p>
+            
+          </div>
+        </div>
+      </div>
       <div class="name-seller mt-[15px] text-[15px] font-semibold ">
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone_number  }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
       </div>
 
 
@@ -220,17 +231,13 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_phone_number  }}</p>
         </div>
-        <div class="line mt-[10px]"></div>
-
-        <p class="show mt-[20px] text-[10px] lg:text-[12px">
-          {{ $t("message.single_page.features") }}
-        </p>
+    
       </div>
     </div>
     <div
-      class="right mt-[45px] h-[420px] lg:h-[450px] xl:h-[350px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] h-[550px]  xl:h-[450px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="trailer-trailere lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -245,38 +252,50 @@
         <p class="trailer-trailerce">{{ trailer.trailer_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="lg:flex gap-[20px]">
+      <div class="lg:flex items-center gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="trailer.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="trailer.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-    <p class="name">{{ trailer.trailer_vendor }}</p>
-    <p class="name">{{ trailer.user_gender }}</p>
-    <p class="name">{{ trailer.user_first_name }}</p>
-  </div>
-  <div class="name-seller">
-    <p class="name">{{ trailer.user_name }}</p>
-  </div>
-  <div class="name-seller mt-[15px] font-semibold text-[12px]">
-    <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
-  </div>
-</div>
-</div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ trailer.trailer_vendor }}</p>
+            <p class="name">{{ trailer.user_gender }}</p>
+            <p class="name">{{ trailer.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ trailer.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ trailer.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ trailer.user_address_nr }}</p>
+            
+          </div>
+          <div class="name-seller">
+            <p class="name">{{ trailer.user_name }}</p>
+          </div>
+        </div>
+      </div>
       <div class="name-seller mt-[15px] text-[15px] font-semibold hidden lg:flex">
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_phone_number  }}</p>
       </div>
 
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
@@ -357,6 +376,7 @@ export default {
       link: "",
       activeIndex: 0,
       images: [],
+      company: [],
       intervalId: null,
     };
   },
@@ -459,14 +479,21 @@ export default {
     fetchAds() {
       http.get(`/semitrailer/${this.carId}`).then((res) => {
         this.trailer = res.data.data;
-        // this.horsepower = this.trailer.trailer_power;
-        this.userI = this.trailer.user_id;
+        this.horsepower = this.trailer.trailer_power;
+        this.images = this.trailer.trailer_images_url;
         this.profileImg = this.trailer.user_image_url
-        this.link = this.trailer.trailer_video_link
+        this.userCreatedAt = this.trailer.user_create_at;
+        this.link = this.trailer.trailer_vide_link;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
+                if (res.data.hasOwnProperty('company') && res.data.company !== null) {
+          this.company = res.data.company;
+        } else {
+        }
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
-        } 
-        this.isLoading = false
+        }
+        this.isLoading = false;
       });
     },
     goToSinglePageAd() {

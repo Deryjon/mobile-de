@@ -20,7 +20,7 @@
     </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
-      <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+      <div class="agricultural-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
       </div>
@@ -50,15 +50,28 @@
             <p class="name">{{ agricultural.agricultural_vendor }}</p>
             <p class="name">{{ agricultural.user_gender }}</p>
             <p class="name">{{ agricultural.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+
           </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ agricultural.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ agricultural.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
+            
           </div>
+         
         </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
       </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
+          </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + agricultural.user_email"
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
@@ -288,13 +301,13 @@
         </div>
         <div class="phone mt-[10px]">
           <p class="phone text-[11px] lg:text-[14px]">
-            {{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}
+            {{ $t("message.single_page.phone") }}: {{ agricultural.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}
           </p>
         </div>
       </div>
     </div>
     <div
-      class="right mt-[45px] h-[420px] lg:h-[450px] xl:h-[450px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[120px] lg:w-[300px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] h-[550px]  xl:h-[450px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[120px] lg:w-[300px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
         'fixed right-[25px]  w-[120px] lg:right-[10px] xl:right-[200px]':
           isScrolled,
@@ -302,7 +315,7 @@
   position: isScrolled ? 'fixed' : 'static',
   top: isScrolled ? '0' : 'auto',
 }">
-      <div class="car-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
+      <div class="agricultural-name lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ agricultural.vehicle_make }}</p>
         <p class="agricultural-model">{{ agricultural.vehicle_model }}</p>
       </div>
@@ -314,7 +327,7 @@
         <p class="agricultural-price">{{ agricultural.vehicle_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="lg:flex gap-[20px]">
+      <div class="lg:flex items-center gap-[20px]">
 
         <div v-if="!userIcon">
           <img :src="agricultural.user_image_url" class="w-[100px] h-[100px] object-cover" />
@@ -332,21 +345,33 @@
         <div class="text">
 
           <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-            <p class="name">{{ agricultural.car_vendor }}</p>
+            <p class="name">{{ agricultural.agricultural_vendor_vendor }}</p>
             <p class="name">{{ agricultural.user_gender }}</p>
             <p class="name">{{ agricultural.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+            Address :
+            <p class="name">{{ company.company_address_city }}</p>
+            <p class="name">{{ agricultural.user_address_city }}</p>
+            <p class="name">{{ company.company_address_street }}</p>
+            <p class="name">{{ agricultural.user_address_street }}</p>
+
+            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
+            
           </div>
           <div class="name-seller">
             <p class="name">{{ agricultural.user_name }}</p>
           </div>
-          <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ agricultural.user_phone }}</p>
-          </div>
+         
         </div>
       </div>
       <div class="name-seller mt-[15px] hidden lg:flex font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
       </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+            <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
+          </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + agricultural.user_email"
           class="complete bg-[#e04b00] text-[12px] p-[10px] font-medium lg:text-[13px] w-[130px] lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] ">
@@ -409,6 +434,7 @@ export default {
       activeTab: "tab-2",
       isOpen: false,
       agricultural: [],
+      company: [],
       user: [],
       contactUser: false,
       horsepower: "",
@@ -416,7 +442,7 @@ export default {
       isLoading: true,
       scrollThresholdReached: false,
       userCreatedAt: null,
-      adCreatedAt: null,
+      adCreatedAt: null,  
       formattedDate: "",
       formattedCreat: "",
       link2: '',
@@ -470,15 +496,26 @@ export default {
       this.userI = localStorage.getItem("u-i");
       http.get(`/agriculturals/${this.carId}`).then((res) => {
         this.agricultural = res.data.data;
-        this.horsepower = this.agricultural.vehicle_power;
-        this.images = this.agricultural.vehicle_images_url;
-        this.adCreatedAt = this.agricultural.vehicle_ad_create_at;
-        this.link = this.agricultural.vehicle_video_link;
+        this.horsepower = this.agricultural.agricultural_power;
+        this.images = this.agricultural.agricultural_images_url;
+        this.profileImg = this.agricultural.user_image_url
+        this.link = this.agricultural.agricultural_vide_link;
+        this.userCreatedAt = this.agricultural.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
+
+        if (res.data.hasOwnProperty('company') && res.data.company !== null) {
+          this.company = res.data.company;
+        } else {
+        }
+        if (this.profileImg === null) {
+          this.userIcon = !this.userIcon;
+        }
         this.isLoading = false;
       });
     },
     goToSinglePageAd() {
-      this.$router.push({ name: "single-car" });
+      this.$router.push({ name: "single-agricultural" });
     },
     handleScroll() {
       if (window.scrollY >= 150 && window.scrollY <= 1750 && !this.isScrolled) {
