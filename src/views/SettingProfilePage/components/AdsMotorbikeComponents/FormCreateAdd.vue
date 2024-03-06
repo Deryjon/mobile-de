@@ -1472,7 +1472,50 @@
           </label>
         </div>
       </div>
-      
+      <div class="condition mt-[30px]">
+        <h3 class="text-[16px]">Driving Mode</h3>
+        <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[40px] mt-[20px]">
+          <label>
+            <input
+              type="radio"
+              id="vendor-private"
+              v-model="selectedMode"
+              :class="{
+                'bg-transparent': selectedMode !== 'Shaft drive',
+                'bg-orange': selectedMode === 'Shaft drive',
+              }"
+              @click="selectMode('Shaft drive')"
+            />
+            <span class="ml-[10px] text-[14px]">Shaft drive</span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              id="vendor-dealer"
+              v-model="selectedMode"
+              :class="{
+                'bg-transparent': selectedMode !== 'Chain drive',
+                'bg-orange': selectedMode === 'Chain drive',
+              }"
+              @click="selectMode('Chain drive')"
+            />
+            <span class="ml-[10px] text-[14px]">Chain drive </span>
+          </label>
+          <label>
+            <input
+              type="radio"
+              id="vendor-dealer"
+              v-model="selectedMode"
+              :class="{
+                'bg-transparent': selectedMode !== 'Belt drive',
+                'bg-orange': selectedMode === 'Belt drive',
+              }"
+              @click="selectMode('Belt drive')"
+            />
+            <span class="ml-[10px] text-[14px]">Belt drive </span>
+          </label>
+        </div>
+      </div>
       
       <div class="mt-[30px]">
         <h3>Others</h3>
@@ -2071,6 +2114,7 @@ export default {
       isCheckedOther: false,
       selectedMaterial: [],
       selectedAirbag: "AnyExterior",
+      selectedMode: "",
       isCheckedAlarmSystem: false,
       isCheckedDisable: false,
       isCheckedHeated: false,
@@ -2123,7 +2167,7 @@ export default {
 
     },
     addAdMotorbike() {
-      if (!this.selectedMark || !this.selectedModel || !this.selectedCondition || !this.selectedCategory || !this.activeTab || !this.price || !this.inputValue || !this.inputKilometer || !this.selectedCountry || !this.zipCode || !this.radius || !this.stickerEmission || !this.descriptionText || !this.selectedVendor) {
+      if (!this.selectedMark || !this.selectedModel || !this.selectedCondition  || !this.descriptionText || !this.selectedVendor) {
         this.toast.error("Please fill in all required fields!");
 
         const countValue = localStorage.getItem('count');
@@ -2145,7 +2189,7 @@ export default {
       formData.append("motorcycle_model", this.selectedModel);
       formData.append("motorcycle_condition", this.selectedCondition);
       formData.append("motorcycle_type", this.selectedMotorbike);
-      formData.append("motorcycle_vide_link", this.selectedMotorbike);
+      formData.append("motorcycle_vide_link", this.linkVideo);
       formData.append("motorcycle_price", parseInt(this.price));
       formData.append("motorcycle_firt_date", this.inputValue);
       formData.append("motorcycle_firt_date_year", parseInt(this.inputValue));
@@ -2155,7 +2199,7 @@ export default {
       formData.append("motorcycle_city_zipcode", this.zipCode);
       formData.append("motorcycle_radius", parseInt(this.radius));
       formData.append("motorcycle_fuel_type", this.selectedFuel);
-      formData.append("motorcycle_driving_mode", this.selectedFuel);
+      formData.append("motorcycle_driving_mode", this.selectedMode);
       formData.append("motorcycle_transmission", this.selectedTransmision);
       formData.append("motorcycle_cubic_capacity", parseInt(this.cubic));
       formData.append(
@@ -2175,15 +2219,21 @@ export default {
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
+        `${this.userCodeNumber}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
       http.post("/motorcycles/add", formData).then((response) => {
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        localStorage.setItem('count', 0);
-        this.toast.success("Your ad has been created!");
-        this.$router.push({name: "price-list"})
+        if(response.data.status === 200){
+
+          this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
+          this.toast.success("Your ad has been created!");
+          this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
       });
     },
     openFileInput() {
@@ -2240,6 +2290,9 @@ export default {
         this.isCheckedDemon = false;
         this.isCheckedfromFour = false;
       }
+    },
+    selectMode(condition) {
+      this.selectedMode = condition;
     },
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
@@ -2403,11 +2456,11 @@ export default {
     toggleShowCheckboxOthers(index, otherName) {
       const isChecked = !this.selectedOthers.includes(otherName);
       if (isChecked) {
-        this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
+        this.selectedOthers.push(otherName);
       } else {
         const carIndex = this.selectedOthers.indexOf(otherName);
         if (carIndex !== -1) {
-          this.selectedOthers.splice(carIndex, 1); // Удаляем otherName из массива
+          this.selectedOthers.splice(carIndex, 1);
         }
       }
     },

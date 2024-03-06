@@ -1475,7 +1475,6 @@ export default {
       formData.append("coache_category", this.selectedCategory);
       formData.append("coache_video_link", this.linkVideo);
       formData.append("coache_price", parseInt(this.price));
-      formData.append("coache_price_type", this.activeTab);
       formData.append("coache_firt_date", this.inputValue);
       formData.append("coache_firt_date_year", parseInt(this.inputValue));
       formData.append("coache_kilometre", parseInt(this.inputKilometer));
@@ -1492,12 +1491,11 @@ export default {
         this.selectedOthers
       );
       formData.append("coache_air_conditioning", this.selectedConditioning);
-      formData.append("coache_number_of_seats", parseInt(this.numberSeats));
-      formData.append("coache_trailer_coupling_fix", false);
+
       formData.append("coache_cruise_control", this.selectedCruise);
       formData.append("coache_vat", this.isCheckedVAT);
       formData.append("coache_discount_offers", this.isCheckedDiscount);
-      formData.append("interior_features", this.selectedOthers);
+      formData.append("interior_features", this.extras);
       formData.append("coache_exterior_colour", this.selectedExteriorColour);
       formData.append("coache_vendor", this.selectedVendor);
       formData.append("coache_full_service_history", this.isCheckedHistory);
@@ -1509,15 +1507,21 @@ export default {
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
+        `${this.userCodeNumber}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
       await http.post("/coaches/add", formData).then((response) => {
         const responseData = response.data.data;
-        this.handleCancelButtonClick()
-        localStorage.setItem('count', 0);
-        this.toast.success("Your ad has been created!");
-        this.$router.push({ name: "price-list" })
+        if(response.data.status === 200){
+
+          this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
+          this.toast.success("Your ad has been created!");
+          this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
       });
     },
     openFileInput() {
@@ -1576,15 +1580,13 @@ export default {
     toggleShowCheckboxExtras(index, extrasName) {
       const isChecked = !this.extras.includes(extrasName);
       if (isChecked) {
-        this.extras.push(extrasName); // Добавляем extrasName как отдельную строку
-        console.log(this.extras);
+        this.extras.push(extrasName);
       } else {
         const carIndex = this.extras.indexOf(extrasName);
         if (carIndex !== -1) {
-          this.extras.splice(carIndex, 1); // Удаляем extrasName из массива
+          this.extras.splice(carIndex, 1); 
         }
       }
-      console.log(this.extras);
     },
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;
@@ -1753,8 +1755,6 @@ export default {
           this.extras.splice(carIndex, 1);
         }
       }
-      console.log("extras изменен:", this.extras)
-			this.fetchData()
     },
     openSeatsDropdown() {
       this.seatsOpen = true;

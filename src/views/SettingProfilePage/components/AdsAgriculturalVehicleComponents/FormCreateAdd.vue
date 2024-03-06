@@ -721,7 +721,7 @@
           >
             <input
               type="checkbox"
-              v-model="isCheckedABS"
+              v-model="isCheckedAuxiliaryHeating"
               @click="toggleShowCheckboxOthers(0, 'Auxiliary heating')"
             />
             <svg
@@ -733,7 +733,7 @@
             >
               <!-- Insert your SVG arrow icon here -->
               <path
-                v-if="isCheckedABS"
+                v-if="isCheckedAuxiliaryHeating"
                 fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
@@ -745,7 +745,7 @@
           >
             <input
               type="checkbox"
-              v-model="isCheckedEmergency"
+              v-model="isCheckedFourWheelDrive"
               @click="toggleShowCheckboxOthers(1, 'Four wheel drive')"
             />
             <svg
@@ -757,7 +757,7 @@
             >
               <!-- Insert your SVG arrow icon here -->
               <path
-                v-if="isCheckedEmergency"
+                v-if="isCheckedFourWheelDrive"
                 fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
@@ -769,7 +769,7 @@
           >
             <input
               type="checkbox"
-              v-model="isCheckedCentral"
+              v-model="isCheckedPowerAssistedSteering"
               @click="toggleShowCheckboxOthers(2, 'Power Assisted Steering')"
             />
             <svg
@@ -781,7 +781,7 @@
             >
               <!-- Insert your SVG arrow icon here -->
               <path
-                v-if="isCheckedCentral"
+                v-if="isCheckedPowerAssistedSteering"
                 fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
@@ -824,7 +824,7 @@
             <input
               type="checkbox"
               v-model="isCheckedEmergency"
-              @click="toggleShowCheckboxOthers(1, 'Four wheel drive')"
+              @click="toggleShowCheckboxOthers(1, 'Emergency call system')"
             />
             <svg
               class="icon"
@@ -840,7 +840,7 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Four wheel drive
+            Emergency call system
           </label>
           <label
             class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
@@ -848,7 +848,7 @@
             <input
               type="checkbox"
               v-model="isCheckedCentral"
-              @click="toggleShowCheckboxOthers(2, 'Power Assisted Steering')"
+              @click="toggleShowCheckboxOthers(2, 'Central locking')"
             />
             <svg
               class="icon"
@@ -864,7 +864,7 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Power Assisted Steering
+            Central locking
           </label>
         </div>
       </div>
@@ -1372,6 +1372,9 @@ export default {
       selectedWheelFormula: "",
       selectedMunicipal: false,
       isCheckedAlarmSystem: false,
+      isCheckedAuxiliaryHeating: false,
+      isCheckedFourWheelDrive: false,
+      isCheckedPowerAssistedSteering  : false,
       isCheckedDisable: false,
       isCheckedHeated: false,
       isCheckedSeat: false,
@@ -1468,7 +1471,7 @@ export default {
       );
       formData.append(
         "interior_features",
-        this.selectedOthers
+        this.extras
       );
       formData.append("vehicle_vat", this.isCheckedVAT);
       formData.append("vehicle_discount_offers", this.isCheckedDiscount);
@@ -1488,11 +1491,15 @@ export default {
       formData.append("user_email", this.uEmail);
       http.post("/agriculturals/add", formData).then((response) => {
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        localStorage.setItem('count', 0);
-        this.toast.success("Your ad has been created!");
+        if(response.data.status === 200){
+this.handleCancelButtonClick()
+localStorage.setItem('count', 0);
+this.toast.success("Your ad has been created!");
+this.$router.push({ name: "price-list" })
+} else{
+this.toast.error("Your ad has not been created!, please try again");
 
-        this.$router.push({name: "price-list"})
+}
       });
     },
     openFileInput() {

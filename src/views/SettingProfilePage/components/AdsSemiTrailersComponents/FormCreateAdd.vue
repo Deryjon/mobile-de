@@ -121,7 +121,6 @@
           </h2>
           <input
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            :disabled="isModelSelectDisabled"
             v-model="selectedModel"
             type="text"
           />
@@ -1439,15 +1438,21 @@ export default {
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
+        `${this.userCodeNumber}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
       http.post("/semitrailer/add", formData).then((response) => {
         const responseData = response.data.data;
-        this.handleCancelButtonClick();
-        localStorage.setItem('count', 0);
-        this.toast.success("Your ad has been created!");
-        this.$router.push({name: "price-list"})
+        if(response.data.status === 200){
+
+          this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
+          this.toast.success("Your ad has been created!");
+          this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
       });
     },
     openFileInput() {

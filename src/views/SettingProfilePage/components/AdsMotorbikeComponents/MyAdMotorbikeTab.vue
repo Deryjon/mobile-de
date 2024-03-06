@@ -6,7 +6,7 @@
       </div>
       <div class="">
 				<p class="car-text font-bold text-[14px] md:text-[16px] lg:text-[20px] mt-[20px]">Create new ad</p>
-				<SellButton class="ml-[90px] xs:ml-[50%] sm:ml-[65%] md:ml-[70%] lg:ml-[78.4%]  lg:w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
+				<SellButton class="ml-[90px] xs:ml-[40%] sm:ml-[50%] md:ml-[70%] lg:ml-[78.4%]  lg:w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
 			</div>
       <div
 			class="btn w-[500px] h-[350px] hover:bg-orange-200 mx-auto mt-[40px] pt-[10px] cursor-pointer rounded-[20px]"

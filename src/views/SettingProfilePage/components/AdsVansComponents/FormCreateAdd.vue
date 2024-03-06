@@ -2103,15 +2103,21 @@ export default {
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
+        `${this.userCodeNumber}${this.userPhone}`
       );
       formData.append("user_email", this.uEmail);
       http.post("/vans/add", formData).then((response) => {
         const responseData = response.data.data;
-				this.handleCancelButtonClick()
-        localStorage.setItem('count', 0);
-        this.toast.success("Your ad has been created!");
-        this.$router.push({name: "price-list"})
+        if(response.data.status === 200){
+
+          this.handleCancelButtonClick()
+          localStorage.setItem('count', 0);
+          this.toast.success("Your ad has been created!");
+          this.$router.push({ name: "price-list" })
+        } else{
+          this.toast.error("Your ad has not been created!, please try again");
+
+        }
       });
     },
     openFileInput() {
