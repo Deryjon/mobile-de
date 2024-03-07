@@ -188,7 +188,7 @@ export default {
       market: "Marknadsundersökning",
       agree: "Jag samtycker till att mina data används för marknadsundersökning.",
       delete: "Ta bort konto",
-      since: "Privat konto, registrerat sedan 2023",
+      since: "Privat konto, registrerat sedan ",
       motorcycles: "Motorcyklar",
       motorHomes: "Husvagnar",
       trucks: "Lastbilar",

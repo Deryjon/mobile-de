@@ -11,10 +11,14 @@
 import PathLink from "../../ui/PathLink.vue";
 import YourAccount from "./sections/YourAccount.vue";
 import http from "../../axios.config";
+import { format } from "date-fns";
+
 export default {
   data() {
     return {
       companyId: localStorage.getItem("u-i"),
+      companyCreate: "",
+      companyAt: "",
     };
   },
   methods: {
@@ -36,6 +40,8 @@ export default {
         );
         localStorage.setItem("com-number", responseData.data.company_phone_number
         );
+    const date = new Date(responseData.data.user_create_at);
+        localStorage.setItem("com-create", format(date, "MMM d yyyy") );
       })
     },
   },

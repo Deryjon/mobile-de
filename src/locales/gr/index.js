@@ -189,7 +189,7 @@ export default {
       agree:
         "Ich stimme zu, dass meine Daten für Marktforschungszwecke verwendet werden.",
       delete: "Konto löschen",
-      since: "Privatkonto, registriert seit 2023",
+      since: "Privatkonto, registriert seit",
       motorcycles: "Motorräder",
       motorHomes: "Wohnmobile",
       trucks: "Lastwagen",

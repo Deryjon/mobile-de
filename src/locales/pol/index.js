@@ -176,7 +176,7 @@ export default {
       market: "Badanie rynku",
       agree: "Zgadzam się na wykorzystanie moich danych do badań rynkowych.",
       delete: "Usuń konto",
-      since: "Konto prywatne, zarejestrowane od 2023 roku",
+      since: "Konto prywatne, zarejestrowane od roku",
       motorcycles: "Motocykle",
       motorHomes: "Samochody kempingowe",
       trucks: "Ciężarówki",

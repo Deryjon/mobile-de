@@ -191,7 +191,7 @@ export default {
       market: "Études de marché",
       agree: "Je suis d'accord que mes données soient utilisées à des fins d'étude de marché.",
       delete: "Supprimer le compte",
-      since: "Compte privé, enregistré depuis 2023",
+      since: "Compte privé, enregistré depuis",
       motorcycles: "Motos",
       motorHomes: "Camping-cars",
       trucks: "Camions",

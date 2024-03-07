@@ -285,6 +285,7 @@ export default {
               "u-d-co",
               responseData.data.user_address_country
             );
+            localStorage.setItem("u-create", responseData.data.user_create_at);
             localStorage.setItem("u-code", responseData.data.user_country_code);
             localStorage.setItem("u-pre", responseData.data.user_number_prefix);
             localStorage.setItem("u-phone", responseData.data.user_phone_number);
@@ -399,6 +400,7 @@ export default {
             localStorage.setItem("u-code", responseData.data.user_country_code);
             localStorage.setItem("u-pre", responseData.data.user_number_prefix);
             localStorage.setItem("u-phone", responseData.data.user_phone_number);
+            localStorage.setItem("u-create", responseData.data.user_create_at);
             localStorage.setItem("u-bal", responseData.data.user_balance);
             window.location.reload()
 

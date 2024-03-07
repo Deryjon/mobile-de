@@ -134,7 +134,8 @@
             @click="openDataLogin">
             {{ $t("message.profile.cancel") }}
           </button>
-          <button class="custom-file-label bg-orange-500 px-[5px] lg:px-[20px] py-[4px] lg:py-[8px] rounded-[8px] text-white"
+          <button
+            class="custom-file-label bg-orange-500 px-[5px] lg:px-[20px] py-[4px] lg:py-[8px] rounded-[8px] text-white"
             @click="changeLoginData">
             {{ $t("message.profile.save") }}
           </button>
@@ -145,9 +146,7 @@
           {{ $t("message.profile.cantactData") }}
         </h2>
         <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
-          <div
-            class=" h-[84px] p-[5px] sm:flex items-center justify-between"
-            v-if="!nameChange">
+          <div class=" h-[84px] p-[5px] sm:flex items-center justify-between" v-if="!nameChange">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
@@ -277,84 +276,84 @@
                     </div>
                   </div>
                   <div class="relative mt-2">
-                  <h2 class="text-sm lg:text-[14px]">
-                    {{ $t("message.profile.country") }}
-                  </h2>
-                  <select
-                    class="mark-select mt-[5px] w-full lg:w-[150px]  h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] sm:text-[13px] md:text-[14px]"
-                    v-model="selectedCountry">
-                    <optgroup>
-                      <option value="BA">Bosnia and Herzegovina</option>
-                      <option value="AL">Albania</option>
-                      <option value="AT">Austria</option>
-                      <option value="BY">Belarus</option>
-                      <option value="BE">Belgium</option>
-                      <option value="AD">Andorra</option>
-                      <option value="BR">Brazil</option>
-                      <option value="BG">Bulgaria</option>
-                      <option value="CA">Canada</option>
-                      <option value="HR">Croatia</option>
-                      <option value="CY">Cyprus</option>
-                      <option value="CZ">Czech Republic</option>
-                      <option value="DK">Denmark</option>
-                      <option value="EG">Egypt</option>
-                      <option value="EE">Estonia</option>
-                      <option value="ET">Ethiopia</option>
-                      <option value="FO">Faroe Islands</option>
-                      <option value="FI">Finland</option>
-                      <option value="FR">France</option>
-                      <option value="DE">Germany</option>
-                      <option value="GR">Greece</option>
-                      <option value="HU">Hungary</option>
-                      <option value="IS">Iceland</option>
-                      <option value="IE">Ireland</option>
-                      <option value="IL">Israel</option>
-                      <option value="IT">Italy</option>
-                      <option value="JP">Japan</option>
-                      <option value="JO">Jordan</option>
-                      <option value="KW">Kuwait</option>
-                      <option value="LV">Latvia</option>
-                      <option value="LB">Lebanon</option>
-                      <option value="LI">Liechtenstein</option>
-                      <option value="LT">Lithuania</option>
-                      <option value="LU">Luxembourg</option>
-                      <option value="MK">Macedonia</option>
-                      <option value="MT">Malta</option>
-                      <option value="MX">Mexico</option>
-                      <option value="MD">Moldova</option>
-                      <option value="MC">Monaco</option>
-                      <option value="ME">Montenegro</option>
-                      <option value="MA">Morocco</option>
-                      <option value="NL">Netherlands</option>
-                      <option value="NZ">New Zealand</option>
-                      <option value="NG">Nigeria</option>
-                      <option value="NO">Norway</option>
-                      <option value="OM">Oman</option>
-                      <option value="PL">Poland</option>
-                      <option value="PT">Portugal</option>
-                      <option value="RO">Romania</option>
-                      <option value="RU">Russian Federation</option>
-                      <option value="SM">San Marino</option>
-                      <option value="SA">Saudi Arabia</option>
-                      <option value="RS">Serbia</option>
-                      <option value="SK">Slovakia</option>
-                      <option value="SI">Slovenia</option>
-                      <option value="ZA">South Africa</option>
-                      <option value="KR">South Korea</option>
-                      <option value="ES">Spain</option>
-                      <option value="SE">Sweden</option>
-                      <option value="CH">Switzerland</option>
-                      <option value="TW">Taiwan</option>
-                      <option value="TN">Tunisia</option>
-                      <option value="TR">Turkey</option>
-                      <option value="UA">Ukraine</option>
-                      <option value="AE">United Arab Emirates</option>
-                      <option value="GB">United Kingdom</option>
-                      <option value="US">USA</option>
-                    </optgroup>
-                  </select>
-                  <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
-                </div>
+                    <h2 class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.country") }}
+                    </h2>
+                    <select
+                      class="mark-select mt-[5px] w-full lg:w-[150px]  h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] sm:text-[13px] md:text-[14px]"
+                      v-model="selectedCountry">
+                      <optgroup>
+                        <option value="BA">Bosnia and Herzegovina</option>
+                        <option value="AL">Albania</option>
+                        <option value="AT">Austria</option>
+                        <option value="BY">Belarus</option>
+                        <option value="BE">Belgium</option>
+                        <option value="AD">Andorra</option>
+                        <option value="BR">Brazil</option>
+                        <option value="BG">Bulgaria</option>
+                        <option value="CA">Canada</option>
+                        <option value="HR">Croatia</option>
+                        <option value="CY">Cyprus</option>
+                        <option value="CZ">Czech Republic</option>
+                        <option value="DK">Denmark</option>
+                        <option value="EG">Egypt</option>
+                        <option value="EE">Estonia</option>
+                        <option value="ET">Ethiopia</option>
+                        <option value="FO">Faroe Islands</option>
+                        <option value="FI">Finland</option>
+                        <option value="FR">France</option>
+                        <option value="DE">Germany</option>
+                        <option value="GR">Greece</option>
+                        <option value="HU">Hungary</option>
+                        <option value="IS">Iceland</option>
+                        <option value="IE">Ireland</option>
+                        <option value="IL">Israel</option>
+                        <option value="IT">Italy</option>
+                        <option value="JP">Japan</option>
+                        <option value="JO">Jordan</option>
+                        <option value="KW">Kuwait</option>
+                        <option value="LV">Latvia</option>
+                        <option value="LB">Lebanon</option>
+                        <option value="LI">Liechtenstein</option>
+                        <option value="LT">Lithuania</option>
+                        <option value="LU">Luxembourg</option>
+                        <option value="MK">Macedonia</option>
+                        <option value="MT">Malta</option>
+                        <option value="MX">Mexico</option>
+                        <option value="MD">Moldova</option>
+                        <option value="MC">Monaco</option>
+                        <option value="ME">Montenegro</option>
+                        <option value="MA">Morocco</option>
+                        <option value="NL">Netherlands</option>
+                        <option value="NZ">New Zealand</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="NO">Norway</option>
+                        <option value="OM">Oman</option>
+                        <option value="PL">Poland</option>
+                        <option value="PT">Portugal</option>
+                        <option value="RO">Romania</option>
+                        <option value="RU">Russian Federation</option>
+                        <option value="SM">San Marino</option>
+                        <option value="SA">Saudi Arabia</option>
+                        <option value="RS">Serbia</option>
+                        <option value="SK">Slovakia</option>
+                        <option value="SI">Slovenia</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="KR">South Korea</option>
+                        <option value="ES">Spain</option>
+                        <option value="SE">Sweden</option>
+                        <option value="CH">Switzerland</option>
+                        <option value="TW">Taiwan</option>
+                        <option value="TN">Tunisia</option>
+                        <option value="TR">Turkey</option>
+                        <option value="UA">Ukraine</option>
+                        <option value="AE">United Arab Emirates</option>
+                        <option value="GB">United Kingdom</option>
+                        <option value="US">USA</option>
+                      </optgroup>
+                    </select>
+                    <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
+                  </div>
                 </div>
                 <div class="btns flex sm:gap-[10px] justify-between  sm:justify-end mt-[40px]">
                   <button
@@ -379,7 +378,7 @@
                   {{ $t("message.profile.phoneNumber") }}
                 </p>
                 <p class=" text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px]">
-                  {{ userCountryCode }} 
+                  {{ userCountryCode }}
                   {{ userPhoneNumber }}
                 </p>
               </div>
@@ -543,17 +542,15 @@
                 </div>
               </div>
               <button
-                class="complete bg-[#fff] w-[100px] lg:w-[141px] p-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium"
-              >
+                class="complete bg-[#fff] w-[100px] lg:w-[141px] p-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                 {{ $t("message.profile.none") }}
               </button>
             </div>
           </div>
           <div class="box w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
-            <div
-              class="lg:w-[656px] h-[120px] p-[5px] lg:p-[15px] lg:flex items-center justify-between"
-            >
-              <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:p-[15px] flex items-center justify-between">
+            <div class="lg:w-[656px] h-[120px] p-[5px] lg:p-[15px] lg:flex items-center justify-between">
+              <div
+                class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:p-[15px] flex items-center justify-between">
                 <div class="md:flex items-center gap-[20px]">
 
                   <div class="profile-pic w-[185px] lg:w-[250px]">
@@ -594,7 +591,7 @@
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium ">{{ userE }}</p>
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-normal ">
-                  {{ $t("message.profile.since") }}
+                  {{ $t("message.profile.since") }} {{ this.userCreatedAt }}
                 </p>
               </div>
             </div>
@@ -628,6 +625,8 @@
 <script>
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { format } from "date-fns";
+
 export default {
   setup() {
     const showPassword = ref(false);
@@ -651,8 +650,10 @@ export default {
       userAddressStreet: "",
       userAddressNr: "",
       userAddressZip: "",
+      userAddressZip: "",
       userAddressCity: "",
       selectedCountry: "",
+      userCreatedAt: "",
       nameChange: false,
       userNumber: "",
       changeLogin: false,
@@ -786,6 +787,8 @@ export default {
   },
   created() {
     this.userI = localStorage.getItem("u-i");
+    const date = new Date(localStorage.getItem("u-create"));
+        this.userCreatedAt = format(date, "MMM d yyyy") ;
     this.userE = localStorage.getItem("u-e");
     this.userECh = localStorage.getItem("u-e");
     this.userName = localStorage.getItem("u-fn");

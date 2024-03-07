@@ -1263,7 +1263,8 @@
             {{ $t("message.filter_page.features.brake") }} </label>
           <label
             class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedCentral" @click="toggleShowCheckboxOthers(2, 'Keyless central locking')" />
+            <input type="checkbox" v-model="isCheckedCentral"
+              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedCentral" fill="#ffffff"
@@ -1299,7 +1300,8 @@
             {{ $t("message.filter_page.features.emergy") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedLastChanges" @click="toggleShowCheckboxOthers(6, 'Lane change assist')" />
+            <input type="checkbox" v-model="isCheckedLastChanges"
+              @click="toggleShowCheckboxOthers(6, 'Lane change assist')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedLastChanges" fill="#ffffff"
@@ -1307,7 +1309,8 @@
             </svg>
             {{ $t("message.filter_page.features.lanechange") }} </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSportsPackage" @click="toggleShowCheckboxOthers(7, 'Sports package')" />
+            <input type="checkbox" v-model="isCheckedSportsPackage"
+              @click="toggleShowCheckboxOthers(7, 'Sports package')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSportsPackage" fill="#ffffff"
@@ -1344,7 +1347,8 @@
             </svg>
             {{ $t("message.filter_page.features.laser") }} </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedSportsSuspension" @click="toggleShowCheckboxOthers(11, 'Sports seats')" />
+            <input type="checkbox" v-model="isCheckedSportsSuspension"
+              @click="toggleShowCheckboxOthers(11, 'Sports seats')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedSportsSuspension" fill="#ffffff"
@@ -1352,7 +1356,8 @@
             </svg>
             {{ $t("message.filter_page.features.sport") }} </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedAirSuspension" @click="toggleShowCheckboxOthers(11, 'Air suspension')" />
+            <input type="checkbox" v-model="isCheckedAirSuspension"
+              @click="toggleShowCheckboxOthers(11, 'Air suspension')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedAirSuspension" fill="#ffffff"
@@ -1369,7 +1374,8 @@
             {{ $t("message.filter_page.features.esp") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedLEDHeadlights" @click="toggleShowCheckboxOthers(11, 'LED headlights')" />
+            <input type="checkbox" v-model="isCheckedLEDHeadlights"
+              @click="toggleShowCheckboxOthers(11, 'LED headlights')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedLEDHeadlights" fill="#ffffff"
@@ -1420,7 +1426,8 @@
             </svg>
             {{ $t("message.filter_page.features.steel") }} </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedAllTyres" @click="toggleShowCheckboxOthers(11, 'All season tyres')" />
+            <input type="checkbox" v-model="isCheckedAllTyres"
+              @click="toggleShowCheckboxOthers(11, 'All season tyres')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedAllTyres" fill="#ffffff"
@@ -1507,7 +1514,8 @@
             </svg>
             {{ $t("message.filter_page.features.headlight") }} </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedPanoramicRoof" @click="toggleShowCheckboxOthers(11, 'Panoramic roof')" />
+            <input type="checkbox" v-model="isCheckedPanoramicRoof"
+              @click="toggleShowCheckboxOthers(11, 'Panoramic roof')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedPanoramicRoof" fill="#ffffff"
@@ -1526,7 +1534,8 @@
             {{ $t("message.filter_page.features.traction") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedCentralLocking" @click="toggleShowCheckboxOthers(11, 'Central locking')" />
+            <input type="checkbox" v-model="isCheckedCentralLocking"
+              @click="toggleShowCheckboxOthers(11, 'Central locking')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedCentralLocking" fill="#ffffff"
@@ -1643,7 +1652,8 @@
             {{ $t("message.filter_page.features.wintertyres") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedWinterTyres" @click="toggleShowCheckboxOthers(11, 'Electric tailgate')" />
+            <input type="checkbox" v-model="isCheckedWinterTyres"
+              @click="toggleShowCheckboxOthers(11, 'Electric tailgate')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
               <path v-if="isCheckedWinterTyres" fill="#ffffff"
@@ -3049,24 +3059,33 @@ export default {
           const store = useTabsStore();
           store.setActiveTab("tab-3");
           const comI = localStorage.getItem("u-com");
-if (comI === true) {
-  this.$router.push({ name: "company-settings" });
-} else {
-  // Если значение не является числом, перенаправляем на страницу "profile-settings"
-  this.$router.push({ name: "profile-settings" });
-}
+          if (response.data.status === 200) {
+
+            this.toast.success("Your ad has been edited!")
+            if (comI === "true") {
+              this.$router.push({ name: "company-settings" });
+            } else {
+              this.$router.push({ name: "profile-settings" });
+            }
+          } else {
+            this.toast.error("Your ad has not been edited!, please try again");
+
+          }
 
         })
     },
     cancelAdCar() {
+      const store = useTabsStore();
+      store.setActiveTab("tab-3");
       const comI = localStorage.getItem("u-com");
-      if (comI === true) {
+
+      if (comI === "true") {
         this.$router.push({ name: "company-settings" });
       } else {
-        // Иначе перенаправляем на страницу profile-settings
         this.$router.push({ name: "profile-settings" });
       }
     },
+
     // thenPowerAdd() {
     //   http.put("/car/add/engine", {
     // 		car_id: localStorage.getItem('car_id'),
@@ -3208,19 +3227,19 @@ if (comI === true) {
       }
     },
     toggleShowCheckboxExtras(index, extrasName) {
-  if (this.extras !== null) {
-    const isChecked = !this.extras.includes(extrasName);
-    if (isChecked) {
-      this.extras.push(extrasName); // Добавляем extrasName как отдельную строку
-      console.log(this.extras);
-    } else {
-      const carIndex = this.extras.indexOf(extrasName);
-      if (carIndex !== -1) {
-        this.extras.splice(carIndex, 1); // Удаляем extrasName из массива
+      if (this.extras !== null) {
+        const isChecked = !this.extras.includes(extrasName);
+        if (isChecked) {
+          this.extras.push(extrasName); // Добавляем extrasName как отдельную строку
+          console.log(this.extras);
+        } else {
+          const carIndex = this.extras.indexOf(extrasName);
+          if (carIndex !== -1) {
+            this.extras.splice(carIndex, 1); // Удаляем extrasName из массива
+          }
+        }
       }
-    }
-  }
-},
+    },
     selectAirConditioning(condition) {
       this.selectedConditioning = condition;
     },
@@ -3362,19 +3381,19 @@ if (comI === true) {
       }
     },
     toggleShowCheckboxOthers(index, otherName) {
-  if (this.others !== null) {
-    const isChecked = !this.others.includes(otherName);
-    if (isChecked) {
-      this.others.push(otherName); // Добавляем otherName как отдельную строку
-      console.log(this.others);
-    } else {
-      const otherIndex = this.others.indexOf(otherName);
-      if (otherIndex !== -1) {
-        this.others.splice(otherIndex, 1); // Удаляем otherName из массива
+      if (this.others !== null) {
+        const isChecked = !this.others.includes(otherName);
+        if (isChecked) {
+          this.others.push(otherName); // Добавляем otherName как отдельную строку
+          console.log(this.others);
+        } else {
+          const otherIndex = this.others.indexOf(otherName);
+          if (otherIndex !== -1) {
+            this.others.splice(otherIndex, 1); // Удаляем otherName из массива
+          }
+        }
       }
-    }
-  }
-},
+    },
 
     openSeatsDropdown() {
       this.seatsOpen = true;

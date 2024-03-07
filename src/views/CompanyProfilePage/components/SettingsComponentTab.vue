@@ -136,11 +136,83 @@
       <div class="profile mt-[30px]" v-if="changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold">            {{ $t("message.profile.cantactData") }}
 </h2>
+<div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+
+  <div class=" h-[84px] p-[5px] sm:flex items-center justify-between" v-if="!nameChange">
+              <div class="flex items-center gap-[20px]">
+                <div class="profile-pic pl-[15px]">
+                  <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+                    {{ $t("message.profile.name") }}
+                  </p>
+                  <p class=" text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px]">
+                    {{ selectedGender }} {{ userName }} {{ userLastName }}
+                  </p>
+                </div>
+              </div>
+              <button class="custom-file-label bg-[#094559] p-[5px] sm:px-[10px]  sm:py-[8px] rounded-[8px] text-[#fff]"
+                @click="openChangeName">
+                {{ $t("message.profile.complete") }}
+              </button>
+            </div>
+            <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="nameChange">
+              <div class="p-[5px] lg:p-[15px]">
+                <div class="complete ">
+                  <p>{{ $t("message.profile.completeName") }}</p>
+                </div>
+                <div class="changes w-full xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[292px] p-[20px]">
+                  <div class="mark">
+                    <div class="relative lg:w-[150px] xl:w-[300px] mt-2">
+                      <h2 class="text-sm lg:text-[14px]">
+                        {{ $t("message.profile.formAddress") }}
+                      </h2>
+                      <select
+                        class="mark-select mt-[5px] w-full  lg:w-[150px] xl:w-[300px] lg:h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] sm:text-[13px] md:text-[14px]"
+                        v-model="selectedGender">
+                        <option value="">Pleaseselect</option>
+                        <option value="Mr.">Mr.</option>
+                        <option value="Ms.">Ms.</option>
+                      </select>
+                      <span class="arrow w-[7px] h-[7px] absolute right-[12px]  bottom-3 lg:bottom-5"></span>
+                    </div>
+                  </div>
+                  <div class="lg:flex gap-[20px] mt-[20px]">
+                    <div class="email mt-[10px]">
+                      <p class="text-xs lg:text-[14px]">
+                        {{ $t("message.profile.firstName") }}
+                      </p>
+                      <input type="text "
+                        class="input-bor px-[5px] text-[13px] lg:text-[16px] lg:px-[10px] py-[5px] lg:py-[10px] w-full lg:w-[300px] rounded-md"
+                        v-model="userName" />
+                    </div>
+                    <div class="email mt-[10px]">
+                      <p class="text-sm lg:text-[14px]">
+                        {{ $t("message.profile.lastName") }}
+                      </p>
+                      <input type="text "
+                        class="input-bor px-[5px] text-[13px] lg:text-[16px] lg:px-[10px] py-[5px] lg:py-[10px] w-full lg:w-[300px] rounded-md"
+                        v-model="userLastName" />
+                    </div>
+                  </div>
+                  <div class="btns flex sm:gap-[10px] justify-between  sm:justify-end mt-[40px]">
+                    <button class="custom-file-label bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                      @click="openChangeName">
+                      {{ $t("message.profile.cancel") }}
+                    </button>
+                    <button class="custom-file-label bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                      @click="changeContactDataName">
+                      {{ $t("message.profile.save") }}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+</div>
         <div
-          class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between">
+          class="box mt-[20px]  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between">
           <div
             class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between"
             v-if="!companyDataChange">
+
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
@@ -779,7 +851,7 @@
           </div>
           <div class="profile-pic">
             <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{ userE }}</p>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{ $t("message.profile.since") }}</p>
+            <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{ $t("message.profile.since") }}  {{ this.companyDate }}</p>
           </div>
         </div>
         <v-dialog v-model="dialog" width="200px">
@@ -830,6 +902,7 @@ export default {
       userE: "",
       userE: "",
       selectedCountry: "",
+      companyCreate: "",
       nameChange: false,
       userNumber: "",
       changeLogin: false,
@@ -841,8 +914,11 @@ export default {
       companyAddStreet: "",
       companyAddNr: "",
       companyAddZip: "",
+      companyAddZip: "",
       companyAddressCity: "",
-
+      userName: "",
+      userLastName: "",
+      selectedGender: "",
       companyAddCountry: "",
       addressChange: false,
       numberChanges: false,
@@ -883,6 +959,27 @@ export default {
           localStorage.setItem("u-e", responseData.data.user_email);
 window.location.reload();
           })
+    },
+    changeContactDataName() {
+      this.nameChange = !this.nameChange;
+      console.log(this.selectedGender, this.userLastName, this.userName);
+      http
+        .put("/user/edit/name", {
+          user_id: this.userI,
+          gender: this.selectedGender,
+          first_name: this.userName,
+          last_name: this.userLastName,
+        })
+        .then((response) => {
+          const responseData = response.data;
+          console.log(responseData);
+          localStorage.setItem("u-fn", responseData.data.user_first_name);
+          localStorage.setItem("u-ln", responseData.data.user_last_name);
+          localStorage.setItem("u-g", responseData.data.user_gender);
+        });
+    },
+    openChangeName() {
+      this.nameChange = !this.nameChange;
     },
     deleteCompany() {
       http
@@ -980,8 +1077,22 @@ window.location.reload();
     },
   },
   mounted() {
-    this.companyI = localStorage.getItem("com-i");
+    this.companyDate = localStorage.getItem("com-create");
 
+    this.companyI = localStorage.getItem("com-i");
+    this.userName = localStorage.getItem("u-fn");
+
+    if (this.userName === "null") {
+      this.userName = "Noname";
+    }
+    this.userLastName = localStorage.getItem("u-ln");
+    if (this.userLastName === "null") {
+      this.userLastName = "";
+    }
+    this.selectedGender = localStorage.getItem("u-g");
+    if (this.userLastName === "null") {
+      this.userLastName = "";
+    }
     if (isNaN(this.companyI)) {
       this.contactData = false;
     } else {
