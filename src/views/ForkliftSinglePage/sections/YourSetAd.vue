@@ -19,7 +19,11 @@
         </div>
 
       </div>
-      <p class="">{{ formatDate(forklifts.forklift_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+        </div>
+      </div>
+      <p class="mt-[-25px]">{{ formatDate(forklifts.forklift_ad_create_at) }}</p>
 
     </div>
     <div
@@ -33,49 +37,49 @@
         <p class="forklifts-price">{{ forklifts.forklift_price }}</p>
       </div>
       <div class="line mt-[20px]"></div>
-      <div class="flex gap-[20px]">
+      <div class="flex flex-wrap gap-[10px] lg:gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="forklifts.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="forklifts.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex gap-[5px] mt-[20px]">
-    <p class="name">{{ forklifts.forklifts_vendor }}</p>
-    <p class="name">{{ forklifts.user_gender }}</p>
-    <p class="name">{{ forklifts.user_first_name }}</p>
-    <p class="name text-[14px]">{{ company.company_name }}</p>
+          <div class="name-seller flex gap-[5px] mt-[20px]">
+            <p class="name">{{ forklifts.forklifts_vendor }}</p>
+            <p class="name">{{ forklifts.user_gender }}</p>
+            <p class="name">{{ forklifts.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
 
-  </div>
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
             Address :
             <p class="name">{{ company.company_address_city }}</p>
-            <p class="name">{{  forklifts.user_address_city }}</p>
+            <p class="name">{{ forklifts.user_address_city }}</p>
             <p class="name">{{ company.company_address_street }}</p>
             <p class="name">{{ forklifts.user_address_street }}</p>
 
             <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ forklifts.user_address_nr }}</p>
 
           </div>
-</div>
-<div class="name-seller mt-[15px] font-semibold">
-  <p class="name">{{ $t("message.single_page.email") }}: {{ forklifts.user_email }}</p>
-</div>
-</div>
-<div class="name-seller mt-[15px] font-semibold text-[12px]">
-  <p class="name">{{ $t("message.single_page.phone") }}:  {{ company.company_country_code }} {{
-          company.company_phone_number }}     {{ forklifts.user_phone_number}}</p>
-</div>
+        </div>
+        <div class="name-seller lg:mt-[15px] font-semibold text-[14px]">
+          <p class="name">{{ $t("message.single_page.email") }}: {{ forklifts.user_email }}</p>
+        </div>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+    company.company_phone_number }} {{ forklifts.user_phone_number }}</p>
+      </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + forklifts.user_email"
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
@@ -88,8 +92,8 @@
         <div>
           <button @click="toggleShareMenu" v-if="!isShareMenuOpen"
             class="gap-[1px] flex justify-center lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] w-[100px]  lg:py-[12px] p-[10px]  lg:px-[13%] lg:w-[50%] text-white">
-            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="none">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
@@ -137,9 +141,13 @@
               <img src="../../../assets/icons/button-icon-dark-right.svg" class="w-full h-full object-cover" />
             </div>
           </div>
-          
+
         </div>
-        <p class="">{{ formatDate(forklifts.forklift_ad_create_at) }}</p>
+        <div class="indicators mt-[5px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[-25px]">{{ formatDate(forklifts.forklift_ad_create_at) }}</p>
       </div>
       <div class="basic-data bor flex flex-wrap md:mt-[100px] lg:mt-[30px] gap-[5px] justify-between  p-[20px]">
         <div class="registration flex w-[186px] gap-[5px]">
@@ -156,7 +164,7 @@
           </svg>
           <div class="kilomet">
             <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.first") }}</p>
-            <p class="text-[12px] font-medium lg:font-bold">{{ forklifts.forklift_firt_year }}</p>
+            <p class="text-[12px] font-medium lg:font-bold">{{ forklifts.forklift_construction_year }}</p>
           </div>
         </div>
         <div class="power flex w-[186px]">
@@ -240,14 +248,15 @@
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ forklifts.forklift_lifting_height }}</p>
           </div>
           <div class="availability flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.operatinghour") }}</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.operatinghour") }}
+            </p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ forklifts.forklift_operating_hours }}</p>
           </div>
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">
               {{ $t("message.single_page.first") }}
             </p>
-            <p class="w-[288px] text-[11px] lg:text-[14px]">{{ forklifts.forklift_firt_year }}</p>
+            <p class="w-[288px] text-[11px] lg:text-[14px]">{{ forklifts.forklift_construction_year }}</p>
           </div>
         </div>
       </div>
@@ -255,7 +264,7 @@
         <p class=" font-semibold">{{ $t("message.single_page.features") }}</p>
         <div class="line mt-[10px]"></div>
         <div class="flex flex-wrap mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
-          <div v-for="item in forklifts.forklift_features" class="flex justify-between w-[297px]">
+          <div v-for="item in forklifts.forklift_security" class="flex justify-between w-[297px]">
             <p class="">{{ item }} </p>
             <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
               <path
@@ -286,12 +295,13 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}:  {{company.company_country_code }} {{
-      company.company_phone_number }}     {{ forklifts.user_phone_number}}</p>
+          <p class="phone phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}:
+            {{ company.company_country_code }} {{
+    company.company_phone_number }} {{ forklifts.user_phone_number }}</p>
         </div>
       </div>
     </div>
-    <div 
+    <div
       class="right h-[550px] lg:h-[450px] mt-[45px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[150px] lg:w-[250px] xl:w-[350px]  rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[120px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
@@ -309,29 +319,29 @@
       <div class="line mt-[20px]"></div>
       <div class="lg:flex items-center gap-[20px]">
 
-<div v-if="!userIcon">
-  <img :src="forklifts.user_image_url" class="w-[100px] h-[100px] object-cover" />
-</div>
-<div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
-  <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
-    <g data-v-53d99ea3="" data-name="Layer 2">
-      <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
-      <path data-v-53d99ea3=""
-        d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
-      </path>
-    </g>
-  </svg>
-</div>
-<div class="text">
+        <div v-if="!userIcon">
+          <img :src="forklifts.user_image_url" class="w-[100px] h-[100px] object-cover" />
+        </div>
+        <div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
+          <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
+            <g data-v-53d99ea3="" data-name="Layer 2">
+              <circle data-v-53d99ea3="" cx="16" cy="6.96" r="6"></circle>
+              <path data-v-53d99ea3=""
+                d="M30.86,26.84a15.07,15.07,0,0,0-4.11-7.47A12.47,12.47,0,0,0,25.13,18,15,15,0,0,0,16,15,15.24,15.24,0,0,0,5.24,19.37a15.07,15.07,0,0,0-4.11,7.47,3.42,3.42,0,0,0,.69,2.88A3.52,3.52,0,0,0,4.58,31H27.42a3.52,3.52,0,0,0,2.75-1.32A3.42,3.42,0,0,0,30.86,26.84Z">
+              </path>
+            </g>
+          </svg>
+        </div>
+        <div class="text">
 
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
-    <p class="name">{{ forklifts.forklift_vendor }}</p>
-    <p class="name">{{ forklifts.user_gender }}</p>
-    <p class="name">{{ forklifts.user_first_name }}</p>
-    <p class="name text-[14px]">{{ company.company_name }}</p>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[20px]">
+            <p class="name">{{ forklifts.forklift_vendor }}</p>
+            <p class="name">{{ forklifts.user_gender }}</p>
+            <p class="name">{{ forklifts.user_first_name }}</p>
+            <p class="name text-[14px]">{{ company.company_name }}</p>
 
-  </div>
-  <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
+          </div>
+          <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
             Address :
             <p class="name">{{ company.company_address_city }}</p>
             <p class="name">{{ forklifts.user_address_city }}</p>
@@ -341,18 +351,18 @@
             <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ forklifts.user_address_nr }}</p>
 
           </div>
-  <div class="name-seller">
-    <p class="name">{{ forklifts.user_name }}</p>
-  </div>
-</div>
-</div>
-<div class="name-seller mt-[15px] hidden lg:flex font-semibold">
-  <p class="name">{{ $t("message.single_page.email") }}: {{ forklifts.user_email }}</p>
-</div>
-<div class="name-seller mt-[15px] font-semibold text-[12px]">
-  <p class="name">{{ $t("message.single_page.phone") }}: {{company.company_country_code }} {{
-    company.company_phone_number }}     {{ forklifts.user_phone_number}}</p>
-</div>
+          <div class="name-seller">
+            <p class="name">{{ forklifts.user_name }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="name-seller mt-[15px] hidden lg:flex  font-semibold">
+        <p class="name">{{ $t("message.single_page.email") }}: {{ forklifts.user_email }}</p>
+      </div>
+      <div class="name-seller mt-[15px] font-semibold text-[12px]">
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+    company.company_phone_number }} {{ forklifts.user_phone_number }}</p>
+      </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + forklifts.user_email"
           class="complete bg-[#e04b00] text-[12px] p-[10px] font-medium lg:text-[13px] w-[130px] lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] ">
@@ -366,8 +376,8 @@
           <button
             class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[170px]  text-white"
             @click="toggleShareMenu" v-if="!isShareMenuOpen">
-            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
-              xmlns="http://www.w3.org/2000/svg" fill="none">
+            <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false"
+              aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none">
               <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M2 8l10 6 10-6v10a1 1 0 01-1 1H3a1 1 0 01-1-1V8zm0-3a1 1 0 011-1h18a1 1 0 011 1v1l-10 6L2 6V5z"
                 fill="currentColor"></path>
@@ -400,6 +410,7 @@
     </div>
   </v-container>
 </template>
+
 <script>
 import SettingsTab from "../components/SettingsComponentTab.vue";
 import OverviewTab from "../components/OverviewComponentTab.vue";
@@ -438,14 +449,14 @@ export default {
   },
   methods: {
     formatDate(dateString) {
-            const date = new Date(dateString);
-            const day = date.getUTCDate().toString().padStart(2, "0");
-            const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
-            const year = date.getUTCFullYear();
-            const hours = date.getUTCHours().toString().padStart(2, "0");
-            const minutes = date.getUTCMinutes().toString().padStart(2, "0");
-            return `${day}-${month}-${year} ${hours}:${minutes} `;
-        },
+      const date = new Date(dateString);
+      const day = date.getUTCDate().toString().padStart(2, "0");
+      const month = (date.getUTCMonth() + 1).toString().padStart(2, "0"); // Months are 0-based in JavaScript
+      const year = date.getUTCFullYear();
+      const hours = date.getUTCHours().toString().padStart(2, "0");
+      const minutes = date.getUTCMinutes().toString().padStart(2, "0");
+      return `${day}-${month}-${year} ${hours}:${minutes} `;
+    },
     // slider
     nextSlide() {
       // this.images[this.activeIndex].active = false;
@@ -480,15 +491,15 @@ export default {
         this.forklifts = res.data.data;
         this.userCreatedAt = this.forklifts.user_create_at;
         this.link = this.forklifts.forklift_vide_link;
+        this.horsepower = this.forklifts.forklift_power;
+        this.images = this.forklifts.forklift_images_url;
         const date = new Date(this.userCreatedAt);
         this.formattedDate = format(date, " MMM d yyyy");
+        this.profileImg = this.forklifts.user_image_url
         if (res.data.hasOwnProperty('company') && res.data.company !== null) {
           this.company = res.data.company;
         } else {
         }
-        this.horsepower = this.forklifts.forklift_power;
-        this.images = this.forklifts.forklift_images_url;
-        this.profileImg = this.forklifts.user_image_url
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
         }
@@ -603,7 +614,36 @@ export default {
   },
 };
 </script>
+
 <style scoped>
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
+}
+
 .bor {
   border: 1px solid #000;
 }

@@ -19,7 +19,10 @@
         </div>
 
       </div>
-      <p class="">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
+      </div>
+      <p class="mt-[-25px]">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
     </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
@@ -139,7 +142,11 @@
           </div>
 
         </div>
-        <p class="">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
+        <div class="indicators mt-[5px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[25px]">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
 
       </div>
 
@@ -544,6 +551,35 @@ export default {
 };
 </script>
 <style scoped>
+
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
+}
+
 .bor {
   border: 1px solid #000;
 }

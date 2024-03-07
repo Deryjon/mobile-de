@@ -15,7 +15,10 @@
           </div>
         </div>
       </div>
-      <p class="">{{ formatDate(agricultural.vehicle_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
+      </div>
+      <p class="mt-[-30px]">{{ formatDate(agricultural.vehicle_ad_create_at) }}</p>
 
     </div>
     <div
@@ -61,17 +64,18 @@
             <p class="name">{{ agricultural.user_address_street }}</p>
 
             <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
-            
+
           </div>
-         
+
         </div>
       </div>
       <div class="name-seller mt-[15px] font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
-          </div>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+          company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
+      </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + agricultural.user_email"
           class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
@@ -132,11 +136,15 @@
           </div>
 
         </div>
-        <p class="">{{ formatDate(agricultural.vehicle_ad_create_at) }}</p>
+        <div class="indicators mt-[5px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[-25px]">{{ formatDate(agricultural.vehicle_ad_create_at) }}</p>
 
       </div>
 
-      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[80px] lg:mt-0">
+      <div class="basic-data bor flex flex-wrap gap-[5px] justify-between p-[20px] md:mt-[80px] lg:mt-[20px]">
         <div class="registration flex w-[150px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -211,7 +219,9 @@
           {{ $t("message.single_page.technical") }}
         </p>
         <div class="line mt-[10px]"></div>
-        <button class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]" v-if="link" @click="redirectToLink">Link on Video</button>
+        <button
+          class=" bg-[#e04b00] text-[12px] px-[20px] font-medium lg:text-[16px] w-[150px] mt-[20px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px]"
+          v-if="link" @click="redirectToLink">Link on Video</button>
 
         <div class="td-box mt-[20px] flex flex-col gap-[10px] lg:gap-[20px]">
           <div class="category flex justify-between">
@@ -301,13 +311,14 @@
         </div>
         <div class="phone mt-[10px]">
           <p class="phone text-[11px] lg:text-[14px]">
-            {{ $t("message.single_page.phone") }}: {{ agricultural.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}
+            {{ $t("message.single_page.phone") }}: {{ agricultural.user_phone_number }} {{ company.company_country_code }}
+            {{ company.company_phone_number }}
           </p>
         </div>
       </div>
     </div>
     <div
-      class="right mt-[45px] h-[550px]  xl:h-[450px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[120px] lg:w-[300px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] h-[550px]  xl:h-[500px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[120px] lg:w-[300px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
         'fixed right-[25px]  w-[120px] lg:right-[10px] xl:right-[200px]':
           isScrolled,
@@ -358,20 +369,21 @@
             <p class="name">{{ agricultural.user_address_street }}</p>
 
             <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
-            
+
           </div>
           <div class="name-seller">
             <p class="name">{{ agricultural.user_name }}</p>
           </div>
-         
+
         </div>
       </div>
       <div class="name-seller mt-[15px] hidden lg:flex font-semibold">
         <p class="name">{{ $t("message.single_page.email") }}: {{ agricultural.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-            <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
-          </div>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
+          company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
+      </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + agricultural.user_email"
           class="complete bg-[#e04b00] text-[12px] p-[10px] font-medium lg:text-[13px] w-[130px] lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] ">
@@ -442,7 +454,7 @@ export default {
       isLoading: true,
       scrollThresholdReached: false,
       userCreatedAt: null,
-      adCreatedAt: null,  
+      adCreatedAt: null,
       formattedDate: "",
       formattedCreat: "",
       link2: '',
@@ -496,10 +508,10 @@ export default {
       this.userI = localStorage.getItem("u-i");
       http.get(`/agriculturals/${this.carId}`).then((res) => {
         this.agricultural = res.data.data;
-        this.horsepower = this.agricultural.agricultural_power;
-        this.images = this.agricultural.agricultural_images_url;
+        this.horsepower = this.agricultural.vehicle_power;
+        this.images = this.agricultural.vehicle_images_url;
         this.profileImg = this.agricultural.user_image_url
-        this.link = this.agricultural.agricultural_vide_link;
+        this.link = this.agricultural.vehicle_vide_link;
         this.userCreatedAt = this.agricultural.user_create_at;
         const date = new Date(this.userCreatedAt);
         this.formattedDate = format(date, " MMM d yyyy");
@@ -631,6 +643,34 @@ export default {
 
 .product-info {
   margin-left: 20px;
+}
+
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
 }
 
 .sponsored {

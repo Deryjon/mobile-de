@@ -19,7 +19,10 @@
         </div>
 
       </div>
-      <p class="">{{ formatDate(construction.machine_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
+      </div>
+      <p class="mt-[-30px]">{{ formatDate(construction.machine_ad_create_at) }}</p>
 
     </div>
     <div
@@ -139,7 +142,11 @@
           </div>
 
         </div>
-        <p class="">{{ formatDate(construction.machine_ad_create_at) }}</p>
+        <div class="indicators mt-[5px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[-24px]">{{ formatDate(construction.machine_ad_create_at) }}</p>
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between  p-[20px] md:mt-[90px] lg:mt-[20px]">
         <div class="registration flex w-[186px] gap-[5px]">
@@ -469,16 +476,16 @@ export default {
       http.get(`/constructions/${this.carId}`).then((res) => {
         this.construction = res.data.data;
         this.userCreatedAt = this.construction.user_create_at;
-        this.link = this.construction.construction_vide_link;
+        this.link = this.construction.machine_vide_link;
+        this.horsepower = this.construction.machine_power;
+        this.images = this.construction.machine_images_url;
+        this.profileImg = this.construction.user_image_url
         const date = new Date(this.userCreatedAt);
         this.formattedDate = format(date, " MMM d yyyy");
         if (res.data.hasOwnProperty('company') && res.data.company !== null) {
           this.company = res.data.company;
         } else {
         }
-        this.horsepower = this.construction.construction_power;
-        this.images = this.construction.construction_images_url;
-        this.profileImg = this.construction.user_image_url
         if (this.profileImg === null) {
           this.userIcon = !this.userIcon;
         }
@@ -592,6 +599,34 @@ export default {
 };
 </script>
 <style scoped>
+
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
+}
 .bor {
   border: 1px solid #000;
 }

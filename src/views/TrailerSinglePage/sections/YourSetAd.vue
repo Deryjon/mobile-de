@@ -19,7 +19,10 @@
         </div>
 
       </div>
-      <p class="">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
+      </div>
+      <p class="mt-[-25px]">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
     </div>
     <div
       class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
@@ -139,7 +142,11 @@
           </div>
 
         </div>
-        <p class="">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
+        <div class="indicators mt-[5px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[-25px]">{{ formatDate(trailer.trailer_ad_create_at) }}</p>
 
       </div>
 
@@ -195,14 +202,14 @@
         <div class="flex flex-wrap  mt-[20px] gap-[20px] justify-between text-[11px] lg:text-[14px] font-semibold">
           <div v-for="item in trailer.trailer_features" fill="#0af512" class="flex justify-between w-[297px]">
             <p class="">{{ item }} </p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
               <path
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
           </div>
           <div v-for="item in trailer.trailer_security" fill="#0af512" class="flex justify-between w-[297px]">
             <p class="">{{ item }} </p>
-            <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="#0af512" height="16" width="14" viewBox="0 0 448 512">
               <path
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
@@ -233,11 +240,7 @@
         <div class="phone mt-[10px]">
           <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
         </div>
-        <div class="line mt-[10px]"></div>
-
-        <p class="show mt-[20px] text-[10px] lg:text-[12px">
-          {{ $t("message.single_page.features") }}
-        </p>
+        
       </div>
     </div>
     <div
@@ -430,6 +433,9 @@ export default {
         this.horsepower = this.trailer.trailer_power;
         this.images = this.trailer.trailer_images_url;
         this.profileImg = this.trailer.user_image_url
+        this.userCreatedAt = this.trailer.user_create_at;
+        const date = new Date(this.userCreatedAt);
+        this.formattedDate = format(date, " MMM d yyyy");
         this.link = this.trailer.trailer_vide_link;
         if (res.data.hasOwnProperty('company') && res.data.company !== null) {
           this.company = res.data.company;
@@ -573,6 +579,35 @@ export default {
   font-weight: bold;
   font-size: 1.2em;
 }
+
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
+}
+
 
 .product-date {
   color: #666;

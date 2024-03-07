@@ -19,7 +19,10 @@
         </div>
 
       </div>
-      <p class="">{{ formatDate(truck.truck_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
+      </div>
+      <p class="mt-[-25px]">{{ formatDate(truck.truck_ad_create_at) }}</p>
 
     </div>
     <div
@@ -141,8 +144,11 @@
           </div>
 
         </div>
-
-        <p class="">{{ formatDate(truck.truck_ad_create_at) }}</p>
+        <div class="indicators mt-[0px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[-25px]">{{ formatDate(truck.truck_ad_create_at) }}</p>
 
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px] justify-between    p-[20px]  md:mt-[80px] lg:mt-[10px]">
@@ -568,9 +574,9 @@ export default {
       http.get(`/semitruck/${this.carId}`).then((res) => {
         this.truck = res.data.data;
         this.userCreatedAt = this.truck.user_create_at;
-        this.link = this.truck.motorcycle_vide_link;
-        this.horsepower = this.truck.motorcycle_power;
-        this.images = this.truck.motorcycle_images_url;
+        this.link = this.truck.truck_vide_link;
+        this.horsepower = this.truck.truck_power;
+        this.images = this.truck.truck_images_url;
         this.profileImg = this.truck.user_image_url
         const date = new Date(this.userCreatedAt);
         this.formattedDate = format(date, " MMM d yyyy");
@@ -689,6 +695,34 @@ export default {
 };
 </script>
 <style scoped>
+
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
+}
 .bor {
   border: 1px solid #000;
 }

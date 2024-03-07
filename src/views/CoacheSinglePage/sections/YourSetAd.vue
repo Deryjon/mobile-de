@@ -19,11 +19,14 @@
         </div>
 
       </div>
-      <p class="">{{ formatDate(coache.coache_ad_create_at) }}</p>
+      <div class="indicators mt-[0px]">
+        <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
+      </div>
+      <p class="mt-[-25px]">{{ formatDate(coache.coache_ad_create_at) }}</p>
 
     </div>
     <div
-      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full md:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[45px] sm:mt-[110px] md:hidden lg:mt-[25px]  bg-[#0000001f] w-full md:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="coache-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="coache-mark ">{{ coache.coache_make }}</p>
         <p class="coache-model ">{{ coache.coache_model }}</p>
@@ -137,7 +140,11 @@
           </div>
 
         </div>
-        <p class="">{{ formatDate(coache.coache_ad_create_at) }}</p>
+        <div class="indicators mt-[5px]">
+          <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }">
+          </div>
+        </div>
+        <p class="mt-[-25px]">{{ formatDate(coache.coache_ad_create_at) }}</p>
       </div>
       <div class="basic-data bor flex flex-wrap gap-[5px]  justify-between lg:h-[180px] p-[20px] md:mt-[100px] lg:mt-[20px]">
         <div class="mileage flex w-[186px] gap-[5px]">
@@ -679,6 +686,34 @@ export default {
 };
 </script>
 <style scoped>
+
+.indicators {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 10px;
+  width: 100%;
+
+}
+
+.indicators .item {
+
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #1f1f1f;
+  opacity: 0.4;
+  /* transition: 0.5s; */
+}
+
+.indicators .item.active {
+  background-color: #1f1f1f;
+  opacity: 0.7;
+  width: 13px;
+  height: 13px;
+}
 .bor {
   border: 1px solid #000;
 }
