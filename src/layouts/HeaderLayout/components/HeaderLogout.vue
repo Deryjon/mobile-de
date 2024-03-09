@@ -188,11 +188,11 @@ export default defineComponent({
     this.userName = localStorage.getItem("u-fn");
     this.companyName = localStorage.getItem("com-name");
 
-    if (this.userName === 'null') {
+    if (this.userName === 'null' || 'undefined') {
       this.userName = "Noname";
     }
 
-    if (this.companyName === null) {
+    if (this.companyName === 'null' || 'undefined') {
       this.companyName = "Noname";
     }
   },

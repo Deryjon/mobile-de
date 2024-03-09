@@ -240,7 +240,7 @@ import MyAdForkliftTab from "../components/AdsForkliftTrucksComponents/MyAdForkl
 export default {
   data() {
     return {
-      companyEmail: "",
+      companyEmail: localStorage.getItem("u-e"),
       activeTab: "tab-2",
       companyProfileImg: null,
       companyProfileImgName: null,
@@ -329,7 +329,7 @@ export default {
       this.$router.push({ name: "home" });
       return
     }  
-    this.companyEmail = localStorage.getItem("com-e");
+    this.companyEmail = localStorage.getItem("u-e");
     this.companyProfileImgName = localStorage.getItem("com-img-alt");
       this.companyProfileImg = localStorage.getItem("com-img-prof");
 
