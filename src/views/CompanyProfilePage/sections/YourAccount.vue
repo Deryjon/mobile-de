@@ -19,7 +19,7 @@
           </svg>
         </div>
         <div class="changes">
-          <p class="email text-[12px]  ">{{ companyEmail.slice(0, 5) + "..." }}</p>
+          <p class="email text-[12px]  ">{{ companyEmail?.slice(0, 5) + "..." }}</p>
           <p class="email text-[14px]   underline cursor-pointer">            {{ $t("message.filter_page.editsettings") }}
 </p>
         </div>
@@ -327,7 +327,6 @@ export default {
     const isLoggedIn = localStorage.getItem("u-com");
     if (isLoggedIn === "false") {
       this.$router.push({ name: "home" });
-      return
     }  
     this.companyEmail = localStorage.getItem("u-e");
     this.companyProfileImgName = localStorage.getItem("com-img-alt");

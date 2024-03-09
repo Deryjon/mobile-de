@@ -59,7 +59,7 @@ export default {
     this.userId = localStorage.getItem("u-i");
     
     const isLoggedIn = localStorage.getItem("logged-in");
-    if (localStorage.getItem("com-i") == null) {
+    if (localStorage.getItem("com-i") === 'null' || 'undefined') {
         localStorage.setItem("com-i", "false"); 
     }
     if (localStorage.getItem("com-i") === 'null' || 'undefined') {
