@@ -743,19 +743,52 @@
         </select>
         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
       </div>
-      <div class="marke_select_div relative mt-2">
-        <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.previous") }}</h2>
-        <select
-          class="mark-select mt-[10px] w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-          v-model="preOwners"
-        >
-          <option value="any" selected>Any</option>
-          <option value="1">Up to 1</option>
-          <option value="2">Up to 2</option>
-          <option value="3">Up to 3</option>
-          <option value="4">Up to 4</option>
-        </select>
-        <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+      <div class="pre dropdown-container">
+        <h2 class="mt-2 text-sm lg:text-[14px]">
+          {{ $t("message.filter_page.previous") }}
+        </h2>
+        <div class="input-container flex relative mt-[10px]">
+          <input type="from"
+            class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+            placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
+            @blur="openPreDropdown" />
+
+          <div
+            class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+            @click="openPreDropdown">
+            <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
+          </div>
+        </div>
+        <ul v-if="isOpenPre" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+          <li data-key="1" @click="selectPre('1')">1</li>
+          <li data-key="2" @click="selectPre('2')">
+            2
+          </li>
+          <li data-key="3" @click="selectPre('3')">
+            3
+          </li>
+          <li data-key="4" @click="selectPre('4')">
+            4
+          </li>
+          <li data-key="5" @click="selectPre('5')">
+            5
+          </li>
+          <li data-key="6" @click="selectPre('6')">
+            6
+          </li>
+          <li data-key="7" @click="selectPre('7')">
+            7
+          </li>
+          <li data-key="8" @click="selectPre('8')">
+            8
+          </li>
+          <li data-key="9" @click="selectPre('9')">
+            9
+          </li>
+          <li data-key="10" @click="selectPre('10')">
+            10
+          </li>
+        </ul>
       </div>
       
     </div>
@@ -1061,6 +1094,7 @@ export default {
       priceToOpen: false,
       isOpenRadius: false,
       isOpen: false,
+      isOpenPre: false,
     };
   },
   watch: {
@@ -1186,6 +1220,29 @@ export default {
         "click",
         this.closeKilometerToDropdownOnClickOutside
       );
+    },
+    
+    openPreDropdown() {
+      this.isOpenPre = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closePreDropdownOnClickOutside
+      );
+    },
+    selectPre(option) {
+      this.preOwners = option;
+      this.isOpenPre = false;
+    },
+    closePreDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".pre");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenPre = false;
+        document.removeEventListener(
+          "click",
+          this.closeKilometerDropdownOnClickOutside
+        );
+      }
     },
     selectKilometerTo(option) {
       this.killometresTo = option;

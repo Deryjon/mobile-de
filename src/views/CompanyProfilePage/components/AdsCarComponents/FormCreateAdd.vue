@@ -486,58 +486,43 @@
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
-              @blur="openKilmeterDropdown" />
+              placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
+              @blur="openPreDropdown" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openKilmeterDropdown">
+              @click="openPreDropdown">
               <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="isOpenKilometer" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
-            <li data-key="10000" @click="selectKilometer('10000')">
-              10.000 km
+          <ul v-if="isOpenPre" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+            <li data-key="1" @click="selectPre('1')">1</li>
+            <li data-key="2" @click="selectPre('2')">
+              2
             </li>
-            <li data-key="20000" @click="selectKilometer('20000')">
-              20.000 km
+            <li data-key="3" @click="selectPre('3')">
+              3
             </li>
-            <li data-key="30000" @click="selectKilometer('30000')">
-              30.000 km
+            <li data-key="4" @click="selectPre('4')">
+             4
             </li>
-            <li data-key="40000" @click="selectKilometer('40000')">
-              40.000 km
+            <li data-key="5" @click="selectPre('5')">
+             5
             </li>
-            <li data-key="50000" @click="selectKilometer('50000')">
-              50.000 km
+            <li data-key="500060" @click="selectPre('6')">
+             6
             </li>
-            <li data-key="60000" @click="selectKilometer('60000')">
-              60.000 km
+            <li data-key="7" @click="selectPre('7')">
+              7
             </li>
-            <li data-key="70000" @click="selectKilometer('70000')">
-              70.000 km
+            <li data-key="8" @click="selectPre('8')">
+              8
             </li>
-            <li data-key="80000" @click="selectKilometer('80000')">
-              80.000 km
+            <li data-key="9" @click="selectPre('9')">
+              9
             </li>
-            <li data-key="90000" @click="selectKilometer('90000')">
-              90.000 km
-            </li>
-            <li data-key="100000" @click="selectKilometer('100000')">
-              100.000 km
-            </li>
-            <li data-key="125000" @click="selectKilometer('125000')">
-              125.000 km
-            </li>
-            <li data-key="150000" @click="selectKilometer('150000')">
-              150.000 km
-            </li>
-            <li data-key="175000" @click="selectKilometer('175000')">
-              175.000 km
-            </li>
-            <li data-key="200000" @click="selectKilometer('200000')">
-              200.000 km
+            <li data-key="10" @click="selectPre('10')">
+              10  
             </li>
           </ul>
         </div>
@@ -561,17 +546,52 @@
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
-        <div class="marke_select_div relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">Previous owners</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="preOwners">
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
+        <div class="pre dropdown-container">
+          <h2 class="mt-2 text-sm lg:text-[14px]">
+            Previous owners
+          </h2>
+          <div class="input-container flex relative mt-[10px]">
+            <input type="from"
+              class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
+              placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
+              @blur="openPreDropdown" />
+
+            <div
+              class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
+              @click="openPreDropdown">
+              <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
+            </div>
+          </div>
+          <ul v-if="isOpenPre" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+            <li data-key="1" @click="selectPre('1')">1</li>
+            <li data-key="2" @click="selectPre('2')">
+              2
+            </li>
+            <li data-key="3" @click="selectPre('3')">
+              3
+            </li>
+            <li data-key="4" @click="selectPre('4')">
+             4
+            </li>
+            <li data-key="5" @click="selectPre('5')">
+             5
+            </li>
+            <li data-key="500060" @click="selectPre('6')">
+             6
+            </li>
+            <li data-key="7" @click="selectPre('7')">
+              7
+            </li>
+            <li data-key="8" @click="selectPre('8')">
+              8
+            </li>
+            <li data-key="9" @click="selectPre('9')">
+              9
+            </li>
+            <li data-key="10" @click="selectPre('10')">
+              10  
+            </li>
+          </ul>
         </div>
 
       </div>
@@ -3052,7 +3072,7 @@ export default {
         );
       }
     },
-    openKilmeterDropdown() {
+    openPreDropdown() {
       this.isOpenKilometer = true;
       this.filteredOptions = this.options;
       document.addEventListener(
@@ -3060,9 +3080,31 @@ export default {
         this.closeKilometerDropdownOnClickOutside
       );
     },
+    openPreDropdown() {
+      this.isOpenPre = true;
+      this.filteredOptions = this.options;
+      document.addEventListener(
+        "click",
+        this.closePreDropdownOnClickOutside
+      );
+    },
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;
+    },
+    selectPre(option) {
+      this.preOwners = option;
+      this.isOpenPre = false;
+    },
+    closePreDropdownOnClickOutside(event) {
+      const dropdownElement = this.$el.querySelector(".pre");
+      if (!dropdownElement.contains(event.target)) {
+        this.isOpenPre = false;
+        document.removeEventListener(
+          "click",
+          this.closeKilometerDropdownOnClickOutside
+        );
+      }
     },
     selectFuel(option) {
       this.selectedFuel = option;

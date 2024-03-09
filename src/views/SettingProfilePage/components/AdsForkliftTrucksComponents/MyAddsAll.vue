@@ -3,7 +3,7 @@
     <div v-for="forklift in forklifts" :key="forklift.forklift_id" :data-forklift-id="forklift.id"
       class="card bor bg-white md:flex justify-between w-full lg:h-[300px] p-[20px]">
       <div class="bor img lg:w-[500px]  h-[150px] lg:h-[200px] mr-[20px] m-0">
-        <img :src="forklift.forklift_images_url[0]" alt="" class="object-cover w-full h-full" />
+        <img :src="forklift.forklift_images_url" alt="" class="object-cover w-full h-full" />
       </div>
       <div class="text lg:w-[520px]">
         <div class="name flex flex-wrap gap-[5px] text-[12px] md:text-[14px] lg:text-[16px] font-semibold">
@@ -83,30 +83,18 @@ export default {
     fetchAds() {
       http.get(`/user/forklifts/${this.userI}?limit=100&offset=0`).then((res) => {
         this.forklifts = res.data.data;
-        console.log(this.forklifts);
       });
     },
     editAdforklift(forkliftId) {
       this.$router.push({ name: "edit-ad-forklift", params: { id: forkliftId } });
     },
     deleteAdforklift(forkliftId) {
-      // Отправляем запрос DELETE на сервер с указанием forkliftId
-      console.log(`Объявление с ID ${forkliftId} удалено.`);
       http
         .delete(`/forklifts/delete`, {
           data: { id: parseInt(forkliftId) },
         })
         .then((response) => {
-          // Обработка успешного удаления
-          console.log(`Объявление с ID ${forkliftId} удалено.`);
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
           this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${forkliftId}:`, error);
-          // Выполните здесь необходимые действия при ошибке
         });
     },
   },

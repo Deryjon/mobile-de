@@ -91,15 +91,10 @@ export default {
     deleteAdforklift(forkliftId) {
       http
         .delete(`/forklifts/delete`, {
-          data: { forklift_id: parseInt(forkliftId) },
+          data: { id: parseInt(forkliftId) },
         })
         .then((response) => {
           this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${forkliftId}:`, error);
-          // Выполните здесь необходимые действия при ошибке
         });
     },
   },

@@ -40,6 +40,12 @@ export default {
         );
         localStorage.setItem("com-number", responseData.data.company_phone_number
         );
+        localStorage.setItem("u-g", responseData.data.user_gender
+        );
+        localStorage.setItem("u-ln", responseData.data.user_last_name
+        );
+        localStorage.setItem("u-fn", responseData.data.user_first_name
+        );
     const date = new Date(responseData.data.user_create_at);
         localStorage.setItem("com-create", format(date, "MMM d yyyy") );
       })

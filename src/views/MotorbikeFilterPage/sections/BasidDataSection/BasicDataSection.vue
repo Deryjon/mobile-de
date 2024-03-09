@@ -3,7 +3,8 @@
     <v-container class="max-w-[1140px]">
       <PathLink>{{ $t("message.filter_page.vehicle.motorbike") }}</PathLink>
 
-      <FilterTitle>{{ $t("message.filter_page.titles.filter_title") }}</FilterTitle>
+      <FilterTitle>Search: Motorbikes - new or used
+</FilterTitle>
       <FilterBtn class="ml-auto" @click="goMotorbikeList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}

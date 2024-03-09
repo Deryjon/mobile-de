@@ -2,7 +2,7 @@
   <section class="basic-filter mt-[200px]">
     <v-container class="max-w-[1140px]">
       <PathLink>{{ $t("message.filter_page.vehicle.motorhome") }}</PathLink>
-      <FilterTitle>{{ $t("message.filter_page.titles.filter_title") }}</FilterTitle>
+      <FilterTitle>Search: Motorhomes - new or used</FilterTitle>
       <FilterBtn class="ml-auto" @click="goMotorhomeList">
         <p class="text-white text-[18px] lg:text-[16px]">
           {{ this.count }} {{ $t("message.results.result") }}
