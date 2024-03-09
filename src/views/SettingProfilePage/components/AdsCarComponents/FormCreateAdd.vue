@@ -486,43 +486,59 @@
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
-              @blur="openPreDropdown" />
+              placeholder="from" v-model="inputKilometer" @focus="openKilmeterDropdown" @input="filterOptions"
+              @blur="openKilmeterDropdown" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-              @click="openPreDropdown">
-              <span class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
+              @click="openKilmeterDropdown">
+              <span
+                class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
             </div>
           </div>
-          <ul v-if="isOpenPre" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <li data-key="1" @click="selectPre('1')">1</li>
-            <li data-key="2" @click="selectPre('2')">
-              2
+          <ul v-if="isOpenKilometer" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
+            <li data-key="5000" @click="selectKilometer('5000')">5.000 km</li>
+            <li data-key="10000" @click="selectKilometer('10000')">
+              10.000 km
             </li>
-            <li data-key="3" @click="selectPre('3')">
-              3
+            <li data-key="20000" @click="selectKilometer('20000')">
+              20.000 km
             </li>
-            <li data-key="4" @click="selectPre('4')">
-             4
+            <li data-key="30000" @click="selectKilometer('30000')">
+              30.000 km
             </li>
-            <li data-key="5" @click="selectPre('5')">
-             5
+            <li data-key="40000" @click="selectKilometer('40000')">
+              40.000 km
             </li>
-            <li data-key="500060" @click="selectPre('6')">
-             6
+            <li data-key="50000" @click="selectKilometer('50000')">
+              50.000 km
             </li>
-            <li data-key="7" @click="selectPre('7')">
-              7
+            <li data-key="60000" @click="selectKilometer('60000')">
+              60.000 km
             </li>
-            <li data-key="8" @click="selectPre('8')">
-              8
+            <li data-key="70000" @click="selectKilometer('70000')">
+              70.000 km
             </li>
-            <li data-key="9" @click="selectPre('9')">
-              9
+            <li data-key="80000" @click="selectKilometer('80000')">
+              80.000 km
             </li>
-            <li data-key="10" @click="selectPre('10')">
-              10  
+            <li data-key="90000" @click="selectKilometer('90000')">
+              90.000 km
+            </li>
+            <li data-key="100000" @click="selectKilometer('100000')">
+              100.000 km
+            </li>
+            <li data-key="125000" @click="selectKilometer('125000')">
+              125.000 km
+            </li>
+            <li data-key="150000" @click="selectKilometer('150000')">
+              150.000 km
+            </li>
+            <li data-key="175000" @click="selectKilometer('175000')">
+              175.000 km
+            </li>
+            <li data-key="200000" @click="selectKilometer('200000')">
+              200.000 km
             </li>
           </ul>
         </div>

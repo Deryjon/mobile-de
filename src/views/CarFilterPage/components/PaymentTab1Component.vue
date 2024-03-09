@@ -676,7 +676,7 @@
         <div class="input-container flex relative mt-[10px]">
           <input type="from"
             class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-            placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
+            placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="openPreDropdown"
             @blur="openPreDropdown" />
 
           <div
@@ -1145,7 +1145,6 @@ export default {
 
     openPreDropdown() {
       this.isOpenPre = true;
-      this.filteredOptions = this.options;
       document.addEventListener(
         "click",
         this.closePreDropdownOnClickOutside
@@ -1221,12 +1220,6 @@ export default {
       this.isOpen = true;
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
-    },
-    filterOptions() {
-      this.filteredOptions = this.ModelYears.filter((option) =>
-        option.toLowerCase().includes(this.inputValue.toLowerCase())
-      );
-      this.isOpen = true;
     },
     selectOption(option) {
       this.inputValue = option;
