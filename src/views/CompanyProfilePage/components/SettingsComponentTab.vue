@@ -509,7 +509,7 @@
       <div class="" v-if="!changeContactData">
         <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[50px]">Create company</h2>
         <div
-          class="h-[80px] flex justify-end pt-[15px] p-[15px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]"
+          class="box h-[80px] flex justify-end pt-[15px] p-[15px] w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]"
           v-if="!contactData">
           <button
             class="complete custom-file-label bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
@@ -650,7 +650,7 @@
                         <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-5"></span>
                       </div>
                       <div class="email">
-                        <p class="text-sm lg:text-[14px]">{{ $t("message.profile.radius") }}</p>
+                        <p class="text-sm lg:text-[14px]">{{ $t("message.filter_page.radius") }}</p>
                         <input type="text "
                           class="mark-select mt-[5px] w-full md:w-[200px] lg:w-[150px] xl:w-[140px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                           v-model="userAddressRadius" />
@@ -738,12 +738,6 @@
                           <option value="+972">+972 (IL)</option>
                         </select>
                         <span class="arrow w-[7px] h-[7px] absolute right-[12px] bottom-5"></span>
-                      </div>
-
-                      <div class="email mt-[5px]">
-                        <p class="text-sm lg:text-[14px]">{{ $t("message.profile.prefix") }}</p>
-                        <input type="text " class="input-bor px-[10px] py-[10px] w-[141px] rounded-md"
-                          v-model="userNumberPre" />
                       </div>
                       <div class="email mt-[5px]">
                         <p class="text-sm lg:text-[14px]">{{ $t("message.profile.phoneNumber") }}</p>
@@ -1013,7 +1007,7 @@ window.location.reload();
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-          window.location.reload()
+          // window.location.reload()
           window.location.reload()
         });
     },
@@ -1068,10 +1062,6 @@ window.location.reload();
             responseData.data.company_country_code
           );
           localStorage.setItem(
-            "com-prefix",
-            responseData.data.company_number_prefix
-          );
-          localStorage.setItem(
             "com-number",
             responseData.data.company_phone_number
           );
@@ -1086,15 +1076,15 @@ window.location.reload();
     this.userName = localStorage.getItem("u-fn");
 
     if (this.userName === "null") {
-      this.userName = "Noname";
+      this.userName = "Name";
     }
     this.userLastName = localStorage.getItem("u-ln");
     if (this.userLastName === "null") {
       this.userLastName = "";
     }
     this.selectedGender = localStorage.getItem("u-g");
-    if (this.userLastName === "null") {
-      this.userLastName = "";
+    if (this.selectedGender === "null") {
+      this.selectedGender = "No";
     }
     if (isNaN(this.companyI)) {
       this.contactData = false;

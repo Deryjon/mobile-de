@@ -62,12 +62,12 @@ export default {
     if (localStorage.getItem("com-i") === 'null' || 'undefined') {
         localStorage.setItem("com-i", "false"); 
     }
-    if (localStorage.getItem("com-i") === 'null' || 'undefined') {
-        console.log(123);
-    }else{
+    if (localStorage.getItem("com-i") === null || localStorage.getItem("com-i") === undefined) {
+    console.log(123);
+} else {
+    this.getDataCompany();
+}
 
-      this.getDataCompany();
-    }
     
 
   }
