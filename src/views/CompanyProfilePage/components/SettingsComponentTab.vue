@@ -983,7 +983,10 @@ window.location.reload();
     },
     deleteCompany() {
       http
-        .delete(`/company/delete/${this.companyI}`)
+        .delete(`/company/delete`, {
+          data: { id: this.companyI },
+
+        })
         .then((response) => {
           console.log(this.companyI);
           localStorage.clear()

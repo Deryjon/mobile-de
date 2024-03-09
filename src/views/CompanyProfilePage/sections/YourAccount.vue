@@ -333,7 +333,7 @@ export default {
     this.companyProfileImgName = localStorage.getItem("com-img-alt");
       this.companyProfileImg = localStorage.getItem("com-img-prof");
 
-    if (this.companyProfileImg === 'null') {
+    if (this.companyProfileImg === 'null' || 'undefined') {
       this.companyIcon = true;
 
     }

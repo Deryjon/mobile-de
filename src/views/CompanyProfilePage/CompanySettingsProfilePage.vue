@@ -25,28 +25,28 @@ export default {
     getDataCompany() {
       http.get(`/company/${this.companyId}`).then((response) => {
         const responseData = response.data;
-        localStorage.setItem("com-img-prof", responseData.data.company_image_url);
-        localStorage.setItem("com-img-alt", responseData.data.company_image_name);
-        localStorage.setItem("com-city", responseData.data.company_address_city);
-        localStorage.setItem("com-country", responseData.data.company_address_country);
-        localStorage.setItem("com-nr", responseData.data.company_address_nr);
-        localStorage.setItem("com-radius", responseData.data.company_address_radius);
-        localStorage.setItem("com-street", responseData.data.company_address_street);
-        localStorage.setItem("com-zip", responseData.data.company_address_zip);
-        localStorage.setItem("com-numcode", responseData.data.company_country_code);
-        localStorage.setItem("com-i", responseData.data.company_id);
-        localStorage.setItem("com-e", responseData.data.company_mail)
-        localStorage.setItem("com-name", responseData.data.company_name
+        localStorage.setItem("com-img-prof", responseData.data?.company_image_url);
+        localStorage.setItem("com-img-alt", responseData.data?.company_image_name);
+        localStorage.setItem("com-city", responseData.data?.company_address_city);
+        localStorage.setItem("com-country", responseData.data?.company_address_country);
+        localStorage.setItem("com-nr", responseData.data?.company_address_nr);
+        localStorage.setItem("com-radius", responseData.data?.company_address_radius);
+        localStorage.setItem("com-street", responseData.data?.company_address_street);
+        localStorage.setItem("com-zip", responseData.data?.company_address_zip);
+        localStorage.setItem("com-numcode", responseData.data?.company_country_code);
+        localStorage.setItem("com-i", responseData.data?.company_id);
+        localStorage.setItem("com-e", responseData.data?.company_mail)
+        localStorage.setItem("com-name", responseData.data?.company_name
         );
-        localStorage.setItem("com-number", responseData.data.company_phone_number
+        localStorage.setItem("com-number", responseData.data?.company_phone_number
         );
-        localStorage.setItem("u-g", responseData.data.user_gender
+        localStorage.setItem("u-g", responseData.data?.user_gender
         );
-        localStorage.setItem("u-ln", responseData.data.user_last_name
+        localStorage.setItem("u-ln", responseData.data?.user_last_name
         );
-        localStorage.setItem("u-fn", responseData.data.user_first_name
+        localStorage.setItem("u-fn", responseData.data?.user_first_name
         );
-    const date = new Date(responseData.data.user_create_at);
+    const date = new Date(responseData.data?.user_create_at);
         localStorage.setItem("com-create", format(date, "MMM d yyyy") );
       })
     },
@@ -62,12 +62,18 @@ export default {
     if (localStorage.getItem("com-i") == null) {
         localStorage.setItem("com-i", "false"); 
     }
-    
+    if (localStorage.getItem("com-i") === 'null' || 'undefined') {
+        console.log(123);
+    }else{
+
       this.getDataCompany();
-}
+    }
+    
 
-
-
+  }
+  
+  
+  
 };
 </script>
 
