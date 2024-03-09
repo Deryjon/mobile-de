@@ -1652,11 +1652,11 @@
             {{ $t("message.filter_page.features.wintertyres") }}
           </label>
           <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
-            <input type="checkbox" v-model="isCheckedWinterTyres"
+            <input type="checkbox" v-model="isCheckedElectricTail"
               @click="toggleShowCheckboxOthers(11, 'Electric tailgate')" />
             <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path v-if="isCheckedWinterTyres" fill="#ffffff"
+              <path v-if="isCheckedElectricTail" fill="#ffffff"
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
             {{ $t("message.filter_page.features.electrictailgate") }}
@@ -2615,6 +2615,7 @@ export default {
       isCheckedHillStartAssist: false,
       isCheckedRoofRack: false,
       isCheckedWinterTyres: false,
+      isCheckedElectricTail: false,
       isCheckedImmobilizer: false,
       isCheckedSpareTyre: false,
       isCheckedXenonHeadLights: false,
@@ -2797,7 +2798,7 @@ export default {
             this.isCheckedWinterTyres = true;
           }
           else if (other === "Electric tailgate") {
-            this.isCheckedWinterTyres = true;
+            this.isCheckedElectricTail = true;
           }
           else if (other === "Immobilizer") {
             this.isCheckedImmobilizer = true;
@@ -3022,7 +3023,7 @@ export default {
           car_city_zipcode: this.zipCode,
           car_radius: parseInt(this.radius),
           car_description: this.descriptionText,
-          user_phone: `${this.userCodeNumber}${this.userPre}${this.userPhone}`,
+          user_phone: `${this.userCodeNumber}${this.userPhone}`,
           user_email: this.uEmail,
           car_vide_link: this.linkVideo,
           car_fuel_type: this.selectedFuel,
