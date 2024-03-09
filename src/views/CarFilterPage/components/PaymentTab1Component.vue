@@ -1012,6 +1012,7 @@ export default {
       inputKilometer: "",
       killometresTo: "",
       isOpenKilometer: false,
+      isOpenPre: false,
       isOpenKilometerTo: false,
       selectedMake: "",
       selectedMakeTo: "",
@@ -1145,6 +1146,7 @@ export default {
 
     openPreDropdown() {
       this.isOpenPre = true;
+      this.filteredOptions = this.options;
       document.addEventListener(
         "click",
         this.closePreDropdownOnClickOutside
@@ -1220,6 +1222,12 @@ export default {
       this.isOpen = true;
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+    },
+    filterOptions() {
+      this.filteredOptions = this.ModelYears.filter((option) =>
+        option.toLowerCase().includes(this.inputValue.toLowerCase())
+      );
+      this.isOpen = true;
     },
     selectOption(option) {
       this.inputValue = option;
