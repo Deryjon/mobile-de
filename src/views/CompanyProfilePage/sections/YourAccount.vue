@@ -332,10 +332,9 @@ export default {
     this.companyProfileImgName = localStorage.getItem("com-img-alt");
       this.companyProfileImg = localStorage.getItem("com-img-prof");
 
-    if (this.companyProfileImg === 'null' || 'undefined') {
+    if (!this.companyProfileImg || this.companyProfileImg === "undefined" || this.companyProfileImg === 'null') {
       this.companyIcon = true;
-
-    }
+}
   },
   components: {
     SettingsTab,

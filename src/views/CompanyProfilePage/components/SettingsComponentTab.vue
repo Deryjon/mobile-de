@@ -25,20 +25,21 @@
             <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
               {{ $t("message.profile.picture") }}
             </p>
-            <p class="font-normal">        {{ $t("message.profile.visible") }}
-</p>
+            <p class="font-normal"> {{ $t("message.profile.visible") }}
+            </p>
           </div>
         </div>
         <div class="">
-          <label for="fileInput" class="custom-file-label">        {{ $t("message.profile.complete") }}
-</label>
+          <label for="fileInput" class="custom-file-label"> {{ $t("message.profile.complete") }}
+          </label>
           <input id="fileInput" class="input-file" type="file" ref="fileInput" accept="image/*"
             @change="handleFileChange" />
         </div>
       </div>
-      <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[20px]">        {{ $t("message.profile.loginData") }}
-</h2>
-      <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between"
+      <h2 class="text-[14px] lg:text-[26px] font-semibold mt-[20px]"> {{ $t("message.profile.loginData") }}
+      </h2>
+      <div
+        class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between"
         v-if="!changeLogin">
         <div
           class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  lg:h-[84px] p-[5px] lg:p-[15px] flex items-center justify-between">
@@ -80,8 +81,8 @@
 
           </p>
         </div>
-        <label for="" class="mt-[10px] text-[14px]">            {{ $t("message.profile.newPassword") }}
-</label>
+        <label for="" class="mt-[10px] text-[14px]"> {{ $t("message.profile.newPassword") }}
+        </label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
             <input @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
@@ -101,11 +102,11 @@
             </div>
           </div>
         </div>
-        <label for="" class="text-[14px]">            {{ $t("message.profile.currentPassword") }}
-</label>
+        <label for="" class="text-[14px]"> {{ $t("message.profile.currentPassword") }}
+        </label>
         <div class="new flex mb-[30px]">
           <div class="relative rounded-md shadow-sm">
-            <input  @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
+            <input @input="validatePasswordLogin" id="password" :type="showPassword ? 'text' : 'password'"
               class="input-bor px-[10px] py-[10px] w-full lg:w-[400px] rounded-md" v-model="currentPasswordLogin" />
             <div class="absolute inset-y-0 right-0 pr-3 flex items-center">
               <button @click="toggleShowPassword" class="h-5 w-5 text-gray-400 focus:outline-none">
@@ -134,79 +135,79 @@
         </div>
       </div>
       <div class="profile mt-[30px]" v-if="changeContactData">
-        <h2 class="text-[14px] lg:text-[26px] font-semibold">            {{ $t("message.profile.cantactData") }}
-</h2>
-<div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
+        <h2 class="text-[14px] lg:text-[26px] font-semibold"> {{ $t("message.profile.cantactData") }}
+        </h2>
+        <div class="box  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]">
 
-  <div class=" h-[84px] p-[5px] sm:flex items-center justify-between" v-if="!nameChange">
-              <div class="flex items-center gap-[20px]">
-                <div class="profile-pic pl-[15px]">
-                  <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
-                    {{ $t("message.profile.name") }}
-                  </p>
-                  <p class=" text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px]">
-                    {{ selectedGender }} {{ userName }} {{ userLastName }}
-                  </p>
-                </div>
-              </div>
-              <button class="custom-file-label bg-[#094559] p-[5px] sm:px-[10px]  sm:py-[8px] rounded-[8px] text-[#fff]"
-                @click="openChangeName">
-                {{ $t("message.profile.complete") }}
-              </button>
-            </div>
-            <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="nameChange">
-              <div class="p-[5px] lg:p-[15px]">
-                <div class="complete ">
-                  <p>{{ $t("message.profile.completeName") }}</p>
-                </div>
-                <div class="changes w-full xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[292px] p-[20px]">
-                  <div class="mark">
-                    <div class="relative lg:w-[150px] xl:w-[300px] mt-2">
-                      <h2 class="text-sm lg:text-[14px]">
-                        {{ $t("message.profile.formAddress") }}
-                      </h2>
-                      <select
-                        class="mark-select mt-[5px] w-full  lg:w-[150px] xl:w-[300px] lg:h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] sm:text-[13px] md:text-[14px]"
-                        v-model="selectedGender">
-                        <option value="">Pleaseselect</option>
-                        <option value="Mr.">Mr.</option>
-                        <option value="Ms.">Ms.</option>
-                      </select>
-                      <span class="arrow w-[7px] h-[7px] absolute right-[12px]  bottom-3 lg:bottom-5"></span>
-                    </div>
-                  </div>
-                  <div class="lg:flex gap-[20px] mt-[20px]">
-                    <div class="email mt-[10px]">
-                      <p class="text-xs lg:text-[14px]">
-                        {{ $t("message.profile.firstName") }}
-                      </p>
-                      <input type="text "
-                        class="input-bor px-[5px] text-[13px] lg:text-[16px] lg:px-[10px] py-[5px] lg:py-[10px] w-full lg:w-[300px] rounded-md"
-                        v-model="userName" />
-                    </div>
-                    <div class="email mt-[10px]">
-                      <p class="text-sm lg:text-[14px]">
-                        {{ $t("message.profile.lastName") }}
-                      </p>
-                      <input type="text "
-                        class="input-bor px-[5px] text-[13px] lg:text-[16px] lg:px-[10px] py-[5px] lg:py-[10px] w-full lg:w-[300px] rounded-md"
-                        v-model="userLastName" />
-                    </div>
-                  </div>
-                  <div class="btns flex sm:gap-[10px] justify-between  sm:justify-end mt-[40px]">
-                    <button class="custom-file-label bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
-                      @click="openChangeName">
-                      {{ $t("message.profile.cancel") }}
-                    </button>
-                    <button class="custom-file-label bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
-                      @click="changeContactDataName">
-                      {{ $t("message.profile.save") }}
-                    </button>
-                  </div>
-                </div>
+          <div class=" h-[84px] p-[5px] sm:flex items-center justify-between" v-if="!nameChange">
+            <div class="flex items-center gap-[20px]">
+              <div class="profile-pic pl-[15px]">
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
+                  {{ $t("message.profile.name") }}
+                </p>
+                <p class=" text-[12px] sm:text-[13px] md:text-[14px] lg:text-[14px]">
+                  {{ selectedGender }} {{ userName }} {{ userLastName }}
+                </p>
               </div>
             </div>
-</div>
+            <button class="custom-file-label bg-[#094559] p-[5px] sm:px-[10px]  sm:py-[8px] rounded-[8px] text-[#fff]"
+              @click="openChangeName">
+              {{ $t("message.profile.complete") }}
+            </button>
+          </div>
+          <div class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]" v-if="nameChange">
+            <div class="p-[5px] lg:p-[15px]">
+              <div class="complete ">
+                <p>{{ $t("message.profile.completeName") }}</p>
+              </div>
+              <div class="changes w-full xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[292px] p-[20px]">
+                <div class="mark">
+                  <div class="relative lg:w-[150px] xl:w-[300px] mt-2">
+                    <h2 class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.formAddress") }}
+                    </h2>
+                    <select
+                      class="mark-select mt-[5px] w-full  lg:w-[150px] xl:w-[300px] lg:h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] sm:text-[13px] md:text-[14px]"
+                      v-model="selectedGender">
+                      <option value="">Pleaseselect</option>
+                      <option value="Mr.">Mr.</option>
+                      <option value="Ms.">Ms.</option>
+                    </select>
+                    <span class="arrow w-[7px] h-[7px] absolute right-[12px]  bottom-3 lg:bottom-5"></span>
+                  </div>
+                </div>
+                <div class="lg:flex gap-[20px] mt-[20px]">
+                  <div class="email mt-[10px]">
+                    <p class="text-xs lg:text-[14px]">
+                      {{ $t("message.profile.firstName") }}
+                    </p>
+                    <input type="text "
+                      class="input-bor px-[5px] text-[13px] lg:text-[16px] lg:px-[10px] py-[5px] lg:py-[10px] w-full lg:w-[300px] rounded-md"
+                      v-model="userName" />
+                  </div>
+                  <div class="email mt-[10px]">
+                    <p class="text-sm lg:text-[14px]">
+                      {{ $t("message.profile.lastName") }}
+                    </p>
+                    <input type="text "
+                      class="input-bor px-[5px] text-[13px] lg:text-[16px] lg:px-[10px] py-[5px] lg:py-[10px] w-full lg:w-[300px] rounded-md"
+                      v-model="userLastName" />
+                  </div>
+                </div>
+                <div class="btns flex sm:gap-[10px] justify-between  sm:justify-end mt-[40px]">
+                  <button class="custom-file-label bg-[#fff] px-[10px] py-[8px] rounded-[8px] text-[#094559]"
+                    @click="openChangeName">
+                    {{ $t("message.profile.cancel") }}
+                  </button>
+                  <button class="custom-file-label bg-orange-500 px-[20px] py-[8px] rounded-[8px] text-white"
+                    @click="changeContactDataName">
+                    {{ $t("message.profile.save") }}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div
           class="box mt-[20px]  w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px]  p-[5px]   items-center justify-between">
           <div
@@ -231,7 +232,7 @@
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
-                  <p>{{ $t("message.profile.completeAddress") }}</p>
+                <p>{{ $t("message.profile.completeAddress") }}</p>
                 </p>
                 <p class="font-normal text-[14px]">
                   {{ companyAddStreet }} {{ companyAddNr }} {{ companyAddZip }}
@@ -251,7 +252,7 @@
                   {{ $t("message.profile.phoneNumber") }}
                 </p>
                 <p class="font-normal text-[14px]">
-                  {{ companyCountryCode }}  
+                  {{ companyCountryCode }}
                   {{ companyNumber }}
                 </p>
               </div>
@@ -270,8 +271,8 @@
                   <div class="mark"></div>
                   <div class="flex gap-[20px]">
                     <div class="email mt-[10px]">
-                      <p class="text-sm lg:text-[14px]">              {{ $t("message.profile.companyName") }}
-</p>
+                      <p class="text-sm lg:text-[14px]"> {{ $t("message.profile.companyName") }}
+                      </p>
                       <input type="text " class="input-bor px-[10px] py-[10px] w-full lg:w-[300px] rounded-md"
                         v-model="companyName" />
                     </div>
@@ -282,8 +283,8 @@
                         <div class="top flex flex-wrap items-center gap-[10px] lg:gap-[40px] lg:w-[656px]">
                           <div class="mark">
                             <div class="w-full  mt-2">
-                              <h2 class="text-sm lg:text-[14px]">              {{ $t("message.profile.street") }}
-</h2>
+                              <h2 class="text-sm lg:text-[14px]"> {{ $t("message.profile.street") }}
+                              </h2>
                               <input
                                 class="mark-select mt-[5px] w-full lg:w-[150px] xl:w-[440px] h-[44px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
                                 v-model="companyAddStreet" />
@@ -514,7 +515,7 @@
           <button
             class="complete custom-file-label bg-[#fff] h-[50px] px-[5px] lg:px-[10px] py-[5px] lg:py-[8px] text-[12px] lg:text-[16px] rounded-[8px] text-[#094559]"
             @click="openContactData">
-            {{ $t("message.profile.createCompany") }}          </button>
+            {{ $t("message.profile.createCompany") }} </button>
         </div>
 
         <div
@@ -771,7 +772,8 @@
             <div class="flex items-center gap-[20px]">
               <div class="profile
               -pic">
-                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">{{ $t("message.profile.invoices") }}</p>
+                <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">{{ $t("message.profile.invoices") }}
+                </p>
                 <p class="font-norm al text-[14px]">
                   {{ $t("message.profile.packages") }}
                 </p>
@@ -780,7 +782,7 @@
           </div>
           <button
             class="custom-file-label  bg-[#fff] w-[141px] py-[6px]   rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
-            {{ $t("message.profile.none") }}          </button>
+            {{ $t("message.profile.none") }} </button>
         </div>
       </div>
     </div>
@@ -790,19 +792,21 @@
         <div
           class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
           <div
-            class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[5px] sm:flex items-center justify-between">
+            class="w-[190px] xs:w-[230px] sm:w-[300px] md:w-full lg:w-[656px] lg:h-[84px] p-[15px] sm:flex items-center justify-between">
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
                   {{ $t("message.profile.newsletter") }}
                 </p>
-                
+                <p class="font-normal text-[12px]">
+                      {{ $t("message.register.recieveEmails") }}
+                    </p>
               </div>
             </div>
           </div>
           <button
             class=" custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
-            {{ $t("message.profile.none") }}          </button>
+            {{ $t("message.profile.none") }} </button>
         </div>
       </div>
       <div class=" box w-[190px] xs:w-[230px] sm:w-[300px]  lg:w-[656px]">
@@ -813,15 +817,15 @@
             <div class="flex items-center gap-[20px]">
               <div class="profile-pic">
                 <p class="text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
-                  {{ $t("message.profile.market") }}                </p>
+                  {{ $t("message.profile.market") }} </p>
                 <p class="font-normal text-[12px]">
-                  {{ $t("message.profile.agree") }}                </p>
+                  {{ $t("message.profile.agree") }} </p>
               </div>
             </div>
           </div>
           <button
             class="custom-file-label complete bg-[#fff] w-[141px] py-[6px]  rounded-[4px] text-[#094559] text-[12px] sm:text-[13px] md:text-[14px] lg:font-medium">
-            {{ $t("message.profile.none") }}          </button>
+            {{ $t("message.profile.none") }} </button>
         </div>
       </div>
     </div>
@@ -845,7 +849,8 @@
           </div>
           <div class="profile-pic">
             <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{ userE }}</p>
-            <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{ $t("message.profile.since") }}  {{ this.companyDate }}</p>
+            <p class="text-[12px] sm:text-[13px] md:text-[14px] font-bold  lg:font-medium">{{
+          $t("message.profile.since") }} {{ this.companyDate }}</p>
           </div>
         </div>
         <v-dialog v-model="dialog" width="200px">
@@ -877,6 +882,8 @@
 <script>
 import { ref } from "vue";
 import http from "../../../axios.config";
+import { useToast } from "vue-toastification";
+
 export default {
   setup() {
     const showPassword = ref(false);
@@ -891,6 +898,7 @@ export default {
   },
   data() {
     return {
+      toast: useToast(),
       userI: "",
       companyI: "",
       userE: "",
@@ -931,13 +939,12 @@ export default {
       console.log(file);
       formData.append("company_id", this.companyI);
 
-      
+
       http.put("/company/edit/photo", formData).then((response) => {
         const responseData = response.data;
-        console.log(responseData);
         localStorage.setItem("com-img-prof", responseData.data.company_image_url);
         localStorage.setItem("com-img-alt", responseData.data.company_image_name);
-        window.location.reload()  
+        window.location.reload()
       });
     },
     changeLoginData() {
@@ -949,10 +956,10 @@ export default {
         })
         .then((response) => {
           const responseData = response.data;
-        
+
           localStorage.setItem("u-e", responseData.data.user_email);
-window.location.reload();
-          })
+          window.location.reload();
+        })
     },
     changeContactDataName() {
       this.nameChange = !this.nameChange;
@@ -1000,14 +1007,39 @@ window.location.reload();
           company_address_country: this.selectedCountry,
           company_address_radius: this.userAddressRadius,
           company_country_code: this.userCountryCode,
-          company_number_prefix: this.userNumberPre,
           company_phone_number: this.userPhoneNumber,
           user_id: this.userI,
         })
         .then((response) => {
           const responseData = response.data;
           localStorage.setItem("com-i", responseData.data.company_id);
-          // window.location.reload()
+          localStorage.setItem("com-name", responseData.data.company_name);
+          localStorage.setItem(
+            "com-street",
+            responseData.data.company_address_street
+          );
+          localStorage.setItem("com-nr", responseData.data.company_address_nr);
+          localStorage.setItem(
+            "com-zip",
+            responseData.data.company_address_zip
+          );
+          localStorage.setItem(
+            "com-city",
+            responseData.data.company_address_city
+          );
+          localStorage.setItem(
+            "com-radius",
+            responseData.data.company_address_radius
+          );
+          localStorage.setItem(
+            "com-numcode",
+            responseData.data.company_country_code
+          );
+          localStorage.setItem(
+            "com-number",
+            responseData.data.company_phone_number
+          );
+          this.toast.success("Your company has been added!")
           window.location.reload()
         });
     },
@@ -1071,26 +1103,6 @@ window.location.reload();
   },
   mounted() {
     this.companyDate = localStorage.getItem("com-create");
-
-    this.companyI = localStorage.getItem("com-i");
-    this.userName = localStorage.getItem("u-fn");
-
-    if (this.userName === "null") {
-      this.userName = "Name";
-    }
-    this.userLastName = localStorage.getItem("u-ln");
-    if (this.userLastName === "null") {
-      this.userLastName = "";
-    }
-    this.selectedGender = localStorage.getItem("u-g");
-    if (this.selectedGender === "null") {
-      this.selectedGender = "No";
-    }
-    if (isNaN(this.companyI)) {
-      this.contactData = false;
-    } else {
-      this.changeContactData = true;
-    }
     this.userI = localStorage.getItem("u-i");
     this.userE = localStorage.getItem("u-e");
     this.companyName = localStorage.getItem("com-name");
@@ -1102,6 +1114,31 @@ window.location.reload();
     this.companyCountryCode = localStorage.getItem("com-numcode");
     this.companyNumber = localStorage.getItem("com-number");
     this.companyAddressCity = localStorage.getItem("com-city");
+
+    this.companyI = localStorage.getItem("com-i");
+    this.userName = localStorage.getItem("u-fn");
+
+    if (this.userName === "null" || "undefined") {
+      this.userName = "Name";
+    }
+    this.userLastName = localStorage.getItem("u-ln");
+    if (this.userLastName === "null" || "undefined") {
+      this.userLastName = "";
+    }
+    this.selectedGender = localStorage.getItem("u-g");
+    if (this.selectedGender === "null" || "undefined") {
+      this.selectedGender = "No";
+    }
+    if (!this.companyName || this.companyName === "Noname" || this.companyName === "undefined" || this.companyName === 'null') {
+      this.companyName = "Noname";
+    }
+
+
+    if (isNaN(this.companyI)) {
+      this.contactData = false;
+    } else {
+      this.changeContactData = true;
+    }
   },
 };
 </script>

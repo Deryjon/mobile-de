@@ -23,7 +23,7 @@ export default {
   },
   methods: {
     getDataCompany() {
-      http.get(`/company/${this.companyId}`).then((response) => {
+      http.get(`/company/${this.userId}`).then((response) => {
         const responseData = response.data;
         localStorage.setItem("com-img-prof", responseData.data?.company_image_url);
         localStorage.setItem("com-img-alt", responseData.data?.company_image_name);
@@ -46,8 +46,8 @@ export default {
         );
         localStorage.setItem("u-fn", responseData.data?.user_first_name
         );
-    const date = new Date(responseData.data?.user_create_at);
-        localStorage.setItem("com-create", format(date, "MMM d yyyy") );
+        const date = new Date(responseData.data?.user_create_at);
+        localStorage.setItem("com-create", format(date, "MMM d yyyy"));
       })
     },
   },
@@ -57,23 +57,22 @@ export default {
   },
   created() {
     this.userId = localStorage.getItem("u-i");
-    
-    const isLoggedIn = localStorage.getItem("logged-in");
-    if (localStorage.getItem("com-i") === 'null' || 'undefined') {
-        localStorage.setItem("com-i", "false"); 
-    }
-    if (localStorage.getItem("com-i") === null || localStorage.getItem("com-i") === undefined) {
-    console.log(123);
-} else {
-    this.getDataCompany();
-}
+    this.companyId = localStorage.getItem("com-i");
 
-    
+    const isLoggedIn = localStorage.getItem("logged-in");
+    if (isNaN(this.companyId)) {
+      localStorage.setItem("com-i", "false");
+    } else{
+
+      this.getDataCompany();
+    }
+
+
 
   }
-  
-  
-  
+
+
+
 };
 </script>
 

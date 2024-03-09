@@ -109,7 +109,7 @@ export default defineComponent({
       activeTab4Store: useActiveTab4(),
       isProfileSetting: false,
       userName: "Noname",
-      companyName: "No Company",
+      companyName: "",
     };
   },
   methods: {
@@ -184,17 +184,19 @@ export default defineComponent({
       }
     },
   },
-  created() {
+  mounted() {
+
     this.userName = localStorage.getItem("u-fn");
     this.companyName = localStorage.getItem("com-name");
 
-    if (this.userName === 'null' || 'undefined') {
+    if (this.userName === "null" || "undefined") {
       this.userName = "Noname";
     }
 
-    if (this.companyName === 'null' || 'undefined') {
-      this.companyName = "Noname";
-    }
+    if (!this.companyName || this.companyName === "Noname" || this.companyName === "undefined" || this.companyName === 'null') {
+    this.companyName = "Noname";
+}
+
   },
 });
 </script>
