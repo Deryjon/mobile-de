@@ -740,5 +740,23 @@ export default {
       other: "Annat",
       variant: "Variant",
     },
+    ads_page:{
+      carsad: "Mina bilannonser",
+      agriculturalsad: "Mina jordbruksfordonsannonser",
+      coachead: "Mina bussannonser",
+      constructionad: "Mina byggmaskinannonser",
+      forkliftad: "Mina gaffeltruckannonser",
+      motorbikead: "Mina motorcykelannonser",
+      motorhomesad: "Mina husbilannonser",
+      semitrailerad: "Mina släpvagnsannonser",
+      semitruckad: "Mina semitrailerlastbilsannonser",
+      trailerad: "Mina trailerannonser",
+      truckad: "Mina lastbilsannonser",
+      vanad: "Mina skåpbilsannonser",
+      createnew: "Skapa ny annons",
+      sellcar: "Sälj din bil gratis",
+      delete: "Radera",
+      edit: "Redigera",
+      }
   },
 };

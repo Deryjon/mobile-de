@@ -210,7 +210,7 @@
             </div>
           </div>
           <ul v-if="seatsOpen" class="dropdown-options w-[150px] text-[10px] lg:text-[12px]">
-            <ul>
+       
               <li key="2" @click="selectNumberSeats('2')">2</li>
               <li key="3" @click="selectNumberSeats('3')">3</li>
               <li key="4" @click="selectNumberSeats('4')">4</li>
@@ -219,7 +219,7 @@
               <li key="7" @click="selectNumberSeats('7')">7</li>
               <li key="8" @click="selectNumberSeats('8')">8</li>
               <li key="9" @click="selectNumberSeats('9')">9</li>
-            </ul>
+
           </ul>
         </div>
         <div class="seats relative mt-[28px]">
@@ -228,9 +228,13 @@
             class="mark-select w-[150px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px] mt-[10px]"
             v-model="numDoor">
             <option value="">{{ $t("message.filter_page.any") }}</option>
-            <option value="2">2/3</option>
-            <option value="3">3/5</option>
-            <option value="6">6/7</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
           </select>
           <span class="arrow w-[7px] h-[7px] absolute right-[8px] bottom-4"></span>
         </div>
@@ -914,16 +918,16 @@
           </div>
         </div>
         <label for="condition-any" class="mt-[30px]">
-          <input type="radio" id="condition-any" v-model="selectedPower" :class="{
-            'bg-transparent': selectedPower !== 'Hp',
-            'bg-orange': selectedPower === 'Hp',
-          }" />
+          <input type="radio" id="condition-any" v-model="selectedTy" :class="{
+            'bg-transparent': selectedTy !== 'Hp',
+            'bg-orange': selectedTy === 'Hp',
+          }" @click="selectTy('Hp')" />
           <span class="ml-[10px]">Hp</span>
         </label>
-        <label for="condition-any" class="mt-[30px]">
-          <input type="radio" id="condition-any" v-model="selectedPower" :class="{
-            'bg-transparent': selectedPower !== 'kW',
-            'bg-orange': selectedPower === 'kW',
+        <label for="condition-any" @click="selectTy('kW')" class="mt-[30px]">
+          <input type="radio" id="condition-any" v-model="selectedTy" :class="{
+            'bg-transparent': selectedTy !== 'kW',
+            'bg-orange': selectedTy === 'kW',
           }" />
           <span class="ml-[10px]">kW</span>
         </label>
@@ -1238,7 +1242,7 @@
         </div>
       </div>
       <div class="mt-[30px]">
-        <h3>{{ $t("message.filter_page.features.selectedOthers") }}</h3>
+        <h3>{{ $t("message.filter_page.features.others") }}</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
@@ -2441,6 +2445,7 @@ export default {
       selectedMark: "",
       selectedCar: "",
       selectedCondition: "Any",
+      selectedTy: "Any",
       selectedConditioning: "",
       selectedInteriorColour: "",
       selectedCruise: "Any",
@@ -2514,7 +2519,6 @@ export default {
       selectedAirbag: "AnyExterior",
       isLoading: true,
       extras: [],
-      selectedOthers: [],
       power: "",
       selectedType: "",
       selectedFiles: [],
@@ -2664,7 +2668,7 @@ export default {
         this.selectedTrailer = this.dataAd.car_trailer_coupling
         this.selectedParking = this.dataAd.car_parking_sensors
         this.selectedCruise = this.dataAd.car_cruise_control
-        this.selectedOthers = this.dataAd.car_others
+        this.selectedOthers = this.dataAd.others
         this.selectedOthers?.forEach((other) => {
           if (other === "ABS") {
             this.isCheckedABS = true;
@@ -2814,7 +2818,6 @@ export default {
         this.selectedMaterial = this.dataAd.car_interior_material
         this.selectedAirbag = this.dataAd.car_airbags
         this.selectedConditioning = this.dataAd.car_air_conditioning
-        this.extras = this.dataAd.extras
         this.selectedVendor = this.dataAd.car_vendor
         this.isCheckedDiscount = this.dataAd.car_discount_offers
         this.isCheckedNon = this.dataAd.car_non_smoker
@@ -2825,6 +2828,7 @@ export default {
         this.exportCommercial = this.dataAd.car_commercial
         this.approveUsed = this.dataAd.car_programme
         this.descriptionText = this.dataAd.car_description
+        this.extras = this.dataAd.extras
         this.extras?.forEach((extra) => {
           if (extra === "Alarm System") {
             this.isCheckedAlarmSystem = true;
@@ -3037,14 +3041,14 @@ export default {
           car_trailer_coupling: this.selectedTrailer,
           car_parking_sensors: this.selectedParking,
           car_cruise_control: this.selectedCruise,
-          car_others: this.selectedOthers,
+          others: this.selectedOthers,
           car_interior_colour: this.selectedInteriorColour,
           car_interior_material: this.selectedMaterial,
           car_airbags: this.selectedAirbag,
           car_air_conditioning: this.selectedConditioning,
           extras: this.extras,
           car_vendor: this.selectedVendor,
-          car_discount_offers: this.isCheckedDiscount, // You have two lines for this, remove one as needed
+          car_discount_offers: this.isCheckedDiscount,
           car_non_smoker: this.isCheckedNon,
           car_taxi: this.isCheckedTaxi,
           car_vat: this.isCheckedVAT,
@@ -3382,19 +3386,21 @@ export default {
       }
     },
     toggleShowCheckboxOthers(index, otherName) {
-      if (this.selectedOthers !== null) {
-        const isChecked = !this.selectedOthers.includes(otherName);
-        if (isChecked) {
-          this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
-          console.log(this.selectedOthers);
-        } else {
-          const otherIndex = this.selectedOthers.indexOf(otherName);
-          if (otherIndex !== -1) {
-            this.selectedOthers.splice(otherIndex, 1); // Удаляем otherName из массива
-          }
-        }
+  // Проверяем, что this.selectedOthers не равно null или undefined
+  if (this.selectedOthers && Array.isArray(this.selectedOthers)) {
+    const isChecked = !this.selectedOthers.includes(otherName);
+    if (isChecked) {
+      this.selectedOthers.push(otherName);
+    } else {
+      const carIndex = this.selectedOthers.indexOf(otherName);
+      if (carIndex !== -1) {
+        this.selectedOthers.splice(carIndex, 1);
       }
-    },
+    }
+  } else {
+    this.selectedOthers = [otherName];
+  }
+},
 
     openSeatsDropdown() {
       this.seatsOpen = true;
@@ -3459,6 +3465,10 @@ export default {
       } else {
         this.isRadioNewSelected = false;
       }
+    },
+    selectTy(condition) {
+      this.selectedTy = condition;
+      
     },
     fetchModelYears() {
       const apiUrl = "https://api.nhtsa.gov/SafetyRatings";

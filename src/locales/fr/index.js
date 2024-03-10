@@ -873,6 +873,24 @@ export default {
       other: "Autre",
       variant: "Variante",
   },
+  ads_page:{
+    carsad: "Mes annonces de voiture",
+    agriculturalsad: "Mes annonces de véhicules agricoles",
+    coachead: "Mes annonces de cars",
+    constructionad: "Mes annonces de machines de construction",
+    forkliftad: "Mes annonces de chariots élévateurs",
+    motorbikead: "Mes annonces de motos",
+    motorhomesad: "Mes annonces de camping-cars",
+    semitrailerad: "Mes annonces de semi-remorques",
+    semitruckad: "Mes annonces de camions semi-remorques",
+    trailerad: "Mes annonces de remorques",
+    truckad: "Mes annonces de camions",
+    vanad: "Mes annonces de vans",
+    createnew: "Créer une nouvelle annonce",
+    sellcar: "Vendez votre véhicule gratuitement",
+    delete: "Supprimer",
+    edit: "Modifier",
+    }
   
     
   },

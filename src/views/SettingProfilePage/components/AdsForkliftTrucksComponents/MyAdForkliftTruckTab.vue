@@ -2,10 +2,11 @@
   <div class="set lg:p-[40px] w-[210px] xs:w-full lg:w-[750px] xl:w-[900px]">
     <div class="add car" v-if="createAdd">
       <div class="ads">
-        <p class="car-text font-bold text-[18px] md:text-[25px] lg:text-[30px]">My Forklift Truck Ads</p>
+        <p class="car-text font-bold text-[18px] md:text-[25px] lg:text-[30px]">            {{ $t("message.ads_page.forkliftad") }}
+</p>
       </div>
       <div class="">
-				<p class="car-text font-bold text-[14px] md:text-[16px] lg:text-[20px] mt-[20px]">Create new ad</p>
+				<p class="car-text font-bold text-[14px] md:text-[16px] lg:text-[20px] mt-[20px]">{{ $t("message.ads_page.createnew") }}</p>
 				<SellButton class="ml-[90px] xs:ml-[50%] sm:ml-[65%] md:ml-[70%] lg:ml-[78.4%]  lg:w-[140px] mt-[20px]" @click="handleCancelCreateAdd" />
 			</div>
       <div

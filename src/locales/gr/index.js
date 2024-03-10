@@ -690,5 +690,23 @@ export default {
       other: "Andere",
       variant: "Variante",
     },
+    ads_page:{
+      carsad: "Meine Autoanzeigen",
+      agriculturalsad: "Meine landwirtschaftlichen Fahrzeuganzeigen",
+      coachead: "Meine Busanzeigen",
+      constructionad: "Meine Baumaschinenanzeigen",
+      forkliftad: "Meine Gabelstapleranzeigen",
+      motorbikead: "Meine Motorradanzeigen",
+      motorhomesad: "Meine Wohnmobilanzeigen",
+      semitrailerad: "Meine Sattelaufliegeranzeigen",
+      semitruckad: "Meine Sattelzuganzeigen",
+      trailerad: "Meine Anhängeranzeigen",
+      truckad: "Meine LKW-Anzeigen",
+      vanad: "Meine Transporteranzeigen",
+      createnew: "Neue Anzeige erstellen",
+      sellcar: "Verkaufen Sie Ihr Fahrzeug kostenlos",
+      delete: "Löschen",
+      edit: "Bearbeiten",
+      }
   },
 };
