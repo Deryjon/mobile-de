@@ -642,60 +642,43 @@
         </div>
       </div>
 			<div class="mt-[10px]">
-      <h3 class="text-[16px]">Secutrity</h3>
-      <div
-        class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]"
-      >
-        <!-- cabrio -->
-        <label
-          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedAlarmSystem"
-            @click="toggleShowCheckboxExtras(0, 'ABS')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedAlarmSystem"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          ABS
-        </label>
-        <label
-          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedDisable"
-            @click="toggleShowCheckboxExtras(1, 'EBS')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedDisable"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          EBS
-        </label>
-      </div>
+      <h3 class="text-[16px]">Features</h3>
+      <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+          <!-- cabrio -->
+          <label
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAuxiliaryHeating"
+              @click="toggleShowCheckboxOthers(0, 'Auxiliary heating')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAuxiliaryHeating" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            Auxiliary heating
+          </label>
+          <label
+            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedFourWheelDrive"
+              @click="toggleShowCheckboxOthers(1, 'Four wheel drive')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedFourWheelDrive" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            Four wheel drive
+          </label>
+          <label
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedPowerAssistedSteering"
+              @click="toggleShowCheckboxOthers(2, 'Power Assisted Steering')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedPowerAssistedSteering" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            Power Assisted Steering
+          </label>
+        </div>
       </div>
       <div class="flex flex-wrap lg:gap-[40px]">
         <div class="marke_select_div relative mt-[14px] lg:mt-[30px] lg:w-[200px]">
@@ -1421,7 +1404,6 @@ export default {
       formData.append("trailer_price", parseInt(this.price));
       formData.append("trailer_price_type", "sell");
       formData.append("trailer_kilometre", parseInt(this.inputKilometer));
-      formData.append("trailer_security", this.extras);
       formData.append("trailer_country", this.selectedCountry);
       formData.append("trailer_city_zipcode", this.zipCode);
       formData.append("trailer_radius", parseInt(this.radius));
@@ -1435,6 +1417,7 @@ export default {
       formData.append("trailer_new_hu", this.isCheckedVAT);
       formData.append("trailer_renting_possible", this.isCheckedVAT);
       formData.append("trailer_dealer_rating", 4);
+      formData.append("trailer_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
@@ -1810,7 +1793,6 @@ export default {
     
     this.userPhone = localStorage.getItem("com-number");
     this.userCodeNumber = localStorage.getItem("com-numcode");
-    this.userPre = localStorage.getItem("com-prefix");
     http
       .get("/semitrailer/marks")
       .then((response) => {

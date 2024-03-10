@@ -2049,10 +2049,8 @@ export default {
         return;
       }
 
-      // URL API для запроса моделей с указанием выбранной марки
       const apiUrl = `/car/model?mark_id=${this.selectedMark}`;
 
-      // Выполняем GET-запрос к API с помощью Axios
       http
         .get(apiUrl)
         .then((response) => {

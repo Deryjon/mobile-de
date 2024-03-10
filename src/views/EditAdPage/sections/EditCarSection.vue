@@ -14,7 +14,7 @@
             </div>
             <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">
               X
-            </button>
+            </button> 
             <button v-if="errorPushPagePriceList" @click="goPriceList"
               class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
           </div>
@@ -1238,7 +1238,7 @@
         </div>
       </div>
       <div class="mt-[30px]">
-        <h3>{{ $t("message.filter_page.features.others") }}</h3>
+        <h3>{{ $t("message.filter_page.features.selectedOthers") }}</h3>
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
@@ -2514,7 +2514,7 @@ export default {
       selectedAirbag: "AnyExterior",
       isLoading: true,
       extras: [],
-      others: [],
+      selectedOthers: [],
       power: "",
       selectedType: "",
       selectedFiles: [],
@@ -2664,7 +2664,7 @@ export default {
         this.selectedTrailer = this.dataAd.car_trailer_coupling
         this.selectedParking = this.dataAd.car_parking_sensors
         this.selectedCruise = this.dataAd.car_cruise_control
-        this.selectedOthers = this.dataAd.others
+        this.selectedOthers = this.dataAd.car_others
         this.selectedOthers?.forEach((other) => {
           if (other === "ABS") {
             this.isCheckedABS = true;
@@ -3037,7 +3037,7 @@ export default {
           car_trailer_coupling: this.selectedTrailer,
           car_parking_sensors: this.selectedParking,
           car_cruise_control: this.selectedCruise,
-          others: this.selectedOthers,
+          car_others: this.selectedOthers,
           car_interior_colour: this.selectedInteriorColour,
           car_interior_material: this.selectedMaterial,
           car_airbags: this.selectedAirbag,
@@ -3101,7 +3101,7 @@ export default {
     //     car_trailer_coupling: this.selectedTrailer,
     //     car_parking_sensors: this.selectedParking,
     //     car_cruise_control: this.selectedCruise,
-    //     others: this.selectedOthers,
+    //     selectedOthers: this.selectedOthers,
     //   })
     // 	.then((res) => {
     // 		console.log(res.data);
@@ -3382,15 +3382,15 @@ export default {
       }
     },
     toggleShowCheckboxOthers(index, otherName) {
-      if (this.others !== null) {
-        const isChecked = !this.others.includes(otherName);
+      if (this.selectedOthers !== null) {
+        const isChecked = !this.selectedOthers.includes(otherName);
         if (isChecked) {
-          this.others.push(otherName); // Добавляем otherName как отдельную строку
-          console.log(this.others);
+          this.selectedOthers.push(otherName); // Добавляем otherName как отдельную строку
+          console.log(this.selectedOthers);
         } else {
-          const otherIndex = this.others.indexOf(otherName);
+          const otherIndex = this.selectedOthers.indexOf(otherName);
           if (otherIndex !== -1) {
-            this.others.splice(otherIndex, 1); // Удаляем otherName из массива
+            this.selectedOthers.splice(otherIndex, 1); // Удаляем otherName из массива
           }
         }
       }

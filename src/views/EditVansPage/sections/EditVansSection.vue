@@ -10,13 +10,22 @@
         <div class="ffile-preview flex flex-wrap lg:w-[600px] gap-[2px] lg:gap-[10px]">
           <div v-for="(file, index) in selectedFiles" :key="index" class="file-item relative">
             <div class="w-[190px] h-[200px]">
-              <img class="w-full h-full" :src="file.url" :alt="file.name" />
+              <img class="w-full h-full" :src="file.previewUrl" :alt="file.name" />
             </div>
             <button @click="removeFile(index)" class="absolute top-0 right-0 w-[20px]">
               X
             </button>
+            <button v-if="errorPushPagePriceList" @click="goPriceList"
+              class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
           </div>
-          <span v-if="selectedFiles.length === 0">No Images</span>
+          <div v-for="(image, index) in fetchFiles" :key="index" class="file-item relative">
+            <div class="w-[190px] h-[200px]">
+              <img class="w-full h-full" :src="image" />
+            </div>
+            <button @click="removeFetchFile(index)" class="absolute top-0 right-0 w-[20px] bg-red-500">
+              X
+            </button>
+          </div>
         </div>
       </div>
       <div class="video-link mt-[30px]">
@@ -27,7 +36,7 @@
       </div>
       <div class="flex flex-wrap gap-[20px] mt-[30px]">
         <div class="mark">
-          <div class="relative mt-2">
+          <div class="relative">
             <h2 class="text-sm lg:text-[14px]">
               {{ $t("message.selects.mark") }}
             </h2>
@@ -1040,78 +1049,23 @@
             </span>
           </label>
         </div>
-        <div class="text-[16px] condition mt-[20px]">
-          <h3>{{ $t("message.filter_page.trailer.title") }}</h3>
-          <div class="text-[14px] radios-type flex gap-x-[10px] lg:gap-[30px] mt-[10px]">
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-                'bg-transparent': selectedTrailer !== 'Fix, detachable or swiveling',
-                'bg-orange': selectedTrailer === 'Fix, detachable or swiveling',
-              }" @click="selectTrailer('Fix, detachable or swiveling')" />
-              <span class="ml-[10px]">{{ $t("message.filter_page.trailer.fix") }}</span>
-            </label>
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-                'bg-transparent': selectedTrailer !== 'Detachable or swiveling',
-                'bg-orange': selectedTrailer === 'Detachable or swiveling',
-              }" @click="selectTrailer('Detachable or swiveling')" />
-              <span class="ml-[10px]">{{ $t("message.filter_page.trailer.det") }}</span>
-            </label>
-            <label>
-              <input type="radio" id="condition-any" v-model="selectedTrailer" :class="{
-                'bg-transparent': selectedTrailer !== 'Swiveling',
-                'bg-orange': selectedTrailer === 'Swiveling',
-              }" @click="selectTrailer('Swiveling')" />
-              <span class="ml-[10px]">{{ $t("message.filter_page.trailer.swi") }}</span>
-            </label>
-          </div>
-        </div>
         <div class="condition mt-[20px]">
           <h3 class="text-[16px]">{{ $t("message.filter_page.cruise.cruise") }}</h3>
           <div class="text-[14px] radios-type flex gap-[30px] mt-[10px]">
             <label>
               <input type="radio" id="condition-any" v-model="selectedCruise" :class="{
-                'bg-transparent': selectedCruise !== 'Cruise Control',
-                'bg-orange': selectedCruise === 'Cruise Control',
+                'bg-transparent': selectedCruise !== 'Cruise',
+                'bg-orange': selectedCruise === 'Cruise',
               }" @click="selectCruise('Cruise Control')" />
               <span class="ml-[10px]">{{ $t("message.filter_page.cruise.cruise") }} </span>
             </label>
             <label>
               <input type="radio" id="condition-adap" v-model="selectedCruise" :class="{
-                'bg-transparent': selectedCruise !== 'Adaptive Cruise Control',
-                'bg-orange': selectedCruise === 'Adaptive Cruise Control',
+                'bg-transparent': selectedCruise !== 'Adaptive',
+                'bg-orange': selectedCruise === 'Adaptive',
               }" @click="selectCruise('Adaptive Cruise Control')" />
               <span class="ml-[10px]">{{ $t("message.filter_page.cruise.adaptive") }} </span>
             </label>
-          </div>
-        </div>
-        <div class="flex flex-wrap gap-x-[40px]">
-          <div class="seats dropdown-container mt-[20px]">
-            <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.numseat") }} </h2>
-            <div class="input-container flex relative mt-[10px]">
-              <input type="from"
-                class="dropdown-input mark_input mark-select  w-[160px] lg:w-[170px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-                placeholder="from" v-model="numberSeats" @focus="openSeatsDropdown" @blur="openSeatsDropdown" />
-
-              <div
-                class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
-                @click="openSeatsDropdown">
-                <span
-                  class="arrow w-[7px] h-[7px] absolute right-[7px] bottom-[14px] lg:bottom-[15px] xl:bottom-4"></span>
-              </div>
-            </div>
-            <ul v-if="seatsOpen" class="dropdown-options w-[160px] lg:w-[200px] text-[10px] lg:text-[12px]">
-              <ul>
-                <li key="2" @click="selectNumberSeats('2')">2</li>
-                <li key="3" @click="selectNumberSeats('3')">3</li>
-                <li key="4" @click="selectNumberSeats('4')">4</li>
-                <li key="5" @click="selectNumberSeats('5')">5</li>
-                <li key="6" @click="selectNumberSeats('6')">6</li>
-                <li key="7" @click="selectNumberSeats('7')">7</li>
-                <li key="8" @click="selectNumberSeats('8')">8</li>
-                <li key="9" @click="selectNumberSeats('9')">9</li>
-              </ul>
-            </ul>
           </div>
         </div>
       </div>
@@ -1125,14 +1079,14 @@
               'bg-transparent': selectedVendor !== 'Private seller',
               'bg-orange': selectedVendor === 'Private seller',
             }" @click="selectVendor('Private seller')" />
-            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.зкшмфеу") }}</span>
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.private") }}</span>
           </label>
           <label>
             <input type="radio" id="vendor-dealer" v-model="selectedVendor" :class="{
               'bg-transparent': selectedVendor !== 'Dealer',
               'bg-orange': selectedVendor === 'Dealer',
             }" @click="selectVendor('Dealer')" />
-            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.вуфдук") }}</span>
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.dealer") }}</span>
           </label>
           <label>
             <input type="radio" id="vendor-dealer" v-model="selectedVendor" :class="{
@@ -1269,7 +1223,7 @@
             {{ $t("message.filter_page.cancel") }}
 
           </button>
-          <button @click="editAddAgricultural" class="bg-blue-500 rounded-[8px] p-[10px]">
+          <button @click="editAddTrucks" class="bg-blue-500 rounded-[8px] p-[10px]">
             {{ $t("message.filter_page.editad") }}
 
           </button>
@@ -1431,6 +1385,10 @@ export default {
       selectedGvw: "",
       vanId: "",
       options: [],
+      errorPushPagePriceList: false,
+      fetchFiles: [],
+      fetchFilesName: [],
+      previewImages: [],
 
     };
   },
@@ -1443,6 +1401,8 @@ export default {
         this.dataAd = res.data.data
         this.linkVideo = this.dataAd.van_video_link
         this.selectedMark = this.dataAd.van_make
+        this.fetchFiles = this.dataAd.van_images_url
+        this.fetchFilesName = this.dataAd.van_images_name
         this.selectedModel = this.dataAd.van_model
         this.selectedCategory = this.dataAd.van_category
         this.selectedMotorbike = this.dataAd.van_type
@@ -1462,7 +1422,32 @@ export default {
         this.selectedExteriorColour = this.dataAd.van_exterior_colour
         this.selectedCruise = this.dataAd.van_cruise_control
         this.selectedTrailer = this.dataAd.van_trailer_coupling
-        this.selectedOthers = this.dataAd.vanres
+        this.selectedOthers = this.dataAd.van_features
+        this.selectedOthers?.forEach((other) => {
+          if (other === "ABS") {
+            this.isCheckedABS = true;
+          } else if (other === "Emergency brake assist") {
+            this.isCheckedEmergency = true;
+          }
+          else if (other === "Keyless central locking") {
+            this.isCheckedCentral = true;
+          }
+          else if (other === "Speed limit control system") {
+            this.isCheckedSpeed = true;
+          }
+          else if (other === "Adaptive cornering lights") {
+            this.isCheckedAdaptive = true;
+          }
+          else if (other === "Emergency tyre") {
+            this.isCheckedTyre = true;
+          }
+          else if (other === "Lane change assist") {
+            this.isCheckedLastChanges = true;
+          }
+          else if (other === "Sports package") {
+            this.isCheckedSportsPackage = true;
+          }
+        });
         this.stickerEmission = this.dataAd.van_emissions_sticker
         this.classEmision = this.dataAd.van_emission_class
         this.selectedGvw = this.dataAd.van_gvw
@@ -1500,77 +1485,135 @@ export default {
       this.activeTab = "sell";
     },
     async editAddTrucks() {
-      const formData = new FormData();
 
-      for (let i = 0; i < this.selectedFiles.length; i++) {
-        formData.append("photos", this.selectedFiles[i]);
-      }
-
-      formData.append("id", this.vanId);
-      formData.append("van_make", this.selectedMark);
-      formData.append("van_model", this.selectedModel);
-      formData.append("van_condition", this.selectedCondition);
-      formData.append("van_category", this.selectedCategory);
-      formData.append("van_video_link", this.linkVideo);
-      formData.append("van_price", parseInt(this.price));
-      formData.append("van_price_type", this.activeTab);
-      formData.append("van_firt_date", this.inputValue);
-      formData.append("van_firt_date_year", parseInt(this.inputValue));
-      formData.append("van_kilometre", parseInt(this.inputKilometer));
-      formData.append("van_power", parseInt(this.power));
-      formData.append("van_country", this.selectedCountry);
-      formData.append("van_city_zipcode", this.zipCode);
-      formData.append("van_radius", parseInt(this.radius));
-      formData.append("van_fuel_type", this.selectedFuel);
-      formData.append("van_transmission", this.selectedTransmision);
-      formData.append("van_emission_class", this.classEmision);
-      formData.append("van_emissions_sticker", this.stickerEmission);
-      formData.append(
-        "features",
+      await http.put("/vans/update", {
+        
+      id: this.vanId,
+      van_make: this.selectedMark,
+      van_model: this.selectedModel,
+      van_condition: this.selectedCondition,
+      van_category: this.selectedCategory,
+      van_video_link: this.linkVideo,
+      van_price: parseInt(this.price),
+      van_price_type: this.activeTab,
+      van_firt_date: this.inputValue,
+      van_firt_date_year: parseInt(this.inputValue),
+      van_kilometre: parseInt(this.inputKilometer),
+      van_power: parseInt(this.power),
+      van_country: this.selectedCountry,
+      van_city_zipcode: this.zipCode,
+      van_radius: parseInt(this.radius),
+      van_fuel_type: this.selectedFuel,
+      van_transmission: this.selectedTransmision,
+      van_emission_class: this.classEmision,
+      van_emissions_sticker: this.stickerEmission,
+     van_features:
         this.selectedOthers
-      );
-      formData.append("van_air_conditioning", this.selectedConditioning);
-      formData.append("van_number_of_seats", this.selectedWheelFormula);
-      formData.append("van_gvw", parseInt(this.selectedGvw));
-      formData.append("van_sliding_door", this.selectedHydraulic);
-      formData.append("van_trailer_coupling_fix", this.isCheckedTrailerCoupling);
-      formData.append("van_cruise_control", this.selectedCruise);
-      formData.append("van_driving_cab", this.selectedDriving);
-      formData.append("van_vat", this.isCheckedVAT);
-      formData.append("van_discount_offers", this.isCheckedDiscount);
-      formData.append("interior_features", this.selectedOthers);
-      formData.append("van_exterior_colour", this.selectedExteriorColour);
-      formData.append("van_vendor", this.selectedVendor);
-      formData.append("van_full_service_history", this.isCheckedHistory);
-      formData.append("van_damaged", this.isCheckedDamaged);
-      formData.append("van_municipal", this.isCheckedMunicipal);
-      formData.append("van_new_hu", this.isCheckedEnvironmental);
-      formData.append("van_renting_possible", this.isCheckedRenting);
-      formData.append("van_dealer_rating", 4);
-      formData.append("van_describtion", this.descriptionText);
-      formData.append("user_id", this.userI);
-      formData.append(
-        "user_phone",
-        `${this.userCodeNumber}${this.userPre}${this.userPhone}`
-      );
-      formData.append("user_email", this.uEmail);
-      await http.put("/vans/update", formData).then((response) => {
-        console.log(response);
-        const responseData = response.data.data;
+      ,
+      van_air_conditioning: this.selectedConditioning,
+      van_number_of_seats: this.selectedWheelFormula,
+      van_gvw: parseInt(this.selectedGvw),
+      van_sliding_door: this.selectedHydraulic,
+      van_trailer_coupling_fix: this.isCheckedTrailerCoupling,
+      van_cruise_control: this.selectedCruise,
+      van_driving_cab: this.selectedDriving,
+      van_vat: this.isCheckedVAT,
+      van_discount_offers: this.isCheckedDiscount,
+      interior_features: this.selectedOthers,
+      van_exterior_colour: this.selectedExteriorColour,
+      van_vendor: this.selectedVendor,
+      van_full_service_history: this.isCheckedHistory,
+      van_damaged: this.isCheckedDamaged,
+      van_municipal: this.isCheckedMunicipal,
+      van_new_hu: this.isCheckedEnvironmental,
+      van_renting_possible: this.isCheckedRenting,
+      van_dealer_rating: 4,
+      van_describtion: this.descriptionText,
+      user_id: this.userI,
+      }).then((response) => {
         const store = useTabsStore();
-        store.setActiveTab("tab-8");
-        this.$router.push({ name: "profile-settings" })
+          store.setActiveTab("tab-8");
+          const comI = localStorage.getItem("u-com");
+          if (response.data.status === 200) {
+
+            this.toast.success("Your ad has been edited!")
+            if (comI === "true") {
+              this.$router.push({ name: "company-settings" });
+            } else {
+              this.$router.push({ name: "profile-settings" });
+            }
+          } else {
+            this.toast.error("Your ad has not been edited!, please try again");
+
+          }
       });
     },
     openFileInput() {
       this.$refs.fileInput.click();
     },
     handleFileChange(event) {
-      this.selectedFiles = event.target.files;
-    },
+      const files = [...event.target.files];
+
+      // Добавляем выбранные файлы в массив selectedFiles
+      this.selectedFiles = [...this.selectedFiles, ...files];
+
+      // Обрабатываем каждый файл для создания предварительных изображений
+      for (let i = 0; i < files.length; i++) {
+        const file = files[i];
+        const reader = new FileReader();
+
+        reader.onload = (e) => {
+          const previewUrl = e.target.result;
+          this.previewImages.push({
+            name: file.name,
+            previewUrl: previewUrl,
+            file: file,
+          });
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Создаем FormData для отправки на сервер
+      const formData = new FormData();
+      for (let i = 0; i < this.selectedFiles.length; i++) {
+        formData.append("photos", this.selectedFiles[i]);
+      }
+      formData.append('id', this.vanId);
+
+      // Отправляем FormData на сервер
+      http.put("/vans/update/add/photo", formData)
+        .then(response => {
+          // Обработка успешного ответа от сервера, если необходимо
+        })
+        .catch(error => {
+          // Обработка ошибки, если необходимо
+          console.error(error);
+        });
+    }
+    ,
+
     removeFile(index) {
       this.selectedFiles.splice(index, 1);
     },
+    removeFetchFile(index) {
+      const fileToRemove = this.fetchFiles[index];
+      const fileNameToRemove = this.fetchFilesName[index];
+
+
+
+      http.put("/vans/update/delete/photo", {
+        id: this.vanId,
+        delete_image_url: fileToRemove,
+        delete_image_name: fileNameToRemove
+      })
+        .then(response => {
+          this.fetchFiles.splice(index, 1);
+          this.fetchFilesName.splice(index, 1);
+        })
+
+    }
+    ,
     toggleShowCheckboxRating(index, ratingName) {
       const isChecked = !this.rating.includes(ratingName);
       if (isChecked) {
@@ -1900,7 +1943,13 @@ export default {
     handleCancelButtonClick() {
       const store = useTabsStore();
       store.setActiveTab("tab-8");
-      this.$router.push({ name: "profile-settings" })
+      const comI = localStorage.getItem("u-com");
+
+      if (comI === "true") {
+        this.$router.push({ name: "company-settings" });
+      } else {
+        this.$router.push({ name: "profile-settings" });
+      }
     },
   },
   mounted() {

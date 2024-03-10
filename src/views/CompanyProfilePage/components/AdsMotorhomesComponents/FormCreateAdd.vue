@@ -1637,12 +1637,12 @@ export default {
       formData.append("motor_home_cruise_control", this.selectedCruise);
       formData.append("motor_home_radio", this.selectedRadio);
       formData.append("motor_home_parking_sensors", this.selectedParking);
-      formData.append("motor_home_air_conditioning", this.selectedConditioning);
       formData.append("motor_home_discount_offers", this.isCheckedDiscount);
       formData.append("motor_home_vendor", this.selectedVendor);
       formData.append("motor_home_full_service_history", this.isCheckedHistory);
       formData.append("motor_home_damaged", this.isCheckedDamaged);
       formData.append("motor_home_damage_by_hail", this.isCheckedDamaged);
+      formData.append("motor_home_describtion", this.descriptionText);
       formData.append("motor_home_warranty", this.isCheckedWarranty);
       formData.append("motor_home_new_hu", this.isCheckedWarranty);
       formData.append("motor_home_renting_possible", this.isCheckedWarranty);
