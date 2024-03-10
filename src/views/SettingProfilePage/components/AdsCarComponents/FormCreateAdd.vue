@@ -569,7 +569,7 @@
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="openPreDropdown"
+              placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
               @blur="openPreDropdown" />
 
             <div
@@ -2541,7 +2541,6 @@ export default {
     return {
       toast: useToast(),
 
-      isOpenPre: false,
       interiorAdd: false,
       fuelAdd: false,
       basicAdd: true,
@@ -2572,7 +2571,7 @@ export default {
       previewImages: [],
       numDoor: "",
       slidingDoor: "",
-      isOpenKilometer: false,
+      isOpenKilometer: "",
       inputKilometer: "",
       radius: "",
       isOpenCubic: false,
@@ -3075,14 +3074,6 @@ export default {
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
     },
-    openKilometrDropdown() {
-      this.isOpenKilometer = true;
-      this.filteredOptions = this.options;
-      document.addEventListener(
-        "click",
-        this.closeKilometerDropdownOnClickOutside
-      );
-    },
     selectOption(option) {
       this.inputValue = option;
       this.isOpen = false;
@@ -3097,8 +3088,8 @@ export default {
         );
       }
     },
-    openPreDropdown() {
-      this.isOpenPre = true;
+    openKilometrDropdown() {
+      this.isOpenKilometer = true;
       this.filteredOptions = this.options;
       document.addEventListener(
         "click",

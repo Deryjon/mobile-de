@@ -1330,102 +1330,54 @@
       </div>
 			<div class="condition mt-[40px]">
       <h3 class="text-[16px]">Air conditioning</h3>
-      <div
-        class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]"
-      >
-        <label class="w-[250px]" for="manual">
-          <input
-            type="radio"
-            id="manual"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Manual',
-              'bg-orange': selectedConditioning === 'Manual',
-            }"
-            @click="selectAirConditioning('Manual')"
-          />
-          <span class="ml-[10px] text-[14px]"
-            >Manual or automatic climatisation
-          </span>
-        </label>
-        <label
-          class="w-[250px]"
-          for="auto-climat"
-         
-        >
-          <input
-            type="radio"
-            id="auto-climat"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat',
-              'bg-orange': selectedConditioning === 'Auto-Climat',
-            }"
-						 @click="selectAirConditioning('Auto-Climat')"
-          />
-          <span class="ml-[10px] text-[14px]"
-            >Automatic climatisation, 2 zones
-          </span>
-        </label>
+      <div class="radios-type flex flex-wrap gap-x-[20px] gap-y-[30px] mt-[20px]">
+          <label class="w-[250px]" for="manual">
+            <input type="radio" id="manual" v-model="selectedConditioning" :class="{
+              'bg-transparent': selectedConditioning !== 'Manual or automatic climatisation',
+              'bg-orange': selectedConditioning === 'Manual or automatic climatisation',
+            }" @click="selectAirConditioning('Manual or automatic climatisation')" />
+            <span class="ml-[10px] text-[14px]"> {{ $t("message.filter_page.conditioning.manual") }}
+            </span>
+          </label>
+          <label class="w-[250px]" for="auto-climat">
+            <input type="radio" id="auto-climat" v-model="selectedConditioning" :class="{
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 2 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 2 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 2 zones')" />
+            <span class="ml-[10px] text-[14px]"> {{ $t("message.filter_page.conditioning.zone2") }}
+            </span>
+          </label>
 
-        <label
-          class="w-[250px]"
-          for="auto2"
-          
-        >
-          <input
-            type="radio"
-            id="auto2"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat2',
-              'bg-orange': selectedConditioning === 'Auto-Climat2',
-            }"
-						@click="selectAirConditioning('Auto-Climat2')"
-          />
-          <span class="ml-[10px] text-[14px]"
-            >Automatic climatisation, 4 zones</span
-          >
-        </label>
-        <label class="w-[200px]" >
-          <input
-            type="radio"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'NoClimat',
-              'bg-orange': selectedConditioning === 'NoClimat',
-            }"
-						@click="selectAirConditioning('NoClimat')"
-          />
-          <span class="ml-[10px] text-[14px]">No climatisation</span>
-        </label>
-        <label class="w-[200px]" >
-          <input
-            type="radio"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'AutoClimat',
-              'bg-orange': selectedConditioning === 'AutoClimat',
-            }"
-						@click="selectAirConditioning('AutoClimat')"
-          />
-          <span class="ml-[10px] text-[14px]">Automatic air conditioning </span>
-        </label>
-        <label class="w-[250px]" >
-          <input
-            type="radio"
-            v-model="selectedConditioning"
-            :class="{
-              'bg-transparent': selectedConditioning !== 'Auto-Climat3',
-              'bg-orange': selectedConditioning === 'Auto-Climat3',
-            }"
-						@click="selectAirConditioning('Auto-Climat3')"
-          />
-          <span class="ml-[10px] text-[14px]"
-            >Automatic climatisation, 3 zones
-          </span>
-        </label>
-      </div>
+          <label class="w-[250px]" for="auto2">
+            <input type="radio" id="auto2" v-model="selectedConditioning" :class="{
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 4 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 4 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 4 zones')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.zone4") }}</span>
+          </label>
+          <label class="w-[200px]">
+            <input type="radio" v-model="selectedConditioning" :class="{
+              'bg-transparent': selectedConditioning !== 'No climatisation',
+              'bg-orange': selectedConditioning === 'No climatisation',
+            }" @click="selectAirConditioning('No climatisation')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.no") }}</span>
+          </label>
+          <label class="w-[200px]">
+            <input type="radio" v-model="selectedConditioning" :class="{
+              'bg-transparent': selectedConditioning !== 'Automatic air conditioning',
+              'bg-orange': selectedConditioning === 'Automatic air conditioning',
+            }" @click="selectAirConditioning('Automatic air conditioning')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.auto") }}</span>
+          </label>
+          <label class="w-[250px]">
+            <input type="radio" v-model="selectedConditioning" :class="{
+              'bg-transparent': selectedConditioning !== 'Automatic climatisation, 3 zones',
+              'bg-orange': selectedConditioning === 'Automatic climatisation, 3 zones',
+            }" @click="selectAirConditioning('Automatic climatisation, 3 zones')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.conditioning.zone3") }}
+            </span>
+          </label>
+        </div>
 			<div class="text-[16px] condition mt-[20px]">
         <h3>Trailer coupling</h3>
         <div class="text-[14px] radios-type flex flex-wrap gap-[10px] lg:gap-[30px] mt-[10px]">
@@ -1572,7 +1524,7 @@
           <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="classEmision"
+            v-model="rent"
           >
             <option value="any" selected>Any</option>
             <option value="1">Up to 1</option>
@@ -2135,6 +2087,7 @@ export default {
       formData.append("truck_new_hu", false);
       formData.append("truck_renting_possible", false);
       formData.append("truck_dealer_rating", 4);
+      formData.append("truck_describtion", this.descriptionText);
       formData.append("user_id", this.userI);
       formData.append(
         "user_phone",
@@ -2506,7 +2459,6 @@ export default {
 
     this.userPhone = localStorage.getItem("com-number");
     this.userCodeNumber = localStorage.getItem("com-numcode");
-    this.userPre = localStorage.getItem("com-prefix");
 
     http
       .get("/semitruck/marks")
