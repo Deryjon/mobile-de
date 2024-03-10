@@ -253,7 +253,7 @@
       </div>
       <div class="condition mt-[30px]">
         <h3 class="text-[14px]">{{ $t("message.filter_page.condition") }}</h3>
-        <div class="radios-type flex flex-wrap gap-x-[100px] lg:gap-x-[244px] mt-[10px] mb-[10px]">
+        <div class="radios-type flex flex-wrap gap-x-[100px]  mt-[10px] mb-[10px]">
           <label>
             <input type="radio" v-model="selectedCondition" :class="{
               'bg-transparent': selectedCondition !== 'Any',
@@ -277,7 +277,7 @@
           </label>
         </div>
         <div class="conditions flex flex-wrap gap-x-[0px] lg:gap-x-[140px] mt-[20px] lg:mt-[30px] xl:mt-[20px]">
-          <label class="gap-2 flex items-center h-10 w-[140px] pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
+          <label class="gap-2 flex items-center h-10 pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
             <input :disabled="isRadioNewSelected" type="radio" v-model="selectedType" :class="{
               'bg-transparent': selectedType !== 'Pre-Registration',
               'bg-orange': selectedType === 'Pre-Registration',
@@ -285,7 +285,7 @@
 
             <span class="text-sm">{{ $t("message.filter_page.pre") }}</span>
           </label>
-          <label class="gap-2 flex items-center h-10 w-[130px] pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
+          <label class="gap-2 flex items-center h-10 pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
             <input :disabled="isRadioNewSelected" type="radio" v-model="selectedType" :class="{
               'bg-transparent': selectedType !== 'Employees Car',
               'bg-orange': selectedType === 'Employees Car',
@@ -293,7 +293,7 @@
 
             <span class="text-sm">{{ $t("message.filter_page.employe") }}</span>
           </label>
-          <label class="gap-2 flex items-center h-10 w-[130px] pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
+          <label class="gap-2 flex items-center h-10  pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
             <input :disabled="isRadioNewSelected" type="radio" v-model="selectedType" :class="{
               'bg-transparent': selectedType !== 'Classic Vehicle',
               'bg-orange': selectedType === 'Classic Vehicle',
@@ -301,7 +301,7 @@
 
             <span class="text-sm">{{ $t("message.filter_page.classic") }}</span>
           </label>
-          <label class="gap-2 flex items-center h-10 w-[190px] pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
+          <label class="gap-2 flex items-center h-10 pb-[23px]" :class="{ 'opacity-20': isRadioNewSelected }">
             <input :disabled="isRadioNewSelected" type="radio" v-model="selectedType" :class="{
               'bg-transparent': selectedType !== 'Demonstration Vehicle',
               'bg-orange': selectedType === 'Demonstration Vehicle',
@@ -1023,7 +1023,7 @@
         <div class="filter-cars flex flex-wrap gap-x-[20px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-beige flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px]  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Beige',
               'bg-orange': selectedExteriorColour === 'Beige',
@@ -1031,7 +1031,7 @@
 
             {{ $t("message.filter_page.exterior_color.beige") }} </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-brown flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px]  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Brown',
               'bg-orange': selectedExteriorColour === 'Brown',
@@ -1039,7 +1039,7 @@
 
             {{ $t("message.filter_page.exterior_color.brown") }} </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-gold flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px]  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Gold',
               'bg-orange': selectedExteriorColour === 'Gold',
@@ -1047,7 +1047,7 @@
 
             {{ $t("message.filter_page.exterior_color.gold") }} </label>
           <label
-            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-green flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px]  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Green',
               'bg-orange': selectedExteriorColour === 'Green',
@@ -1055,7 +1055,7 @@
 
             {{ $t("message.filter_page.exterior_color.green") }} </label>
           <label
-            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-red flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px]  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Red',
               'bg-orange': selectedExteriorColour === 'Red',
@@ -1063,7 +1063,7 @@
 
             {{ $t("message.filter_page.exterior_color.red") }} </label>
           <label
-            class="custom-checkbox custom-silver flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px] w-[100px] pb-[20px] p-0">
+            class="custom-checkbox custom-silver flex gap-[2px] lg:gap-[10px] text-[14px] items-center h-[40px]  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Silver',
               'bg-orange': selectedExteriorColour === 'Silver',
@@ -1071,7 +1071,7 @@
 
             {{ $t("message.filter_page.exterior_color.silver") }} </label>
           <!-- estate -->
-          <label class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10 w-[100px] pb-4 p-0">
+          <label class="custom-checkbox custom-white flex gap-4 text-[14px] items-center h-10  pb-4 p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'White',
               'bg-orange': selectedExteriorColour === 'White',
@@ -1081,7 +1081,7 @@
           </label>
 
           <!-- saloon -->
-          <label class="custom-checkbox custom-blue flex gap-4 items-center h-10 w-[120px] pb-4 p-0">
+          <label class="custom-checkbox custom-blue flex gap-4 items-center h-10  pb-4 p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Blue',
               'bg-orange': selectedExteriorColour === 'Blue',
@@ -1090,7 +1090,7 @@
             <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.blue") }}</span>
           </label>
           <!-- small -->
-          <label class="custom-checkbox custom-yellow flex gap-4 items-center h-10 w-[100px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-yellow flex gap-4 items-center h-10  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Yellow',
               'bg-orange': selectedExteriorColour === 'Yellow',
@@ -1099,7 +1099,7 @@
             <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.yellow") }}</span>
           </label>
           <!-- sports -->
-          <label class="custom-checkbox custom-grey flex gap-3 items-center h-10 w-[100px] pb-[20px] p-0">
+          <label class="custom-checkbox custom-grey flex gap-3 items-center h-10  pb-[20px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Grey',
               'bg-orange': selectedExteriorColour === 'Grey',
@@ -1108,7 +1108,7 @@
             <span class="text-[14px]">{{ $t("message.filter_page.exterior_color.grey") }}</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox custom-orange flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
+          <label class="custom-checkbox custom-orange flex gap-4 items-center h-10  pb-[23px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Orange',
               'bg-orange': selectedExteriorColour === 'Orange',
@@ -1117,7 +1117,7 @@
             <span class="text-sm">{{ $t("message.filter_page.exterior_color.orange") }}</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox custom-black flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
+          <label class="custom-checkbox custom-black flex gap-4 items-center h-10  pb-[23px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Black',
               'bg-orange': selectedExteriorColour === 'Black',
@@ -1126,7 +1126,7 @@
             <span class="text-sm">{{ $t("message.filter_page.exterior_color.black") }}</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox custom-purple flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
+          <label class="custom-checkbox custom-purple flex gap-4 items-center h-10  pb-[23px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Purple',
               'bg-orange': selectedExteriorColour === 'Purple',
@@ -1135,7 +1135,7 @@
             <span class="text-sm">{{ $t("message.filter_page.exterior_color.purple") }}</span>
           </label>
           <!-- off-road -->
-          <label class="custom-checkbox custom-metallic flex gap-4 items-center h-10 w-[100px] pb-[23px] p-0">
+          <label class="custom-checkbox custom-metallic flex gap-4 items-center h-10  pb-[23px] p-0">
             <input type="radio" v-model="selectedExteriorColour" :class="{
               'bg-transparent': selectedExteriorColour !== 'Metallic',
               'bg-orange': selectedExteriorColour === 'Metallic',
@@ -1243,7 +1243,7 @@
       </div>
       <div class="mt-[30px]">
         <h3>{{ $t("message.filter_page.features.others") }}</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+        <div class="filter-cars flex flex-wrap gap-[20px] mt-[10px]">
           <!-- cabrio -->
           <label
             class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
@@ -1787,7 +1787,7 @@
       </div>
       <div class="mt-[40px] ">
         <h3 class="text-[16px]">{{ $t("message.filter_page.features.extras") }}</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
+        <div class="filter-cars flex flex-wrap gap-[20px]  mt-[20px]">
           <!-- cabrio -->
           <label
             class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">

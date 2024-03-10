@@ -76,7 +76,7 @@
               </button>
             </template>
 
-            <v-card>
+            <v-card class="w-[300px] mx-auto">
               <v-card-text class="mx-auto"> Are you sure? </v-card-text>
               <div class="flex items-center w-[120px] mx-auto">
                 <v-card-actions>

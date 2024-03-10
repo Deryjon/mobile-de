@@ -70,9 +70,6 @@
               </div>
             </div>
             <div class="truck-body  gap-[5px] text-[14px] mt-[25px]">
-              <div class="truck-body">
-                {{ $t("message.single_page.phone") }}: {{ vehicle.user_phone }}
-              </div>
               <div class="vehicle-body">
                 {{ $t("message.single_page.email") }}: {{ vehicle.user_email }}
               </div>

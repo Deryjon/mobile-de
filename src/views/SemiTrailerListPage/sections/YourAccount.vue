@@ -67,9 +67,7 @@
               </div>
             </div>
             <div class="car-body lex gap-[5px] text-[14px] mt-[25px]">
-              <div class="car-body">
-                {{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}
-              </div>
+            
               <div class="car-body">
                 {{ $t("message.single_page.email") }}: {{ trailer.user_email }}
               </div>

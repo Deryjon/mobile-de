@@ -86,9 +86,6 @@
             </div>
             <div class="coache-body  gap-[5px] text-[14px] mt-[25px]">
               <div class="coache-body">
-                {{ $t("message.single_page.phone") }}: {{ coache.user_phone }}
-              </div>
-              <div class="coache-body">
                 {{ $t("message.single_page.email") }}: {{ coache.user_email }}
               </div>
             </div>

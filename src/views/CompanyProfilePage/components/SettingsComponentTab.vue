@@ -1118,17 +1118,24 @@ export default {
     this.companyI = localStorage.getItem("com-i");
     this.userName = localStorage.getItem("u-fn");
 
-    if (this.userName === "null" || "undefined") {
-      this.userName = "Name";
-    }
-    this.userLastName = localStorage.getItem("u-ln");
-    if (this.userLastName === "null" || "undefined") {
-      this.userLastName = "";
-    }
-    this.selectedGender = localStorage.getItem("u-g");
-    if (this.selectedGender === "null" || "undefined") {
-      this.selectedGender = "No";
-    }
+    if (this.userName === null || this.userName === undefined || this.userName === "") {
+    this.userName = "Name";
+}
+
+this.companyAddRadius = localStorage.getItem("com-radius");
+if (this.companyAddRadius === null || this.companyAddRadius === undefined || this.companyAddRadius === "") {
+    this.companyAddRadius = "";
+}
+this.userLastName = localStorage.getItem("u-ln");
+if (this.userLastName === null || this.userLastName === undefined || this.userLastName === "") {
+    this.userLastName = "";
+}
+
+this.selectedGender = localStorage.getItem("u-g");
+if (this.selectedGender === null || this.selectedGender === undefined || this.selectedGender === "") {
+    this.selectedGender = "No";
+}
+
     if (!this.companyName || this.companyName === "Noname" || this.companyName === "undefined" || this.companyName === 'null') {
       this.companyName = "Noname";
     }

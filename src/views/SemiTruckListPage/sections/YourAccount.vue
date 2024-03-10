@@ -88,9 +88,6 @@
               </div>
               <div class="truck-body  gap-[5px] text-[14px] mt-[25px]">
                 <div class="truck-body">
-                  {{ $t("message.single_page.phone") }}: {{ truck.user_phone }}
-                </div>
-                <div class="truck-body">
                   {{ $t("message.single_page.email") }}: {{ truck.user_email }}
                 </div>
               </div>

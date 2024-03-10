@@ -39,8 +39,7 @@
       <div class="flex gap-[20px]">
 
         <div v-if="!userIcon">
-          <img :src="coache.user_image_url" class="w-[100px] h-[100px] object-cover" />
-        </div>
+          <img :src="profileImg" class="w-[100px] h-[100px] object-cover" />        </div>
         <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
           <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
             <g data-v-53d99ea3="" data-name="Layer 2">
@@ -399,8 +398,7 @@
       <div class="flex flex-wrap gap-[20px]">
 
         <div v-if="!userIcon">
-          <img :src="coache.user_image_url" class="w-[100px] h-[100px] object-cover" />
-        </div>
+          <img :src="profileImg" class="w-[100px] h-[100px] object-cover" />        </div>
         <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
           <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
             <g data-v-53d99ea3="" data-name="Layer 2">
@@ -573,7 +571,8 @@ export default {
           this.company = res.data.companu;
         } else {
         }
-        if (this.profileImg === null) {
+        this.profileImg = this.coache.user_image_url || this.company.company_image_url
+        if (this.profileImg === "null") {
           this.userIcon = !this.userIcon;
         }
         this.isLoading = false;

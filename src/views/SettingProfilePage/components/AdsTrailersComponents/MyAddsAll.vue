@@ -43,23 +43,33 @@
         <p class="price">€{{ trailer.trailer_price }}</p>
         <div class="flex gap-[10px] justify-center md:justify-end md:mt-[90px] lg:mt-[200px]
         ">
-          <button
-            class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-            @click="deleteAdtrailer(trailer.trailer_id)"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-            >
-              <!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-              <path
-                d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z"
-              />
-            </svg>
-            {{ $t("message.ads_page.delete") }}
+        <v-dialog v-model="dialog">
+            <template v-slot:activator="{ props }">
+              <button
+                class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
+                v-bind="props">
+                <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
+                  Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
+                  https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
+                  <path
+                    d="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" />
+                </svg>
+                {{ $t("message.ads_page.delete") }}
+              </button>
+            </template>
 
-          </button>
+            <v-card class="w-[300px] mx-auto">
+              <v-card-text class="mx-auto"> Are you sure? </v-card-text>
+              <div class="flex items-center w-[120px] mx-auto">
+                <v-card-actions>
+                  <v-btn color="error" block @click="dialog = false">No</v-btn>
+                </v-card-actions>
+                <v-card-actions>
+                  <v-btn color="success" block @click="deleteAdtrailer(trailer.trailer_id)">Yes</v-btn>
+                </v-card-actions>
+              </div>
+            </v-card>
+          </v-dialog>
 
           <button
             @click="editAdtrailer(trailer.trailer_id)"
@@ -91,6 +101,7 @@ export default {
     return {
       userI: "",
       trailers: [],
+      dialog: false,
     };
   },
 
