@@ -39,7 +39,7 @@
       <div class="flex gap-[20px]">
 
         <div v-if="!userIcon">
-          <img :src="profileImg" class="w-[100px] h-[100px] object-cover" />        </div>
+          <img :src="profileImg" class="w-[100px] h-[100px] " />        </div>
         <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
           <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
             <g data-v-53d99ea3="" data-name="Layer 2">
@@ -402,7 +402,7 @@
       <div class="lg:flex  items-center gap-[20px]">
 
         <div v-if="!userIcon">
-          <img :src="profileImg" class="w-[100px] h-[100px] object-cover" />        </div>
+          <img :src="profileImg" class="w-[100px] h-[100px] " />        </div>
         <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
           <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
             <g data-v-53d99ea3="" data-name="Layer 2">

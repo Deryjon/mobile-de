@@ -38,7 +38,7 @@
       <div class="flex gap-[20px]">
 
         <div v-if="!userIcon">
-          <img :src="profileImg" class="w-[100px] h-[100px] object-cover" />        </div>
+          <img :src="profileImg" class="w-[100px] h-[100px] " />        </div>
         <div class="icon w-[100px] h-[100px] mx-[15px]" v-else>
           <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
             <g data-v-53d99ea3="" data-name="Layer 2">
@@ -73,7 +73,7 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
       </div>
 
 
@@ -149,7 +149,7 @@
 
       </div>
 
-      <div class="technical-data bor p-[20px] md:mt-[80px] lg:mt-[10px]">
+      <div class="technical-data bor p-[20px] md:mt-[80px] lg:mt-[20px]">
         <p class="title text-[16px] lg:font-semibold">{{ $t("message.single_page.technical") }}</p>
         <div class="line mt-[10px]"></div>
         <button
@@ -243,7 +243,7 @@
       </div>
     </div>
     <div
-      class="right mt-[45px] h-[550px]  xl:h-[450px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right mt-[45px] h-[550px]  xl:h-[500px] hidden md:mt-[5px] md:block  bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{ 'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]': isScrolled }"
       :style="{ position: isScrolled ? 'fixed' : 'static', top: isScrolled ? '0' : 'auto' }">
       <div class="trailer-trailere lg:flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
@@ -261,7 +261,7 @@
       <div class="lg:flex items-center gap-[20px]">
 
         <div v-if="!userIcon">
-          <img :src="profileImg" class="w-[100px] h-[100px] object-cover" />        </div>
+          <img :src="profileImg" class="w-[100px] h-[100px]" />        </div>
         <div class="icon w-[80px] h-[80px] mx-[15px]" v-if="userIcon">
           <svg data-v-53d99ea3="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" id="profile">
             <g data-v-53d99ea3="" data-name="Layer 2">
@@ -300,7 +300,7 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_phone }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_phone_number }}</p>
       </div>
 
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
