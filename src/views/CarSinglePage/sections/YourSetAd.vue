@@ -504,7 +504,7 @@
       </div>
     </div>
     <div
-      class="right h-[550px] lg:h-[450px]  mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
+      class="right h-[550px] lg:h-[500p`x]  mt-[45px] hidden md:mt-[5px] md:block bg-[#0000001f] w-[130px] lg:w-[250px] xl:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]"
       :class="{
         'fixed right-[25px]  w-[120px] lg:right-[25px] xl:right-[150px]':
           isScrolled,
