@@ -116,25 +116,6 @@
           <img src="../../../../assets/icons/small-car-icon.svg" alt="" class="w-[75px] pt-[10px]" />
           <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car4") }}</span>
         </label>
-        <!-- sports -->
-        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-8 w-[280px]">
-          <input type="radio" v-model="selectedCar" @click="selectCar('Sports Car / Coupe')" :class="{
-        'bg-transparent': selectedCar !== 'Sports Car / Coupe',
-        'bg-orange': selectedCar === 'Sports Car / Coupe',
-      }" class="form-checkbox h-5 w-5 text-indigo-600" />
-
-          <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-24   lg:w-28 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car5") }}</span>
-        </label>
-        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-8 w-[280px]">
-          <input type="radio" v-model="selectedCar" @click="selectCar('SUV')" :class="{
-        'bg-transparent': selectedCar !== 'SUV',
-        'bg-orange': selectedCar === 'SUV',
-      }" class="form-checkbox h-5 w-5 text-indigo-600" />
-
-          <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-24   lg:w-28 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car6") }}</span>
-        </label>
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
