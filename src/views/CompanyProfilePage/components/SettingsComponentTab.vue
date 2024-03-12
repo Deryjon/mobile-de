@@ -984,15 +984,16 @@ export default {
     },
     deleteCompany() {
       http
-        .delete(`/company/delete`, {
-          data: { id: this.companyI },
-
-        })
+        .delete(`/user/delete/${this.userI}`)
         .then((response) => {
           console.log(this.companyI);
           localStorage.clear()
-          this.$router.push({ name: "home" });
-        });
+          if (localStorage.getItem("u-com") == null) {
+          localStorage.setItem("u-com", false);
+        } else if (localStorage.getItem("logged-in") == null) {
+          localStorage.setItem("logged-in", false);
+        }
+        window.location.reload();        });
       this.dialog = false
     },
     addSettingsCompany() {
