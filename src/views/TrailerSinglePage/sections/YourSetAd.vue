@@ -73,7 +73,7 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ trailer.user_country_code }} {{ trailer.user_phone_number }} {{ company.company_country_code }} {{ company.company_phone_number }}</p>
       </div>
 
 
@@ -237,7 +237,7 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ trailer.user_phone }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_country_code }} {{ trailer.user_phone_number }}</p>
         </div>
         
       </div>
@@ -300,7 +300,7 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ trailer.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ trailer.user_country_code }} {{ trailer.user_phone_number }}</p>
       </div>
 
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
@@ -439,9 +439,9 @@ export default {
         } else {
         }
         this.profileImg = this.trailer.user_image_url || this.company.company_image_url
-        if (this.profileImg === "null") {
-          this.userIcon = !this.userIcon;
-        }
+        if (!this.profileImg || this.profileImg === "undefined" || this.profileImg === 'null') {
+      this.userIcon = true;
+}
         this.isLoading = false;
       });
     },

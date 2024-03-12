@@ -57,13 +57,13 @@
 
           </div>
           <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
-            Address :
+            {{ $t("message.profile.address") }} :
             <p class="name">{{ company.company_address_city }}</p>
             <p class="name">{{ agricultural.user_address_city }}</p>
             <p class="name">{{ company.company_address_street }}</p>
             <p class="name">{{ agricultural.user_address_street }}</p>
 
-            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
+            <p class="name text-[14px]">Nr: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
 
           </div>
 
@@ -74,11 +74,11 @@
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
-          company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
+          company.company_phone_number }} {{ agricultural.user_country_code }} {{ agricultural.user_phone_number }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + agricultural.user_email"
-          class="complete bg-[#e04b00] text-[12px] p-[9px] font-medium lg:text-[16px] w-[100px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
+          class="complete bg-[#e04b00] text-[12px] py-[10px] px-[1x]  lg:text-[16px] w-[200px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
@@ -311,7 +311,7 @@
         </div>
         <div class="phone mt-[10px]">
           <p class="phone text-[11px] lg:text-[14px]">
-            {{ $t("message.single_page.phone") }}: {{ agricultural.user_phone_number }} {{ company.company_country_code }}
+            {{ $t("message.single_page.phone") }}: {{ agricultural.user_country_code }} {{ agricultural.user_phone_number }} {{ company.company_country_code }}
             {{ company.company_phone_number }}
           </p>
         </div>
@@ -362,13 +362,13 @@
             <p class="name text-[14px]">{{ company.company_name }}</p>
           </div>
           <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
-            Address :
+            {{ $t("message.profile.address") }} :
             <p class="name">{{ company.company_address_city }}</p>
             <p class="name">{{ agricultural.user_address_city }}</p>
             <p class="name">{{ company.company_address_street }}</p>
             <p class="name">{{ agricultural.user_address_street }}</p>
 
-            <p class="name text-[14px]">Near: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
+            <p class="name text-[14px]">Nr: {{ company.company_address_nr }} {{ agricultural.user_address_nr }}</p>
 
           </div>
           <div class="name-seller">
@@ -382,11 +382,11 @@
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{
-          company.company_phone_number }} {{ agricultural.user_phone_number }}</p>
+          company.company_phone_number }} {{ agricultural.user_country_code }} {{ agricultural.user_phone_number }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + agricultural.user_email"
-          class="complete bg-[#e04b00] text-[12px] p-[10px] font-medium lg:text-[13px] w-[130px] lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] ">
+          class="complete bg-[#e04b00] text-[12px] py-[10px] px-[4px]  lg:text-[12px] w-[150px] lg:py-[5px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] ">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
@@ -395,7 +395,7 @@
         </a>
         <div>
           <button
-            class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[170px]  text-white"
+            class="mt-0 flex items-center justify-center gap-[1px] lg:gap-[5px] bg-[#08829a] rounded-[4px] text-[10px] lg:text-[14px] py-[6px]  px-[5%] lg:p-[15px] w-[100px] md:w-[70px] lg:w-[150px]  text-white"
             @click="toggleShareMenu" v-if="!isShareMenuOpen">
             <svg class="nQao3 hcDLf YgmFC" width="16" height="16" viewBox="0 0 24 24" focusable="false" aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -521,9 +521,12 @@ export default {
         } else {
         }
         this.profileImg = this.agricultural.user_image_url || this.company.company_image_url
-        if (this.profileImg === "null") {
-          this.userIcon = !this.userIcon;
-        }
+        if (!this.profileImg || this.profileImg === "undefined" || this.profileImg === 'null') {
+      this.userIcon = true;
+}
+        // if (this.profileImg === "null") {
+        //   this.userIcon = !this.userIcon;
+        // }
           this.isLoading = false;
       });
     },

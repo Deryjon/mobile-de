@@ -3535,8 +3535,6 @@ export default {
 
     this.userPhone = localStorage.getItem("u-phone");
     this.userCodeNumber = localStorage.getItem("u-code");
-    this.userPre = localStorage.getItem("u-pre");
-
 
 
     http

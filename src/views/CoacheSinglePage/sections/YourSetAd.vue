@@ -59,7 +59,7 @@
             <p class="name text-[14px]">{{ company.company_name }}</p>
           </div>
           <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
-            Address :
+            {{ $t("message.profile.address") }} :
             <p class="name">{{ company.company_address_city }}</p>
             <p class="name">{{ coache.user_address_city }}</p>
             <p class="name">{{ company.company_address_street }}</p>
@@ -74,7 +74,7 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ coache.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }}  {{ coache.user_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ coache.user_country_code }}  {{ coache.user_phone_number }}</p>
       </div>
       <div class="flex  items-center gap-[2px] lg:gap-[10px] lg:w-full mt-[25px]">
         <a :href="'mailto:' + coache.user_email"
@@ -375,7 +375,7 @@
           </p>
         </div>
         <div class="phone mt-[10px]">
-          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ coache.user_phone_number }}</p>
+          <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ coache.user_country_code }} {{ coache.user_phone_number }}</p>
         </div>
       </div>
     </div>
@@ -419,7 +419,7 @@
 
           </div>
           <div class="name-seller flex flex-wrap gap-[5px] mt-[10px] font-semibold text-[14px]">
-            Address :
+            {{ $t("message.profile.address") }} :
             <p class="name">{{ company.company_address_city }}</p>
             <p class="name">{{ coache.user_address_city }}</p>
             <p class="name">{{ company.company_address_street }}</p>
@@ -434,7 +434,7 @@
         <p class="name">{{ $t("message.single_page.email") }}: {{ coache.user_email }}</p>
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
-        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ coache.user_phone_number }}</p>
+        <p class="name">{{ $t("message.single_page.phone") }}: {{ company.company_country_code }} {{ company.company_phone_number }} {{ coache.user_country_code }} {{ coache.user_phone_number }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <button
@@ -572,9 +572,9 @@ export default {
         } else {
         }
         this.profileImg = this.coache.user_image_url || this.company.company_image_url
-        if (this.profileImg === "null") {
-          this.userIcon = !this.userIcon;
-        }
+        if (!this.profileImg || this.profileImg === "undefined" || this.profileImg === 'null') {
+      this.userIcon = true;
+}
         this.isLoading = false;
       });
     },

@@ -1561,7 +1561,6 @@ export default {
 
     this.userPhone = localStorage.getItem("com-number");
     this.userCodeNumber = localStorage.getItem("com-numcode");
-    this.userPre = localStorage.getItem("com-prefix");
 
     http
       .get("/van/marks")

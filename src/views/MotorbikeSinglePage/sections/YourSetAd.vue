@@ -76,7 +76,7 @@
       </div>
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.phone") }}: 
-          {{ motorcycle.user_phone }}
+          {{ motorcycle.user_country_code }} {{ motorcycle.user_phone_number }}
         {{ company.company_country_code }} {{
           company.company_phone_number }} </p>
       </div>
@@ -381,7 +381,7 @@
         </div>
         <div class="phone mt-[10px]">
           <p class="phone text-[11px] lg:text-[14px]">{{ $t("message.single_page.phone") }}:    {{ company.company_country_code }} {{
-          company.company_phone_number }} {{ motorcycle.user_phone_number }}
+          company.company_phone_number }} {{ motorcycle.user_country_code }} {{ motorcycle.user_phone_number }}
           </p>
         </div>
       </div>
@@ -445,7 +445,7 @@
       <div class="name-seller mt-[15px] font-semibold text-[12px]">
         <p class="name">{{ $t("message.single_page.phone") }}: {{
           company.company_country_code }} {{
-          company.company_phone_number }} {{ motorcycle.user_phone_number }}</p>
+          company.company_phone_number }} {{ motorcycle.user_country_code }} {{ motorcycle.user_phone_number }}</p>
       </div>
       <div class="flex flex-wrap lg:flex-nowrap gap-[2px] md:gap-[10px] lg:gap-[5px]  mt-[25px]">
         <a :href="'mailto:' + motorcycle.user_email"
@@ -640,9 +640,9 @@ export default {
         } else {
         }
         this.profileImg = this.motorcycle.user_image_url || this.company.company_image_url
-        if (this.profileImg === "null") {
-          this.userIcon = !this.userIcon;
-        }
+        if (!this.profileImg || this.profileImg === "undefined" || this.profileImg === 'null') {
+      this.userIcon = true;
+}
         this.isLoading = false;
       })
     },
