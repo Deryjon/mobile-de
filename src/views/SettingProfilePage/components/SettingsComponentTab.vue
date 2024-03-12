@@ -782,6 +782,7 @@ export default {
           localStorage.setItem("u-fn", responseData.data.user_first_name);
           localStorage.setItem("u-ln", responseData.data.user_last_name);
           localStorage.setItem("u-g", responseData.data.user_gender);
+          window.location.reload()
         });
     },
   },
@@ -793,15 +794,15 @@ export default {
     this.userECh = localStorage.getItem("u-e");
     this.userName = localStorage.getItem("u-fn");
     if (this.userName === "null") {
-      this.userName = "Noname";
+      this.userName = "name";
     }
     this.userLastName = localStorage.getItem("u-ln");
     if (this.userLastName === "null") {
       this.userLastName = "";
     }
     this.selectedGender = localStorage.getItem("u-g");
-    if (this.userLastName === "null") {
-      this.userLastName = "";
+    if (this.selectedGender === "null") {
+      this.selectedGender = "No";
     }
     this.userAddressStreet = localStorage.getItem("u-d-s");
     if (this.userAddressStreet === "null") {

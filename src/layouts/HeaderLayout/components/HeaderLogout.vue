@@ -189,7 +189,7 @@ export default defineComponent({
     this.userName = localStorage.getItem("u-fn");
     this.companyName = localStorage.getItem("com-name");
 
-    if (this.userName === "null" || "undefined") {
+    if (!this.userName || this.userName === "Noname" || this.userName === "undefined" || this.userName === 'null') {
       this.userName = "Noname";
     }
 

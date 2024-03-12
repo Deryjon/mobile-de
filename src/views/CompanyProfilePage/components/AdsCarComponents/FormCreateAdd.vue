@@ -116,6 +116,7 @@
           <img src="../../../../assets/icons/small-car-icon.svg" alt="" class="w-[75px] pt-[10px]" />
           <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car4") }}</span>
         </label>
+        
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
