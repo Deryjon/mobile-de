@@ -4,7 +4,7 @@
       <div class="md:flex items-center gap-[20px]">
         <input type="file" ref="fileInput" accept="image/*" multiple style="display: none" @change="handleFileChange" />
         <button @click="openFileInput" class="bg-blue-500 p-[10px] rounded-[8px]">
-          + Add image
+          + {{ $t("message.edit_page.add_image") }}
         </button>
         <div class="file-preview flex flex-wrap lg:w-[600px] gap-[10px]">
           <div v-for="(file, index) in previewImages" :key="index" class="file-item relative">
@@ -15,12 +15,12 @@
               X
             </button>
           </div>
-          <span v-if="previewImages.length === 0">No Images</span>
+          <span v-if="previewImages.length === 0">{{ $t("message.ads_page.noimage") }}</span>
           <button v-if="errorPushPagePriceList" @click="goPriceList" class="font-bold text-[18px] bg-red-500 p-[15px] rounded-[10px]">Click for Pay</button>
         </div>
       </div>
       <div class="video-link mt-[30px]">
-        <h2 class="text-sm lg:text-[14px]">Link on Video</h2>
+        <h2 class="text-sm lg:text-[14px]">{{ $t("message.edit_page.link") }}</h2>
         <input
           type="text"
           class="mark-select bg-[#fff] py-[10px] px-[10px] rounded-[10px] w-full lg:w-[500px] mt-[10px] lg:text-[12px]"
@@ -29,7 +29,7 @@
       </div>
       <div class="mark w-[200px]">
         <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">Category</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.category") }}</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCategory"
@@ -125,53 +125,35 @@
         </div>
       </div>
       <div class="condition mt-[30px]">
-        <h3 class="text-[14px]">Type and condition</h3>
-        <div
-          class="radios-type flex flex-wrap gap-[10px] lg:gap-x-[244px] mt-[10px] mb-[10px]"
-        >
+        <h3 class="text-[14px]">{{ $t("message.filter_page.condition") }}</h3>
+        <div class="radios-type flex flex-wrap gap-[10px] lg:gap-[50px] mt-[10px] mb-[10px]">
           <label>
-            <input
-              type="radio"
-              v-model="selectedCondition"
-              :class="{
-                'bg-transparent': selectedCondition !== 'Any',
-                'bg-orange': selectedCondition === 'Any',
-              }"
-              class="ml-10px"
-              @click="selectCondition('Any')"
-            />
-            <span class="ml-[10px] text-[14px]">Any</span>
+            <input type="radio" v-model="selectedCondition" :class="{
+          'bg-transparent': selectedCondition !== 'Any',
+          'bg-orange': selectedCondition === 'Any',
+        }" class="ml-10px" @click="selectCondition('Any')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.any") }}</span>
           </label>
           <label>
-            <input
-              type="radio"
-              v-model="selectedCondition"
-              :class="{
-                'bg-transparent': selectedCondition !== 'New',
-                'bg-orange': selectedCondition === 'New',
-              }"
-              @click="selectCondition('New')"
-            />
-            <span class="ml-[10px] text-[14px]">New</span>
+            <input type="radio" v-model="selectedCondition" :class="{
+          'bg-transparent': selectedCondition !== 'New',
+          'bg-orange': selectedCondition === 'New',
+        }" @click="selectCondition('New')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.new") }}</span>
           </label>
           <label>
-            <input
-              type="radio"
-              v-model="selectedCondition"
-              :class="{
-                'bg-transparent': selectedCondition !== 'Used',
-                'bg-orange': selectedCondition === 'Used',
-              }"
-              @click="selectCondition('Used')"
-            />
-            <span class="ml-[10px] text-[14px]">Used</span>
+            <input type="radio" v-model="selectedCondition" :class="{
+          'bg-transparent': selectedCondition !== 'Used',
+          'bg-orange': selectedCondition === 'Used',
+        }" @click="selectCondition('Used')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.used") }}</span>
           </label>
         </div>
       </div>
 
       <div class="price-tab flex flex-wrap items-center gap-[21px] lg:gap-[30px]">
         <div class="price dropdown-container">
-          <h2 class="mt-2 text-sm lg:text-[14px]">Price</h2>
+          <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.price") }}</h2>
           <div class="input-container flex relative mt-[10px]">
             <input
               type="from"
@@ -446,7 +428,7 @@
         class="valid-until mt-[20px] flex flex-wrap items-center gap-x-[20px] lg:gap-x-[30px]"
       >
         <div class="relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">Country</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.country") }}</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedCountry"
@@ -527,7 +509,7 @@
           <span class="arrow w-[7px] h-[7px] absolute right-2 bottom-4"></span>
         </div>
         <div class="marke_select_div relative mt-2">
-          <h2 class="text-sm lg:text-[14px]">City / Post code</h2>
+          <h2 class="text-sm lg:text-[14px]">{{ $t("message.filter_page.postcode") }}</h2>
           <input
             class="mark_input mt-[10px] text-[14px] mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] ] lg:text-[12px]"
             type="text"
@@ -537,7 +519,7 @@
         </div>
         <!--  -->
         <div class="radius dropdown-container">
-          <h2 class="text-sm lg:text-[14px] mt-2">Radius</h2>
+          <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.radius") }}</h2>
           <div class="input-container flex relative mt-[10px]">
             <input
               type="from"
@@ -573,7 +555,7 @@
       </div>
     </div>
     <div class="lg:mt-[-10px] xl:mt-[30px]">
-      <h2 class="mt-2 text-sm lg:text-[14px]">Payment type</h2>
+      <h2 class="mt-2 text-sm lg:text-[14px]">{{ $t("message.filter_page.payment") }}</h2>
       <div class="Kaufen_div mt-[10px]">
         <button
           class="Kaufen p-[8px] text-[14px] w-[150px] lg:w-[150px] bg-[#f1f1f1] text-[#000] rounded-[2px] pointer"
@@ -596,7 +578,7 @@
         class="price-tab flex flex-wrap items-center gap-x-[20px] lg:gap-[30px]"
       >
         <div class="">
-          <h2 class="text-sm lg:text-[14px] mt-2">Load capacity</h2>
+          <h2 class="text-sm lg:text-[14px] mt-2">{{ $t("message.filter_page.loadcap") }}</h2>
           <div class="cubic dropdown-container ">
             <div class="input-container flex relative mt-[10px]">
               <input
@@ -639,508 +621,180 @@
           </div>
         </div>
       </div>
-      <div class="mt-[30px]">
-        <h3>Features</h3>
-        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+      <div class="mt-[30px] ">
+        <h3>{{ $t("message.filter_page.features.others") }}</h3>
+        <div class="filter-cars flex flex-wrap gap-[20px] mt-[10px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedABS"
-              @click="toggleShowCheckboxOthers(0, 'ABS')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedABS" @click="toggleShowCheckboxOthers(0, 'ABS')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedABS"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedABS" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            ABS
+            {{ $t("message.filter_page.features.abs") }}
           </label>
           <label
-            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedEmergency"
-              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedEmergency"
+              @click="toggleShowCheckboxOthers(1, 'Emergency brake assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedEmergency"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedEmergency" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Emergency brake assist
-          </label>
+            {{ $t("message.filter_page.features.brake") }} </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedCentral"
-              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedCentral"
+              @click="toggleShowCheckboxOthers(2, 'Keyless central locking')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedCentral"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedCentral" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
             Keyless central locking
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedSpeed"
-              @click="toggleShowCheckboxOthers(3, '	Speed limit control system')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSpeed"
+              @click="toggleShowCheckboxOthers(3, 'Speed limit control system')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSpeed"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedSpeed" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Speed limit control system
+            {{ $t("message.filter_page.features.speed") }} </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAdaptive"
+              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAdaptive" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.adaptivecor") }} </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTyre" @click="toggleShowCheckboxOthers(5, 'Emergency tyre')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedTyre" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.emergy") }}
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedAdaptive"
-              @click="toggleShowCheckboxOthers(4, 'Adaptive cornering lights')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedLastChanges"
+              @click="toggleShowCheckboxOthers(6, 'Lane change assist')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedAdaptive"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedLastChanges" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Adaptive cornering lights
-          </label>
+            {{ $t("message.filter_page.features.lanechange") }} </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedTyre"
-              @click="toggleShowCheckboxOthers(5, 'Emergency tyre')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSportsPackage"
+              @click="toggleShowCheckboxOthers(7, 'Sports package')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedTyre"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedSportsPackage" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Emergency tyre
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedLastChanges"
-              @click="toggleShowCheckboxOthers(6, 'Lane change assist')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedLastChanges"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Lane change assist
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedSportsPackage"
-              @click="toggleShowCheckboxOthers(7, 'Sports package')"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedSportsPackage"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            Sports package
+            {{ $t("message.filter_page.features.sportpackage") }}
           </label>
         </div>
       </div>
 			<div class="mt-[10px]">
-      <h3 class="text-[16px]">Extras</h3>
-      <div
-        class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]"
-      >
-        <!-- cabrio -->
-        <label
-          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedAlarmSystem"
-            @click="toggleShowCheckboxExtras(0, 'Alarm System')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedAlarmSystem"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Alarm System
-        </label>
-        <label
-          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedDisable"
-            @click="toggleShowCheckboxExtras(1, 'Disabled accessible')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedDisable"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Disabled accessible
-        </label>
-        <label
-          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedHeated"
-            @click="toggleShowCheckboxExtras(2, 'Heated steering whee')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedHeated"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Heated steering whee
-        </label>
-        <label
-          class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedSeat"
-            @click="toggleShowCheckboxExtras(3, 'Seat ventilation')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedSeat"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Seat ventilation
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedAmbient"
-            @click="toggleShowCheckboxExtras(4, 'Ambient lighting')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedAmbient"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Ambient lighting
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedElectric"
-            @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedElectric"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Electric backseat adjustment
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedInduction"
-            @click="
-              toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
-            "
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedInduction"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Induction charging for smartphones
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]"
-        >
-          <input
-            type="checkbox"
-            v-model="isCheckedSki"
-            @click="toggleShowCheckboxExtras(7, 'Ski bag')"
-          />
-          <svg
-            class="icon"
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-            width="1em"
-          >
-            <!-- Insert your SVG arrow icon here -->
-            <path
-              v-if="isCheckedSki"
-              fill="#ffffff"
-              d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-            />
-          </svg>
-          Ski bag
-        </label>
-      </div>
-      </div>
-      <div class="flex flex-wrap lg:gap-[40px]">
-        <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">New HU valid</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="stickerEmission"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-        <div class="marke_select_div relative mt-[10px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Renting Possible</h2>
-          <select
-            class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
-            v-model="classEmision"
-          >
-            <option value="any" selected>Any</option>
-            <option value="1">Up to 1</option>
-            <option value="2">Up to 2</option>
-            <option value="3">Up to 3</option>
-            <option value="4">Up to 4</option>
-          </select>
-          <span
-            class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
-          ></span>
-        </div>
-      </div>
-      <div class="mt-[30px]">
-        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+        <h3 class="text-[16px]">{{ $t("message.filter_page.features.extras") }}</h3>
+        <div class="filter-cars flex flex-wrap gap-x-[30px] gap-y-[8px] mt-[20px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Awning')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Awning',
-                'bg-orange': selectedFeat === 'Awning',
-              }"
-            />
-
-            Awning
+            class="custom-checkbox custom-beige flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAlarmSystem"
+              @click="toggleShowCheckboxExtras(0, 'Alarm System')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAlarmSystem" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.alarm") }}
           </label>
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Disabled accesible')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Disabled accesible',
-                'bg-orange': selectedFeat === 'Disabled accesible',
-              }"
-            />
-
-            Disabled accesible
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedHeated"
+              @click="toggleShowCheckboxExtras(1, 'Heated steering wheel')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedHeated" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.heat") }}
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Rear Garage')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Rear Garage',
-                'bg-orange': selectedFeat === 'Rear Garage',
-              }"
-            />
-
-            Rear Garage
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSeat" @click="toggleShowCheckboxExtras(2, 'Seat ventilation')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSeat" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.seat") }}
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-          >
-            <input
-              @click="selectFeat('Solar Energy System')"
-              type="radio"
-              v-model="selectedFeat"
-              :class="{
-                'bg-transparent': selectedFeat !== 'Solar Energy System',
-                'bg-orange': selectedFeat === 'Solar Energy System',
-              }"
-            />
-
-            Solar Energy System
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedAmbient"
+              @click="toggleShowCheckboxExtras(4, 'Ambient lighting')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedAmbient" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.abm") }}
+          </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedElectric"
+              @click="toggleShowCheckboxExtras(5, 'Electric backseat adjustment')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedElectric" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.electric") }}
+          </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedInduction" @click="
+        toggleShowCheckboxExtras(6, 'Induction charging for smartphones')
+        " />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedInduction" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.smart") }}
+          </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[210px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedSki" @click="toggleShowCheckboxExtras(7, 'Ski bag')" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedSki" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.features.ski") }}
           </label>
         </div>
       </div>
       <div class="flex flex-wrap gap-x-[40px]">
         <div class="marke_select_div relative mt-[14px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Vehicle Length</h2>
+          <h2 class="text-sm lg:text-[14px]">            {{ $t("message.filter_page.leng") }}
+</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedLength"
@@ -1155,9 +809,9 @@
             class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
           ></span>
         </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">
-            Permissible Gross Vehicle Weight (GVW)
+        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
+        
+            <h2 class="text-sm lg:text-[14px]">            {{ $t("message.filter_page.perm") }}
           </h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
@@ -1173,8 +827,9 @@
             class="arrow w-[7px] h-[7px] absolute right-2 lg:right-5 xl:right-2 bottom-4"
           ></span>
         </div>
-        <div class="marke_select_div relative mt-[20px] lg:mt-[30px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Number of Bunks</h2>
+        <div class="marke_select_div relative mt-[20px] lg:mt-[50px] w-[200px]">
+       <h2 class="text-sm lg:text-[14px]">            {{ $t("message.filter_page.numbun") }}
+</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedNumberBunks"
@@ -1190,7 +845,8 @@
           ></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Axles</h2>
+          <h2 class="text-sm lg:text-[14px]">              {{ $t("message.filter_page.axles") }}
+</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedAxles"
@@ -1206,7 +862,7 @@
           ></span>
         </div>
         <div class="marke_select_div relative mt-[20px] lg:mt-[10px] w-[200px]">
-          <h2 class="text-sm lg:text-[14px]">Radio</h2>
+          <h2 class="text-sm lg:text-[14px]">  {{ $t("message.filter_page.radio") }}</h2>
           <select
             class="mark-select mt-[10px] w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[20px] text-[10px] lg:text-[12px]"
             v-model="selectedRadio"
@@ -1224,128 +880,75 @@
       </div>
     </div>
     <div class="mt-[30px]">
-      <h3>Parking sensors</h3>
-      <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
-        <!-- cabrio -->
-        <label
-          class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-        >
-          <input
-            @click="selectParking('Rear')"
-            type="radio"
-            v-model="selectedParking"
-            :class="{
-              'bg-transparent': selectedParking !== 'Rear',
-              'bg-orange': selectedParking === 'Rear',
-            }"
-          />
+        <h3>{{ $t("message.filter_page.parking_sensors.title") }}</h3>
+        <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
+          <!-- cabrio -->
+          <label class="custom-checkbox custom-beige flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+            <input @click="selectParking('Rear')" type="radio" v-model="selectedParking" :class="{
+        'bg-transparent': selectedParking !== 'Rear',
+        'bg-orange': selectedParking === 'Rear',
+      }" />
 
-          Rear
-        </label>
-        <label
-          class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-        >
-          <input
-            @click="selectParking('Front')"
-            type="radio"
-            v-model="selectedParking"
-            :class="{
-              'bg-transparent': selectedParking !== 'Front',
-              'bg-orange': selectedParking === 'Front',
-            }"
-          />
+            {{ $t("message.filter_page.parking_sensors.rear") }}
+          </label>
+          <label class="custom-checkbox custom-brown flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+            <input @click="selectParking('Front')" type="radio" v-model="selectedParking" :class="{
+        'bg-transparent': selectedParking !== 'Front',
+        'bg-orange': selectedParking === 'Front',
+      }" />
 
-          Front
-        </label>
-        <label
-          class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-        >
-          <input
-            @click="selectParking('Camera')"
-            type="radio"
-            v-model="selectedParking"
-            :class="{
-              'bg-transparent': selectedParking !== 'Camera',
-              'bg-orange': selectedParking === 'Camera',
-            }"
-          />
+            {{ $t("message.filter_page.parking_sensors.front") }}
+          </label>
+          <label class="custom-checkbox custom-gold flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+            <input @click="selectParking('Camera')" type="radio" v-model="selectedParking" :class="{
+        'bg-transparent': selectedParking !== 'Camera',
+        'bg-orange': selectedParking === 'Camera',
+      }" />
 
-          Camera
-        </label>
-        <label
-          class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-        >
-          <input
-            @click="selectParking('360° camera')"
-            type="radio"
-            v-model="selectedParking"
-            :class="{
-              'bg-transparent': selectedParking !== '360° camera',
-              'bg-orange': selectedParking === '360° camera',
-            }"
-          />
+            {{ $t("message.filter_page.parking_sensors.camera") }}
+          </label>
+          <label class="custom-checkbox custom-green flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+            <input @click="selectParking('360° camera')" type="radio" v-model="selectedParking" :class="{
+        'bg-transparent': selectedParking !== '360° camera',
+        'bg-orange': selectedParking === '360° camera',
+      }" />
 
-          360° camera
-        </label>
-        <label
-          class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0"
-        >
-          <input
-            @click="selectParking('Self-steering systems')"
-            type="radio"
-            v-model="selectedParking"
-            :class="{
-              'bg-transparent': selectedParking !== 'Self-steering systems',
-              'bg-orange': selectedParking === 'Self-steering systems',
-            }"
-          />
+            {{ $t("message.filter_page.parking_sensors.camera2") }}
+          </label>
+          <label class="custom-checkbox custom-red flex gap-[10px] text-[14px] items-center h-[40px] pb-[20px] p-0">
+            <input @click="selectParking('Self-steering systems')" type="radio" v-model="selectedParking" :class="{
+        'bg-transparent': selectedParking !== 'Self-steering systems',
+        'bg-orange': selectedParking === 'Self-steering systems',
+      }" />
 
-          Self-steering systems
-        </label>
+            {{ $t("message.filter_page.parking_sensors.self") }}
+          </label>
+        </div>
       </div>
-    </div>
     <div class="interior">
       <div class="condition mt-[30px]">
-        <h3 class="text-[16px]">Vendor</h3>
-        <div class="radios-type flex flex-wrap gap-[20px] lg:gap-[40px] mt-[20px]">
+        <h3 class="text-[14px] lg:text-[16px]">{{ $t("message.filter_page.vendor") }}</h3>
+        <div class="radios-type flex flex-wrap gap-x-[10px] lg:gap-[40px] mt-[20px]">
           <label>
-            <input
-              type="radio"
-              id="vendor-private"
-              v-model="selectedVendor"
-              :class="{
-                'bg-transparent': selectedVendor !== 'Private',
-                'bg-orange': selectedVendor === 'Private',
-              }"
-              @click="selectVendor('Private')"
-            />
-            <span class="ml-[10px] text-[14px]">Private seller</span>
+            <input type="radio" id="vendor-private" v-model="selectedVendor" :class="{
+        'bg-transparent': selectedVendor !== 'Private seller',
+        'bg-orange': selectedVendor === 'Private seller',
+      }" @click="selectVendor('Private seller')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.private") }}</span>
           </label>
           <label>
-            <input
-              type="radio"
-              id="vendor-dealer"
-              v-model="selectedVendor"
-              :class="{
-                'bg-transparent': selectedVendor !== 'Dealer',
-                'bg-orange': selectedVendor === 'Dealer',
-              }"
-              @click="selectVendor('Dealer')"
-            />
-            <span class="ml-[10px] text-[14px]">Dealer </span>
+            <input type="radio" id="vendor-dealer" v-model="selectedVendor" :class="{
+        'bg-transparent': selectedVendor !== 'Dealer',
+        'bg-orange': selectedVendor === 'Dealer',
+      }" @click="selectVendor('Dealer')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.dealer") }} </span>
           </label>
           <label>
-            <input
-              type="radio"
-              id="vendor-dealer"
-              v-model="selectedVendor"
-              :class="{
-                'bg-transparent': selectedVendor !== 'Company',
-                'bg-orange': selectedVendor === 'Company',
-              }"
-              @click="selectVendor('Company')"
-            />
-            <span class="ml-[10px] text-[14px]">Company vehicles</span>
+            <input type="radio" id="vendor-dealer" v-model="selectedVendor" :class="{
+        'bg-transparent': selectedVendor !== 'Company vehicles',
+        'bg-orange': selectedVendor === 'Company vehicles',
+      }" @click="selectVendor('Company vehicles')" />
+            <span class="ml-[10px] text-[14px]">{{ $t("message.filter_page.company") }}</span>
           </label>
         </div>
       </div>
@@ -1353,148 +956,63 @@
         <div class="filter-cars flex flex-wrap gap-x-[30px] mt-[10px]">
           <!-- cabrio -->
           <label
-            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedDiscount"
-              @click="toggleShowCheckboxAds(0)"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-gold flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedDiscount" @click="toggleShowCheckboxAds(0)" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedDiscount"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedDiscount" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Discount offers
+            {{ $t("message.filter_page.discount") }}
           </label>
           <label
-            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedNon"
-              @click="toggleShowCheckboxAds(0)"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-green flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedNon" @click="toggleShowCheckboxAds(0)" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedNon"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedNon" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Non-smoker vehicle
+            {{ $t("message.filter_page.non") }}
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedTaxi"
-              @click="toggleShowCheckboxAds(0)"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedTaxi" @click="toggleShowCheckboxAds(0)" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedTaxi"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedTaxi" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Taxi
+            {{ $t("message.filter_page.taxi") }}
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedVAT"
-              @click="toggleShowCheckboxAds(0)"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedVAT" @click="toggleShowCheckboxAds(0)" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedVAT"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedVAT" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            VAT reclaimable
+            {{ $t("message.filter_page.vat") }} </label>
+          <label
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedWarranty" @click="toggleShowCheckboxAds(0)" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
+              <!-- Insert your SVG arrow icon here -->
+              <path v-if="isCheckedWarranty" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
+            </svg>
+            {{ $t("message.filter_page.warranty") }}
           </label>
           <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedWarranty"
-              @click="toggleShowCheckboxAds(0)"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
+            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]">
+            <input type="checkbox" v-model="isCheckedEnvironmental" @click="toggleShowCheckboxAds(0)" />
+            <svg class="icon" xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512" width="1em">
               <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedWarranty"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
+              <path v-if="isCheckedEnvironmental" fill="#ffffff"
+                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z" />
             </svg>
-            Warranty
-          </label>
-          <label
-            class="custom-checkbox custom-red flex gap-[10px] text-[14px] w-[206px] items-center h-[40px] pb-[20px]"
-          >
-            <input
-              type="checkbox"
-              v-model="isCheckedEnvironmental"
-              @click="toggleShowCheckboxAds(0)"
-            />
-            <svg
-              class="icon"
-              xmlns="http://www.w3.org/2000/svg"
-              height="1em"
-              viewBox="0 0 448 512"
-              width="1em"
-            >
-              <!-- Insert your SVG arrow icon here -->
-              <path
-                v-if="isCheckedEnvironmental"
-                fill="#ffffff"
-                d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
-              />
-            </svg>
-            With environmental bonus
+            {{ $t("message.filter_page.bonus") }}
           </label>
         </div>
       </div>
@@ -1523,12 +1041,12 @@
                 d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"
               />
             </svg>
-            Damaged Vehicles
+            {{ $t("message.filter_page.damaged") }}
           </label>
         </div>
       </div>
       <div class="pr-[5px]">
-        <h2 class="mt-[30px] text-[16px]">Description</h2>
+        <h2 class="mt-[30px] text-[16px]">{{ $t("message.filter_page.description") }}</h2>
         <textarea
           class="bg-[#ccc] mt-[10px] p-[20px] w-full"
           name=""
@@ -1545,14 +1063,14 @@
             class="bg-red-500 rounded-[8px] p-[10px]"
             @click="handleCancelButtonClick"
           >
-            Cancel
+          {{ $t("message.filter_page.cancel") }}
           </button>
           <button
             @click="addAdTrucks
 			"
             class="bg-blue-500 rounded-[8px] p-[10px]"
           >
-            Create Add
+          {{ $t("message.ads_page.createad") }}
           </button>
         </div>
       </div>

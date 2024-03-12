@@ -168,32 +168,6 @@
         <div class="power flex w-[186px] gap-[5px]">
           <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg" fill="none">
-            <g stroke="#e04b00" stroke-linecap="round" fill="none" stroke-width="2">
-              <path
-                d="M32.0054 34.036C35.0909 30.959 37 26.7022 37 22C37 12.6109 29.3891 5 20 5C10.6109 5 3 12.6109 3 22C3 26.709 4.9142 30.9709 8.0065 34.0496M28.075 30.075L31.9 33.9M11.925 30.075L8.1 33.9">
-              </path>
-              <path
-                d="M20.0001 24.55C21.4084 24.55 22.5501 23.4083 22.5501 22C22.5501 20.5917 21.4084 19.45 20.0001 19.45C18.5917 19.45 17.4501 20.5917 17.4501 22C17.4501 23.4083 18.5917 24.55 20.0001 24.55Z">
-              </path>
-              <path d="M22.125 24.125L25.1 27.1"></path>
-              <path
-                d="M26.4397 24.1896C26.6726 23.5011 26.8001 22.765 26.8001 22C26.8001 20.1215 26.0385 18.4215 24.8069 17.189"
-                stroke-width="1.5"></path>
-              <path
-                d="M29.0186 26.7685C29.7751 25.3456 30.2001 23.7221 30.2001 22C30.2001 18.0067 27.9051 14.5489 24.562 12.8744"
-                stroke-width="1.6"></path>
-              <path d="M31.5047 29.2556C32.8307 27.1561 33.6 24.6673 33.6 22C33.6 14.4886 27.5114 8.40002 20 8.40002"
-                stroke-width="1.7"></path>
-            </g>
-          </svg>
-          <div class="kilomet">
-            <p class="text-[10px] lg:text-[12px]">{{ $t("message.single_page.power") }}</p>
-            <p class="text-[12px] font-medium lg:font-bold">{{ powerInkW }} kW ({{ powerInHp }} Hp)</p>
-          </div>
-        </div>
-        <div class="power flex w-[186px] gap-[5px]">
-          <svg class="SvgIcon__1H1VO" width="40" height="40" viewBox="0 0 40 40" focusable="false" aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg" fill="none">
             <g fill="none" stroke="#e04b00" stroke-width="2" stroke-linejoin="round">
               <path d="M31 17C31 24.1797 26.0751 30 20 30C13.9249 30 9 24.1797 9 17" stroke-linecap="round"></path>
               <path
@@ -226,12 +200,7 @@
               {{ construction.machine_category }}
             </p>
           </div>
-          <div class="power flex justify-between">
-            <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.power") }}</p>
-            <p class="w-[288px] text-[11px] lg:text-[14px]">
-              {{ powerInkW }} kW ({{ powerInHp }} Hp)
-            </p>
-          </div>
+          
           <div class="availability flex justify-between">
             <p class="w-[288px] text-[11px] lg:text-[14px] font-semibold">{{ $t("message.single_page.sticker") }}</p>
             <p class="w-[288px] text-[11px] lg:text-[14px]">{{ construction.machine_emissions_sticker }}</p>

@@ -610,7 +610,26 @@ export default {
         motor7: "Super Moto",
         motor8: "Motocykl terenowy",
         motor9: "Naked bike",
+        motor10: "Skuter",
+        motor11: "Motocykl sportowy/super sportowy",
+        motor12: "Pocketbike",
+        motor13: "Trike",
+        motor14: "Quad",
+        motor15: "Inne",
       },
+      motorhome: {
+        motorhome1: "Alkowy",
+        motorhome2: "Zintegrowany",
+        motorhome3: "Kampery/Pickupy",
+        motorhome4: "Inne",
+        motorhome5: "Chata",
+        motorhome6: "Mobilny dom",
+        motorhome7: "Częściowo zintegrowany",
+        motorhome8: "Przyczepa kempingowa",
+        motorhome9: "Inne rodzaje kamperów",
+        motorhome10: "Furgonetka",
+      },
+
       driving_mode: {
         title: "Tryb jazdy",
         drive1: "Napęd wałowy",
@@ -729,9 +748,15 @@ export default {
       truckad: "Moje ogłoszenia samochodów ciężarowych",
       vanad: "Moje ogłoszenia vany",
       createnew: "Utwórz nowe ogłoszenie",
+      createad: "Utwórz ogłoszenie",
       sellcar: "Sprzedaj swój pojazd za darmo",
       delete: "Usuń",
       edit: "Edytuj",
+      noimage: "Brak zdjęć",
+      next: "Następny",
+      municipal: "Miejski",
+      height: "Wysokość",
+
       }
   },
 };
