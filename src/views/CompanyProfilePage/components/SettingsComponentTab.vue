@@ -1018,6 +1018,10 @@ export default {
             "com-street",
             responseData.data.company_address_street
           );
+          localStorage.setItem(
+            "com-country",
+            responseData.data.company_address_country
+          );
           localStorage.setItem("com-nr", responseData.data.company_address_nr);
           localStorage.setItem(
             "com-zip",
