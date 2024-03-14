@@ -116,7 +116,7 @@
           <img src="../../../../assets/icons/small-car-icon.svg" alt="" class="w-[75px] pt-[10px]" />
           <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car4") }}</span>
         </label>
-        
+
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
@@ -2632,8 +2632,8 @@
       </div>
       <div>
         <div class="flex gap-[30px] justify-end">
-          <button class="bg-red-500 rounded-[8px] p-[10px]" @click="cancelAdCar">          {{ $t("message.filter_page.cancel") }}
-</button>
+          <button class="bg-red-500 rounded-[8px] p-[10px]" @click="cancelAdCar"> {{ $t("message.filter_page.cancel") }}
+          </button>
           <button @click="thenAddsInterior" class="bg-blue-500 rounded-[8px] p-[10px]">
             {{ $t("message.ads_page.createad") }}
           </button>
@@ -3195,9 +3195,13 @@ export default {
       }
     },
     openPriceDropdown() {
-      this.priceOpen = true;
-      this.filteredOptions = this.options;
-      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+      this.priceOpen = !this.priceOpen;
+      if (this.priceOpen) {
+        document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closePriceDropdownOnClickOutside);
+      }
+     
     },
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".price");
@@ -3215,8 +3219,11 @@ export default {
     },
     openDropdown() {
       this.isOpen = !this.isOpen;
-      this.filteredOptions = this.options;
-      document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+      if (this.isOpen) {
+        document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closeYearsDropdownOnClickOutside);
+      }
     },
     selectOption(option) {
       this.inputValue = option;
@@ -3235,18 +3242,21 @@ export default {
     openKilometrDropdown() {
       this.isOpenKilometer = !this.isOpenKilometer;
       this.filteredOptions = this.options;
-      document.addEventListener(
-        "click",
-        this.closeKilometerDropdownOnClickOutside
-      );
+      if (this.isOpenKilometer) {
+        document.addEventListener("click", this.closeKilometerDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closeKilometerDropdownOnClickOutside);
+      }
     },
     openPreDropdown() {
-      this.isOpenPre = !this.isOPenPre;
-      document.addEventListener(
-        "click",
-        this.closePreDropdownOnClickOutside
-      );
+      this.isOpenPre = !this.isOpenPre;
+      if (this.isOpenPre) {
+        document.addEventListener("click", this.closePreDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closePreDropdownOnClickOutside);
+      }
     },
+
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;

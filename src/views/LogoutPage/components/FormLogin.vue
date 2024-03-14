@@ -406,6 +406,8 @@ export default {
                         localStorage.setItem("com-name", responseData.data?.company_name);
                         localStorage.setItem("com-prefix", responseData.data?.company_number_prefix);
                         localStorage.setItem("com-number", responseData.data?.company_phone_number);
+                        localStorage.setItem("com-img-prof", responseData?.data.company_image_url);
+        localStorage.setItem("com-img-alt", responseData?.data.company_image_name);
                     }
                     window.location.reload();
                 }).catch(error => {

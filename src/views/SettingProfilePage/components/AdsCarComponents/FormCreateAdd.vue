@@ -116,17 +116,7 @@
           <img src="../../../../assets/icons/small-car-icon.svg" alt="" class="w-[75px] pt-[10px]" />
           <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car4") }}</span>
         </label>
-        <!-- sports -->
-        <label class="custom-checkbox p-[0] lg:gap-[10px] flex items-center h-8 w-[280px]">
-          <input type="radio" v-model="selectedCar" @click="selectCar('Sports Car / Coupe')" :class="{
-        'bg-transparent': selectedCar !== 'Sports Car / Coupe',
-        'bg-orange': selectedCar === 'Sports Car / Coupe',
-      }" class="form-checkbox h-5 w-5 text-indigo-600" />
 
-          <img src="../../../../assets/icons/sports-car-icon.svg" alt="" class="w-24   lg:w-28 pt-[18px]" />
-          <span class="text-[12px] lg:text-sm">{{ $t("message.filter_page.car.car5") }}</span>
-        </label>
-    
         <!-- off-road -->
         <label class="custom-checkbox p-[0] flex gap-4 items-center h-10 w-[230px]">
           <input type="radio" v-model="selectedCar" @click="selectCar('Van / Minibus')" :class="{
@@ -525,11 +515,11 @@
             <li key="2045" @click="selectOption('2045')">2045</li>
           </ul>
         </div>
-        <div class="kilometer dropdown-container">
+        <div class=" dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">
             {{ $t("message.selects.kilometr") }}
           </h2>
-          <div class="input-container flex relative mt-[10px]">
+          <div class="kilometer flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="inputKilometer" @focus="openKilometrDropdown" @input="filterOptions"
@@ -2642,8 +2632,8 @@
       </div>
       <div>
         <div class="flex gap-[30px] justify-end">
-          <button class="bg-red-500 rounded-[8px] p-[10px]" @click="cancelAdCar">          {{ $t("message.filter_page.cancel") }}
-</button>
+          <button class="bg-red-500 rounded-[8px] p-[10px]" @click="cancelAdCar"> {{ $t("message.filter_page.cancel") }}
+          </button>
           <button @click="thenAddsInterior" class="bg-blue-500 rounded-[8px] p-[10px]">
             {{ $t("message.ads_page.createad") }}
           </button>
@@ -2725,7 +2715,7 @@ export default {
       previewImages: [],
       numDoor: "",
       slidingDoor: "",
-      isOpenKilometer: "",
+      isOpenKilometer: false,
       inputKilometer: "",
       radius: "",
       isOpenCubic: false,
@@ -2830,6 +2820,7 @@ export default {
       selectedTransmision: "",
       selectedMaterial: "",
       options: [],
+      isOpenPre: false,
       isCheckedAdaptiveLighting: false,
       isCheckedEmergencyKit: false,
       isCheckedLaserHeadlights: false,
@@ -3164,7 +3155,7 @@ export default {
       this.selectedAirbag = condition;
     },
     openRadiusDropdown() {
-      this.isOpenRadius = true;
+      this.isOpenRadius = !this.isOpenRadius;
       this.filteredOptions = this.options;
       document.addEventListener(
         "click",
@@ -3204,9 +3195,13 @@ export default {
       }
     },
     openPriceDropdown() {
-      this.priceOpen = true;
-      this.filteredOptions = this.options;
-      document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+      this.priceOpen = !this.priceOpen;
+      if (this.priceOpen) {
+        document.addEventListener("click", this.closePriceDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closePriceDropdownOnClickOutside);
+      }
+     
     },
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".price");
@@ -3223,9 +3218,12 @@ export default {
       this.priceOpen = false;
     },
     openDropdown() {
-      this.isOpen = true;
-      this.filteredOptions = this.options;
-      document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+      this.isOpen = !this.isOpen;
+      if (this.isOpen) {
+        document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closeYearsDropdownOnClickOutside);
+      }
     },
     selectOption(option) {
       this.inputValue = option;
@@ -3242,21 +3240,23 @@ export default {
       }
     },
     openKilometrDropdown() {
-      this.isOpenKilometer = true;
+      this.isOpenKilometer = !this.isOpenKilometer;
       this.filteredOptions = this.options;
-      document.addEventListener(
-        "click",
-        this.closeKilometerDropdownOnClickOutside
-      );
+      if (this.isOpenKilometer) {
+        document.addEventListener("click", this.closeKilometerDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closeKilometerDropdownOnClickOutside);
+      }
     },
     openPreDropdown() {
-      this.isOpenPre = true;
-      this.filteredOptions = this.options;
-      document.addEventListener(
-        "click",
-        this.closePreDropdownOnClickOutside
-      );
+      this.isOpenPre = !this.isOpenPre;
+      if (this.isOpenPre) {
+        document.addEventListener("click", this.closePreDropdownOnClickOutside);
+      } else {
+        document.removeEventListener("click", this.closePreDropdownOnClickOutside);
+      }
     },
+
     selectKilometer(option) {
       this.inputKilometer = option;
       this.isOpenKilometer = false;
@@ -3271,7 +3271,7 @@ export default {
         this.isOpenPre = false;
         document.removeEventListener(
           "click",
-          this.closeKilometerDropdownOnClickOutside
+          this.closePreDropdownOnClickOutside
         );
       }
     },
