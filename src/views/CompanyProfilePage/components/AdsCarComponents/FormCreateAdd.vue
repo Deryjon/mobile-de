@@ -515,11 +515,11 @@
             <li key="2045" @click="selectOption('2045')">2045</li>
           </ul>
         </div>
-        <div class="kilometer dropdown-container">
+        <div class=" dropdown-container">
           <h2 class="mt-2 text-sm lg:text-[14px]">
             {{ $t("message.selects.kilometr") }}
           </h2>
-          <div class="input-container flex relative mt-[10px]">
+          <div class="kilometer flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="inputKilometer" @focus="openKilometrDropdown" @input="filterOptions"
@@ -2715,7 +2715,7 @@ export default {
       previewImages: [],
       numDoor: "",
       slidingDoor: "",
-      isOpenKilometer: "",
+      isOpenKilometer: false,
       inputKilometer: "",
       radius: "",
       isOpenCubic: false,
@@ -2820,6 +2820,7 @@ export default {
       selectedTransmision: "",
       selectedMaterial: "",
       options: [],
+      isOpenPre: false,
       isCheckedAdaptiveLighting: false,
       isCheckedEmergencyKit: false,
       isCheckedLaserHeadlights: false,
@@ -3154,7 +3155,7 @@ export default {
       this.selectedAirbag = condition;
     },
     openRadiusDropdown() {
-      this.isOpenRadius = true;
+      this.isOpenRadius = !this.isOpenRadius;
       this.filteredOptions = this.options;
       document.addEventListener(
         "click",
@@ -3213,7 +3214,7 @@ export default {
       this.priceOpen = false;
     },
     openDropdown() {
-      this.isOpen = true;
+      this.isOpen = !this.isOpen;
       this.filteredOptions = this.options;
       document.addEventListener("click", this.closeYearsDropdownOnClickOutside);
     },
@@ -3232,7 +3233,7 @@ export default {
       }
     },
     openKilometrDropdown() {
-      this.isOpenKilometer = true;
+      this.isOpenKilometer = !this.isOpenKilometer;
       this.filteredOptions = this.options;
       document.addEventListener(
         "click",
@@ -3240,8 +3241,7 @@ export default {
       );
     },
     openPreDropdown() {
-      this.isOpenPre = true;
-      this.filteredOptions = this.options;
+      this.isOpenPre = !this.isOPenPre;
       document.addEventListener(
         "click",
         this.closePreDropdownOnClickOutside
@@ -3261,7 +3261,7 @@ export default {
         this.isOpenPre = false;
         document.removeEventListener(
           "click",
-          this.closeKilometerDropdownOnClickOutside
+          this.closePreDropdownOnClickOutside
         );
       }
     },

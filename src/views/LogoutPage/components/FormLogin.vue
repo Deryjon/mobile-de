@@ -384,7 +384,9 @@ export default {
             localStorage.setItem("r-tok", responseData.token);
             localStorage.setItem("u-e", responseData.data?.user_email);
             localStorage.setItem("com-i", responseData.data?.company_id);
-
+            localStorage.setItem("u-fn", responseData.data?.user_first_name);
+                localStorage.setItem("u-ln", responseData.data?.user_last_name);
+                localStorage.setItem("u-g", responseData.data?.user_gender);
             // Проверяем, есть ли у пользователя компания
             if (responseData.data?.user_company === true) {
                 const userId = localStorage.getItem("u-i");
@@ -413,9 +415,6 @@ export default {
                 // Если пользователь не принадлежит компании, сохраняем его данные
                 localStorage.setItem("u-e", responseData.data?.user_email);
                 localStorage.setItem("u-p", responseData.data?.user_password);
-                localStorage.setItem("u-fn", responseData.data?.user_first_name);
-                localStorage.setItem("u-ln", responseData.data?.user_last_name);
-                localStorage.setItem("u-g", responseData.data?.user_gender);
                 localStorage.setItem("u-d-s", responseData.data?.user_address_street);
                 localStorage.setItem("u-d-nr", responseData.data?.user_address_nr);
                 localStorage.setItem("u-d-z", responseData.data?.user_address_zip);
