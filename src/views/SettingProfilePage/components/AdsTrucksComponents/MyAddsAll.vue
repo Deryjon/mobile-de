@@ -61,7 +61,9 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(truck.truck_id)" 
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -79,7 +81,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdtruck(truck.truck_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcar()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -123,32 +125,58 @@ export default {
     fetchAds() {
       http.get(`/user/trucks/${this.userI}?limit=100&offset=0`).then((res) => {
         this.trucks = res.data.data;
-        console.log(this.trucks);
       });
     },
     editAdtruck(truckId) {
       this.$router.push({ name: "edit-ad-trucks", params: { id: truckId } });
     },
-    deleteAdtruck(truckId) {
-      // Отправляем запрос DELETE на сервер с указанием truckId
-      console.log(`Объявление с ID ${truckId} удалено.`);
-      http
-        .delete('/trucks/delete', {
-          data: { id: parseInt(truckId) },
-        })
-        .then((response) => {
-          // Обработка успешного удаления
-          console.log(`Объявление с ID ${truckId} удалено.`);
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${truckId}:`, error);
-          // Выполните здесь необходимые действия при ошибке
-        });
-    },
+    prepareDelete(truckId) {
+    this.carIdToDelete = truckId;
+  },
+    deleteAdcar() {
+    const truckId = this.carIdToDelete;
+    if (!truckId) {
+      console.error("truckId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${truckId}`);
+    http
+      .delete(`/trucks/delete`, {
+        data: { id: parseInt(truckId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${truckId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${truckId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения carIdToDelete после удаления
+        this.carIdToDelete = null;
+      });
+  },
+    // deleteAdtruck(truckId) {
+    //   // Отправляем запрос DELETE на сервер с указанием truckId
+    //   console.log(`Объявление с ID ${truckId} удалено.`);
+    //   http
+    //     .delete('/trucks/delete', {
+    //       data: { id: parseInt(truckId) },
+    //     })
+    //     .then((response) => {
+    //       // Обработка успешного удаления
+    //       console.log(`Объявление с ID ${truckId} удалено.`);
+    //       // Выполните здесь необходимые действия после успешного удаления
+    //       // Например, можно вызвать метод fetchAds() для обновления списка объявлений
+    //       this.fetchAds();
+    //     })
+    //     .catch((error) => {
+    //       // Обработка ошибки при удалении
+    //       console.error(`Ошибка при удалении объявления с ID ${truckId}:`, error);
+    //       // Выполните здесь необходимые действия при ошибке
+    //     });
+    // },
   },
   created() {
     this.userI = localStorage.getItem("u-i");

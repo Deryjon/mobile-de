@@ -61,7 +61,9 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(van.van_id)" 
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -79,7 +81,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdvan(van.van_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcar()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -129,26 +131,53 @@ export default {
     editAd(vanId) {
       this.$router.push({ name: "edit-ad-vans", params: { id: vanId } });
     },
-    deleteAdvan(vanId) {
-      // Отправляем запрос DELETE на сервер с указанием vanId
-      console.log(`Объявление с ID ${vanId} удалено.`);
-      http
-        .delete(`/vans/delete`, {
-          data: { id: parseInt(vanId) },
-        })
-        .then((response) => {
-          // Обработка успешного удаления
-          console.log(`Объявление с ID ${vanId} удалено.`);
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${vanId}:`, error);
-          // Выполните здесь необходимые действия при ошибке
-        });
-    },
+    prepareDelete(vanId) {
+    this.carIdToDelete = vanId;
+  },
+    deleteAdcar() {
+    const vanId = this.carIdToDelete;
+    if (!vanId) {
+      console.error("vanId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${vanId}`);
+    http
+      .delete(`/vans/delete`, {
+        data: { id: parseInt(vanId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${vanId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${vanId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения carIdToDelete после удаления
+        this.carIdToDelete = null;
+      });
+  },
+    // deleteAdvan(vanId) {
+    //   // Отправляем запрос DELETE на сервер с указанием vanId
+    //   console.log(`Объявление с ID ${vanId} удалено.`);
+    //   http
+    //     .delete(`/vans/delete`, {
+    //       data: { id: parseInt(vanId) },
+    //     })
+    //     .then((response) => {
+    //       // Обработка успешного удаления
+    //       console.log(`Объявление с ID ${vanId} удалено.`);
+    //       // Выполните здесь необходимые действия после успешного удаления
+    //       // Например, можно вызвать метод fetchAds() для обновления списка объявлений
+    //       this.fetchAds();
+    //     })
+    //     .catch((error) => {
+    //       // Обработка ошибки при удалении
+    //       console.error(`Ошибка при удалении объявления с ID ${vanId}:`, error);
+    //       // Выполните здесь необходимые действия при ошибке
+    //     });
+    // },
   },
   created() {
     this.userI = localStorage.getItem("u-i");
