@@ -50,7 +50,9 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(coache.coache_id)" 
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -68,7 +70,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdcoach(coache.coache_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcoach()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -110,29 +112,33 @@ export default {
     editAdcoach(coachId) {
       this.$router.push({ name: "edit-ad-coache", params: { id: coachId } });
     },
-    deleteAdcoach(coachId) {
-      // Отправляем запрос DELETE на сервер с указанием coachId
-      console.log(`Объявление с ID ${coachId} удалено.`);
-      http
-        .delete(`/coaches/delete`, {
-          data: { id: parseInt(coachId) },
-        })
-        .then((response) => {
-          // Обработка успешного удаления
-          console.log(`Объявление с ID ${coachId} удалено.`);
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-          console.error(
-            `Ошибка при удалении объявления с ID ${coachId}:`,
-            error
-          );
-          // Выполните здесь необходимые действия при ошибке
-        });
-    },
+    prepareDelete(coachId) {
+    this.coachIdToDelete = coachId;
+  },
+    deleteAdcoach() {
+    const coachId = this.coachIdToDelete;
+    if (!coachId) {
+      console.error("coachId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${coachId}`);
+    http
+      .delete(`/coaches/delete`, {
+        data: { id: parseInt(coachId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${coachId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${coachId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения coachIdToDelete после удаления
+        this.coachIdToDelete = null;
+      });
+  },
   },
   created() {
     this.userI = localStorage.getItem("u-i");

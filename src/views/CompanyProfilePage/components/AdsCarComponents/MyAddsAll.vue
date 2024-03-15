@@ -65,7 +65,9 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(car.car_id)" 
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -83,7 +85,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdCar(car.car_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcar()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -123,18 +125,45 @@ export default {
     editAdCar(carId) {
       this.$router.push({ name: "edit-ad", params: { id: carId } });
     },
-    deleteAdCar(carId) {
-      console.log('Deleting car with ID:', carId);
-      http
-        .delete(`/car/delete`, {
-          data: { car_id: parseInt(carId) },
-        })
-        .then((response) => {
-          this.fetchAds();
+    prepareDelete(carId) {
+    this.carIdToDelete = carId;
+  },
+    deleteAdcar() {
+    const carId = this.carIdToDelete;
+    if (!carId) {
+      console.error("carId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${carId}`);
+    http
+      .delete(`/car/delete`, {
+        data: { car_id: parseInt(carId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${carId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${carId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения carIdToDelete после удаления
+        this.carIdToDelete = null;
+      });
+  },
+    // deleteAdCar(carId) {
+    //   console.log('Deleting car with ID:', carId);
+    //   http
+    //     .delete(`/car/delete`, {
+    //       data: { car_id: parseInt(carId) },
+    //     })
+    //     .then((response) => {
+    //       this.fetchAds();
 
-        });
-      this.dialog = false;
-    },
+    //     });
+    //   this.dialog = false;
+    // },
 
   },
   created() {

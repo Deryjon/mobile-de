@@ -55,7 +55,9 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(semitrailer.trailer_id)" 
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -73,7 +75,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdsemitrailer(semitrailer.trailer_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdsemitrailer()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -122,6 +124,33 @@ export default {
     editAdsemitrailer(semitrailerId) {
       this.$router.push({ name: "edit-ad-semitrailer", params: { id: semitrailerId } });
     },
+    prepareDelete(semitrailerId) {
+    this.carIdToDelete = semitrailerId;
+  },
+    deleteAdcar() {
+    const semitrailerId = this.carIdToDelete;
+    if (!semitrailerId) {
+      console.error("semitrailerId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${semitrailerId}`);
+    http
+      .delete(`/semitrailer/delete`, {
+        data: { id: parseInt(semitrailerId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${semitrailerId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${semitrailerId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения carIdToDelete после удаления
+        this.carIdToDelete = null;
+      });
+  },
     deleteAdsemitrailer(semitrailerId) {
       // Отправляем запрос DELETE на сервер с указанием semitrailerId
       console.log(`Объявление с ID ${semitrailerId} удалено.`);

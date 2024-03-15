@@ -32,7 +32,10 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(agricultural.machine_id)" 
+
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -50,7 +53,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdagricultural(agricultural.machine_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcar()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -92,26 +95,54 @@ export default {
     editAdagricultural(constructionId) {
       this.$router.push({ name: "edit-ad-construction", params: { id: constructionId } });
     },
-    deleteAdagricultural(constructionId) {
-      // Отправляем запрос DELETE на сервер с указанием constructionId
-      console.log(`Объявление с ID ${constructionId} удалено.`);
-      http
-        .delete(`/constructions/delete`, {
-          data: { id: parseInt(constructionId) },
-        })
-        .then((response) => {
-          // Обработка успешного удаления
-          console.log(`Объявление с ID ${constructionId} удалено.`);
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
-        })
-        .catch((error) => {
-          // Обработка ошибки при удалении
-          console.error(`Ошибка при удалении объявления с ID ${constructionId}:`, error);
-          // Выполните здесь необходимые действия при ошибке
-        });
-    },
+    
+    prepareDelete(constructionId) {
+    this.constructionIdToDelete = constructionId;
+  },
+    deleteAdcar() {
+    const constructionId = this.constructionIdToDelete;
+    if (!constructionId) {
+      console.error("constructionId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${constructionId}`);
+    http
+      .delete(`/constructions/delete`, {
+        data: { id: parseInt(constructionId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${constructionId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${constructionId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения constructionIdToDelete после удаления
+        this.constructionIdToDelete = null;
+      });
+  },
+    // deleteAdagricultural(constructionId) {
+    //   // Отправляем запрос DELETE на сервер с указанием constructionId
+    //   console.log(`Объявление с ID ${constructionId} удалено.`);
+    //   http
+    //     .delete(`/constructions/delete`, {
+    //       data: { id: parseInt(constructionId) },
+    //     })
+    //     .then((response) => {
+    //       // Обработка успешного удаления
+    //       console.log(`Объявление с ID ${constructionId} удалено.`);
+    //       // Выполните здесь необходимые действия после успешного удаления
+    //       // Например, можно вызвать метод fetchAds() для обновления списка объявлений
+    //       this.fetchAds();
+    //     })
+    //     .catch((error) => {
+    //       // Обработка ошибки при удалении
+    //       console.error(`Ошибка при удалении объявления с ID ${constructionId}:`, error);
+    //       // Выполните здесь необходимые действия при ошибке
+    //     });
+    // },
   },
   created() {
     this.userI = localStorage.getItem("u-i");

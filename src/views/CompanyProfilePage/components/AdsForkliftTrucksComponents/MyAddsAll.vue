@@ -48,7 +48,10 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(forklift.forklift_id)" 
+
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -66,7 +69,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdforklift(forklift.forklift_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcar()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -107,15 +110,42 @@ export default {
     editAdforklift(forkliftId) {
       this.$router.push({ name: "edit-ad-forklift", params: { id: forkliftId } });
     },
-    deleteAdforklift(forkliftId) {
-      http
-        .delete(`/forklifts/delete`, {
-          data: { id: parseInt(forkliftId) },
-        })
-        .then((response) => {
-          this.fetchAds();
-        });
-    },
+    prepareDelete(forkliftId) {
+    this.forkliftIdToDelete = forkliftId;
+  },
+    deleteAdcar() {
+    const forkliftId = this.forkliftIdToDelete;
+    if (!forkliftId) {
+      console.error("forkliftId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${forkliftId}`);
+    http
+      .delete(`/forklifts/delete`, {
+        data: { id: parseInt(forkliftId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${forkliftId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${forkliftId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения forkliftIdToDelete после удаления
+        this.forkliftIdToDelete = null;
+      });
+  },
+    // deleteAdforklift(forkliftId) {
+    //   http
+    //     .delete(`/forklifts/delete`, {
+    //       data: { id: parseInt(forkliftId) },
+    //     })
+    //     .then((response) => {
+    //       this.fetchAds();
+    //     });
+    // },
   },
   created() {
     this.userI = localStorage.getItem("u-i");

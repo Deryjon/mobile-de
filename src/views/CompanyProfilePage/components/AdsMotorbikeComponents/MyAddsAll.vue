@@ -70,7 +70,9 @@
             <template v-slot:activator="{ props }">
               <button
                 class="flex items-center gap-[5px] bg-red-500 rounded-[4px] text-[10px] lg:text-[14px] p-[8px] px-[20px]"
-                v-bind="props">
+                v-bind="props"
+                @click="prepareDelete(motorcycle.motorcycle_id)" 
+                >
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                   Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License -
                   https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc.
@@ -88,7 +90,7 @@
                   <v-btn color="error" block @click="dialog = false">No</v-btn>
                 </v-card-actions>
                 <v-card-actions>
-                  <v-btn color="success" block @click="deleteAdMotorbike(motorcycle.motorcycle_id)">Yes</v-btn>
+                  <v-btn color="success" block @click="deleteAdcar()">Yes</v-btn>
                 </v-card-actions>
               </div>
             </v-card>
@@ -128,28 +130,55 @@ export default {
     editAdCar(motorbikeId) {
       this.$router.push({ name: "edit-ad-motobike", params: { id: motorbikeId } });
     },
-    deleteAdMotorbike(motorbikeId) {
-      console.log(motorbikeId);
-      http
-        .delete(`/motorcycles/delete`, {
-          data: { id: parseInt(motorbikeId) },
-        })
-        .then((response) => {
-          console.log(response);
-          // Обработка успешного удаления
+    prepareDelete(motorbikeId) {
+    this.carIdToDelete = motorbikeId;
+  },
+    deleteAdcar() {
+    const motorbikeId = this.carIdToDelete;
+    if (!motorbikeId) {
+      console.error("motorbikeId не определён");
+      return;
+    }
+    console.log(`Попытка удалить объявление с ID ${motorbikeId}`);
+    http
+      .delete(`/motorcycles/delete`, {
+        data: { id: parseInt(motorbikeId) },
+      })
+      .then((response) => {
+        console.log(`Объявление с ID ${motorbikeId} успешно удалено.`);
+        this.dialog = !this.dialog
+        this.fetchAds();
+      })
+      .catch((error) => {
+        console.error(`Ошибка при удалении объявления с ID ${motorbikeId}:`, error);
+      })
+      .finally(() => {
+        // Сброс значения carIdToDelete после удаления
+        this.carIdToDelete = null;
+      });
+  },
+    // deleteAdMotorbike(motorbikeId) {
+    //   console.log(motorbikeId);
+    //   http
+    //     .delete(`/motorcycles/delete`, {
+    //       data: { id: parseInt(motorbikeId) },
+    //     })
+    //     .then((response) => {
+    //       console.log(response);
+    //       // Обработка успешного удаления
 
-          // Выполните здесь необходимые действия после успешного удаления
-          // Например, можно вызвать метод fetchAds() для обновления списка объявлений
-          this.fetchAds();
+    //       // Выполните здесь необходимые действия после успешного удаления
+    //       // Например, можно вызвать метод fetchAds() для обновления списка объявлений
+    //       this.fetchAds();
 
-          // Закройте диалоговое окно только после успешного удаления
-          this.dialog = false;
-        })
-        .catch((error) => {
-          // Обработка ошибок при удалении, если необходимо
-          console.error(error);
-        });
-    },
+    //       // Закройте диалоговое окно только после успешного удаления
+    //       this.dialog = false;
+    //     })
+    //     .catch((error) => {
+    //       // Обработка ошибок при удалении, если необходимо
+    //       console.error(error);
+    //     });
+    // },
 
   },
   created() {
