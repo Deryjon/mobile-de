@@ -7,8 +7,8 @@
         <div class="ContentDesc">
           {{ $t("message.contact_page.question") }}
         </div>
-        <div class="">
-          <img src="../../../assets/images/contact-img2.JPG" />
+        <div class="max-w-[1140px] h-[500px]">
+          <img src="../../../assets/images/contact-img2.JPG" class="w-full h-full   "/>
         </div>
         <div class="ContentDesc">
           {{ $t("message.contact_page.customer") }}
