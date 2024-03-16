@@ -11,7 +11,8 @@
           <img src="../../../assets/images/contact-img2.jpg" class="w-full h-full   "/>
         </div>
         <div class="ContentDesc">
-          {{ $t("message.contact_page.customer") }}
+          {{ $t("message.contact_page.customer") }} 
+          
         </div>
         <div class="contactff ">
           <div class="flex items-center gap-[20px] flex-wrap border p-3 ">
