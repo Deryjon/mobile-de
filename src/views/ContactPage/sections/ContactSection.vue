@@ -8,7 +8,7 @@
           {{ $t("message.contact_page.question") }}
         </div>
         <div class="">
-          <img src="../../../assets/images/contact-img.avif" />
+          <img src="../../../assets/images/contact-img2.JPG" />
         </div>
         <div class="ContentDesc">
           {{ $t("message.contact_page.customer") }}
