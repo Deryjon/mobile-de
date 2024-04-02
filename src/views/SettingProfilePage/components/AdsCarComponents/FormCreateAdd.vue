@@ -339,7 +339,7 @@
           <div class="input-container flex relative mt-[10px]">
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
-              placeholder="from" v-model="price" @focus="openPriceDropdown" @blur="openPriceDropdown" />
+              placeholder="from" v-model="price" @focus="openPriceDropdown" @blur="closePriceDropdownOnClickOutside" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -386,7 +386,7 @@
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="inputValue" @focus="openDropdown" @input="filterOptions"
-              @blur="openDropdown" />
+              @blur="closeYearsDropdownOnClickOutside" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -532,7 +532,7 @@
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="inputKilometer" @focus="openKilometrDropdown" @input="filterOptions"
-              @blur="openKilometrDropdown" />
+              @blur="closeKilometerDropdownOnClickOutside" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -615,7 +615,7 @@
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="preOwners" @focus="openPreDropdown" @input="filterOptions"
-              @blur="openPreDropdown" />
+              @blur="closePreDropdownOnClickOutside" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -625,32 +625,32 @@
             </div>
           </div>
           <ul v-if="isOpenPre" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <li data-key="1" @click="selectPre('1')">1</li>
-            <li data-key="2" @click="selectPre('2')">
+            <li key="1" @click="selectPre('1')">1</li>
+            <li key="2" @click="selectPre('2')">
               2
             </li>
-            <li data-key="3" @click="selectPre('3')">
+            <li key="3" @click="selectPre('3')">
               3
             </li>
-            <li data-key="4" @click="selectPre('4')">
+            <li key="4" @click="selectPre('4')">
               4
             </li>
-            <li data-key="5" @click="selectPre('5')">
+            <li key="5" @click="selectPre('5')">
               5
             </li>
-            <li data-key="6" @click="selectPre('6')">
+            <li key="6" @click="selectPre('6')">
               6
             </li>
-            <li data-key="7" @click="selectPre('7')">
+            <li key="7" @click="selectPre('7')">
               7
             </li>
-            <li data-key="8" @click="selectPre('8')">
+            <li key="8" @click="selectPre('8')">
               8
             </li>
-            <li data-key="9" @click="selectPre('9')">
+            <li key="9" @click="selectPre('9')">
               9
             </li>
-            <li data-key="10" @click="selectPre('10')">
+            <li key="10" @click="selectPre('10')">
               10
             </li>
           </ul>
@@ -751,7 +751,7 @@
             <input type="from"
               class="dropdown-input mark_input mark-select w-[200px] lg:w-[150px] xl:w-[200px] h-[35px] outline-none bg-white rounded-[10px] py-[6px] px-[10px] font-normal pr-[30px] text-[10px] lg:text-[12px]"
               placeholder="from" v-model="radius" @focus="openRadiusDropdown" @input="filterOptions"
-              @blur="openRadiusDropdown" />
+              @blur="closeRadiusDropdownOnClickOutside" />
 
             <div
               class="mark-input2 bg-[#5555] w-[20px] h-[35px] outline-none py-[7px] absolute right-[0px] text-[10px] lg:text-[12px]"
@@ -761,12 +761,12 @@
             </div>
           </div>
           <ul v-if="isOpenRadius" class="dropdown-options w-[200px] text-[10px] lg:text-[12px]">
-            <li data-key="10" @click="selectRadius('10')">10 km</li>
-            <li data-key="20" @click="selectRadius('20')">20 km</li>
-            <li data-key="50" @click="selectRadius('50')">50 km</li>
-            <li data-key="100" @click="selectRadius('100')">100 km</li>
-            <li data-key="200" @click="selectRadius('200')">200 km</li>
-            <li data-key="500" @click="selectRadius('500')">500 km</li>
+            <li key="10" @click="selectRadius('10')">10 km</li>
+            <li key="20" @click="selectRadius('20')">20 km</li>
+            <li key="50" @click="selectRadius('50')">50 km</li>
+            <li key="100" @click="selectRadius('100')">100 km</li>
+            <li key="200" @click="selectRadius('200')">200 km</li>
+            <li key="500" @click="selectRadius('500')">500 km</li>
           </ul>
         </div>
       </div>
@@ -3210,7 +3210,7 @@ export default {
       } else {
         document.removeEventListener("click", this.closePriceDropdownOnClickOutside);
       }
-     
+
     },
     closePriceDropdownOnClickOutside(event) {
       const dropdownElement = this.$el.querySelector(".price");
