@@ -15,13 +15,13 @@
           </div>
         </div>
       </div>
-      <div class="indicators mt-[0px]">
+      <div class="indicators mt-[20px]">
         <div v-for="(image, index) in images" :key="index" class="item" :class="{ active: activeIndex === index }"></div>
       </div>
-      <p class="mt-[-30px]">{{ formatDate(car.car_ad_create_at) }}</p>
+      <p class="mt-[-45px]">{{ formatDate(car.car_ad_create_at) }}</p>
     </div>
     <div
-      class="right mt-[45px] sm:mt-[100px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
+      class="right mt-[70px] sm:mt-[100px] md:hidden lg:mt-[25px] bg-[#0000001f] w-full lg:w-[350px] rounded-[4px] p-[5px] lg:p-[20px]">
       <div class="car-name flex gap-[5px] text-[15px] lg:text-[20px] font-bold">
         <p class="agricultural-mark">{{ car.car_make }}</p>
         <p class="car-model">{{ car.car_model }}</p>
@@ -85,7 +85,7 @@
           {{ $t("message.single_page.email") }}
         </button> -->
         <a :href="'mailto:' + car.user_email"
-          class="complete bg-[#e04b00] text-[12px] py-[10px] px-[1x]  lg:text-[16px] w-[200px] lg:w-full lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
+          class="complete bg-[#e04b00] text-[12px] py-[10px] px-3  lg:text-[16px] lg:w-[200px]  lg:py-[12px] rounded-[8px] text-[#fff] lg:font-bold flex items-center gap-[5px] lg:px-[32%]">
           <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512" fill="#ffffff">
             <path
               d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z" />
